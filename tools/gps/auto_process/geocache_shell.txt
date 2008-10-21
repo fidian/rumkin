@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# To test:
+#
+#    cat mail_message.txt | ./geocache_shell "Query Name"
+
+QNAME=$1
+SAFENAME=`for F in $QNAME; do echo -n $F; done`
+cd ~fidian/public_html/geocaching
+ZIP=`cat | munpack -f 2>&1 | grep ".zip" | cut -d '.' -f 1`
+mv ${ZIP}.zip ${SAFENAME}.zip
+rm *.desc
+
+find ~fidian/public_html/geocaching -iname \*.zip -mtime +14 -exec rm \{\} \;
+find ~fidian/public_html/geocaching -iname \*.gpx -mtime +14 -exec rm \{\} \;
+find ~fidian/public_html/geocaching -iname \*.csv -mtime +14 -exec rm \{\} \;
+
+zcat ${SAFENAME}.zip > ${SAFENAME}.gpx
+gpsbabel -i gpx -f ${SAFENAME}.gpx -o s_and_t -F ${SAFENAME}.csv
+
+~fidian/geocache_regen
+
+exit 0
