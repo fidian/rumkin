@@ -1,0 +1,10 @@
+Top X pictures
+Most recent X pictures added to the photo album (not when they were taken,
+but the date added)
+Themes
+i18n (broken out strings?)
+Automatic resolution detection for # of thumbnails across
+  IE:  if (navigator.appName == "Microsoft Internet Explorer") {
+           height = parseInt(screen.height);
+	   width = (height / 3) * 4;  // Due to aspect ratio
+       }

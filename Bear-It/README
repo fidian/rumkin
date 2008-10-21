@@ -1,0 +1,6 @@
+Qualities
+
+* Requires no external programs
+* Images can belong to multiple groups
+* Works great with ERROR_REPORTING set to E_ALL
+* Thumbnails are generated on the fly
