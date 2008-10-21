@@ -1,0 +1,14 @@
+thm_pg_bg_clr = #294763
+thm_pg_bg_img = 
+thm_pg_txt_clr = white
+thm_pg_txt_fnt = Arial, Helvetica, sans-serif
+thm_pg_txt_sz = small
+thm_pg_fxd_fnt = Courier New, monospace
+thm_pg_lnk_clr = #A7C5F3
+thm_pg_lnk_hvr = navy
+thm_tbl_bg_clr = #294763
+thm_tbl_bg_alt_clr = #606080
+thm_tbl_bg_img = 
+thm_tbl_txt_clr = white
+thm_tbl_bdr_clr = #A7C5F3
+thm_btn_bg_clr = #465083

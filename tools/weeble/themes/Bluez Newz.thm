@@ -1,0 +1,14 @@
+thm_pg_bg_clr = #DDDDEE
+thm_pg_bg_img = 
+thm_pg_txt_clr = black
+thm_pg_txt_fnt = Arial, Helvetica, sans-serif
+thm_pg_txt_sz = small
+thm_pg_fxd_fnt = Courier New, monospace
+thm_pg_lnk_clr = #222266
+thm_pg_lnk_hvr = #EEEEFF
+thm_tbl_bg_clr = white
+thm_tbl_bg_alt_clr = #EEEEFF
+thm_tbl_bg_img = 
+thm_tbl_txt_clr = black
+thm_tbl_bdr_clr = #333388
+thm_btn_bg_clr = #EEEEFF

@@ -1,0 +1,46 @@
+# This is the Weeble File Manager default theme
+# Change the $default_theme setting in settings.php to the name of the
+# default theme you would like loaded. All variables are needed unless noted
+# Comments must start with '#' symbol
+
+# Background color of the page
+thm_pg_bg_clr = white
+
+# Background image of the page ( May be left empty )
+thm_pg_bg_img = 
+
+# Color of the page text
+thm_pg_txt_clr = black
+
+# Font style of the page text
+thm_pg_txt_fnt = Arial, Helvetica, sans-serif
+
+# Font size of the page text ( xx-small, x-small, small, medium, large, x-large, xx-large )
+thm_pg_txt_sz = small
+
+# Fixed font style ( Used when displaying file sizes and the connection )
+thm_pg_fxd_fnt = Courier New, monospace
+
+# Color of the link text
+thm_pg_lnk_clr = navy
+
+# Color of the background of the link when mouse-over
+thm_pg_lnk_hvr = #CCCCFF
+
+# File Manager background color
+thm_tbl_bg_clr = white
+
+# Color of the alternating row in the File Manager display
+thm_tbl_bg_alt_clr = #CCCCFF
+
+# File Manager background image ( may be left blank )
+thm_tbl_bg_img = 
+
+# File Manager text color
+thm_tbl_txt_clr = black
+
+# File Manager border color
+thm_tbl_bdr_clr = #330033
+
+# File ManagerButton Bar background color
+thm_btn_bg_clr = #CCCCFF
