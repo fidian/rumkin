@@ -1,0 +1,204 @@
+Sprint File Uploader
+
+Copyright (C) 2003-2005 - Tyler Akins
+Licensed under the GNU GPL software license.
+See the LEGAL file for legal information
+See http://rumkin.com/tools/sprint/ for more information about these tools
+
+
+
+Well, this file does not contain tons and tons of information.  Hopefully,
+you will not have problems installing this.
+
+
+1)  Requirements
+
+The upload scripts require PHP 4.x (not sure what version, I use 4.3.4).  It
+calls the mail() function to send email, so make sure that function works on
+your platform -- I read problems with the Windows version of PHP's mail()
+function.
+
+The scripts require a SQL database backend to store all of the data.  I have
+only tested MySQL.  If you use something else, you need to change three
+functions in common.inc, change the database connection in the beginning of
+common.inc, and you need to create the data tables by hand to be similar in
+structure to the ones I have.
+
+You will also need GD compiled into PHP or included as a module.  The script
+resizes images to fit phone screens, so if you are getting a lot of blank
+pages when you intend to be downloading pictures from your server,
+double-check to see if you have GD listed as a module in a phpinfo() report.
+
+
+2)  Set Up Database
+
+MySQL users:  run the tables.txt file to create the appropriate tables.  You
+might need to change the database that they get created in.  You'll also
+need to create a user/pass for the script to use.
+
+
+3)  Set Up Configuration
+
+Now you have two options:  Easy and Less Easy.
+
+Easy:  Copy config-dist.php to config.php.  Edit config.php to include
+your username and password.  Change the rest of the settings to be appropriate
+to your setup.
+
+Less Easy (preferred):  Create config.php and put in these lines:
+--- Cut here --- The next line is the first line ---
+<?PHP
+include_once('config-dist.php');
+$GLOBALS['Database User'] = 'your_username';
+$GLOBALS['Database Password'] = 'the_password';
+--- Cut here --- The above line was the last line ---
+Change other settings as well, like the URL Base.  This is a bit more
+difficult, but if you want to later upgrade your script, you just need the
+newer config-dist.php file and all of your settings will still be the same.
+Just include the changed lines in your config.php, and it will automatically
+override the defaults in config-dist.php.
+
+
+4)  Set Up Admin Account
+
+Make sure to set up administrator accounts for viewer.php and file.php.
+They are in the $GLOBALS['Logins'] section of the config file.  If you do
+not set them up, you will not be able to set up the Phones database
+properly, nor would you be able to see the uploaded files or make a
+gallery.  If you use PHP as a module, comment out $GLOBALS['Logins']
+completely and open up functions.inc.  There are additional steps you must
+perform -- search for "PHP as CGI" later in this document.
+
+If you plan on using .htaccess files or another authentication method that
+is similar, comment out the $GLOBALS['Logins'] settings and look at the
+"PHP as CGI" section later in this document.
+
+
+5)  Edit common.inc
+
+Functions.inc is a site-wide config file of mine that puts the HTML headers
+and footers on every page.  You can fix it by replacing 
+"../../functions.inc" with "functions.inc" in common.inc.  I've included a
+sample functions.inc to get you started.
+
+
+6)  Set Up Server (Apache 2.x only)
+
+If you are installing this script In a PHP + Apache 2.x environment, I'm
+told that you need to add this to your Apache config to get the path
+information properly passed to PHP:
+
+<Files *.php>
+       AcceptPathInfo On
+</Files>
+
+
+7)  PHP as CGI (optional)
+
+If you are running PHP as a CGI instead of a module in the web server, 
+authentication information is not passed, so the CheckForLogin()
+function in the functions.inc file is worthless.  If you intend to make your
+own authentication system or use .htaccess files, you will want to do your
+own things anyway.
+
+Make sure that in your config.php that you either commented out the
+$GLOBALS['Logins'] section (if you did the easy method), or you use
+   unset($GLOBALS['Logins']);
+to remove the login information (if you did it the less easy but more
+preferred method).
+
+Create a .htaccess file that blocks accesses to the protected files.  I am
+not 100% sure that this one will work for you.  If you have any corrections,
+please email me.  Place this .htaccess file in the admin/ directory, not the
+uploader root directory!
+
+---- cut here ---- save as .htaccess ----
+AuthName "Restricted Uploader Tools"
+AuthType Basic
+AuthUserFile /path/to/your/installation/directory/.htpass
+require valid-user
+---- cut here --- end of the sample .htaccess file ----
+
+Now you need to create a .htpass file.  See "man htpasswd" for more info.
+To get you started, you need to create the file:
+   htpasswd -c /path/to/your/installation/directory/.htpass your_username
+That should prompt you for a password, and then you can log into the
+restricted flies with that username and password.  You can add other people
+-- see "man htpasswd" for more info.
+
+
+8)  Update phone information
+
+If your copy of the uploader is at http://rumkin.com/tools/sprint/ (like mine)
+go to http://rumkin.com/tools/sprint/admin/update.php
+
+You will need to log in with the username and password that you entered when
+you were making config.php.  It will then download the updated phone list
+from my server.
+
+You should periodically run the update.php file, but read the readme.txt
+file for precautions, warnings, etc.
+
+If you can't get to my server from your server because it is blocked for
+some reason or you have safe mode enabled or something, you can save the
+results of my phonedata.php page to a text file, copy it to your server,
+and then change the Phone Data URL in your config file to point to the 
+copy you have on your server.
+
+
+9)  Test
+
+Things should work smoothly now.
+
+
+10)  Gallery
+
+There are two different styles of galleries.  You can serve files directly
+out of a database, or you can make the gallery out of a file structure.
+
+The database solution works with files that have already been uploaded.
+There are some really bad scripts to manage it in the admin directory, but
+right now you will still need phpMyAdmin or other SQL skills to make
+categories, edit descriptions, and delete files.  I don't think that many
+people will want to go this route.
+
+The second gallery is far better, but still beta.  Make a directory, set the
+'Gallery Directory' option in your config to that gallery, and set 'Gallery
+Type' to 'File' to see it.
+
+I placed mine in a 'gallery' subdirectory in the uploader's directory.  You
+can use http://rumkin.com/tools/sprint/gallery.php to browse my gallery and
+http://rumkin.com/tools/sprint/gallery/ to browse the file structure.  You
+can have subdirectories as categories, and then you have index.txt files to
+describe the files.  When people browse the categories, files will be
+automatically uploaded to the database if they don't already exist, so you
+will essentially have two copies of them on your system.  If you delete a
+file, it will exist in the database for a bit until it is cleaned.
+
+The index.txt files have this format:
+
+filename|Name[|Description]
+
+You must list the filename exactly (case sensitive).  Next comes a pipe
+symbol (the | character -- shift and \).  Following that is a short name for
+the description of the file on the phone.  After that can be an optional
+pipe symbol and a longer description.  It is primarily intended for
+describing Java midlets.  Example (multiple file types):
+
+SysInfo.jar|Sysinfo|Tests the capabilities of your phone
+leaves.jpg|Leaves
+drip.pmd|Water Dripping
+
+
+11)  AutoClean (optional)
+
+As it is initially set up, the database will clean itself periodically.  If
+you would rather have this done in a cron job, set the AutoClean Chance to 0
+and create a job.  For my system, I created this two-line shell script and
+placed it in /etc/cron.hourly -- your system may be different.
+
+   #!/bin/bash
+   php4-cgi /var/www/tools/sprint/admin/clean.php > /dev/null
+   
+If you do use this script, just remember to remove the blank spaces at the
+beginning of the lines and "chmod a+x scriptname" so it can run.
