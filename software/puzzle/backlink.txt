@@ -1,0 +1,8 @@
+Swap Style|test1.php
+Slide Style|test2.php
+Download|media/puzzle_full.zip
+Usage|usage.php
+Error Codes|errors.php
+History|history.php
+Examples|examples.php
+Stop Cheats|no_cheat.php
