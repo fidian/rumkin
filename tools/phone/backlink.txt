@@ -1,0 +1,2 @@
+Gallery|gallery.php
+Progress|progress.php
