@@ -1,0 +1,4 @@
+AuthName "Administration Utils"
+AuthType Basic
+AuthUserFile .htpass
+require valid-user
