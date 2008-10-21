@@ -1,0 +1,50 @@
+http://www.spamhaus.org/sbl/index.lasso
+sbl.spamhaus.org
+127.0.0.2
+
+http://spamcop.net/bl.shtml
+http://spamcop.net/fom-serve/cache/166.html
+bl.spamcop.net
+127.0.0.2
+
+
+http://www.they.com/sbbl/
+Good idea, poor implementation
+
+http://www.ordb.org/
+relays.ordb.org
+127.0.0.2
+Be careful with .com or .org!
+
+http://antispam.or.id/
+dnsbl.antispam.or.id
+127.0.0.2
+lists current spam sending machines
+
+http://njabl.org/
+dnsbl.njabl.org
+127.0.0.?
+See http://njabl.org/use.html for info
+
+http://dsbl.org/main
+list.dsbl.org
+127.0.0.2
+Looks like fun.  Maybe add listme@listme.dsbl.org to honeypot
+
+http://www.monkeys.com/upl/index.html
+proxies.relays.monkeys.com
+127.0.0.2
+
+http://abuse.easynet.nl/blackholes.html
+Might be a little too strict?
+127.0.0.2
+blackholes.easynet.nl
+
+http://opm.blitzed.org/
+Looks good
+opm.blitzed.org
+127.0.0.?
+
+http://www.moensted.dk/spam/
+http://rbls.org/
+list of DNS spam blockers
