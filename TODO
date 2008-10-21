@@ -1,0 +1,36 @@
+Go through tools/perl
+
+
+Redo the index pages to categorize the links
+
+
+Break up /tools/tools into separate subdirectories
+
+
+tools/java_menu ??  probably relocate to software
+
+
+Make sure everything is linked in /tools, /reference, etc.
+
+
+Alter topic script so that it detects when people use cut + paste + paste +
+paste + paste + paste.
+
+
+Alter topic script to not use a cookie to limit posts -- do it by IP block +
+the cookie.  Store IPs in the database (if they aren't there already).
+
+
+Alter topic script to cache the page properly
+
+
+Move CSS files elsewhere and use PHP to cache them (must revalidate)
+
+
+Finish the print.css file, then either add "?1" or use PHP to deliver the file
+
+
+Add a search button for searching just the trivia.
+
+
+Add OpenID to allow people to log into my site easier.
