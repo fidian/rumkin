@@ -1,0 +1,89 @@
+!Critique
+[To You] your [Sound] [Sound Desc].  You [Action] [Direction] and \
+[Nervous] [Wait].
+
+!To You
+To you,
+You heard
+You were surprised that
+You thought that
+In your own mind, you thought
+
+!Sound
+voice
+singing
+melody
+audition
+performance
+song
+
+!Sound Desc
+came out [Adj]
+was maybe [Tiny] [Was Desc] but was still [Good]
+was [Adj]
+sounded [Adj]
+
+!Adj
+great
+outstanding
+nice
+
+!Tiny
+a little
+a tiny bit
+kinda
+sorta
+
+!Was Desc
+shaky
+off-key
+timid
+flat
+sharp
+weak
+too loud
+
+!Good
+good
+great
+wonderfully done
+pleasing to the ear
+better than the others (you thought)
+
+!Action
+gaze towards
+look at
+bite your fingernails and turn towards
+fidget, fall off the stage, get up and look at
+face
+pace the stage and walk towards
+
+!Direction
+the judges
+Paula and Randy (avoiding Simon)
+the floor
+the live audience
+anyone except Simon
+the hosts, pleadingly,
+towards the panel of judges
+
+!Nervous
+nervously
+anxiously
+somewhat dreadfully
+impatiently
+confidently
+
+!Wait
+wait for the [Verdict]
+await the [Verdict]
+brace yourself for the [Verdict]
+hope that everyone else thought you did good too
+
+!Verdict
+results
+critique
+review
+verdict
+judges' comments
+judges' opinions
