@@ -1,0 +1,136 @@
+<html><head><title>Base N Encoding</title>
+<script language="javascript"><!--
+
+var Chars = "0123456789ABCDEF";
+var DebugMsg = "";
+
+function Debug(str)
+{
+   if (DebugMsg != '')
+      DebugMsg += "\n";
+   DebugMsg += str;
+   document.compform.debug.value = str;
+}
+
+
+function baseNencode(str)
+{
+   var out = "";
+   var i, curr_val, mult;
+   var outc;
+
+   i = str.length;
+   curr_val = 0;
+   mult = 1;
+   
+   while (i > 0)
+   {
+      i --;
+      curr_val += str.charCodeAt(i) * mult;
+      mult *= 256;
+      Debug("in_e:  " + str.charCodeAt(i));
+      
+      while (mult >= Chars.length)
+      {
+         outc = curr_val % Chars.length;
+	 Debug("curr " + curr_val + " -- mult " + mult + " -- outc = " + outc);
+         out = Chars.charAt(outc) + out;
+	 curr_val = Math.floor(curr_val / Chars.length);
+	 mult = Math.ceil(mult / Chars.length);
+      }
+      Debug("mult " + mult);
+   }
+   if (mult > 1)
+   {
+      Debug("curr " + curr_val + " -- mult " + mult);
+      out = Chars.charAt(curr_val) + Chars.charAt(mult) + out;
+   }
+   else
+   {
+      out = Chars.charAt(0) + Chars.charAt(1) + out;
+   }
+   
+   return out;
+}
+
+function baseNdecode(str)
+{
+   var out = "";
+   var curr_val;
+   
+   curr_val = Chars.indexOf(str.charAt(0));
+   mult = Chars.indexOf(str.charAt(1));
+   
+   Debug("curr " + curr_val + " -- mult " + mult);
+
+   for (i = 2; i < str.length; i ++)
+   {
+      mult *= Chars.length;
+      curr_val *= Chars.length;
+      curr_val += Chars.indexOf(str.charAt(i));
+      
+      Debug("in_d:  " + Chars.indexOf(str.charAt(i)));
+      
+      if (mult < 256)
+      {
+         Debug("curr " + curr_val + " -- mult " + mult);
+      }      
+      while (mult >= 256)
+      {
+         Debug("curr " + curr_val + " -- mult " + mult + " -- outc = " + 
+	    (curr_val % 256));
+         out += String.fromCharCode(curr_val % 256);
+         mult = Math.ceil(mult / 256);
+	 curr_val = Math.floor(curr_val / 256);
+      }
+   }
+   
+   return out;
+}
+
+function RunSquish()
+{
+    Chars = document.compform.chars.value;
+    document.compform.debug.value = "";
+    document.compform.squished.value = "";
+    document.compform.unsquished.value = "";
+    document.compform.result.value = "... processing ...";
+    Debug("Uncomp Size:  " + document.compform.from.value.length);
+    document.compform.squished.value =
+        baseNencode(document.compform.from.value);
+    Debug("Comp Size:  " + document.compform.squished.value.length);
+    document.compform.unsquished.value =
+        baseNdecode(document.compform.squished.value);
+    if (document.compform.from.value == document.compform.unsquished.value) {
+        document.compform.result.value = "Works!";
+    } else {
+        document.compform.result.value = "Broken.  :-(";
+    }
+    document.compform.debug.value = DebugMsg;
+}
+
+// --></script>
+</head>
+<body bgcolor=#FFFFFF>
+<form method=post action="#" onsubmit="return false" name=compform>
+
+<p>Chars: <input type=text size=50 name=chars value="0123456789ABCDEF"></p>
+
+<p>From:
+<textarea name=from rows=5 cols=80>This is just some sample text.
+I sure hope that it works out fine.
+We shall see.</textarea>
+
+<textarea name=debug rows=10 cols=80></textarea>
+
+<p><input type=button onclick="RunSquish()" value="Squisharoo"></p>
+
+<p>Squished:
+<textarea name=squished rows=5 cols=80></textarea>
+
+<p>Unsquished:
+<textarea name=unsquished rows=5 cols=80></textarea>
+
+<p>Result: 
+<input type=text size=50 name=result value=""></p>
+</form>

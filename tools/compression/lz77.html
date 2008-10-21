@@ -1,0 +1,392 @@
+<html>
+<head>
+<title>LZ77-ish Compression in Javascript</title>
+<script language="javascript" src="/inc/js/backgroundProcess.js"></script>
+<script language="javascript" src="lz77.js"></script>
+<script language="javascript">
+
+function debug(msg) {
+	var d = new Date();
+	var out = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' ';
+	out += msg;
+	elem = document.getElementById('debug');
+	//for (i = 0; 1; ) {}
+	elem.value = out + "\n" + elem.value;
+}
+
+function compress_status(pos, len) {
+	debug("At " + pos + " of " + len);
+}
+
+function compress_done(result) {
+	document.getElementById('compressed').value = result;
+	debug('Compression finished.');
+	debug('New size:  ' + result.length);
+}
+
+function testIt() {
+	debug('Starting asynchronous compression');
+	var input_str = document.getElementById('input').value;
+	debug('Start length:  ' + input_str.length);
+	lz77_compress(input_str, compress_done, compress_status);
+	if (testItOldOnload) {
+		testItOldOnload();
+	}
+}
+
+testItOldOnload = window.onload;
+window.onload = testIt;
+
+</script>
+<style type="text/css">
+textarea {
+	width: 100%;
+	height: 10em;
+}
+</style>
+<body>
+<form method=post>
+Debug:<br>
+<textarea name="debug" id="debug"></textarea>
+<br>
+Input:<br>
+<textarea name="input" id="input">LZ77 and LZ78
+From Wikipedia, the free encyclopedia
+Jump to: navigation, search
+
+LZ77 and LZ78 are the names for the two lossless data compression algorithms published in papers by Abraham Lempel and Jacob Ziv in 1977 and 1978. They are also known as LZ1 and LZ2 respectively [1]. These two algorithms form the basis for most of the LZ variations including LZW, LZSS, LZMA and others.
+
+They are both dictionary coders, unlike minimum redundancy coders. LZ77 is the "sliding window" compression algorithm, which was later shown to be equivalent to the explicit dictionary technique first given in LZ78.
+
+[edit] LZ77
+
+LZ77 algorithms achieve compression by replacing portions of the data with references to matching data that has already passed through both encoder and decoder. A match is encoded by a pair of numbers called a length-distance pair, which is equivalent to the statement "each of the next length characters is equal to the character exactly distance characters behind it in the uncompressed stream." (The "distance" is sometimes called the "offset" instead.)
+
+The encoder and decoder must both keep track of some amount of the most recent data, such as the last 2 kB, 4 kB, or 32 kB. The structure in which this data is held is called a sliding window, which is why LZ77 is sometimes called sliding window compression. The encoder needs to keep this data to look for matches, and the decoder needs to keep this data to interpret the matches the encoder refers to. This is why the encoder can use a smaller size sliding window than the decoder, but not vice-versa.
+
+Many documents which talk about LZ77 algorithms describe a length-distance pair as a command to "copy" data from the sliding window: "Go back distance characters in the buffer and copy length characters, starting from that point." While those used to imperative programming may find this model intuitive, it may also make it hard to understand a feature of LZ77 encoding: namely, that it is not only acceptable but frequently useful to have a length-distance pair where the length actually exceeds the distance. As a copy command, this is puzzling: "Go back one character in the buffer and copy seven characters, starting from that point." How can seven characters be copied from the buffer when only one of the specified characters is actually in the buffer? Looking at a length-distance pair as a statement of identity, however, clarifies the confusion: each of the next seven characters is identical to the character that comes one before it. This means that each character can be determined by looking back in the buffer – even if the character looked back to was not in the buffer when the decoding of the current pair began. Since by definition a pair like this will be repeating a sequence of distance characters multiple times, it means that LZ77 incorporates a flexible and easy form of run-length encoding.
+
+Even though all LZ77 algorithms work by definition on the same basic principle, they can vary widely in how they output their encoded data – what values are possible for lengths and distances, for example, and how length-distance pairs are distinguished from literals (single characters encoded as themselves, rather than as part of a length-distance pair.) A few examples:
+
+    * The algorithm illustrated in Lempel and Ziv's original 1977 paper outputs all its data three values at a time: the length and distance of the longest match found in the buffer, and the literal which followed that match. If two successive characters in the input stream could only be encoded as literals, the length would be 0.
+    * In the PalmDoc format, a length-distance pair is always encoded by a two-byte sequence. Of the 16 bits that make up these two bytes, 11 bits go to encoding the distance, 3 go to encoding the length, and the remaining two are used to make sure the decoder can identify the first byte as the beginning of such a two-byte sequence.
+    * As of 2004, the most popular LZ77 based compression method is called DEFLATE; it combines LZ77 with Huffman coding. Literals, lengths, and a symbol to indicate the end of the current block of data are all placed together into one alphabet. Distances can be safely placed into a separate alphabet; since a distance only occurs just after a length, it cannot be mistaken for another kind of symbol or vice-versa.
+
+[edit] LZ78
+
+While the LZ77 algorithm works on past data, the LZ78 algorithm attempts to work on future data. It does this by forward scanning the input buffer and matching it against a dictionary it maintains. It will scan into the buffer until it cannot find a match in the dictionary. At this point it will output the location of the word in the dictionary, if one is available, the match length and the character that caused a match failure. The resulting word is then added to the dictionary.
+
+Though initially popular, the popularity of LZ78 later dampened, possibly because for the first few decades after it was introduced, parts of LZ78 were patent protected in the United States. The most popular form of LZ78 compression was the LZW algorithm, a modification of the LZ78 algorithm made by Terry Welch.
+
+[edit] References
+
+    * Jacob Ziv and Abraham Lempel; A Universal Algorithm for Sequential Data Compression, IEEE Transactions on Information Theory, 23(3), pp.337-343, May 1977.
+
+Military of the United States
+From Wikipedia, the free encyclopedia
+Jump to: navigation, search
+United States Armed Forces
+United States Joint Service Color Guard on parade at Fort Myer.
+United States Joint Service Color Guard on parade at Fort Myer in Arlington County, Virginia.
+Service branches 	United States Army seal U.S. Army
+
+United States Navy Seal U.S. Navy
+United States Air Force seal U.S. Air Force
+United States Marine Corps seal U.S. Marine Corps
+United States Coast Guard seal U.S. Coast Guard
+Leadership
+Commander-in-Chief 	George W. Bush
+Secretary of Defense 	Robert M. Gates
+Chairman of the Joint Chiefs of Staff 	Admiral Michael Mullen
+Military age 	17-45 years old[1]
+Available for
+military service 	67,742,879 males, age 18-49 (2005 est.),
+67,070,144 females, age 18-49 (2005 est.)
+Fit for
+military service 	54,609,050 males, age 18-49 (2005 est.),
+54,696,706 females, age 18-49 (2005 est.)
+Reaching military
+age annually 	2,143,873 males (2005 est.),
+2,036,201 females (2005 est.)
+Active personnel 	1,426,713 [1] (ranked 2nd)
+Reserve personnel 	1,458,500
+Expenditures
+Budget 	$548.9 billion [2] (ranked 1st)
+Percent of GDP 	3.9 (2007 est.)
+Related articles
+History 	Colonial wars
+American Revolutionary War
+Early national period
+Continental expansion
+American Civil War
+Post-Civil War era
+World War I (1917-1918)
+World War II (1941-1945)
+Cold War (1945–1991)
+Post-Cold War era (1991–2001)
+War on Terrorism (2001–present)
+Ranks 	United States Army officer rank insignia, United States Army enlisted rank insignia,
+
+United States Navy officer rank insignia, United States Navy enlisted rates,
+United States Marine Corps officer rank insignia, United States Marine Corps enlisted rank insignia
+United States Air Force officer rank insignia, United States Air Force enlisted rank insignia,
+United States Coast Guard ranks
+
+The United States Armed Forces are the overall unified military forces of the United States. The United States military was first formed during the Continental Congress and was permanently established after World War II.[2]
+
+Its component branches are:
+
+    * United States Army
+    * United States Navy
+    * United States Air Force
+    * United States Marine Corps
+    * United States Coast Guard
+
+All branches are part of the United States Uniformed Services and are under civilian control with the President serving as Commander-in-chief. All branches except the Coast Guard are part of the Department of Defense, which is under the authority of the Secretary of Defense, who is also a civilian. The Coast Guard falls under the authority of the Department of Homeland Security. During wartime, the Coast Guard may be placed under the Department of Defense through the Department of the Navy.[3] There are also other military forces in the United States which fall solely under the individual control of each state, the State Defense Forces, which are not part of the Department of Defense. The United States Marine Corps is the only offical branch that is part of another military branch, as it was created as and still is a part of the Department of the Navy.
+
+As of May 2007, about 1,426,705 people are on active duty in the military with an additional 1,458,400 people in the seven reserve components.[4] As it is currently a volunteer military, there is no conscription. Women are not allowed to serve in some combatant positions, but they do serve in combat areas where they can and do come under enemy fire. [5]
+
+Much of U.S. military capability is involved in logistics and transportation, which enable rapid buildup of forces as needed. The Air Force maintains a large fleet of C-5 Galaxy, C-17 Globemaster, and C-130 Hercules transportation aircraft with a substantial fleet of aerial refueling tankers. The Marine Corps maintains Marine Expeditionary Units at sea with the Navy's Atlantic and Pacific Fleets. The Navy's 11 active aircraft carriers, combined with a military doctrine of power projection, enables a flexible response to potential threats.
+Contents
+[hide]
+
+    * 1 Organization
+    * 2 History
+    * 3 War on Terrorism
+    * 4 Personnel
+          o 4.1 Personnel in each service
+          o 4.2 Personnel stationing
+                + 4.2.1 Overseas
+                + 4.2.2 Within the United States
+          o 4.3 Types of Personnel
+                + 4.3.1 Junior Enlisted
+                + 4.3.2 Noncommissioned Officer
+                + 4.3.3 Warrant Officer
+                + 4.3.4 Commissioned Officer
+          o 4.4 Five Star Ranking
+    * 5 Other
+          o 5.1 Doctrines
+          o 5.2 Education and training
+          o 5.3 People
+          o 5.4 Lists
+    * 6 See also
+    * 7 References
+    * 8 External links
+
+[edit] Organization
+
+    Main article: United States Department of Defense#Organization
+
+Under the United States Constitution, the President of the United States is the Commander-in-Chief of the Armed Forces. To coordinate military action with diplomacy, the President has an advisory National Security Council headed by a National Security Advisor. Under the President is the United States Secretary of Defense, a Cabinet Secretary responsible for the Department of Defense. Both the President and Secretary of Defense are advised by the Joint Chiefs of Staff, which includes the service branch chiefs led by the Chairman of the Joint Chiefs of Staff and the Vice Chairman of the Joint Chiefs of Staff.
+
+[edit] History
+
+    Main article: Military history of the United States
+
+Choctaw chief/U.S. General Pushmataha, 1824.
+Choctaw chief/U.S. General Pushmataha, 1824.
+
+Prior to and during the founding of the United States, military forces were supplied by untrained militia commanded by the states. When the Continental Congress first ordered a Continental Army to be formed, it was to be made up of militia from the states. That army, under the command of General George Washington, won the Revolutionary War, but afterwards was disbanded.
+
+However, it soon became obvious that a standing army and navy were required. The United States Navy began when Congress ordered several frigates in 1794, and a standing army was created, however it was still only minimal and it relied mostly on contributions from state militia in times of war.
+
+Between the founding of the nation and the Civil War, American military forces fought and won against Barbary Coast pirates; fought the War of 1812 against the British, which ended in the status quo; and won several southwestern territories from the Mexicans in the Mexican-American War.
+
+In 1861, with the beginning of the Civil War, many military forces, including many of the nation's best generals, became part of the Confederate military, and both armies fought a long, bloody struggle which consumed 600,000 lives and ended in Union (U.S.) victory in 1865.
+Battle of Antietam. Based on 1860 census figures, 8% of all white males aged 13 to 43 died in the Civil War.
+Battle of Antietam. Based on 1860 census figures, 8% of all white males aged 13 to 43 died in the Civil War.[6]
+
+In the period between the Civil War and the 1890s, the military was allowed to languish, although units of the U.S. Army did fight Native Americans as settlers moved into the center of the United States. By the end of the century, though, America was rapidly becoming a new world power. The military fought the Spanish-American War and the Philippine-American War, along with several Latin American interventions, and Teddy Roosevelt sent the Great White Fleet around the world in a display of American power. In addition, the Militia Act of 1903 established the National Guard.
+
+The United States entered World War I in 1917 and played a major role in the Allied victory. It languished in the interwar period, but as tensions mounted leading up to World War II, the force was put back into shape. U.S. Army troops were a large component of the forces that took North Africa, Italy, and landed in France at D-Day, and U.S. Navy, Marine, and Army troops were heavily involved in the Pacific campaign against Japan and its allies.
+
+The end of World War II was the start of the Cold War, a large but ultimately non-violent struggle between the United States and its NATO Allies against the Soviet Union and its Warsaw Pact allies. Hundreds of thousands of U.S. troops were deployed to Europe in anticipation of a struggle that never came.
+
+However, U.S. troops did participate in proxy wars in Korea and Vietnam. The Korean War, with North Korea and China against South Korea, the U.S., and other UN troops, ultimately returned the status quo ante. The Vietnam War between North Vietnam and South Vietnam and the U.S. resulted in a cease-fire; after U.S. troops were pulled out of the country North Vietnam invaded South Vietnam.
+Assault landing at Omaha Beach in Normandy
+Assault landing at Omaha Beach in Normandy
+
+In the 1980s, the U.S. military fought Operation Just Cause in Panama and Operation Urgent Fury in Grenada. The United States conducted various combat operations in the Persian Gulf against Iran, most notably Operation Praying Mantis. In addition, the Goldwater-Nichols Act completely reorganized the military.
+
+By 1989, it was clear the Soviet Union was on the verge of collapse. However, when Iraq invaded Kuwait in 1991, the United States entered the Persian Gulf War. The coalition of US military forces and other nations easily defeated the Iraqi Army with minimal losses, proving the viability on a large scale of the all-volunteer military. After this brief war and the breakup of the Soviet Union, the U.S. military was used in a variety of roles throughout the remainder of the 1990s, including Yugoslavia, Kosovo, Somalia and other "hot spots".
+
+[edit] War on Terrorism
+
+    Main article: War on Terrorism
+
+After the September 11th terrorist attacks in 2001, U.S. military forces have been extensively engaged in the War on Terror. U.S. and NATO forces invaded Afghanistan in 2001; and in 2003, the U.S. and several other countries invaded Iraq. In both operations, U.S. forces have comprised the vast majority of the soldiers and equipment. While the initial invasion of Iraq was swift and successful, the occupation quickly bogged down after the defeat of the conventional Iraqi forces, with daily violence and terrorist attacks. However, some milestones have been reached, such as the capture and execution of Saddam Hussein and democratic elections.
+
+[edit] Personnel
+
+In absolute dollar terms, the U.S. military budget is by far the highest of any country in the world. By 2008, with the US spending substantial sums in support of operations in Iraq and Afghanistan, US national defense spending surpassed the combined spending of the rest of the world. [3]
+
+The United States military is the second-largest in the world, after the People's Liberation Army of China, and has troops deployed around the globe.
+
+In early 2007, Secretary of Defense Robert Gates proposed to the President to increase the overall size of the military by approximately 92,000 troops over the course of five years. Specifically, the proposal calls for an Army troop cap of 545,000 to 550,000 active duty soldiers and a troop cap of 202,000 to 205,000 active duty Marines. The total active duty force of the United States after the buildup will be about 1,479,000.[7]
+
+As in most militaries, members of the U.S. Armed Forces hold a rank, either that of officer or enlisted, and can be promoted.
+
+[edit] Personnel in each service
+
+As of October 31, 2007 (women as of September 2006) [4]
+Service 	Total Active Duty Personnel (Percent of Total) 	Percentage Female 	Enlisted 	Officers
+Army 	519,998 (36%) 	14% 	433,300 	84,698
+Navy 	373,830 (26%) 	14.9% 	322,565 	51,265
+Air Force 	328,270 (23%) 	20.1% 	262,860 	65,410
+Marine Corps 	186,209 (13%) 	6.2% 	166,674 	19,535
+Coast Guard 	39,121 (3%) 	10.7% 	31,286 	7,835
+Total 	1,449,428 (100%) 	14.9% 	1,216,685 	228,743
+
+[edit] Personnel stationing
+
+[edit] Overseas
+
+As of December 2007, U.S. Forces were stationed at more than 820 installations in at least 39 countries.[8] Some of the largest contingents are:
+Iraq 	196,600
+Germany 	57,155
+Japan (United States Forces Japan) 	33,164 	
+South Korea (United States Forces Korea) 	26,076
+Afghanistan 	25,700
+Italy 	9,701
+United Kingdom 	9,655
+
+As of May 5, 2007, there were about 160,000 U.S. troops in Iraq, according to Lt. Gen. Ray Odierno, the commander of day-to-day operations for Operation Iraqi Freedom.[9] About 19,500 U.S. troops are engaged elsewhere throughout the Middle East, with the bulk in Operation Enduring Freedom in Afghanistan.
+
+[edit] Within the United States
+
+Including U.S. territories and ships afloat within territorial waters
+
+A total of 1,079,059 personnel are on active duty within the United States and its territories (including those afloat):[10]
+Continental U.S. 	879,523
+Hawaii 	37,021
+Alaska 	19,531
+Guam 	2,890
+Puerto Rico 	168
+Afloat 	92,337
+
+[edit] Types of Personnel
+
+[edit] Junior Enlisted
+
+Prospective servicemembers are recruited often from high school and college, the target age being 18 to 28 year olds. With parent/guardian permission, applicants can enlist at the age of 17 and participate in the Delayed Entry Program (DEP). In this program, the applicant is given the opportunity to participate in locally sponsored military-related activities, which can range from sports to competitions (each recruiting station DEP program will vary), led by recruiters or other military liaisons.
+
+After enlistment, new recruits undergo Basic Training (also known as boot camp in the Navy and Marines), followed by schooling in their primary Military Occupational Specialty (MOS) at any of the numerous MOS training facilities around the world. Each branch conducts basic training differently. For example, Marines send all non-infantry MOSs to an infantry skills course known as Marine Combat Training prior to their technical schools, while Air Force Basic Military Training graduates attend Technical Training and are awarded an Air Force Specialty Code (AFSC) at the apprentice (3) skill level. The terms for this vary greatly, for example, new Army recruits undergo Basic Combat Training (BCT), followed by Advanced Individual Training (AIT), while the Navy send its recruits to Recruit Training and then to "A" schools to earn a rating.
+
+Initially, recruits without higher education or college degrees will hold the paygrade of E-1, and will be elevated to E-2 usually soon after the completion of Basic Training (with a minimum of six months Time-In-Service). Different services have different incentive programs for enlistees, such as higher initial ranks for college credit and referring friends who go on to enlist as well. Participation in DEP is one way recruits can achieve rank before their departure to Basic Training.
+
+There are several different authorized paygrade advancement requirements in each junior enlisted rank category (E-1 to E-3), which differ by service. Enlistees in the Army can attain the initial paygrade of E-4 (Specialist) with a full four-year degree, but the highest initial entry paygrade is usually E-3. Promotion through the junior enlisted ranks is generally noncompetitive, with promotions occurring upon attaining a specified number of years of service, a specified level of technical proficiency, and/or maintenance of good conduct.
+
+[edit] Noncommissioned Officer
+
+    Main article: Non-commissioned officer
+
+With very few exceptions, becoming a non-commissioned officer (NCO) in the United States military is accomplished by progression through the lower enlisted ranks. Unlike promotion through the lower enlisted tier, however, promotion to NCO is generally competitive. NCO ranks begin at E-4 or E-5, depending on serviceand are generally attained between three and six years of service. Junior NCOs function as first-line supervisors and squad leaders, training the junior enlisted in their duties and guiding their career advancement.
+
+While by law considered part of the non-commissioned officer corps, senior noncommissioned officers (SNCOs) referred to as Chief Petty Officers in the Navy and Coast Guard, or staff noncommissioned officers in the Marine Corps, perform duties more focused on leadership rather than technical expertise. Promotion to the SNCO ranks (E-7 through E-9 in the Navy and Coast Guard; E-6 through E-9 in the Marine Corps) is highly competitive. Manning at the pay grades of E-8 and E-9 are limited by Federal law to 2.5% and 1% of a service's enlisted force, respectively. SNCOs act as leaders of small units and as staff. Some SNCOs manage programs at headquarters level, and a select few wield responsibility at the highest levels of the military structure. Most unit commanders have a SNCO as an enlisted advisor. All SNCOs are expected to mentor junior commissioned officers as well as the enlisted in their duty sections. The typical enlistee can expect to attain SNCO rank at between 10 and 16 years of service.
+
+Each of the five services employs a single senior enlisted advisor at departmental level. This individual is the highest ranking enlisted member within his respective service and functions as the chief advisor to the service secretary, service chief of staff, and Congress on matters concerning the enlisted force. These individuals carry responsibilities and protocol requirements equivalent to general and flag officers. They are as follows:
+
+    * Sergeant Major of the Army
+    * Master Chief Petty Officer of the Navy
+    * Sergeant Major of the Marine Corps
+    * Chief Master Sergeant of the Air Force
+    * Master Chief Petty Officer of the Coast Guard
+
+[edit] Warrant Officer
+
+    Main article: Warrant Officer (United States)
+
+Additionally, all services except for the U.S. Air Force have an active Warrant Officer corps. Above the rank of Warrant Officer One, these officers may also be commissioned, but usually serve in a more technical and specialized role within units. More recently though they can also serve in more traditional leadership roles associated with the more recognizable officer corps. With one notable exception (helicopter and fixed wing pilots in the U.S. Army), these officers ordinarily have already been in the military often serving in senior NCO positions in the field in which they later serve as a Warrant Officer as a technical expert. Most Army pilots have served some enlisted time, it is also possible to enlist, complete basic training, go directly to the Warrant Officer Candidate school at Fort Rucker, Alabama, and then on to flight school. Warrant officers in the U.S. military garner the same customs and courtesies as commissioned officers. They may attend the Officer's club, receive a command and are saluted by junior warrant officers and all enlisted service members.
+
+The Air Force ceased to grant warrants in 1959 when the grades of E-8 and E-9 were created. Most non-flying duties performed by warrant officers in other services are instead performed by senior NCOs in the Air Force.
+
+[edit] Commissioned Officer
+
+There are five common ways to receive a commission as an officer in one of the branches of the U.S. military (although other routes are possible).
+
+    * Reserve Officer Training Corps (ROTC)
+    * Officer Candidate School (OCS): This can be through active-duty OCS academies, or, in the case of the National Guard, through state-run academies.
+    * Service Academies (United States Military Academy at West Point, New York; United States Naval Academy at Annapolis, Maryland; United States Air Force Academy at Colorado Springs, Colorado; the United States Coast Guard Academy at New London, Connecticut; and the United States Merchant Marine Academy at Kings Point, New York.)
+    * Direct commission - civilians who have special skills that are critical to sustaining military operations and supporting troops may receive direct commissions. These officers occupy leadership positions in the following areas: law, medicine, dentistry, nurse corps, intelligence, supply-logistics-transportation, engineering, public affairs, chaplain corps, oceanography, and others.
+    * Battlefield commission - Under certain conditions, enlisted personnel who have skills that separate them from their peers can become officers by direct commissioning of a commander so authorized to grant them. This type of commission is rarely granted and is reserved only for the most exceptional enlisted personnel; it is done on an ad hoc basis, typically only in wartime. No direct battlefield commissions have been awarded since the Vietnam War. The Air Force and Navy do not employ this commissioning path.
+
+Officers receive a commission assigning them to the Officer Corps from the President (with the consent of the Senate).
+
+Through their careers, officers usually will receive further training at one or a number of the many U.S. military staff colleges.
+
+Company-grade officers (pay grades O-1 through O-3) function as leaders of smaller units or sections of a unit, typically with an experienced SNCO assistant and mentor. Field-grade officers (pay grades O-4 through O-6) lead significantly larger and more complex operations, with gradually more competitive promotion requirements. Officers in pay grades O-1 through O-4 are informally considered junior officers; those serving in pay grades O-5 and O-6 are sometimes recognized as senior officers. General officers, or flag officers, serve at the highest levels and oversee major portions of the military mission.
+
+[edit] Five Star Ranking
+
+    Main article: 5 star rank
+
+These are ranks of the highest honor and responsibility in the armed forces, but they are not usually given during peacetime service:
+
+    * General of the Army
+    * Fleet Admiral
+    * General of the Air Force
+
+No corresponding rank exists for the United States Marine Corps or the United States Coast Guard due to the fact that they fall under the Navy.
+
+The rank of General of the Armies is considered senior to General of the Army, but was never held by active duty officers at the same time as persons who held the rank of General of the Army. It has been held by two people: John J. Pershing who received the rank in 1919 after World War I, and George Washington who received it posthumously in 1976 as part of the American Bicentennial celebrations. While it is unclear whether Pershing's acknowledged seniority to the World War II era Generals of the Army was due to his rank being superior or because his appointment was earlier, in Washington's appointment by Public Law 94-479, General of the Armies of the United States was established as having "rank and precedence over all other grades of the Army, past or present," clearly making it superior to General of the Army.
+
+[edit] Other
+
+[edit] Doctrines
+
+    * Full-spectrum dominance
+
+[edit] Education and training
+
+    * United States military academies
+    * United States military staff colleges
+
+[edit] People
+
+    * Awards and decorations of the United States military
+    * Servicemembers' Group Life Insurance
+    * TRICARE - Health care plan for the U.S. uniformed services
+
+[edit] Lists
+
+    * List of individual weapons of the U.S. Armed Forces
+    * List of land vehicles of the U.S. Armed Forces
+
+[edit] See also
+Wikimedia Commons has media related to:
+Military of the United States
+	Military of the United States portal
+
+    See also the Uniformed services of the United States
+
+[edit] References
+
+   1. ^ Persons of 18 years of age, with parental permission, can join the U.S. armed services.
+   2. ^ Moisés Naím. "Megaplayers Vs. Micropowers". Retrieved on December 18, 2007.
+   3. ^ The United States Coast Guard has both military and law enforcement functions. Title 14, United States Code, Section 1, states "The Coast Guard as established January 28, 1915, shall be a military service and a branch of the armed forces of the United States at all times." Coast Guard units, or ships of its predecessor service, the Revenue Cutter Service, have seen combat in every war and armed conflict of the United States since 1790, including the U.S. occupation of Iraq.
+   4. ^ Additionally, both the Coast Guard and the Air Force have volunteer civilian auxiliaries: the United States Coast Guard Auxiliary (Coast Guard) and the Civil Air Patrol (Air Force).
+   5. ^ Go Army. "Careers & Jobs". Retrieved on May 8, 2006.
+   6. ^ Lambert, Craig (May-June 2001). "The Deadliest War". Harvard Magazine. Retrieved on 2007-10-14.
+   7. ^ Bender, Bryan (January 12, 2007), “Gates calls for buildup in troops”, The Boston Globe, <http://www.boston.com/news/nation/washington/articles/2007/01/12/gates_calls_for_buildup_in_troops/>. Retrieved on 11 November 2007 
+   8. ^ "Base Structure Reports FY 2007 Baseline". USA Department of Defense (2007). Retrieved on 2007-12-21.
+   9. ^ "U.S. could consider Iraq troop cut this year: Gates". Reuters (2007). Retrieved on 2007-05-09.
+  10. ^ United States Department of Defense. "U.S. Military Deployment".
+
+[edit] External links
+
+    * Official U.S. DOD site
+    * United States Order of Battle
+    * Global Security on U.S. Military Operations
+    * Military News
+    * Today's Military website
+    * US Military ranks and rank insignia
+    * Defence Talk
+</textarea>
+<br>
+Compressed:<br>
+<textarea name="compressed" id="compressed"></textarea>
+<br>
+Decompressed:<br>
+<textarea name="decompressed" id="decompressed"></textarea>
+</body>
+</html>

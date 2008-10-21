@@ -1,0 +1,114 @@
+<html><head><title>Base N Encoding</title>
+<script language="javascript"><!--
+
+var Chars = "012345678";
+
+function baseNencode(str)
+{
+   var out = "";
+   var valLeft = 1;
+   var nextChar = 0;
+   var val = 0;
+
+   while (nextChar < str.length || valLeft >= Chars.length)
+   {
+      if (valLeft < Chars.length)
+      {
+         val += str.charCodeAt(nextChar++) * valLeft;
+	 valLeft *= 256;
+      }
+   
+      var ov = val % Chars.length;
+      val -= ov;
+      val /= Chars.length;
+      valLeft /= Chars.length;
+      
+      out += Chars.charAt(ov);
+   }
+   
+   while (valLeft > 1)
+   {
+      var ov = val % Chars.length;
+      val -= ov;
+      val /= Chars.length;
+      valLeft /= Chars.length;
+      
+      out += Chars.charAt(ov);
+   }
+   
+   return out;
+}
+
+function baseNdecode(str)
+{
+   var out = "";
+   var valLeft = 1;
+   var nextChar = 0;
+   var val = 0;
+   var debug;
+   
+   while (nextChar < str.length || valLeft >= 256)
+   {
+      while (valLeft < 256)
+      {
+         val += Chars.indexOf(str.charAt(nextChar++)) * valLeft;
+	 valLeft *= Chars.length;
+      }
+      
+      debug = "\nVAL " + val + " LEFT " + valLeft + "\n";
+      var ov = val % 256;
+      val -= ov;
+      val /= 256;
+      valLeft /= 256;
+      debug += "  ov " + ov + "\n  val " + val + "\n  left " + valLeft + "\n"
+      debug += "  out \"" + String.fromCharCode(ov) + "\"\n";
+      
+      if (ov != document.compform.from.value.charCodeAt(out.length))
+      {
+         return out + debug;
+      }
+      
+      out += String.fromCharCode(ov);
+   }
+
+   if (valLeft > 1 && val > 0)
+   {
+      out += String.fromCharCode(val);
+   }
+   
+   return out;
+}
+
+function RunSquish()
+{
+    document.compform.squished.value =
+        baseNencode(document.compform.from.value);
+    document.compform.unsquished.value =
+        baseNdecode(document.compform.squished.value);
+    if (document.compform.from.value == document.compform.unsquished.value) {
+        document.compform.result.value = "Works!";
+    } else {
+        document.compform.result.value = "Broken.  :-(";
+    }
+}
+// --></script>
+</head>
+<body bgcolor=#FFFFFF>
+<form method=post action="#" onsubmit="return false" name=compform>
+
+<p>From:
+<textarea name=from rows=5 cols=80>This is just some sample text.
+I sure hope that it works out fine.
+We shall see.</textarea>
+
+<p><input type=button onclick="RunSquish()" value="Squisharoo"></p>
+
+<p>Squished:
+<textarea name=squished rows=5 cols=80></textarea>
+
+<p>Unsquished:
+<textarea name=unsquished rows=5 cols=80></textarea>
+
+<p>Result: 
+<input type=text size=50 name=result value=""></p>
+</form>
