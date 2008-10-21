@@ -1,0 +1,8 @@
+Use the letter frequency tables at
+http://www.data-compression.com/english.shtml
+
+http://www.data-compression.com/stat3_out.gz
+
+Maybe other languages?
+
+Check for repeated patterns of letters 3 characters long and more.
