@@ -1,0 +1,12 @@
+Installation
+
+*  Edit config.php to suit your tastes.  The default settings should be good
+enough to see how things look.
+
+
+Changing the Look/Feel
+
+* Strings.inc contains all of the visible strings.
+
+* Edit html.inc to change how the HTML pages are begun or ended, or to
+change how the photo lists look.
