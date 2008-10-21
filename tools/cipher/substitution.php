@@ -288,13 +288,13 @@ function EncodeImage(set, t)
 	 if (set == 'dancingmen' && ! isNum && 
 	     (t.charAt(i + 1) == ' ' || t.length == i + 1))
 	 {
-	    s += "<img src=\"imagesets/" + set + "/" + thisChar +
+	    s += "<img src=\"media/" + set + "/" + thisChar +
 	       "_.gif\">";
 	    i ++;
 	 }
 	 else
 	 {
-            s += "<img src=\"imagesets/" + set + "/" + thisChar + 
+            s += "<img src=\"media/" + set + "/" + thisChar + 
 	       ".gif\">";
 	 }
       }
@@ -367,7 +367,7 @@ function ShowImages(set)
    for (var i = 0; i < lett.length; i ++)
    {
       s += "<a href=\"#\" onclick=\"return L('" + lett.charAt(i) +
-         "');\"><img src=\"imagesets/" + set + "/" + lett.charAt(i) + 
+         "');\"><img src=\"media/" + set + "/" + lett.charAt(i) + 
          ".gif\" border=0></a>";
    }
 
@@ -378,7 +378,7 @@ function ShowImages(set)
       for (var i = 0; i < flaglett.length; i ++)
       {
          s += "<a href=\"#\" onclick=\"return L('" + flaglett.charAt(i) +
-            " ');\"><img src=\"imagesets/" + set + "/" + flaglett.charAt(i) + 
+            " ');\"><img src=\"media/" + set + "/" + flaglett.charAt(i) + 
             "_.gif\" border=0></a>";
       }
    }
@@ -928,7 +928,7 @@ function Braille_Image(c)
       {
          bf = '_';
       }
-      return '<img src="imagesets/braille/' + bf + '.gif" border=0>';
+      return '<img src="media/braille/' + bf + '.gif" border=0>';
    }
    return HTMLEscape(c);
 }
