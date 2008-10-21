@@ -1,0 +1,20 @@
+div.mathbox { font-size: 120%;
+	      border: 2px solid black;
+	      background: white;
+	      color: black;
+	      text-align: center;
+	      padding-top: 4px;
+	      padding-bottom: 8px; }
+	   
+.math { color: #404040;
+      	font-family: "Courier New", Courier, sans-serif;
+        background: white;
+	font-style: normal; }
+
+.normal { color: black;
+	  font-family: "Courier New", Courier, sans-serif;
+	  font-style: normal; }
+
+.typeset { color: black;
+	   font-family: "Courier New", Courier, sans-serif;
+	   font-style: normal; }
