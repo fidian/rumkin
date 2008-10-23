@@ -109,6 +109,10 @@ MakeLinkList($Links);
 Section('Server Software');
 
 $Links = array(
+   array('Name' => 'Email Validation',
+	   'Desc' => 'Javascript and PHP code that will verify that an ' .
+		'email address at least appears valid and should pass RFC checks.',
+		'URL' => 'email/'),
    array('Name' => 'Feedback',
 	 'Desc' => 'A live feedback system; the exact same software that ' .
 	    'powers the chat box at the bottom of nearly every page on  ' .
