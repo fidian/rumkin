@@ -37,10 +37,9 @@ function SendSprintSMS($to, $message, $from = '', $debug = false)
     if (strlen($message) > 160 || strlen($message) == 0)
       return 1;
     
-    $post = 'randomToken=&' . 
-      'recipientsNumber=' . $to . '&textMessage=' . urlencode($message) .
+    $post = 'recipientsNumber=' . $to . '&textMessage=' . urlencode($message) .
       '&characters=' . (160 - strlen($message)) . '&callBackNumber=' .
-      $from . '&x=0&y=0';
+      $from;
     
     $post_len = strlen($post);
 
