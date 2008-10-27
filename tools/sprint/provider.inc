@@ -224,6 +224,7 @@ $GLOBALS['Providers'] = array(
 '@mobilpost.no',		 // Telenor
 '@pageme.teletouch.com',	 // Teletouch
 '@gsm1800.telia.dk',		 // Telia Denmark
+'@txt.telus.ca',         // Telus
 '@msg.telus.com',		 // Telus
 '@mms.telusmobility.com',	 // Telus
 '@telus.net',			 // Telus Services (CA)
