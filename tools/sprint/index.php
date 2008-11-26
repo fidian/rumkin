@@ -105,6 +105,7 @@ error may be necessary.</p>
 
 <ul>
 <li><b>Images:</b> <a href="formats.php#jpg">jpg</a>, 
+<a href="formats.php#gif">gif</a>,
 <a href="formats.php#jpg">jpeg</a>, <a href="formats.php#png">png</a>, 
 <a href="formats.php#wbmp">wbmp</a>, 
 <a href="formats.php#cmx">cmx</a></li>
