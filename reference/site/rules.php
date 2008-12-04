@@ -1,8 +1,9 @@
-<?PHP
+<?php
 
 require('../../functions.inc');
-
-StandardHeader(array('title' => 'Rumkin.com Site Rules'));
+StandardHeader(array(
+		'title' => 'Rumkin.com Site Rules'
+	));
 
 ?>
 
@@ -57,6 +58,6 @@ StandardHeader(array('title' => 'Rumkin.com Site Rules'));
 <li>Weekly backups too.  This does cover the database.</li>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

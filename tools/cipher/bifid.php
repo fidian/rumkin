@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Bifid Cipher',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Bifid Cipher',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>The Bifid cipher is considered a more secure cipher because it breaks the
@@ -13,13 +15,13 @@ spreads the information out to multiple letters, increasing security.  It
 uses a table with one letter of the alphabet omitted.  Often the J is
 removed and people just use an I instead.  Below is an unkeyed grid.</p>
 
-<?PHP MakeBoxTop('left'); ?>
+<?php MakeBoxTop('left'); ?>
 <tt>A B C D E<br>
 F G H I K<br>
 L M N O P<br>
 Q R S T U<br>
 V W X Y Z</tt>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>To encode a message, you would write your message, "ABCD", then you would
 figure out the row and column for each letter and write them below the
@@ -27,7 +29,7 @@ letters, like the example shows.  Then you read the numbers off; all of the
 rows first and then all of the columns.  Using this string of numbers, you
 then look up the letters on the table again and get the encoded message.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <tt>letter: A B C D<Br>
 &nbsp;&nbsp;&nbsp;row: 1 1 1 1<br>
 column: 1 2 3 4<br>
@@ -35,7 +37,7 @@ column: 1 2 3 4<br>
 The numbers: 1 1 1 1 1 2 3 4<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Encoded: &nbsp;A&nbsp; &nbsp;A&nbsp; &nbsp;B&nbsp;
 &nbsp;O<br>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>All non-letters are ignored and not encoded.  The one skipped letter will
 be automatically translated if you type it in the box.  Numbers, spaces, and
@@ -51,26 +53,55 @@ onclick="wikipedia_enc(); return false">Wikipedia</a>.</p>
    <option value="-1">Decrypt
 </select>
 <p>Translate the letter <select name="skip">
-<?PHP
-   $lett = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-      'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
-   foreach ($lett as $L)
-   {
-      echo "   <option value=\"" . $L . "\"";
-      if ($L == 'J')
-         echo " selected";
-      echo ">$L\n";
-   }
+<?php
+
+$lett = array(
+	'A',
+	'B',
+	'C',
+	'D',
+	'E',
+	'F',
+	'G',
+	'H',
+	'I',
+	'J',
+	'K',
+	'L',
+	'M',
+	'N',
+	'O',
+	'P',
+	'Q',
+	'R',
+	'S',
+	'T',
+	'U',
+	'V',
+	'W',
+	'X',
+	'Y',
+	'Z'
+);
+
+foreach ($lett as $L) {
+	echo '   <option value="' . $L . '"';
+	
+	if ($L == 'J')echo ' selected';
+	echo ">$L\n";
+}
+
 ?>
 </select> into <select name="skipto"></p>
-<?PHP
-   foreach ($lett as $L)
-   {
-      echo "   <option value=\"" . $L . "\"";
-      if ($L == 'I')
-         echo " selected";
-      echo ">$L\n";
-   }
+<?php
+
+foreach ($lett as $L) {
+	echo '   <option value="' . $L . '"';
+	
+	if ($L == 'I')echo ' selected';
+	echo ">$L\n";
+}
+
 ?></select></p>
 <p>Alphabet Key:  <input type=text name=key value="" size=30> -
 <span id="Keymaker0" target="document.encoder.key.value"></span></p>
@@ -88,17 +119,15 @@ V W X Y Z
 all non-letters from the text.</p>
 <p>This is your encoded or decoded text:</p>
 </form>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <p><b><tt><span id='output'></span></tt></b></p>
-<?PHP MakeBoxBottom();
-
+<?php MakeBoxBottom();
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/keymaker.js"></script>
 <script language="JavaScript" src="js/bifid.js"></script>
 <script language="JavaScript"><!--
@@ -200,5 +229,6 @@ function wikipedia_enc()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

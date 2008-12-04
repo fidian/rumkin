@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('Upgrading The Tablet');
 
 ?>
@@ -19,7 +18,7 @@ sda4)</a></li>
 <li><a href="#links">Related Links</a></li>
 </ul>
 
-<?PHP Section('A Word of Caution', 'warning'); ?>
+<?php Section('A Word of Caution', 'warning'); ?>
 
 <p>Because performing updates like this are potentially <i>EXTREMELY
 DANGEROUS</i>, I <u>strongly urge</u> you to <b>not</b> perform any of these
@@ -30,33 +29,32 @@ myself, so I know they worked for me, but they may not work for you.</p>
 
 <p>That said, let's go make our AquaPads into the machines they want to be!</p>
 
-<?PHP Section('How to Upgrade the BIOS under only Linux', 'bios'); ?>
+<?php Section('How to Upgrade the BIOS under only Linux', 'bios'); ?>
 
 <ol>
 <li>Obtain a new BIOS image.  Check 
-<?= l('ftp://ftp.fica.com/Notebooks_Tablets/AQUA/') ?> under the 
+<?php echo l('ftp://ftp.fica.com/Notebooks_Tablets/AQUA/') ?> under the 
 <tt>bios</tt> directory, and then the OS you intend to run.  
 (Midori Linux, of course!)</li>
-<li>Make a CompactFlash card bootable (see <?= l('hd_img.php',
-'these instructions') ?>).
+<li>Make a CompactFlash card bootable (see <?php echo l('hd_img.php', 'these instructions') ?>).
 <li>Copy over the files required for the BIOS update.  This will run and
 finish by itself when you turn on the Aquapad.  Just make sure that your
 tablet will boot to the proper drive and that the BIOS (1) identifies your
 CF card and (2) is set to boot from it.
 </ol>
 
-<?PHP MakeBoxTop('right'); ?>
+<?php MakeBoxTop('right'); ?>
 <PRE>Disk /dev/sda: 1024 MB, 1024450560 bytes
 16 heads, 63 sectors/track, 1985 cylinders
 Units = cylinders of 1008 * 512 = 516096 bytes
  
    Device Boot    Start       End    Blocks   Id  System
 /dev/sda1   *         1         8      4000+   e  Win95 FAT16 (LBA)
-</PRE><?PHP MakeBoxBottom() ?>
+</PRE><?php MakeBoxBottom() ?>
 
 <p><tt>fdisk -l /dev/sda</tt> shows me the output in the box.</p>
 
-<?PHP Section('How to Upgrade the Memory and Processor', 'memory'); ?>
+<?php Section('How to Upgrade the Memory and Processor', 'memory'); ?>
 
 <p>The AquaPad comes with 128 Mb of marvelous memory.  The device is said to
 support 256 Mb of memory.  It uses standard SO-DIMM SDRAM, 144 pin, non-ECC,
@@ -68,7 +66,7 @@ their processor.</p>
 <p>The Crusoe processor can not be upgraded either -- it is soldered
 directly on the board.  So, you are stuck with the 500 mhz CPU.</p>
 
-<?PHP Section('Upgrade from a Windows version (or one without an OS)
+<?php Section('Upgrade from a Windows version (or one without an OS)
 to Midori Linux', 'tolinux'); ?>
 
 <ol>
@@ -81,12 +79,12 @@ Flash card, you should be able to rebuild it for /dev/hda and away you
 go.</li>
 </ol>
 
-<?PHP Section('Obtaining an Image of the Compact Flash Card', 'cfimage'); ?>
+<?php Section('Obtaining an Image of the Compact Flash Card', 'cfimage'); ?>
 
 <p>This section is moved to be with the other portions dealing with
-<?= l('hd_img.php#get', 'hard drive images') ?>.
+<?php echo l('hd_img.php#get', 'hard drive images') ?>.
 
-<?PHP Section('Upgrade the Operating System and Other Software', 'midori'); ?>
+<?php Section('Upgrade the Operating System and Other Software', 'midori'); ?>
 
 <p>So far, I have not heard of anyone successfully compiling Midori to run
 flawlessly on the AquaPad.  However, you can go ahead and patch your Compact
@@ -126,7 +124,7 @@ filesystem is mounted like this.  You can only change expanded images.
 partitions.</li>
 </ol>
 
-<?PHP Section('Changing a Root Partition (sda1, sda2)', 'chroot'); ?>
+<?php Section('Changing a Root Partition (sda1, sda2)', 'chroot'); ?>
 
 <p>Keep in mind that the first two partitions should be identical.</p>
 
@@ -151,7 +149,7 @@ etc.</li>
   </blockquote></li>
 </ol>
 
-<?PHP Section('Changing a Multi-Compressed Partition (sda3, sda4)', 'chcomp'); ?>
+<?php Section('Changing a Multi-Compressed Partition (sda3, sda4)', 'chcomp'); ?>
 
 <ol>
 <li>Copy the image from the partition if you have not done so already.
@@ -188,7 +186,7 @@ extracted from the source.</li>
   </blockquote></li>
 </ol>
 
-<?PHP Section('Related Links', 'links'); ?>
+<?php Section('Related Links', 'links'); ?>
 
 <p><a
 href="http://www.aquapad.org/modules.php?op=modload&name=Forums&file=index&action=viewtopic&topic=24&forum=1&6">Booting
@@ -198,6 +196,6 @@ from external CF</a></p>
 href="http://www.aquapad.org/modules.php?op=modload&name=Forums&file=index&action=viewtopic&topic=91&forum=2&3">here</a>
 -- don't forget to flash the BIOS</p>
 
-<?PHP
+<?php
 
 AquaStop();

@@ -1,9 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Including JavaScript Dynamically',
+		'topic' => 'web'
+	));
 
-StandardHeader(array('title' => 'Including JavaScript Dynamically',
-		     'topic' => 'web'));
 ?>
 
 <p>I wanted a way to make individual files for JavaScript classes and have
@@ -14,7 +16,7 @@ in advance all of the JavaScript includes that needed to be made.</p>
 in the major browsers, which included JavaScript files dynamically.  They also
 fired onload events so I could tell when everything was finally loaded.</p>
 
-<?PHP MakeBoxTop('center'); ?><pre>
+<?php MakeBoxTop('center'); ?><pre>
 var jsIncludeFiles = [];
 
 // Include a JavaScript file.  Functions like include_once per PHP.
@@ -79,11 +81,11 @@ function includeIsLoading() {
 	}
 	return false;
 }
-</pre><?PHP MakeBoxBottom(); ?>
+</pre><?php MakeBoxBottom(); ?>
 
 <p>This code is freely made available to everyone in case they can use it.
 Please suggest improvements.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

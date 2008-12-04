@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Tips and Tricks',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Tips and Tricks',
+		'topic' => 'guns'
+	));
 
 ?>
 
@@ -22,6 +23,6 @@ than what you might guess.</p>
 Trying to use rib bones will be difficult to get accurate, reproduceable
 results.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

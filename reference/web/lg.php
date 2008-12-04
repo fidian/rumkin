@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'LifeGenesis',
-		     'callback' => 'lg_javascript',
-		     'topic' => 'web'));
+StandardHeader(array(
+		'title' => 'LifeGenesis',
+		'callback' => 'lg_javascript',
+		'topic' => 'web'
+	));
 
 ?>
 
@@ -37,17 +38,16 @@ animation of some sort.</p>
 <br><br>
 
 <table align=center>
-<?PHP
+<?php
 
-for ($row = 0; $row < 10; $row ++)
-{
-   echo "<tr height=20>";
-   for ($col = 0; $col < 10; $col ++)
-   {
-      echo "<td width=20><img src=\"media/lg-0.jpg\" name=\"i" . $row . "j" .
-      	   $col . "\"></td>";
-   }
-   echo "</tr>\n";
+for ($row = 0; $row < 10; $row ++) {
+	echo '<tr height=20>';
+	
+	for ($col = 0; $col < 10; $col ++) {
+		echo '<td width=20><img src="media/lg-0.jpg" name="i' . $row . 'j' . $col . '"></td>';
+	}
+	
+	echo "</tr>\n";
 }
 
 ?>
@@ -55,14 +55,14 @@ for ($row = 0; $row < 10; $row ++)
 <script language="JavaScript"><!--
 LG_StartUp();
 // --></script>
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function lg_javascript()
-{
-?>
+function lg_javascript() {
+	
+	?>
 <script language="JavaScript">
 Cells = new Array(4);
 
@@ -233,5 +233,6 @@ function DoWork()
 }
 
 </script>
-<?PHP
+<?php
 }
+

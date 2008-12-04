@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Vyce\'s Email',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Vyce\'s Email',
+		'topic' => 'guns'
+	));
 
 ?>
 <pre>Date: Thu, 27 Apr 2006 10:40:47 -0500
@@ -25,6 +26,6 @@ Gary Brunet,<BR>
 President<BR>
 Vyse gelatin<BR>
 </SPAN></FONT></FONT>
-<?PHP
+<?php
 
 StandardFooter();

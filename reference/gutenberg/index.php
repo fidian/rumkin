@@ -1,38 +1,63 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Project Gutenberg',
-		     'topic' => 'reference'));
-
+StandardHeader(array(
+		'title' => 'Project Gutenberg',
+		'topic' => 'reference'
+	));
 $Books = array(
-   '2000010' => array('author' => 'Verne, Jules',
-		      'title' => '20,000 Leagues Under The Sea'),
-   '2000010a' => array('author' => 'Verne, Jules',
-		       'title' => '20,000 Leagues Under the Seas ' .
-		          '(Translation of Vingt mille lieues sous les mers)'),
-   'alice30' => array('author' => 'Carroll, Lewis',
-		      'title' => 'Alice\'s Adventures in Wonderland'),
-   'crsto12' => array('author' => 'Dumas, Alexandre',
-		      'title' => 'Count of Monte Cristo, The'),
-   'doroz10' => array('author' => 'Baum, L. Frank',
-		      'title' => 'Dorothy And The Wizard In Oz'),
-   'dmoro11' => array('author' => 'Wells, H. G.',
-		      'title' => 'Island of Doctor Moreau, The'),
-   '8jrny10' => array('author' => 'Verne, Jules',
-		      'title' => 'Journey to the Interior of the Earth'),
-   'sfrbn10' => array('author' => 'Wyss, Johann David',
-		      'title' => 'Swiss Family Robinson'),
-   'lglass19' => array('author' => 'Carroll, Lewis',
-		       'title' => 'Through the Looking-Glass'),
-   'treas11' => array('author' => 'Stevenson, Robert Louis',
-		      'title' => 'Treasure Island'),
-   'bill11' => array('author' => 'United States',
-		     'title' => 'United States Bill of Rights'),
-   'const11' => array('author' => 'United States',
-		      'title' => 'United States Constitution'),
-   'wizoz10' => array('author' => 'Baum, L. Frank',
-		      'title' => 'Wonderful Wizard of Oz, The'),
+	'2000010' => array(
+		'author' => 'Verne, Jules',
+		'title' => '20,000 Leagues Under The Sea'
+	),
+	'2000010a' => array(
+		'author' => 'Verne, Jules',
+		'title' => '20,000 Leagues Under the Seas ' . '(Translation of Vingt mille lieues sous les mers)'
+	),
+	'alice30' => array(
+		'author' => 'Carroll, Lewis',
+		'title' => 'Alice\'s Adventures in Wonderland'
+	),
+	'crsto12' => array(
+		'author' => 'Dumas, Alexandre',
+		'title' => 'Count of Monte Cristo, The'
+	),
+	'doroz10' => array(
+		'author' => 'Baum, L. Frank',
+		'title' => 'Dorothy And The Wizard In Oz'
+	),
+	'dmoro11' => array(
+		'author' => 'Wells, H. G.',
+		'title' => 'Island of Doctor Moreau, The'
+	),
+	'8jrny10' => array(
+		'author' => 'Verne, Jules',
+		'title' => 'Journey to the Interior of the Earth'
+	),
+	'sfrbn10' => array(
+		'author' => 'Wyss, Johann David',
+		'title' => 'Swiss Family Robinson'
+	),
+	'lglass19' => array(
+		'author' => 'Carroll, Lewis',
+		'title' => 'Through the Looking-Glass'
+	),
+	'treas11' => array(
+		'author' => 'Stevenson, Robert Louis',
+		'title' => 'Treasure Island'
+	),
+	'bill11' => array(
+		'author' => 'United States',
+		'title' => 'United States Bill of Rights'
+	),
+	'const11' => array(
+		'author' => 'United States',
+		'title' => 'United States Constitution'
+	),
+	'wizoz10' => array(
+		'author' => 'Baum, L. Frank',
+		'title' => 'Wonderful Wizard of Oz, The'
+	),
 );
 
 ?>
@@ -70,16 +95,14 @@ to work wonderfully with these documents.
 
 <table align=center border=1 cellpadding=3 cellspacing=0>
 <TR><TH>Book</th><th>ZIP</th><th>HTML</th><th>Plucker</th></tr>
-<?PHP
+<?php
 
-foreach ($Books as $fnbase => $Data)
-{
-   echo '<tr><td><b>' . htmlspecialchars($Data['title']) . '<br>' .
-      htmlspecialchars($Data['author']) . '</b></td>';
-   FileLink($fnbase, '.zip');
-   FileLink($fnbase, '-html.zip');
-   FileLink($fnbase, '.pdb');
-   echo "</tr>\n";
+foreach ($Books as $fnbase => $Data) {
+	echo '<tr><td><b>' . htmlspecialchars($Data['title']) . '<br>' . htmlspecialchars($Data['author']) . '</b></td>';
+	FileLink($fnbase, '.zip');
+	FileLink($fnbase, '-html.zip');
+	FileLink($fnbase, '.pdb');
+	echo "</tr>\n";
 }
 
 ?>
@@ -143,25 +166,21 @@ library isn't small (about 30k).  But I only want one text reader on my Palm
 if I can help it, thus I use Plucker.  Now, if Plucker could read or convert
 DOC files, I would be in heaven.</p>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function FileLink($base, $ext)
-{
-   $fn = $base . '/' . $base . $ext;
-   $mediaFn = getenv('MEDIABASE') . 'reference/gutenberg/' . $fn;
-   
-   if (! file_exists($mediaFn))
-   {
-      echo '<td align=center>-</td>';
-      return;
-   }
-
-   $fs = FidianFileSize($mediaFn);
-   
-   echo '<td><a href="media/' . $fn . '">' . $base . $ext . '</a><br>' . $fs .
-      '</td>';
+function FileLink($base, $ext) {
+	$fn = $base . '/' . $base . $ext;
+	$mediaFn = getenv('MEDIABASE') . 'reference/gutenberg/' . $fn;
+	
+	if (! file_exists($mediaFn)) {
+		echo '<td align=center>-</td>';
+		return;
+	}
+	
+	$fs = FidianFileSize($mediaFn);
+	echo '<td><a href="media/' . $fn . '">' . $base . $ext . '</a><br>' . $fs . '</td>';
 }
 

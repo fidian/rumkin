@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Palm OS Programming - PilRC Tips',
-		     'topic' => 'palmos'));
+StandardHeader(array(
+		'title' => 'Palm OS Programming - PilRC Tips',
+		'topic' => 'palmos'
+	));
 
 ?>
 
@@ -18,6 +19,6 @@ your table 99 high.  This is only with the default font.
 SCROLLBAR ID ScrollID AT (PREVRIGHT+2 PREVTOP-1 7 PREVHEIGHT+2)
 </pre>
 
-<?PHP
+<?php
 
 StandardFooter();

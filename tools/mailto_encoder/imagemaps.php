@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Mailto Encoder',
-		     'header' => 'Email Address Encoder',
-		     'topic' => 'mailto'));
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'Email Address Encoder',
+		'topic' => 'mailto'
+	));
 
 ?>
 
@@ -26,9 +27,9 @@ you need to follow a few special steps.</p>
 your web page editor, etc.).  Remove some lines from the top and bottom.
 It should look similar to one of these.
 
-<?PHP
+<?php
 
-MakeBoxTop('center'); 
+MakeBoxTop('center');
 
 ?>
 <p><b>Double-Escaped</b></p>
@@ -55,15 +56,15 @@ OT+=ML.charAt(MI.charCodeAt(j)-48);
 }document.write(OT);
 </pre>
 
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <li>Alter the last line and remove the document.write portion.  Add a
 "return" line after your modified last line.  Put this in a function.
 The script should now look like one of these.
 
-<?PHP 
+<?php
 
-MakeBoxTop('center'); 
+MakeBoxTop('center');
 
 ?>
 <p><b>Double-Escaped</b></p>
@@ -100,7 +101,7 @@ function SendMeEmail()
 }
 </pre>
 
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <li>Now, test it with your imagemap or a regular link:
 <pre>
@@ -109,6 +110,6 @@ function SendMeEmail()
 <li>That should work for you.  If not, I would love to know.</li>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

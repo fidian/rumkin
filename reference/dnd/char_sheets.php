@@ -1,8 +1,9 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Character Sheets'));
+StandardHeader(array(
+		'title' => 'Character Sheets'
+	));
 
 ?>
 
@@ -40,6 +41,6 @@ character sheets:</p>
 <li><a href="http://dndadventure.com">Dungeons and Dragons Adventures</a></li>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,36 +1,38 @@
 <?php
 /*
-Whois.php        PHP classes to conduct whois queries
-
-Copyright (C)1999,2005 easyDNS Technologies Inc. & Mark Jeftovic
-
-Maintained by David Saez (david@ols.es)
-
-For the most recent version of this package visit:
-
-http://www.phpwhois.org
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * Whois.php        PHP classes to conduct whois queries
+ * 
+ * Copyright (C)1999,2005 easyDNS Technologies Inc. & Mark Jeftovic
+ * 
+ * Maintained by David Saez (david@ols.es)
+ * 
+ * For the most recent version of this package visit:
+ * 
+ * http://www.phpwhois.org
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+
 /* utils.whois	1.0 Colin Viebrock <cmv@easydns.com> 1999/12/06 */
+
+
 /* 		1.1 Mark Jeftovic <markjr@easydns.com> 1999/12/15 */
-
 class utils extends Whois {
-
-	var $REGISTRARS = array(
+	public
+	public $REGISTRARS = array(
 		'ac' => 'http://www.nic.ac/cgi-bin/whois',
 		'ad' => 'http://www.nic.ad/',
 		'ar' => 'http://www.nic.ar/consultas/consdom.htm',
@@ -93,105 +95,100 @@ class utils extends Whois {
 		've' => 'http://www.nic.ve/nicwho01.html',
 		'yu' => 'http://ubbg.etf.bg.ac.yu/yu-tld/domains.html',
 		'za' => 'http://co.za/whois.shtml'
-		);
-
-	function getRegistrar($cc) {
+	);
+	
+	
+	public function getRegistrar($cc) {
 		$cc = trim(strtolower($cc));
 		$temp = $this->REGISTRARS;
+		
 		if ($temp[$cc]) {
 			return $temp[$cc];
 		} else {
 			return false;
 		}
 	}
-
-	// showObject() and debugObject()
-	// - debug code to show an object or array
-
-	function showObject(&$obj) {
+	
+	
+	/* showObject() and debugObject()
+	 * - debug code to show an object or array */
+	public function showObject(&$obj) {
 		$r = $this->debugObject($obj);
 		return "<PRE>$r</PRE>\n";
 	}
-
-	function debugObject($obj,$indent=0) {
+	
+	
+	public function debugObject($obj, $indent = 0) {
 		if (is_Array($obj) || is_Object($obj)) {
 			$return = '';
-			while (list($k,$v)=each($obj)) {
-				for ($i=0;$i<$indent;$i++) {
+			
+			while (list ($k, $v) = each($obj)) {
+				for ($i = 0; $i < $indent; $i ++) {
 					$return .= '&nbsp;';
 				}
-				$return .= $k."->$v\n";
-				$return .= $this->debugObject($v,$indent+1);
+				
+				$return .= $k . "->$v\n";
+				$return .= $this->debugObject($v, $indent + 1);
 			}
+			
 			return $return;
 		}
-	}             
-
-	function ns_rr_defined($query) {
-		return checkdnsrr($query,'NS');
-	}       
-
-	// get nice HTML output
+	}
 	
-	function showHTML($result, $link_myself=true, $params='query=$0&amp;output=nice') {
-		
+	
+	public function ns_rr_defined($query) {
+		return checkdnsrr($query, 'NS');
+	}
+	
+	
+	// get nice HTML output
+	public function showHTML($result, $link_myself = true, $params = 'query=$0&amp;output=nice') {
 		// adds links fort HTML output
-		
-		$email_regex = "/([-_\w\.]+)(@)([-_\w\.]+)\b/i";
+		$email_regex = '\\b/i';
 		$html_regex = "/(?:^|\b)((((http|https|ftp):\/\/)|(www\.))([\w\.]+)([,:%#&\/?~=\w+\.-]+))(?:\b|$)/is";
-		$ip_regex = "/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/i";
+		$ip_regex = '\\b/i';
+		$out = implode($result['rawdata'], "\n");
+		$out = preg_replace($email_regex, '<a href="mailto:$0">$0</a>', $out);
+		$out = preg_replace_callback($html_regex, 'href_replace', $out);
 		
-		$out = implode($result['rawdata'],"\n");
-		
-		$out = preg_replace ($email_regex, '<a href="mailto:$0">$0</a>', $out); 
-		$out = preg_replace_callback ($html_regex, 'href_replace', $out); 
-		
-		if ($link_myself)
-			{
-			$out = preg_replace ($ip_regex, '<a href="'.$_SERVER['PHP_SELF'].'?'.$params.'">$0</a>', $out); 			
-				
-			if (isset($result['regrinfo']['domain']['nserver']))
-				{
-				$nserver = $result['regrinfo']['domain']['nserver'];
+		if ($link_myself) {
+			$out = preg_replace($ip_regex, '<a href="' . $_SERVER['PHP_SELF'] . '?' . $params . '">$0</a>', $out);
 			
-				if (is_array($nserver))
-					{
-					reset($nserver); 
-					while (list($host, $ip) = each($nserver))
-						{
-						$url = '<a href="'. $_SERVER['PHP_SELF'].'?'.str_replace('$0',$ip,$params)."\">$host</a>";
+			if (isset($result['regrinfo']['domain']['nserver'])) {
+				$nserver = $result['regrinfo']['domain']['nserver'];
+				
+				if (is_array($nserver)) {
+					reset($nserver);
+					
+					while (list ($host, $ip) = each($nserver)) {
+						$url = '<a href="' . $_SERVER['PHP_SELF'] . '?' . str_replace('$0', $ip, $params) . "\">$host</a>";
 						$out = str_replace($host, $url, $out);
 						$out = str_replace(strtoupper($host), $url, $out);
-						}
 					}
 				}
 			}
+		}
 		
 		// Add bold field names
-		
-		$out = preg_replace ("/(?m)^([\w\s-]+:)/", '<b>$1</b>', $out);
+		$out = preg_replace('\\s-]+:)/', '<b>$1</b>', $out);
 		
 		// Add italics for disclaimer
-		
-		$out = preg_replace ("/(?m)^(%.*)/", '<i>$0</i>', $out);
-			
-		return str_replace("\n","<br></br>\n",$out);
+		$out = preg_replace('/(?m)^(%.*)/', '<i>$0</i>', $out);
+		return str_replace("\n", "<br></br>\n", $out);
 	}
 }
 
-function href_replace($matches)
-{
-if (substr($matches[0],0,4)=='www.')
-	{
-	$web=$matches[0];
-	$url='http://'.$web;
-	}
-else
-	{
-	$web=$matches[0];
-	$url=$web;
+
+function href_replace($matches) {
+	if (substr($matches[0], 0, 4) == 'www.') {
+		$web = $matches[0];
+		$url = 'http://' . $web;
+	} else {
+		$web = $matches[0];
+		$url = $web;
 	}
 	
-return '<a href="'.$url.'" target="_blank">'.$web.'</a>';
+	return '<a href="' . $url . '" target="_blank">' . $web . '</a>';
 }
+
 ?>

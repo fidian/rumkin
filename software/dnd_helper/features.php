@@ -1,18 +1,19 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Helper
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'Features',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Helper
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Features',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
 <p>Nearly every feature of the program is listed here, by category.  If you
 want other features, feel free to ask.</p>
 
-<?PHP Section('Calculators'); ?>
+<?php Section('Calculators'); ?>
 
 <dl>
 <dt><b>Die Roller</b></dt>
@@ -37,7 +38,7 @@ go approximately 82 mph.</dd>
 charisma modifier and the character level.</dd>
 </dl>
 
-<?PHP Section('Reference Tables'); ?>
+<?php Section('Reference Tables'); ?>
 
 <dl>
 <dt><b>Ability Modifiers</b></dt>
@@ -69,7 +70,7 @@ on this chart will help balance game play.</dd>
 the course of their travels.</dd>
 </dl>
 
-<?PHP Section('Random Generators'); ?>
+<?php Section('Random Generators'); ?>
 
 <p>For more information on the types of databases that D&amp;D Helper uses,
 check out <a href="gen_type.php">Database Types</a>.  Below is a list of
@@ -86,7 +87,7 @@ things that the program can generate by installing another databse.</p>
 <li>Player character names from a wide variety of sources</li>
 </ul>
 
-<?PHP Section('And All The Rest'); ?>
+<?php Section('And All The Rest'); ?>
 
 <dl>
 <dt><b>Context-Sensitive Help</b></dt>
@@ -103,6 +104,6 @@ number by 1.  The buttons are big enough for you to use your fingertip.<dd>
 this site are freeware.  Well, actually the program is open-source (GPL).</dd>
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

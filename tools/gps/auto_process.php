@@ -1,9 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Pocket Queries',
+		'topic' => 'gps'
+	));
 
-StandardHeader(array('title' => 'Pocket Queries',
-		     'topic' => 'gps'));
 ?>
 
 <p>I take advantage of the power of the pocket queries at <a
@@ -85,6 +87,6 @@ Geocaching.zip file will contain the individual .gpx files that you can load
 and use.
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

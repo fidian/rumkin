@@ -1,14 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
-
 require 'common.inc';
-
 SprintStandardHeader('Uploader Downloads');
 
 ?>
@@ -17,7 +15,7 @@ SprintStandardHeader('Uploader Downloads');
 subscribe to the Sprint <a href="/reference/email/lists.php">mailing list</a>
 and have any news and notifications of code changes delivered to you.
 
-<?PHP Section('<a href="messaging.inc">messaging.inc</a>'); ?>
+<?php Section('<a href="messaging.inc">messaging.inc</a>'); ?>
 
 <p>PHP function that will connect to Sprint's <a
 href="http://messagings.sprintpcs.com">Messaging Server</a> and send a
@@ -25,7 +23,7 @@ properly formatted message.  This works far better than sending messages
 with the email method, but you will need to update the script when/if Sprint
 changes their messaging pages.</p>
 
-<?PHP Section('<a href="makezip.php/uploader.zip">uploader.zip</a>'); ?>
+<?php Section('<a href="makezip.php/uploader.zip">uploader.zip</a>'); ?>
 
 <p>Want my uploader?  This file contains the PHP source code that is running
 this uploader site.  To use it, you need a PHP web server and a MySQL 
@@ -54,6 +52,6 @@ what I'm running now.
 
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

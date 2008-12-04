@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Rules of Adventuring',
-		     'topic' => 'dnd'));
+StandardHeader(array(
+		'title' => 'Rules of Adventuring',
+		'topic' => 'dnd'
+	));
 
 ?>
 
@@ -57,6 +58,6 @@ liquids, as a bribe or payment, and as a counterweight.  I'm sure that I am
 missing a few of our uses, but life wasn't dull when one party member kept a
 small barrel of alcohol around.
 	
-<?PHP
-	
+<?php
+
 StandardFooter();

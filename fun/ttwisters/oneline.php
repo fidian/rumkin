@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Tongue Twisters',
-		     'topic' => 'ttwisters'));
+StandardHeader(array(
+		'title' => 'Tongue Twisters',
+		'topic' => 'ttwisters'
+	));
 
 ?>
 
@@ -12,7 +13,7 @@ might want to head to the other pages for difficult ones that you need to
 repeat, or the story-like verse style tongue twisters.</p>
 
 
-<?PHP Section('One-Liners'); ?>
+<?php Section('One-Liners'); ?>
 
 <p>Each sixth chick sat on a stick.</p>
 
@@ -114,6 +115,6 @@ vegetables.</p>
 <p>A bloke's back brake block broke.</p>
 	
 
-<?PHP
+<?php
 
 StandardFooter();

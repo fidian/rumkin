@@ -1,11 +1,12 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'untgz dll',
-		     'topic' => 'untgz-dll'));
-
+StandardHeader(array(
+		'title' => 'untgz dll',
+		'topic' => 'untgz-dll'
+	));
 $mediaDir = getenv('MEDIABASE') . 'software/untgz-dll/';
+
 ?>
 
 <p>I needed a DLL file that would decompress .tar.gz files.  I found the 
@@ -21,20 +22,20 @@ errors, and slightly altered the exported functions.</p>
 
 <p>To run it, you just use the untgz() function.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <tt>untgz(char *path_to_tgz_file, char *output_directory);</tt>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('Download'); ?>
+<?php Section('Download'); ?>
 
 <p><b><a href="media/untgz-dll.zip">untgz-dll.zip</a></b>
-(<?= FidianFileSize($mediaDir . 'untgz-dll.zip') ?>) - Source code for the DLL
+(<?php echo FidianFileSize($mediaDir . 'untgz-dll.zip') ?>) - Source code for the DLL
 </p>
 
 <p><b><a href="media/untgz.dll">untgz.dll</a></b>
-(<?= FidianFileSize($mediaDir . 'untgz.dll') ?>) - Just the DLL file, UPX compressed for
+(<?php echo FidianFileSize($mediaDir . 'untgz.dll') ?>) - Just the DLL file, UPX compressed for
 the absolute minimum size.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

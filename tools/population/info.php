@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Population Counter',
-		     'header' => 'Information About Population Clock',
-		     'topic' => 'population'));
+StandardHeader(array(
+		'title' => 'Population Counter',
+		'header' => 'Information About Population Clock',
+		'topic' => 'population'
+	));
 
 ?>
 
@@ -29,6 +30,6 @@ births and deaths are checked for every two seconds.</p>
 correctly, since we automatically compensate for any time difference
 between our computer and yours.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

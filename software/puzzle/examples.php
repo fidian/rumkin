@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'header' => 'Java Puzzle Applet - Examples',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - Examples',
+		'topic' => 'puzzle'
+	));
 
 ?>
 
@@ -43,6 +44,6 @@ be able to notify the site owners of updates to the puzzle. (How rare
    Woobie World</A></LI> 
 </UL>
 
-<?PHP
+<?php
 
 StandardFooter();

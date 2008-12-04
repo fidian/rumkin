@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Railfence',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Railfence',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>When you rearrange your text in a "wave" sort of pattern (down, down, up,
@@ -48,19 +50,17 @@ rails</a></p>
 at the beginning, end, or two in a row.
 Be careful when copying encrypted text and make sure that it will
 decrypt to the message properly.</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP 
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/railfence.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/railfence.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -209,5 +209,6 @@ function ToggleRails()
 window.setTimeout('start_update()', 100);
       
 // --></script>
-<?PHP
+<?php
 }
+

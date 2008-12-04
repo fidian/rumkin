@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../../functions.inc';
-
-StandardHeader(array('title' => 'Linked Lists',
-		     'topic' => 'algorithms'));
+StandardHeader(array(
+		'title' => 'Linked Lists',
+		'topic' => 'algorithms'
+	));
 
 ?>
 
@@ -28,7 +29,7 @@ pester me and I will explain it more in here.</p>
 to store the difference between the pointers.  Let me show you what I 
 mean, assuming that we are storing integers in our linked list.</p>
 
-<?PHP ShowExampleFile('listdef.h'); ?>
+<?php ShowExampleFile('listdef.h'); ?>
 
 <p>Yep, that's right.  A doubly-linked list with just the space for one
 pointer.  How do you do it?  Well, it's not that hard, but first let's get
@@ -52,13 +53,13 @@ To do either, I will need a few functionions.  Keep in mind that my code
 isn't optimized for speed or size at this point.  It is just a good working 
 implementation.</p>
 
-<?PHP ShowExample(
-'// sizeof((node *)) == 8
+<?php ShowExample('// sizeof((node *)) == 8
 // sizeof(int) == 8
 
 #define PTRTYPE int
 #define XOR(a,b) ((node *) ((PTRTYPE)(a)^(PTRTYPE)(b)))
 #define XOR3(a,b,c) ((node *) ((PTRTYPE)(a)^(PTRTYPE)(b)^(PTRTYPE)(c)))');
+
 ?>
 
 <p>These special #define macros will help me out.  On my system, the size of
@@ -77,7 +78,7 @@ second.  So, if you start with 000 and xor it by 010, you get 010 as your
 result.  If you xor it again by 010, you return back to your original 000
 value.  Enough of that &ndash; let's see some code!</p>
 
-<?PHP ShowExampleFile('countnodes.c'); ?>
+<?php ShowExampleFile('countnodes.c'); ?>
 
 <p>Aha!  A simple function that just shows you how to count the number of
 nodes in the doubly linked list.  On the left, if you recall, is the normal
@@ -86,7 +87,7 @@ There are two extra variables and an extra assignment before the while
 loop.  Negligable performance hit.  Inside the while loop, there are two
 more assignments and one xor.</p>
 
-<?PHP ShowExampleFile('insertvalue.c'); ?>
+<?php ShowExampleFile('insertvalue.c'); ?>
 
 <P>The code really isn't all that different for the two styles of linked
 lists.  There is one extra line inside the while loop that contains an XOR,
@@ -95,15 +96,11 @@ the amount of code in the loop.  People who like assembler might want to
 argue on this point.  Updating the pointers takes almost the same amount of
 code &ndash; there are merely a couple more XOR commands.</p>
 
-<?PHP ShowExample(
-
-"temp = prev ^ curr->diff;
+<?php ShowExample('temp = prev ^ curr->diff;
 prev = curr;
-curr = temp;",
-
-"prev ^= curr ^ curr->diff;
+curr = temp;', 'prev ^= curr ^ curr->diff;
 curr ^= prev;
-prev ^= curr;") ?>
+prev ^= curr;') ?>
 
 <p>If you don't want the 'temp' pointer ever to be used, you can instead
 use something like this neat little trick.  Same number of lines, and nearly
@@ -111,7 +108,7 @@ the same number of compiled commands, but the end result may not justify
 the untidy code unless you are only being graded on bytes or interesting 
 techniques instead of readabiliy.</p>
 
-<?PHP ShowExampleFile('deletenode.c') ?>
+<?php ShowExampleFile('deletenode.c') ?>
 
 <p>This function just deletes the Nth node in the list.  It can easily be
 adapted to deleting a specific value, if you so desire.  There's one more
@@ -125,8 +122,7 @@ an extra XOR here and there, nothing to really worry about.
 identical for each list structure.  I've coded the algorithms in separate
 files.  When I compile them and strip them, this is the sizes that I see:
 
-<?PHP ShowExample(trim(
-'for F in countnodes deletenode insertvalue; do (
+<?php ShowExample(trim('for F in countnodes deletenode insertvalue; do (
    gcc -Os -Wall -o ${F}.o ${F}.c; strip ${F}.o; ); done
 
 ls -l normal_version/*.o
@@ -155,12 +151,10 @@ node, determined "randomly" using the statically seeded random number
 generator.  I ran each test for both versions with 10,000, 20,000, and
 30,000 inserts and deletes.  The average times are listed below.
 
-<?PHP ShowExample(
-'ITERATIONS   INSERT   DELETE
+<?php ShowExample('ITERATIONS   INSERT   DELETE
   10,000      0.306    0.382
   20,000      3.566    3.834
-  30,000     13.988   14.092',
-'ITERATIONS   INSERT   DELETE
+  30,000     13.988   14.092', 'ITERATIONS   INSERT   DELETE
   10,000      0.350    0.484
   20,000      3.244    4.312
   30,000     14.282   14.124'); ?>
@@ -198,39 +192,47 @@ enough job in my opinion.  Everyone needs more code ... <i>more code</i> ...
 MORE CODE!
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function ShowExampleFile($fn)
-{
-   $a = file('normal/' . $fn);
-   while ($a[0][0] == '#')
-      array_shift($a);
-   $a = implode('', $a);
-   $a = trim($a);
-      
-   $b = file('diff/' . $fn);
-   while ($b[0][0] == '#')
-      array_shift($b);
-   $b = implode('', $b);
-   $b = trim($b);
-      
-   ShowExample($a, $b);
-}
-
-
-function ShowExample($a, $b = false)
-{
-?><table align=center cellpadding=0 cellspacing=0><tr><td><?PHP
-MakeBoxTop();
-?><pre style="font-size:85%"><?= htmlspecialchars($a) . "\n" ?></pre><?PHP
-MakeBoxBottom();
-?></td><?PHP if ($b !== false ) { ?><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><?PHP
-MakeBoxTop();
-?><pre style="font-size:85%"><?= htmlspecialchars($b) . "\n" ?></pre><?PHP
-MakeBoxBottom();
-?></td><?PHP } ?></tr></table><?PHP
-}
+function ShowExampleFile($fn) {
+	$a = file('normal/' . $fn);
 	
+	while ($a[0][0] == '#')array_shift($a);
+	$a = implode('', $a);
+	$a = trim($a);
+	$b = file('diff/' . $fn);
+	
+	while ($b[0][0] == '#')array_shift($b);
+	$b = implode('', $b);
+	$b = trim($b);
+	ShowExample($a, $b);
+}
+
+
+function ShowExample($a, $b = false) {
+	
+	?><table align=center cellpadding=0 cellspacing=0><tr><td><?php
+	
+	MakeBoxTop();
+	
+	?><pre style="font-size:85%"><?php echo htmlspecialchars($a) . "\n" ?></pre><?php
+	
+	MakeBoxBottom();
+	
+	?></td><?php
+	
+	if ($b !== false) { ?><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><?php
+		
+		MakeBoxTop();
+		
+		?><pre style="font-size:85%"><?php echo htmlspecialchars($b) . "\n" ?></pre><?php
+		
+		MakeBoxBottom();
+		
+		?></td><?php
+	} ?></tr></table><?php
+}
+

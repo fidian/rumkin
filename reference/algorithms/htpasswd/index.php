@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../../functions.inc';
-
-StandardHeader(array('title' => 'HTPasswd',
-		     'topic' => 'algorithms'));
+StandardHeader(array(
+		'title' => 'HTPasswd',
+		'topic' => 'algorithms'
+	));
 
 ?>
 
@@ -48,6 +49,6 @@ stored in .htpass files.</p>
 then save the auth file.  If you create entries, encrypt the password with
 EncryptPassword().</p>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,20 +1,21 @@
-<?PHP
+<?php
 
 include '../functions.inc';
-
 CheckForLogin('restricted');
-StandardHeader(array('title' => 'Upload a File',
-		     'topic' => 'restricted'));
+StandardHeader(array(
+		'title' => 'Upload a File',
+		'topic' => 'restricted'
+	));
+
 
 // handle uploads
-
 foreach ($HTTP_POST_FILES as $File) {
-   if (! copy($File['tmp_name'], 'upload/' . $File['name'])) {
-      echo "Unable to copy " . $File['name'] . "<br>";
-   } else {
-      echo $File['name'] . " was uploaded successfully.<Br>";
-      echo "<b><font size=+1><i>Thanks, man!!!</i></font></b><br><br>";
-   }
+	if (! copy($File['tmp_name'], 'upload/' . $File['name'])) {
+		echo 'Unable to copy ' . $File['name'] . '<br>';
+	} else {
+		echo $File['name'] . ' was uploaded successfully.<Br>';
+		echo '<b><font size=+1><i>Thanks, man!!!</i></font></b><br><br>';
+	}
 }
 
 ?><applet name="JUpload" archive="/inc/jar/wjhk.jupload.jar"
@@ -33,10 +34,10 @@ You need Java 1.5 or newer.
 
 <form name="upload_form" method="post" action="upload.php" 
 enctype="multipart/form-data">
-<input type="hidden" name="PHPSESSID" value="<?PHP echo session_id(); ?>">
+<input type="hidden" name="PHPSESSID" value="<?php echo session_id(); ?>">
 The file to upload:  <input name="the_file" type="file"><br>
 <input type=submit value="Upload file!">
 </form>
-<?PHP
+<?php
 
 StandardFooter();

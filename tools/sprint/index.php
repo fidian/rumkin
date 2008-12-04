@@ -1,14 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
-
 include 'common.inc';
-
 SprintStandardHeader('Phone Uploader');
 
 ?>
@@ -26,10 +24,10 @@ bottom of the page.</p>
 will not work.
 
 	
-<?PHP Section('Upload Images, Sounds, Etc.'); ?>
+<?php Section('Upload Images, Sounds, Etc.'); ?>
 
 <form method=post action="upload.php" enctype="multipart/form-data">
-<input type=hidden name=MAX_FILE_SIZE value=<?PHP echo $GLOBALS['Max File Size'] ?>>
+<input type=hidden name=MAX_FILE_SIZE value=<?php echo $GLOBALS['Max File Size'] ?>>
 <input type=hidden name=handle value=upload>	
 <table align=center border=1 cellpading=5 cellspacing=0>
 <tr>
@@ -57,10 +55,10 @@ will not work.
 </table>
 </form>
 
-<?PHP Section('Upload Java Midlets'); ?>
+<?php Section('Upload Java Midlets'); ?>
 
 <form method=post action="upload.php" enctype="multipart/form-data">
-<input type=hidden name=MAX_FILE_SIZE value=<?PHP echo $GLOBALS['Max File Size'] ?>>
+<input type=hidden name=MAX_FILE_SIZE value=<?php echo $GLOBALS['Max File Size'] ?>>
 <input type=hidden name=handle value=upload2>
 <table align=center border=1 cellpading=5 cellspacing=0>
 <tr>
@@ -95,7 +93,7 @@ will not work.
 </form>
 
 
-<?PHP Section('Common Questions') ?>
+<?php Section('Common Questions') ?>
 	
 <p><b>What files can I upload with this?</b></p>
 
@@ -136,7 +134,7 @@ manufacturers, models, and a brief list of capabilities, look in the
 <a href="faq/">Frequently Asked Questions</a>.  You will likely find
 your answer there.</p>
 
-<?PHP Section('Privacy Information'); ?>
+<?php Section('Privacy Information'); ?>
 
 <p>I do not collect phone numbers nor email addresses submitted with this
 program.  The information does go into the mail log, but I never look at
@@ -148,6 +146,6 @@ or just use <a href="links.php#uploaders">another tool</a>.</p>
 <p>Files uploaded are stored in a database and are expired after a few days.
 Also, information about who uploaded the file is not saved.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

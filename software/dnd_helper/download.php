@@ -1,12 +1,13 @@
-<?PHP // -*- text -*-
+<?php
 
-include("../../functions.inc");
 
-StandardHeader(array('title' => 'Download',
-                     'topic' => 'dnd_helper'));
-
+// -*- text -*-
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Download',
+		'topic' => 'dnd_helper'
+	));
 include('db_gen/dblist.inc');
-
 $db_path = getenv('MEDIABASE') . 'software/dnd_helper/';
 
 ?>
@@ -34,10 +35,10 @@ you want the extra ability to generate names, words, and other things.</p>
 <tr bgcolor=#EEFFEE><th>Version 1.2</th></tr>
 <tr bgcolor=#EEEEFF><td align=center>
    Compressed in a <a href="media/download/dnd_helper.zip">Zip file</a>
-   (<?= FidianFileSize($db_path . 'download/dnd_helper.zip') ?> bytes)</td></tr>
+   (<?php echo FidianFileSize($db_path . 'download/dnd_helper.zip') ?> bytes)</td></tr>
 <tr bgcolor=#FFEEEE><td align=center>
    Or an uncompressed <a href="media/download/dnd_helper.prc">Prc file</a>
-  (<?= FidianFileSize($db_path . 'download/dnd_helper.prc') ?> bytes)</td></tr>
+  (<?php echo FidianFileSize($db_path . 'download/dnd_helper.prc') ?> bytes)</td></tr>
 </table>
 
 <p>There is also just the die rolling part of D&amp;D Helper in a separate
@@ -48,10 +49,10 @@ Palm program in case you want to just get numbers.</p>
 <tr bgcolor=#EEFFEE><th>Version 1.0</th></tr>
 <tr bgcolor=#EEEEFF><td align=center>
    Compressed in a <a href="media/download/palm_dice.zip">Zip file</a>
-   (<?= FidianFileSize($db_path . 'download/palm_dice.zip') ?> bytes)</td></tr>
+   (<?php echo FidianFileSize($db_path . 'download/palm_dice.zip') ?> bytes)</td></tr>
 <tr bgcolor=#FFEEEE><td align=center>
    Or an uncompressed <a href="media/download/palm_dice.prc">Prc file</a>
-  (<?= FidianFileSize($db_path . 'download/palm_dice.prc') ?> bytes)</td></tr>
+  (<?php echo FidianFileSize($db_path . 'download/palm_dice.prc') ?> bytes)</td></tr>
 </table>
 
 
@@ -68,35 +69,35 @@ results in the window will be along the same lines that your Palm will give
 you.  Reloading the window will generate more results for you.</p>
 
 
-<?PHP Section('Miscellaneous Databases'); ?>
+<?php Section('Miscellaneous Databases'); ?>
 
 <p>Files that don't have enough in a collection to warrant a category of
 their own.  Click on the file to download the individual database, or mark a
 set of files and click "Make Zip File" to download them as a single zip
 archive.</p>
 
-<?PHP MakeTable('misc') ?>
+<?php MakeTable('misc') ?>
 
-<?PHP Section('Names'); ?>
+<?php Section('Names'); ?>
 
 <p>Need a name for your character?  These databases are here to help.  If
 you click on the filename, you will download that individual file.  If you
 want to download a Zip archive of several files, just check the boxes near
 the filenames and then press "Make Zip File" to download them all at once.</p>
 
-<?PHP MakeTable('names') ?>
+<?php MakeTable('names') ?>
 
-<?PHP Section('Language Generation'); ?>
+<?php Section('Language Generation'); ?>
 
 <p>These databases will allow D&D Helper to generate words that resemble
 real words for the given language.  Just click on the filename to download
 it, or you can check the various checkboxes and press "Make Zip File" to
 download a Zip archive of the different files.</p>
 
-<?PHP MakeTable('language') ?>
+<?php MakeTable('language') ?>
 
 
-<?PHP Section('Other Related Items'); ?>
+<?php Section('Other Related Items'); ?>
 
 <p>Files listed here are probably for "advanced" users only.  I link to them
 for the odd chance that they might help someone.</p>
@@ -129,153 +130,162 @@ required to run the program.  It merely makes life easier.<dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function MakeTable($type)
-{
-   global $db_path;
-   
-   $type_db = array();
-   foreach ($GLOBALS['dblist'] as $key => $data)
-   {
-      if (isset($data['category']) && $data['category'] == $type)
-      {
-         $type_db[$key] = $data;
-      }
-   }
-   
-?>
+function MakeTable($type) {
+	global $db_path;
+	$type_db = array();
+	
+	foreach ($GLOBALS['dblist'] as $key => $data) {
+		if (isset($data['category']) && $data['category'] == $type) {
+			$type_db[$key] = $data;
+		}
+	}
+	
+	?>
 <form method=post action=makezip.php>
-<input type=hidden name=filename value="<?= $type ?>.zip">
+<input type=hidden name=filename value="<?php echo $type ?>.zip">
 <table border=1 cellpadding=5 cellspacing=0>
-<tr bgcolor="#FFFFFF"><th>Database</th><?PHP ShowFile(false)
-?><th>Source</th></tr>
-<?PHP
-
-   $Colors = array('#EEFFEE', '#EEEEFF', '#FFEEEE', '#FFFFEE', '#FFEEFF',
-                   '#EEFFFF');
-   $color = 0;
-   
-   foreach ($type_db as $name => $data)
-   {
-      $files = array();
-      
-      if (isset($data['generate']) && is_array($data['generate']))
-      {
-         if (isset($data['generate']['pick one']) &&
-	     is_array($data['generate']['pick one']) &&
-	     isset($data['generate']['pick one']['pdb']))
-	 {
-	    $fn = $data['generate']['pick one']['pdb'];
-	    if (file_exists($db_path . $fn))
-	    {
-	       $files[] = array('Pick', $fn, filesize($db_path . $fn), 
-	                        filemtime($db_path . $fn), 'pick one', $name);
-	    }
-	 }
-         if (isset($data['generate']['letter pair']) &&
-	     is_array($data['generate']['letter pair']) &&
-	     isset($data['generate']['letter pair']['pdb']))
-	 {
-	    $fn = $data['generate']['letter pair']['pdb'];
-	    if (file_exists($db_path . $fn))
-	    {
-	       $files[] = array('Small', $fn, filesize($db_path . $fn),
-	                        filemtime($db_path . $fn), 'letter pair',
-				$name);
-	    }
-	 }
-         if (isset($data['generate']['letter pair']) &&
-	     is_array($data['generate']['letter pair']) &&
-	     isset($data['generate']['letter pair']['pdb_c']))
-	 {
-	    $fn = $data['generate']['letter pair']['pdb_c'];
-	    if (file_exists($db_path . $fn))
-	    {
-	       $files[] = array('Gen', $fn, filesize($db_path . $fn),
-	                        filemtime($db_path . $fn), 'letter pair',
-				$name);
-	    }
-	 }
-         if (isset($data['generate']['psr']) &&
-	     is_array($data['generate']['psr']) &&
-	     isset($data['generate']['psr']['pdb']))
-	 {
-	    $fn = $data['generate']['psr']['pdb'];
-	    if (file_exists($db_path . $fn))
-	    {
-	       $files[] = array('PSR', $fn, filesize($db_path . $fn), 
-	                        filemtime($db_path . $fn), 'psr', $name);
-	    }
-	 }
-      }
-      
-      $rows = count($files);
-      if ($rows == 0)
-      {
-         $rows = 1;
-	 $files[] = false;
-      }
-      
-      echo '<tr bgcolor="' . $Colors[$color] . '"><th rowspan=' . $rows . 
-         '>' . htmlspecialchars($name) . '</th>';
-	 
-      ShowFile(array_shift($files));
-      
-      echo '<td rowspan=' . $rows . '>' . htmlspecialchars($data['desc']);
-      if (isset($data['source']) && $data['source'] != '')
-         echo ' (<a href="' . $data['source'] . '">Source</a>)';
-      echo '</td></tr>';
-      echo "\n";
-      
-      while (count($files))
-      {
-         echo '<tr bgcolor="' . $Colors[$color] . '">';
-	 ShowFile(array_shift($files));
-	 echo "</tr>\n";
-      }
-      
-      $color ++;
-      if ($color >= count($Colors))
-         $color = 0;
-   }
-?>
+<tr bgcolor="#FFFFFF"><th>Database</th><?php ShowFile(false)
+	
+	?><th>Source</th></tr>
+<?php
+	
+	$Colors = array(
+		'#EEFFEE',
+		'#EEEEFF',
+		'#FFEEEE',
+		'#FFFFEE',
+		'#FFEEFF',
+		'#EEFFFF'
+	);
+	$color = 0;
+	
+	foreach ($type_db as $name => $data) {
+		$files = array();
+		
+		if (isset($data['generate']) && is_array($data['generate'])) {
+			if (isset($data['generate']['pick one']) && is_array($data['generate']['pick one']) && isset($data['generate']['pick one']['pdb'])) {
+				$fn = $data['generate']['pick one']['pdb'];
+				
+				if (file_exists($db_path . $fn)) {
+					$files[] = array(
+						'Pick',
+						$fn,
+						filesize($db_path . $fn),
+						filemtime($db_path . $fn),
+						'pick one',
+						$name
+					);
+				}
+			}
+			
+			if (isset($data['generate']['letter pair']) && is_array($data['generate']['letter pair']) && isset($data['generate']['letter pair']['pdb'])) {
+				$fn = $data['generate']['letter pair']['pdb'];
+				
+				if (file_exists($db_path . $fn)) {
+					$files[] = array(
+						'Small',
+						$fn,
+						filesize($db_path . $fn),
+						filemtime($db_path . $fn),
+						'letter pair',
+						$name
+					);
+				}
+			}
+			
+			if (isset($data['generate']['letter pair']) && is_array($data['generate']['letter pair']) && isset($data['generate']['letter pair']['pdb_c'])) {
+				$fn = $data['generate']['letter pair']['pdb_c'];
+				
+				if (file_exists($db_path . $fn)) {
+					$files[] = array(
+						'Gen',
+						$fn,
+						filesize($db_path . $fn),
+						filemtime($db_path . $fn),
+						'letter pair',
+						$name
+					);
+				}
+			}
+			
+			if (isset($data['generate']['psr']) && is_array($data['generate']['psr']) && isset($data['generate']['psr']['pdb'])) {
+				$fn = $data['generate']['psr']['pdb'];
+				
+				if (file_exists($db_path . $fn)) {
+					$files[] = array(
+						'PSR',
+						$fn,
+						filesize($db_path . $fn),
+						filemtime($db_path . $fn),
+						'psr',
+						$name
+					);
+				}
+			}
+		}
+		
+		$rows = count($files);
+		
+		if ($rows == 0) {
+			$rows = 1;
+			$files[] = false;
+		}
+		
+		echo '<tr bgcolor="' . $Colors[$color] . '"><th rowspan=' . $rows . '>' . htmlspecialchars($name) . '</th>';
+		ShowFile(array_shift($files));
+		echo '<td rowspan=' . $rows . '>' . htmlspecialchars($data['desc']);
+		
+		if (isset($data['source']) && $data['source'] != '')echo ' (<a href="' . $data['source'] . '">Source</a>)';
+		echo '</td></tr>';
+		echo "\n";
+		
+		while (count($files)) {
+			echo '<tr bgcolor="' . $Colors[$color] . '">';
+			ShowFile(array_shift($files));
+			echo "</tr>\n";
+		}
+		
+		$color ++;
+		
+		if ($color >= count($Colors))$color = 0;
+	}
+	
+	?>
 <tr><td colspan=6 align=center>
 <input type=submit value="Make Zip File">
 </td></tr>
 </table>
 </form>
-<?PHP
+<?php
 }
 
 
-function ShowFile($data)
-{
-   global $db_path;
-   
-   if ($data === false)
-   {
-      echo '<th>Type</th><th>File</th><th>Size</th>';
-      return;
-   }
-   
-   if (! is_array($data) || count($data) < 3)
-   {
-      echo '<td>-</td><td>No files</td><td>-</td>';
-      return;
-   }
-
-?>
-<td><nobr><?= htmlspecialchars($data[0]) ?> 
-(<a href="javascript:ShowSample('<?= $data[5] ?>', '<?=
-$data[4] ?>')">Sample</a>)</nobr></td>
-<td><nobr><input type=checkbox name="makezip[]" value="<?= $data[1] ?>">
-<a href="<?= $db_path ?><?= $data[1] ?>"><?= $data[1] ?></a></nobr></td>
-<td><?= FidianFileSize($db_path . $data[1] ); ?></td>
-<?PHP
-
-   return;
+function ShowFile($data) {
+	global $db_path;
+	
+	if ($data === false) {
+		echo '<th>Type</th><th>File</th><th>Size</th>';
+		return;
+	}
+	
+	if (! is_array($data) || count($data) < 3) {
+		echo '<td>-</td><td>No files</td><td>-</td>';
+		return;
+	}
+	
+	?>
+<td><nobr><?php echo htmlspecialchars($data[0]) ?> 
+(<a href="javascript:ShowSample('<?php echo $data[5] ?>', '<?php echo $data[4] ?>')">Sample</a>)</nobr></td>
+<td><nobr><input type=checkbox name="makezip[]" value="<?php echo $data[1] ?>">
+<a href="<?php echo $db_path ?><?php echo $data[1] ?>"><?php echo $data[1] ?></a></nobr></td>
+<td><?php echo FidianFileSize($db_path . $data[1]); ?></td>
+<?php
+	
+	return;
 }
+

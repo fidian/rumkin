@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Gel Alternatives',
+		'topic' => 'guns'
+	));
 
-StandardHeader(array('title' => 'Gel Alternatives',
-		     'topic' => 'guns'));
-		     
 ?>
 	
 <p>If you find that the <a href="ballistic_gel.php">official stuff</a> is a
@@ -20,7 +21,7 @@ own from <a href="alt_gelatin.php">store-purchased gelatin</a>.</p>
 href="#slime_glue">glue</a>)
 </ul>
 
-<?PHP Section('Wet Newspaper', 'wet_newspaper'); ?>
+<?php Section('Wet Newspaper', 'wet_newspaper'); ?>
 
 <p>Get some large wastebaskets to hold the water and newspaper.  Two in a
 row will work for pistols, three should stop rifles.  When you save up
@@ -39,7 +40,7 @@ Stack the "bales" of paper on edge and shoot into the flat surface of the
 bale. You can make about five good shots to get accurate data before the paper
 disintegrates too much.
 
-<?PHP Section('Guar Gum Slime', 'slime_guar'); ?>
+<?php Section('Guar Gum Slime', 'slime_guar'); ?>
 
 <p>Stir together 48 parts warm water for 1 part borax (1 cup of warm water and 
 1 tsp. borax).  Set aside.
@@ -55,7 +56,7 @@ comfortably.</p>
 gum (6 tsp per oz) will make about 24 gallons, which is about 3 cubic feet.
 (.45 kilograms becomes 90.85 liters, which is 90 850 cubic centimeters)</p>
 
-<?PHP Section('Glue Slime', 'slime_glue'); ?>
+<?php Section('Glue Slime', 'slime_glue'); ?>
 
 <p>Pour &frac12; cup of water (3 parts water) into a small bowl.  
 Add 6 Tbsp borax (1 part borax) and stir until dissolved.  Set aside.</p>
@@ -71,6 +72,6 @@ hands.  Lift the slime from the bowl and discard any water mixture remaining
 in the bowl.  Return the slime to the bowl and allow it to sit uncovered for
 15-20 minutes or until fairly firm.
 
-<?PHP
+<?php
 
 StandardFooter();

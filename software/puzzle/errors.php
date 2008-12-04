@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'header' => 'Java Puzzle Applet - Errors',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - Errors',
+		'topic' => 'puzzle'
+	));
 
 ?>
 
@@ -25,7 +26,7 @@ If you aren't there, you can't debug why the software is messing up.</p>
    what it could be, otherwise I would have used a better error message.</LI> 
 </UL>
 
-<?PHP Section('Known Bugs'); ?>
+<?php Section('Known Bugs'); ?>
 
 <P>I hate to say this, but there are known bugs. However, I can't do
 anything more about them, so I consider them resolved.</P>
@@ -49,6 +50,6 @@ anything more about them, so I consider them resolved.</P>
    sending the applet to people with really fast computers.</LI> 
 </UL>
 
-<?PHP
+<?php
 
 StandardFooter();

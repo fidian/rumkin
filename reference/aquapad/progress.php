@@ -1,7 +1,8 @@
-<?PHP  // -*- text -*-
+<?php
 
+
+// -*- text -*-
 include './functions.inc';
-
 AquaStart('My Progress');
 
 ?>
@@ -25,7 +26,7 @@ assistance that anyone would be willing to offer.</p>
 </ul>
 
 
-<?PHP Section('Goals', 'goals'); ?>
+<?php Section('Goals', 'goals'); ?>
 
 <ul>
 <li>Upgrade to Linux 2.6.x
@@ -50,7 +51,7 @@ get some version of Windows to work.
 </ul>
 
 
-<?PHP Section('Current Status', 'status'); ?>
+<?php Section('Current Status', 'status'); ?>
 
 <p>I installed Gentoo to the microdrive and compiled enough to get it to
 boot.  I need to test my new kernel line (added <tt>noapic</tt>) and
@@ -58,7 +59,7 @@ install/upgrade several packages.  Once that boots, I'll be on my way to
 X.org.</p>
 
 
-<?PHP Section('Useful Information', 'info'); ?>
+<?php Section('Useful Information', 'info'); ?>
 
 <p>The <a href="http://linuxfromscratch.org">Linux from Scratch</a> 
 cookbook with a few pointers from the <a
@@ -77,7 +78,7 @@ that the code won't run on non-i686 machines, but that's fine for me since I
 am compiling things on my i686 desktop machine or on my tablet.</p>
 
 
-<?PHP Section('History', 'history'); ?>
+<?php Section('History', 'history'); ?>
 
 <dl>
 
@@ -127,13 +128,10 @@ install Debian or something on the tablet.  I'm not.  I want the latest,
 greatest, and most optimized for my tiny processor and 128M RAM.
 
 <ul>
-<li><?= l('http://www.lugatgt.org/articles/smallfootprint/',
-'Linux on small footprints') ?>
-<li><?= l('http://linuxgazette.net/102/piszcz.html',
-'Filesystem comparison') ?>
+<li><?php echo l('http://www.lugatgt.org/articles/smallfootprint/', 'Linux on small footprints') ?>
+<li><?php echo l('http://linuxgazette.net/102/piszcz.html', 'Filesystem comparison') ?>
 <li>Hints how to get 
-<?= l('http://linuxfromscratch.org/pipermail/hints/2004-March/002408.html',
-'2.6.x kernels running with udev and sysfs.') ?>
+<?php echo l('http://linuxfromscratch.org/pipermail/hints/2004-March/002408.html', '2.6.x kernels running with udev and sysfs.') ?>
 </ul>
 
 <dt><b>2004-08-01</b>
@@ -247,6 +245,6 @@ project.  Debian, testing.</dd>
 
 </dl>
 
-<?PHP
+<?php
 
 AquaStop();

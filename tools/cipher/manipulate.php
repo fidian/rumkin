@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Text Manipulator',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Text Manipulator',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>Need to change something from lowercase to uppercase?  Count the letters,
@@ -68,19 +70,17 @@ the links to change things around.</p>
 <br><b>Other Things:</b> <a href="#" onclick="return T_Reverse()">Reverse</a>
 </p>
 </form>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/friedman.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -368,5 +368,6 @@ function upd()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

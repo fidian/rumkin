@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Extracting Novell SDIF Backups',
-		     'header' => 'Novell Backups',
-		     'topic' => 'sdif'));
+StandardHeader(array(
+		'title' => 'Extracting Novell SDIF Backups',
+		'header' => 'Novell Backups',
+		'topic' => 'sdif'
+	));
 
 ?>
 
@@ -49,7 +50,7 @@ href="extract_sdif_data.c">extract_sdif_data.c</a></p>
 <p>To run it, just specify the SDIF file to pull the data from:<br>
 <tt>./extract_sdif_data file.sdif</tt></p>
 
-<?PHP Section('Links'); ?>
+<?php Section('Links'); ?>
 
 <ul>
 <li><a
@@ -61,6 +62,6 @@ Take on Compression Documentation</a> - It isn't likely that they will ever
 allow the public to know how they decompress the data on their servers.
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

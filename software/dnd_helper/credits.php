@@ -1,11 +1,12 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Tools
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'Credits',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Tools
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Credits',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -23,13 +24,13 @@ a lot of sway on how the program looks and what goes into it.</dd>
 -- Gave me permission to use the critical hit and fumble tables from <a
 href="http://www.dndadventure.com">dndadventure.com</a> as long as I don't
 charge for anything.</dd>
-<dd>Scott Crawford &lt;<?PHP HideEmail('scott', 'crawford.net') ?>&gt;
+<dd>Scott Crawford &lt;<?php HideEmail('scott', 'crawford.net') ?>&gt;
 -- Created <a href="http://bellsouthpwp.net/s/c/scraw68/">D&amp;D Tools</a>, 
 which I thought was a good start but didn't go far enough.  He also gave me
 the source to his program so that I could improve mine.  Great guy!</dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

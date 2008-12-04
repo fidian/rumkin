@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Make Your Own Desiccant - Remove Humidity',
-		     'heading' => 'Make Your Own Desiccant',
-		     'topic' => 'desiccant'));
+StandardHeader(array(
+		'title' => 'Make Your Own Desiccant - Remove Humidity',
+		'heading' => 'Make Your Own Desiccant',
+		'topic' => 'desiccant'
+	));
 
 ?>
 
@@ -21,7 +22,7 @@ suggested I check out a marine supply shop.<p>
 were to just make my own.  Because I did not see many other sites out there
 that said how to do this, I also wrote up this page to help others.</p>
 
-<?PHP Section('Background'); ?>
+<?php Section('Background'); ?>
 
 <p>A desiccant (or sometimes misspelled as a dessicant) is a material that
 removes moisture from the air.  It does this through a process called
@@ -43,7 +44,7 @@ sticking it in an oven (see below).</p>
 bag, or other similar device.  Heck, you can just put the silica gel into a
 paper cup and that may be good enough.</p>
 
-<?PHP Section('Warnings'); ?>
+<?php Section('Warnings'); ?>
 
 <p>If you can't sew or use sharp objects, just stop here.</p>
 
@@ -52,7 +53,7 @@ you wash your hands after use, you should basically be safe.  If you start
 caughing, you're probably breathing in too much dust.
 A chemical sheet on silica gel crystals would say the following:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span style="font-size: 1.2em">
 May cause mechanical irritation to the eyes and skin.<br>
 May cause irritation of the digestive tract if ingested.<br>
@@ -62,12 +63,12 @@ Prolonged exposure to inhaled dust may cause delayed lung injury/fibrosis
 <a href="http://www.atmos.umd.edu/~russ/MSDS/silicagel28200.html">More
 Information</a>
 </span>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>But really, the stuff is pretty darn safe, otherwise I would certainly
 not use it in my geocache.</p>
 
-<?PHP Section('Materials Needed'); ?>
+<?php Section('Materials Needed'); ?>
 
 <p><a href="media/PICT1294b.JPG"><img src="media/PICT1294b.jpg" align="right"></a>
 These instructions tell you how to create a desiccant bag.  Other tips are
@@ -94,7 +95,7 @@ crystals.</p>
 can.  This is just a basic pocket or bean bag, so you can hand sew it if you
 like.
 
-<?PHP Section('Create A Pocket And Fill It'); ?>
+<?php Section('Create A Pocket And Fill It'); ?>
 
 <p><a href="media/PICT1295b.JPG"><img src="media/PICT1295b.jpg" align="left"></a>
 <a href="media/PICT1296b.JPG"><img src="media/PICT1296b.jpg" align="right"></a>
@@ -114,7 +115,7 @@ and that made things very hard when sewing that last side.</p>
 
 <p>Fold in your top side and pin it shut.  Sew.</p>
 
-<?PHP Section('Finished Product'); ?>
+<?php Section('Finished Product'); ?>
 
 <p align=center>
 <a href="media/PICT1297b.JPG"><img src="media/PICT1297b.jpg"></a>
@@ -128,7 +129,7 @@ the enlarged version of the vinyl side, you can maybe see these tiny blue
 specks in the white crystals, which will turn pink by the next time I see
 them.</p>
 
-<?PHP Section('Other Tips'); ?>
+<?php Section('Other Tips'); ?>
 
 <p>If you want to make a container of sorts, you first need to find one that
 can hold the silica gel crystals without letting too much out.  I used old
@@ -148,6 +149,6 @@ from three to five hours, and you will want to have all of the indicator
 crystals turn blue again.  Don't turn it up too hot or you may ruin your
 container, destroy the crystals, or start your house on fire.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

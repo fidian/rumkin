@@ -1,11 +1,12 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Helper
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'D&amp;D Helper',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Helper
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'D&amp;D Helper',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -36,6 +37,6 @@ and the other slew of books that you have on your gaming table.  Just keep
 your dice in your bag if you need to roll 10d6 fireball, whip out a magic
 item for treasure, or maybe find a new name for a character.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

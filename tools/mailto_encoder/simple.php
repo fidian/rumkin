@@ -1,20 +1,23 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
 
-function Insert_JS()
-{
-    ?>
+
+function Insert_JS() {
+	
+	?>
 <SCRIPT LANGUAGE="javascript" type='text/javascript' src="email.js"></SCRIPT>
 <SCRIPT LANGUAGE="javascript" type='text/javascript' src="simple.js"></SCRIPT>
-<?PHP
+<?php
 }
 
-StandardHeader(array('title' => 'Mailto Encoder',
-                     'header' => 'Simple Mailto Encoder',
-		     'topic' => 'mailto',
-		     'callback' => 'Insert_JS'));
-		     
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'Simple Mailto Encoder',
+		'topic' => 'mailto',
+		'callback' => 'Insert_JS'
+	));
+
 ?>
 
 <p>This is a greatly simplified version of the <a
@@ -32,7 +35,7 @@ address.</p>
 
 <FORM NAME="MailtoForm" METHOD="POST" ACTION="javascript:RunEncode();">
 
-<?PHP Section('Step 1:  Email Address'); ?>
+<?php Section('Step 1:  Email Address'); ?>
 
 <p>Please enter your email address here.  You can feel safe about
 typing it in here because all of the processing is done on your
@@ -46,7 +49,7 @@ computer and it does not relay any information to any other computer.</p>
 </tr>
 </table>
 
-<?PHP Section('Step 2:  Link Text (Optional)'); ?>
+<?php Section('Step 2:  Link Text (Optional)'); ?>
 
 <p>If you want your name or some other text displayed as the link instead of
 your email address, just enter it here.  If this is blank, the link will
@@ -60,11 +63,11 @@ show your email address, which is usually what you want.</p>
 </tr>
 </table>
 
-<?PHP Section('Step 3: Press The Button'); ?>
+<?php Section('Step 3: Press The Button'); ?>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <INPUT TYPE="SUBMIT" VALUE="Encode Address">
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p><B>Your final HTML code is:</B><BR>
 <textarea name="CodeText" rows=5 cols=70 wrap=soft></TEXTAREA>
@@ -87,6 +90,6 @@ whatever.  Just please give me credit by mentioning my name (Tyler
 Akins) and provide a link to my site (<a
 href="http://rumkin.com/tools/mailto_encoder">http://rumkin.com/tools/mailto_encoder</a>).</p>
 
-<?PHP
+<?php
 
 StandardFooter();

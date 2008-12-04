@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Double Transposition',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Double Transposition',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>A double transposition, also known as a double columnar transposition,
@@ -32,18 +34,17 @@ The resulting columnar key:  <b><span id='colkey2_out'></span></b></p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
-MakeBoxBottom();
+<?php
 
+MakeBoxBottom();
 StandardFooter();
 
 
-
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/coltrans.js"></script>
 <script language="JavaScript"><!--
@@ -149,5 +150,6 @@ function load_k3()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

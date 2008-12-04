@@ -1,11 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <p>Lots of older phones don't support MP3 files.  Some of the newer phones
@@ -14,7 +15,7 @@ file to your phone and guarantee that it will work.  However, please
 feel free to try, and I wish you luck.</p>
 
 <p>Phones that do not work can give you an error message such as
-<?PHP echo FAQLink('e907', 'Data Error 907') ?>, or they might say that you need
+<?php echo FAQLink('e907', 'Data Error 907') ?>, or they might say that you need
 an additional plugin in order to handle that particular MIME type.  As far
 as I know, you won't be able to get any additional plugins for you phone.</p>
 
@@ -36,7 +37,7 @@ make ringers for other phones by saving the modified MP3 file and using the
 uploader to send it to different phones.</p>
 
 <p>If you have a Sprint phone, you can try to convert the sound clip into
-<?PHP echo FAQLink('qcp', 'QCP format') ?> and see if that works.</p>
+<?php echo FAQLink('qcp', 'QCP format') ?> and see if that works.</p>
 
 <p>If you have an LG phone (like the PM-225 or 5350), you can just rename
 the file from an .mp3 to .qcp and try uploading that.  It turns out that LG

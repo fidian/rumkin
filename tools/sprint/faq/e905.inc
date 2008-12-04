@@ -1,11 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <p>This error pops up for many odd reasons.  I'll try to cover all of the
@@ -19,9 +20,9 @@ sending.</p>
 progressive encoding.  Also, you do not want EXIF information saved in the
 .jpg file.</p>
 
-<p><b>Bad <?PHP echo FAQLink('gcd', 'GCD') ?> File</b> - Double-check all of the 
+<p><b>Bad <?php echo FAQLink('gcd', 'GCD') ?> File</b> - Double-check all of the 
 information there (Content-Size, Content-Type, etc.) and verify that
-the <?PHP echo FAQLink('gcd', 'GCD') ?> file only has LF newlines (Unix/Linux 
+the <?php echo FAQLink('gcd', 'GCD') ?> file only has LF newlines (Unix/Linux 
 style) and not CR/LF (DOS/Windows style) or just CR (Macintosh).  
 <i>(This won't happen if you are using this uploader.)</i></p>
 

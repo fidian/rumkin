@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('Knoppix On An Aquapad');
 
 ?>
@@ -41,18 +40,18 @@ they are, how to use, etc).
   <li>Download my <a href="media/lilo-conf.zip">Lilo Setup</a>
   <li>Extract it on the CF card
   <li>Edit etc/lilo.conf to set it up for your system.  Here's some notes:
-  <?PHP MakeBoxTop('center'); ?>
-  <tt>boot=/dev/sda <?= N("device in host system") ?><br>
+  <?php MakeBoxTop('center'); ?>
+  <tt>boot=/dev/sda <?php echo N('device in host system') ?><br>
   read-only<br>
-  root=/dev/hdc1 <?= N("device in aquapad") ?><br>
+  root=/dev/hdc1 <?php echo N('device in aquapad') ?><br>
   <br>
-  image=/boot/vmlinuz <?= N("relative to root of CF card") ?><br>
-  root=/dev/hdc1 <?= N("device in aqupad") ?><br>
+  image=/boot/vmlinuz <?php echo N('relative to root of CF card') ?><br>
+  root=/dev/hdc1 <?php echo N('device in aqupad') ?><br>
   label=Knoppix<br>
   read-only<br>
   initrd=/boot/miniroot.gz<br>
-  append="lang=us 2 noeject" <?= N("additional parameters") ?></tt>
-  <?PHP MakeBoxBottom(); ?>
+  append="lang=us 2 noeject" <?php echo N('additional parameters') ?></tt>
+  <?php MakeBoxBottom(); ?>
   <li>Note that I moved the miniroot.gz and vmlinuz files to the boot
   directory.  You can put them wherever you like.
   <li>You may need to make the target device node in /dev.  You can either
@@ -82,12 +81,12 @@ href="http://linuxdevices.com/articles/AT4540125636.html">Embedding Debian
 in 32MB CF</a> an interesting read ... especially since we are trying to do
 about the same thing.
 
-<?PHP
+<?php
 
 AquaStop();
 
 
-function N($str)
-{
-   return "<font color=red><b>* " . htmlspecialchars($str) . "</b></font>";
+function N($str) {
+	return '<font color=red><b>* ' . htmlspecialchars($str) . '</b></font>';
 }
+

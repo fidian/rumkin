@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'USBStart',
-		     'topic' => 'flash'));
+StandardHeader(array(
+		'title' => 'USBStart',
+		'topic' => 'flash'
+	));
 
 ?>
 
@@ -12,7 +13,7 @@ well with <a href="http://www.archidune.com/apo/">APO USB Autorun</a>, which
 is a free program that will add the autorun functionality to any earlier
 version of Windows that supports flash drives (Windows 98 and up).</p>
 
-<?PHP Section('Description') ?>
+<?php Section('Description') ?>
 
 <p>USBStart will run a program when it starts, then unmount the flash drive
 when that program finishes.  I use it to run <a
@@ -27,7 +28,7 @@ flash drive set up properly, you need to just stick in your jump drive and
 the menu will start.  Run programs and do your thing, and finally close the
 menu to dismount the flash drive.  It couldn't be much simpler.</p>
 
-<?PHP Section('Setup') ?>
+<?php Section('Setup') ?>
 
 <p>Here are the suggested steps to get your flash drive working like mine.</p>
 
@@ -52,7 +53,7 @@ and have the autorun start up the floating menu.  When you close the menu,
 the flash drive should be dismounted automatically and you can remove it
 safely from the computer.</p>
 
-<?PHP Section('autorun.inf') ?>
+<?php Section('autorun.inf') ?>
 
 <p>Right-click and create a new text file.  Name it autorun.inf.  Make sure
 that you have file extensions turned on; that way you won't accidentally
@@ -61,7 +62,7 @@ time.</p>
 
 <p>In that file, add these lines:</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>[autorun]
 open=Utils\USBStart.exe
 action=Open Floating Menu
@@ -69,18 +70,18 @@ action=Open Floating Menu
 shell\Floating Menu=Floating Menu
 shell\Floating Menu\command=USBStart.exe
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>There are other things you can add to this file, but the lines above will
 be enough to get it to work.</p>
 
-<?PHP Section('Download') ?>
+<?php Section('Download') ?>
 
 <p><b><a href="media/usbstart.zip">usbstart.zip</a></b>
-(<?= FidianFileSize(getenv('MEDIABASE') . 'software/usbstart/usbstart.zip') ?>) - The program, deveject (with .cpp
+(<?php echo FidianFileSize(getenv('MEDIABASE') . 'software/usbstart/usbstart.zip') ?>) - The program, deveject (with .cpp
 source), and <a href="http://nsis.sourceforge.net/">NSIS</a> source to
 USBStart.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

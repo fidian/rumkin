@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Links',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Links',
+		'topic' => 'guns'
+	));
 
 ?>
 
@@ -52,6 +53,6 @@ that shows how proper ballistic gel should be prepared and tested.
 Penetration Testing</a> - Explains how gelatin blocks are used for the FBI's
 ballistic testing.
 
-<?PHP
+<?php
 
 StandardFooter();

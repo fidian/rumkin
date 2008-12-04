@@ -6,7 +6,7 @@ of Energy.  I think it has potential.</p>
 <p>Below is a mirror of the web page, and you can also obtain a copy of the
 <a href="water_hardness/fta_nonchem.pdf">PDF version</a> from my web site.</p>
 
-<?= Separator() ?>
+<?php echo Separator() ?>
 
 <IMG height=130 src="water_hardness/fta.gif" width=375> <BR>
   <FONT size=-1><a name="top">The</a> U.S. Department of Energy requests that no 
@@ -1138,18 +1138,18 @@ href="#top">To top of page</A>
 Manager<BR>Federal Energy Management Program<BR>U.S. Department of 
 Energy<BR>1000 Independence Avenue, SW, EE-92<BR>Washington, DC 20585<BR>(202) 
 586-8017<BR>Fax: (202) 586-3000<BR>
-<?PHP HideEmail('theodore.collins', 'hq.doe.gov'); ?></ADDRESS>
+<?php HideEmail('theodore.collins', 'hq.doe.gov'); ?></ADDRESS>
 <P>
 <ADDRESS>Steven A. Parker<BR>Pacific Northwest National Laboratory<BR>P.O. Box 
 999, MSIN: K5-08<BR>Richland, Washington 99352<BR>(509) 375-6366<BR>Fax: (509) 
-375-3614<BR><?PHP HideEmail('steven.parker', 'pnl.gov') ?>
+375-3614<BR><?php HideEmail('steven.parker', 'pnl.gov') ?>
 </ADDRESS>
 <P></P>
 <H3>Technical Contact</H3>
 <P>
 <ADDRESS>David Evers<BR>Battelle Columbus Operations<BR>505 King 
 Avenue<BR>Columbus, Ohio 43201<BR>(614) 424-4921<BR>
-<?PHP HideEmail('dave.evers', 'bco.gov') ?></ADDRESS>
+<?php HideEmail('dave.evers', 'bco.gov') ?></ADDRESS>
 <P></P>
 <P><BR>
   Produced for the U.S. Department of Energy by Battelle 

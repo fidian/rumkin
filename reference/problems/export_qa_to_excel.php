@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Query Analyzer to Excel',
+		'topic' => 'Problems'
+	));
 
-StandardHeader(array('title' => 'Query Analyzer to Excel',
-		     'topic' => 'Problems'));
-		     
 ?>
 	
 <p><b><font size="+1">Symptom:</font></b>  You are running Microsoft SQL
@@ -44,6 +45,6 @@ returned.  You'll likely want to delete this line.
 zeros, dates, and other things.  You might need to perform additional tweaks
 to get the results to display in the .csv file exactly how you need it.
 
-<?PHP
+<?php
 
 StandardFooter();

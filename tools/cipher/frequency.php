@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Frequency Analysis',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Frequency Analysis',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>One way to tell if you have a "transposition" style of cipher instead of
@@ -20,19 +22,17 @@ onclick="insert_sample(0); return false">sample text</a> for you.</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>Result:</p>
-<?PHP MakeBoxTop('center', 'width: 75%'); ?>
+<?php MakeBoxTop('center', 'width: 75%'); ?>
 <span id='output'></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/friedman.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -177,5 +177,6 @@ function show_graph(lett, valu)
 window.setTimeout('start_update()', 100);
       
 // --></script>
-<?PHP
+<?php
 }
+

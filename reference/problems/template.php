@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => '',
-		     'topic' => 'problems'));
+StandardHeader(array(
+		'title' => '',
+		'topic' => 'problems'
+	));
 
 ?>
 	
@@ -26,6 +27,6 @@ Optional section.
 <li>Links go here.  Optional section.</li>
 </ol>
 
-<?PHP
+<?php
 
 StandardFooter();

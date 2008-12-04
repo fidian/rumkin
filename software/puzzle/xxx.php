@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-                     'header' => 'Java Puzzle Applet - Non G-Rated Examples',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - Non G-Rated Examples',
+		'topic' => 'puzzle'
+	));
 
 ?>
 <P>Back to the <A HREF="index.php">Main Page</A></P>
@@ -18,6 +19,6 @@ pornography and won't be offended or anything on the web.</P>
 <li><a href="http://www.mariaeugeniarito.com/merito/games.shtml">
    Maria Eugenio Rito Official Website</a></li>
 </UL>
-<?PHP
+<?php
 
 StandardFooter();

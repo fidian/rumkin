@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Tape Tools', 
-                     'header' => 'Using Tapes under Linux',
-		     'topic' => 'tapes'));
+StandardHeader(array(
+		'title' => 'Tape Tools',
+		'header' => 'Using Tapes under Linux',
+		'topic' => 'tapes'
+	));
 
 ?>
 	
@@ -106,6 +107,6 @@ the simplistic tools that I wrote should get you off to a good start.
 Perhaps you can find more help at <a
 href="http://pcunix.com/Unixart/tapes.html">http://pcunix.com/Unixart/tapes.html</a>.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

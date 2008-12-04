@@ -1,11 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <p>If the file you sent to your phone gets placed in the wrong folder, that

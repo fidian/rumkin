@@ -1,25 +1,26 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <p>Yes, but nobody seems to know for how long.  If you are writing your own
-uploader and you change the data in a <?PHP echo FAQLink('gcd', 'GCD') ?> file or
+uploader and you change the data in a <?php echo FAQLink('gcd', 'GCD') ?> file or
 change the data in the actual file you wish to transmit, the easiest thing 
 to do is to change the file name.  Sprint's proxy caches both the
-<?PHP echo FAQLink('gcd', 'GCD') ?> file and the target file.  If you try to
+<?php echo FAQLink('gcd', 'GCD') ?> file and the target file.  If you try to
 test a file and forget to upload it and Sprint's servers got a 404 error,
 then you will not get good results by just uploading the file and trying
 again.  Sprint's servers will remember that it got a 404 error and won't 
 try again.</p>
 
 <p>It's a royal pain in the butt, however it has an easy workaround.  Rename
-both the <?PHP echo FAQLink('gcd', 'GCD') ?> file and the target file each time you
+both the <?php echo FAQLink('gcd', 'GCD') ?> file and the target file each time you
 change either one.  Then try to download it again.</p>
 
 <p>According to the Sprint Developer Forums, you can also use the

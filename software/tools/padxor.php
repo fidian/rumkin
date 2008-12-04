@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('topic' => 'tools',
-		     'title' => 'One Time Pad XOR'));
+StandardHeader(array(
+		'topic' => 'tools',
+		'title' => 'One Time Pad XOR'
+	));
 
 ?>
 
@@ -21,7 +22,7 @@ mine does.</p>
 
 <p>These tools also work on Linux, for people like me.</p>
 
-<?PHP Section('Generating a one time pad'); ?>
+<?php Section('Generating a one time pad'); ?>
 
 <p>Just like on the Unbreakable site, you use the following syntax:</p>
 
@@ -44,7 +45,7 @@ generate a pad file that is just a bit smaller than half the size of the
 input files.  Plan accordingly.  It is good to have a pad file be bigger
 than the file you wish to encrypt, but not 100% necessary for these tools.</p>
 
-<?PHP Section('Encrypting and decrypting'); ?>
+<?php Section('Encrypting and decrypting'); ?>
 
 <p>This tool is similar to the one on the Unbreakable site, but I decided to
 make a few parameters for it.</p>
@@ -93,7 +94,7 @@ section below.</p>
 Change the -x value every time you loop through the key file.  See the
 "Funky Ideas" section below.</p>
 
-<?PHP Section('Example'); ?>
+<?php Section('Example'); ?>
 
 <p>This example is designed to be just like the one on Unbreakable, but for
 my tools.</p>
@@ -109,7 +110,7 @@ something like:</p>
 <p><tt>padxor -s 12047 -b otp.cs mypad.bin otp.cs.enc<br>
 padxor -s 12047 -b otp.cs mypad.bin otp.cs.enc</tt></p>
 
-<?PHP Section('Secure deletion of the one time pad'); ?>
+<?php Section('Secure deletion of the one time pad'); ?>
 
 <p>The "wipe" tool just writes random-ish data over and over and over and
 over on the file.  This may not work, depending on the file system -- some
@@ -118,7 +119,7 @@ the disk.  However, for DOS, this would work fine.</p>
 
 <p><tt>wipe some_file.bin</tt></p>
 
-<?PHP Section('Alternate pad generation'); ?>
+<?php Section('Alternate pad generation'); ?>
 
 <p>Since padgen uses the rand() function, and that has been proven to be not
 a good source for random data, you might want to edit the program and use a
@@ -162,7 +163,7 @@ good as the best source.  So, if you have many different programs generate
 pad files for you and you xor them together, the strength of the resulting
 file will be as strong, bit for bit, as the best source of data.</p>
 
-<?PHP Section('Funky ideas'); ?>
+<?php Section('Funky ideas'); ?>
 
 <p>This is NOT good security.  These things were implemented to make
 retrieval of the data by a random visitor impossible, but the NSA would
@@ -197,12 +198,12 @@ that the -x, -i, and -r options wouldn't be that useful for our purposes.
 Thus, development was stopped with them, but I left them in the program just
 in case you wanted to use them.</p>
 
-<?PHP Section('Download'); ?>
+<?php Section('Download'); ?>
 
 <p><a href="padxor.zip">padxor.zip</a> contains the source code that
 compiles on several platforms, and includes DOS executables.</p>
 
-<?PHP Section('Links'); ?>
+<?php Section('Links'); ?>
 
 <ul>
 <li><a href="http://www.aspheute.com/english/20010924.asp">Unbreakable
@@ -217,6 +218,6 @@ random data
 Sequence Test Program</a> - Home of "ent"
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

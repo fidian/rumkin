@@ -1,15 +1,16 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Email Validation RFC Rules',
+		'topic' => 'email'
+	));
 
-StandardHeader(array('title' => 'Email Validation RFC Rules',
-		'topic' => 'email'));
-		
 ?>
 
 <p>Here are the rules as copied from the specified RFCs.  If you are trying to say that an email should or should not validate, make sure that the rules support what you are saying.</p>
 
-<?PHP Section('RFC 2822') ?>
+<?php Section('RFC 2822') ?>
 
 <pre>addr-spec       =       local-part "@" domain
 
@@ -108,7 +109,7 @@ atom            =       [CFWS] 1*atext [CFWS]
 word            =       atom / quoted-string
 </pre>
 
-<?PHP Section('RFC 1035, section 2.3.1') ?>
+<?php Section('RFC 1035, section 2.3.1') ?>
 
 <p>RFC 1123 relaxed the definition of "label", reflected below.</p>
 
@@ -123,6 +124,6 @@ let-dig-hyp     =       1*let-dig "-"
 
 let-dig         =       ALPHA / DIGIT
 </pre>
-<?PHP
+<?php
 
 StandardFooter();

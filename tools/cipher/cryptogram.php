@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Cryptogram Assistant',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Cryptogram Assistant',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>This is a JavaScript 1.2 implementation of a letter-pair replacement
@@ -27,22 +29,21 @@ onclick="WriteTable(false); return false">reset the letters</a>.</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>Result:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <div id='recode'></div>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 <p><a href="caesar-keyed.php">Keyed Caesar</a> alphabet:
 <span id="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</span><br>
 Or a decode alphabet: <span
 id="alphabet2">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</span></p>
-<?PHP
+<?php
 
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
 // Feel free to use this code if you so desire.
@@ -339,27 +340,29 @@ function WriteTable(AdvMode)
 	    '" onClick="LockField(this.name)">';
 	 s += '<br><select style="font-size: 0.8em" name="COL_' + c + 
 	    '" onClick="Colorize(this.name, this.value)">';
-<?PHP
-   foreach (array('white' => 'White',
-                  '#FF9999' => 'Red',
-   	   	  'pink' => 'Pink',
-		  '#FF7F50' => 'Coral',
-		  '#F4A460' => 'Sand',
-		  '#DEB887' => 'Wood',
-		  '#F0E68C' => 'Khaki',
-                  'yellow' => 'Yellow',
-		  '#7FFF00' => 'Lime',
-		  'lightgreen' => 'Lt. Green',
-		  'cyan' => 'Cyan',
-		  'LightBlue' => 'Lt. Blue',
-		  'aqua' => 'Aqua',
-		  'violet' => 'Violet',
-		  '#c0c0c0' => 'Silver') as $k => $v)
-   {
-      echo 's += \'<option value="' . $k . '" style="background-color: ' .
-         $k . '">' . htmlspecialchars($v) . '</option>\';' . "\n";
-   }
-?>
+<?php
+	
+	foreach (array(
+			'white' => 'White',
+			'#FF9999' => 'Red',
+			'pink' => 'Pink',
+			'#FF7F50' => 'Coral',
+			'#F4A460' => 'Sand',
+			'#DEB887' => 'Wood',
+			'#F0E68C' => 'Khaki',
+			'yellow' => 'Yellow',
+			'#7FFF00' => 'Lime',
+			'lightgreen' => 'Lt. Green',
+			'cyan' => 'Cyan',
+			'LightBlue' => 'Lt. Blue',
+			'aqua' => 'Aqua',
+			'violet' => 'Violet',
+			'#c0c0c0' => 'Silver'
+		) as $k => $v) {
+		echo 's += \'<option value="' . $k . '" style="background-color: ' . $k . '">' . htmlspecialchars($v) . '</option>\';' . "\n";
+	}
+	
+	?>
 
 	 s += '</select></span>';
       }
@@ -425,5 +428,6 @@ function start_update()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

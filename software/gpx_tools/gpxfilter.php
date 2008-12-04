@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'GPX Tools for Geocaching',
-		     'header' => 'GPX Tools: gpxfilter',
-		     'topic' => 'gpx_tools'));
+StandardHeader(array(
+		'title' => 'GPX Tools for Geocaching',
+		'header' => 'GPX Tools: gpxfilter',
+		'topic' => 'gpx_tools'
+	));
 
 ?>
 
@@ -12,20 +13,20 @@ StandardHeader(array('title' => 'GPX Tools for Geocaching',
 This can be used to limit your geocaches by difficulty, terrain, size, and
 cache type.</p>
 
-<?PHP Section('Command Line Syntax'); ?>
+<?php Section('Command Line Syntax'); ?>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <tt>gpxfilter gpx_in.gpx gpx_out.gpx [filter [filter [...]]]</tt><br>
 <br>
 <i>Example:</i><br>
 <tt>gpxfilter my_query.gpx filtered_list.gpx -maxterr 2 -mindiff 3.5 -size
 MSRL -type TU</tt>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>You can use "-" instead of gpx_in.gpx and gpx_out.gpx to use stdin or
 stdout instead of an actual file.</p>
 
-<?PHP Section('Filters') ?>
+<?php Section('Filters') ?>
 
 <dl>
 
@@ -67,6 +68,6 @@ TMW</i></dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Columnar Transposition',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Columnar Transposition',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>A columnar transposition, also known as a row-column transpose,
@@ -74,18 +76,17 @@ The resulting columnar key:  <b><span id='colkey_out'></span></b></p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
-MakeBoxBottom();
+<?php
 
+MakeBoxBottom();
 StandardFooter();
 
 
-
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/coltrans.js"></script>
 <script language="JavaScript"><!--
@@ -192,5 +193,6 @@ function start_update()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

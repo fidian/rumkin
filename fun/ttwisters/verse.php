@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Verse',
-		     'heading' => 'Verse Tongue Twisters',
-		     'topic' => 'ttwisters'));
+StandardHeader(array(
+		'title' => 'Verse',
+		'heading' => 'Verse Tongue Twisters',
+		'topic' => 'ttwisters'
+	));
 
 ?>
 
@@ -14,7 +15,7 @@ its own unique variations.  Check out the links for other tongue twister
 pages.</p>
 
 
-<?PHP Section('Verse'); ?>
+<?php Section('Verse'); ?>
 
 <p>A tutor who tooted the flute<br>
 Tried to tutor two tutors to toot.<br>
@@ -146,6 +147,6 @@ When One-One won one race,<br>
 Two-two won one too.</p>
 
 
-<?PHP
+<?php
 
 StandardFooter();

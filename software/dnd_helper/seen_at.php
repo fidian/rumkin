@@ -1,11 +1,12 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Tools
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'Also Seen At',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Tools
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Also Seen At',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -25,7 +26,7 @@ submitted about this software.</p>
    RPGIndex</a>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();
 

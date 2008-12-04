@@ -1,170 +1,204 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
 $GLOBALS['Scripts'] = array(
-   'Automatic Typing' => array(
-      'Desc' => 'Letters are typed into the status line with the ' .
-                'same delay between each character.',
-      'Func' => 'autotype',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'ScrollDelay' => array('Delay between each letter', 200),
-	 'PauseTime' => array('Time to pause before repeating<br>' .
-	    '(Only if repeating)', 8000),
-      ),
-   ),
-   'Bounce' => array(
-      'Desc' => 'Similar to the Display method, but makes the ' .
-		'message bounce back and forth on the status bar.',
-      'Func' => 'bounce',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'Bounces' => array('How many "bounces"?<br>' .
-	    '(Only if not repeating)', 3),
-	 'ScrollDelay' => array('Delay between movements', 50),
-      ),
-   ),
-   'Cryptography' => array(
-      'Desc' => 'Random letters are put into the status line.  They ' . 
-         'continue to change until they are the right letter for that ' .
-	 'position in your message, or until the maximum number of ' .
-	 'loops occur.  The correct message is always the result.',
-      'Func' => 'crypt',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'Loops' => array('How many guesses until the the correct ' .
-            'message is shown?', 200),
-	 'ScrollDelay' => array('Delay between movements', 50),
-	 'RepeatDelay' => array('Delay between repeats<br>' .
-	    '(Only if repeating)', 8000),
-      ),
-   ),
-   'Display' => array(
-      'Desc' => 'Really simple.  You likely want to use another one.  If ' .
-         'you desperately want something like this, it might be better ' .
-	 'if you edit your <tt>body</tt> tag with the <tt>onload=</tt> ' .
-	 'part resembling this:<br><tt>onload="window.status=\'Your' .
-	 '&nbsp;Message\'"</tt>',
-      'Func' => 'display',
-      'Repeat' => 0, // Does not repeat
-      'Multi' => false,
-      'Keys' => array(),
-   ),
-   'Display Multiple' => array(
-      'Desc' => 'Rotates through a set of messages by merely setting the ' .
-         'status bar to the message (there is no animation of any sort).  ' .
-	 'Time will pass and your second/third/etc. message will show.',
-      'Func' => 'display_multi',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => true,
-      'Keys' => array(
-         'WaitTime' => array('How long to wait between messages', 5000),
-      ),
-   ),
-   'Implode' => array(
-      'Desc' => 'Your message, spread out with spaces between each letter, ' .
-         'gradually have the spaces removed, leaving your message ' .
-	 'complete.  The process can optionally repeat.',
-      'Func' => 'implode',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'ScrollDelay' => array('Delay between movements', 50),
-	 'PauseTime' => array('Delay before repeating<br>' .
-	    '(Only if repeating)', 8000),
-      ),
-   ),
-   'In-Out' => array(
-      'Desc' => 'Scrolls your text in, from the left, pauses a bit and ' .
-         'then scrolls it away.',
-      'Func' => 'in-out',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'PauseTime' => array('How long to show the message', 8000),
-	 'ScrollDelay' => array('Delay between movements', 50),
-	 'HideTime' => array('How long the message should be hidden<br>' .
-	    '(Only if repeating)', 4000),
-      ),
-   ),
-   'In-Out Multi' => array(
-      'Desc' => 'Scrolls your message, a line at a time, just like the ' .
-         'In-Out method.',
-      'Func' => 'in-out_multi',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => true,
-      'Keys' => array(
-         'PauseTime' => array('How long to show the message', 8000),
-	 'ScrollDelay' => array('Delay between movements', 50),
-	 'HideTime' => array('How long the message should be hidden<br>' .
-	    '(Only if repeating)', 2000),
-      ),
-   ),
-   'Realistic Typing' => array(
-      'Desc' => 'It looks somewhat like someone is actually typing ' .
-         'the message on the status bar.  The delay is actually ' .
-	 'a random number between 1 and the maximum delay.',
-      'Func' => 'type',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'ScrollDelay' => array('Maximum delay for typing', 500),
-	 'WaitTime' => array('Delay between repeats<br>' .
-	    '(Only if repeating)', 8000),
-      ),
-   ),
-   'Scroll' => array(
-      'Desc' => 'Scrolls your text from the far right of your ' .
-         'browser window to the far left and off the status bar.',
-      'Func' => 'scroll',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'ScrollDelay' => array('Delay between movements', 50),
-	 'WaitTime' => array('Delay between repeats<br>' .
-	    '(Only if repeating)', 8000),
-      ),
-   ),
-   'Slam' => array(
-      'Desc' => 'Slams the letters, one by one, from the far right ' .
-         'of the status bar into a complete message at the left of ' .
-	 'the bar.',
-      'Func' => 'slam',
-      'Repeat' => 2, // Optionally repeat
-      'Multi' => false,
-      'Keys' => array(
-         'ScrollDelay' => array('Delay between movements', 20),
-	 'Pause' => array('Pause after each "slammed" letter', 100),
-	 'WaitTime' => array('Delay between repeats<br>' .
-	    '(Only if repeating)', 8000),
-      ),
-   ),
+	'Automatic Typing' => array(
+		'Desc' => 'Letters are typed into the status line with the ' . 'same delay between each character.',
+		'Func' => 'autotype',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'ScrollDelay' => array(
+				'Delay between each letter',
+				200
+			),
+			'PauseTime' => array(
+				'Time to pause before repeating<br>' . '(Only if repeating)',
+				8000
+			),
+		),
+	),
+	'Bounce' => array(
+		'Desc' => 'Similar to the Display method, but makes the ' . 'message bounce back and forth on the status bar.',
+		'Func' => 'bounce',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'Bounces' => array(
+				'How many "bounces"?<br>' . '(Only if not repeating)',
+				3
+			),
+			'ScrollDelay' => array(
+				'Delay between movements',
+				50
+			),
+		),
+	),
+	'Cryptography' => array(
+		'Desc' => 'Random letters are put into the status line.  They ' . 'continue to change until they are the right letter for that ' . 'position in your message, or until the maximum number of ' . 'loops occur.  The correct message is always the result.',
+		'Func' => 'crypt',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'Loops' => array(
+				'How many guesses until the the correct ' . 'message is shown?',
+				200
+			),
+			'ScrollDelay' => array(
+				'Delay between movements',
+				50
+			),
+			'RepeatDelay' => array(
+				'Delay between repeats<br>' . '(Only if repeating)',
+				8000
+			),
+		),
+	),
+	'Display' => array(
+		'Desc' => 'Really simple.  You likely want to use another one.  If ' . 'you desperately want something like this, it might be better ' . 'if you edit your <tt>body</tt> tag with the <tt>onload=</tt> ' . 'part resembling this:<br><tt>onload="window.status=\'Your' . '&nbsp;Message\'"</tt>',
+		'Func' => 'display',
+		'Repeat' => 0,  // Does not repeat
+		'Multi' => false,
+		'Keys' => array(),
+	),
+	'Display Multiple' => array(
+		'Desc' => 'Rotates through a set of messages by merely setting the ' . 'status bar to the message (there is no animation of any sort).  ' . 'Time will pass and your second/third/etc. message will show.',
+		'Func' => 'display_multi',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => true,
+		'Keys' => array(
+			'WaitTime' => array(
+				'How long to wait between messages',
+				5000
+			),
+		),
+	),
+	'Implode' => array(
+		'Desc' => 'Your message, spread out with spaces between each letter, ' . 'gradually have the spaces removed, leaving your message ' . 'complete.  The process can optionally repeat.',
+		'Func' => 'implode',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'ScrollDelay' => array(
+				'Delay between movements',
+				50
+			),
+			'PauseTime' => array(
+				'Delay before repeating<br>' . '(Only if repeating)',
+				8000
+			),
+		),
+	),
+	'In-Out' => array(
+		'Desc' => 'Scrolls your text in, from the left, pauses a bit and ' . 'then scrolls it away.',
+		'Func' => 'in-out',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'PauseTime' => array(
+				'How long to show the message',
+				8000
+			),
+			'ScrollDelay' => array(
+				'Delay between movements',
+				50
+			),
+			'HideTime' => array(
+				'How long the message should be hidden<br>' . '(Only if repeating)',
+				4000
+			),
+		),
+	),
+	'In-Out Multi' => array(
+		'Desc' => 'Scrolls your message, a line at a time, just like the ' . 'In-Out method.',
+		'Func' => 'in-out_multi',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => true,
+		'Keys' => array(
+			'PauseTime' => array(
+				'How long to show the message',
+				8000
+			),
+			'ScrollDelay' => array(
+				'Delay between movements',
+				50
+			),
+			'HideTime' => array(
+				'How long the message should be hidden<br>' . '(Only if repeating)',
+				2000
+			),
+		),
+	),
+	'Realistic Typing' => array(
+		'Desc' => 'It looks somewhat like someone is actually typing ' . 'the message on the status bar.  The delay is actually ' . 'a random number between 1 and the maximum delay.',
+		'Func' => 'type',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'ScrollDelay' => array(
+				'Maximum delay for typing',
+				500
+			),
+			'WaitTime' => array(
+				'Delay between repeats<br>' . '(Only if repeating)',
+				8000
+			),
+		),
+	),
+	'Scroll' => array(
+		'Desc' => 'Scrolls your text from the far right of your ' . 'browser window to the far left and off the status bar.',
+		'Func' => 'scroll',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'ScrollDelay' => array(
+				'Delay between movements',
+				50
+			),
+			'WaitTime' => array(
+				'Delay between repeats<br>' . '(Only if repeating)',
+				8000
+			),
+		),
+	),
+	'Slam' => array(
+		'Desc' => 'Slams the letters, one by one, from the far right ' . 'of the status bar into a complete message at the left of ' . 'the bar.',
+		'Func' => 'slam',
+		'Repeat' => 2,  // Optionally repeat
+		'Multi' => false,
+		'Keys' => array(
+			'ScrollDelay' => array(
+				'Delay between movements',
+				20
+			),
+			'Pause' => array(
+				'Pause after each "slammed" letter',
+				100
+			),
+			'WaitTime' => array(
+				'Delay between repeats<br>' . '(Only if repeating)',
+				8000
+			),
+		),
+	),
 );
 
+if (isset($_GET['JS']))$JS = $_GET['JS'];
 
-if (isset($_GET['JS']))
-  $JS = $_GET['JS'];
-if (isset($_POST['JS']))
-  $JS = $_POST['JS'];
+if (isset($_POST['JS']))$JS = $_POST['JS'];
 
-if (isset($JS) && isset($Scripts[$JS]))
-   PrintJSPage($JS);
-else
-   PrintIndex();
+if (isset($JS) && isset($Scripts[$JS]))PrintJSPage($JS);
+else PrintIndex();
 
-////////////////////////////////////////////////////////////////////////////
-
-function PrintIndex()
-{
-
-StandardHeader(array('title' => 'The Great JavaScript Marquee Generator',
-		     'heading' => 'Marquee Generator',
-		     'topic' => 'marquee'));
-?><script language="JavaScript">
+// //////////////////////////////////////////////////////////////////////////
+function PrintIndex() {
+	StandardHeader(array(
+			'title' => 'The Great JavaScript Marquee Generator',
+			'heading' => 'Marquee Generator',
+			'topic' => 'marquee'
+		));
+	
+	?><script language="JavaScript">
 <!-- Hide
 function marquee()
 {
@@ -188,69 +222,75 @@ information, so that the times and the delays are numbers.
 Time is in milliseconds, so 10 is VERY fast, and 2000 is two
 seconds.</p>
 
-<?PHP
-   ksort($GLOBALS['Scripts']);
-   foreach ($GLOBALS['Scripts'] as $Name => $Data) {
-       PrintIndexTable($Name, $Data);
-   }
-
-   StandardFooter();
+<?php
+	
+	ksort($GLOBALS['Scripts']);
+	
+	foreach ($GLOBALS['Scripts'] as $Name => $Data) {
+		PrintIndexTable($Name, $Data);
+	}
+	
+	StandardFooter();
 }
 
+
 function PrintIndexTable($Name, $Data) {
-   if ($Data['Repeat'] > 1) {
-      $repeatInfo = '<input type=checkbox name=Repeat CHECKED> ' .
-         'Repeat Message';
-   } elseif ($Data['Repeat'] == 1) {
-      $repeatInfo = 'Repeating';
-   } else {
-      $repeatInfo = 'Not repeating';
-   }
-?><form method=post action=index.php>
-<input type=hidden name=JS value="<?= htmlspecialchars($Name) ?>">
+	if ($Data['Repeat'] > 1) {
+		$repeatInfo = '<input type=checkbox name=Repeat CHECKED> ' . 'Repeat Message';
+	} elseif ($Data['Repeat'] == 1) {
+		$repeatInfo = 'Repeating';
+	} else {
+		$repeatInfo = 'Not repeating';
+	}
+	
+	?><form method=post action=index.php>
+<input type=hidden name=JS value="<?php echo htmlspecialchars($Name) ?>">
 <table width=\"100%\" border=1>
-<tr><td width=240 bgcolor="#5050FF"><b><?= htmlspecialchars($Name) ?></b><br>
-<?= $repeatInfo ?></td><td bgcolor="#8F8FFF"><?= $Data['Desc'] ?></td></tr>
-<?PHP
-   if ($Data['Multi']) {
-?>
+<tr><td width=240 bgcolor="#5050FF"><b><?php echo htmlspecialchars($Name) ?></b><br>
+<?php echo $repeatInfo ?></td><td bgcolor="#8F8FFF"><?php echo $Data['Desc'] ?></td></tr>
+<?php
+	
+	if ($Data['Multi']) {
+		
+		?>
 <tr><td bgcolor="#FF8F8F">Multiple line message:</td>
 <td bgcolor="#8FFF8F">
 <textarea name="Message" COLS=40 ROWS=3 WRAP=off></textarea></td></tr>
-<?PHP
-   } else {
-?>
+<?php
+	} else {
+		
+		?>
 <tr><td bgcolor="#FF8F8F">Single line message:</td>
 <td bgcolor="#8FFF8F"><input type=text name="Message" size=40></td></tr>
-<?PHP
-   }
-   
-   foreach ($Data['Keys'] as $FormName => $Desc) {
-?>
-<tr><td bgcolor="#FF8F8F"><?= $Desc[0] ?></td>
-<td bgcolor="#8FFF8F"><input type=text name="<?= $FormName 
-?>" size=40 value="<?= $Desc[1] ?>"></td></tr>
-<?PHP
-   }
-?>
+<?php
+	}
+	
+	foreach ($Data['Keys'] as $FormName => $Desc) {
+		
+		?>
+<tr><td bgcolor="#FF8F8F"><?php echo $Desc[0] ?></td>
+<td bgcolor="#8FFF8F"><input type=text name="<?php echo $FormName
+		
+		?>" size=40 value="<?php echo $Desc[1] ?>"></td></tr>
+<?php
+	}
+	
+	?>
 <tr><td colspan=2 align=center bgcolor="#000000"><center>
 <input type=submit value="Generate"></center></td></tr>
 </table></form>
-<?PHP
+<?php
 }
-    
 
-///////////////////////////////////////////////////////////////////////////
-
-function PrintJSPage($Name)
-{
-    
-    StandardHeader(array('title' => 'Marquee Example Page',
-			 'topic' => 'marquee'));
-    
-    $JS = Load_Javascript($GLOBALS['Scripts'][$Name]['Func']);
-   
-?>
+// /////////////////////////////////////////////////////////////////////////
+function PrintJSPage($Name) {
+	StandardHeader(array(
+			'title' => 'Marquee Example Page',
+			'topic' => 'marquee'
+		));
+	$JS = Load_Javascript($GLOBALS['Scripts'][$Name]['Func']);
+	
+	?>
 <h1>JavaScript Code Generated</h1>
 <p>The Great JavaScript Marquee Generator has generated your code.  If you
 look at the status bar on your browser, you will see how your code will look.
@@ -262,99 +302,85 @@ page, just copy the below stuff (starting with the <tt>&lt;script
 language="JavaScript"&gt;</tt> and ending with <tt>&lt;/script&gt;</tt>)
 into your web page.  This is usually stuck immediately after the 
 <tt>&lt;head&gt;</tt> tag.</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <xmp><script language="JavaScript">
 <!-- Begin hide from old browsers
-<?= $JS ?>
+<?php echo $JS ?>
 
 // End hide -->
 </script>
 </xmp>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 <script language="JavaScript">
 <!-- Begin hide from old browsers
-<?= $JS ?>
+<?php echo $JS ?>
 // End hide -->
 </script>
-<?PHP
-    StandardFooter();
-}
-
-
-function Load_Javascript($FName)
-{
-    if ($_POST['Repeat'])
-      $FName .= '_repeat';
-    $FName .= '.js';
-    $String = "";
-    $fp = fopen($FName, "r");
-    while (! feof($fp) && $Line = fgets($fp, 4096))
-    {
-	$String .= ProcessLine($Line);
-    }
-    fclose($fp);
-    
-    return $String;
-}
-
-function ProcessLine($String)
-{
-    $String = str_replace("\r\n", "\n", $String);
-    $String = str_replace("\r", "\n", $String);
-
-    $String = preg_replace('/^(.*)##(.+)##(.*)$/e',
-			   'ProcessKey(\'\\1\', \'\\2\', \'\\3\')', $String);
-      
-    return $String;
-}
-    
-function ProcessKey($First, $String, $Second)
-{
-    if (preg_match('/^MULTI_SETUP:(.*),(.*)$/', $String, $Matches))
-    {
-	$MultiString = $Matches[1];
-	$MultiNum = $Matches[2];
+<?php
 	
-	$s = $_POST['Message'];
-	$s = str_replace("\r\n", "\n", $s);
-	$s = str_replace("\r", "\n", $s);
-	$MultiTemp = explode("\n", $s);
-	$String = "$MultiNum = " . count($MultiTemp) . ";\n";
-	$String .= $First . $MultiString . " = new Array($MultiNum);";
-	$MultiNum = 0;
-	foreach ($MultiTemp as $k)
-	{
-	    $String .= "\n" . $First . $MultiString . "[$MultiNum] = \"" .
-	      $k . "\";";
-	    $MultiNum ++;
-	}
-    }
-    elseif ($String == "RANDOM")
-    {
-	$String = JavaScript_Random();
-    }
-    elseif ($String == "BROWSER_OK")
-    {
-	$String = JavaScript_Browser_Ok();
-    }
-    elseif (isset($_POST[$String]))
-    {
-	$String = $_POST[$String];
-	while (strpos($String, '##') !== false)
-	{
-	    $String = str_replace('##', '#', $String);
-	}
-    }
-  
-    $First = str_replace('\\"', '"', $First);
-    $Second = str_replace('\\"', '"', $Second);
-    return $First . $String . $Second;
+	StandardFooter();
 }
 
-    
-function JavaScript_Random()
-{
-    return "function Random(Range)
+
+function Load_Javascript($FName) {
+	if ($_POST['Repeat'])$FName .= '_repeat';
+	$FName .= '.js';
+	$String = '';
+	$fp = fopen($FName, 'r');
+	
+	while (! feof($fp) && $Line = fgets($fp, 4096)) {
+		$String .= ProcessLine($Line);
+	}
+	
+	fclose($fp);
+	return $String;
+}
+
+
+function ProcessLine($String) {
+	$String = str_replace("\r\n", "\n", $String);
+	$String = str_replace("\r", "\n", $String);
+	$String = preg_replace('/^(.*)##(.+)##(.*)$/e', 'ProcessKey(\'\\1\', \'\\2\', \'\\3\')', $String);
+	return $String;
+}
+
+
+function ProcessKey($First, $String, $Second) {
+	if (preg_match('/^MULTI_SETUP:(.*),(.*)$/', $String, $Matches)) {
+		$MultiString = $Matches[1];
+		$MultiNum = $Matches[2];
+		$s = $_POST['Message'];
+		$s = str_replace("\r\n", "\n", $s);
+		$s = str_replace("\r", "\n", $s);
+		$MultiTemp = explode("\n", $s);
+		$String = "$MultiNum = " . count($MultiTemp) . ";\n";
+		$String .= $First . $MultiString . " = new Array($MultiNum);";
+		$MultiNum = 0;
+		
+		foreach ($MultiTemp as $k) {
+			$String .= "\n" . $First . $MultiString . "[$MultiNum] = \"" . $k . '";';
+			$MultiNum ++;
+		}
+	} elseif ($String == 'RANDOM') {
+		$String = JavaScript_Random();
+	} elseif ($String == 'BROWSER_OK') {
+		$String = JavaScript_Browser_Ok();
+	} elseif (isset($_POST[$String])) {
+		$String = $_POST[$String];
+		
+		while (strpos($String, '##') !== false) {
+			$String = str_replace('##', '#', $String);
+		}
+	}
+	
+	$First = str_replace('\\"', '"', $First);
+	$Second = str_replace('\\"', '"', $Second);
+	return $First . $String . $Second;
+}
+
+
+function JavaScript_Random() {
+	return 'function Random(Range)
 {
   Temp = Math.random() * Range;
   Temp2 = Temp;
@@ -373,16 +399,16 @@ function JavaScript_Random()
   }
   return Temp - Temp2;
 }
-";
+';
 }
 
-    
-function JavaScript_Browser_Ok()
-{
-    return "window.onerror = null
-var browserOK = (((navigator.appName == 'Netscape') &&
+
+function JavaScript_Browser_Ok() {
+	return 'window.onerror = null
+var browserOK = (((navigator.appName == \'Netscape\') &&
                   (parseInt(navigator.appVersion) >= 3)) ||
-		 ((navigator.appName == 'Microsoft Internet Explorer') &&
+		 ((navigator.appName == \'Microsoft Internet Explorer\') &&
 		  (parseInt(navigator.appVersion) >= 4)));
-";
+';
 }
+

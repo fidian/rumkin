@@ -1,7 +1,8 @@
-<?PHP  // -*- php -*-
+<?php
 
+
+// -*- php -*-
 include_once('inc/pass.php');
-
 include_once('inc/auth.php');
 include_once('inc/backlink.php');
 include_once('inc/html.php');

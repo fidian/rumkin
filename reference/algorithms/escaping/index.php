@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../../functions.inc';
-
-StandardHeader(array('title' => 'Escaping',
-		     'topic' => 'algorithms'));
+StandardHeader(array(
+		'title' => 'Escaping',
+		'topic' => 'algorithms'
+	));
 
 ?>
 
@@ -13,7 +14,7 @@ a PHP string of maybe a web page or maybe an error message or whatever, and
 passing the string through to JavaScript to be manipulated in some way or
 another.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>function QuoteForJavaScript($str, $SkipQuotes = false) {
     $R = array("/(&lt;scr)(ipt)/i" =&gt; "$1\"+\"$2",  // Break up "&lt;script" tags
 	       '/\\\\/' =&gt; '\\\\',               // Escape backslashes
@@ -31,13 +32,13 @@ another.</p>
     return $str;
 }
 </pre>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>To use this glorious function, you need to merely pass it a string and
 optionally use the $SkipQuotes parameter.  Here are a few examples of PHP
 writing some JavaScript.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <pre><B>$str = "12345 abcde";
 echo "js_var = " . QuoteForJavaScript($str) . ";\n";</b>
 
@@ -72,11 +73,11 @@ js_var = "This is string number &lt;?= QuoteForJavaScript(1234, true) ?&gt;";
 // the number.
 //
 // <i>js_var = "This is string number 1234";</i>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>Have fun using this function!  Just keep in mind that it isn't designed
 for binary data.  Well, for that matter, JavaScript really isn't either.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

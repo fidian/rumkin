@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Mailto Encoder',
-		     'header' => 'Email Address Encoder',
-		     'topic' => 'mailto'));
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'Email Address Encoder',
+		'topic' => 'mailto'
+	));
 
 ?>
 
@@ -19,11 +20,11 @@ can see it and spambots can not.  This is what this tool attempts to do. I
 have created two different versions of the address encoder.  Please pick the
 one that is appropriate:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <a href="simple.php">Simple</a> - <tt>Easy, quick, effective.</tt></a><br>
 <a href="custom.php">Custom</a> - <tt>For really technically-minded
 people.</tt></a>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>These tools do not steal your email addresses.  Nothing is sent back to
 my server, and everything runs in JavaScript in your browser.  If you don't
@@ -66,6 +67,6 @@ action when clicked.</li>
 on your site encrypted.  It's the same stuff I use on my site.</li>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

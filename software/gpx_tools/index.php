@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'GPX Tools for Geocaching',
-		     'topic' => 'gpx_tools'));
+StandardHeader(array(
+		'title' => 'GPX Tools for Geocaching',
+		'topic' => 'gpx_tools'
+	));
 
 ?>
 
@@ -22,20 +23,20 @@ href="http://www.gpsbabel.org/">GPSBabel</a>, you have a powerful system
 that can narrow waypoints geographically and send them to your GPS receiver
 as well.</p>
 
-<?PHP Section('gpxinfo'); ?>
+<?php Section('gpxinfo'); ?>
 
 <p><a href="gpxinfo.php">gpxinfo</a> lets you know some information about
 the waypoints contained in a GPX file.  You can find out the number of
 waypoints, the different difficulty levels, the number of caches with a
 specific container size, and more.</p>
 
-<?PHP Section('gpxfilter'); ?>
+<?php Section('gpxfilter'); ?>
 
 <p><a href="gpxfilter.php">gpxfilter</a> removes waypoints from a GPX file
 that do not meet your specific requirements.  It can be used to filter out
 caches based on difficulty, terrain, size, or cache type.</p>
 
-<?PHP Section('gpxrewrite'); ?>
+<?php Section('gpxrewrite'); ?>
 
 <p><a href="gpxrewrite.php">gpxrewrite</a> is based on the config file
 used by <a href="http://www.gpxspinner.com">GPX
@@ -50,7 +51,7 @@ the hint, and if there are any travel bugs.</p>
 <p>Everything is controlled by a single file that contains all of your
 settings.  Once you get that set up, everything works like magic.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <table border=1 cellspacing=0 cellpadding=5>
 <tr><th>Before</th><th>After</th></tr>
 <tr><td>
@@ -62,9 +63,9 @@ FFDFW 2.5 3 Sample Cache Name
 </td></tr></table>
 <center>There are more examples on the <a href="gpxrewrite.php">
 page</a>.</center>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
-<?PHP Section('Compiling'); ?>
+<?php Section('Compiling'); ?>
 
 <p>These programs require the expat library, but then should compile cleanly
 by executing your traditional "<tt>./configure</tt>" followed by 
@@ -80,7 +81,7 @@ if this works well.  If it does not detect the expat library automatically,
 you should be able to use a configure option to specify where the library is
 located.</p>
 
-<?PHP Section('Licence'); ?>
+<?php Section('Licence'); ?>
 
 <p>The gpx_tools package is released under the GNU General Public License,
 as published by the Free Software Foundation; either version 3 of the
@@ -93,6 +94,6 @@ to use the program for whatever use you see fit.  If you are a
 programmer-type-person, you can also get the source code to the software
 and make changes to suit your will.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

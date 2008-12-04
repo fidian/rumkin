@@ -1,11 +1,13 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Keyed Vigenere Cipher',
+		'header' => 'Keyed Vigen&eacute;re Cipher',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Keyed Vigenere Cipher',
-		     'header' => 'Keyed Vigen&eacute;re Cipher',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>Based on the simpler <a href="vigenere.php">Vigenere</a> cipher, this
@@ -42,19 +44,17 @@ Tableau</a></p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <p><b><tt><span id='output'></span></tt></b>
-<?PHP 
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/vigenere.js"></script>
 <script language="JavaScript" src="js/keymaker.js"></script>
 <script language="JavaScript"><!--
@@ -197,5 +197,6 @@ function ToggleTableau()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

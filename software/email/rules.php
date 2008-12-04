@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Email Validation Rules',
+		'topic' => 'email'
+	));
 
-StandardHeader(array('title' => 'Email Validation Rules',
-		'topic' => 'email'));
-		
 ?>
 
 <p>Oh my word!  There are so many rules that regulate email addresses.  Here are the ones that I found:</p>
@@ -38,7 +39,7 @@ StandardHeader(array('title' => 'Email Validation Rules',
 
 <p>RFC 3696 doesn't appear to agree with RFC 1034.  It appears that one says the maximum domain length is 255 characters and the other says 253 characters when transmitted over the wire.  The good news is that the domain portion in the email can have brackets surrounding it, thus making the length 255 characters.</p>
 
-<?PHP Section('That\'s A LOT!'); ?>
+<?php Section('That\'s A LOT!'); ?>
 
 <p>Yep.  The easiest thing I can do is summarize the rules.</p>
 
@@ -83,6 +84,6 @@ StandardHeader(array('title' => 'Email Validation Rules',
 
 <p>It is not a lot better, but hopefully the rewording can help you understand the rules.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

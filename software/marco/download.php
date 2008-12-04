@@ -1,11 +1,10 @@
-<?PHP
+<?php
 
 include 'common.inc';
-
 LoadHFiles();
 MarcoHeader('Download');
-
 $mediaDir = getenv('MEDIABASE') . 'software/marco/';
+
 ?>
 
 <p>Below is the link to the unregistered version of Marco.  You'll have
@@ -21,23 +20,23 @@ href="mathlib.php">MathLib</a> explanation page.  If you are
 upgrading Marco, you don't need to reinstall MathLib.</p>
 
 <dl>
-<dt><b>Download Marco, version <?PHP echo $GLOBALS['APP_VERSION'] ?></b></dt>
+<dt><b>Download Marco, version <?php echo $GLOBALS['APP_VERSION'] ?></b></dt>
 <dd>as a <a href="media/prc/marco.zip">.zip file</a> with MathLib and documentation
-  (<?PHP echo FidianFileSize($mediaDir . 'prc/marco.zip') ?> bytes)</dd>
+  (<?php echo FidianFileSize($mediaDir . 'prc/marco.zip') ?> bytes)</dd>
 <dd>as a <a href="media/prc/marco.prc">.prc file</a>
-  (<?PHP echo FidianFileSize($mediaDir . 'prc/marco.prc') ?> bytes)</dd>
+  (<?php echo FidianFileSize($mediaDir . 'prc/marco.prc') ?> bytes)</dd>
 </dl>
 
 
-<?PHP Section('Additional Files'); ?>
+<?php Section('Additional Files'); ?>
 
 <dl>
 <dt><b>Point Files</b> (If installed, they will overwrite your current point
 file)</dt>
 <dd>3588 Sample Points (<a href="media/prc/sample_points.pdb">.pdb file</a> --
-<?PHP echo FidianFileSize($mediaDir . 'prc/sample_points.pdb') ?> bytes)</dd>
+<?php echo FidianFileSize($mediaDir . 'prc/sample_points.pdb') ?> bytes)</dd>
 </dl>
 
-<?PHP
+<?php
 
 MarcoFooter();

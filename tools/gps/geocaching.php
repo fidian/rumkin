@@ -1,8 +1,8 @@
-<?PHP
+<?php
 
 header('Content-type: application/keyhole');
+echo '<';
 
-echo "<";
 ?>?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.0">
 <NetworkLink>

@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'MindTerm SSH Applet',
-		     'topic' => 'ssh'));
+StandardHeader(array(
+		'title' => 'MindTerm SSH Applet',
+		'topic' => 'ssh'
+	));
 
 ?>
 <p>This Java applet is "signed" by Appgate Aktiebolag.  You may see:</p>
@@ -29,6 +30,6 @@ It could take a while to download if you are over a dialup (56k or less) line.
 <param name="fs" value="10">
 </applet>
 
-<?PHP
-	
+<?php
+
 StandardFooter();

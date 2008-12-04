@@ -6,7 +6,7 @@ Feel free to mix it with your weed killer so you have a 2-in-1 solution.
 Spray just the weeds, not the whole yard because weed killer retards plant
 growth.</p>
 
-<?PHP MakeBoxTop('center', 'width: 60%') ?>
+<?php MakeBoxTop('center', 'width: 60%') ?>
 
 <p><b>Spot Treatment Recipe</b>
 
@@ -18,7 +18,7 @@ growth.</p>
 <p>Put sprayer on stream and just nail the weeds.  The mixture will clean
 and stick to weeds and dry them out.
 
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>To feed your lawn, use four pounds Epsom salts (makes the lawn green) and
 one pound confectioner's sugar (gives plants energy).  Plants need sugar and
@@ -33,7 +33,7 @@ spreading fertilizer.</p>
 three weeks.  Also, spray it directly over your fall and spring fertilizer
 session.  Warning: Your lawn will get slippery.</p>
 
-<?PHP MakeBoxTop('center', 'width: 60%') ?>
+<?php MakeBoxTop('center', 'width: 60%') ?>
 
 <p><b>Watering Mixture</b>
 
@@ -47,7 +47,7 @@ session.  Warning: Your lawn will get slippery.</p>
 and add the soap; it can make lots of bubbles.  Top off the mixture with
 ammonia.</p>
 
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>When mowing, use a sharp blade.  The goal is to cut the lawn, not rip the
 lawn.  Mow later in the evening so the lawn can heal at night and will avoid
@@ -67,7 +67,7 @@ nutrients get to your lawn easier.</p>
 <p>If you have an insect problem, you can manage it with this mixture.  It
 kills disease, makes insects sick, and poisons them.</p>
 
-<?PHP MakeBoxTop('center', 'width: 60%') ?>
+<?php MakeBoxTop('center', 'width: 60%') ?>
 		       
 <p><b>Pest Control Tonic</b>
 
@@ -84,4 +84,4 @@ leaves to leave a tobacco tea.
 <p>Mix equal parts of the shampoo-lye solution, tobacco tea, and mouthwash.
 Spray on your lawn with a setting of one tablespoon per gallon.
 
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>

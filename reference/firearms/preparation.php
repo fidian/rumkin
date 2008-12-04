@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Preparation',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Preparation',
+		'topic' => 'guns'
+	));
 
 ?>
 
@@ -11,7 +12,7 @@ StandardHeader(array('title' => 'Preparation',
 I've been told that you should make two or three a day, assuming that you
 have the refrigerator space.</p>
 
-<?PHP Section('Materials'); ?>
+<?php Section('Materials'); ?>
 
 <ul>
 <li>Gelatin Powder
@@ -58,7 +59,7 @@ have the refrigerator space.</p>
    </ul>
 </ul>
 
-<?PHP Section('Preparation'); ?>
+<?php Section('Preparation'); ?>
 
 <ol>
 
@@ -108,6 +109,6 @@ skew the results.  Shoot a steel BB into it at a velocity of 590 fps
 (8.5 cm).  If you don't shoot at the right speed, it will penetrate just a bit
 more or less, so a tiny amount of variation is acceptable.
 
-<?PHP
+<?php
 
 StandardFooter();

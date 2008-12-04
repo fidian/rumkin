@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'HTML Code Tester',
-                     'topic' => 'trinkets',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'HTML Code Tester',
+		'topic' => 'trinkets',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -14,13 +15,14 @@ onsubmit="return showit();">
         onkeyup="showit()" onkeypress="showit()" onchante="showit()"></textarea>
 </form>
 <div id="show"></div>
-<?PHP
-  
+<?php
+
 StandardFooter();
 
-function insert_js()
-{
-?>
+
+function insert_js() {
+	
+	?>
 <script language="JavaScript">
 <!--
 
@@ -36,5 +38,6 @@ function showit()
    return false;
 }
 //--></SCRIPT>
-<?PHP
+<?php
 }
+

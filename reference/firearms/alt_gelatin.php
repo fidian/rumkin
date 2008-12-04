@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Gelatin as Ballistics Gel',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Gelatin as Ballistics Gel',
+		'topic' => 'guns'
+	));
 
 ?>
 
@@ -30,6 +31,6 @@ Then head over to the <a href="ballistic_gel.php">Ballistics Gel</a>
 section and follow the instructions there as though you had the
 ordnance gelatin.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

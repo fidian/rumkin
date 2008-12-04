@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Legal Info',
-		     'topic' => 'legal'));
+StandardHeader(array(
+		'title' => 'Legal Info',
+		'topic' => 'legal'
+	));
 
 ?>
 	
@@ -39,6 +40,6 @@ be shared and redistributed.
 <!-- What do you call a bus full of corporate lawyers at the bottom of the
 ocean?  A good start. -->
 
-<?PHP
+<?php
 
 StandardFooter();

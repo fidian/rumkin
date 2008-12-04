@@ -1,10 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'SalangMenu',
-		     'topic' => 'salangmenu'));
-
+StandardHeader(array(
+		'title' => 'SalangMenu',
+		'topic' => 'salangmenu'
+	));
 $Applet = '<applet code="media/SalangMenu.class" width="300" height="30">
     <!-- Needs to be in here -->
     <param name="copyright" value="jzs club">
@@ -51,11 +51,11 @@ $Applet = '<applet code="media/SalangMenu.class" width="300" height="30">
 
 <center>
 
-<?= $Applet ?>
+<?php echo $Applet ?>
 
 </center>
 
-<?PHP Section('<a name="Intro">Introduction</a>'); ?>
+<?php Section('<a name="Intro">Introduction</a>'); ?>
 
 <p>Since I am unable to locate the actual author(s) of this neat little
 applet, I decided to write up some documentation myself.  If you do find 
@@ -69,16 +69,16 @@ that you have the documentation with the .class files when you need it.</p>
 sites that list it only list it as freeware).  It is one of the smallest
 Java menu applets I have found, totalling only about 10k.</p>
 
-<?PHP Section('<a name="HowInclude">How to Include</a>'); ?>
+<?php Section('<a name="HowInclude">How to Include</a>'); ?>
 
 <p>First off, please be familiar with inserting Java applets into your web
 pages.  There are tons of tutorials out there, so go check them out.  
 This is is how I got the above menu displayed:</p>
 
-<pre><?= htmlspecialchars($Applet) ?>
+<pre><?php echo htmlspecialchars($Applet) ?>
 </pre>
 
-<?PHP Section('<a name="Options">Explanation of Options</a>'); ?>
+<?php Section('<a name="Options">Explanation of Options</a>'); ?>
 
 <dl>
 
@@ -165,6 +165,6 @@ param name="popurl22" value="index.php#Options"</dt>
 <p>You can add other options and other submenus by adding param tags and
 changing the names appropriately.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

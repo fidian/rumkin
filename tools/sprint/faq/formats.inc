@@ -1,16 +1,17 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <p>The uploader will accept a ton of different formats, but that does not
 mean that your phone supports downloading and displaying them.  Another FAQ
-topic deals with what <?PHP echo FAQLink('phones', 'phones support') ?>.</p>
+topic deals with what <?php echo FAQLink('phones', 'phones support') ?>.</p>
 
 <ul>
 <li><b>Images:</b> <a href="../formats.php#jpg">jpg</a>, 

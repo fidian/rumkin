@@ -1,10 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Dakota Digital Single-Use Camera',
-		     'topic' => 'reference'));
-
+StandardHeader(array(
+		'title' => 'Dakota Digital Single-Use Camera',
+		'topic' => 'reference'
+	));
 MakeBoxTop('left');
 echo '<a href="dakota_software.zip">Download<br>Software</a>';
 MakeBoxBottom();
@@ -25,7 +25,7 @@ your camera and erase them from the camera's memory.</p>
 
 <img src="media/in_box.jpg">
 
-<?PHP Section('Specs'); ?>
+<?php Section('Specs'); ?>
 
 <ul>
 <li>Weight: 5.3 oz
@@ -39,7 +39,7 @@ your camera and erase them from the camera's memory.</p>
 <li>Can store 25 pictures
 </ul>
 
-<?PHP Section('Things I Have Done'); ?>
+<?php Section('Things I Have Done'); ?>
 
 <p>I have taken the information from other places on the web and just took
 it a tiny step further.  I altered a set of cameras to have a standard
@@ -161,7 +161,7 @@ this step.)</li>
 
 </ol>
 
-<?PHP Section('Wiring Diagram'); ?>
+<?php Section('Wiring Diagram'); ?>
 
 <p><img src="media/wiring.png"></p>
 
@@ -197,7 +197,7 @@ this step.)</li>
 <p>Some people report that sending the ground to pin 7 instead of pin 10
 works better for them.</p>
 
-<?PHP Section('Links'); ?>
+<?php Section('Links'); ?>
 
 <ul>
 
@@ -230,6 +230,6 @@ Camera</a> information
 
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

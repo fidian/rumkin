@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'PERL Mirror Script',
-		     'topic' => 'mirror'));
+StandardHeader(array(
+		'title' => 'PERL Mirror Script',
+		'topic' => 'mirror'
+	));
 
 ?>
 	
@@ -20,6 +21,6 @@ mirror.pl and make sure that the $Source and $Dest parameters are set up.</p>
 
 <p>Enjoy!</p>
 
-<?PHP
+<?php
 
 StandardFooter();

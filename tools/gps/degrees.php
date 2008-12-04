@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Degree Converter',
-		     'topic' => 'gps',
-		     'callback' => 'AddJavascript'));
+StandardHeader(array(
+		'title' => 'Degree Converter',
+		'topic' => 'gps',
+		'callback' => 'AddJavascript'
+	));
 
 ?>
 
@@ -49,15 +50,14 @@ and it will work.</td></tr>
 just leave me a message in the shoutbox below and I will figure out how to
 parse that style too.</p>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-
-function AddJavascript()
-{
-?>
+function AddJavascript() {
+	
+	?>
 <script language="JavaScript">
 <!--
 
@@ -145,5 +145,6 @@ function upd(v)
 
 // -->
 </script>
-<?PHP
+<?php
 }
+

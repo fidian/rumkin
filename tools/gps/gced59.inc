@@ -1,47 +1,50 @@
-<?PHP
+<?php
 
 $Title = 'Moving 123';
-$KMLDesc = 'Track the movements of the <a href="' .
-    'http://www.geocaching.com/seek/cache_details.aspx?wp=GCED59' .
-    '">Moving 123</a> cache.';
+$KMLDesc = 'Track the movements of the <a href="' . 'http://www.geocaching.com/seek/cache_details.aspx?wp=GCED59' . '">Moving 123</a> cache.';
+
 
 // Disable the tracks
 $Colors = array(
-//    1 => '#FF0000', 
-//    2 => '#00FF00', 
-//    3 => '#0000FF',
+	
+	
+	/*    1 => '#FF0000',
+	 *    2 => '#00FF00',
+	 *    3 => '#0000FF', */
 );
-
-
 $Icons = array(
-    1 => array('image' => 'http://labs.google.com/ridefinder/images/mm_20_red.png',
-               'shadow' => 'http://labs.google.com/ridefinder/images/mm_20_shadow.png',
-	       'iconSize' => '12, 20',
-	       'shadowSize' => '22, 20',
-	       'iconAnchor' => '6, 20',
-	       'infoWindowAnchor' => '5, 1'),
-    2 => array('image' => 'http://labs.google.com/ridefinder/images/mm_20_green.png',
-               'shadow' => 'http://labs.google.com/ridefinder/images/mm_20_shadow.png',
-	       'iconSize' => '12, 20',
-	       'shadowSize' => '22, 20',
-	       'iconAnchor' => '6, 20',
-	       'infoWindowAnchor' => '5, 1'),
-    3 => array('image' => 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
-               'shadow' => 'http://labs.google.com/ridefinder/images/mm_20_shadow.png',
-	       'iconSize' => '12, 20',
-	       'shadowSize' => '22, 20',
-	       'iconAnchor' => '6, 20',
-	       'infoWindowAnchor' => '5, 1'),
+	1 => array(
+		'image' => 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+		'shadow' => 'http://labs.google.com/ridefinder/images/mm_20_shadow.png',
+		'iconSize' => '12, 20',
+		'shadowSize' => '22, 20',
+		'iconAnchor' => '6, 20',
+		'infoWindowAnchor' => '5, 1'
+	),
+	2 => array(
+		'image' => 'http://labs.google.com/ridefinder/images/mm_20_green.png',
+		'shadow' => 'http://labs.google.com/ridefinder/images/mm_20_shadow.png',
+		'iconSize' => '12, 20',
+		'shadowSize' => '22, 20',
+		'iconAnchor' => '6, 20',
+		'infoWindowAnchor' => '5, 1'
+	),
+	3 => array(
+		'image' => 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+		'shadow' => 'http://labs.google.com/ridefinder/images/mm_20_shadow.png',
+		'iconSize' => '12, 20',
+		'shadowSize' => '22, 20',
+		'iconAnchor' => '6, 20',
+		'infoWindowAnchor' => '5, 1'
+	),
 );
 
 
-function Above_Map()
-{
-   global $Points;
-   
-   $LastPoint = $Points[count($Points) - 1];
-   
-?>
+function Above_Map() {
+	global $Points;
+	$LastPoint = $Points[count($Points) - 1];
+	
+	?>
 
 <p>This map shows where <a
 href="http://www.geocaching.com/seek/cache_details.aspx?wp=GCED59">Moving
@@ -57,19 +60,19 @@ give you live information as this page is updated, but it requires an
 internet connection.  The static KML file will work offline, but you need to
 re-import it into Google Earth when you want the data to be updated.</p>
 
-<?PHP MakeBoxTop('center') ?>
-<b><?= DegToDM($LastPoint[2], 1) ?><br>
-<?= DegToDM($LastPoint[1], 0) ?></b><br>
-<?= $LastPoint[3] ?><br>
+<?php MakeBoxTop('center') ?>
+<b><?php echo DegToDM($LastPoint[2], 1) ?><br>
+<?php echo DegToDM($LastPoint[1], 0) ?></b><br>
+<?php echo $LastPoint[3] ?><br>
 <script language=JavaScript><!--
 function SeeLastPoint()
 {
-   map.centerAndZoom(new GPoint(<?= $LastPoint[1] ?>, <?= $LastPoint[2] ?>), 5);
+   map.centerAndZoom(new GPoint(<?php echo $LastPoint[1] ?>, <?php echo $LastPoint[2] ?>), 5);
 }
 // --></script>
 (<a href="#" onclick="SeeLastPoint(); return false;">go there</a>)
-<?PHP 
-
-   MakeBoxBottom();
-
+<?php
+	
+	MakeBoxBottom();
 }
+

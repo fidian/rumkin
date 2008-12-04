@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Uninstalling CSNW',
+		'topic' => 'problems'
+	));
 
-StandardHeader(array('title' => 'Uninstalling CSNW',
-		     'topic' => 'problems'));
-		     
 ?>
 
 <p><b><font size="+1">Symptom:</font></b>  When you open a DOS shell or if
@@ -40,6 +41,6 @@ lh %SystemRoot%\system32\vwipxspx
 
 <p>Problem solved.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

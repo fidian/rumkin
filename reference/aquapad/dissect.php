@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('Inside The Pad');
 
 ?>
@@ -100,6 +99,6 @@ transfers heat to the case, and out of the device without a need for a fan.</p>
 
 <p>Careful when putting your device back together again!</p>
 
-<?PHP
+<?php
 
 AquaStop();

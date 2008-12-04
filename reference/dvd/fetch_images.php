@@ -1,8 +1,7 @@
 #!/usr/bin/php -d allow_url_fopen=On
-<?PHP
+<?php
 
 require 'movies.php';
-
 $fetched = 0;
 
 foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
@@ -17,7 +16,7 @@ foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
 	$imageName = preg_replace(array_keys($replacements), $replacements, $imageName);
 	echo $imageName;
 	$imageName = '/var/www/rumkin-media/reference/dvd/' . $imageName . '.';
-
+	
 	if (isset($movieInfo['imdb']) && ! file_exists($imageName . 'gif') && ! file_exists($imageName . 'jpg')) {
 		$url = 'http://us.imdb.com/title/' . $movieInfo['imdb'];
 		delay();
@@ -29,6 +28,7 @@ foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
 		$x = explode('"', $x);
 		$x = $x[0];
 		echo ' ...';
+		
 		if (substr($x, 0, 7) == 'http://') {
 			delay();
 			$imageContents = file_get_contents($x);
@@ -37,13 +37,16 @@ foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
 			file_put_contents($imageName . $ext, $imageContents);
 		}
 	}
+	
 	echo "\n";
 	$fetched ++;
 }
 
+
 function delay($seconds = 3) {
 	$bs = chr(8);
-	echo " ";
+	echo ' ';
+	
 	while ($seconds) {
 		echo $seconds;
 		sleep(1);
@@ -51,5 +54,7 @@ function delay($seconds = 3) {
 		echo $back;
 		$seconds --;
 	}
+	
 	echo $bs;
 }
+

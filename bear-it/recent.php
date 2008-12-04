@@ -1,14 +1,13 @@
-<?PHP
+<?php
 
 require_once('main.inc');
-
 ShowHeader('Most Recent Additions');
-
 $ImageInfo = SearchImageRecent($most_recent_count);
+
 if (count($ImageInfo)) {
-    DisplayImageSet($ImageInfo);
+	DisplayImageSet($ImageInfo);
 } else {
-    echo "<p>No images exist.</p>\n";
+	echo "<p>No images exist.</p>\n";
 }
 
-ShowFooter(-2, -1);
+ShowFooter(- 2, - 1);

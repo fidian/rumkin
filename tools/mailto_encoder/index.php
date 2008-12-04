@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Mailto Encoder',
-		     'header' => 'Email Address Encoder',
-		     'topic' => 'mailto'));
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'Email Address Encoder',
+		'topic' => 'mailto'
+	));
 
 ?>
 
@@ -19,13 +20,13 @@ can see it and spambots can not.  This is what this tool attempts to do. I
 have created two different versions of the address encoder.  Please pick the
 one that is appropriate:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <a href="simple.php">Simple</a> - <tt>Easy, quick, effective.</tt><br>
 <a href="custom.php">Custom</a> - <tt>For really technically-minded
 people.</tt><br>
 <a href="encode.php">HTML Encode</a> - <tt>Encode any text or HTML code
 that you want (power users only)</tt>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <ul>
 <li><a href="http://www.pascalirma.org/masquage_email.php">French
@@ -87,6 +88,6 @@ Methods</a> - Alternate methods of hiding an email address, primarily using
 CSS.  They don't actually make links.
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

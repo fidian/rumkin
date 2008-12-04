@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'FoxPro Functions',
-		     'topic' => 'foxpro'));
+StandardHeader(array(
+		'title' => 'FoxPro Functions',
+		'topic' => 'foxpro'
+	));
 
 ?>
 
@@ -46,14 +47,14 @@ time, I thought that they would be better off in a file that I can use with
   </ul>
 </ul>
 
-<?PHP Section('<a name="files">Files</a>'); ?>
+<?php Section('<a name="files">Files</a>'); ?>
 
 <p>Here are two functions that delete files.  The first deletes a file if it
 exists.  That's nice, since I no longer have to care if a temporary index
 file exists or not; I just try to delete it and away I go.  The second will
 delete a table, the index file, and the memo file if they exist.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Delete a file if it exists.  Returns 1 if file deleted, 0 if not found
 function DeleteFile
 lparameter m.fn
@@ -73,7 +74,7 @@ lparameter m.fn
     DeleteFile(m.fn + ".fpt")
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>If you work in a mixed environment, where some of your tools read and
 write Visual FoxPro tables and others only read and write the older style
@@ -85,7 +86,7 @@ which designates that the file is a dbase III table.  Use of this function
 on Access databases, text files, or anything else will likely corrupt the
 data a bit.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Converts a file from Visual FoxPro to a fox2x / dBase III table
 * Do not use it if the table has a memo field!
 * Returns .T. on success, .F. on error
@@ -108,9 +109,9 @@ lparam m.filename
     return .T.
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 	
-<?PHP Section('<a name="status">Status</a>'); ?>
+<?php Section('<a name="status">Status</a>'); ?>
 
 <p>When I write long programs, I like to know what they are doing and how
 soon I can expect when they finish.  This first function, Say(), will write
@@ -125,7 +126,7 @@ you are done, ProgressStop().  The ProgressMeter() function will only update
 once a second, making sure your program doesn't slow down.  It also
 estimates the amount of time left, so you are always "in the know."</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>
 function Say
 lparameters m.Message, m.LogFile
@@ -191,7 +192,7 @@ function ProgressStop
 	wait clear
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>I find it annoying to have to "SET TALK ON", "SET TALK OFF", "SET TALK
 ON", etc.  I also find it irritating that I need to sometimes check the
@@ -199,7 +200,7 @@ status of TALK, then possibly turn it off and process and turn it back on.
 These two functions will help you out.  Do not call Hush() again until after
 you call UnHush() &ndash; the functions won't work well that way.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Equivalent to a "SET TALK OFF"
 function Hush
     public m.UnHushTalkOn
@@ -224,13 +225,13 @@ function UnHush
     endif
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('<a name="strings">Strings</a>'); ?>
+<?php Section('<a name="strings">Strings</a>'); ?>
 
 <p>Ever need to generate a random ID?  Try this code out.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Initialize the random number generator
 rand(-1)
 
@@ -251,13 +252,13 @@ parameters m.n, m.letters
 	return m.q
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>I felt saddened that FoxPro didn't have a built-in split() or explode()
 function to turn a string into an array.  Since I wrote this function, I am
 sad no longer!</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* First, declare an array
 dimension m.arr(1)
 
@@ -288,14 +289,14 @@ lparam m.delim, m.str, m.arr
     return m.arr
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>If you looked at dtos(), you will realize that there is no opposite!
 There is no stod() and from what I can tell, there is no easy transform() to
 convert it back into a date.  The function below is the opposite of
 dtos().</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* The opposite of dtos(m.date) or dtoc(m.date, 1)
 function stod
 lparam m.c
@@ -316,9 +317,9 @@ lparam m.c
     return date(m.y, m.m, m.d)
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('<a name="sql">SQL Server</a>'); ?>
+<?php Section('<a name="sql">SQL Server</a>'); ?>
 
 <p><b>Upload Fox to SQL Server</b> - Creates a table and copies the data
 to SQL Server via an ODBC connection.  It is slightly slower than BCP, but
@@ -327,7 +328,7 @@ problems.</p>
 
 <p><a href="functions/upload_fox_to_sql.prg">upload_fox_to_sql.prg</a></p>
 
-<?PHP Section('<a name="tables">Tables</a>'); ?>
+<?php Section('<a name="tables">Tables</a>'); ?>
 
 <p>Sometimes, I write code that could close a table in one instance and will
 keep it open in another.  I wrote a function to close a table by name if it
@@ -335,7 +336,7 @@ is open.  At other times, I will want to open a table with a specific name
 when I already have one open.  In this instance, let's close the old one and
 open the new one.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Closes a table if it is open
 function CloseTable
 lparameter m.Name
@@ -356,7 +357,7 @@ lparameters m.fn, m.name, m.ex
     endif
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>One thing you can do if your data set is really large is to break it into
 sections.  Then, you just run your "select * from TABLE into cursor NAME"
@@ -364,7 +365,7 @@ repeatedly and append the results into a writeable cursor.  This is also
 great if you need to change the default read-only cursor into a read-write
 cursor.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>scan for ...
     * The "NOFILTER" is mandatory for build_cursor()
     select * from TABLE where ... into cursor temp nofilter
@@ -399,12 +400,12 @@ lparameters m.dest, m.src
 	endif
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>Can't remember if you added that tag to the table?  Need to reindex table
 "B" with the same indexes as table "A"?</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>use SOME_TABLE
 if ! TagExists('itemNo')
     index on itemno tag itemno
@@ -446,7 +447,7 @@ function ListIndexes
     ? "Index dump done - copied to clipboard"
 endfunc
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>If you have a table with character fields that is taking up a lot of
 space, you can shrink the character fields to be just the size of the
@@ -455,6 +456,6 @@ href="functions/shrink_fields.prg">shrink_fields.prg</a>.  It only works
 with character fields, but can easily be extended to work with other types,
 such as numeric fields.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

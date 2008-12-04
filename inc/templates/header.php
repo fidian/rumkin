@@ -1,11 +1,12 @@
-<?PHP
+<?php
 
 $Base_Dir = getenv('WEBBASE');
 
-// Don't bother listing things where '_' is changed into spaces
-// and the first letters are capitalized.
-$GLOBALS['DirToName'] = 
-  array('admin' => 'Administration',
+
+/* Don't bother listing things where '_' is changed into spaces
+ * and the first letters are capitalized. */
+$GLOBALS['DirToName'] = array(
+	'admin' => 'Administration',
 	'fun' => 'Fun Stuff',
 	'fun/clutter' => 'Miscellaneous Junk',
 	'fun/ttwisters' => 'Tongue Twisters',
@@ -41,69 +42,62 @@ $GLOBALS['DirToName'] =
 	'tools/sprint' => 'Phone Uploader',
 	'tools/ssh' => 'Java SSH Client',
 	'tools/weeble' => 'Weeble FTP Client',
-	);
+);
 
-?><HTML<?= $GLOBALS['HeaderOpts']['html'] ?>><HEAD><TITLE><?= $GLOBALS['HeaderOpts']['title'] ?></TITLE>
-<link REL="SHORTCUT ICON" HREF="<?= $GLOBALS['HeaderOpts']['icon'] ?>">
+?><HTML<?php echo $GLOBALS['HeaderOpts']['html'] ?>><HEAD><TITLE><?php echo $GLOBALS['HeaderOpts']['title'] ?></TITLE>
+<link REL="SHORTCUT ICON" HREF="<?php echo $GLOBALS['HeaderOpts']['icon'] ?>">
 <!-- These pages are (C)opyright 2002-2008, Tyler Akins -->
-<!-- Fake email for spambots: <?= HoneypotEmail() ?> -->
-<?PHP
-if (isset($GLOBALS['HeaderOpts']['callback']))
-  $GLOBALS['HeaderOpts']['callback']();
+<!-- Fake email for spambots: <?php echo HoneypotEmail() ?> -->
+<?php
+
+if (isset($GLOBALS['HeaderOpts']['callback']))$GLOBALS['HeaderOpts']['callback'] ();
+
 ?>
 <link rel="stylesheet" type="text/css" href="/inc/css/base.css">
-<link rel="stylesheet" type="text/css" media="screen,projection" href="/inc/css/<?=
-$GLOBALS['CurrentTheme'] ?>.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="/inc/css/<?php echo $GLOBALS['CurrentTheme'] ?>.css">
 <link rel="stylesheet" type="text/css" media="print" href="/inc/css/print.css">
-<?PHP 
-if (isset($GLOBALS['Include jsMath']) || isset($GLOBALS['HeaderOpts']['jsmath']))
-{
-?><link rel="stylesheet" type="text/css" href="/inc/css/math.css">
+<?php
+
+if (isset($GLOBALS['Include jsMath']) || isset($GLOBALS['HeaderOpts']['jsmath'])) {
+	
+	?><link rel="stylesheet" type="text/css" href="/inc/css/math.css">
 <script src="/inc/media/jsMath/easy/load.js"></script>
-<?PHP 
+<?php
 }
-if (isset($GLOBALS['HeaderOpts']['sorttable']))
-{
-?>
+
+if (isset($GLOBALS['HeaderOpts']['sorttable'])) {
+	
+	?>
 <script src="/inc/js/sorttable.js"></script>
-<?PHP 
+<?php
 }
+
 ?>
 <script src="/inc/js/site.js?1" type="text/javascript"></script>
 </head>
 <body>
 <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
 <tr><Td valign=top>
-<div class="r_header"><?= $GLOBALS['HeaderOpts']['header'] ?></div>
+<div class="r_header"><?php echo $GLOBALS['HeaderOpts']['header'] ?></div>
 <div class="r_headbar">
 <div class="r_headbarlinks">
-<span id="r_dropdown"><a class="r_link" href="/">Rumkin.com</a></span><?PHP
+<span id="r_dropdown"><a class="r_link" href="/">Rumkin.com</a></span><?php
 
 $chunks = explode('/', $_SERVER['REQUEST_URI']);
-
 $arrow = '&nbsp;<span class="r_arr">&gt;&gt;</span>&nbsp;';
 
-if ($chunks[1] == '' || $chunks[1] == 'index.php')
-{
-    echo $arrow . 'Main Site Index';
+if ($chunks[1] == '' || $chunks[1] == 'index.php') {
+	echo $arrow . 'Main Site Index';
+} elseif (is_dir($Base_Dir . $chunks[1])) {
+	echo $arrow . '<a class="r_link" href="/' . $chunks[1] . '/">' . ChangeNameCase($chunks[1], $chunks[1]) . '</a>';
+	
+	if ($chunks[2] == '' || $chunks[2] == 'index.php') {
+		echo $arrow . 'Section Index';
+	} elseif (is_dir($Base_Dir . $chunks[1] . '/' . $chunks[2])) {
+		echo $arrow . '<a class="r_link" href="/' . $chunks[1] . '/' . $chunks[2] . '/">' . ChangeNameCase($chunks[1] . '/' . $chunks[2], $chunks[2]) . '</a>';
+	}
 }
-elseif (is_dir($Base_Dir . $chunks[1]))
-{
-    echo $arrow . '<a class="r_link" href="/' . $chunks[1] .
-      '/">' . ChangeNameCase($chunks[1], $chunks[1]) . '</a>';
-    
-    if ($chunks[2] == '' || $chunks[2] == 'index.php')
-    {
-	echo $arrow . 'Section Index';
-    }
-    elseif (is_dir($Base_Dir . $chunks[1] . '/' . $chunks[2]))
-    {
-	echo $arrow . '<a class="r_link" href="/' .
-	  $chunks[1] . '/' . $chunks[2] . '/">' .
-	  ChangeNameCase($chunks[1] . '/' . $chunks[2], $chunks[2]) .
-	  '</a>';
-    }
-}
+
 ?>
 </div>
 <form method=GET action="http://www.google.com/search" name="googlesearch">
@@ -115,26 +109,23 @@ Search:
 </div>
 </form>
 </div>
-<?PHP
+<?php
 
-if ($GLOBALS['HeaderOpts']['Backlinks'] !== false)
-{
-    echo '<table cellpadding=0 cellspacing=0 border=0 width=100%>';
-    echo '<tr><td valign=top width="99%">';
+if ($GLOBALS['HeaderOpts']['Backlinks'] !== false) {
+	echo '<table cellpadding=0 cellspacing=0 border=0 width=100%>';
+	echo '<tr><td valign=top width="99%">';
 }
 
 ?>
 <div class="r_main">
-<?PHP
+<?php
 
-
-function ChangeNameCase($dir, $def_name)
-{
-    if (isset($GLOBALS['DirToName'][$dir]))
-    {
-	return $GLOBALS['DirToName'][$dir];
-    }
-    
-    $def_name = str_replace('_', ' ', $def_name);
-    return ucwords($def_name);
+function ChangeNameCase($dir, $def_name) {
+	if (isset($GLOBALS['DirToName'][$dir])) {
+		return $GLOBALS['DirToName'][$dir];
+	}
+	
+	$def_name = str_replace('_', ' ', $def_name);
+	return ucwords($def_name);
 }
+

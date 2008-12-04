@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../../functions.inc';
-
-StandardHeader(array('title' => 'Textfile DB',
-		     'topic' => 'algorithms'));
+StandardHeader(array(
+		'title' => 'Textfile DB',
+		'topic' => 'algorithms'
+	));
 
 ?>
 
@@ -18,13 +19,13 @@ defaults should be pretty good for most use.</p>
 <p>The database has a header line followed by 0 or more data lines.  The
 header line defines the fields.  A sample database looks like this:</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 
 User::Pass::LName::FName<br>
 Tyler::password::Tyler::Akins<br>
 JDoe::who?::John::Doe
 
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>The "key" field is the first one defined.  In the example, it is "User".
 Field names are case sensitive.  Invalid characters are stripped, so this is
@@ -94,6 +95,6 @@ the list of IDs that you want to whittle down a bit.</p>
 starting with A, you can use DBClerk_Refine('LName', '=~i', 'a.*', $DB_File,
 @IDs).
 
-<?PHP
+<?php
 
 StandardFooter();

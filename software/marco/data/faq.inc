@@ -1,16 +1,14 @@
-<?PHP
+<?php
 
-if (stristr($GLOBALS['PHP_SELF'], 'faq.php') !== false)
-    $is_manual = false;
-else
-    $is_manual = true;
-    
+if (stristr($GLOBALS['PHP_SELF'], 'faq.php') !== false)$is_manual = false;
+else $is_manual = true;
+
 ?>
 <p>This is a list of common questions asked about Marco itself or about
 topics that relate to Marco.  If your question is not answered here, <a
 href="contact.php">contact the author</a> for a quick solution.</p>
 
-<?PHP Section('Points'); ?>
+<?php Section('Points'); ?>
 
 <p><b>I edited a point and it no longer appears in the list of points.  What
 happened to it?</b></p>
@@ -33,20 +31,24 @@ properly.</p>
 sorting" method.  It would likely be significantly slower, but would give
 the desired results.</p>
 
-<?PHP Section('Calculations'); ?>
+<?php Section('Calculations'); ?>
 
 <p><b>How accurate is Marco?</b></p>
 
 <p>Marco uses MathLib for number calculations.
-<?PHP if ($is_manual) { ?>
+<?php
+
+if ($is_manual) { ?>
 
 See the <a href="#mathlib">MathLib section</a> for detailed information.
 
-<?PHP } else { ?>
+<?php
+} else { ?>
 
 See the <a href="mathlib.php">MathLib page</a> for detailed information.
 
-<?PHP } ?>
+<?php
+} ?>
 
 <p><b>Why can't I go to the calculator and back to Marco without losing
 everything I entered?</b></p>
@@ -58,34 +60,42 @@ look up information in your calculator, and I strongly suggest using a popup
 calculator to solve the problem.  Popup calculators can appear "on top" of
 any running program on a Palm, and will let you calculate numbers quickly.</p>
 
-<?PHP if ($is_manual) { ?>
+<?php
+
+if ($is_manual) { ?>
 
 <P>See the section on <a href="#calculators">calculators</a> for a list 
 of recommended calculators.</p>
 
-<?PHP } else { ?>
+<?php
+} else { ?>
 
 <p>See the <a href="calculators.php">calculators page</a> for a list of
 recommended calculators.</p>
 
-<?PHP } ?>
+<?php
+} ?>
 
 <p><b>Is there an alternate calculator that I can use instead of the
 built-in one?</b></p>
 
 <p>Yes.  There are several, one of which is sure to fit your needs.
 
-<?PHP if ($is_manual) { ?>
+<?php
+
+if ($is_manual) { ?>
 
 See the section on <a href="#calculators">calculators</a> for a list 
 of recommended calculators.
 
-<?PHP } else { ?>
+<?php
+} else { ?>
 
 See the <a href="calculators.php">calculators page</a> for a list of
 recommended calculators.
 
-<?PHP } ?></p>
+<?php
+} ?></p>
 
 <p><b>Why doesn't Marco have a built-in calculator?</b></p>
 
@@ -102,7 +112,7 @@ would be much bigger.
 <li>There are several great calculators out there already.
 </ul>
 
-<?PHP Section('Miscellaneous') ?>
+<?php Section('Miscellaneous') ?>
 
 <p><b>Which handheld should I buy to use Marco?</b></p>
 

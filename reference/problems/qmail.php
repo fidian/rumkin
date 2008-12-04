@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Setting up Qmail on Gentoo',
-		     'topic' => 'problems'));
+StandardHeader(array(
+		'title' => 'Setting up Qmail on Gentoo',
+		'topic' => 'problems'
+	));
 
 ?>
 
@@ -129,6 +130,6 @@ flag.</p>
 <li><a href="http://gentoo-wiki.com/QmailRocksOnGentoo">Qmail Rocks On Gentoo</a> - Informative site and what I tried first, but it did not bounce spam upon receipt.  Instead, the emails were accepted by my server and then I got SpamCop reports about sending unsolicited bounce messages.</li>
 </ol>
 
-<?PHP
+<?php
 
 StandardFooter();

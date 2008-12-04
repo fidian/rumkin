@@ -1,10 +1,13 @@
-<?PHP  // -*- text -*-
+<?php
 
+
+// -*- text -*-
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'MD5 Generator',
-		     'topic' => 'password',
-		     'callback' => 'Insert_Javascript'));
+StandardHeader(array(
+		'title' => 'MD5 Generator',
+		'topic' => 'password',
+		'callback' => 'Insert_Javascript'
+	));
 
 ?>
 
@@ -26,13 +29,14 @@ not work well for high characters and multi-byte characters.</p>
 </table>
 </form>
 
-<?PHP
+<?php
 
 StandardFooter();
 
-function Insert_Javascript()
-{
-?>
+
+function Insert_Javascript() {
+	
+	?>
 <script language="JavaScript" src="/inc/js/md5.js"></script>
 <script language="javascript">
 <!--
@@ -60,5 +64,6 @@ function UpdateMD5()
 
 // -->
 </script>
-<?PHP
+<?php
 }
+

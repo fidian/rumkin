@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../../functions.inc';
-
-StandardHeader(array('title' => 'Lockfile',
-		     'topic' => 'algorithms'));
+StandardHeader(array(
+		'title' => 'Lockfile',
+		'topic' => 'algorithms'
+	));
 
 ?>
 
@@ -23,6 +24,6 @@ lock file already, it will wait and try again.  It returns the full filename
 of the lock file.  To remove the lock file, which you MUST do, call
 <tt>unlink($FN)</tt>.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,11 +1,12 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Mouseover Example',
-		     'header' => 'Mouseovers',
-		     'topic' => 'web',
-		     'callback' => 'mouseover_js'));
+StandardHeader(array(
+		'title' => 'Mouseover Example',
+		'header' => 'Mouseovers',
+		'topic' => 'web',
+		'callback' => 'mouseover_js'
+	));
 
 ?>
 
@@ -43,13 +44,14 @@ HEIGHT="30" BORDER="0" NAME="Img6"></a></p>
 more decorative, check out the <a href="/tools/marquee/">Great JavaScript
 Marquee Generator</a>.</p>
 </FORM>
-<?PHP
+<?php
 
 StandardFooter();
 
-function mouseover_js()
-{
-?>
+
+function mouseover_js() {
+	
+	?>
 <script language="JavaScript">
 <!-- // Cloak Engaged
 
@@ -116,6 +118,6 @@ function Description(num)
 
 // Cloak Disengaged -->
 </script>
-<?PHP
+<?php
 }
 

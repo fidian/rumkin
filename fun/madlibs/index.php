@@ -1,5 +1,4 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
 Redirect('/fun/');

@@ -1,9 +1,12 @@
-<?PHP  // -*- text -*-
+<?php
 
-include "../../functions.inc";
 
-StandardHeader(array('title' => "Database Format",
-		     'topic' => 'dnd_helper'));
+// -*- text -*-
+include'../../functions.inc';
+StandardHeader(array(
+		'title' => 'Database Format',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -11,7 +14,7 @@ StandardHeader(array('title' => "Database Format",
 of the Palm OS database that D&amp;D Helper uses.  If you are not a computer
 nut, turn back!</p>
 
-<?PHP Section('General Database Format'); ?>
+<?php Section('General Database Format'); ?>
 
 <p>Below is the format for the general database.  Records are numbered
 sequentially, starting at 0.  The database has a "header" record (#0),
@@ -40,7 +43,7 @@ then is followed by different sections that contain the data.</p>
 </li>
 </ul>
 
-<?PHP Section('Random Entry section'); ?>
+<?php Section('Random Entry section'); ?>
 
 <p>This type of section is a "pick one of the following" type of list.  Good
 for lists of riddles, random situations, etc.</p>
@@ -83,7 +86,7 @@ for lists of riddles, random situations, etc.</p>
 </li>
 </ul>
 
-<?PHP Section('Letter Pairs section'); ?>
+<?php Section('Letter Pairs section'); ?>
 
 <p>One method of building words is to analyze a list of words from a
 language and figuring out what two letters start words.  Then you see what
@@ -152,7 +155,7 @@ a lot (over doubles the size), but produces much better results.</p>
 </li>
 </ul>
 
-<?PHP Section('Phrase-Structure Rule Grammar section'); ?>
+<?php Section('Phrase-Structure Rule Grammar section'); ?>
 
 <p>Based on phrase-structure rules, this section has the potential to create
 words, sentences, phrases, spell names, and darn near everything else and
@@ -228,7 +231,7 @@ want the first letter capitalized.  Also, let's refer to rule W as the
 </li>
 </ul>
 
-<?PHP Section('Chances'); ?>
+<?php Section('Chances'); ?>
 
 <p>For entries with chances, you wish to assign higher and lower chances to
 particular things.  One example is if you are generating a word and you
@@ -254,7 +257,7 @@ generation.
 <p>(For speed purposes, I use a binary search, but the above algorithm does
 the exact same job.)</p>
 
-<?PHP Section('Command Codes'); ?>
+<?php Section('Command Codes'); ?>
 
 <p>These strings can be embedded into some types (see above) of records.
 They tell the program to seek data from elsewhere or to expand to further
@@ -292,6 +295,6 @@ able to easily count the number of records by merely counting the nulls.
   byte or none at all.</li>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

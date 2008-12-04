@@ -1,9 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Onloads and Alternatives',
+		'topic' => 'web'
+	));
 
-StandardHeader(array('title' => 'Onloads and Alternatives',
-		     'topic' => 'web'));
 ?>
 
 <p>Let's just say that you have a script that you want to distribute or that
@@ -16,7 +18,7 @@ background changing does work.  This snippet of code will help you out.</p>
 You'll likely add these lines at the bottom of your code.  Make sure to
 change the XXXX to something unique for your program.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>function XXXX_onload()
 {
     // Insert your code here to initialize your program
@@ -31,7 +33,7 @@ change the XXXX to something unique for your program.</p>
 XXXX_old_onload = window.onload;
 window.onload = XXXX_onload;
 </PRE>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>With the above code, you can ensure that your JavaScript will not
 interfere with another person's JavaScript, especially if yours is loaded
@@ -44,12 +46,12 @@ things you have going for yourself.</p>
 window.onload unless you handle the scenario where window.onload was already
 set.</p>
 
-<?PHP Section('window.setTimeout()'); ?>
+<?php Section('window.setTimeout()'); ?>
 
 <p>If you want to avoid this problem completely, you can use the
 window.setTimeout() function.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>function XXXXXXX_startup()
 {
    // This is your startup function.
@@ -58,14 +60,14 @@ window.setTimeout() function.</p>
 
 // Set the startup function to run.
 window.setTimeout('XXXXXXX_startup()', 100);
-</pre><?PHP MakeBoxBottom(); ?>
+</pre><?php MakeBoxBottom(); ?>
 
 <p>If you have external javascript files that you need to load before your
 function runs, you just add a couple lines.  If you interact with a named
 div or span tag, you can also make sure that it is loaded.  I just use
 document.getElementById(), but you can use whatever method you prefer.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>// In your other .js files, make sure to add lines similar to this:
 document.JS_File_Loaded = 1;
 // Just change the JS_File_Loaded to be a unique variable for each
@@ -91,15 +93,15 @@ document.JS_File_Loaded = 1;
 // Set the startup function to run.
 if (document.getElementById())
    window.setTimeout('XXXXXXX_startup()', 100);
-</pre><?PHP MakeBoxBottom(); ?>
+</pre><?php MakeBoxBottom(); ?>
 
-<?PHP Section('How about a library?'); ?>
+<?php Section('How about a library?'); ?>
 
 <p>This little bit of code will take over the window.onload, and then all you
 need to do is call onloadAdd() with your function to add more and more
 behaviors that should be executed when the page loads.</p>
 
-<?PHP MakeBoxTop('center'); ?><pre>
+<?php MakeBoxTop('center'); ?><pre>
 var onloadQueue = [];
 
 // Pass your function or function name
@@ -124,12 +126,12 @@ window.onload = function() {
 		loadFunc();
 	}
 }
-</pre><?PHP MakeBoxBottom(); ?>
+</pre><?php MakeBoxBottom(); ?>
 
 <p>With this, all you need to do is keep calling onloadAdd() and hundreds of
 things can run without them stepping on each other's toes.</p>
 
-<?PHP Section('Yet Another Way'); ?>
+<?php Section('Yet Another Way'); ?>
 
 <p>Sometimes the above code will not work for you or you prefer to use newer
 techniques to register your onload behavior.  The below code is what I came
@@ -141,7 +143,7 @@ the older versions and other browsers support.</p>
 They work splendidly for me, and I only put this up here because people asked
 nicely.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>// We use these variables to see if the onload code ran,
 // to possibly store the old window.onload function, and to see
 // if we have been set up.
@@ -201,13 +203,13 @@ if (! onload_init) {
     onload_init = 1;
 }
 </pre>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>Feel free to expand these methods as you see fit.  It is used on my site
 for several of the <a href="/tools/cipher/">cipher tools</a> and the <a
 href="/tools/password/passchk.php">password strength checker</a>.</p>
 
 
-<?PHP
+<?php
 
 StandardFooter();

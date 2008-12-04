@@ -1,9 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'topic' => 'puzzle'
+	));
 
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'topic' => 'puzzle'));
 ?>
 
 <P ALIGN="CENTER"><FONT SIZE="2">Version 4.4 - 28 February 2001</FONT></P>
@@ -55,6 +57,6 @@ your requests for features will fall upon deaf ears.  However, if you do
 actually change the program, I ask that you submit your changes back so
 others can benefit from your work.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

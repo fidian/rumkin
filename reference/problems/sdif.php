@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Corrupt Novell Restores',
+		'topic' => 'problems'
+	));
 
-StandardHeader(array('title' => 'Corrupt Novell Restores',
-		     'topic' => 'problems'));
-		     
 ?>
 
 <p><b><font size="+1">Symptom:</font></b>  You backed up some files on a
@@ -13,12 +14,12 @@ restore files off the Novell backup, but when you do, they are corrupt.  If
 you were to use a hex editor, a good majority of them will have this
 header:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 
 <b>Byte Ordered:</b> <tt>0E 02 A5 5A 0E 00</tt><br>
 <b>Byte Swapped / Word Ordered:</b> <tt>02 0E 5A A5 00 0E</tt>
 
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p><b><font size="+1">Causes:</font></b>  Backups from a Novell server will
 send the data to the tape SDIF encapsulated, and often times
@@ -41,6 +42,6 @@ get your hands on the algorithm, and if Novell doesn't mind, I would love to
 modifiy my <a href="/software/sdif/">SDIF tool</a> to allow decompression of
 compressed files.
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Email Denied',
-		     'header' => 'Fixing Email Bounces',
-		     'topic' => 'email'));
+StandardHeader(array(
+		'title' => 'Email Denied',
+		'header' => 'Fixing Email Bounces',
+		'topic' => 'email'
+	));
 
 ?>
 	
@@ -13,11 +14,12 @@ reading pleasurable for its users.  If your email gets "bounced" back to
 you, and you are positive that you have the right email address, then we
 need to figure out why you were banned.</p>
 
-<?PHP Section('Step 1:  Look at bounce message'); ?>
+<?php Section('Step 1:  Look at bounce message'); ?>
 
 <p>You likely received something like this:</p>
 
-<?PHP MakeBoxTop('center', 'width: 80%')
+<?php MakeBoxTop('center', 'width: 80%')
+
 ?><pre><tt>Hi. This is the qmail-send program at rumkin.com.
 I'm afraid I wasn't able to deliver your message to the following addresses.
 This is a permanent error; I've given up. Sorry it didn't work out.
@@ -28,16 +30,16 @@ mail denied, based on relay 4.10.205.248
 --- Below this line is a copy of the message.
 
 .... your email is here ....</tt>
-</pre><?PHP MakeBoxBottom() ?>
+</pre><?php MakeBoxBottom() ?>
 
-<?PHP Section('Step 2:  Find the reason your message was bounced'); ?>
+<?php Section('Step 2:  Find the reason your message was bounced'); ?>
 
 <p>This is the "<i>mail denied, based on relay 4.10.205.248</i>" part.  This
 means that the email that you sent was blocked by the anti-spam filters
 because the mail host you use is known to send spam.  That set of numbers at
 the end is vital.  Write them down.</p>
 
-<?PHP Section('Step 3:  Check out the mail relay'); ?>
+<?php Section('Step 3:  Check out the mail relay'); ?>
 
 <p>This may give you more information on why the server was denied and it
 will tell you what particular filter is giving you problems.  Go to the <a
@@ -47,7 +49,7 @@ in "4.10.205.248" without the quotes.)</p>
 
 <p>When you get the results, you will see something like this:</p>
 
-<?PHP MakeBoxTop('center', 'width: 80%'); ?>
+<?php MakeBoxTop('center', 'width: 80%'); ?>
  IP:  4.10.205.248<br><br><b>sbl.spamhaus.org</b>:  Ok<br>
 <b>bl.spamcop.net</b>:  Ok<br>
 <b>relays.ordb.org</b>:  Ok<br>
@@ -62,12 +64,12 @@ in "4.10.205.248" without the quotes.)</p>
 
 <b>dnsbl.net.au</b>:  Ok<br>
 <b>blackholes.five-ten-sg.com</b>:  Ok<br>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>According to those results, the only one that is not "Ok" is list.dsbl.org.
 Now you know which particular filter bounced your message.</p>
 
-<?PHP Section('Step 4:  Tell me'); ?>
+<?php Section('Step 4:  Tell me'); ?>
 
 <p>The general anti-spam policy at Rumkin.com is to let all good messages in
 and as few spam messages in.  If your messages are being blocked, you now
@@ -87,6 +89,6 @@ information:</p>
 using that particular filter so that your future emails will get through
 properly.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

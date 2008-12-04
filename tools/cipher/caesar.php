@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Caesarian Shift',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Caesarian Shift',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>This is a standard Caesarian Shift cipher encoder, also known as 
@@ -28,28 +30,28 @@ you.</p>
 
 <form name="encoder" method=post action="#" onsubmit="return false;">
 <P>N:  <select name=N>
-<?PHP
-   for ($i = 0; $i < 26; $i ++)
-   {
-      echo "<option value=$i>$i</option>\n";
-   }
+<?php
+
+for ($i = 0; $i < 26; $i ++) {
+	echo "<option value=$i>$i</option>\n";
+}
+
 ?>
 </select>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='caesar'></span>
-<?PHP
-MakeBoxBottom();
+<?php
 
+MakeBoxBottom();
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/caesar.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/caesar.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -105,5 +107,6 @@ function insert_alphabet()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

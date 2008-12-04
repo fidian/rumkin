@@ -1,6 +1,5 @@
 <p>The most likely reason that the size of the file downloaded doesn't match
-what you uploaded is because the uploader will <?PHP echo FAQLink('resize',
-'resize images') ?> automatically.  If that's not the issue, the next most
+what you uploaded is because the uploader will <?php echo FAQLink('resize', 'resize images') ?> automatically.  If that's not the issue, the next most
 probable answer is that the uploaded file was sent incorrectly or that the
 file is corrupt.</p>
 

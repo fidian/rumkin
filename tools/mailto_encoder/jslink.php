@@ -1,20 +1,23 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
 
-function Insert_JS()
-{
-    ?>
+
+function Insert_JS() {
+	
+	?>
 <SCRIPT LANGUAGE="javascript" type="text/javascript" src="email.js"></SCRIPT>
 <SCRIPT LANGUAGE="javascript" type="text/javascript" src="jslink.js"></SCRIPT>
-<?PHP
+<?php
 }
 
-StandardHeader(array('title' => 'Mailto Encoder',
-                     'header' => 'JavaScript Link Encoder',
-		     'topic' => 'mailto',
-		     'callback' => 'Insert_JS'));
-		     
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'JavaScript Link Encoder',
+		'topic' => 'mailto',
+		'callback' => 'Insert_JS'
+	));
+
 ?>
 
 <p>This is a variant of the <a href="index.php">mailto encoders</a> that I
@@ -36,12 +39,12 @@ encoding methods on the <a href="custom.php">advanced version</a>, this
 method will require the user to have a JavaScript enabled browser in order
 to let them email you.</p>
 
-<?PHP Section('Method 1:  Plain Text'); ?>
+<?php Section('Method 1:  Plain Text'); ?>
 
 <p>For this to work, you just put one JavaScript function in your web page,
 then you alter your mailto links to call the JavaScript.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>&lt;script language="javascript"&gt;
 function MailMe(user, host)
 {
@@ -49,19 +52,19 @@ function MailMe(user, host)
 }
 &lt;/script&gt;
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>Now, with this code, you just make your links look like this:</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>&lt;a href="javascript:MailMe('user','host.name')"&gt;Mail Me&lt;/a&gt;
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>Just make sure to not use your email address as the text part of the link
 and you should be fine.</p>
 
-<?PHP Section('Method 2:  Encrypted Text'); ?>
+<?php Section('Method 2:  Encrypted Text'); ?>
 
 <p>Encode your email address and copy the JavaScript code.  Paste it into
 the header of your web page, between a set of &lt;script&gt; tags.  Remove
@@ -71,12 +74,12 @@ the "document.write(...)" part, but remember what goes in the "..." area.</p>
 method, the "..." is "unescape(OutString)".  If you use the substitution
 method, the "..." is "OT".
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <pre>&lt;a href="javascript:..."&gt;Mail Me&lt;/a&gt;
 &lt;a href="javascript:unescape(OutString)"&gt;Double-Escaped&lt;/a&gt;
 &lt;a href="javascript:OT"&gt;Substitution&lt;/a&gt;
 </pre>
-<?PHP
-MakeBoxBottom();
+<?php
 
+MakeBoxBottom();
 StandardFooter();

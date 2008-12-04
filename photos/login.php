@@ -1,30 +1,27 @@
 <?php
 
 require_once('main.php');
-
 $Comment = '';
 
-if ($GLOBALS['IsAdmin'])
-{
-    session_destroy();
-    $GLOBALS['IsAdmin'] = false;
-    Location('index.php?popcomment=You+have+been+logged+out!');
+if ($GLOBALS['IsAdmin']) {
+	session_destroy();
+	$GLOBALS['IsAdmin'] = false;
+	Location('index.php?popcomment=You+have+been+logged+out!');
 }
 
-if (isset($_REQUEST['Password']))
-{
-    if ($_REQUEST['Password'] == $GLOBALS['admin_password'])
-    {
-	$_SESSION['SessPass'] = $_REQUEST['Password'];
-	Location('index.php');
-    }
-    
-    $Comment = 'Invalid password.  Login attempt logged.';
+if (isset($_REQUEST['Password'])) {
+	if ($_REQUEST['Password'] == $GLOBALS['admin_password']) {
+		$_SESSION['SessPass'] = $_REQUEST['Password'];
+		Location('index.php');
+	}
+	
+	$Comment = 'Invalid password.  Login attempt logged.';
 }
 
 ShowHeader('Admin Login');
-if ($Comment != '')
-  ShowComment($Comment);
+
+if ($Comment != '')ShowComment($Comment);
+
 ?>
 	
 
@@ -54,4 +51,4 @@ function JumpToPasswordBox() {
 
 <?php
 
-ShowFooter(-1, -1);
+ShowFooter(- 1, - 1);

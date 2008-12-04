@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
-include "../../functions.inc";
-
-StandardHeader(array('title' => 'Huffman JavaScript Compression',
-		     'topic' => 'compression',
-		     'callback' => 'Add_Javascript'));
+include'../../functions.inc';
+StandardHeader(array(
+		'title' => 'Huffman JavaScript Compression',
+		'topic' => 'compression',
+		'callback' => 'Add_Javascript'
+	));
 
 ?>
 
@@ -70,14 +71,14 @@ window</a>.</p>
 <textarea name="Comp" rows=10 cols=60></textarea>
 </form>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function Add_Javascript()
-{
-?><script language="JavaScript">
+function Add_Javascript() {
+	
+	?><script language="JavaScript">
 <!--
 
 function MakeIntoString(S) {
@@ -392,6 +393,6 @@ function CreatePopup(str)
 
 -->
 </script>
-<?PHP
-
+<?php
 }
+

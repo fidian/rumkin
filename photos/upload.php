@@ -1,117 +1,115 @@
-<?PHP 
+<?php
 /*
-ob_start();
-phpinfo();
-$c = ob_get_contents();
-ob_end_clean();
-$fp = @fopen('/tmp/upload.txt', 'w');
-if ($fp) {
-    fwrite($fp, $c);
-    fclose($fp);
-}
-*/
+ * ob_start();
+ * phpinfo();
+ * $c = ob_get_contents();
+ * ob_end_clean();
+ * $fp = @fopen('/tmp/upload.txt', 'w');
+ * if ($fp) {
+ * fwrite($fp, $c);
+ * fclose($fp);
+ * }
+ */
 require_once('main.php');
 
-if (! $GLOBALS['IsAdmin'])
-  Location();
+if (! $GLOBALS['IsAdmin'])Location();
 
-if (isset($_REQUEST['gid']))
-  $gid = $_REQUEST['gid'];
-if (! isset($gid) || $gid == '')
-  $gid = -2;
+if (isset($_REQUEST['gid']))$gid = $_REQUEST['gid'];
+
+if (! isset($gid) || $gid == '')$gid = - 2;
 settype($gid, 'integer');
 
 if (is_array($_FILES) && count($_FILES)) {
-    foreach ($_FILES as $k => $upfile) {
-	$ext = false;
-	if (isset($mime_to_ext[$upfile['type']])) {
-	    $ext = $mime_to_ext[$upfile['type']];
-	}
-	if ($ext == false) {
-	    ShowForm($gid, $id, 'Unsupported image type.');
-	    exit();
+	foreach ($_FILES as $k => $upfile) {
+		$ext = false;
+		
+		if (isset($mime_to_ext[$upfile['type']])) {
+			$ext = $mime_to_ext[$upfile['type']];
+		}
+		
+		if ($ext == false) {
+			ShowForm($gid, $id, 'Unsupported image type.');
+			exit();
+		}
+		
+		// Add
+		$lett = '0123456789' . 'abcdefghijklmnopqrstuvwxyz' . 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$key = '';
+		
+		for ($i = 0; $i < 40; $i ++) {
+			$key .= substr($lett, mt_rand(0, strlen($lett) - 1));
+		}
+		
+		$caption = $upfile['name'];
+		
+		if ($caption == '') {
+			$caption = 'Bulk Upload';
+		}
+		
+		$caption = addslashes($caption);
+		$sql = 'insert into Images (Comment, PublishedAt, Caption, ' . 'ShotAtYear, ShotAtMonth, ShotAtDay) ' . 'values ("' . $key . '", NOW(), "' . $caption . '", 0, 0, 0)';
+		$res = dbi_query($sql);
+		
+		if (! $res) {
+			BadSQL($sql);
+		}
+		
+		// Get the ID
+		$sql = 'select ID from Images where Comment = "' . $key . '"';
+		$res = dbi_query($sql);
+		$row = dbi_fetch_row($res);
+		
+		if (! $row) {
+			die('Could not find Image record that was just created.');
+		}
+		
+		$id = $row[0];
+		dbi_free_result($res);
+		$dest = $image_path . $id . '.' . $ext;
+		move_uploaded_file($upfile['tmp_name'], $dest);
+		$result = ProcessImage($dest, $upfile['type'], $id);
+		
+		if ($result['error']) {
+			die('Error saving: ' . $result['msg']);
+		}
+		
+		if ($result['ext'] != $ext) {
+			$dest2 = $image_path . $id . '.' . $result['ext'];
+			rename($dest, $dest2);
+			$dest = $dest2;
+		}
+		
+		// Update
+		$sql = 'update Images set Comment="" where Id = ' . $id;
+		$res = dbi_query($sql);
+		
+		if (! $res)BadSQL($sql);
+		
+		if ($gid >= 0) {
+			$sql = 'insert into ImageGroups (ImageId, GroupId) values (' . $id . ', ' . $gid . ')';
+			$res = dbi_query($sql);
+			
+			if (! $res)BadSQL($sql);
+		}
 	}
 	
-	// Add
-	$lett = '0123456789' .
-	  'abcdefghijklmnopqrstuvwxyz' .
-	  'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	$key = '';
-	for ($i = 0; $i < 40; $i ++) {
-	    $key .= substr($lett, mt_rand(0, strlen($lett) - 1));
-	}
-	
-	$caption = $upfile['name'];
-	if ($caption == '') {
-	    $caption = 'Bulk Upload';
-	}
-	$caption = addslashes($caption);
-	
-	$sql = 'insert into Images (Comment, PublishedAt, Caption, ' .
-	  'ShotAtYear, ShotAtMonth, ShotAtDay) ' .
-	  'values ("' . $key . '", NOW(), "' . $caption . '", 0, 0, 0)';
-	$res = dbi_query($sql);
-	if (! $res) {
-	    BadSQL($sql);
-	}
-	
-	// Get the ID
-	$sql = 'select ID from Images where Comment = "' . $key . '"';
-	$res = dbi_query($sql);
-	$row = dbi_fetch_row($res);
-	
-	if (! $row) {
-	    die('Could not find Image record that was just created.');
-	}
-	$id = $row[0];
-	dbi_free_result($res);
-	
-	$dest = $image_path . $id . '.' . $ext;
-	move_uploaded_file($upfile['tmp_name'], $dest);
-	$result = ProcessImage($dest, $upfile['type'], $id);
-	if ($result['error']) {
-	    die('Error saving: ' . $result['msg']);
-	}
-	if ($result['ext'] != $ext) {
-	    $dest2 = $image_path . $id . '.' . $result['ext'];
-	    rename($dest, $dest2);
-	    $dest = $dest2;
-	}
-	
-	// Update
-	$sql = 'update Images set Comment="" where Id = ' . $id;
-	$res = dbi_query($sql);
-	if (! $res)
-	  BadSQL($sql);
-	
-	if ($gid >= 0) {
-	    $sql = 'insert into ImageGroups (ImageId, GroupId) values (' .
-	      $id . ', ' . $gid . ')';
-	    $res = dbi_query($sql);
-	    if (! $res)
-	      BadSQL($sql);
-	}
-    }
-
-    // Only shows the last Id
-    echo "Upload $id successful.";
-    exit(0);
+	// Only shows the last Id
+	echo "Upload $id successful.";
+	exit(0);
 }
-
 
 ShowHeader('Bulk Upload');
 
-if ($gid != -2) {
-    $GroupInfo = FetchGroupInfo($gid);
-    echo '<p>Back to: <font size="+1"><a href="index.php?gid=' . 
-      $GroupInfo[0] . '">' . $GroupInfo[1] . "</a></font></p>\n";
+if ($gid != - 2) {
+	$GroupInfo = FetchGroupInfo($gid);
+	echo '<p>Back to: <font size="+1"><a href="index.php?gid=' . $GroupInfo[0] . '">' . $GroupInfo[1] . "</a></font></p>\n";
 }
 
 ?>
 <form enctype="multipart/form-data" method="post" name="upload_form"
 action="upload.php">
-<input type=hidden name="gid" value="<?PHP echo $gid ?>">
-<input type=hidden name="PHPSESSID" value="<?PHP session_id(); ?>">
+<input type=hidden name="gid" value="<?php echo $gid ?>">
+<input type=hidden name="PHPSESSID" value="<?php session_id(); ?>">
 <table align=center border=1 cellpadding=2 cellspacing=0>
   <tr>
     <td colspan=2>
@@ -131,14 +129,14 @@ action="upload.php">
   </tr>
   <tr>
     <th align=right>Flags:</th>
-    <td><input type=checkbox name=ImagePrivate<?PHP
-       if (isset($_REQUEST['ImagePrivate']) || (isset($ImageInfo[10]) && $ImageInfo[10])) 
-	  echo ' CHECKED'; ?>>
+    <td><input type=checkbox name=ImagePrivate<?php
+
+if (isset($_REQUEST['ImagePrivate']) || (isset($ImageInfo[10]) && $ImageInfo[10]))echo ' CHECKED'; ?>>
        - Private (Administrator only)</td>
   </tr>
 </table>
 </form>
 
-<?PHP
+<?php
 
 ShowFooter($gid, $id);

@@ -1,8 +1,7 @@
 #!/usr/bin/php -d allow_url_fopen=On
-<?PHP
+<?php
 
 require 'movies.php';
-
 $fetched = 0;
 
 foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
@@ -16,7 +15,7 @@ foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
 	);
 	$imageName = preg_replace(array_keys($replacements), $replacements, $imageName);
 	$fullImageName = '/var/www/rumkin-media/reference/dvd/' . $imageName . '.';
-
+	
 	if (isset($movieInfo['imdb'])) {
 		if (file_exists($fullImageName . 'gif')) {
 			$GLOBALS['Movies'][$name]['image'] = $imageName . '.gif';
@@ -25,7 +24,6 @@ foreach ($GLOBALS['Movies'] as $name => $movieInfo) {
 		}
 	}
 }
-
 require '/home/fidian/laptop/php_debug/dump.inc';
 $movies = '<?PHP' . "\n\n" . dump($GLOBALS['Movies'], '$GLOBALS[\'Movies\']', false, false);
 file_put_contents('movies2.php', $movies);

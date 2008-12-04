@@ -1,30 +1,28 @@
-<?PHP  // -*- php -*-
-/* Documentation for D&D Helper
- */
-
+<?php
+/* -*- php -*-
+ * / * Documentation for D&D Helper
+ * / */
 include('download/psr.inc');
-
 session_start();
 
-// handle uploads
 
+// handle uploads
 $IsNewFile = false;
 
 foreach ($HTTP_POST_FILES as $File) {
-    $_SESSION['psr_data'] = GeneratePSRData($File['tmp_name'], false);
-    $IsNewFile = true;
-    $_SESSION['psr_data_time'] = date('F j, Y, g:i a');
+	$_SESSION['psr_data'] = GeneratePSRData($File['tmp_name'], false);
+	$IsNewFile = true;
+	$_SESSION['psr_data_time'] = date('F j, Y, g:i a');
 }
 
-if (! isset($_SESSION['psr_data']))
-  $_SESSION['psr_data'] = array();
-if (! isset($_SESSION['psr_data_time']))
-  $_SESSION['psr_data_time'] = date('F j, Y, g:i a');
+if (! isset($_SESSION['psr_data']))$_SESSION['psr_data'] = array();
 
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'PSR Testing',
-		     'topic' => 'dnd_helper'));
+if (! isset($_SESSION['psr_data_time']))$_SESSION['psr_data_time'] = date('F j, Y, g:i a');
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'PSR Testing',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -38,34 +36,32 @@ Upload a new PSR file:  <input name="the_file" type=file> -
 <input type=submit value="Generate Again With Same File">
 </form>
 </td></tr>
-<?PHP if ($IsNewFile) { ?>
+<?php
+
+if ($IsNewFile) { ?>
 <tr><td align=center bgcolor=#FFFFEE>This is a new file.</td></tr>
-<?PHP } ?>
+<?php
+} ?>
 <tr><Td align=center bgcolor=#FFFFEE>Current file is 
-<?= strlen($_SESSION['psr_data']) ?> bytes,<br>
-Uploaded at <?= $_SESSION['psr_data_time'] ?></td></tr>
+<?php echo strlen($_SESSION['psr_data']) ?> bytes,<br>
+Uploaded at <?php echo $_SESSION['psr_data_time'] ?></td></tr>
 </table>
 	
-<p><?PHP
+<p><?php
 
-if (count($_SESSION['psr_data']) < 1)
-{
-    echo "There is no data from whith PSR output may be generated.";
-}
-else 
-{
-    $results = GeneratePSR($_SESSION['psr_data'], 1);
-    
-    // Generate the message
-    while (count($results))
-    {
-	$r = array_shift($results);
-	echo nl2br(htmlspecialchars($r));
-	if (count($results))
-	  echo "<br>\n";
-    }
+if (count($_SESSION['psr_data']) < 1) {
+	echo 'There is no data from whith PSR output may be generated.';
+} else {
+	$results = GeneratePSR($_SESSION['psr_data'], 1);
+	
+	// Generate the message
+	while (count($results)) {
+		$r = array_shift($results);
+		echo nl2br(htmlspecialchars($r));
+		
+		if (count($results))echo "<br>\n";
+	}
 }
 
 echo "</p>\n";
-
 StandardFooter();

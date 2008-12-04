@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('Tablet Review');
 
 ?>
@@ -27,6 +26,6 @@ bigger computer.</p>
 recompiling the Midori Linux installation so that I can get things upgraded
 and throw in extra fun software.</p>
 
-<?PHP
+<?php
 
 AquaStop();

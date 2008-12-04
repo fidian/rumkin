@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Affine Cipher',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Affine Cipher',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>The Affine cipher is a monoalphabetic substitution cipher and it can be
@@ -26,27 +28,28 @@ buttons to change the A to the next higher or lower coprime number.</p>
 <input type="button" name="plus" value="+" onclick="a_plus()">
 <input type="button" name="minus" value="-" onclick="a_minus()"></p>
 <P>b:  <select name="b">
-<?PHP
-   for ($i = 0; $i < 26; $i ++)
-   {
-      echo "<option value=$i>$i</option>\n";
-   }
+<?php
+
+for ($i = 0; $i < 26; $i ++) {
+	echo "<option value=$i>$i</option>\n";
+}
+
 ?>
 </select>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='affine'></span>
-<?PHP
-MakeBoxBottom();
+<?php
 
+MakeBoxBottom();
 StandardFooter();
 
 
-function insert_js()
-{
-?><script language="JavaScript" src="js/affine.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/affine.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -135,5 +138,6 @@ function a_minus()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

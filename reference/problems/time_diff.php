@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Windows Domain Time Issues',
-		     'topic' => 'problems'));
+StandardHeader(array(
+		'title' => 'Windows Domain Time Issues',
+		'topic' => 'problems'
+	));
 
 ?>
 
@@ -11,11 +12,11 @@ StandardHeader(array('title' => 'Windows Domain Time Issues',
 is on a domain, or if you try to access a computer that is on a domain, you
 get one of the following error messages:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 
 <tt>There is a time difference between the client and server.</tt>
 
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p><b><font size="+1">Causes:</font></b>  The clock on the machine that you
 are trying to log into is reporting a different time from what the domain
@@ -63,6 +64,6 @@ Help and Support</a> page that illustrates how to use regedit to fix a very
 similar problem.
 </ol>
 
-<?PHP
+<?php
 
 StandardFooter();

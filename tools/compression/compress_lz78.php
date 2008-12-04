@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
-include "../../functions.inc";
-
-StandardHeader(array('title' => 'LZ78 JavaScript Compression',
-		     'topic' => 'compression',
-		     'callback' => 'Add_Javascript'));
+include'../../functions.inc';
+StandardHeader(array(
+		'title' => 'LZ78 JavaScript Compression',
+		'topic' => 'compression',
+		'callback' => 'Add_Javascript'
+	));
 
 ?>
 
@@ -36,21 +37,25 @@ removed 2 bits per character.</p>
 <B>Compressed by:</b> <input type=text size=40 name="Progress"></p>
 <p><B>Compressed:</B></p>
 <textarea name="Comp" rows=10 cols=60></textarea>
-<?PHP if (isset($_REQUEST['test'])) { ?>
+<?php
+
+if (isset($_REQUEST['test'])) { ?>
 <p><b>Decompressed:</b></p>
 <textarea name="Decomp" rows=10 cols=60></textarea>
-<?PHP } ?>
+<?php
+} ?>
 </form>
 </body>
 </html>
 
-<?PHP
+<?php
 
 StandardFooter();
 
-function Add_Javascript()
-{
-?><script language="JavaScript">
+
+function Add_Javascript() {
+	
+	?><script language="JavaScript">
 <!--
 
 function BytesToBits(len, num) {
@@ -160,9 +165,12 @@ function CompressCode() {
 	}
 
 	document.daForm.Comp.value = WrapInJS(t_out);
-<?PHP if (isset($_REQUEST['test'])) { ?>
+<?php
+	
+	if (isset($_REQUEST['test'])) { ?>
 	document.daForm.Decomp.value = decode(t_out, mincode, maxcode);
-<?PHP } ?>
+<?php
+	} ?>
 	prog.value = "Done = " + t_in.length + " to " + document.daForm.Comp.value.length +
 		" = " + (t_in.length - document.daForm.Comp.value.length) + " bytes of savings"
 }
@@ -198,7 +206,9 @@ function WrapInJS(str, mincode, maxcode)
 	return out;
 }
 
-<?PHP if (isset($_REQUEST['test'])) { ?>
+<?php
+	
+	if (isset($_REQUEST['test'])) { ?>
 // This is the long version.  Use a "smooshed" version in WrapInJS().
 // d = data, y = min code number, z = max code number
 function decode(d, y, z)
@@ -264,9 +274,11 @@ function decode(d, y, z)
 
 	return o;
 }
-<?PHP } ?>
+<?php
+	} ?>
 
 -->
 </script>
-<?PHP
+<?php
 }
+

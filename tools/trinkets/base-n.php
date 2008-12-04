@@ -1,11 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Base Converter',
-                     'topic' => 'trinkets',
-		     'callback' => 'insert_js'));
-
+StandardHeader(array(
+		'title' => 'Base Converter',
+		'topic' => 'trinkets',
+		'callback' => 'insert_js'
+	));
 $change = 'onChange="upd()" onKeyPress="upd()" onKeyUp="upd()"';
 
 ?>
@@ -16,42 +16,41 @@ convert a base-6 number into a base-20 number for whatever reason you have.
 This will make things easy for you.</p>
 
 <form name=fout method=get action="#" onsubmit="return false">
-Input base: <select name=inbase <?= $change ?>>
-<?PHP
+Input base: <select name=inbase <?php echo $change ?>>
+<?php
 
-   for ($i = 2; $i < 33; $i ++)
-   {
-      echo "<option value=$i";
-      if ($i == 10)
-         echo ' SELECTED';
-      echo ">$i</option>\n";
-   }
+for ($i = 2; $i < 33; $i ++) {
+	echo "<option value=$i";
+	
+	if ($i == 10)echo ' SELECTED';
+	echo ">$i</option>\n";
+}
 
 ?>
 </select><br>
-Input number: <input type=text name=src <?= $change ?>><br>
-Output base: <select name=outbase <?= $change ?>>
-<?PHP
+Input number: <input type=text name=src <?php echo $change ?>><br>
+Output base: <select name=outbase <?php echo $change ?>>
+<?php
 
-   for ($i = 2; $i < 33; $i ++)
-   {
-      echo "<option value=$i";
-      if ($i == 10)
-         echo ' SELECTED';
-      echo ">$i</option>\n";
-   }
+for ($i = 2; $i < 33; $i ++) {
+	echo "<option value=$i";
+	
+	if ($i == 10)echo ' SELECTED';
+	echo ">$i</option>\n";
+}
 
 ?>
 </select>
 </form>
 <div id="show"></div>
-<?PHP
-  
+<?php
+
 StandardFooter();
 
-function insert_js()
-{
-?>
+
+function insert_js() {
+	
+	?>
 <script language="JavaScript">
 <!--
 
@@ -113,5 +112,6 @@ function upd()
    return false;
 }
 //--></SCRIPT>
-<?PHP
+<?php
 }
+

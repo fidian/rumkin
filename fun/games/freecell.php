@@ -1,9 +1,10 @@
 <?php
 
 include '../../../functions.inc';
-
-StandardHeader(array('title' => 'Freecell',
-		     'topic' => 'fun'));
+StandardHeader(array(
+		'title' => 'Freecell',
+		'topic' => 'fun'
+	));
 
 ?>
 <p align="center">
@@ -16,6 +17,6 @@ The Freecell applet
 By <a href="http://www.paassen.tmfweb.nl/">W.P. van Paassen</a>
 and E.C. Brummel</font></p>
 
-<?PHP
+<?php
 
 StandardFooter();

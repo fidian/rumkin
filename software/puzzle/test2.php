@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - Slide (Sarah)',
+		'topic' => 'puzzle'
+	));
 
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'header' => 'Java Puzzle Applet - Slide (Sarah)',
-		     'topic' => 'puzzle'));
 ?>
 
 <P>And here is a scrambled picture of the Tyler's wife, Sarah. It is her
@@ -36,6 +38,6 @@ playing you will get the hang of it soon enough.</P>
    <PARAM NAME="url" VALUE="test2b.php">
 </APPLET>
 </P>
-<?PHP
+<?php
 
 StandardFooter();

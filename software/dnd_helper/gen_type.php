@@ -1,9 +1,12 @@
-<?PHP // -*- text -*-
+<?php
 
-include("../../functions.inc");
 
-StandardHeader(array('title' => 'Generation Types',
-                     'topic' => 'dnd_helper'));
+// -*- text -*-
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Generation Types',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -62,6 +65,6 @@ which must be created by hand.</dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,11 +1,13 @@
-<?PHP  // -*- text -*-
+<?php
 
+
+// -*- text -*-
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Tyler\'s Campaign',
-		     'header' => 'Tyler\'s D&D 3Ed Campaign',
-		     'topic' => 'dnd'));
-
+StandardHeader(array(
+		'title' => 'Tyler\'s Campaign',
+		'header' => 'Tyler\'s D&D 3Ed Campaign',
+		'topic' => 'dnd'
+	));
 MakeBoxTop('', 'width: 100%');
 
 ?>
@@ -17,10 +19,9 @@ href="worksheet.php">worksheet</a> so that you only get a new ability point
 every 4 levels.  Sorry about having it wrong the first time.
 </p>
 
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 Section('What is going on?  (And why are you being so nice?)');
 
 ?>
@@ -38,7 +39,9 @@ Plan for a full Saturday and a full Sunday -- I imagine that everyone will
 be staying here and a standard breakfast/dinner/lunch fare will be worked 
 out.</p>
 
-<?PHP if (0) { ?>
+<?php
+
+if (0) { ?>
 
 <p>The character descriptions that I need from you is the type of character
 that you plan on creating.  I need physical looks, mannerisms, what you have
@@ -66,7 +69,8 @@ in case you were wondering.  There will be potentially a few changes, which
 will be listed here.</p>
 
 
-<?PHP } else { ?>
+<?php
+} else { ?>
 
 <p>I picked one person at random to get the "hook" and they have started
 picking members for the party.  Assembling the party is entirely up to them,
@@ -75,15 +79,18 @@ campaign.  You might need to make a new character -- if everyone only makes
 fighters, some people are likely going to need to create totally new
 characters.  Sorry.</p>
 
-<?PHP } ?>
+<?php
+} ?>
 
 <p><font size="-1">Bonus points to whoever can name the song with
 the quote above in it.  More points for the movie where the sound clip 
 was ripped from.</font></p>
 
-<?PHP Section('What do I need to do?'); ?>
+<?php Section('What do I need to do?'); ?>
 
-<?PHP if (0) { ?>
+<?php
+
+if (0) { ?>
 
 <p>Before we set a date, I need this list of things from you:</p>
 
@@ -105,7 +112,8 @@ was ripped from.</font></p>
 essentially set and should not change.  A weekend will be scheduled, and
 your additional requirements will be posted here.</p>
 
-<?PHP } else { ?>
+<?php
+} else { ?>
 
 <ul>
 <li>I will need a sheet that explains what you get at each level.  If you
@@ -141,7 +149,7 @@ Edition D&amp;D -- a.k.a. d20 system) book should have an appropriate cost.
 Anything older will need to be looked at.
 </ul>
 
-<?PHP Section('Alterations to Rules'); ?>
+<?php Section('Alterations to Rules'); ?>
 
 <p>We will be using <a href="house_rules.html">Guenever's House Rules</a>
 with the following changes:</p>
@@ -151,9 +159,10 @@ with the following changes:</p>
 <li><i>Elemental Aura</i> only has a +2 market price (not +3).</li>
 </ul>
 
-<?PHP } ?>
+<?php
+} ?>
 
-<?PHP Section('When will we be doing this?'); ?>
+<?php Section('When will we be doing this?'); ?>
 
 <p>The second weekend in September.  That friday, I will encourage people to
 come over and we can chat about the characters and get things ready --
@@ -164,9 +173,11 @@ extend into Sunday, so plan only D&amp;D for that entire weekend.</p>
 a two week notice in order to reschedule D&amp;D to fit your schedule, if it
 is even possible.</p>
 
-<?PHP Section('Characters Submitted'); ?>
+<?php Section('Characters Submitted'); ?>
 
-<?PHP if (0) { ?>
+<?php
+
+if (0) { ?>
 
 <p>I used to ask for two characters from everyone.  That seems now like such
 an amazingly unobtainable goal.  I'm seriously hoping everyone has one
@@ -187,7 +198,8 @@ phone conversation.</p>
 <li>&Uuml;lli:  0</li>
 </ul>
 
-<?PHP } else { ?>
+<?php
+} else { ?>
 
 <p>This will show who has submitted a character to me before the due date.
 This is the completed character sheets, descriptions of magic items, a
@@ -206,9 +218,10 @@ campaign.</p>
 <li>Sarah:  1</li>
 </ul>
 
-<?PHP } ?>
+<?php
+} ?>
 
-<?PHP Section('What is allowed?'); ?>
+<?php Section('What is allowed?'); ?>
 
 <ul>
 <li>Core rules -- Player's Handbook, Dungeon Master's Handbook, Monster
@@ -227,14 +240,14 @@ Page</a></li>
 alternate rules regarding sorcery.
 </ul>
 
-<?PHP Section('What is banned?'); ?>
+<?php Section('What is banned?'); ?>
 
 <ul>
 <li>Sorcery and Steam (special things might be allowed, but ASK FIRST)</li>
 <li>Exceptions already mentioned in the allowed list.</li>
 </ul>
 
-<?PHP Section('Anything else?'); ?>
+<?php Section('Anything else?'); ?>
 
 <p>You want something not already listed above?  Just ask.</p>
 
@@ -249,6 +262,6 @@ alternates will be allowed.  Bribes may help.</p>
 <!-- If you read this sentence,
 don't tell anyone.  Just let me know when we play. -->
 
-<?PHP
+<?php
 
 StandardFooter();

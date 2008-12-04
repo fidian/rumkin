@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Die Roll Stats',
-                     'topic' => 'dnd',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Die Roll Stats',
+		'topic' => 'dnd',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -56,13 +57,14 @@ order &ndash; do not assign numbers to stats as you see fit.
 <li>Roll a pool of 12 scores using 3d6, pick the best 6 scores.
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
 function insert_js() {
-?>
+	
+	?>
 <script language="JavaScript"
 <!--
 
@@ -290,5 +292,6 @@ function SetRoll(txt) {
 }
 
 // --></script>
-<?PHP
+<?php
 }
+

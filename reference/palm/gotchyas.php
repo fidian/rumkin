@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Palm OS Programming - Gotchyas',
-		     'topic' => 'palmos'));
+StandardHeader(array(
+		'title' => 'Palm OS Programming - Gotchyas',
+		'topic' => 'palmos'
+	));
 
 ?>
 	
@@ -275,6 +276,6 @@ href="http://www.palmos.com/dev">www.palmos.com/dev</a>
 <li>Third-party books
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

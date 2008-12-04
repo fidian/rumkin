@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('CF To IDE');
 
 ?>
@@ -72,6 +71,6 @@ still work.</p>
 <p>Also, if you like pin mappings and whatnot, take a look at page 40 of the <a
 href="media/cfspc3_0.pdf">CompactFlash Specifications</a>.
 
-<?PHP
+<?php
 
 AquaStop();

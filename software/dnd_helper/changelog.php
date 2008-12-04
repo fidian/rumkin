@@ -1,11 +1,12 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Tools
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'Change Log',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Tools
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Change Log',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -76,6 +77,6 @@ experience levels, treasure) and some help.</dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,22 +1,22 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
 
-if (isset($_POST['Name']))
-{
-    if (get_magic_quotes_gpc())
-    {
-	foreach ($_POST as $k => $v)
-	{
-	    $_POST[$k] = stripslashes($v);
+if (isset($_POST['Name'])) {
+	if (get_magic_quotes_gpc()) {
+		foreach ($_POST as $k => $v) {
+			$_POST[$k] = stripslashes($v);
+		}
 	}
-    }
-    ShowInfoSheet();
-    exit;
+	
+	ShowInfoSheet();
+	exit;
 }
 
-StandardHeader(array('title' => 'Travel Bug Info Sheet',
-		     'topic' => 'gps'));
+StandardHeader(array(
+		'title' => 'Travel Bug Info Sheet',
+		'topic' => 'gps'
+	));
 
 ?>
 <p>This travel bug information sheet is formatted to be similar to the one
@@ -41,7 +41,7 @@ larger hole so you have sealed laminate around the paper, or leave a tag of
 laminate to one side of the card.  In the end, you won't want to have any
 chance of water getting in direct contact with the paper.</p>
 
-<form method=post action="<?= $PHP_SELF ?>">
+<form method=post action="<?php echo $PHP_SELF ?>">
 <table align=center>
 <tr><th align=right>Travel Bug Name:</th>
 <td><input type=text name=Name size=35></td></tr>
@@ -51,15 +51,14 @@ chance of water getting in direct contact with the paper.</p>
 <input type=submit value="Make Info Sheet"></td></tr>
 </table>
 </form>
-<?PHP
+<?php
 
 StandardFooter();
 
 
-
-function ShowInfoSheet()
-{
-?>
+function ShowInfoSheet() {
+	
+	?>
 <html><head><title>Travel Bug Info Sheet</title>
 <style type="text/css">
 <!--
@@ -111,15 +110,19 @@ function ShowInfoSheet()
 <div class=heading>This Is No Ordinary Geocaching Trading
 Item!</div>
 <div class=subhead><br>
-<span class=bugname><?= htmlspecialchars($_POST['Name']) ?></span>
+<span class=bugname><?php echo htmlspecialchars($_POST['Name']) ?></span>
 is a <span class=bugtravel>Travel Bug</span>,
-<?PHP if ($_POST['Mission'] && $_POST['Mission'] != '') { ?>
+<?php
+	
+	if ($_POST['Mission'] && $_POST['Mission'] != '') { ?>
 traveling from geocache to geocache on a very specific mission:</div>
-<div class=mission><?= htmlspecialchars($_POST['Mission']) ?>
-<?PHP } else { ?>
+<div class=mission><?php echo htmlspecialchars($_POST['Mission']) ?>
+<?php
+	} else { ?>
 traveling from geocache to geocache, wandering across the globe, desiring
 only to keep moving and see as many different areas as possible.
-<?PHP } ?></div>
+<?php
+	} ?></div>
 
 </td></tr></table>
 
@@ -145,5 +148,6 @@ geocache and read the instructions on the
 </td></tr></table>
 
 </body></html>
-<?PHP
+<?php
 }
+

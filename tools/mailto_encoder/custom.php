@@ -1,20 +1,23 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
 
-function Insert_JS()
-{
-    ?>
+
+function Insert_JS() {
+	
+	?>
 <SCRIPT LANGUAGE="javascript" type="text/javascript" src="email.js"></SCRIPT>
 <SCRIPT LANGUAGE="javascript" type="text/javascript" src="custom.js"></SCRIPT>
-<?PHP
+<?php
 }
 
-StandardHeader(array('title' => 'Mailto Encoder',
-                     'header' => 'Advanced Mailto Encoder',
-		     'topic' => 'mailto',
-		     'callback' => 'Insert_JS'));
-		     
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'Advanced Mailto Encoder',
+		'topic' => 'mailto',
+		'callback' => 'Insert_JS'
+	));
+
 ?>
 
 <p>Below is one of the most fexible email address encoders available on the
@@ -32,7 +35,7 @@ all.</p>
 
 <FORM NAME="MailtoForm" METHOD="POST" ACTION="javascript:RunEncode();">
 
-<?PHP Section('Step 1:  Email Address'); ?>
+<?php Section('Step 1:  Email Address'); ?>
 
 <p>Please enter your email address here.  You can feel safe about
 typing it in here because all of the processing is done on your
@@ -46,7 +49,7 @@ computer and it does not relay any information to any other computer.</p>
 </tr>
 </table>
 
-<?PHP Section('Step 2:  Additional Information'); ?>
+<?php Section('Step 2:  Additional Information'); ?>
 
 <p>If you want any other specific information in the email message, you
 should enter it here.  This may or may not be supported by the browser +
@@ -78,7 +81,7 @@ user.</p>
 </tr>
 </table>
 
-<?PHP Section('Step 3:  The Link'); ?>
+<?php Section('Step 3:  The Link'); ?>
 
 <p>This section describes how the link should look like.  (The "link" is the
 "&lt;A HREF=...&gt;" thing.)</p>
@@ -115,7 +118,7 @@ user.</p>
 </table>
 
 
-<?PHP Section('Step 4:  What Is Displayed'); ?>
+<?php Section('Step 4:  What Is Displayed'); ?>
 
 <p>Usually, if you make a link on your web page, you want the user to be
 able to see your link.  This provides various ways of displaying your email
@@ -190,7 +193,7 @@ address.</p>
 </table>
 
 
-<?PHP Section('Step 5:  Additional Options'); ?>
+<?php Section('Step 5:  Additional Options'); ?>
 
 <table border=1 cellspacing=1 cellpadding=4>
 <tr>
@@ -219,14 +222,14 @@ address.</p>
 </table>
 
 
-<?PHP Section('Step 6:  Generate HTML'); ?>
+<?php Section('Step 6:  Generate HTML'); ?>
 
 <p>Press this button to generate the code that you will copy into your web
 page's source.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <INPUT TYPE="SUBMIT" VALUE="Encode Address">
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 <P><B>Your final HTML code is:</B><BR>
 <textarea name="CodeText" rows=5 cols=70 wrap=soft></TEXTAREA>
 </form>
@@ -245,6 +248,6 @@ whatever.  Just please give me credit by mentioning my name (Tyler
 Akins) and provide a link to my site (<a
 href="http://rumkin.com/tools/mailto_encoder">http://rumkin.com/tools/mailto_encoder</a>).</p>
 
-<?PHP
+<?php
 
 StandardFooter();

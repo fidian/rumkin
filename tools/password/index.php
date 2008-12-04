@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('topic' => 'password',
-		     'title' => 'Passwords'));
+StandardHeader(array(
+		'topic' => 'password',
+		'title' => 'Passwords'
+	));
 
 ?>
 
@@ -13,7 +14,7 @@ enough.  Because of this, I have created a couple tools that help to make
 things simpler.</p>
 
 
-<?PHP Section('<a href="diceware.php">Diceware</a>'); ?>
+<?php Section('<a href="diceware.php">Diceware</a>'); ?>
 
 <p>You can create high-quality passphrases with a lookup table and a set of
 dice.  This web page will replace the lookup table, which means you won't
@@ -21,13 +22,13 @@ need to print our or reference a 30+ page list of words.  It also has the
 ability to generate a passphrase for you, word by word.</p>
 
 
-<?PHP Section('<a href="md5.php">MD5 Generator</a>'); ?>
+<?php Section('<a href="md5.php">MD5 Generator</a>'); ?>
 
 <p>Calculate the MD5 checksum of a bit of text, password, or whatever you
 like.  Runs in your browser and nothing is sent back to me, just in case
 you need to use it offline.</p>
 
-<?PHP Section('<a href="pass_gen.php">Password Generator</a>'); ?>
+<?php Section('<a href="pass_gen.php">Password Generator</a>'); ?>
 
 <p>If you need to make a password, generate random numbers, or create a
 hexadecimal key for your wireless LAN, this tool is for you.  It is written
@@ -35,7 +36,7 @@ in JavaScript and will create random information for you with just a click
 of a button.</p>
 
 
-<?PHP Section('<a href="passchk.php">Password Strength Tester</a>') ?>
+<?php Section('<a href="passchk.php">Password Strength Tester</a>') ?>
 
 <p>Do you want to know how secure your new password is?  This JavaScript
 tool will analyze your password and compare it to a list of common
@@ -45,7 +46,7 @@ your password really is.  It will show you the difference between "password"
 and "Pa5$w0rD".
 
 	
-<?PHP Section('Links'); ?>
+<?php Section('Links'); ?>
 
 <ul>
 <li><a href="http://www.securitystats.com/tools/password.php">Security
@@ -60,12 +61,12 @@ is used to generate every site's password.
 </ul>
 	
 
-<?PHP Section('More Tools?'); ?>
+<?php Section('More Tools?'); ?>
 
 <p>Want me to write something for you?  Leave a message in the chat window
 below.</p>
 
 	
-<?PHP
+<?php
 
 StandardFooter();

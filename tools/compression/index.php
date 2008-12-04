@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Web Page Compression',
-		     'topic' => 'compression'));
+StandardHeader(array(
+		'title' => 'Web Page Compression',
+		'topic' => 'compression'
+	));
 
 ?>
 
@@ -31,27 +32,24 @@ into them and they will generate compressed output for you.</p>
 <p>There isn't much to see yet.  This is a project I rarely work on, but I
 do touch back to it every year or so.  If this helps you out, let me know.</p>
 
-<?PHP
+<?php
+
 $Links = array(
-   array('Name' => 'LZ78',
-         'Desc' => 'LZ78 compression builds a dictionary with from ' .
-            'your input source, and compression is pretty good ' .
-            'even though the resulting data is re-encoded in text.',
-         'URL' => 'compress_lz78.php'),
-   array('Name' => 'Huffman Encoding + UUE with JavaScript',
-	 'Desc' => 'Character re-encoding with shorter codes for ' .
-	    'letters that appear more frequently.  Then, it has to ' .
-	    'encode the data so the binary data can be stored in ' .
-	    'a text file (like HTML or a JavaScript file).',
-	 'URL' => 'compress_huff.php'),
-   array('Name' => 'Base64 Encoding',
-         'Desc' => 'A common method of encoding binary data with just ' .
-	    'text.  It increases the size of the information by 33%, ' .
-	    'but it is needed sometimes ... like when sending attachments ' .
-	    'in email.',
-	 'URL' => 'base64.php'),
+	array(
+		'Name' => 'LZ78',
+		'Desc' => 'LZ78 compression builds a dictionary with from ' . 'your input source, and compression is pretty good ' . 'even though the resulting data is re-encoded in text.',
+		'URL' => 'compress_lz78.php'
+	),
+	array(
+		'Name' => 'Huffman Encoding + UUE with JavaScript',
+		'Desc' => 'Character re-encoding with shorter codes for ' . 'letters that appear more frequently.  Then, it has to ' . 'encode the data so the binary data can be stored in ' . 'a text file (like HTML or a JavaScript file).',
+		'URL' => 'compress_huff.php'
+	),
+	array(
+		'Name' => 'Base64 Encoding',
+		'Desc' => 'A common method of encoding binary data with just ' . 'text.  It increases the size of the information by 33%, ' . 'but it is needed sometimes ... like when sending attachments ' . 'in email.',
+		'URL' => 'base64.php'
+	),
 );
-
 MakeLinkList($Links);
-
 StandardFooter();

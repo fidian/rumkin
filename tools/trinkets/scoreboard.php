@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Scoreboard',
-		     'topic' => 'trinkets',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Scoreboard',
+		'topic' => 'trinkets',
+		'callback' => 'insert_js'
+	));
 
 ?>
 <p><font style="font-size: 1.7em; font-weight: bold">King Boreas' Hall of 
@@ -25,14 +26,14 @@ to use this, feel free!</p>
 
 <div id=scoreboard class=scoreboard></div>
 	
-<?PHP
-	
+<?php
+
 StandardFooter();
 
 
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script language=JavaScript src="scoreboard.js"></script>
 <script language=JavaScript>
 AddPoint('15Tango');
@@ -252,5 +253,6 @@ AddPoint('Sokratz');
 ScoreboardSetup('scoreboard');
 </script>
 <link rel="stylesheet" type="text/css" href="scoreboard.css">
-<?PHP
+<?php
 }
+

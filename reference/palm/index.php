@@ -1,13 +1,14 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Palm OS Programming',
-		     'topic' => 'palmos'));
+StandardHeader(array(
+		'title' => 'Palm OS Programming',
+		'topic' => 'palmos'
+	));
 
 ?>
 
-<?PHP Section('Assumptions'); ?>
+<?php Section('Assumptions'); ?>
 
 <p>When using these tips, know these facts:</p>
 
@@ -18,7 +19,7 @@ you CodeWarrior folk.
 <li>I use Linux, so the shell scripts will be using bash and perl.
 </ul>
 
-<?PHP Section('The Info'); ?>
+<?php Section('The Info'); ?>
 
 <dl>
 
@@ -42,7 +43,7 @@ so you can see what I mean.
 
 </dl>
 	
-<?PHP Section('Books'); ?>
+<?php Section('Books'); ?>
 
 <dl>
 
@@ -61,7 +62,7 @@ buy this book, I could have spent it on something useful ... like gas money.
 
 </dl>
 
-<?PHP Section('Off-Site Links'); ?>
+<?php Section('Off-Site Links'); ?>
 
 <dl>
 
@@ -94,6 +95,6 @@ you CodeWarrior people are kinda SOL.</dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'One Time Pad',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'One Time Pad',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>It is said that the one-time pad is the best cipher anywhere.  It is
@@ -26,19 +28,17 @@ of characters in your message, otherwise your message will not be encoded.</p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 <p>The pad:<br><textarea name="pad" rows="5" cols="80"></textarea></p>
 </form>
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <span id='output'></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/otp.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/otp.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -94,5 +94,6 @@ function upd()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

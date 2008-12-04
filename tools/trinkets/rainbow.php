@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Rainbow Text Generator',
-                     'topic' => 'trinkets',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Rainbow Text Generator',
+		'topic' => 'trinkets',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -18,13 +19,14 @@ onsubmit="return DoRainbow()">
 <textarea name=res rows=5 cols=80></textarea>
 </form>
 <div id="show"></div>
-<?PHP
-  
+<?php
+
 StandardFooter();
 
-function insert_js()
-{
-?>
+
+function insert_js() {
+	
+	?>
 <script language="JavaScript">
 <!--
 
@@ -77,5 +79,6 @@ function DoRainbow()
    return false;
 }
 //--></SCRIPT>
-<?PHP
+<?php
 }
+

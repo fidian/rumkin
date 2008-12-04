@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'JS Chars',
+		'topic' => 'trinkets',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'JS Chars',
-		     'topic' => 'trinkets',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>Want to know the hex codes for unicode characters?
@@ -15,19 +17,17 @@ This will do it for you.  Just type and see what I mean.</p>
 </form>
 <p>This is the unicode hex code for every character in the box above,
 including spaces, tabs, and newlines.</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="../cipher/js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="../cipher/js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
 // It would be nice if you left this header intact.  http://rumkin.com
@@ -96,5 +96,6 @@ function upd()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

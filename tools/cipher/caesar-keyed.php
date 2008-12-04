@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Keyed Caesar',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Keyed Caesar',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>One variation to the standard <a href="caesar.php">Caesar</a> cipher is
@@ -42,11 +44,12 @@ the key.</p>
    <option value="-1">Decrypt
 </select>
 <P>Shift:  <select name=N>
-<?PHP
-   for ($i = 0; $i < 26; $i ++)
-   {
-      echo "<option value=$i>$i</option>\n";
-   }
+<?php
+
+for ($i = 0; $i < 26; $i ++) {
+	echo "<option value=$i>$i</option>\n";
+}
+
 ?>
 </select>
 <p>The key:  <input type=text name=key size=40 value=""> - 
@@ -55,19 +58,17 @@ the key.</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='caesar'></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/caesar.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/caesar.js"></script>
 <script language="JavaScript" src="js/keymaker.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
@@ -162,5 +163,6 @@ function ZapSpaces()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

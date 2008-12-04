@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Skip',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Skip',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>Ok, I admit that I don't know of an "official" name for this algorithm.
@@ -28,28 +30,26 @@ they were letters.  Newlines (enters / returns) will be ignored.</p>
 <form name="encoder" method=post action="#" onsubmit="return false;">
 <p><select name="encdec"><option value="1">Encode
 <option value="-1">Decode</select></p>
-<p>Bypass the first X letters:  <?PHP InputPlusMinus('startat', 0) ?>
+<p>Bypass the first X letters:  <?php InputPlusMinus('startat', 0) ?>
  (0 = start with the first letter, 1 = start with the second letter, ...)</p>
-<p>Skip:  <?PHP InputPlusMinus('skip', 1) ?>
+<p>Skip:  <?php InputPlusMinus('skip', 1) ?>
  (When pressed, the next valid number is used - 
  <a href="#" onclick="show_chart(); return false;">Show all</a>
  skip possibilities in a new window.)</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text.</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/skip.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/skip.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
@@ -186,19 +186,14 @@ window.setTimeout('start_update()', 100);
 
 
 // --></script>
-<?PHP
+<?php
 }
 
 
-
-function InputPlusMinus($var, $def)
-{
-   global $onupdate;
-   
-   echo '<input type=text name=' . $var . ' size=5 ' . $onupdate .
-      ' value="' . $def . '">';
-   echo ' <input type=button value="+" onclick="PlusMinus(\'' .
-      $var . '\', 1)">';
-   echo ' <input type=button value="-" onclick="PlusMinus(\'' .
-      $var . '\', -1)">';
+function InputPlusMinus($var, $def) {
+	global $onupdate;
+	echo '<input type=text name=' . $var . ' size=5 ' . $onupdate . ' value="' . $def . '">';
+	echo ' <input type=button value="+" onclick="PlusMinus(\'' . $var . '\', 1)">';
+	echo ' <input type=button value="-" onclick="PlusMinus(\'' . $var . '\', -1)">';
 }
+

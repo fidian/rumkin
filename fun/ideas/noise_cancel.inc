@@ -9,7 +9,7 @@ of helicopters to make them even harder to find?</p>
 href="http://www.headwize.com/projects/noise_prj.htm">the original site</a>,
 just in case that site goes down for any reason.</p>
 
-<?= Separator() ?>
+<?php echo Separator() ?>
 
 <p><b>Build These Noise-Canceling Headphones by Jules Ryckebusch</b>
 
@@ -323,7 +323,7 @@ Microphones (Digik-Key P9967-ND or similar), headphones, PC board, case, wire, h
 
 <p align="center"><b>Addendum</b>
 
-<p>7/8/2000: <?PHP HideEmail('marc', 'links2go.com') ?> - Marc Goodman built
+<p>7/8/2000: <?php HideEmail('marc', 'links2go.com') ?> - Marc Goodman built
 a noise-cancelling headphone amplifier for his Sennheiser HD580
 headphones based on the circuit in this article. He writes:
 

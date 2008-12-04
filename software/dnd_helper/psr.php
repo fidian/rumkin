@@ -1,11 +1,12 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Helper
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'PSR Format',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Helper
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'PSR Format',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
@@ -26,12 +27,12 @@ store."  All examples are real and do work in my parser.  The files are all
 simple text files.  The source file to generate the sentence is quite 
 simple:</p>
 
-<?PHP
+<?php
 
-ShowExample("
+ShowExample('
 * MAIN
 Jack is going to the store.
-");
+');
 
 ?>
 
@@ -40,9 +41,9 @@ with [MAIN] and we pick a random rule.  Since there is only one, we pick
 that one.  Let's make this a little more complex by changing the name and
 the destination.</p>
 
-<?PHP
+<?php
 
-ShowExample("
+ShowExample('
 * MAIN
 [NAME] is going to the [PLACE].
 
@@ -55,7 +56,7 @@ Greg
 library
 store
 shed
-");
+');
 
 ?>
 
@@ -66,9 +67,9 @@ different sentences.</p>
 
 <p>Let's make this a bit more interesting and add more description.</p>
 
-<?PHP
+<?php
 
-ShowExample("
+ShowExample('
 * MAIN
 [NAME] is [JOINER] the [PLACE].
 At the [PLACE], you will find [NAME].
@@ -103,7 +104,7 @@ from
 towards
 away from
 nearby
-");
+');
 
 ?>
 
@@ -122,14 +123,14 @@ possibilities, but it only has a 1/3 chance of being picked if JOINER is
 used.  To make the output look better, we should have the "[WALK] [TO_FROM]"
 rule get used more often.</p>
 
-<?PHP
+<?php
 
-ShowExample("
+ShowExample('
 * JOINER
 10:[WALK] [TO_FROM]
 1:going to
 1:coming from
-");
+');
 
 ?>
 
@@ -140,9 +141,9 @@ random number, 4, means that we use the first rule.  If I pick 11 or 12, we
 use the boring "going to" or "coming from" rules.  Essentially, the first
 rule is 10 times more likely to get picked than an "average" rule.</p>
 
-<?PHP
+<?php
 
-ShowExample("
+ShowExample('
 # This is a completely different example.
 # Do not just add this to the above PSR rules
 #
@@ -156,7 +157,7 @@ Pick up [OBJECT].  [^OBJECT] is over there.
 the sword
 an apple
 a kitten
-");
+');
 
 ?>
 
@@ -170,18 +171,11 @@ add comments to your PSR files.</p>
 <p>The file format also supports long lines -- just use something like
 this:</p>
 
-<?PHP
+<?php
 
-ShowExample("
-* LONG_LINE
-This is all \
-one big, long line \
-and will be treated as such. \
-You need to end your line \
-with a backslash, and the \
-parser will append the next \
+ShowExample('\\
 line to the end of the first one.
-");
+');
 
 ?>
 
@@ -194,15 +188,16 @@ follow the above guidelines and send it to me.  I'll convert it into a
 database for you.  If you don't mind, I would also like to host it on my
 site and distribute it to others.</p>
 
-<?PHP
+<?php
 
 StandardFooter();
 
-function ShowExample($text)
-{
-   MakeBoxTop('center');
-   echo '<pre>';
-   echo htmlspecialchars(trim($text));
-   echo "\n</pre>";
-   MakeBoxBottom();
+
+function ShowExample($text) {
+	MakeBoxTop('center');
+	echo '<pre>';
+	echo htmlspecialchars(trim($text));
+	echo "\n</pre>";
+	MakeBoxBottom();
 }
+

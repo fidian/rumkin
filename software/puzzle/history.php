@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-                     'header' => 'Java Puzzle Applet - History',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - History',
+		'topic' => 'puzzle'
+	));
 
 ?>
 
@@ -110,6 +111,6 @@ page may not be implemented. You've been warned.</P>
    <DD>Display is faster.</DD> 
    <DD>Does not load sound until images have been loaded.</DD> 
 </DL>
-<?PHP
+<?php
 
 StandardFooter();

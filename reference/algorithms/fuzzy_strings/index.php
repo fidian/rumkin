@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../../functions.inc';
-
-StandardHeader(array('title' => 'Fuzzy String Matching',
-		     'topic' => 'algorithms'));
+StandardHeader(array(
+		'title' => 'Fuzzy String Matching',
+		'topic' => 'algorithms'
+	));
 
 ?>
 
@@ -38,7 +39,7 @@ functions</a>.  Look for the <tt>php_similar_str</tt>,
 <p>I have created <a href="gestalt.c.txt">C</a> and <a
 href="gestalt.prg.txt">FoxPro</a> versions of the code.  They are both
 recursive, so be careful with large strings on limited devices.  Also, Eduardo
-Curtolo &lt;<?= HideEmail('ecurtolo', 'gmail.com') ?>&gt; provided a <a href="gestalt.pas.txt">Pascal</a> version.</p>
+Curtolo &lt;<?php echo HideEmail('ecurtolo', 'gmail.com') ?>&gt; provided a <a href="gestalt.pas.txt">Pascal</a> version.</p>
 
 <p><b>SoundEx:</b>  This algorithm is used on your driver's licence (in the
 U.S.).  Its goal is to group letters that sound alike, then convert the name
@@ -50,6 +51,6 @@ could read <a href="http://www.lanw.com/java/phonetic/">A Better Phonetic
 Lookup</a> and get an algorithm that matches really well, based on how the
 language works.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

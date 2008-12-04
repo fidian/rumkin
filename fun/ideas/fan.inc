@@ -15,7 +15,7 @@ Machine</a> and <a href="http://www.japan.com">Japan.com</a>.</p>
 Patent Office:  <a href="fan/5594289.tif">5,594,289</a> and <a
 href="fan/4751486.tif">4,751,486</a>.</p>
 
-<?= Separator() ?>
+<?php echo Separator() ?>
 
 <p><b>The Techno Maestro's  Amazing Machine</b><br>
 <b>Kohei Minato and the Japan Magnetic Fan Company</b><br>

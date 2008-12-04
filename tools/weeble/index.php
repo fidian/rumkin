@@ -1,3 +1,3 @@
-<?PHP
+<?php
 
-header("Location: http://rumkin.com/tools/weeble/login.php");
+header('Location: http://rumkin.com/tools/weeble/login.php');

@@ -1,19 +1,16 @@
-<?PHP
+<?php
 
-include "common.inc";
-include "../../admin/PalmOS/db.inc";
-
+include'common.inc';
+include'../../admin/PalmOS/db.inc';
 MarcoHeader();
-
 LoadHFiles();
-
 MakeBoxTop('center');
 
 ?>
-<B>Current Version:</B> <?= $GLOBALS['APP_VERSION'] ?><br>
+<B>Current Version:</B> <?php echo $GLOBALS['APP_VERSION'] ?><br>
 <B>Compile Date:</B><br>
-<?= $GLOBALS['COMPILE_DATE'] ?>
-<?PHP
+<?php echo $GLOBALS['COMPILE_DATE'] ?>
+<?php
 
 MakeBoxBottom();
 
@@ -44,6 +41,6 @@ the software.  Don't worry - the code is generated on the registration page
 now (no fee required), but I have also deemed this software to be "end
 of life" so you won't be getting any support.</p>
 
-<?PHP
-	
+<?php
+
 MarcoFooter();

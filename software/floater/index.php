@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Floater',
-		     'topic' => 'floater'));
+StandardHeader(array(
+		'title' => 'Floater',
+		'topic' => 'floater'
+	));
 
 ?>
 
@@ -29,26 +30,26 @@ one menu item per line.  There are two different ways to specify a
 program.  The first has a description, a pipe symbol (the | character), 
 and then the filename.  The second uses just the filename.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <tt>Notepad|c:\windows\notepad.exe<br>
 c:\windows\calc.exe</tt>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>The advantage here is that you can use relative paths.
 "..\Directory\Path.exe" will work now, so you can use Floater as the menu
 system for your flash drive.</p>
 
-<?PHP Section('Downloads') ?>
+<?php Section('Downloads') ?>
 
 <p><b><a href="media/floater1.0.zip">Floater 1.0</a></b> 
-(<?= FidianFileSize(getenv('MEDIABASE') . 'software/floater/floater1.0.zip') ?>) - The original, complete 
+(<?php echo FidianFileSize(getenv('MEDIABASE') . 'software/floater/floater1.0.zip') ?>) - The original, complete 
 with source code for Visual C 6.0</p>
 
 <p><b><a href="media/floater-txt1.0.zip">Floater-txt 1.0</a></b> 
-(<?= FidianFileSize(getenv('MEDIABASE') . 'software/floater/floater-txt1.0.zip') ?>) - My version that
+(<?php echo FidianFileSize(getenv('MEDIABASE') . 'software/floater/floater-txt1.0.zip') ?>) - My version that
 reads its information from a text file, also complete with Visual C 6.0
 source.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,3 +1,3 @@
-<?PHP
+<?php
 
-$LastUpdated = "2007-07-16";
+$LastUpdated = '2007-07-16';

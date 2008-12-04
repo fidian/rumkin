@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Transparency',
-		     'topic' => 'web',
-		     'callback' => 'InsertJS'));
+StandardHeader(array(
+		'title' => 'Transparency',
+		'topic' => 'web',
+		'callback' => 'InsertJS'
+	));
 
 ?>
 
@@ -13,12 +14,12 @@ It's awesome.  First off, you will need to use CSS with whatever you need to
 make transparent.  Here's the attributes you need to set.  80% opaque
 (mostly there) is defined nearly the same way for the different attributes.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <pre>filter:alpha(opacity=80);
 -moz-opacity: .80;
 opacity: .80;
 </pre>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>You can set an object's opacity with JavaScript as well.  However, if you
 want to use JavaScript to change the opacity in Internet Explorer, you still
@@ -31,19 +32,19 @@ another dorky workaround.</p>
 form, table, div, etc.) and and pass the 'id' name along with the opacity
 (50 = &frac12; opaque, 99 = nearly completely opaue).</p>
 
-<?PHP MakeBoxTop('center') ?>
-<pre><?PHP ShowSetOpacityFunction() ?>
+<?php MakeBoxTop('center') ?>
+<pre><?php ShowSetOpacityFunction() ?>
 </pre>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
-<?PHP Section('Examples'); ?>
+<?php Section('Examples'); ?>
 
 <p>Here is a textarea and a pulldown list.  To get the pulldown list to work,
 you need to specify the style for each option.  I set the style attribute in
 the option, but you could do this more appropriately with a class or style
 sheet instead.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <form>
 <p>20% opaque text area:<br>
 <textarea style="filter:alpha(opacity=20); -moz-opacity:0.2; opacity:0.2"
@@ -63,12 +64,12 @@ opacity:0.75;">Option 4 - 75% opaque
 </select>
 </p>
 </form>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>Moving your mouse over this image will make it fade away (almost
 completely) and moving your mouse away will let it come back again.</p>
 
-<form name=imgform action=get method="<?= $PHP_SELF ?>">
+<form name=imgform action=get method="<?php echo $PHP_SELF ?>">
 <img name="testImage" src="world.gif" id='testImage'
  style="filter:alpha(opacity=99); -moz-opacity: 0.99; opacity=0.99"
  onmouseover="SetOpacityStep(11)" onmouseout="SetOpacityStep(99)">
@@ -76,7 +77,7 @@ completely) and moving your mouse away will let it come back again.</p>
 Opacity:  <input type=text value="" name=imgopacity size=2>%
 </form>
 
-<?PHP Section('Links'); ?>
+<?php Section('Links'); ?>
 
 <ul>
 <li><a href="http://www.faqts.com/knowledge_base/view.phtml/aid/7375/fid/122">Faqts</a>
@@ -84,14 +85,14 @@ Opacity:  <input type=text value="" name=imgopacity size=2>%
 </ul>
 
 
-<?PHP
+<?php
 
 StandardFooter();
 
+
+function InsertJS() {
 	
-function InsertJS()
-{
-?>
+	?>
 <SCRIPT language="javascript">
 var CurrentOpacity = 99;
 function SetOpacityStep(target)
@@ -120,16 +121,15 @@ function SetOpacityStep(target)
    ImageFade = setTimeout('SetOpacityStep(' + target + ')', 50);
 } 
 
-<?PHP ShowSetOpacityFunction() ?>
+<?php ShowSetOpacityFunction() ?>
 </SCRIPT>
-<?PHP
-    
+<?php
 }
 
 
-function ShowSetOpacityFunction()
-{
-?>function SetObjectOpacity(obj_name, percent)
+function ShowSetOpacityFunction() {
+	
+	?>function SetObjectOpacity(obj_name, percent)
 {
    var the_obj;
   
@@ -158,5 +158,6 @@ function ShowSetOpacityFunction()
       menuobj.style.opacity = percent / 100;
    }
 }
-<?PHP
+<?php
 }
+

@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'JavaScript Speed Enhancements',
+		'topic' => 'web',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'JavaScript Speed Enhancements',
-		     'topic' => 'web',
-		     'callback' => 'insert_js'));
 ?>
 
 <form method=get action="" name="testform" style="display: none">
@@ -25,7 +27,7 @@ along the same vein is that this one is actually performing the good and bad
 versions of the code and will give you the live results of the tests as they
 are performed.</p>
 
-<?PHP Section('Dereferencing'); ?>
+<?php Section('Dereferencing'); ?>
 
 <p>If you are looking at document.my_form.some_input_element.value often, it
 will be best to store the value to a local variable.  This tip was given to
@@ -35,27 +37,38 @@ factor of 10 when I made this change.  He was right.  This particular
 example is similar and you can obviously tell that using a local variable is
 far more efficient.</p>
 
-<?PHP
+<?php
 
 $code = array(
-'for (var i = 0; i < 100; i ++) {
+	'for (var i = 0; i < 100; i ++) {
     a = document.testform.testtext.value;
     b = document.testform.testtext.value.length;
     c = document.testform.testtext.value.substr(2, 1);
 }',
-'v = document.testform.testtext.value;
+	'v = document.testform.testtext.value;
 for (var i = 0; i < 100; i ++) {
     a = v;
     b = v.length;
     c = v.substr(2, 1);
-}');
-
-$results = array(
-   array('Firefox 2.0.0.1', 'Windows XP', '5x faster'),
-   array('Internet Explorer 7', 'Windows XP', '5x to 25x faster'),
-   array('Opera 9.10', 'Windows XP', '6x faster'),
+}'
 );
-
+$results = array(
+	array(
+		'Firefox 2.0.0.1',
+		'Windows XP',
+		'5x faster'
+	),
+	array(
+		'Internet Explorer 7',
+		'Windows XP',
+		'5x to 25x faster'
+	),
+	array(
+		'Opera 9.10',
+		'Windows XP',
+		'6x faster'
+	),
+);
 ShowExample($code, $results);
 
 ?>
@@ -64,7 +77,7 @@ ShowExample($code, $results);
 sometimes it plummetted down to a mere 4 or 5x speed increase.  No matter
 what, it is clear that it is far faster to use a local variable.</p>
 
-<?PHP Section('String Concatenation'); ?>
+<?php Section('String Concatenation'); ?>
 
 <p>One other tip that I get a lot is that I should avoid lots of little
 string concatenations.  I also read that string concatenations get worse
@@ -72,18 +85,18 @@ with the size of the string being concatenated.  Instead, the little
 substrings should be placed into an array and then joined together to make
 one big string in the end.</p>
 
-<?PHP
+<?php
 
 $code = array(
-"a = '';
-b = 'abcdefghijklmnopqrstuvwxyz';
-b += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	'a = \'\';
+b = \'abcdefghijklmnopqrstuvwxyz\';
+b += \'ABCDEFGHIJKLMNOPQRSTUVWXYZ\';
 for (var i = 0; i < 500; i ++) {
     a += b + b + b + b + b;
-}",
-"a = new Array();
-b = 'abcdefghijklmnopqrstuvwxyz';
-b += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+}',
+	'a = new Array();
+b = \'abcdefghijklmnopqrstuvwxyz\';
+b += \'ABCDEFGHIJKLMNOPQRSTUVWXYZ\';
 for (var i = 0; i < 500; i ++) {
     a.push(b);
     a.push(b);
@@ -91,15 +104,25 @@ for (var i = 0; i < 500; i ++) {
     a.push(b);
     a.push(b);
 }
-a = a.join('');");
-
-$results = array(
-   array('Firefox 2.0.0.1', 'Windows XP', 'Questionable'),
-   array('Internet Explorer 7', 'Windows XP', '6x faster'),
-   array('Opera 9.10', 'Windows XP', '2x faster'),
+a = a.join(\'\');'
 );
-
-
+$results = array(
+	array(
+		'Firefox 2.0.0.1',
+		'Windows XP',
+		'Questionable'
+	),
+	array(
+		'Internet Explorer 7',
+		'Windows XP',
+		'6x faster'
+	),
+	array(
+		'Opera 9.10',
+		'Windows XP',
+		'2x faster'
+	),
+);
 ShowExample($code, $results);
 
 ?>
@@ -109,7 +132,7 @@ For littler string concatenations, it is actually slower to put the strings
 into an array and concatenate them.  For larger strings, the speed savings
 are negligable.</p>
 
-<?PHP Section('Additional Resources'); ?>
+<?php Section('Additional Resources'); ?>
 
 <ol>
 
@@ -126,14 +149,14 @@ join() can save you lots of time.
 </ol>
 	
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script language="JavaScript">
 var js_speed_num = 1;
 var js_cont = 1;
@@ -212,44 +235,37 @@ function js_speed_loader()
 js_speed_old_onload = window.onload;
 window.onload = js_speed_loader;
 </script>
-<?PHP
+<?php
 }
 
 
-function ShowExample($code, $res)
-{
-   global $ShowExampleNum;
-   
-   if (! isset($ShowExampleNum))
-      $ShowExampleNum = 0;
-      
-   MakeBoxTop('center');
-      
-   foreach ($code as $c)
-   {
-      $ShowExampleNum ++;
-      echo "<table border=1 cellpadding=5 cellspacing=0><tr>\n";
-      echo "<td><div id='example$ShowExampleNum'>";
-      $c = htmlspecialchars($c);
-      $c = nl2br($c);
-      $c = str_replace('  ', '&nbsp; ', $c);
-      echo $c . "</div></td>\n";
-      
-      echo "</tr><tr>\n";
-      echo "<td><div id='result$ShowExampleNum'>No results yet</div></td>\n";
-      echo "</tr></table>\n";
-   }
-   
-   echo "<table border=1 cellpadding=2 cellspacing=0 align=center " .
-      "style='font-size:0.8em'>\n";
-   echo "<tr><th>Browser</th><th>Operating System</th><th>Result</th></tr>\n";
-   foreach ($res as $r)
-   {
-      echo '<tr><td>' . htmlspecialchars($r[0]) . '</td><td>' .
-         htmlspecialchars($r[1]) . '</td><td>' . htmlspecialchars($r[2]) .
-	 '</td></tr>' . "\n";
-   }
-   echo "</table>\n";
-   
-   MakeBoxBottom();
+function ShowExample($code, $res) {
+	global $ShowExampleNum;
+	
+	if (! isset($ShowExampleNum))$ShowExampleNum = 0;
+	MakeBoxTop('center');
+	
+	foreach ($code as $c) {
+		$ShowExampleNum ++;
+		echo "<table border=1 cellpadding=5 cellspacing=0><tr>\n";
+		echo "<td><div id='example$ShowExampleNum'>";
+		$c = htmlspecialchars($c);
+		$c = nl2br($c);
+		$c = str_replace('  ', '&nbsp; ', $c);
+		echo $c . "</div></td>\n";
+		echo "</tr><tr>\n";
+		echo "<td><div id='result$ShowExampleNum'>No results yet</div></td>\n";
+		echo "</tr></table>\n";
+	}
+	
+	echo '<table border=1 cellpadding=2 cellspacing=0 align=center ' . "style='font-size:0.8em'>\n";
+	echo "<tr><th>Browser</th><th>Operating System</th><th>Result</th></tr>\n";
+	
+	foreach ($res as $r) {
+		echo '<tr><td>' . htmlspecialchars($r[0]) . '</td><td>' . htmlspecialchars($r[1]) . '</td><td>' . htmlspecialchars($r[2]) . '</td></tr>' . "\n";
+	}
+	
+	echo "</table>\n";
+	MakeBoxBottom();
 }
+

@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Playfair Cipher',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Playfair Cipher',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>The Playfair cipher is a digraph substitution cipher.  It employs a table
@@ -12,13 +14,13 @@ where one letter of the alphabet is omitted, and the letters are arranged in
 a 5x5 grid.  Typically, the J is removed from the alphabet and an I takes
 its place in the text that is to be encoded.  Below is an unkeyed grid.</p>
 
-<?PHP MakeBoxTop('left'); ?>
+<?php MakeBoxTop('left'); ?>
 <tt>A B C D E<br>
 F G H I K<br>
 L M N O P<br>
 Q R S T U<br>
 V W X Y Z</tt>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>To encode a message, one breaks it into two-letter chunks.  Repeated
 letters in the same chunk are usually separated by an X.  The message,
@@ -74,26 +76,55 @@ Kennedy, Jr.  He sent a <a href="#" onclick="kennedy(); return false">message</a
    <option value="-1">Decrypt
 </select>
 <p>Translate the letter <select name="skip">
-<?PHP
-   $lett = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-      'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
-   foreach ($lett as $L)
-   {
-      echo "   <option value=\"" . $L . "\"";
-      if ($L == 'J')
-         echo " selected";
-      echo ">$L\n";
-   }
+<?php
+
+$lett = array(
+	'A',
+	'B',
+	'C',
+	'D',
+	'E',
+	'F',
+	'G',
+	'H',
+	'I',
+	'J',
+	'K',
+	'L',
+	'M',
+	'N',
+	'O',
+	'P',
+	'Q',
+	'R',
+	'S',
+	'T',
+	'U',
+	'V',
+	'W',
+	'X',
+	'Y',
+	'Z'
+);
+
+foreach ($lett as $L) {
+	echo '   <option value="' . $L . '"';
+	
+	if ($L == 'J')echo ' selected';
+	echo ">$L\n";
+}
+
 ?>
 </select> into <select name="skipto"></p>
-<?PHP
-   foreach ($lett as $L)
-   {
-      echo "   <option value=\"" . $L . "\"";
-      if ($L == 'I')
-         echo " selected";
-      echo ">$L\n";
-   }
+<?php
+
+foreach ($lett as $L) {
+	echo '   <option value="' . $L . '"';
+	
+	if ($L == 'I')echo ' selected';
+	echo ">$L\n";
+}
+
 ?></select></p>
 <p><input type=checkbox name="doubleencode" CHECKED> Encode double letters
 (down and right one spot)</p>
@@ -116,17 +147,15 @@ pairs.<br>
 all non-letters from the text.</p>
 <p>This is your encoded or decoded text:</p>
 </form>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <p><b><tt><span id='output'></span></tt></b></p>
-<?PHP MakeBoxBottom();
-
+<?php MakeBoxBottom();
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/playfair.js"></script>
 <script language="JavaScript" src="js/keymaker.js"></script>
 <script language="JavaScript"><!--
@@ -247,5 +276,6 @@ function kennedy()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

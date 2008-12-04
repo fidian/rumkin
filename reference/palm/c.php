@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Palm OS Programming - C Tips',
-		     'topic' => 'palmos'));
+StandardHeader(array(
+		'title' => 'Palm OS Programming - C Tips',
+		'topic' => 'palmos'
+	));
 
 ?>
 
@@ -176,6 +177,6 @@ void FormLoadEvent(EventPtr event)
 }
 </pre>
     
-<?PHP
+<?php
 
 StandardFooter();

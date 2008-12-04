@@ -1,19 +1,14 @@
-<?PHP
+<?php
 
-if (stristr($GLOBALS['PHP_SELF'], 'register.php') !== false)
-    $is_manual = false;
-else
-    $is_manual = true;
-  
-if ($is_manual)
-{
-    $contact_url = "#contact";
-    $faq_url = "#faq";
-}
-else
-{
-    $contact_url = "contact.php";
-    $faq_url = "faq.php";
+if (stristr($GLOBALS['PHP_SELF'], 'register.php') !== false)$is_manual = false;
+else $is_manual = true;
+
+if ($is_manual) {
+	$contact_url = '#contact';
+	$faq_url = '#faq';
+} else {
+	$contact_url = 'contact.php';
+	$faq_url = 'faq.php';
 }
 
 ?>
@@ -129,5 +124,5 @@ unlock code that was entered is not a valid code.
 
 </ol>
 
-<p>If you have any problems, try reading the <a href="<?= $faq_url ?>">FAQ</a>
+<p>If you have any problems, try reading the <a href="<?php echo $faq_url ?>">FAQ</a>
 for answers.</p>

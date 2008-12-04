@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'JavaScript Base64 Encoding',
-		     'topic' => 'compression',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'JavaScript Base64 Encoding',
+		'topic' => 'compression',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -25,14 +26,14 @@ onClick="document.base64Form.theText.value=encode64(document.base64Form.theText.
 onClick="document.base64Form.theText.value=decode64(document.base64Form.theText.value);">
 
 </form>
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script type="text/javascript"><!--
 
 // This code was written by Tyler Akins and has been placed in the
@@ -103,5 +104,6 @@ function decode64(input) {
 }
 
 //--></script>
-<?PHP
+<?php
 }
+

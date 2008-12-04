@@ -1,11 +1,11 @@
-<?PHP
+<?php
 /* PHP-PDB class extender for D&D Helper
- *
+ * 
  * This creates the random X generator databases.  The data, once added,
  * is morphed into a format suitable for quicker database generation.
- *
+ * 
  * How to use:
- *
+ * 
  *   // Create the PDB
  *   $pdb = new PalmDndHelper('DB Title Here');
  *   // Or create the PDB that generates multiple entries
@@ -15,7 +15,7 @@
  *   $fp = fopen('the filename.pdb', 'w');
  *   $pdb->WriteToFile($fp);
  *   fclose($fp);
- *
+ * 
  *   // This is how to create a "Pick One" style database
  *   // that does NOT contain chance information
  *   $R = new DndHelper_Random();
@@ -24,7 +24,7 @@
  *   $R->AddEntry("All entries will have an equal chance of being displayed");
  *   // Add to the $pdb
  *   $pdb->AddSection($R->Freeze());
- *
+ * 
  *   // This is how to create a "Pick One" style database
  *   // that does contain chance information
  *   $R = new DndHelper_Random();
@@ -38,7 +38,7 @@
  *                "chance.", 0xFFFF);
  *   // Add to the $pdb
  *   $pdb->AddSection($R->Freeze());
- *
+ * 
  *   // This is how to generate a letter pair section for builing
  *   // words, names, and other things.
  *   $R = new DndHelper_LetterPairs();
@@ -49,7 +49,7 @@
  *   // $R->UseChances = false;
  *   // Add to the $pdb
  *   $pdb->AddSection($R->Freeze());
- *
+ * 
  *   // If you want to generate Phrase Structure Rules, you would first
  *   // need the rules.  This is a very simple example.
  *   $P = new DndHelper_PSR();
@@ -74,427 +74,413 @@
  *   // There is no verification that the rules properly expand to anything,
  *   // so be careful with spelling and test it out thoroughly.
  */
-
-
 class PalmDndHelper extends PalmDB {
-   function PalmDndHelper ($Title = '', $Multi = false) {
-      PalmDB::PalmDB('DATA', 'Fid9', $Title);
-      $oldrec = $this->GoToRecord(0);
-      $this->DeleteRecord();
-      $this->AppendInt16(1);  // Version of database structure
-      $flags = 0;
-      if ($Multi)
-         $flags |= 0x0001;  // Generate multiple entries, not just one
-      $this->AppendInt16($flags);  // Flags
-      $this->GoToRecord($oldrec);
-   }
-
-
-   // Adds a section to the database.
-   //   $pdb->AddSection($section->Freeze());
-   // Data is passed in as an array of records.
-   function AddSection($data)
-   {
-      if (! is_array($data))
-      {
-         return;
-      }
-      
-      $this->GoToRecord(0);
-      $this->AppendInt16(count($data));
-
-      while (count($data))
-      {
-         $this->GoToRecord($this->GetRecordCount());
-         $this->AppendCurrent(array_shift($data));
-      }
-   }
-
-
-   // File reading not supported
+	public function PalmDndHelper($Title = '', $Multi = false) {
+		PalmDB::PalmDB('DATA', 'Fid9', $Title);
+		$oldrec = $this->GoToRecord(0);
+		$this->DeleteRecord();
+		$this->AppendInt16(1);  // Version of database structure
+		$flags = 0;
+		
+		if ($Multi)$flags |= 0x0001;  // Generate multiple entries, not just one
+		$this->AppendInt16($flags);  // Flags
+		$this->GoToRecord($oldrec);
+	}
+	
+	/* Adds a section to the database.
+	 *   $pdb->AddSection($section->Freeze());
+	 * Data is passed in as an array of records. */
+	function AddSection($data) {
+		if (! is_array($data)) {
+			return;
+		}
+		
+		$this->GoToRecord(0);
+		$this->AppendInt16(count($data));
+		
+		while (count($data)) {
+			$this->GoToRecord($this->GetRecordCount());
+			$this->AppendCurrent(array_shift($data));
+		}
+	}
+	
+	// File reading not supported
 }
 
 
-
-
 class DndHelper_Random {
-   var $Data = array();  // Array of different things to pick from
-   var $Chances = array();  // Chance data (if any)
-
-
-   // Adds a random entry
-   // Make sure the last one's chance (if you are using them) is 0xFFFF
-   function AddEntry($Str, $chance = false) {
-      $this->Data[] = $Str;
-      if ($chance !== false) {
-         $this->Chances[] = $chance;
-      }
-   }
-   
-   
-   // Creates the encoded data
-   function Freeze() {
-      $data = array();
-      
-      $Rec = PalmDB::Int16(0);  // Type 0 = pick one random
-      $Flags = 0;
-      $ChanceOffsetSize = 2;
-      if (count($this->Chances) == count($this->Data))
-      {
-         $Flags |= 0x0001;  // use chances
-	 $ChanceOffsetSize = 4;
-      }
-      $Rec .= PalmDB::Int16($Flags);  // Flags
-      $Rec .= PalmDB::Int16(count($this->Data));  // Number of items
-      $data[] = $Rec;
-      $EntriesProcessed = 0;
-      
-      // Now build the rest of the records for the database.
-      while (count($this->Data))
-      {
-         $a = array();
-	 $len = 0;
-	 while (count($this->Data) && ($len + strlen($this->Data[0]) + 2 + 
-	        count($a) * $ChanceOffsetSize < 4096 || $len == 0))
-	 {
-	    $d = array_shift($this->Data);
-	    $len += strlen($d) + 1;
-	    $a[] = $d;
-	 }
-	 
-	 $EntriesProcessed += count($a);
-	 $Rec = PalmDB::Int16($EntriesProcessed);
-	 $Offset = 2 + count($a) * 2;
-	 if ($Flags & 0x0001)
-	    $Offset = 2 + count($a) * 4;
-	 for ($i = 0; $i < count($a); $i ++)
-	 {
-	    if ($Flags & 0x0001)
-	       $Rec .= PalmDB::Int16(array_shift($this->Chances));
-	    $Rec .= PalmDB::Int16($Offset);
-	    $Offset += strlen($a[$i]) + 1;
-	 }
-	 while (count($a))
-	 {
-	    $Rec .= PalmDB::String(array_shift($a));
-	    $Rec .= PalmDB::Int8(0);
-	 }
-	 
-	 $data[] = $Rec;
-      }
-      
-      return $data;
-   }
+	public
+	public $Data = array();  // Array of different things to pick from
+	public
+	public $Chances = array();
+	
+	
+	/* Chance data (if any)
+	 * Adds a random entry
+	 * Make sure the last one's chance (if you are using them) is 0xFFFF */
+	public function AddEntry($Str, $chance = false) {
+		$this->Data[] = $Str;
+		
+		if ($chance !== false) {
+			$this->Chances[] = $chance;
+		}
+	}
+	
+	
+	// Creates the encoded data
+	public function Freeze() {
+		$data = array();
+		$Rec = PalmDB::Int16(0);  // Type 0 = pick one random
+		$Flags = 0;
+		$ChanceOffsetSize = 2;
+		
+		if (count($this->Chances) == count($this->Data)) {
+			$Flags |= 0x0001;  // use chances
+			$ChanceOffsetSize = 4;
+		}
+		
+		$Rec .= PalmDB::Int16($Flags);  // Flags
+		$Rec .= PalmDB::Int16(count($this->Data));  // Number of items
+		$data[] = $Rec;
+		$EntriesProcessed = 0;
+		
+		// Now build the rest of the records for the database.
+		while (count($this->Data)) {
+			$a = array();
+			$len = 0;
+			
+			while (count($this->Data) && ($len + strlen($this->Data[0]) + 2 + count($a) * $ChanceOffsetSize < 4096 || $len == 0)) {
+				$d = array_shift($this->Data);
+				$len += strlen($d) + 1;
+				$a[] = $d;
+			}
+			
+			$EntriesProcessed += count($a);
+			$Rec = PalmDB::Int16($EntriesProcessed);
+			$Offset = 2 + count($a) * 2;
+			
+			if ($Flags & 0x0001)$Offset = 2 + count($a) * 4;
+			
+			for ($i = 0; $i < count($a); $i ++) {
+				if ($Flags & 0x0001)$Rec .= PalmDB::Int16(array_shift($this->Chances));
+				$Rec .= PalmDB::Int16($Offset);
+				$Offset += strlen($a[$i]) + 1;
+			}
+			
+			while (count($a)) {
+				$Rec .= PalmDB::String(array_shift($a));
+				$Rec .= PalmDB::Int8(0);
+			}
+			
+			$data[] = $Rec;
+		}
+		
+		return $data;
+	}
 }
 
 
 class DndHelper_LetterPairs {
-   var $Data = array();
-     // Array of different letter pairs, key = first letter
-     // ... array of next letter, key = second letter
-     // ... chances, key = third letter
-     // $Data['q']['u']['i'] = 31;  // or something similar.
-   var $StartPairs = array();  // special pairs stuck in the header record
-   var $MaxLen = 12;  // Maximum length of the word
-   var $UseChances = true;  // Use chance data (more accurate, larger db)
-
-
-   // Adds a random entry, dissecting it into letter pairs and incrementing
-   // the appropriate counters.
-   function AddEntry($Word) {
-      // Must be at least 2 characters long
-      if (strlen($Word) < 2)
-         return;
-      $chunk = substr($Word, 0, 2);
-      if (! isset($this->StartPairs[$chunk]))
-         $this->StartPairs[$chunk] = 0;
-      $this->StartPairs[$chunk] ++;
-      $first = ord(substr($Word, 0, 1));
-      $second = ord(substr($Word, 0, 1));
-      $third = 100;
-      $Word = substr($Word, 2);
-      while ($third != 0) {
-	 $third = substr($Word, 0, 1);
-	 if ($third == '')
-	    $third = 0;
-	 else
-	    $third = ord($third);
-	 $Word = substr($Word, 1);
-	 
-	 if (! isset($this->Data[$first]))
-	    $this->Data[$first] = array();
-	 if (! isset($this->Data[$first][$second]))
-	    $this->Data[$first][$second] = array();
-	 if (! isset($this->Data[$first][$second][$third]))
-	    $this->Data[$first][$second][$third] = 0;
-	    
-	 $this->Data[$first][$second][$third] ++;
-	 
-	 $first = $second;
-	 $second = $third;
-      }
-   }
-   
-
-   // Returns the encoded data to be added into the PHP-PDB class
-   function Freeze() {
-      $data = array();
-      
-      // Header
-      $Rec = PalmDB::Int16(1);  // Type 1 = letter pairs
-      $Flags = 0;
-      if ($this->UseChances)
-         $Flags |= 0x0001;  // Use chances
-      $Rec .= PalmDB::Int16($Flags);
-      $Rec .= PalmDB::Int8($this->MaxLen); // Maximum length
-	 
-      // Add the starting pairs
-      $pairs = array_keys($this->StartPairs);
-      sort($pairs);
-      if ($this->UseChances) {
-	 $TotalChance = 0;
-	 foreach ($this->StartPairs as $k => $v) {
-	    $TotalChance += $v;
-	 }
-	 $lastChance = 0;
-	 $lastPair = array_pop($pairs);
-	 foreach ($pairs as $p) {
-	    $chance = ($this->StartPairs[$p] / $TotalChance) * 0xFFFF;
-	    settype($chance, 'integer');
-	    $Rec .= PalmDB::Int16($chance + $lastChance);
-	    $Rec .= PalmDB::String($p);
-	    $lastChance += $chance;
-	 }
-	 $Rec .= PalmDB::Int16(0xFFFF) . PalmDB::String($lastPair);
-      } else {
-	 foreach ($pairs as $p) {
-	    $Rec .= PalmDB::String($p);
-	 }
-      }
-      
-      $data[] = $Rec;
-      
-      // Now do each letter pair record
-
-      ksort($this->Data);
-      foreach ($this->Data as $first => $d)
-      {
-         $Rec = PalmDB::Int8($first);
-	 $Rec .= PalmDB::Int8(count($d));
-         ksort($d);
-	 foreach ($d as $second => $t)
-	 {
-	    $Rec .= PalmDB::Int8($second);
-	    $num = count($t);
-	    if ($this->UseChances && isset($t[0]))
-	       $num --;
-	    $Rec .= PalmDB::Int8($num);
-	 }
-	 foreach ($d as $second => $t)
-	 {
-	    if ($this->UseChances)
-	    {
-	       $lastChance = 0;
-	       $TotalChance = 0;
-	       foreach ($t as $third => $count)
-	       {
-	          $TotalChance += $count;
-	       }
-	    }
-	    $AddNULL = false;
-	    foreach ($t as $third => $count)
-	    {
-	       if ($third != 0)
-	       {
-	          if ($this->UseChances)
-	          {
-	             $lastChance += $count;
-	             $chance = $lastChance / $TotalChance;
-		     $chance *= 0xFFFF;
-		     settype($chance, 'integer');
-		     $Rec .= PalmDB::Int16($chance);
-	          }
-	          $Rec .= PalmDB::Int8($third);
-	       }
-	       else
-	       {
-	          $AddNULL = true;
-	       }
-	    }
-	    if ($AddNULL && ! $this->UseChances)
-	    {
-	       $Rec .= PalmDB::Int8(0);
-	    }
-	 }
-	 
-	 $data[] = $Rec;
-      }
-
-      // Return the array of encoded records
-      return $data;
-   }
+	public
+	public $Data = array();
+	
+	
+	/* Array of different letter pairs, key = first letter
+	 * ... array of next letter, key = second letter
+	 * ... chances, key = third letter
+	 * $Data['q']['u']['i'] = 31;  // or something similar. */
+	public
+	public $StartPairs = array();  // special pairs stuck in the header record
+	public
+	public $MaxLen = 12;  // Maximum length of the word
+	public
+	public $UseChances = true;
+	
+	
+	/* Use chance data (more accurate, larger db)
+	 * Adds a random entry, dissecting it into letter pairs and incrementing
+	 * the appropriate counters. */
+	public function AddEntry($Word) {
+		// Must be at least 2 characters long
+		if (strlen($Word) < 2)return;
+		$chunk = substr($Word, 0, 2);
+		
+		if (! isset($this->StartPairs[$chunk]))$this->StartPairs[$chunk] = 0;
+		$this->StartPairs[$chunk]++;
+		$first = ord(substr($Word, 0, 1));
+		$second = ord(substr($Word, 0, 1));
+		$third = 100;
+		$Word = substr($Word, 2);
+		
+		while ($third != 0) {
+			$third = substr($Word, 0, 1);
+			
+			if ($third == '')$third = 0;
+			else $third = ord($third);
+			$Word = substr($Word, 1);
+			
+			if (! isset($this->Data[$first]))$this->Data[$first] = array();
+			
+			if (! isset($this->Data[$first][$second]))$this->Data[$first][$second] = array();
+			
+			if (! isset($this->Data[$first][$second][$third]))$this->Data[$first][$second][$third] = 0;
+			$this->Data[$first][$second][$third]++;
+			$first = $second;
+			$second = $third;
+		}
+	}
+	
+	// Returns the encoded data to be added into the PHP-PDB class
+	function Freeze() {
+		$data = array();
+		
+		// Header
+		$Rec = PalmDB::Int16(1);  // Type 1 = letter pairs
+		$Flags = 0;
+		
+		if ($this->UseChances)$Flags |= 0x0001;  // Use chances
+		$Rec .= PalmDB::Int16($Flags);
+		$Rec .= PalmDB::Int8($this->MaxLen);
+		
+		/* Maximum length
+		 * Add the starting pairs */
+		$pairs = array_keys($this->StartPairs);
+		sort($pairs);
+		
+		if ($this->UseChances) {
+			$TotalChance = 0;
+			
+			foreach ($this->StartPairs as $k => $v) {
+				$TotalChance += $v;
+			}
+			
+			$lastChance = 0;
+			$lastPair = array_pop($pairs);
+			
+			foreach ($pairs as $p) {
+				$chance = ($this->StartPairs[$p] / $TotalChance) * 0xFFFF;
+				settype($chance, 'integer');
+				$Rec .= PalmDB::Int16($chance + $lastChance);
+				$Rec .= PalmDB::String($p);
+				$lastChance += $chance;
+			}
+			
+			$Rec .= PalmDB::Int16(0xFFFF) . PalmDB::String($lastPair);
+		} else {
+			foreach ($pairs as $p) {
+				$Rec .= PalmDB::String($p);
+			}
+		}
+		
+		$data[] = $Rec;
+		
+		// Now do each letter pair record
+		ksort($this->Data);
+		
+		foreach ($this->Data as $first => $d) {
+			$Rec = PalmDB::Int8($first);
+			$Rec .= PalmDB::Int8(count($d));
+			ksort($d);
+			
+			foreach ($d as $second => $t) {
+				$Rec .= PalmDB::Int8($second);
+				$num = count($t);
+				
+				if ($this->UseChances && isset($t[0]))$num --;
+				$Rec .= PalmDB::Int8($num);
+			}
+			
+			foreach ($d as $second => $t) {
+				if ($this->UseChances) {
+					$lastChance = 0;
+					$TotalChance = 0;
+					
+					foreach ($t as $third => $count) {
+						$TotalChance += $count;
+					}
+				}
+				
+				$AddNULL = false;
+				
+				foreach ($t as $third => $count) {
+					if ($third != 0) {
+						if ($this->UseChances) {
+							$lastChance += $count;
+							$chance = $lastChance / $TotalChance;
+							$chance *= 0xFFFF;
+							settype($chance, 'integer');
+							$Rec .= PalmDB::Int16($chance);
+						}
+						
+						$Rec .= PalmDB::Int8($third);
+					} else {
+						$AddNULL = true;
+					}
+				}
+				
+				if ($AddNULL && ! $this->UseChances) {
+					$Rec .= PalmDB::Int8(0);
+				}
+			}
+			
+			$data[] = $Rec;
+		}
+		
+		// Return the array of encoded records
+		return $data;
+	}
 }
 
 
 class DndHelper_PSR {
-   var $Data = array(false);  // Array of rules, first one is the header
-   var $RuleInfo = array();  // Rule names to index numbers, etc.
-   var $Chances = array();  // Chance data (if any)  (not used yet)
-
-
-   // Adds a random entry
-   function AddEntry($RuleIndex, $RuleData, $Chance = false) {
-      if (! isset($this->RuleInfo[$RuleIndex]))
-      {
-         $this->RuleInfo[$RuleIndex] = array();
-	 
-	 // The ID number in the Data array
-	 $this->RuleInfo[$RuleIndex]['id'] = count($this->Data);
-	 // Number of times this rule is referenced
-	 $this->RuleInfo[$RuleIndex]['ref'] = 0;
-	 $this->RuleInfo[$RuleIndex]['raw data'] = array();
-	 $this->RuleInfo[$RuleIndex]['origin'] = 'Not auto-created by a rule';
-	 
-	 $this->Data[$this->RuleInfo[$RuleIndex]['id']] = array();
-	 $this->Chances[$this->RuleInfo[$RuleIndex]['id']] = array();
-      }
-
-      $this->RuleInfo[$RuleIndex]['raw data'][] = $RuleData;
-      $this->Data[$this->RuleInfo[$RuleIndex]['id']][] =
-	 $this->ProcessRuleText($RuleData);
-      if ($Chance !== false)
-      {
-         $this->Chances[$this->RuleInfo[$RuleIndex]['id']][] = $Chance;
-      }
-   }
-   
-   
-   function ProcessRuleText($str)
-   {
-      // Replace all instances of "[RULE]" with "\x01 FLAGS RULE_ID"
-      $bits = preg_split('/\\[([\\^]?[^\\]]*)\\]/', $str, -1,
-         PREG_SPLIT_DELIM_CAPTURE);
-      $out = array_shift($bits);
-      while (count($bits))
-      {
-         $RuleName = array_shift($bits);
-	 $Flags = 0x01;
-	 if (substr($RuleName, 0, 1) == '^')
-	 {
-	    $Flags += 0x02;
-	    $RuleName = substr($RuleName, 1);
-	 }
-	 if ($RuleName == '[' || $RuleName == ']' || $RuleName == '*' ||
-	     $RuleName == '#')
-	 {
-	    $out .= $RuleName;
-	 }
-	 else
-	 {
-            if (! isset($this->RuleInfo[$RuleName]))
-            {
-               $this->RuleInfo[$RuleName] = array();
-	 
-	       // The ID number in the Data array
-	       $this->RuleInfo[$RuleName]['id'] = count($this->Data);
-	       // Number of times this rule is referenced
-	       $this->RuleInfo[$RuleName]['ref'] = 0;
-	       $this->RuleInfo[$RuleName]['data'] = array();
-	       $this->RuleInfo[$RuleName]['origin'] = $str;
-	       $this->Data[] = array();
-            }
-      
-            $this->RuleInfo[$hits[1]]['ref'] ++;
-	    $out .= "\x01" . chr($Flags) . 
-	       chr($this->RuleInfo[$RuleName]['id']);
-	 }
-	 $out .= array_shift($bits);
-      }
-      
-      return $out;
-   }
-   
-   
-   // Returns an array of encoded data for PHP-PDB
-   function Freeze() {
-      $data = array();
-      
-      $Flags = 0;
-      $Rec = PalmDB::Int16(2);
-      $Rec .= PalmDB::Int16($Flags);
-      $data[] = $Rec;
-      $RuleNameLookup = array();
-      
-      foreach ($this->RuleInfo as $k => $v)
-      {
-         $RuleNameLookup[$v['id']] = $k;
-      }
-      if (isset($RuleNameLookup[256])) {
-         echo "PROBLEM:  Rule file has too many rules.<br>\n";
-      }
-      
-      foreach (array_keys($this->Data) as $i)
-      {
-         $UseChances = 0;
-	 $Flags = 0;
-         if ($this->Data[$i] !== false)
-	 {
-	    $ChancesAllOnes = true;
-	    if (is_array($this->Chances[$i]))
-	    {
-	       foreach ($this->Chances[$i] as $v)
-	       {
-	          if ($v > 1)
-	       	     $ChancesAllOnes = false;
-	       }
-	    }
-	    if (count($this->Chances[$i]) == count($this->Data[$i]) &&
-	        count($this->Data[$i]) > 0 && $ChancesAllOnes == false)
-	    {
-	       $Flags += 1;  // Use chance data
-	       $UseChances = 1;  // Simple flag to check when writing data
-	    }
-            $Rec = PalmDB::Int16($Flags);
-            $Rec .= PalmDB::Int16(count($this->Data[$i]));  // # of items
-      
-	    if (count($this->Data[$i]) == 0)
-            {
-	       echo "Error - record " . $RuleNameLookup[$i] .
-	          " has 0 expansion possibilities.<br>\n";
-	       echo nl2br(htmlspecialchars(print_r($this->RuleInfo[$RuleNameLookup[$i]],
-	          true))) . "<br>\n";
-	       return array();
-            }
-	    else
-	    {
-	       if ($UseChances)
-	       {
-	          $ChanceTotal = 0;
-		  foreach ($this->Chances[$i] as $v)
-		  {
-		     $ChanceTotal += $v;
-		  }
-		  $Accumulator = 0;
-	       }
-               foreach (array_keys($this->Data[$i]) as $v)
-	       {
-	          if ($UseChances)
-		  {
-		     $Accumulator += $this->Chances[$i][$v];
-		     $chance = $Accumulator / $ChanceTotal;
-		     $chance *= 0xFFFF;
-		     settype($chance, 'integer');
-		     $Rec .= PalmDB::Int16($chance);
-		  }
-                  $Rec .= PalmDB::String($this->Data[$i][$v]);
-   	          $Rec .= PalmDB::Int8(0);
-               }
-	    }
-            $data[] = $Rec;
-         }
-      }
-
-      return $data;
-   }
+	public
+	public $Data = array(
+		false
+	);  // Array of rules, first one is the header
+	public
+	public $RuleInfo = array();  // Rule names to index numbers, etc.
+	public
+	public $Chances = array();
+	
+	
+	/* Chance data (if any)  (not used yet)
+	 * Adds a random entry */
+	public function AddEntry($RuleIndex, $RuleData, $Chance = false) {
+		if (! isset($this->RuleInfo[$RuleIndex])) {
+			$this->RuleInfo[$RuleIndex] = array();
+			
+			// The ID number in the Data array
+			$this->RuleInfo[$RuleIndex]['id'] = count($this->Data);
+			
+			// Number of times this rule is referenced
+			$this->RuleInfo[$RuleIndex]['ref'] = 0;
+			$this->RuleInfo[$RuleIndex]['raw data'] = array();
+			$this->RuleInfo[$RuleIndex]['origin'] = 'Not auto-created by a rule';
+			$this->Data[$this->RuleInfo[$RuleIndex]['id']] = array();
+			$this->Chances[$this->RuleInfo[$RuleIndex]['id']] = array();
+		}
+		
+		$this->RuleInfo[$RuleIndex]['raw data'][] = $RuleData;
+		$this->Data[$this->RuleInfo[$RuleIndex]['id']][] = $this->ProcessRuleText($RuleData);
+		
+		if ($Chance !== false) {
+			$this->Chances[$this->RuleInfo[$RuleIndex]['id']][] = $Chance;
+		}
+	}
+	
+	
+	public function ProcessRuleText($str) {
+		// Replace all instances of "[RULE]" with "\x01 FLAGS RULE_ID"
+		$bits = preg_split('/\\[([\\^]?[^\\]]*)\\]/', $str, - 1, PREG_SPLIT_DELIM_CAPTURE);
+		$out = array_shift($bits);
+		
+		while (count($bits)) {
+			$RuleName = array_shift($bits);
+			$Flags = 0x01;
+			
+			if (substr($RuleName, 0, 1) == '^') {
+				$Flags += 0x02;
+				$RuleName = substr($RuleName, 1);
+			}
+			
+			if ($RuleName == '[' || $RuleName == ']' || $RuleName == '*' || $RuleName == '#') {
+				$out .= $RuleName;
+			} else {
+				if (! isset($this->RuleInfo[$RuleName])) {
+					$this->RuleInfo[$RuleName] = array();
+					
+					// The ID number in the Data array
+					$this->RuleInfo[$RuleName]['id'] = count($this->Data);
+					
+					// Number of times this rule is referenced
+					$this->RuleInfo[$RuleName]['ref'] = 0;
+					$this->RuleInfo[$RuleName]['data'] = array();
+					$this->RuleInfo[$RuleName]['origin'] = $str;
+					$this->Data[] = array();
+				}
+				
+				$this->RuleInfo[$hits[1]]['ref']++;
+				$out .= "\x01" . chr($Flags) . chr($this->RuleInfo[$RuleName]['id']);
+			}
+			
+			$out .= array_shift($bits);
+		}
+		
+		return $out;
+	}
+	
+	
+	// Returns an array of encoded data for PHP-PDB
+	public function Freeze() {
+		$data = array();
+		$Flags = 0;
+		$Rec = PalmDB::Int16(2);
+		$Rec .= PalmDB::Int16($Flags);
+		$data[] = $Rec;
+		$RuleNameLookup = array();
+		
+		foreach ($this->RuleInfo as $k => $v) {
+			$RuleNameLookup[$v['id']] = $k;
+		}
+		
+		if (isset($RuleNameLookup[256])) {
+			echo "PROBLEM:  Rule file has too many rules.<br>\n";
+		}
+		
+		foreach (array_keys($this->Data) as $i) {
+			$UseChances = 0;
+			$Flags = 0;
+			
+			if ($this->Data[$i] !== false) {
+				$ChancesAllOnes = true;
+				
+				if (is_array($this->Chances[$i])) {
+					foreach ($this->Chances[$i] as $v) {
+						if ($v > 1)$ChancesAllOnes = false;
+					}
+				}
+				
+				if (count($this->Chances[$i]) == count($this->Data[$i]) && count($this->Data[$i]) > 0 && $ChancesAllOnes == false) {
+					$Flags += 1;  // Use chance data
+					$UseChances = 1;  // Simple flag to check when writing data
+				}
+				
+				$Rec = PalmDB::Int16($Flags);
+				$Rec .= PalmDB::Int16(count($this->Data[$i]));  // # of items
+				if (count($this->Data[$i]) == 0) {
+					echo 'Error - record ' . $RuleNameLookup[$i] . " has 0 expansion possibilities.<br>\n";
+					echo nl2br(htmlspecialchars(print_r($this->RuleInfo[$RuleNameLookup[$i]], true))) . "<br>\n";
+					return array();
+				} else {
+					if ($UseChances) {
+						$ChanceTotal = 0;
+						
+						foreach ($this->Chances[$i] as $v) {
+							$ChanceTotal += $v;
+						}
+						
+						$Accumulator = 0;
+					}
+					
+					foreach (array_keys($this->Data[$i]) as $v) {
+						if ($UseChances) {
+							$Accumulator += $this->Chances[$i][$v];
+							$chance = $Accumulator / $ChanceTotal;
+							$chance *= 0xFFFF;
+							settype($chance, 'integer');
+							$Rec .= PalmDB::Int16($chance);
+						}
+						
+						$Rec .= PalmDB::String($this->Data[$i][$v]);
+						$Rec .= PalmDB::Int8(0);
+					}
+				}
+				
+				$data[] = $Rec;
+			}
+		}
+		
+		return $data;
+	}
 }
 

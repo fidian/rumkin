@@ -1,11 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2008 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <p>Here's a few common providers and their SMS email addresses.  Make sure you replace ### with your full phone number.  Include the area code, and do not include hyphens, periods, or whatever else.  For instance, if your phone number is 333-444-5555, and you were on AT&amp;T, your SMS email address would be 3334445555@mobile.att.net</p>

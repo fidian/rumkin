@@ -1,11 +1,13 @@
-<?PHP  // -*- text -*-
+<?php
 
+
+// -*- text -*-
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Password Generator',
-		     'topic' => 'password',
-		     'callback' => 'Insert_Javascript'));
-
+StandardHeader(array(
+		'title' => 'Password Generator',
+		'topic' => 'password',
+		'callback' => 'Insert_Javascript'
+	));
 include('../../inc/js/prng_bar.html');
 
 ?>
@@ -56,13 +58,14 @@ the WEP key you want to make (10, 26, 58).</p>
 </table>
 </form>
 	
-<?PHP
+<?php
 
 StandardFooter();
 
-function Insert_Javascript()
-{
-?>
+
+function Insert_Javascript() {
+	
+	?>
 <script language="JavaScript" src="/inc/js/sha256.js"></script>
 <script language="JavaScript" src="/inc/js/prng.js"></script>
 <script language="javascript">
@@ -125,5 +128,6 @@ function AddLetters(letters) {
 
 // -->
 </script>
-<?PHP
+<?php
 }
+

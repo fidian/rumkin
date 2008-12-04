@@ -1,11 +1,12 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Do-It-Yourself Country/Western Song Kit',
+		'header' => 'Country/Western Song Kit',
+		'topic' => 'madlibs'
+	));
 
-StandardHeader(array('title' => 'Do-It-Yourself Country/Western Song Kit',
-                     'header' => 'Country/Western Song Kit',
-		     'topic' => 'madlibs'));
-		     
 ?>
 <form>
 I met her
@@ -210,6 +211,6 @@ But who'd have thought she'd
 goodbye.
 
 </form>
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'header' => 'Java Puzzle Applet - Usage',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - Usage',
+		'topic' => 'puzzle'
+	));
 
 ?>
 
@@ -143,6 +144,6 @@ Java Console can be viewed in Netscape by looking under the "<U>O</U>ptions"
 menu. Mozilla can do that too.  Internet Explorer, at the time of this
 writing, can not do that.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

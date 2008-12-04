@@ -1,47 +1,104 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
 $GLOBALS['Codes'] = array(
-    // Standard alphabet
-    'A' => '.-', 'B' => '-...', 'C' => '-.-.', 'D' => '-..', 'E' => '.',
-    'F' => '..-.', 'G' => '--.', 'H' => '....', 'I' => '..', 'J' => '.---',
-    'K' => '-.-', 'L' => '.-..', 'M' => '--', 'N' => '-.', 'O' => '---',
-    'P' => '.--.', 'Q' => '--.-', 'R' => '.-.', 'S' => '...', 'T' => '-',
-    'U' => '..-', 'V' => '...-', 'W' => '.--','X' => '-..-', 'Y' => '-.--', 
-    'Z' => '--..',
-    // Numbers
-    '0' => '-----', '1' => '.----', '2' => '..---', '3' => '...--',
-    '4' => '....-', '5' => '.....', '6' => '-....', '7' => '--...',
-    '8' => '---..', '9' => '----.',
-    // Punctuation
-    '.' => '.-.-.-', ',' => '--..--', '?' => '..--..', '-' => '-....-',
-    '=' => '-...-', ':' => '---...', ';' => '-.-.-.', '(' => '-.--.',
-    ')' => '-.--.-', '/' => '-..-.', '"' => '.-..-.', '$' => '...-..-',
-    '\'' => '.----.', "\\n" => '.-.-..', '_' => '..--.-',
-    '@' => '.--.-.',
-    // Messages
-    '[Error]' => array('......', '.......', '........', '.........'),
-    '[Wait]' => '.-...',
-    '[Understood]' => '...-.',
-    '[End of message]' => '.-.-.',
-    '[End of work]' => '...-.-',
-    '[Starting signal]' => '-.-.-',
-    '[Invitation to transmit]' => '-.-',
-    // Unofficial
-    '!' => array('---.', '-.-.--'), '+' => '.-.-.', '~' => '.-...',
-    '#' => '...-.-', '&' => '. ...', '\\2044' => '-..-.',
+	// Standard alphabet
+	'A' => '.-',
+	'B' => '-...',
+	'C' => '-.-.',
+	'D' => '-..',
+	'E' => '.',
+	'F' => '..-.',
+	'G' => '--.',
+	'H' => '....',
+	'I' => '..',
+	'J' => '.---',
+	'K' => '-.-',
+	'L' => '.-..',
+	'M' => '--',
+	'N' => '-.',
+	'O' => '---',
+	'P' => '.--.',
+	'Q' => '--.-',
+	'R' => '.-.',
+	'S' => '...',
+	'T' => '-',
+	'U' => '..-',
+	'V' => '...-',
+	'W' => '.--',
+	'X' => '-..-',
+	'Y' => '-.--',
+	'Z' => '--..',
+	
+	
+	// Numbers
+	'0' => '-----',
+	'1' => '.----',
+	'2' => '..---',
+	'3' => '...--',
+	'4' => '....-',
+	'5' => '.....',
+	'6' => '-....',
+	'7' => '--...',
+	'8' => '---..',
+	'9' => '----.',
+	
+	
+	// Punctuation
+	'.' => '.-.-.-',
+	',' => '--..--',
+	'?' => '..--..',
+	'-' => '-....-',
+	'=' => '-...-',
+	':' => '---...',
+	';' => '-.-.-.',
+	'(' => '-.--.',
+	')' => '-.--.-',
+	'/' => '-..-.',
+	'"' => '.-..-.',
+	'$' => '...-..-',
+	'\'' => '.----.',
+	'\\n' => '.-.-..',
+	'_' => '..--.-',
+	'@' => '.--.-.',
+	
+	
+	// Messages
+	'[Error]' => array(
+		'......',
+		'.......',
+		'........',
+		'.........'
+	),
+	'[Wait]' => '.-...',
+	'[Understood]' => '...-.',
+	'[End of message]' => '.-.-.',
+	'[End of work]' => '...-.-',
+	'[Starting signal]' => '-.-.-',
+	'[Invitation to transmit]' => '-.-',
+	
+	
+	// Unofficial
+	'!' => array(
+		'---.',
+		'-.-.--'
+	),
+	'+' => '.-.-.',
+	'~' => '.-...',
+	'#' => '...-.-',
+	'&' => '. ...',
+	'\\2044' => '-..-.',
 );
 $CodeToHTML = array(
-    "\\n" => '&para;',
-    '&' => '&amp;',
-    '\\2044' => '&frasl;',
+	'\\n' => '&para;',
+	'&' => '&amp;',
+	'\\2044' => '&frasl;',
 );
-
-
-StandardHeader(array('title' => 'Morse Code',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Morse Code',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -82,54 +139,53 @@ Morse Code snippets you find with the Reverse (flips the text) and Swap
 <textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
+<?php
+
 MakeBoxBottom();
+
 ?>
 <p>This is a table of all the Morse Code translations I know
 </p>
-<?PHP
+<?php
 
 $i = 0;
 $cols = 10;
 $Messages = '';
 echo "<table border=1 cellpadding=3 cellspacing=0>\n<tr>";
-foreach ($Codes as $c => $v)
-{
-    if (! is_array($v))
-        $v = array($v);
-    foreach ($v as $vv)
-    {
-        if ($c[0] != '[')
-	{
-            if ($i == $cols)
-   	    {
-	       echo "</tr>\n<tr>\n";
-	       $i = 0;
-	    }
-	    echo "<td>";
-	    if (isset($CodeToHTML[$c]))
-	       echo $CodeToHTML[$c];
-	    else
-	       echo $c;
-	    echo ' &nbsp; <b>' . $vv . '</bb></td>';
-	    $i ++;
+
+foreach ($Codes as $c => $v) {
+	if (! is_array($v))$v = array(
+		$v
+	);
+	
+	foreach ($v as $vv) {
+		if ($c[0] != '[') {
+			if ($i == $cols) {
+				echo "</tr>\n<tr>\n";
+				$i = 0;
+			}
+			
+			echo '<td>';
+			
+			if (isset($CodeToHTML[$c]))echo $CodeToHTML[$c];
+			else echo $c;
+			echo ' &nbsp; <b>' . $vv . '</bb></td>';
+			$i ++;
+		} elseif ($c != '[Error]' || strlen($vv) < 7) {
+			$Messages .= "<li>$c &nbsp $vv\n";
+		}
 	}
-	elseif ($c != '[Error]' || strlen($vv) < 7)
-	{
-	    $Messages .= "<li>$c &nbsp $vv\n";
-	}
-    }
 }
-while ($i != $cols)
-{
-    echo '<td>&nbsp;</td>';
-    $i ++;
+
+while ($i != $cols) {
+	echo '<td>&nbsp;</td>';
+	$i ++;
 }
+
 echo "</tr>\n";
 echo "</table>\n";
-
 echo "<ul>\n$Messages</ul>";
 
 ?>
@@ -140,40 +196,38 @@ echo "<ul>\n$Messages</ul>";
 M1AIM Home Page Morse Code Section</a>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-
-function insert_js()
-{
-    $MorseIndexes = array();
-    $MorseCodes = array();
-    foreach ($GLOBALS['Codes'] as $k => $v)
-    {
-	if (! is_array($v))
-	  $v = array($v);
-	foreach ($v as $vv)
-	{	
-	    if ($k != '"')
-	      $MorseIndexes[] = '"' . $k . '"';
-            else
-	      $MorseIndexes[] = '\'' . $k . '\'';
- 	    $MorseCodes[] = '"' . $vv . '"';
+function insert_js() {
+	$MorseIndexes = array();
+	$MorseCodes = array();
+	
+	foreach ($GLOBALS['Codes'] as $k => $v) {
+		if (! is_array($v))$v = array(
+			$v
+		);
+		
+		foreach ($v as $vv) {
+			if ($k != '"')$MorseIndexes[] = '"' . $k . '"';
+			else $MorseIndexes[] = '\'' . $k . '\'';
+			$MorseCodes[] = '"' . $vv . '"';
+		}
 	}
-    }
-    $MorseIndexes = join(',', $MorseIndexes);
-    $MorseCodes = join(',', $MorseCodes);
-		   
-?><script language="JavaScript" src="js/util.js"></script>
+	
+	$MorseIndexes = join(',', $MorseIndexes);
+	$MorseCodes = join(',', $MorseCodes);
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
 // Feel free to use this code if you so desire.
 // It would be nice if you left this header intact.  http://rumkin.com
 
-var MorseIndexes = new Array(<?= $MorseIndexes ?>);
-var MorseCodes = new Array(<?= $MorseCodes ?>);
+var MorseIndexes = new Array(<?php echo $MorseIndexes ?>);
+var MorseCodes = new Array(<?php echo $MorseCodes ?>);
 
 function SwapMorse()
 {
@@ -377,5 +431,6 @@ window.setTimeout('start_update()', 100);
 
 
 // --></script>
-<?PHP
+<?php
 }
+

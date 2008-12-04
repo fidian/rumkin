@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
+StandardHeader(array(
+		'title' => 'DBF Tools',
+		'topic' => 'dbf_tools'
+	));
 
-StandardHeader(array('title' => 'DBF Tools',
-	'topic' => 'dbf_tools'));
-	
 ?>
 
 <p>At one point I dealt with DBF files.  A lot of them.  In order to process
@@ -12,7 +13,7 @@ them faster, I wrote a couple tools that others may enjoy.  They are GPL v3
 and I don't really support them any longer.  I may help out if you ask nicely
 though!</p>
 
-<?PHP Section('dbfagg'); ?>
+<?php Section('dbfagg'); ?>
 
 <p><strong>Download:</strong> <a href="media/dbfagg.zip">dbfagg.zip</a></p>
 
@@ -73,12 +74,12 @@ if you like).</dd>
 <p>The aggregation process can rename and resize fields.  Each line in the
 script file should follow one of these formats:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 FUNC_NAME INPUT_FIELD<br>
 FUNC_NAME INPUT_FIELD OUTPUT_FIELD<br>
 FUNC_NAME INPUT_FIELD OUTPUT_FIELD OUTPUT_FIELD_LEN<br>
 FUNC_NAME INPUT_FIELD OUTPUT_FIELD OUTPUT_FIELD_LEN OUTPUT_FIELD_PREC
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <dl>
 
@@ -101,7 +102,7 @@ values and you might need more digits, you should specify this value.</dd>
 additional digits.  If you make OUTPUT_FIELD_PREC larger, you should probably
 make OUTPUT_FIELD_LEN longer as well.  Only use this with numeric fields.</dd>
 
-<?PHP Section('dbfcat'); ?>
+<?php Section('dbfcat'); ?>
 
 <p><strong>Download:</strong> <a href="media/dbfcat.zip">dbfcat.zip</a></p>
 

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Bots',
-		     'header' => 'Programming Bots',
-		     'topic' => 'bots'));
+StandardHeader(array(
+		'title' => 'Bots',
+		'header' => 'Programming Bots',
+		'topic' => 'bots'
+	));
 
 ?>
 
@@ -12,7 +13,7 @@ StandardHeader(array('title' => 'Bots',
 you make a strategy, program a robot to follow the strategy, and kill
 everyone else on the playing field.</p>
 
-<?PHP Section('<a href="garbots.php">GarBots</a>'); ?>
+<?php Section('<a href="garbots.php">GarBots</a>'); ?>
 
 <p>I don't have a lot of time right now to invest in different programs, and
 what time I do have is just a few minutes waiting here and there for things
@@ -20,7 +21,7 @@ to get done.  Garbots is a great little Palm program if you want a little
 killing on the go.  Fore more information, see my 
 <a href="garbots.php">GarBots page</a>.</p>
 
-<?PHP Section('WarBots') ?>
+<?php Section('WarBots') ?>
 
 <p>This was my first bot programming game that I ever played.  Since it is
 so hard to find, I have a <a href="media/warbots.zip">local copy</a> laying
@@ -36,7 +37,7 @@ times in a row.  Worked quite well.</p>
 decrypt the .war files that were password encrypted.  The encryption method
 used is just a simple XOR stream cipher.</p>
 
-<?PHP Section('Links') ?>
+<?php Section('Links') ?>
 
 <ul>
 <li><a href="http://tpga.virtualave.net/game-links.htm">AIForge</a>
@@ -55,6 +56,6 @@ Robots</a> - How one person started to evolve robots</li>
 - A list of different programming games with descriptions</a>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

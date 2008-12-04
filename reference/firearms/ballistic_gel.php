@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Ballistic Gel',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Ballistic Gel',
+		'topic' => 'guns'
+	));
 
 ?>
 
@@ -37,8 +38,10 @@ purchase Vyse Ballistic gelatin.  Feel free to contact them:</p>
 Schiller Park, IL  60176<br>
 1-800-533-2152<br>
 <a href="http://www.vyse.com">http://www.vyse.com</a><br>
-<a href="mailto:sales@vyse.com">sales@vyse.com</a><?PHP
-  // Leave unencoded.   ?></blockquote>
+<a href="mailto:sales@vyse.com">sales@vyse.com</a><?php
+
+
+// Leave unencoded. ?></blockquote>
 
 <p>Ballistic gel is prohibitively expensive.  Sites that have cited prices
 have it range from $10-$14 a pound.  The FBI is said to use 6x6x16 or 8x6x16 
@@ -71,6 +74,6 @@ someone).  Also, when you shoot it, you can see the soft tissue damage as
 well as the track of the bullet.  The downside is that it is expensive and
 you only get one shot per block.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Make a Whiteboard',
-		     'topic' => 'whiteboard',
-		     'sorttable' => 1));
+StandardHeader(array(
+		'title' => 'Make a Whiteboard',
+		'topic' => 'whiteboard',
+		'sorttable' => 1
+	));
 
 ?>
 
@@ -19,27 +20,57 @@ come to the consumer as ready-to-use whiteboards are not listed.  Below are
 only things that may need some sort of instructions in order to make a
 whiteboard properly.</p>
 
-<?PHP 
+<?php
 
 MakeBoxTop('center');
-
 $Names = array(
-   'contact' => 'Contact Paper',
-   'laminate' => 'Laminate',
-   'mb3000' => 'MB-3000',
-   'plastic' => 'Plastic Sheets',
-   'polycoat' => 'Polycoated Cardboard',
+	'contact' => 'Contact Paper',
+	'laminate' => 'Laminate',
+	'mb3000' => 'MB-3000',
+	'plastic' => 'Plastic Sheets',
+	'polycoat' => 'Polycoated Cardboard',
 );
-
 $Methods = array(
-   array('Walls', 'mb3000', 'Keeps original wall cover'),
-   array('Personal boards', 'laminate', 'Great for schools'),
-   array('Personal boards', 'polycoat', ''),
-   array('Personal boards', 'contact', ''),
-   array('Roll-up surface', 'plastic', ''),
-   array('Tables', 'mb3000', ''),
-   array('Tables', 'contact', 'Only if the table is thin enough'),
-   array('Whiteboard resurfacing', 'mb3000', ''),
+	array(
+		'Walls',
+		'mb3000',
+		'Keeps original wall cover'
+	),
+	array(
+		'Personal boards',
+		'laminate',
+		'Great for schools'
+	),
+	array(
+		'Personal boards',
+		'polycoat',
+		''
+	),
+	array(
+		'Personal boards',
+		'contact',
+		''
+	),
+	array(
+		'Roll-up surface',
+		'plastic',
+		''
+	),
+	array(
+		'Tables',
+		'mb3000',
+		''
+	),
+	array(
+		'Tables',
+		'contact',
+		'Only if the table is thin enough'
+	),
+	array(
+		'Whiteboard resurfacing',
+		'mb3000',
+		''
+	),
 );
 
 ?>
@@ -50,24 +81,23 @@ $Methods = array(
 <tr><th>Application</th><th>Method</th><th>Notes</th></th>
 </thead>
 <tbody>
-<?PHP
+<?php
 
 foreach ($Methods as $method) {
-
-?>
-<tr><td><?= htmlspecialchars($method[0]) ?></td><td><a href="#<?=
-$method[1] ?>"><?= htmlspecialchars($Names[$method[1]]) 
-?></a></td><td><?= htmlspecialchars($method[2]) ?></td></tr>
-<?PHP
-
+	
+	?>
+<tr><td><?php echo htmlspecialchars($method[0]) ?></td><td><a href="#<?php echo $method[1] ?>"><?php echo htmlspecialchars($Names[$method[1]])
+	
+	?></a></td><td><?php echo htmlspecialchars($method[2]) ?></td></tr>
+<?php
 }
 
 ?>
 </tbody>
 </table>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
-<?PHP Section('Laminate', 'laminate'); ?>
+<?php Section('Laminate', 'laminate'); ?>
 
 <p>If you laminate tagboard, you can create fairly good dry erase boards
 without spending loads of money.  This would work great for teachers who
@@ -87,7 +117,7 @@ you try to use some types of clear contact paper or a similar sticky plastic
 as a laminate.  You want to find the type that is melded together by heat
 under a roller as a press.</p>
 
-<?PHP Section('MB-3000 Whiteboard Coating', 'mb3000'); ?>
+<?php Section('MB-3000 Whiteboard Coating', 'mb3000'); ?>
 
 <p>This is similar to a clear paint and is sold by <a
 href="http://solutionsmb.com/">Solutions MB</a>.  It is quite durable and
@@ -121,7 +151,7 @@ destroy any lingering oils and make the surface suitable for coating.  After
 that, you just take a foam brush and put a very thin layer of MB-3000 on the
 surface of whatever you are coating.</p>
 
-<?PHP Section('Plastic Sheets', 'plastic'); ?>
+<?php Section('Plastic Sheets', 'plastic'); ?>
 
 <p>Some plastic sheets work well as whiteboards.  To use them, you just need
 to unroll them or put them on the table.  This may work well for covering a
@@ -137,7 +167,7 @@ flatten.<br>
 your surface, or mount it on the wall.  I used a clear sheet that looked
 like a window shade and hit id underneath a drape/valance thing.</p>
 
-<?PHP Section('Contact Paper', 'contact'); ?>
+<?php Section('Contact Paper', 'contact'); ?>
 
 <p>Contact paper is readily available at most major stores.  It is quick to
 apply and you can get some nice designs.  Try for ones that are very glossy,
@@ -155,7 +185,7 @@ peel away more and use a flat edge, such as a credit card, to push the
 contact paper onto the surface.  Make sure to go slow and get rid of any air
 bubbles right away, since you will not be able to remove them later.</p>
 
-<?PHP Section('Polycoated Cardboard', 'polycoat'); ?>
+<?php Section('Polycoated Cardboard', 'polycoat'); ?>
 
 <p>Realtors may use a special cardboard for their signs, and you can usually
 pick up similar materials from a sign shop.  Test a sample first.  These can
@@ -171,6 +201,6 @@ can stain surface.<br>
 you can cut them down to the size you want.  Next, you're done.  See?
 Easy!</p>
 
-<?PHP
-	
+<?php
+
 StandardFooter();

@@ -1,16 +1,17 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Whiteboard Tips',
-		     'topic' => 'whiteboard'));
+StandardHeader(array(
+		'title' => 'Whiteboard Tips',
+		'topic' => 'whiteboard'
+	));
 
 ?>
 
 <p>My readers have submitted many different ideas and tips to me that relate
 to whiteboards.  This is a list of the most useful ones.
 
-<?PHP Section('Whiteboard Tips'); ?>
+<?php Section('Whiteboard Tips'); ?>
 
 <p>I read on numerous pages to just use a sock to erase stuff because it
 tends to scratch less than paper towels or miscellaneous things you find.  I
@@ -45,6 +46,6 @@ and then wiping them both away.  In my tests, you might need to use the dry
 erase marker a few times before you get the surface clean, but it often
 will get rid of the permanent marker.</p>
 
-<?PHP
-	
+<?php
+
 StandardFooter();

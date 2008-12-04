@@ -11,26 +11,25 @@ fall off the net.</p>
 stumbled across other pages that use the same principle (<i>avalanche
 noise</i>) as this one.</p>
 
-<?PHP
+<?php
 
 $Links = array(
-   array('Name' => 'Hardware Random Bit Generator',
-         'Desc' => 'More discussion about avalanche noise generators, ' .
-	    'how random the bits are, and how to use this to feed ' .
-	    'Linux\'s /dev/random.  (<a href="rng/hw-rng.html">Local ' .
-	    'copy</a>)',
-	 'URL' => 'http://positron.jfet.org/hw-rng.html',
-	 'Escape' => false),
-   array('Name' => 'Zener Diode Nose Generator',
-         'Desc' => 'A thread from a mailing list discussing another ' .
-	    'similar circuit.  (<a href="rng/dzener.txt">Local copy</a>)',
-	 'URL' => 'http://webs.ono.com/usr005/jsuarez/dzener.txt',
-	 'Escape' => false),
+	array(
+		'Name' => 'Hardware Random Bit Generator',
+		'Desc' => 'More discussion about avalanche noise generators, ' . 'how random the bits are, and how to use this to feed ' . 'Linux\'s /dev/random.  (<a href="rng/hw-rng.html">Local ' . 'copy</a>)',
+		'URL' => 'http://positron.jfet.org/hw-rng.html',
+		'Escape' => false
+	),
+	array(
+		'Name' => 'Zener Diode Nose Generator',
+		'Desc' => 'A thread from a mailing list discussing another ' . 'similar circuit.  (<a href="rng/dzener.txt">Local copy</a>)',
+		'URL' => 'http://webs.ono.com/usr005/jsuarez/dzener.txt',
+		'Escape' => false
+	),
 );
-
 MakeLinkList($Links);
-
 echo Separator();
+
 ?>
 
 <h2 align=center>Hardware Random Number Generator</h2>

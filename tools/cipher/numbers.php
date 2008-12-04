@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Letter Numbers',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Letter Numbers',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -28,19 +29,17 @@ letters, hyphens will be removed, and the rest fill act like spaces.</p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id=output></span>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
 // Feel free to use this code if you so desire.
@@ -198,5 +197,6 @@ function start_update()
 window.setTimeout('start_update()', 100);
 
 // --></script>
-<?PHP
+<?php
 }
+

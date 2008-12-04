@@ -567,12 +567,14 @@ int InflateData(z_stream *zs) {
          base64 encoded text into the text field, select Encode or Decode, <br>
          and click the button!<br>
 
-	<?PHP
-$var = "This is just a test string.  I hope that it decompresses well.";
+	<?php
+
+$var = 'This is just a test string.  I hope that it decompresses well.';
 $var = gzcompress($var, 9);
 $var = base64_encode($var);
+
 ?>
-         <textarea name="theText" cols="40" rows="6"><?= $var ?></textarea><br>
+         <textarea name="theText" cols="40" rows="6"><?php echo $var ?></textarea><br>
 
          <input type="button" name="decode" value="Decode and Decompress"
             onClick="document.base64Form.theText.value=decode64(document.base64Form.theText.value);">

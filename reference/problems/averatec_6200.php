@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Linux on Averatec 6200',
-		     'topic' => 'problems'));
+StandardHeader(array(
+		'title' => 'Linux on Averatec 6200',
+		'topic' => 'problems'
+	));
 
 ?>
 	
@@ -27,7 +28,7 @@ StandardHeader(array('title' => 'Linux on Averatec 6200',
 
 <p>The keyboard scan codes are Vol- 174, Vol+ 176, Stop/Eject 164, Rew 144, Play/Pause 162, Fwd 153, Menu 237, On/Off (no code).  You can copy the text below and put it into ~/.Xmodmap, then add "/usr/bin/xmodmap ~/.Xmodmap &amp;" and "/usr/bin/xbindkeys &amp;" to your X startup file (IceWM is .icewm/startup).</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 keycode 174 = XF86AudioLowerVolume
 keycode 176 = XF86AudioRaiseVolume
 keycode 164 = XF86AudioStop
@@ -35,7 +36,7 @@ keycode 144 = XF86AudioPrev
 keycode 162 = XF86AudioPlay
 keycode 153 = XF86AudioNext
 keycode 237 = F22
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p><b><font size="+1">References:</font></b>
 
@@ -46,6 +47,6 @@ keycode 237 = F22
 <li><a href="http://rumkin.com/bounce.php/http://forums.gentoo.org/viewtopic-p-2645680.html">Gentoo on the Averatec 6800 series</a></li>
 </ol>
 
-<?PHP
+<?php
 
 StandardFooter();

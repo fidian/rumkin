@@ -1,13 +1,14 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
- *
+ * 
  * Provided by Enigma <enigmatl _ enigmatl.com>
  */
+
 ?>
 
 
@@ -17,7 +18,7 @@
   you), but support for the format is only available on some phones released 
 near the end of 2004 and beyond.</p>
 <p>Phones that do not work can give you an error message such as
-<?PHP echo FAQLink('e907', 'Data Error 907') ?>, or they might say that you need
+<?php echo FAQLink('e907', 'Data Error 907') ?>, or they might say that you need
 an additional plugin in order to handle that particular MIME type.  As far
 as I know, you won't be able to get any additional plugins for you phone.</p>
 

@@ -1,31 +1,27 @@
-<?PHP
+<?php
 
 $filename = substr($_SERVER['PATH_INFO'], 1);
 $i = strpos($filename, '.');
-if ($i !== false)
-  $filename = substr($filename, 0, $i);
 
-if (! $filename)
-{
-    echo "No data file specified.\n";
-    exit();
+if ($i !== false)$filename = substr($filename, 0, $i);
+
+if (! $filename) {
+	echo "No data file specified.\n";
+	exit();
 }
 
-if (preg_match('/[^a-z0-9]/', $filename))
-{
-    echo "Bad data file.\n";
-    exit();
+if (preg_match('/[^a-z0-9]/', $filename)) {
+	echo "Bad data file.\n";
+	exit();
 }
 
 if (file_exists($filename . '.inc'))
-  include_once($filename . '.inc');
+include_once($filename . '.inc');
 
-if (! isset($GLOBALS['KMLPoints']))
-  LoadPoints($filename);
-
+if (! isset($GLOBALS['KMLPoints']))LoadPoints($filename);
 Header('Content-type: application/earthviewer');
-
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+
 ?><kml xmlns="http://earth.google.com/kml/2.0">
 <Document>
   <Style id="default">
@@ -65,229 +61,220 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
       <styleUrl>#highlight</styleUrl>
     </Pair>
   </StyleMap>
-  <name><?PHP echo $Title ?></name>
-<?PHP
-if (isset($KMLDesc))
-  echo '  <description><![CDATA[' . $KMLDesc . ']]></description>';
-else
-  echo '  <description />';
+  <name><?php echo $Title ?></name>
+<?php
+
+if (isset($KMLDesc))echo '  <description><![CDATA[' . $KMLDesc . ']]></description>';
+else echo '  <description />';
 echo "\n";
 
-foreach ($GLOBALS['KMLPoints'] as $TrackNo => $Points)
-{
-    if ($TrackNo > 0)
-    {
-?>
+foreach ($GLOBALS['KMLPoints'] as $TrackNo => $Points) {
+	if ($TrackNo > 0) {
+		
+		?>
   <Placemark>
-    <name>Track <?PHP echo $TrackNo ?></name>
+    <name>Track <?php echo $TrackNo ?></name>
     <description />
     <open>0</open>
     <Style>
       <LineStyle>
-<?PHP
-	if (isset($Colors[$TrackNo]))
-	{
-?>
-        <color>ff<?= preg_replace('/[^0-9a-fA-F]/', '', $Colors[$TrackNo])
-	      ?></color>
+<?php
+		
+		if (isset($Colors[$TrackNo])) {
+			
+			?>
+        <color>ff<?php echo preg_replace('/[^0-9a-fA-F]/', '', $Colors[$TrackNo])
+			
+			?></color>
 	<width>3</width>
-<?PHP
-	}
-?>
+<?php
+		}
+		
+		?>
       </LineStyle>
     </Style>
     <LineString>
       <tessellate>1</tessellate>
       <coordinates>
-<?PHP
-	foreach ($Points as $p)
-	{
-	    echo $p[2] . ',' . $p[3] . ",0\n";
-	}
-?>
+<?php
+		
+		foreach ($Points as $p) {
+			echo $p[2] . ',' . $p[3] . ",0\n";
+		}
+		
+		?>
       </coordinates>
     </LineString>
   </Placemark>
-<?PHP
-    }
-?>    
+<?php
+	}
+	
+	?>    
   <Folder>
-    <name>Track <?PHP echo $TrackNo ?> Points</name>
+    <name>Track <?php echo $TrackNo ?> Points</name>
     <description />
     <open>0</open>
-<?PHP
-    foreach ($Points as $p)
-    {
-?>
+<?php
+	
+	foreach ($Points as $p) {
+		
+		?>
     <Placemark>
-      <name><![CDATA[<?PHP echo $p[0] ?>]]></name>
-      <description><![CDATA[<?PHP echo $p[1] ?>]]></description>
+      <name><![CDATA[<?php echo $p[0] ?>]]></name>
+      <description><![CDATA[<?php echo $p[1] ?>]]></description>
       <styleUrl>#point</styleUrl>
       <Point>
-        <coordinates><?PHP echo $p[2] . ',' . $p[3] ?>,0</coordinates>
+        <coordinates><?php echo $p[2] . ',' . $p[3] ?>,0</coordinates>
       </Point>
     </Placemark>
-<?PHP
-    }
-?>
+<?php
+	}
+	
+	?>
   </Folder>
-<?PHP
+<?php
 }
+
 ?>
 </Document>
 </kml>
-<?PHP
+<?php
 
-
-
-function LoadPoints($fn)
-{
-    $fn = trim(strtolower($fn));
-    
-    if (! file_exists($fn . '.txt'))
-    {
-	return 'Bad file name.';
-    }
-    
-    $fp = fopen($fn . '.txt', 'r');
-    LoadPointFile($fp);
-    fclose($fp);
-    
-    return '';
-}
-
-
-function LoadPointFile($fp)
-{
-    $Header = explode('|', trim(fgets($fp)));
-    while (! feof($fp))
-    {
-	$Line = explode('|', trim(fgets($fp)));
-	if (! count($Line))
-	  return;
+function LoadPoints($fn) {
+	$fn = trim(strtolower($fn));
 	
-	$Info = array();
-	for ($i = 0; $i < count($Line); $i ++)
-	{
-	    $Info[$Header[$i]] = $Line[$i];
+	if (! file_exists($fn . '.txt')) {
+		return 'Bad file name.';
 	}
-
-	if (isset($Info['Lat']) && isset($Info['Lon']))
-	  SavePoint($Info);
-    }
+	
+	$fp = fopen($fn . '.txt', 'r');
+	LoadPointFile($fp);
+	fclose($fp);
+	return '';
 }
 
 
-function SavePoint($p)
-{
-    $p2 = array('Track' => 0, 'Lat' => 0, 'Lon' => 0, 'Title' => '',
-	'Desc' => '');
-    
-    if (isset($p['Track']))
-    {
-	$p2['Track'] = $p['Track'];
-	settype($p2['Track'], 'integer');
-    }
-    
-    if (isset($p['Lat']))
-      $p2['Lat'] = DegreeConvert($p['Lat']);
-
-    if (isset($p['Lon']))
-      $p2['Lon'] = DegreeConvert($p['Lon']);
-    
-    if (isset($p['Cache']))
-    {
-	if (! isset($p['CacheName']))
-	  $p['CacheName'] = $p['Cache'];
+function LoadPointFile($fp) {
+	$Header = explode('|', trim(fgets($fp)));
 	
-	$p2['Title'] .= '<a href="http://www.geocaching.com/seek/cache_details.aspx?wp=' .
-	  $p['Cache'] . '">';
-    }
-
-    if (isset($p['CacheName']))
-      $p2['Title'] .= $p['CacheName'];
-    
-    if (isset($p['Cache']))
-      $p2['Title'] .= '</a>';
-    
-    if ($p2['Title'] == '')
-    {
-       	$p2['Title'] = $p2['Desc'];
-	$p2['Desc'] = '';
-    }
-	
-    if (isset($p['UserID']))
-    {
-	if ($p2['Desc'] != '')
-	  $p2['Desc'] .= '<br>';
-	$p2['Desc'] .= $p['UserID'];
-    }
-    
-    if ($p2['Title'] == '')
-    {
-       	$p2['Title'] = $p2['Desc'];
-	$p2['Desc'] = '';
-    }
-	
-    if (isset($p['Date']))
-    {
-	if ($p2['Desc'] != '')
-	  $p2['Desc'] .= '<br>';
-	
-	$y = substr($p['Date'], 0, 4);
-	$m = substr($p['Date'], 4, 2) * 1;
-	$d = substr($p['Date'], 6, 2);
-	
-	$Months = array('', 'January', 'February', 'March', 'April',
-			'May', 'June', 'July', 'August', 'September',
-			'October', 'November', 'December');
-	
-	$p2['Desc'] .= $Months[$m] . ' ' . $d . ', ' . $y;
-    }
-    
-    if ($p2['Title'] == '')
-    {
-       	$p2['Title'] = $p2['Desc'];
-	$p2['Desc'] = '';
-    }
-	
-    if (isset($p['Desc']))
-    {
-	if ($p2['Desc'] != '')
-	  $p2['Desc'] .= '<br>';
-	$p2['Desc'] .= $p['Desc'];
-    }
-        
-    if ($p2['Title'] == '')
-    {
-       	$p2['Title'] = $p2['Desc'];
-	$p2['Desc'] = '';
-    }
-	
-    if (! isset($GLOBALS['KMLPoints'][$p2['Track']]))
-       $GLOBALS['KMLPoints'][$p2['Track']] = array();
-
-    $GLOBALS['KMLPoints'][$p2['Track']][] = 
-      array($p2['Title'], $p2['Desc'], $p2['Lon'], $p2['Lat']);
+	while (! feof($fp)) {
+		$Line = explode('|', trim(fgets($fp)));
+		
+		if (! count($Line))return;
+		$Info = array();
+		
+		for ($i = 0; $i < count($Line); $i ++) {
+			$Info[$Header[$i]] = $Line[$i];
+		}
+		
+		if (isset($Info['Lat']) && isset($Info['Lon']))SavePoint($Info);
+	}
 }
 
 
-function DegreeConvert($s)
-{
-    $posneg = 1;
-    
-    if (preg_match('/[\\-SsWw]/', $s))
-      $posneg = -1;
-    
-    $s = explode(' ', trim(preg_replace('/[^0-9\\.]+/', ' ', $s)));
-    $d = 0;
-    $factor = 1;
-    
-    foreach ($s as $ss)
-    {
-	$d += $ss * $factor;
-	$factor /= 60;
-    }
-    
-    return $d * $posneg;
+function SavePoint($p) {
+	$p2 = array(
+		'Track' => 0,
+		'Lat' => 0,
+		'Lon' => 0,
+		'Title' => '',
+		'Desc' => ''
+	);
+	
+	if (isset($p['Track'])) {
+		$p2['Track'] = $p['Track'];
+		settype($p2['Track'], 'integer');
+	}
+	
+	if (isset($p['Lat']))$p2['Lat'] = DegreeConvert($p['Lat']);
+	
+	if (isset($p['Lon']))$p2['Lon'] = DegreeConvert($p['Lon']);
+	
+	if (isset($p['Cache'])) {
+		if (! isset($p['CacheName']))$p['CacheName'] = $p['Cache'];
+		$p2['Title'] .= '<a href="http://www.geocaching.com/seek/cache_details.aspx?wp=' . $p['Cache'] . '">';
+	}
+	
+	if (isset($p['CacheName']))$p2['Title'] .= $p['CacheName'];
+	
+	if (isset($p['Cache']))$p2['Title'] .= '</a>';
+	
+	if ($p2['Title'] == '') {
+		$p2['Title'] = $p2['Desc'];
+		$p2['Desc'] = '';
+	}
+	
+	if (isset($p['UserID'])) {
+		if ($p2['Desc'] != '')$p2['Desc'] .= '<br>';
+		$p2['Desc'] .= $p['UserID'];
+	}
+	
+	if ($p2['Title'] == '') {
+		$p2['Title'] = $p2['Desc'];
+		$p2['Desc'] = '';
+	}
+	
+	if (isset($p['Date'])) {
+		if ($p2['Desc'] != '')$p2['Desc'] .= '<br>';
+		$y = substr($p['Date'], 0, 4);
+		$m = substr($p['Date'], 4, 2) * 1;
+		$d = substr($p['Date'], 6, 2);
+		$Months = array(
+			'',
+			'January',
+			'February',
+			'March',
+			'April',
+			'May',
+			'June',
+			'July',
+			'August',
+			'September',
+			'October',
+			'November',
+			'December'
+		);
+		$p2['Desc'] .= $Months[$m] . ' ' . $d . ', ' . $y;
+	}
+	
+	if ($p2['Title'] == '') {
+		$p2['Title'] = $p2['Desc'];
+		$p2['Desc'] = '';
+	}
+	
+	if (isset($p['Desc'])) {
+		if ($p2['Desc'] != '')$p2['Desc'] .= '<br>';
+		$p2['Desc'] .= $p['Desc'];
+	}
+	
+	if ($p2['Title'] == '') {
+		$p2['Title'] = $p2['Desc'];
+		$p2['Desc'] = '';
+	}
+	
+	if (! isset($GLOBALS['KMLPoints'][$p2['Track']]))$GLOBALS['KMLPoints'][$p2['Track']] = array();
+	$GLOBALS['KMLPoints'][$p2['Track']][] = array(
+		$p2['Title'],
+		$p2['Desc'],
+		$p2['Lon'],
+		$p2['Lat']
+	);
 }
+
+
+function DegreeConvert($s) {
+	$posneg = 1;
+	
+	if (preg_match('/[\\-SsWw]/', $s))$posneg = - 1;
+	$s = explode(' ', trim(preg_replace('/[^0-9\\.]+/', ' ', $s)));
+	$d = 0;
+	$factor = 1;
+	
+	foreach ($s as $ss) {
+		$d += $ss * $factor;
+		$factor /= 60;
+	}
+	
+	return $d * $posneg;
+}
+

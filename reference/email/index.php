@@ -1,16 +1,17 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Email on Rumkin.com',
-		     'topic' => 'reference'));
+StandardHeader(array(
+		'title' => 'Email on Rumkin.com',
+		'topic' => 'reference'
+	));
 
 ?>
 
 <p>So, you have an account on this machine and you want to know more about
 the situation with your email.  You've come to the right place.</p>
 
-<?PHP Section('Secure Email'); ?>
+<?php Section('Secure Email'); ?>
 
 <p>I have an SSL connection available for authenticated SMTP (port 465,
 but you must enable <a href="https://www.rumkin.com/cgi-bin/tmda.cgi">TMDA</a>)
@@ -22,7 +23,7 @@ receive email and not send anything.
 <p>I need to remove TMDA and just set up a SSL enabled SMTP and IMAP
 nobody on this system needs the added overhead of TMDA.</p>
 
-<?PHP Section('Blocked Mail'); ?>
+<?php Section('Blocked Mail'); ?>
 
 <p>If someone is trying to email you but gets their messages returned, tell
 them to go to <a href="denied.php">this page</a>, which will explain what
@@ -30,7 +31,7 @@ that is all about and how to fix it.  Make sure that they use my special
 <a href="/contact.php">contact form</a> to get ahold of me if their email is
 being stopped by my system.</p>
 
-<?PHP Section('Webmail'); ?>
+<?php Section('Webmail'); ?>
 
 <p>Every account on rumkin.com can use the web-based email system at <a
 href="http://mail.rumkin.com/">mail.rumkin.com</a>.  You can also use the <a
@@ -40,7 +41,7 @@ from <a href="http://cert.startcom.org">Startcom</a>.  You can install the
 <a href="http://cert.startcom.org/index.php?app=109">CA Cert</a> in your
 web browser to eliminate this tiny hassle.</p>
 
-<?PHP Section('Forwarding &amp; Procmail'); ?>
+<?php Section('Forwarding &amp; Procmail'); ?>
 
 <p>Want to set up email forwarding?  I run <a
 href="http://www.qmail.org">qmail</a>.  You'll just need to add a .qmail
@@ -58,7 +59,7 @@ dot-qmail, qmail-command, procmail, procmailrc.  If you don't, just look for
 a man to html gateway or use <a href="http://www.google.com/">Google</a> for more
 information.</p>
 
-<?PHP Section('Spam and Virus Filters'); ?>
+<?php Section('Spam and Virus Filters'); ?>
 
 <p>This sitepublishes an <a href="http://spf.pobox.com/">SPF record</a>
 and checks incoming connections for SPF records to help prevent people who
@@ -104,6 +105,6 @@ this system, it is also scanned for viruses and spam before I even think
 about sending it to another machine.  That way, Rumkin.com does not get a
 bad image on the net for condoning spam and evil things.</p>
 	
-<?PHP
+<?php
 
 StandardFooter();

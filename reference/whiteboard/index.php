@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Homemade Whiteboards',
-		     'topic' => 'whiteboard'));
+StandardHeader(array(
+		'title' => 'Homemade Whiteboards',
+		'topic' => 'whiteboard'
+	));
 
 ?>
 
@@ -18,7 +19,7 @@ would be very useful there.</p>
 <p>This page is a chronicle of what we researched and tried in order to make
 and maintain a large whiteboard.  I hope it helps other people out.</p>
 
-<?PHP
+<?php
 
 Section('Making The Board');
 
@@ -43,7 +44,7 @@ hands on, and I put them on their own <a href="surfaces.php">Surfaces</a>
 page.  I have written up instructions on how to <a href="make.php">make a
 whiteboard</a> for all of the surfaces that showed promise.</p>
    
-<?PHP Section('Cleaning the Board'); ?>
+<?php Section('Cleaning the Board'); ?>
 
 <p>I have found numerous methods that people have used for cleaning a
 whiteboard, and then web site visitors have submitted others.  I have tested
@@ -54,6 +55,6 @@ href="cleaners.php">Cleaners</a> page.</p>
 <p>Once you find a nice cleaner, you can stick it in a spray bottle to have
 it convenient for when you need to wipe off the board.</p>
 
-<?PHP
-	
+<?php
+
 StandardFooter();

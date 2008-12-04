@@ -1,16 +1,17 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Palm OS Events',
-		     'topic' => 'palmos'));
+StandardHeader(array(
+		'title' => 'Palm OS Events',
+		'topic' => 'palmos'
+	));
 
 ?>
 
 <p>This is a list of all of the events I know about.  If you have others
 that should be added, just leave me a comment in the shoutbox below.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>0 - nil
 1 - pen down
 2 - pen up
@@ -58,7 +59,7 @@ F - fld enter
 1100 - first web lib
 6000 - first user event
 </pre>
-<?PHP MakeBoxBottom(); ?>
-<?PHP
+<?php MakeBoxBottom(); ?>
+<?php
 
 StandardFooter();

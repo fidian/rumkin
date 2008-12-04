@@ -1,10 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'FoxPro Packages',
-		     'topic' => 'foxpro'));
-
+StandardHeader(array(
+		'title' => 'FoxPro Packages',
+		'topic' => 'foxpro'
+	));
 $mediaDir = getenv('MEDIABASE') . 'software/foxpro/';
 
 ?>
@@ -23,9 +23,7 @@ that performs the task.</p>
 <li><a href="#zlib">zlib</a> (Library + Code)
 </ul>
 
-<?PHP Section('<a name="command">Command Window Simulator</a> (Form, ' .
-FidianFileSize($mediaDir . 'media/command.zip') . 
-' - <a href="media/command.zip">command.zip</a>)') ?>
+<?php Section('<a name="command">Command Window Simulator</a> (Form, ' . FidianFileSize($mediaDir . 'media/command.zip') . ' - <a href="media/command.zip">command.zip</a>)') ?>
 
 <p>Did you ever want to distribute an application but keep the command
 window?  Do you have advanced FoxPro users out there that like to type in
@@ -41,15 +39,13 @@ altered it a bit more to not require the "READ EVENTS" stuff and handle
 application I was adding it to.  Now, you just need one line to pop open the
 form and get the command window simulator running.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>do form Command
 * Simple, eh?
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('<a name="exceldde">Excel DDE</a> (Code, ' .
-FidianFileSize($mediaDir . 'media/exceldde.zip') . 
-' - <a href="media/exceldde.zip">exceldde.zip</a>)'); ?>
+<?php Section('<a name="exceldde">Excel DDE</a> (Code, ' . FidianFileSize($mediaDir . 'media/exceldde.zip') . ' - <a href="media/exceldde.zip">exceldde.zip</a>)'); ?>
 
 <p>You can always use "<tt>copy to FILENAME type xl5</tt>" in order to get
 your table in an Excel-ready format, but the formatting sucks.  Actually, it
@@ -58,10 +54,11 @@ is a complete and total lack of formatting that sucks.</p>
 <p>You can open up Excel, set up a DDE link to it, and then send data to the
 spreadsheet with DDEPoke().  To make this job a bit easier, I made a few
 utility functions.  An explanation of the DDE functions is available in a
-separate help file (<?= FidianFileSize($mediaDir . 'media/xlmacr8.zip') 
+separate help file (<?php echo FidianFileSize($mediaDir . 'media/xlmacr8.zip')
+
 ?> - <a href="media/xlmacr8.zip">xlmacr8.zip</a>).</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Include the program
 set procedure to exceldde.prg additive
 
@@ -85,12 +82,12 @@ ExcelLegal(m.mc)
 * Pull data, remove newlines, trim
 m.info_from_spreadsheet = DDERequest2(m.mc, 1, 2) && 1 = row, 2 = col
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>The second script, exceldump, will take your table and dump it to Excel
 via DDE with formatting.  Pretty handy.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Include both files
 set procedure to exceldump.prg additive
 set procedure to exceldde.prg additive
@@ -101,7 +98,7 @@ use YOUR_TABLE
 * Dump to Excel  (read ExcelDump.prg for explanation of optional parameters)
 DumpToExcel()
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>DumpToExcel takes many parameters.  See ExcelDump.prg for a list of them
 and how to specify them.  You are able to select the database to dump,
@@ -118,16 +115,14 @@ equivalent, but puts the output in Excel.  The old DOS FoxPro had a useful
 output when you try that exact same command.  Printing it from Excel makes
 it look nice again.</p>
 
-<?PHP Section('<a name="fiscal">Fiscal Date Functions</a> (Code, ' .
-FidianFileSize($mediaDir . 'media/fiscal.zip') .
-' - <a href="media/fiscal.zip">fiscal.zip</a>)'); ?>
+<?php Section('<a name="fiscal">Fiscal Date Functions</a> (Code, ' . FidianFileSize($mediaDir . 'media/fiscal.zip') . ' - <a href="media/fiscal.zip">fiscal.zip</a>)'); ?>
 
 <p>I am not sure if anyone else out there has to work with fiscal dates in
 FoxPro, but I did.  This set of functions will help you out immensely.  With
 them, you can query for fiscal years, get just specific fiscal months, and
 much more.
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Add in the fiscal functions
 set procedure to fiscal.prg additive
 
@@ -154,21 +149,19 @@ set procedure to fiscal.prg additive
 * Get the number of fiscal weeks before a specific month
 ? FiscalWeeksBeforeMonth(1)
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
 <p>The code has slightly better comments before each function, and explains
 the data types going in and returned from each function a bit better.</p>
 
-<?PHP Section('<a name="fuzzy">Fuzzy String Matching</a> (Code)'); ?>
+<?php Section('<a name="fuzzy">Fuzzy String Matching</a> (Code)'); ?>
 
 <p>I have expanded the fuzzy string matching for FoxPro to handle two
 different algorithms, and they are also coded for other languages.  They are
 explained in detail on my <a href="../algorithms/fuzzy_strings/">fuzzy
 string matching</a> page.</p>
 
-<?PHP Section('<a name="getdate">GetDate</a> (Form, ' .
-FidianFileSize($mediaDir . 'media/getdate.zip') .
-' - <a href="media/getdate.zip">getdate.zip</a>)'); ?>
+<?php Section('<a name="getdate">GetDate</a> (Form, ' . FidianFileSize($mediaDir . 'media/getdate.zip') . ' - <a href="media/getdate.zip">getdate.zip</a>)'); ?>
 
 <p>Tired of asking the user to type in a date?  Use this form to pop open a
 calendar.  I modified this one to remove extra weird code, make it more
@@ -179,7 +172,7 @@ like what is shown below.  You can also set the date text field's
 <tt>DblClick</tt> event to what is shown to make it even easier for the user
 to enter dates.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* These snippets of code assume that your form has a text field on it
 * that is called txtdDate1
 
@@ -199,11 +192,9 @@ with this
     .refresh()
 endwith
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('<a name="md5">MD5</a> (Library, ' . 
-FidianFileSize($mediaDir . 'media/md5.zip') .
-' - <a href="media/md5.zip">md5.zip</a>)'); ?>
+<?php Section('<a name="md5">MD5</a> (Library, ' . FidianFileSize($mediaDir . 'media/md5.zip') . ' - <a href="media/md5.zip">md5.zip</a>)'); ?>
 	
 <p>Did you ever need to make a MD5 checksum of a file or a string?
 This will certainly be exactly what you need.  I found this code out on
@@ -215,7 +206,7 @@ the zip file that I found.</p>
 <p>To use, you merely include the library and then run the MD5Hash()
 function.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>set library to MD5.FLL additive
 HashCode = MD5Hash(any_string) && returns 16-byte result
 
@@ -241,18 +232,16 @@ lparam m.binary
     return m.out
 endfunc
 </pre>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
-<?PHP Section('<a name="prompter">Prompter</a> (Form, ' .
-FidianFileSize($mediaDir . 'media/prompter.zip') .
-' - <a href="media/prompter.zip">prompter.zip</a>)'); ?>
+<?php Section('<a name="prompter">Prompter</a> (Form, ' . FidianFileSize($mediaDir . 'media/prompter.zip') . ' - <a href="media/prompter.zip">prompter.zip</a>)'); ?>
 
 <p>I don't know why FoxPro did not include a message box that could prompt
 the user for information.  They have MessageBox(), but nothing like prompt()
 or ask() or whatever.  At least, they don't in FoxPro 6, which is what I use
 at work.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>
 m.result = .F.
 
@@ -267,11 +256,9 @@ endif
 * Or have a default value specified
 do form Prompter with "What is 2 * 3?", "6" to m.result2
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('<a name="zlib">zlib</a> (Library + Code, ' .
-FidianFileSize($mediaDir . 'media/zlib.zip') . 
-' - <a href="media/zlib.zip">zlib.zip</a>)') ?>
+<?php Section('<a name="zlib">zlib</a> (Library + Code, ' . FidianFileSize($mediaDir . 'media/zlib.zip') . ' - <a href="media/zlib.zip">zlib.zip</a>)') ?>
 
 <p>I have found that it is often to my advantage to compress my stray
 .dbf files that I rarely use.  I have written code to detect if my file
@@ -285,7 +272,7 @@ Foundation Classes.  You will certainly need to edit zlib.prg and change it
 need to change the path to zlib.dll &ndash; it is in the GZDefine()
 function.</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>* Include the zlib routines
 set procedure to zlib.prg additive
 
@@ -311,8 +298,8 @@ gzip("in.dbf", "out.dbf.gz", level) && Pick your own compression level
 gunzip("in.dbf.gz", "out.dbf") && Decompresses a file
 gunzip_nobar("in.dbf.gz", "out.dbf") && Never shows progress bar
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP
+<?php
 
 StandardFooter();

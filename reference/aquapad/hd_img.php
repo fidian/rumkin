@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('Hard Drive Images');
 
 ?>
@@ -25,7 +24,7 @@ some assistance, and so I have collected my experiences here.</p>
 <p>Using FreeDOS should work, but I haven't been able to spend enough time
 to do so, so I just gave up and decided to use a M$ boot disk I had handy.</p>
 
-<?PHP Section('Linux Instructions', 'linux'); ?>
+<?php Section('Linux Instructions', 'linux'); ?>
 
 <p>We will make a hard drive image on the computer and then copy it to the
 CompactFlash.  This is due to the lack of drivers for DOS to read/write
@@ -35,12 +34,11 @@ CompactFlash drives.</p>
 <li>Find a Compact Flash card that doesn't contain any vital information --
 it will be erased soon.</li>
 <li>You have two routes &ndash; either download and extract a bootable hard
-drive image or make one yourself with the instructions <?= l('#make_image',
-'below') ?>.
+drive image or make one yourself with the instructions <?php echo l('#make_image', 'below') ?>.
    <ul>
-   <li><?= l('media/blank.hd0.gz', 'Bare MS-DOS Bootable HD Image') ?> -
+   <li><?php echo l('media/blank.hd0.gz', 'Bare MS-DOS Bootable HD Image') ?> -
       4M uncompressed, 230k compressed
-   <li><?= l('media/freedos.img.bz2', 'FreeDOS Image') ?> -
+   <li><?php echo l('media/freedos.img.bz2', 'FreeDOS Image') ?> -
       10M uncompressed, 1.6M compressed
    </ul>
 <li>Copy the hard drive image to the CompactFlash (/dev/sda is the address
@@ -68,7 +66,7 @@ hard drive image under Linux, make sure to check the <a
 href="http://www.mega-tokyo.com/osfaq2/index.php/Disk%20Images%20Under%20Linux">Disk
 Images Under Linux</a> page.</p>
 
-<?PHP Section('Windows 98 Instructions', 'windows'); ?>
+<?php Section('Windows 98 Instructions', 'windows'); ?>
 
 <p>This is a bit easier because you aren't trying to install a foreign OS
 under another OS.</p>
@@ -89,7 +87,7 @@ you <b>need</b> to use that one).
 normal disk.
 </ul>
 
-<?PHP Section('Other Operating Systems', 'other_os'); ?>
+<?php Section('Other Operating Systems', 'other_os'); ?>
 
 <p>You're probably stuck.  Windows 2000 (and NT, if I recall) and foreward
 don't have the "sys" command and don't let you specify "/s" to format.
@@ -100,12 +98,11 @@ Possible options include:</p>
 href="#windows">Windows 98 Instructions</a>.
 <li>Download a Linux Live CD (there's MANY, I suggest Knoppix or a
 derivative), boot to it, follow the Linux instructions.
-<li>Download <?= l('http://fabrice.bellard.free.fr/qemu/', 'QEMU') ?> to set
-up a hard drive image.  Head over to <?= l('http://www.freeoszoo.org/',
-'Free OS Zoo') ?> for QEMU downloads for various platforms.
+<li>Download <?php echo l('http://fabrice.bellard.free.fr/qemu/', 'QEMU') ?> to set
+up a hard drive image.  Head over to <?php echo l('http://www.freeoszoo.org/', 'Free OS Zoo') ?> for QEMU downloads for various platforms.
 </ul>
 
-<?PHP Section('Obtaining an Image of the Compact Flash Card', 'get'); ?>
+<?php Section('Obtaining an Image of the Compact Flash Card', 'get'); ?>
 
 <p>Want to make an exact copy of the Compact Flash card?  Need the original
 images so that you can install and upgrade your own applications?  Here you
@@ -116,7 +113,7 @@ href="http://www.geocities.com/ptkatch/aquapad.htm">Pavel Tkatchouk</a>.</p>
 <li><a href="dissect.php">Dissassemble</a> the AquaPad.  Remove the Compact
 Flash card and walk over to your other computer with the Compact Flash 
 reader.  My reader mounts Compact Flash cards as /dev/sda.</li>
-<li><?PHP MakeBoxTop('right'); ?>
+<li><?php MakeBoxTop('right'); ?>
 <PRE>Disk /dev/sda: 1024 MB, 1024450560 bytes
 1 heads, 62 sectors/track, 32272 cylinders
 Units = cylinders of 62 * 512 = 31744 bytes
@@ -126,7 +123,7 @@ Units = cylinders of 62 * 512 = 31744 bytes
 /dev/sda2            89       175      2697   83  Linux
 /dev/sda3           176       180       155   83  Linux
 /dev/sda4           181      1015     25885   83  Linux
-</pre><?PHP MakeBoxBottom(); ?>
+</pre><?php MakeBoxBottom(); ?>
 
 Check out the partitions on the card.  For me, <tt>fdisk -l /dev/sda</tt>
 produces the results shown in the table to the right.</li>
@@ -156,13 +153,12 @@ to work with them individually than all together.  If you want an exact copy
 of the card you can just use <tt>dd if=/dev/sda of=CF_Copy.img</tt>
 </ol>
 
-<?PHP Section('Making Your Own Image Under Linux', 'make_image') ?>
+<?php Section('Making Your Own Image Under Linux', 'make_image') ?>
 
 <ol>
-<li>Install <?= l('http://bochs.sourceforge.net/', 'Bochs') ?>.</li>
+<li>Install <?php echo l('http://bochs.sourceforge.net/', 'Bochs') ?>.</li>
 <li>Find a Windows or DOS boot floppy.  Insert it into your drive and copy
-the floppy image to your hard drive.  Maybe a <?= l('http://freedos.org/',
-'FreeDOS') ?> floppy will work for you; it didn't work for me.
+the floppy image to your hard drive.  Maybe a <?php echo l('http://freedos.org/', 'FreeDOS') ?> floppy will work for you; it didn't work for me.
   <blockquote>
   <tt>dd if=/dev/fd0 of=floppy.img</tt>
   </blockquote></li>
@@ -185,6 +181,6 @@ guest.hd0.
   </blockquote></li>
 </ol>
 
-<?PHP
+<?php
 
 AquaStop();

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'header' => 'Java Puzzle Applet - Stopping Cheating',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Applet - Stopping Cheating',
+		'topic' => 'puzzle'
+	));
 
 ?>
 
@@ -46,6 +47,6 @@ href="http://www.javaworld.com/javaworld/javatips/jw-javatip34.html">explains
    specify, do a certain difficulty level.</li>
 </UL>
 
-<?PHP
+<?php
 
 StandardFooter();

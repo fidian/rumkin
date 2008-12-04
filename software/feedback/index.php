@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Feedback Box',
-		     'topic' => 'feedback'));
+StandardHeader(array(
+		'title' => 'Feedback Box',
+		'topic' => 'feedback'
+	));
 
 ?>
 	
@@ -33,5 +34,6 @@ out.</p>
 Browser Requirements:  None.  Works with Mozilla, Netscape, IE, Opera, 
 Links, Lynx, and even the web browsers on cell phones.</p>
 
-<?PHP
+<?php
+
 StandardFooter();

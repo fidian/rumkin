@@ -1,11 +1,11 @@
-<?PHP  // -*- text -*-
+<?php
 
+
+// -*- text -*-
 include 'common.inc';
-
 MarcoHeader('User Manual');
-
-
 DoHeader('toc', 'Table of Contents');
+
 ?>
 
 <dl>
@@ -56,7 +56,7 @@ DoHeader('toc', 'Table of Contents');
 
 </dl>
 
-<?PHP DoHeader('functionality', 'What does Marco Do?'); ?>
+<?php DoHeader('functionality', 'What does Marco Do?'); ?>
 
 <p>It acts like a specialty calculator that is geared towards surveyor's
 work.  The software speeds up the planning process involved with field work,
@@ -67,7 +67,7 @@ waiting for an answer to a problem, this program can get them back to work
 quickly.</p>
 
 
-<?PHP DoHeader('whouses', 'Who can use Marco?'); ?>
+<?php DoHeader('whouses', 'Who can use Marco?'); ?>
 
 <p>The software was designed to be as easy to use as possible.  When
 compared to some of the specialty calculators on the market, this blows them
@@ -82,7 +82,7 @@ landscapers, architectual designers, and construction workers could use
 Marco for various applications in their fields.</p>
 
 
-<?PHP DoHeader('unitsofmeasure', 'What Units of Measure does Marco Use') ?>
+<?php DoHeader('unitsofmeasure', 'What Units of Measure does Marco Use') ?>
 
 <p>The formulas that are built into Marco do not require a unit of measure
 to be used.  The rule of thumb is that all lengths, coordinates, and values
@@ -90,12 +90,14 @@ must be in the same unit.  Therefore, if all information is entered in as
 feet, the answer will also be in feet.</p>
 
 
-<?PHP DoHeader('mathlib', 'What is MathLib?'); ?>
+<?php DoHeader('mathlib', 'What is MathLib?'); ?>
 
-<?PHP include('data/mathlib.inc'); ?>
+<?php
+
+include('data/mathlib.inc'); ?>
 
 
-<?PHP DoHeader('installing', 'Installing Marco'); ?>
+<?php DoHeader('installing', 'Installing Marco'); ?>
 
 <p>Just go to the <a href="download.php">download page</a> and get the zip
 file with MathLib and documentation.  Extract the archive on your computer
@@ -107,14 +109,14 @@ Palm.  See the <a href="#beam">beaming section</a> in this manual for more
 information.</p>
 
 
-<?PHP DoHeader('running', 'Starting the Program'); ?>
+<?php DoHeader('running', 'Starting the Program'); ?>
 
 <p><img src="images/launcher.png" align=left>
 Tap on the Applications button to bring up the list of programs on your
 Palm.  Look for the "M" icon of Marco, and tap it.</p>
 
 
-<?PHP DoHeader('beam', 'Beaming Marco'); ?>
+<?php DoHeader('beam', 'Beaming Marco'); ?>
 
 <p><img src="images/menu_button.gif" align=right>
 Beaming Marco to another handheld lets people see if it will work for
@@ -135,7 +137,7 @@ option to Beam MathLib.  This may be easier than searching through the beam
 menus with the application launcher.</p>
 
 
-<?PHP DoHeader('general', 'General Layout of Screens'); ?>
+<?php DoHeader('general', 'General Layout of Screens'); ?>
 
 <p>Marco tries to use a similar, familiar interface on all of the screens it
 has.  It will start out on the Main Menu, where you can press a button
@@ -179,7 +181,7 @@ from the list, or pick the <a href="#db">Manage Databases</a>
 option to handle creating, deleting, renaming, and beaming of point files.</p>
 
 
-<?PHP DoHeader('entering', 'Entering Information'); ?>
+<?php DoHeader('entering', 'Entering Information'); ?>
 
 <p>When you need to enter information into Marco, there will be an appropriate
 form that will pop up and ask for a value.  The forms change with what
@@ -211,7 +213,7 @@ numbers, and the standard Palm grafitti method of inputting data works as
 well.</p>
 
 
-<?PHP DoHeader('help', 'Context-Specific Help'); ?>
+<?php DoHeader('help', 'Context-Specific Help'); ?>
 
 <p><img src="images/menu_button.gif" align=right>
 By tapping on the menu button, and then picking Help under the Marco menu,
@@ -220,7 +222,7 @@ get stuck or you don't know what a particular value is, an explanation is
 always easily available and is built-in to every copy of Marco.</p>
 
 
-<?PHP DoHeader('hcurve', 'Horizontal Curves'); ?>
+<?php DoHeader('hcurve', 'Horizontal Curves'); ?>
 
 <p align=center><img src="media/doc/hcurve-data.png" border=1>
 <img src="media/doc/hcurve-diag.png" border=1>
@@ -237,7 +239,7 @@ information about the location of the curve.  "Table" will show
 a series of points along the curve with their cord length and angle of 
 deflection.</p>
 
-<?PHP DoHeader('vcurve', 'Vertical Curves'); ?>
+<?php DoHeader('vcurve', 'Vertical Curves'); ?>
 
 <p align=center><img src="media/doc/vcurve-data.png" border=1>
 <img src="media/doc/vcurve-diag.png" border=1>
@@ -254,7 +256,7 @@ stations on or outside the curve.  "Table" lists the elevations of a
 series of points that are on the curve.</p>
 
 
-<?PHP DoHeader('ctrlinec', 'Center Line for Curves'); ?>
+<?php DoHeader('ctrlinec', 'Center Line for Curves'); ?>
 
 <p align=center><img src="media/doc/ctrlinec-data-1.png" border=1>
 <img src="media/doc/ctrlinec-data-2.png" border=1>
@@ -292,7 +294,7 @@ By tapping on a point, the selected point's coordinates can be saved to the
 current point file.</p>
 
 
-<?PHP DoHeader('intersect', 'Intersection'); ?>
+<?php DoHeader('intersect', 'Intersection'); ?>
 
 <p align=center><img src="media/doc/intersect-line.png" border=1>
 <img src="media/doc/intersect-circle.png" border=1>
@@ -308,7 +310,7 @@ is a circle.  After defining the location of the object, tap on
 Result to see where the two entities intersect and the distances from any
 coordinates that were entered.</p>
 
-<?PHP DoHeader('proportion', 'Proportion'); ?>
+<?php DoHeader('proportion', 'Proportion'); ?>
 
 <p align=center><img src="media/doc/proportion-data.png" border=1>
 <img src="media/doc/proportion-table.png" border=1></p>
@@ -321,7 +323,7 @@ sets the increment for the Table screen.  "Table" shows a list of
 stations and the proportional value at each location.</p>
 
 
-<?PHP DoHeader('inverse', 'Inverse'); ?>
+<?php DoHeader('inverse', 'Inverse'); ?>
 
 <p align=center><img src="media/doc/inverse.png" border=1></p>
 
@@ -332,7 +334,7 @@ button will put the second point's coordinates in as the starting point, so
 another point can be calculated.</p>
 
 
-<?PHP DoHeader('ctrlinel', 'Center Line for Lines'); ?>
+<?php DoHeader('ctrlinel', 'Center Line for Lines'); ?>
 
 <p align=center><img src="media/doc/ctrlinel-data-start.png" border=1>
 <img src="media/doc/ctrlinel-data-direction.png" border=1>
@@ -352,7 +354,7 @@ or find the coordinates for a given station and offset.
 and "R" buttons change the offset to be left and right, accordingly.</p>
 
 
-<?PHP DoHeader('gradpi', 'Grading PI'); ?>
+<?php DoHeader('gradpi', 'Grading PI'); ?>
 
 <p align=center><img src="media/doc/gradpi-grad.png" border=1>
 <img src="media/doc/gradpi-final.png" border=1>
@@ -368,7 +370,7 @@ help locate reference points, a cut-away side view of a road is on the
 "Diag" page.</p>
 
 
-<?PHP DoHeader('area', 'Area of a Polygon'); ?>
+<?php DoHeader('area', 'Area of a Polygon'); ?>
 
 <p align=center><img src="media/doc/area.png" border=1>
 <img src="media/doc/area-results.png" border=1></p>
@@ -381,7 +383,7 @@ around the outside, and the centroid.  "Del" will erase the selected point
 from this screen and "Clear" will start the process over.</p>
 
 
-<?PHP DoHeader('triangles', 'Triangles'); ?>
+<?php DoHeader('triangles', 'Triangles'); ?>
 
 <p align=center><img src="media/doc/triangles-tabular.png" border=1>
 <img src="media/doc/triangles-spatial.png" border=1></p>
@@ -393,7 +395,7 @@ it is possible to change between the tabular view (on the left) and the
 spatial view (on the right).</p>
 
 
-<?PHP DoHeader('anglecon', 'Angle Converter'); ?>
+<?php DoHeader('anglecon', 'Angle Converter'); ?>
 
 <p align=center><img src="media/doc/anglecon.png" border=1></p>
 
@@ -403,7 +405,7 @@ allow you to add and subtract an angle from the one currently displayed.
 Angles are always positive, and are from 0 to just under 360&deg;.</p>
 
 
-<?PHP DoHeader('quad', 'Quadratic Formula Solver'); ?>
+<?php DoHeader('quad', 'Quadratic Formula Solver'); ?>
 
 <p align=center><img src="media/doc/quad.png" border=1></p>
 
@@ -411,7 +413,7 @@ Angles are always positive, and are from 0 to just under 360&deg;.</p>
 equation.</p>
 
 
-<?PHP DoHeader('edit', 'Edit Points'); ?>
+<?php DoHeader('edit', 'Edit Points'); ?>
 
 <p align=center><img src="media/doc/edit.png" border=1>
 <img src="media/doc/edit-view.png" border=1>
@@ -430,7 +432,7 @@ clear it.  To rename a point, just tap on the Description button and it will
 allow a new name to be entered.</p>
 
 
-<?PHP DoHeader('prefs', 'Preferences'); ?>
+<?php DoHeader('prefs', 'Preferences'); ?>
 
 <p align=center><img src="media/doc/prefs.png" border=1>
 <img src="media/doc/prefs-units.png" border=1>
@@ -461,7 +463,7 @@ different layouts for the <a href="#triangles">Triangles</a> form.</p>
 "Cancel" to go back without saving the new settings.</p>
 
 
-<?PHP DoHeader('db', 'Manage Databases'); ?>
+<?php DoHeader('db', 'Manage Databases'); ?>
 
 <p align=center><img src="media/doc/manage-databases.png" border=1>
 <img src="media/doc/db.png" border=1></p>
@@ -478,63 +480,75 @@ where point files can be created, deleted, and renamed.  If a point file is
 deleted, it can not be restored, so be careful.</p>
 
 
-<?PHP DoHeader('register', 'Registration Information'); ?>
+<?php DoHeader('register', 'Registration Information'); ?>
 
-<?PHP include('data/register.inc'); ?>
+<?php
 
-
-<?PHP DoHeader('upgrades', 'Upgrades'); ?>
-
-<?PHP include('data/upgrades.inc'); ?>
+include('data/register.inc'); ?>
 
 
-<?PHP DoHeader('calculators', 'Calculators'); ?>
+<?php DoHeader('upgrades', 'Upgrades'); ?>
 
-<?PHP include('data/calculators.inc'); ?>
+<?php
 
-
-<?PHP DoHeader('faq', 'Frequently Asked Questions (FAQ)'); ?>
-
-<?PHP include('data/faq.inc'); ?>
+include('data/upgrades.inc'); ?>
 
 
-<?PHP DoHeader('contact', 'Contacting the Author'); ?>
+<?php DoHeader('calculators', 'Calculators'); ?>
 
-<?PHP include('data/contact.inc'); ?>
+<?php
+
+include('data/calculators.inc'); ?>
 
 
-<?PHP
+<?php DoHeader('faq', 'Frequently Asked Questions (FAQ)'); ?>
+
+<?php
+
+include('data/faq.inc'); ?>
+
+
+<?php DoHeader('contact', 'Contacting the Author'); ?>
+
+<?php
+
+include('data/contact.inc'); ?>
+
+
+<?php
 
 MarcoFooter();
 
 
-function DoHeader($link, $desc)
-{
-if ($link != 'toc') {
-?><hr>
+function DoHeader($link, $desc) {
+	if ($link != 'toc') {
+		
+		?><hr>
 <table border=0 cellpadding=0 cellspacing=0>
 <tr><td>
-<?PHP
-}
-
-?><table border=0 cellpadding=1 cellspacing=0 bgcolor=#000000>
+<?php
+	}
+	
+	?><table border=0 cellpadding=1 cellspacing=0 bgcolor=#000000>
 <tr><td>
   <table border=0 cellpadding=3 cellspacing=0 bgcolor=#FFFFFF>
   <tr><td>
-    <h2><a name="<?= $link ?>"></a><?= $desc ?></h2>
+    <h2><a name="<?php echo $link ?>"></a><?php echo $desc ?></h2>
   </td></tr>
   </table>
 </td></tr>
 </table>
-<?PHP
-
-if ($link != 'toc') {
-?></td><td>
+<?php
+	
+	if ($link != 'toc') {
+		
+		?></td><td>
   &nbsp; &nbsp; &nbsp; &nbsp;
 </td><td valign=bottom>
   <font size="-1">Back to the <a href="#toc">Table of Contents</a></font>
 </td></tr>
 </table>
-<?PHP
+<?php
+	}
 }
-}
+

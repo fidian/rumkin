@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include('../../functions.inc');
-
-StandardHeader(array('title' => 'Geographic Navigation',
-	'topic' => 'web',
-	'callback' => 'include_js'));
+StandardHeader(array(
+		'title' => 'Geographic Navigation',
+		'topic' => 'web',
+		'callback' => 'include_js'
+	));
 
 ?>
 	<div style="background-color: black; width: 350px; float: right">
@@ -86,13 +87,14 @@ StandardHeader(array('title' => 'Geographic Navigation',
 		<LI>Positioning on the globe was done with a shareware Windows program,
 		<A HREF="http://www.amiglobe.com/">Amiglobe 99</A> </LI>
 	</div>
-<?PHP
+<?php
 
 StandardFooter();
 
 
 function include_js() {
-?>
+	
+	?>
 <script language="JavaScript"><!--
 // Set up the Transfer Image arrays
 var TransferImages = new Array(47);
@@ -238,5 +240,6 @@ function GlobeOnload() {
 GlobeOldOnload = window.onload;
 window.onload = GlobeOnload;
 // --></script>
-<?PHP
+<?php
 }
+

@@ -1,18 +1,19 @@
-<?PHP  // -*- html -*-
-/* Documentation for D&D Tools
- */
-
-include("../../functions.inc");
-
-StandardHeader(array('title' => 'Links',
-                     'topic' => 'dnd_helper'));
+<?php
+/* -*- html -*-
+ * / * Documentation for D&D Tools
+ * / */
+include('../../functions.inc');
+StandardHeader(array(
+		'title' => 'Links',
+		'topic' => 'dnd_helper'
+	));
 
 ?>
 
 <p>Here's links to everything that is related to D&D for the Palm.  If you
 have more links, feel free to <a href="/reference/site/contact.php">email me</a>.</p>
 
-<?PHP Section('Palm OS Programs'); ?>
+<?php Section('Palm OS Programs'); ?>
 
 <dl>
 
@@ -47,7 +48,7 @@ type of dice to roll, then save several dice sets for your character.</dd>
 
 </dl>
 
-<?PHP Section('Background / More Information'); ?>
+<?php Section('Background / More Information'); ?>
 
 <dl>
 
@@ -63,7 +64,7 @@ refined by Chris Pound.</dd>
 
 </dl>
 
-<?PHP Section('Other Sites of Interest'); ?>
+<?php Section('Other Sites of Interest'); ?>
 
 <dl>
 
@@ -72,6 +73,6 @@ refined by Chris Pound.</dd>
 
 </dl>
 
-<?PHP
+<?php
 
 StandardFooter();

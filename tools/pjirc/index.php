@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'PJIRC',
-		     'heading' => 'Free Java IRC Client',
-		     'topic' => 'irc'));
+StandardHeader(array(
+		'title' => 'PJIRC',
+		'heading' => 'Free Java IRC Client',
+		'topic' => 'irc'
+	));
 
 ?>
 <applet code=IRCApplet.class archive="media/irc.jar,media/pixx.jar" width=640 height=400>
@@ -17,6 +18,6 @@ StandardHeader(array('title' => 'PJIRC',
 
 <p>Powered by <a href="http://www.pjirc.com/">PJIRC</a>.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Baconian Cipher',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Baconian Cipher',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -23,9 +24,10 @@ letter.</p>
 distinct codes for each letter.  You get a result like "BAABBAABAABAABABAABB
 ABAAABAABB".  The original message is 6 characters long so the encoded
 version is 6 * 5 = 30 characters.  If I were to find a 30-character message
-and put in "B" letters as bold and italics, we will get "<?PHP
-   echo BaconExample('This is a test message with bold for "B".',
-      'BAABBAABAABAABABAABB ABAAABAABB');
+and put in "B" letters as bold and italics, we will get "<?php
+
+echo BaconExample('This is a test message with bold for "B".', 'BAABBAABAABAABABAABB ABAAABAABB');
+
 ?>".
 
 <p>When decoding, it will use "0", "A", and "a" as an "A"; "1", "B", and "b"
@@ -45,17 +47,17 @@ A and B</a>)<br>
 <textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <span id='output'></span>
-<?PHP
-MakeBoxBottom();
+<?php
 
+MakeBoxBottom();
 StandardFooter();
 
 
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
 // Feel free to use this code if you so desire.
@@ -247,37 +249,31 @@ window.setTimeout('start_update()', 100);
 
 
 // --></script>
-<?PHP
+<?php
 }
 
 
-function BaconExample($str, $code)
-{
-   $code = preg_replace('/[^AB]/', '', $code);
-   $out = '';
-   
-   while ($str)
-   {
-      $c = $str[0];
-      $str = substr($str, 1);
-      
-      if (($c >= 'a' && $c <= 'z') || ($c >= 'A' && $c <= 'Z'))
-      {
-         if ($code[0] == 'B')
-	 {
-	    $out .= '<b><i>' . $c . '</i></b>';
-	 }
-	 else
-	 {
-	    $out .= $c;
-	 }
-	 $code = substr($code, 1);
-      }
-      else
-      {
-         $out .= $c;
-      }
-   }
-   
-   return $out;
+function BaconExample($str, $code) {
+	$code = preg_replace('/[^AB]/', '', $code);
+	$out = '';
+	
+	while ($str) {
+		$c = $str[0];
+		$str = substr($str, 1);
+		
+		if (($c >= 'a' && $c <= 'z') || ($c >= 'A' && $c <= 'Z')) {
+			if ($code[0] == 'B') {
+				$out .= '<b><i>' . $c . '</i></b>';
+			} else {
+				$out .= $c;
+			}
+			
+			$code = substr($code, 1);
+		} else {
+			$out .= $c;
+		}
+	}
+	
+	return $out;
 }
+

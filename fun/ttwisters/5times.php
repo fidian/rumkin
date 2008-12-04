@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => '5 Times Fast',
-		     'topic' => 'ttwisters'));
+StandardHeader(array(
+		'title' => '5 Times Fast',
+		'topic' => 'ttwisters'
+	));
 
 ?>
 
@@ -12,7 +13,7 @@ up?  If so, check out the other pages that will list more complex tongue
 twisters.</p>
 	
 
-<?PHP Section('Five Times Fast'); ?>
+<?php Section('Five Times Fast'); ?>
 
 <p>Rubber baby buggy bumpers.</p>
 
@@ -52,6 +53,6 @@ Three smart fellows, they felt smart.<br>
 <p>Worst horse postcard.</p>
 
 
-<?PHP
+<?php
 
 StandardFooter();

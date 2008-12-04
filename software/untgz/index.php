@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'UNTGZ',
-		     'topic' => 'untgz'));
+StandardHeader(array(
+		'title' => 'UNTGZ',
+		'topic' => 'untgz'
+	));
 
 ?>
 
@@ -14,7 +15,7 @@ the most recent, with that one being released February 17, 1997.  One very
 great thing he did was to release the source code with the tool and put 
 everything under the GPL, version 2.</p>
 
-<?PHP Section('Features'); ?>
+<?php Section('Features'); ?>
 
 <ul>
 <li>Command-line tool (no GUI, much smaller)
@@ -40,7 +41,7 @@ decompressed with my unrar file, so I searched the web again for a standard
 format that I could create on Linux and decompress on DOS.  I was very
 fortunate and found untgz.</p>
 
-<?PHP Section('SMALLER!'); ?>
+<?php Section('SMALLER!'); ?>
 
 <p>Since I had the source at my disposal, I felt an overwhelming urge to see
 how much extra I could strip from this 57k program, especially since I would
@@ -78,7 +79,7 @@ extract .tar.gz files, this will work <b>wonders</b> for you!  If the
 program reports an error while decompressing, use the larger version for a
 more detailed description of what's going on at that moment.</p>
 
-<?PHP Section('Tips'); ?>
+<?php Section('Tips'); ?>
 
 <p>Use the original version first!  If you have any errors with your .tgz
 file, you will see more detailed explanations of problems there.  If you
@@ -96,14 +97,14 @@ will include more data in the gzip header.  We're only talking about a few
 bytes here, but that can be enough when you are dealing with a tiny boot
 disk.</p>
 
-<?PHP Section('Download'); ?>
+<?php Section('Download'); ?>
 
 <p><a href="media/untgz095.zip">original version</a> - 57k binaries for DOS,
 Win32, OS/2.  Includes source.<br>
 <a href="media/untgzs095.zip">smaller version</a> - 9k binary for DOS, 15k binary
 for Win32.  Includes source, but large chunks of it were removed.</p>
 
-<?PHP Section('Links'); ?>
+<?php Section('Links'); ?>
 
 <ul>
 <li><a href="http://www.nu2.nu/bootdisk/modboot/">Bart's MODBOOT</a> -
@@ -113,6 +114,6 @@ Modular boot disk that uses a ramdisk and extracts .cab files when booting
 eXecutables
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

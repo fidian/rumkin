@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 include './functions.inc';
-
 AquaStart('Hacking');
 
 ?>
@@ -19,7 +18,7 @@ am working on the AquaPad and warping its will to do my bidding.</p>
 <li><a href="#todo">Things I Still Want to Do</a></li>
 </ul>
 
-<?PHP Section('Obtaining a Shell', 'shell'); ?>
+<?php Section('Obtaining a Shell', 'shell'); ?>
 
 <p>When IceWM is fully loaded, you merely tap the right Control + right Alt
 twice (press them simultaneously) and you'll be thrown into the 4th virtual
@@ -30,7 +29,7 @@ a shell, 2 is X, 3 is ... nothing, 4 is a log, 5 is another shell.</p>
 Control-Alt-Backspace to kill X and go back to a shell.  Ok, it isn't all
 that useful, but it is faster than the other method.</p>
 
-<?PHP Section('CompactFlash Information', 'cf'); ?>
+<?php Section('CompactFlash Information', 'cf'); ?>
 
 <p>The documentation puts limits on the CompactFlash that you can use, but
 this is wrong.  You can use any size of CompactFlash or MicroDrive that you
@@ -41,14 +40,14 @@ needs to support the size of the storage.  This is unlike other media types,
 such as SmartMedia, where the controller is built into the reader, and thus
 limited to a specific size.</p>
 
-<?PHP Section('Filesystems', 'filesys'); ?>
+<?php Section('Filesystems', 'filesys'); ?>
 
 <p>The first and second partitions contain the root filesystem (/bin, /sbin,
 /etc, /dev, /lib, /var.  The third partition is configuration data.  The
 fourth partition contains multiple cramfs partitions that populate /usr,
 /usrX11R6, and /usr/X11R6/lib/fonts.</p>
 
-<?PHP Section('Booting', 'booting'); ?>
+<?php Section('Booting', 'booting'); ?>
 
 <p>If you connect a USB keyboard before turning it on, you can press Page Up 
 while booting to get you into the BIOS.  Just ignore
@@ -67,7 +66,7 @@ the external CF slot (IDE-2 in the BIOS), you also need to run the
 auto-detection so that you can boot from that device.  It needs to know the
 heads/cylinders/etc. of the CF in order to even attempt booting to it.</p>
 
-<?PHP Section('Software', 'software'); ?>
+<?php Section('Software', 'software'); ?>
 
 <p>The remote software update program does not work, but it isn't the
 software's fault.  There is no update server at the stock IP address.  FIC
@@ -84,7 +83,7 @@ person said to use "export DISPLAY=localhost:0.0; xterm".  I get errors
 about a missing library file when it is <b>right there</b>.  Somewhat
 frustrating.</p>
 
-<?PHP Section('Windows-Related', 'windows'); ?>
+<?php Section('Windows-Related', 'windows'); ?>
 
 <p>Several people want to stick Windows onto this tablet.  That's fine with
 me &ndash; even though I prefer Linux, I'm not about to say that Linux is
@@ -102,7 +101,7 @@ Windows on a CompactFlash Card</a> - Describes how Microsoft's XP <a
 href="http://windowsembeddedkit.com">Embedded OS</a> will help you out 
 and run well off a CompactFlash card.</p>
 
-<?PHP Section('Things I Still Want to Do', 'todo'); ?>
+<?php Section('Things I Still Want to Do', 'todo'); ?>
 
 <ul>
 <li>Distribute a new Linux image that contains only open-source software which 
@@ -134,6 +133,6 @@ Project Gutenberg!
 <a href="http://www.speech.cs.cmu.edu/flite/index.html">Flite</a></li>
 </ul>
 
-<?PHP
+<?php
 
 AquaStop();

@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'GPX Tools for Geocaching',
-		     'header' => 'GPX Tools: gpxinfo',
-		     'topic' => 'gpx_tools'));
+StandardHeader(array(
+		'title' => 'GPX Tools for Geocaching',
+		'header' => 'GPX Tools: gpxinfo',
+		'topic' => 'gpx_tools'
+	));
 
 ?>
 
@@ -12,20 +13,20 @@ StandardHeader(array('title' => 'GPX Tools for Geocaching',
 file.  The number of waypoints, some vital stats, and breakdowns of
 attributes will be shown.</p>
 
-<?PHP Section('Command Line Syntax'); ?>
+<?php Section('Command Line Syntax'); ?>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <tt>gpxinfo gpx_in.gpx</tt><br>
 <br>
 <i>Example:</i><br>
 <tt>gpxinfo my_query.gpx</tt>
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>It's pretty self-explanatory.  You can use "-" instead of "gpx_in.gpx" to
 read the GPX file from stdin.  If that sounds too geeky, that's ok.  In the
 end, you will get something like this:</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <pre>Waypoints:  439
 Available:  439
 Archived:  0
@@ -65,11 +66,11 @@ Size Counts:
         Other:  16
         Not chosen:  12
         Large:  3
-</pre><?PHP MakeBoxBottom(); ?>		
+</pre><?php MakeBoxBottom(); ?>		
 
 <p>There really isn't much to say about this tool.  I wrote it to make sure
 that <a href="gpxfilter.php">gpxfilter</a> was really doing its job.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

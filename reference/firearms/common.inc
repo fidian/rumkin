@@ -1,14 +1,16 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
 
-function GunHeader($title)
-{
-    StandardHeader(array('title' => $title,
-                         'topic' => 'guns'));
-    
-    MakeBoxTop('center');
-?>
+
+function GunHeader($title) {
+	StandardHeader(array(
+			'title' => $title,
+			'topic' => 'guns'
+		));
+	MakeBoxTop('center');
+	
+	?>
 
 <center>
 
@@ -23,6 +25,8 @@ function GunHeader($title)
 
 </center>
 
-<?PHP
-    MakeBoxBottom();
+<?php
+	
+	MakeBoxBottom();
 }
+

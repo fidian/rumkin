@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Java Puzzle Applet',
-		     'header' => 'Java Puzzle Appler - Swap (Mickey)',
-		     'topic' => 'puzzle'));
+StandardHeader(array(
+		'title' => 'Java Puzzle Applet',
+		'header' => 'Java Puzzle Appler - Swap (Mickey)',
+		'topic' => 'puzzle'
+	));
 
 ?>
 
@@ -29,6 +30,6 @@ swapped. Continue to swap until you solve the puzzle.</P>
 </APPLET>
 </P>
 
-<?PHP
+<?php
 
 StandardFooter();

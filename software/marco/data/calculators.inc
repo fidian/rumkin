@@ -1,17 +1,15 @@
-<?PHP
+<?php
 
-if (stristr($GLOBALS['PHP_SELF'], 'calculators.php') !== false)
-    $is_manual = false;
-else
-    $is_manual = true;
-    
+if (stristr($GLOBALS['PHP_SELF'], 'calculators.php') !== false)$is_manual = false;
+else $is_manual = true;
+
 ?>
 <p>Marco was designed to not have a built-in calculator.  For the reasoning
-behind that, please see the <a href="<?PHP
-    if ($is_manual)
-       echo "#faq";
-    else
-       echo "faq.php";
+behind that, please see the <a href="<?php
+
+if ($is_manual)echo '#faq';
+else echo 'faq.php';
+
 ?>">FAQ</a>.  If you don't like the built-in calculator, there are different
 ones that may work better.  If desired, a different calculator can be mapped
 to the calculator button on the Palm, taking the place of the built-in
@@ -32,16 +30,16 @@ calculator and then back to Marco.  It can not appear as a window over another
 program and you will lose anything you entered into Marco except saved
 points.</p>
 
-<p>Many of the calculators use <a href="<?PHP
-    if ($is_manual)
-       echo "#mathlib";
-    else
-       echo "mathlib.php";
+<p>Many of the calculators use <a href="<?php
+
+if ($is_manual)echo '#mathlib';
+else echo 'mathlib.php';
+
 ?>">MathLib</a> for trig functions.  If Marco runs, then MathLib is
 installed on your Palm, and then all of these calculators should also
 work.</p>
 
-<?PHP Section('Calculator Applications') ?>
+<?php Section('Calculator Applications') ?>
 
 <p>These calculators run as separate programs and do not "pop up" over
 Marco.  However, they usually have added functionality and are often much
@@ -77,7 +75,7 @@ limited amount of free memory.  [RPN, Freeware, Open Source]
 
 </dl>
 
-<?PHP Section('Calculator Hacks'); ?>
+<?php Section('Calculator Hacks'); ?>
 
 <p>These "hacks" (or system extensions) require a hack manager such as <a
 href="http://linkesoft.com/english/xmaster/">X-Master</a>, <a

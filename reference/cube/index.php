@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'NxNxN Cubes',
-	'header' => 'Solving NxNxN Cubes',
-	'topic' => 'cube'));
+StandardHeader(array(
+		'title' => 'NxNxN Cubes',
+		'header' => 'Solving NxNxN Cubes',
+		'topic' => 'cube'
+	));
 
 ?>
 
@@ -21,7 +22,7 @@ solution I can find that works for cubes from 2x2x2 through 7x7x7 (and further).
 Since it is so hard to find this on the web currently, I put a copy up on my
 web site.</p>
 
-<?PHP Section('NxNxN Cubes in Perspective'); ?>
+<?php Section('NxNxN Cubes in Perspective'); ?>
 
 <p>I have added spaces in the "Combinations" numbers so that they would wrap
 properly with your web browser...</p>
@@ -90,7 +91,7 @@ puzzle that will actually be a cube.  For reasons which are explained elsewhere,
 impossible to have a 7x7x7 puzzle or above with <em>all</em> of the squares the same size
 and still have the puzzle remain as a cube.</p>
 
-<?PHP Section('Move Notation'); ?>
+<?php Section('Move Notation'); ?>
  
 <p>I'll be using 2 different notations. First is the standard notation used in 
 just about every solution manual to date, which is F(ront), B(ack), L(eft), 
@@ -172,7 +173,7 @@ your cube, and N-1 is 1 less than the size of your cube. This heavily
 mathematical representation may seem to overcomplicate things, but trust me... 
 you'll end up thanking me later.</p>
 
-<?PHP Section('Solution Preface') ?>
+<?php Section('Solution Preface') ?>
 
 <p>During this solution process, you will undoubtedly come across several sections 
 which simply don't apply to your cube, unless, of course, you've decided to 
@@ -209,7 +210,7 @@ If you have middle centre pieces on your cube, it's easier to keep everything
 straight, but if not, don't worry. Just pick a corner to define as "correct" 
 and take it from there.</p>
 
-<?PHP Section('Top Corners'); ?>
+<?php Section('Top Corners'); ?>
 
 <p>If the corner you need to fix is on the bottom side of the cube, then move the bottom slice 
 so it's directly below where it should go. If possible, hold the cube so 
@@ -244,7 +245,7 @@ and leave the rest of us to suffer through the remainder of the
 solution. Original Cube users, drop down to the
 <a href="#top_edges">Top Edges</a>.</p>
 
-<?PHP Section('Top Centres'); ?>
+<?php Section('Top Centres'); ?>
 
 <p>If a centre piece belonging in the top layer is on a side other than the 
 top or the bottom, then hold the cube so it's on the front side. Now rotate the 
@@ -260,7 +261,7 @@ image below.  Perform Y- X- Y+ X- Z+ X+ Z- OR Y- X+ Y+ X+ Z- X- Z+.</p>
 
 <img src="media/BottomGap.gif"></p><p>
 
-<?PHP Section('Top Edges', 'top_edges'); ?>
+<?php Section('Top Edges', 'top_edges'); ?>
 
 <p>If a top layer edge piece is on a <em>side edge</em> of the cube, then rotate its
 X layer until it's below its proper spot, and its top colour is on the front 
@@ -303,7 +304,7 @@ above tips.</p>
 <p>Even numbered cube users, skip the next step and go onto the
 <a href="#middle_edges">Middle Edges</a>.</p>
 
-<?PHP Section('Middle Centers') ?>
+<?php Section('Middle Centers') ?>
 
 <p>If your cube is and odd numbered cube and thus has a true centre on each side, 
 then rotate the middle layer of the cube until the centres match the ring 
@@ -311,7 +312,7 @@ around the top layer. If you don't do this, you'll have plenty of headaches
 later when you come across "impossible" configurations and wonder how it could 
 have possibly gone so horribly wrong.</p>
 
-<?PHP Section('Middle Edges', 'middle_edges'); ?>
+<?php Section('Middle Edges', 'middle_edges'); ?>
 
 <p>Flip your cube around now so that the bottom side becomes the front side. 
 From here on in, this solution will become <em>far</em> less verbose.</p>
@@ -331,7 +332,7 @@ Right side: N L y
 
 <p>See? I told you this was going to get less verbose! :-)</p>
 
-<?PHP Section('Bottom Corners', 'bottom_corners'); ?>
+<?php Section('Bottom Corners', 'bottom_corners'); ?>
 
 <p>Welcome back, Pocket Cubers! For those of you who skipped over all the 
 intervening stuff like I suggested, then rotate your cube until the bottom 
@@ -370,7 +371,7 @@ bottom centre by 180 degrees. At most, you will need to execute this pattern
 <p>Pocket Cubers, <em>you're done</em>! Jump down to
 <a href="#done">the bottom</a> for a special message.</p>
 
-<?PHP Section('Bottom Edges'); ?>
+<?php Section('Bottom Edges'); ?>
 
 <p>Of course, they're not really the bottom now, but that's beside the point. OK, 
 here we go...</p>
@@ -408,7 +409,7 @@ turn, then solve for these middle layer edge pieces again. If you are using a
 <p>Original Cubers, <em>you're done</em>! Join your Pocket Cubing companions at
 <a href="#done">the end</a> for a special message.</p>
 
-<?PHP Section('Corner Centres'); ?>
+<?php Section('Corner Centres'); ?>
 
 <p>If you encountered Rubik's ultimate revenge, then you know why this step was 
 saved for last. If not, your time WILL come... trust me.</p><p>
@@ -433,7 +434,7 @@ reorient the front and move the cube around as much as you want!
 Rubik's Revengers: <em>revenge is yours</em>! Join your fellow Cubists and Pocket 
 Cubists at <a href="#done">the end</a> for a special message.</p>
 
-<?PHP Section('Edge Centres'); ?>
+<?php Section('Edge Centres'); ?>
 
 <p>The same thing applies here. If another side would be more convenient, then 
 reorient and <em>move it around</em>! OK, people, we're into the final stretch. Again, 
@@ -454,7 +455,7 @@ Bottom: 3 R 2 OR 3 L 4.
 your fellow cubers who passed before you for a special message, and then 
 invite them all over to party hearty!</p>
 
-<?PHP Section('C O N G R A T U L A T I O N S !', 'done'); ?>
+<?php Section('C O N G R A T U L A T I O N S !', 'done'); ?>
 
 <p>You've just joined the ranks of the elite, and completed the ultimate revenge! 
 Give yourself a pat on the back. You deserve it! Heck, for completing these 
@@ -479,6 +480,6 @@ anime. By picking up your cube, you've opened up a door to a wondrous paradise
 of patterns that you've never experience before. The only limit to what you can 
 create is your imagination.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

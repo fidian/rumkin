@@ -1,10 +1,12 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Substitution Cipher',
+		'topic' => 'cipher',
+		'callback' => 'insert_js'
+	));
 
-StandardHeader(array('title' => 'Substitution Cipher',
-		     'topic' => 'cipher',
-		     'callback' => 'insert_js'));
 ?>
 
 <p>A substitution cipher is a pretty basic type of code.  You replace every
@@ -37,11 +39,11 @@ as possible.  You'll see what I mean when you start playing with it.</p>
 
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <div id="result"></div>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>
 
-<?PHP Section('Notes') ?>
+<?php Section('Notes') ?>
 
 <p>The "Dancing Men" images are based on the Sherlock Holmes story of <i>The
 Dancing Men</i>.  Only 17 of the 26 letters were shown in the text, and
@@ -72,15 +74,14 @@ Braille symbols.</p>
 href="http://lego.com">Lego's</a> <a href="http://bionicle.com">Bionicle</a>
 toy line.</p>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-
-function insert_js()
-{
-?><script language="JavaScript" src="js/util.js"></script>
+function insert_js() {
+	
+	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/caesar.js"></script>
 <script language="JavaScript" src="js/keymaker.js"></script>
 <script language="JavaScript"><!--
@@ -959,5 +960,6 @@ window.setTimeout('start_update()', 100);
 
 
 // --></script>
-<?PHP
+<?php
 }
+

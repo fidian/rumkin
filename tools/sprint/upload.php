@@ -1,93 +1,87 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
 
+
 /* This displays the result of uploading the file.  I tried to separate
  * code from HTML.
  */
-
 include 'common.inc';
 include 'upload.inc';
 
-if (! isset($_GET['skip']))
-{
-    // This function will either exit successfully or will call Bail()
-    // with an error message.
-    $info = HandleUpload();
-
-    // $info['ID'] = Description ID
-    // $info['FileID'] = File ID
-    // $info['FileName'] = Name of file
-    // $info['Folder'] = Folder name, if applicable
-    // $info['DescText'] = Description of file
-    // $info['URL'] = URL of the file to download (GCD/JAD)
-    // $info['URL2'] = URL of the file to download (direct)
-    // $info['SendTo'] = Who it was sent to
-    // $info['Jump'] = The jump number
-    
-    if (isset($info['SendTo']))
-    {
-	setcookie('sendto', $info['SendTo']);
-    }
-}
-else
-{
-    $info = array();
-    $info['FileName'] = 'file.zip';
-    $info['Jump'] = 0;
+if (! isset($_GET['skip'])) {
+	/* This function will either exit successfully or will call Bail()
+	 * with an error message. */
+	$info = HandleUpload();
+	
+	/* $info['ID'] = Description ID
+	 * $info['FileID'] = File ID
+	 * $info['FileName'] = Name of file
+	 * $info['Folder'] = Folder name, if applicable
+	 * $info['DescText'] = Description of file
+	 * $info['URL'] = URL of the file to download (GCD/JAD)
+	 * $info['URL2'] = URL of the file to download (direct)
+	 * $info['SendTo'] = Who it was sent to
+	 * $info['Jump'] = The jump number */
+	if (isset($info['SendTo'])) {
+		setcookie('sendto', $info['SendTo']);
+	}
+} else {
+	$info = array();
+	$info['FileName'] = 'file.zip';
+	$info['Jump'] = 0;
 }
 
 SprintStandardHeader('File Uploader');
 
-if ($info['SendTo'] != '')
-{
-    if (strpos($info['SendTo'], '@') !== false)
-      $sendto_type = 'email address';
-    else
-      $sendto_type = 'phone number';
-
-?>
-<p>Sent the download link for <b><?PHP echo $info['FileName'] ?></b> to the
-<?PHP echo $sendto_type ?> <?PHP echo $info['SendTo'] ?>.</p>
+if ($info['SendTo'] != '') {
+	if (strpos($info['SendTo'], '@') !== false)$sendto_type = 'email address';
+	else $sendto_type = 'phone number';
+	
+	?>
+<p>Sent the download link for <b><?php echo $info['FileName'] ?></b> to the
+<?php echo $sendto_type ?> <?php echo $info['SendTo'] ?>.</p>
 
 <p>Please be patient and wait a few minutes for your phone to get the
 notification message.  If it doesn't get the message, you use your phone's
 web browser and go to this URL to download the file manually:</p>
-<?PHP
-}
-else
-{
-?>
+<?php
+} else {
+	
+	?>
 <p>I am not sending the download link to your phone.  You need to go to
 the following URL manually.</p>
-<?PHP
+<?php
 }
 
 MakeBoxTop('center');
 
 ?>
 
-<b><a href="faq/index.php?Topic=jumpcode">Jump Code:</a>  <?PHP echo $info['Jump'] ?></b><br>
+<b><a href="faq/index.php?Topic=jumpcode">Jump Code:</a>  <?php echo $info['Jump'] ?></b><br>
 To get a file with the <a href="faq/index.php?Topic=jumpcode">jump code</a>, use your
 phone's browser and go to<br>
-<?PHP echo $GLOBALS['URL Base'] ?>jump.php
+<?php echo $GLOBALS['URL Base'] ?>jump.php
 
-<?PHP
+<?php
 
 MakeBoxBottom();
 
 ?>
 
-<?PHP if ($info['SendTo'] != '') { ?>
+<?php
+
+if ($info['SendTo'] != '') { ?>
 <p>Also, please wait a minute or two before uploading another file to your
 phone &ndash; Sprint seems to ignore messages that are sent too close to
 each other.</p>
-<?PHP } ?>
+<?php
+} ?>
 
 <p><font size="+1">If you have questions or an error message shows up,
 please check out the <a href="faq/">FAQ</a> &ndash; it is very likely
@@ -125,6 +119,6 @@ to keep working on the uploader.
 
 <p>Back to the <a href="index.php">Upload Form</a>.</p>
 
-<?PHP
+<?php
 
 StandardFooter();

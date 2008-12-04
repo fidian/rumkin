@@ -1,52 +1,62 @@
-<?PHP
+<?php
 
 $Title = 'fidian\'s finds';
 $KMLDesc = 'Take a lookie at what I found.';
-
-    
 $Icons = array(
-    0 => array('image' => 'media/icons/traditional.gif',
-               'shadow' => '',
-	       'iconSize' => '16, 16',
-	       'shadowSize' => '0, 0',
-	       'iconAnchor' => '8, 8',
-	       'infoWindowAnchor' => '13, 0'),
-    1 => array('image' => 'media/icons/multicache.gif',
-               'shadow' => '',
-	       'iconSize' => '16, 16',
-	       'shadowSize' => '0, 0',
-	       'iconAnchor' => '8, 8',
-	       'infoWindowAnchor' => '13, 0'),
-    2 => array('image' => 'media/icons/virtual.gif',
-               'shadow' => '',
-	       'iconSize' => '16, 16',
-	       'shadowSize' => '0, 0',
-	       'iconAnchor' => '8, 8',
-	       'infoWindowAnchor' => '13, 0'),
-    3 => array('image' => 'media/icons/unknown.gif',
-               'shadow' => '',
-	       'iconSize' => '16, 16',
-	       'shadowSize' => '0, 0',
-	       'iconAnchor' => '8, 8',
-	       'infoWindowAnchor' => '13, 0'),
-    4 => array('image' => 'media/icons/tb.gif',
-               'shadow' => '',
-	       'iconSize' => '16, 16',
-	       'shadowSize' => '0, 0',
-	       'iconAnchor' => '8, 8',
-	       'infoWindowAnchor' => '13, 0'),
-    5 => array('image' => 'media/icons/event.gif',
-               'shadow' => '',
-	       'iconSize' => '16, 16',
-	       'shadowSize' => '0, 0',
-	       'iconAnchor' => '8, 8',
-	       'infoWindowAnchor' => '13, 0'),
+	0 => array(
+		'image' => 'media/icons/traditional.gif',
+		'shadow' => '',
+		'iconSize' => '16, 16',
+		'shadowSize' => '0, 0',
+		'iconAnchor' => '8, 8',
+		'infoWindowAnchor' => '13, 0'
+	),
+	1 => array(
+		'image' => 'media/icons/multicache.gif',
+		'shadow' => '',
+		'iconSize' => '16, 16',
+		'shadowSize' => '0, 0',
+		'iconAnchor' => '8, 8',
+		'infoWindowAnchor' => '13, 0'
+	),
+	2 => array(
+		'image' => 'media/icons/virtual.gif',
+		'shadow' => '',
+		'iconSize' => '16, 16',
+		'shadowSize' => '0, 0',
+		'iconAnchor' => '8, 8',
+		'infoWindowAnchor' => '13, 0'
+	),
+	3 => array(
+		'image' => 'media/icons/unknown.gif',
+		'shadow' => '',
+		'iconSize' => '16, 16',
+		'shadowSize' => '0, 0',
+		'iconAnchor' => '8, 8',
+		'infoWindowAnchor' => '13, 0'
+	),
+	4 => array(
+		'image' => 'media/icons/tb.gif',
+		'shadow' => '',
+		'iconSize' => '16, 16',
+		'shadowSize' => '0, 0',
+		'iconAnchor' => '8, 8',
+		'infoWindowAnchor' => '13, 0'
+	),
+	5 => array(
+		'image' => 'media/icons/event.gif',
+		'shadow' => '',
+		'iconSize' => '16, 16',
+		'shadowSize' => '0, 0',
+		'iconAnchor' => '8, 8',
+		'infoWindowAnchor' => '13, 0'
+	),
 );
 
 
-function Above_Map()
-{
-?>
+function Above_Map() {
+	
+	?>
 
 <p>I wanted to see all of the caches that I hit... so I mapped them.</p>
 You can also map this in <a href="http://earth.google.com/">Google Earth</a>
@@ -60,6 +70,6 @@ instead it shows where I was able to grab a moving cache.  Also, all of the
 actual cache location, but they do show the location that the cache lists on
 the description page.</p>
 
-<?PHP
-
+<?php
 }
+

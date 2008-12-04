@@ -1,20 +1,23 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
 
-function Insert_JS()
-{
-    ?>
+
+function Insert_JS() {
+	
+	?>
 <SCRIPT LANGUAGE="javascript" type='text/javascript' src="email.js"></SCRIPT>
 <SCRIPT LANGUAGE="javascript" type='text/javascript' src="encode.js"></SCRIPT>
-<?PHP
+<?php
 }
 
-StandardHeader(array('title' => 'Mailto Encoder',
-                     'header' => 'HTML Encoder',
-		     'topic' => 'mailto',
-		     'callback' => 'Insert_JS'));
-		     
+StandardHeader(array(
+		'title' => 'Mailto Encoder',
+		'header' => 'HTML Encoder',
+		'topic' => 'mailto',
+		'callback' => 'Insert_JS'
+	));
+
 ?>
 
 <p>Because there were so many requests for encoding extra information in the
@@ -30,12 +33,12 @@ href="index.php">main page</a>.</p>
 
 <FORM NAME="EncodeForm" METHOD="POST" ACTION="javascript:RunEncode();">
 
-<?PHP Section('Step 1:  HTML / Whatever'); ?>
+<?php Section('Step 1:  HTML / Whatever'); ?>
 
 <p>Just type your HTML code here:<br>
 <textarea name="PlainText" rows=5 cols=70 wrap=soft></TEXTAREA></p>
 
-<?PHP Section('Step 2:  Encoding Options'); ?>
+<?php Section('Step 2:  Encoding Options'); ?>
 
 <table border=1 cellspacing=1 cellpadding=4>
 <tr>
@@ -51,14 +54,14 @@ href="index.php">main page</a>.</p>
 </table>
 
 
-<?PHP Section('Step 3:  Generate HTML'); ?>
+<?php Section('Step 3:  Generate HTML'); ?>
 
 <p>Press this button to generate the code that you will copy into your web
 page's source.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 <INPUT TYPE="SUBMIT" VALUE="Encode HTML">
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 <P><B>Your final HTML code is:</B><BR>
 <textarea name="CodeText" rows=5 cols=70 wrap=soft></TEXTAREA>
 </form>
@@ -73,6 +76,6 @@ whatever.  Just please give me credit by mentioning my name (Tyler
 Akins) and provide a link to my site (<a
 href="http://rumkin.com/tools/mailto_encoder">http://rumkin.com/tools/mailto_encoder</a>).</p>
 
-<?PHP
+<?php
 
 StandardFooter();

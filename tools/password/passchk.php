@@ -1,10 +1,11 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Strength Test',
-		     'topic' => 'password',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'Strength Test',
+		'topic' => 'password',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -49,14 +50,14 @@ I make no guarantee that the information shown is correct.</p>
 <p><b>Enter your password or passphrase here:</b></p>
 <p>&nbsp; &nbsp; &nbsp;<input type=password size=40 name="passchk_pass"></p>
 </form>
-<?PHP
+<?php
 
 MakeBoxTop('center', 'width: 50%');
 
-?><span id="passchk_result">Loading ...</span><?PHP
-	
+?><span id="passchk_result">Loading ...</span><?php
+
 MakeBoxBottom();
-	
+
 ?>
 <ul>
 <li>Warnings are shown if you enter a common password.
@@ -87,23 +88,25 @@ of entropy in your password.
   
 <p>If you really like this program and you want to include it with your
 software or on your site, you can download it here: <a
-href="media/passchk.zip">passchk.zip</a> (<?PHP
-	echo FidianFileSize(getenv('MEDIABASE') . 'tools/password/passchk.zip'); ?>).
+href="media/passchk.zip">passchk.zip</a> (<?php
+
+echo FidianFileSize(getenv('MEDIABASE') . 'tools/password/passchk.zip'); ?>).
 The code is licensed under the <a href="COPYING">GPLv3</a>, which may be of
 importance to note if you are including it as part of your custom
 software.</p>
 	
-<?PHP
-  
+<?php
+
 StandardFooter();
 
 
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <!-- The JavaScript code has licensing information in the file itself. -->
 <script language="javascript" src="passchk.js"></script>
 <script language="javascript" src="common.js"></script>
 <script language="javascript" src="frequency.js"></script>
-<?PHP
+<?php
 }
+

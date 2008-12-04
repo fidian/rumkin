@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'Donations',
-		     'topic' => 'rumkin'));
+StandardHeader(array(
+		'title' => 'Donations',
+		'topic' => 'rumkin'
+	));
 
 ?>
 <p>I am really glad that you found something on my web site worthy enough for
@@ -42,6 +43,6 @@ name="submit" alt="Donate securely with PayPal"></p>
 <a href="#" onclick="javascript:window.open('https://www.paypal.com/us/cgi-bin/webscr?cmd=xpt/popup/OLCWhatIsPayPal-outside','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=350');"><img  src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" border="0" alt="Acceptance Mark"></a>
 </p>
 
-<?PHP
+<?php
 
 StandardFooter();

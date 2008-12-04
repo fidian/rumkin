@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Palm OS Programming - Gotchyas',
-		     'topic' => 'palmos'));
+StandardHeader(array(
+		'title' => 'Palm OS Programming - Gotchyas',
+		'topic' => 'palmos'
+	));
 
 ?>
 	
@@ -342,6 +343,6 @@ chance to handle each one
 attentions you have pending 
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

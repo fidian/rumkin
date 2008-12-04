@@ -1,12 +1,13 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
 require 'movies.php';
-
-StandardHeader(array('title' => 'DVD List',
-		     'header' => 'DVDs that Sarah and Tyler Own',
-		     'topic' => 'dvd',
-		     'callback' => 'insert_js'));
+StandardHeader(array(
+		'title' => 'DVD List',
+		'header' => 'DVDs that Sarah and Tyler Own',
+		'topic' => 'dvd',
+		'callback' => 'insert_js'
+	));
 
 ?>
 
@@ -14,78 +15,91 @@ StandardHeader(array('title' => 'DVD List',
 own if they want to borrow a movie.  We also have a "wanted" category in case
 you want to add to our collection.</p>
 
-<div id='movielist'><?PHP
+<div id='movielist'><?php
+
+
 // This is shown for browsers without any cool javascript
 echo "<ul>\n";
+
 foreach ($GLOBALS['Movies'] as $k => $v) {
-    echo "<li>$k</li>\n";
+	echo "<li>$k</li>\n";
 }
+
 echo "</ul>\n";
+
 ?></div>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-
 function insert_js() {
-echo "<scr";  // Gotta break it up
-?>ipt language="JavaScript">
+	echo '<scr';  // Gotta break it up ?>ipt language="JavaScript">
 var Movies = [
-<?PHP
-$tagMap = array(
-   'fast_paced' => 'Fast Paced',
-   'kid_safe' => 'Kid Safe',
-   'martial_arts' => 'Martial Arts',
-   'scifi' => 'Sci-Fi',
-);
-$addComma = false;
-foreach ($GLOBALS['Movies'] as $Title => $Info) {
-   if ($addComma) {
-      echo ",\n";
-   } else {
-      $addComma = true;
-   }
-   // title and tags are mandatory
-   echo "{'title': '" . addslashes($Title) . "', 'tags': [";
-   $tags = explode(' ', $Info['tags']);
-   foreach ($tags as $k => $tag) {
-      if (isset($tagMap[$tag])) {
-         $tag = $tagMap[$tag];
-      } else {
-         $tag = ucfirst($tag);
-      }
-      $tag = "'" . addslashes($tag) . "'";
-      $tags[$k] = $tag;
-   }
-   echo implode(', ', $tags) . ']';
-   
-   if (isset($Info['image'])) {
-      echo ", 'image': '" . addslashes($Info['image']) . "'";
-   }
-   
-   if (isset($Info['imdb'])) {
-      echo ", 'imdb': '" . addslashes($Info['imdb']) . "'";
-   }
-   
-   if (isset($Info['attrs'])) {
-      echo ", 'attrs': [";
-      $attrs = explode(' ', $Info['attrs']);
-      foreach ($attrs as $k => $attr) {
-         $attrs[$k] = "'" . addslashes($attr) . "'";
-      }
-      echo implode(', ', $attrs) . ']';
-   }
-   
-   if (isset($Info['notes'])) {
-      echo ", 'notes': '" . addslashes($Info['notes']) . "'";
-   }
-   
-   echo '}';
-}
-echo "\n];\n";
-?>
+<?php
+	
+	$tagMap = array(
+		'fast_paced' => 'Fast Paced',
+		'kid_safe' => 'Kid Safe',
+		'martial_arts' => 'Martial Arts',
+		'scifi' => 'Sci-Fi',
+	);
+	$addComma = false;
+	
+	foreach ($GLOBALS['Movies'] as $Title => $Info) {
+		if ($addComma) {
+			echo ",\n";
+		} else {
+			$addComma = true;
+		}
+		
+		// title and tags are mandatory
+		echo '{\'title\': \'' . addslashes($Title) . '\', \'tags\': [';
+		$tags = explode(' ', $Info['tags']);
+		
+		foreach ($tags as $k => $tag) {
+			if (isset($tagMap[$tag])) {
+				$tag = $tagMap[$tag];
+			} else {
+				$tag = ucfirst($tag);
+			}
+			
+			$tag = '\'' . addslashes($tag) . '\'';
+			$tags[$k] = $tag;
+		}
+		
+		echo implode(', ', $tags) . ']';
+		
+		if (isset($Info['image'])) {
+			echo ', \'image\': \'' . addslashes($Info['image']) . '\'';
+		}
+		
+		if (isset($Info['imdb'])) {
+			echo ', \'imdb\': \'' . addslashes($Info['imdb']) . '\'';
+		}
+		
+		if (isset($Info['attrs'])) {
+			echo ', \'attrs\': [';
+			$attrs = explode(' ', $Info['attrs']);
+			
+			foreach ($attrs as $k => $attr) {
+				$attrs[$k] = '\'' . addslashes($attr) . '\'';
+			}
+			
+			echo implode(', ', $attrs) . ']';
+		}
+		
+		if (isset($Info['notes'])) {
+			echo ', \'notes\': \'' . addslashes($Info['notes']) . '\'';
+		}
+		
+		echo '}';
+	}
+	
+	echo "\n];\n";
+	
+	?>
 var MovieTags = new Array();
 MovieTags['All'] = new Array();
 
@@ -273,5 +287,6 @@ display: inline;
 _height: 0;
 }
 </style><![endif]-->
-<?PHP
+<?php
 }
+

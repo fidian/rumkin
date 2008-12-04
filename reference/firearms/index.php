@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Guns',
-		     'topic' => 'guns'));
+StandardHeader(array(
+		'title' => 'Guns',
+		'topic' => 'guns'
+	));
 
 ?>
 
@@ -16,7 +17,7 @@ nearly everyone will agree on the following saying:</p>
 hit deep enough,<br>
 make a big hole, and not overpenetrate in that order.</i></font></p>
 	
-<?PHP Section('Hit Well'); ?>
+<?php Section('Hit Well'); ?>
 
 <p>Obviously, that means you need to know your firearms and be able to use
 them to accurately hit a target.  Practice.  Remember to be safe, use eye
@@ -24,18 +25,18 @@ and ear protection, make sure you follow the <a
 href="http://www.remington.com/safety/10comm.htm">Ten Commandments of
 Firearm Safety</a>.
 
-<?PHP Section('Hit Deep Enough'); ?>
+<?php Section('Hit Deep Enough'); ?>
 
 <p>You know if you are hitting deep enough by doing some sort of penetration
 testing.  You need to be able to hit through the target to get into vital
 organs.  If you don't do that, you might as well not shoot.
 
-<?PHP Section('Make a Big Hole'); ?>
+<?php Section('Make a Big Hole'); ?>
 
 <p>Again, more penetration testing.  This time, you are looking for the size
 of the track wound that the bullet produces.  More is better.
 
-<?PHP Section('Don\'t Overpenetrate'); ?>
+<?php Section('Don\'t Overpenetrate'); ?>
 
 <p>It's more critical for cops than for other people, but ideally you
 wouldn't want to shoot an intruder, have it go through your house and into a
@@ -47,6 +48,6 @@ are only concerned with home security.  But again, it is the last concern.
 The .50 will certainly hit deep enough and make a big hole if you can wield
 it properly and accurately.
 
-<?PHP
+<?php
 
 StandardFooter();

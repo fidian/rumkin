@@ -1,12 +1,13 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Diceware',
-		     'topic' => 'password',
-		     'callback' => 'insert_js'));
-
+StandardHeader(array(
+		'title' => 'Diceware',
+		'topic' => 'password',
+		'callback' => 'insert_js'
+	));
 include('../../inc/js/prng_bar.html');
+
 ?>
 	
 <p>If you need to generate a secure passphrase, an easy and secure method
@@ -34,23 +35,23 @@ one word.</p>
 this uses the better random number generation if the bar above is at least
 orange.</p>
 </form>
-<?PHP
+<?php
 
 MakeBoxTop('center', 'width: 50%');
 
-?><span id="diceware_result">Loading ...</span><?PHP
-	
+?><span id="diceware_result">Loading ...</span><?php
+
 MakeBoxBottom();
-	
 StandardFooter();
 
 
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script language="javascript" src="/inc/js/sha256.js"></script>
 <script language="javascript" src="/inc/js/prng.js"></script>
 <script language="javascript" src="diceware.js"></script>
 <script language="javascript" src="diceware_words.js"></script>
-<?PHP
+<?php
 }
+

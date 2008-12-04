@@ -1,7 +1,6 @@
-<?PHP
+<?php
 
 require_once('inc/common.php');
-
 PageHeader('Progress');
 
 ?>
@@ -97,6 +96,6 @@ jump page.
 
 </dl>
 
-<?PHP
+<?php
 
 PageFooter();

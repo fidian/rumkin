@@ -1,11 +1,12 @@
-<?PHP
+<?php
 /* Sprint File Uploader
- *
+ * 
  * Copyright (C) 2003-2005 - Tyler Akins
  * Licensed under the GNU GPL software license.
  * See the LEGAL file for legal information
  * See http://rumkin.com/tools/sprint/ for more information about these tools
  */
+
 ?>
 
 <ol>
@@ -36,9 +37,9 @@ file.
 <li><u>If you entered your phone's email address:</u>  A text message will
 be sent to your phone with the URL you need to go to in order to download
 the file.
-<li>A <?PHP echo FAQLink('jumpcode', 'jump code') ?> will be displayed on the
+<li>A <?php echo FAQLink('jumpcode', 'jump code') ?> will be displayed on the
 screen.  You can point your phone's web browser to the address shown and
-type in the <?PHP echo FAQLink('jumpcode', 'jump code') ?> shown to download the
+type in the <?php echo FAQLink('jumpcode', 'jump code') ?> shown to download the
 file.
 <li>Your phone may prompt you about downloading the file.  Eventually, you
 should be able to make it through any further hoops and the file should be

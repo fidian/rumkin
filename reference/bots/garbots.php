@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
-
-StandardHeader(array('title' => 'GarBots',
-		     'topic' => 'garbots'));
+StandardHeader(array(
+		'title' => 'GarBots',
+		'topic' => 'garbots'
+	));
 
 ?>
 
@@ -260,7 +261,7 @@ functions.</li>
 <p>Below are a few code snippets that you can use in your programs if they
 help you out.</p>
 
-<?PHP
+<?php
 
 MakeBoxTop('center');
 
@@ -299,8 +300,7 @@ if s > 0 then                while f > 0
    next                  ' You can replace damagerad with d
 endif                    ' if you use the snippet above
 </pre>
-<?PHP
+<?php
 
 MakeBoxBottom();
-
 StandardFooter();

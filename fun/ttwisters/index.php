@@ -1,9 +1,10 @@
-<?PHP
+<?php
 
 include '../../functions.inc';
-
-StandardHeader(array('title' => 'Tongue Twisters',
-		     'topic' => 'ttwisters'));
+StandardHeader(array(
+		'title' => 'Tongue Twisters',
+		'topic' => 'ttwisters'
+	));
 
 ?>
 
@@ -21,7 +22,7 @@ these pages, just type it into the chat box on the bottom of any of these
 pages.  Please make sure it is not already listed before suggesting that
 I add it.</p>
 	
-<?PHP Section('Categories') ?>
+<?php Section('Categories') ?>
 	
 <ul>
 <li><a href="5times.php">5 Times Fast</a></li>
@@ -29,6 +30,6 @@ I add it.</p>
 <li><a href="verse.php">Story and Verse</a></li>
 </ul>
 
-<?PHP
+<?php
 
 StandardFooter();

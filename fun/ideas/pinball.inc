@@ -9,9 +9,9 @@ also known as the <a
 href="http://www.cs.ut.ee/~toomas_l/linalg/lin2/node6.html">Householder
 reflection matrix</a>.</p>
 
-<?PHP MathFormulaBox('R = I - 2 {V \times V ^ T\over V ^ T \times V}') ?>
+<?php MathFormulaBox('R = I - 2 {V \times V ^ T\over V ^ T \times V}') ?>
 
-<p><?PHP MathFormulaInline('R^2') ?> = the identity matrix.  
+<p><?php MathFormulaInline('R^2') ?> = the identity matrix.  
 To find out more, look for the following terms:  elementary reflector,
 symmetric, orthogonal.  The basic idea is to figure out the reflector matrix
 ahead of time (when possible) and then use the matrix to bounce the ball
@@ -24,7 +24,7 @@ cos(), sin(), or other trig functions.</p>
 <p>I have whipped up come C code to make a normalized vector out of any
 vector:</p>
 
-<?PHP MakeBoxTop('center') ?>
+<?php MakeBoxTop('center') ?>
 <pre>
 struct Vector { double X, double Y };
 
@@ -35,4 +35,4 @@ void MakeNormalVector(Vector *From, Vector *To)
    To->Y = From->Y / Scale;
 }
 </pre>
-<?PHP MakeBoxBottom() ?>
+<?php MakeBoxBottom() ?>

@@ -1,9 +1,11 @@
-<?PHP
+<?php
 
 require '../../functions.inc';
+StandardHeader(array(
+		'title' => 'Passing Data To/From Popup Window',
+		'topic' => 'web'
+	));
 
-StandardHeader(array('title' => 'Passing Data To/From Popup Window',
-		     'topic' => 'web'));
 ?>
 
 <p>The time may come when you want to open up some sort of popup window,
@@ -12,15 +14,15 @@ This task can be accomplished in three easy steps.</p>
 
 <p>First, make a ghost form that will be used to pass data into the popup.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 &lt;form name=ghost method=post target="the_target_window" action="/the/destination.php"&gt;<br>
 &lt;input type=hidden name="data" value=""&gt;<br>
 &lt;/form&gt;
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>Mix in a little JavaScript.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 function submit_form()<br>
 {<br>
 &nbsp; &nbsp; document.ghost.data.value = document.other_form.text_area.value;<br>
@@ -28,27 +30,27 @@ function submit_form()<br>
 &nbsp; &nbsp; TgtWindow.focus();<br>
 &nbsp; &nbsp; document.ghost.submit();<br>
 }
-<?PHP MakeBoxBottom(); ?>
+<?php MakeBoxBottom(); ?>
 
 <p>Now you can use window.opener to get back to the parent.  Set whatever data
 you want, like the JavaScript example I have below.  I used it when I pressed
 a "Save" style of button to send the reformatted text back to the original
 form.</p>
 
-<?PHP MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center'); ?>
 window.opener.document.other_form.text_area.value = "altered state";<br>
 window.opener.focus();<br>
 window.close();
-<?PHP MakeBoxBottom('center'); ?>
+<?php MakeBoxBottom('center'); ?>
 
-<?PHP
+<?php
 
 StandardFooter();
 
 
-function insert_js()
-{
-?>
+function insert_js() {
+	
+	?>
 <script language="JavaScript">
 var js_speed_num = 1;
 var js_cont = 1;
@@ -127,44 +129,37 @@ function js_speed_loader()
 js_speed_old_onload = window.onload;
 window.onload = js_speed_loader;
 </script>
-<?PHP
+<?php
 }
 
 
-function ShowExample($code, $res)
-{
-   global $ShowExampleNum;
-   
-   if (! isset($ShowExampleNum))
-      $ShowExampleNum = 0;
-      
-   MakeBoxTop('center');
-      
-   foreach ($code as $c)
-   {
-      $ShowExampleNum ++;
-      echo "<table border=1 cellpadding=5 cellspacing=0><tr>\n";
-      echo "<td><div id='example$ShowExampleNum'>";
-      $c = htmlspecialchars($c);
-      $c = nl2br($c);
-      $c = str_replace('  ', '&nbsp; ', $c);
-      echo $c . "</div></td>\n";
-      
-      echo "</tr><tr>\n";
-      echo "<td><div id='result$ShowExampleNum'>No results yet</div></td>\n";
-      echo "</tr></table>\n";
-   }
-   
-   echo "<table border=1 cellpadding=2 cellspacing=0 align=center " .
-      "style='font-size:0.8em'>\n";
-   echo "<tr><th>Browser</th><th>Operating System</th><th>Result</th></tr>\n";
-   foreach ($res as $r)
-   {
-      echo '<tr><td>' . htmlspecialchars($r[0]) . '</td><td>' .
-         htmlspecialchars($r[1]) . '</td><td>' . htmlspecialchars($r[2]) .
-	 '</td></tr>' . "\n";
-   }
-   echo "</table>\n";
-   
-   MakeBoxBottom();
+function ShowExample($code, $res) {
+	global $ShowExampleNum;
+	
+	if (! isset($ShowExampleNum))$ShowExampleNum = 0;
+	MakeBoxTop('center');
+	
+	foreach ($code as $c) {
+		$ShowExampleNum ++;
+		echo "<table border=1 cellpadding=5 cellspacing=0><tr>\n";
+		echo "<td><div id='example$ShowExampleNum'>";
+		$c = htmlspecialchars($c);
+		$c = nl2br($c);
+		$c = str_replace('  ', '&nbsp; ', $c);
+		echo $c . "</div></td>\n";
+		echo "</tr><tr>\n";
+		echo "<td><div id='result$ShowExampleNum'>No results yet</div></td>\n";
+		echo "</tr></table>\n";
+	}
+	
+	echo '<table border=1 cellpadding=2 cellspacing=0 align=center ' . "style='font-size:0.8em'>\n";
+	echo "<tr><th>Browser</th><th>Operating System</th><th>Result</th></tr>\n";
+	
+	foreach ($res as $r) {
+		echo '<tr><td>' . htmlspecialchars($r[0]) . '</td><td>' . htmlspecialchars($r[1]) . '</td><td>' . htmlspecialchars($r[2]) . '</td></tr>' . "\n";
+	}
+	
+	echo "</table>\n";
+	MakeBoxBottom();
 }
+
