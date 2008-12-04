@@ -134,6 +134,13 @@ function GetFileData($id, $fields)
 }
 
 
+// Sends an email - wrapper function to just make sure I don't specify the
+// same things multiple times
+function SendEmailToUser($address, $subj, $body) {
+	mail($address, $subj, $body, 'From: ' . $GLOBALS['Mail From'] . "\r\nReturn-Path: " . $GLOBALS['Mail From']);
+}
+
+
 // Sends the file download link to the user
 function SendFileToUser($sendto, $id)
 {
@@ -151,8 +158,7 @@ function SendFileToUser($sendto, $id)
 	$username = $username[0];
 	$username = preg_replace('/[^0-9]/', '', $username);
 	if (! in_array($username, $GLOBALS['Ban Phone'])) {
-	    mail($sendto, $DescData['DescText'], $URL, 
-		 'From: ' . $GLOBALS['Mail From']);
+		SendEmailToUser($sendto, $DescData['DescText'], $URL);
 	}
     }
     elseif ($sendto >= 1000000000)
@@ -163,16 +169,12 @@ function SendFileToUser($sendto, $id)
 		if (SendSprintSMS($sendto, $DescData['DescText'] . "\n" . $URL))
 		{
 		    // Fall back on sending via email
-		    mail($sendto . '@messaging.sprintpcs.com', 
-			 $DescData['DescText'], $URL,
-			 'From: ' . $GLOBALS['Mail From']);
+			SendEmailToUser($sendto . '@messaging.sprintpcs.com', $DescData['DescText'], $URL);
 		}
 	    }
 	    else
 	    {
-		mail($sendto . '@messaging.sprintpcs.com', 
-		     $DescData['DescText'], $URL,
-		     'From: ' . $GLOBALS['Mail From']);
+			SendEmailToUser($sendto . '@messaging.sprintpcs.com', $DescData['DescText'], $URL);
 	    }
 	}
     }
