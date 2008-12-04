@@ -2,14 +2,14 @@
 
 include '../../functions.inc';
 
-StandardHeader(array('title' => 'Fun Images',
-		     'topic' => 'images'));
-
-$Images = ScanDir(getenv('MEDIABASE') . 'fun/images');
+$Images = MyScanDir(getenv('MEDIABASE') . 'fun/images');
 
 if (! isset($_REQUEST['id']) || ! isset($Images[$_REQUEST['id']])) {
-    Redirect('?id=' . rand(0, count($Images) - 1));
+    Redirect('/fun/images/index.php?id=' . rand(0, count($Images) - 1));
 }
+
+StandardHeader(array('title' => 'Fun Images',
+		     'topic' => 'images'));
 
 $Image = $Images[$_REQUEST['id']];
 
@@ -37,7 +37,7 @@ if (file_exists($DescName))
 StandardFooter();
 
 
-function ScanDir($dirname)
+function MyScanDir($dirname)
 {
     $Images = array();
     $dir = opendir($dirname);
@@ -49,7 +49,7 @@ function ScanDir($dirname)
 	    $fullname = $dirname . '/' . $file;
 	    if (is_dir($fullname))
 	    {
-		$More = ScanDir($fullname);
+		$More = MyScanDir($fullname);
 		$Images = array_merge($Images, $More);
 	    }
 	    elseif (preg_match('/\.(jpg|gif)$/i', $file))
