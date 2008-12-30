@@ -33,7 +33,7 @@ mysql_free_result($result);
 $Keys = array_keys($Country);
 $CountriesTotal = count($Country);
 $CountryIndex = 0;
-$CountryBase = (int)$CountriesTotal / $Columns;
+$CountryBase = ceil($CountriesTotal / $Columns);
 
 while ($CountryBase > $CountryIndex) {
 	echo "  <tr>\n";
