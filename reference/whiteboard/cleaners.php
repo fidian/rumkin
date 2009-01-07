@@ -10,7 +10,7 @@ StandardHeader(array(
 
 ?>
 	
-<p><a href="images/board_big.jpg"><img src="images/board_small.jpg"
+<p><a href="media/board_big.jpg"><img src="media/board_small.jpg"
 align="right"></a>
 People have all sorts of different tricks that they use to clean a
 whiteboard.  Some things work well for whiteboard markers.  Other methods
@@ -409,7 +409,7 @@ foreach ($Cleaners as $k => $Cleaner) {
 	Section($SecName, $Cleaner[4]);
 	
 	if (! empty($Cleaner[6])) {
-		echo '<img src="images/' . $Cleaner[6] . '" align=right>' . "\n";
+		echo '<img src="media/' . $Cleaner[6] . '" align=right>' . "\n";
 	}
 	
 	echo '<p>Overall Score: ' . Rate($Cleaner[2]) . ' &ndash; ';
