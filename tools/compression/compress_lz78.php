@@ -34,6 +34,7 @@ removed 2 bits per character.</p>
 <textarea name="Orig" rows=10 cols=60></textarea>
 <br>
 <input type=button onClick="CompressConfirm()" value="Compress Code!"><br>
+<p>View results of the compression in a <a href="javascript:CreatePopup(document.daForm.Comp.value);">popup window</a>.</p>
 <B>Compressed by:</b> <input type=text size=40 name="Progress"></p>
 <p><B>Compressed:</B></p>
 <textarea name="Comp" rows=10 cols=60></textarea>
@@ -164,7 +165,7 @@ function CompressCode() {
 		t_bits = t_bits.slice(6, t_bits.length);
 	}
 
-	document.daForm.Comp.value = WrapInJS(t_out);
+	document.daForm.Comp.value = WrapInJS(t_out, mincode, maxcode);
 <?php
 	
 	if (isset($_REQUEST['test'])) { ?>
@@ -196,12 +197,13 @@ function WrapInJS(str, mincode, maxcode)
 
 	out += "var l,x,b,o,t,c,s,r,p,e;l=c=p=-1;x=b=e=0;o='';t=new Array();s=r=1;\n";
 	out += "function g(){if(!b){if(x>=d.length)return-1;l=d.charCodeAt(x);\n";
-	out += "if(l>92)l--;x++;b=6;}return(l>>--b)&1;}\n";
+	out += "if(l>92)l--;l-=42;x++;b=6;}return(l>>--b)&1;}\n";
 	out += "function a(){var b,n=0,c=0;for(;n<s;n++)c=c*2+(b=g());return (b<0)?-1:c;}\n";
-	out += "for (var i=y;i<=z;i++){if(e+1==r){s++;r*=2;}t[e++]=String.fromCharCode(i);}\n";
+	out += "for (var i=" + mincode + ";i<=" + maxcode + ";i++){if(e+1==r){s++;r*=2;}t[e++]=String.fromCharCode(i);}\n";
 	out += "while((c=a())>=0){if(p>=0)t[e++]=t[p]+t[c].charAt(0);o+=t[c];p=c;\n";
 	out += "if(t.length+1==r){r*=2;s++;}}\n";
 	out += "document.write(o);\n";
+	out += "</sc" + "ript>\n";
 
 	return out;
 }
@@ -252,6 +254,7 @@ function decode(d, y, z)
 		return (b<0)?-1:c;
 	}
 
+	// WARNING:  y = mincode, z = maxcode (both replaced in WrapInJS())
 	for (var i = y; i <= z; i ++) {
 		if (e + 1 == r) {
 			s ++;
