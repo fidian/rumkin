@@ -18,7 +18,8 @@ function HandleUpload() {
 		}
 	}
 	
-	if (! isset($_POST['handle']) || ($_POST['handle'] != 'upload' && $_POST['handle'] != 'upload2'))Bail('Problem getting information from upload form.');
+	if (! isset($_POST['handle']) || ($_POST['handle'] != 'upload' && $_POST['handle'] != 'upload2'))
+		Bail('Problem getting information from upload form.');
 	$is_jar = false;
 	
 	if ($_POST['handle'] == 'upload2')$is_jar = true;

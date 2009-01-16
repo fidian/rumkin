@@ -1,13 +1,23 @@
 <?php
 
 $GLOBALS['Movies'] = array(
+	'13th Warrior' => array(
+		'imdb' => 'tt0120657',
+		'tags' => 'fantasy drama action adventure added_jan_15',
+		'image' => '13th_Warrior.jpg'
+	),
 	'28 Days Later' => array(
 		'imdb' => 'tt0289043',
 		'tags' => 'scary gore suspense catastrophe',
 		'attrs' => 'special_edition',
 		'image' => '28_Days_Later.jpg'
 	),
-	300 => array(
+	'28 Weeks Later' => array(
+		'imdb' => 'tt0463854',
+		'tags' => 'scary gore suspense catastrophe added_jan_15',
+		'image' => '28_Weeks_Later.jpg'
+	),
+	'300' => array(
 		'imdb' => 'tt0416449',
 		'tags' => 'adventure',
 		'image' => '300.jpg'
@@ -146,6 +156,20 @@ $GLOBALS['Movies'] = array(
 		
 		// Right photo, remove discs
 	),
+	'Babe' => array(
+		'imdb' => 'tt0112431',
+		'tags' => 'kid_safe cute added_jan_15',
+		'image' => 'Babe.jpg'
+	),
+	'Babe Pig In The City' => array(
+		'imdb' => 'tt0120595',
+		'tags' => 'kid_safe cute added_jan_15',
+		'image' => 'Babe_Pig_in_the_City.jpg'
+	),
+	'Backyardigans, The:  The Snow Fort' => array(
+		'tags' => 'animated kid_safe added_jan_15',
+		'image' => 'Backyardigans_Snow_Fort.jpg'
+	),
 	'Ballistic:  Ecks vs. Sever' => array(
 		'imdb' => 'tt0308208',
 		'tags' => 'action',
@@ -243,6 +267,10 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'animated kid_safe',
 		'image' => 'Bob_the_Builder_Top_Team.jpg'
 	),
+	'Book of Pooh: Stories from the Heart' => array(
+		'tags' => 'animated kid_safe added_jan_15',
+		'image' => 'Book_of_Pooh_Stories_from_the_Heart.jpg'
+	),
 	'Braveheart' => array(
 		'imdb' => 'tt0112573',
 		'tags' => 'drama action',
@@ -250,11 +278,6 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Red background - fire-ish effect?
-	),
-	'Bridge to Terabithia' => array(
-		'imdb' => 'tt0398808',
-		'tags' => 'adventure fantasy',
-		'image' => 'Bridge_to_Terabithia.jpg'
 	),
 	'Breakin\'' => array(
 		'imdb' => 'tt0086998',
@@ -288,6 +311,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// TODO:  Image - Cartoon guy doing press, surrounded by crowd
+	),
+	'Bridge to Terabithia' => array(
+		'imdb' => 'tt0398808',
+		'tags' => 'adventure fantasy',
+		'image' => 'Bridge_to_Terabithia.jpg'
 	),
 	'Cars' => array(
 		'imdb' => 'tt0317219',
@@ -343,6 +371,11 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0087075',
 		'tags' => 'scary fantasy',
 		'image' => 'Company_of_Wolves.jpg'
+	),
+	'Cheech &amp; Chong\'s The Corsican Brothers' => array(
+		'imdb' => 'tt0087042',
+		'tags' => 'comedy added_jan_15',
+		'image' => 'Cheech_Chongs_The_Corsican_Brothers.jpg'
 	),
 	'Count of Monte Cristo, The' => array(
 		'imdb' => 'tt0245844',
@@ -407,6 +440,17 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Statue of liberty poking up through snow
+	),
+	'Day of the Dead' => array(
+		'imdb' => 'tt0088993',
+		'tags' => 'scary gore catastrophe added_jan_15',
+		'notes' => 'In George A. Romero\'s "Dead" series: Night, Dawn, Day, Land, and Diary of the Dead.',
+		'image' => 'Day_of_the_Dead.jpg'
+	),
+	'Day X' => array(
+		'imdb' => 'tt0487891',
+		'tags' => 'catastrophe added_jan_15',
+		'image' => 'Day_X.jpg'
 	),
 	'Deep Blue Sea' => array(
 		'imdb' => 'tt0149261',
@@ -498,6 +542,12 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Almost correct but the top border should go away
+	),
+	'Dukes of Hazzard, The' => array(
+		'imdb' => 'tt0377818',
+		'tags' => 'action comedy added_jan_15',
+		'attrs' => 'unrated',
+		'image' => 'Dukes_of_Hazzard.jpg'
 	),
 	'Dune' => array(
 		'imdb' => 'tt0087182',
@@ -768,6 +818,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Strewn about cars, left deserted on a road
 	),
+	'Happy Feet' => array(
+		'imdb' => 'tt0366548',
+		'tags' => 'kid_safe animated added_jan_15',
+		'image' => 'Happy_Feet.jpg'
+	),
 	'Happy Gilmore' => array(
 		'imdb' => 'tt0116483',
 		'tags' => 'sports comedy',
@@ -835,6 +890,12 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'comedy kid_safe',
 		'image' => 'Holes.jpg'
 	),
+	'Hollow Man' => array(
+		'imdb' => 'tt0164052',
+		'tags' => 'action added_jan_15',
+		'attrs' => 'special_edition',
+		'image' => 'Hollow_Man.jpg'
+	),
 	'Hostel' => array(
 		'imdb' => 'tt0450278',
 		'tags' => 'scary',
@@ -898,6 +959,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Silver border, iD4 on top, Independence Day, spaceship, whitehouse
 	),
+	'Indian in the Cupboard, The' => array(
+		'imdb' => 'tt0113419',
+		'tags' => 'kid_safe added_jan_15',
+		'image' => 'Indian_in_the_Cupboard.jpg'
+	),
 	'Interview with the Vampire' => array(
 		'imdb' => 'tt0110148',
 		'tags' => 'drama fantasy',
@@ -956,6 +1022,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Robin Williams above the game with rhinos charging out
 	),
+	'Jumper' => array(
+		'imdb' => 'tt0489099',
+		'tags' => 'action scifi added_jan_15',
+		'image' => 'Jumper.jpg',
+	),
 	'Jurassic Park' => array(
 		'imdb' => 'tt0107290',
 		'tags' => 'scary thriller',
@@ -997,6 +1068,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Collector's edition has no l/r borders, gold top/bottom
 	),
+	'League of Extraordinary Gentlemen, The' => array(
+		'imdb' => 'tt0311429',
+		'tags' => 'action adventure added_jan_15',
+		'image' => 'League_of_Extraordinary_Gentlemen.jpg'
+	),
 	'Legally Blonde' => array(
 		'imdb' => 'tt0250494',
 		'tags' => 'comedy kid_safe',
@@ -1029,6 +1105,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Washed out
+	),
+	'Longest Yard, The' => array(
+		'imdb' => 'tt0398165',
+		'tags' => 'comedy sports added_jan_15',
+		'image' => 'Longest_Yard.jpg'
 	),
 	'Lord of the Rings: The Fellowship of the Ring' => array(
 		'imdb' => 'tt0120737',
@@ -1285,13 +1366,18 @@ $GLOBALS['Movies'] = array(
 		
 		// Four faces in middle, ship and sun below, top black bg
 	),
-	'Pirates of the Caribbean: Dead Man\'s Chest' => array(
+	'Pirates of the Caribbean 2: Dead Man\'s Chest' => array(
 		'imdb' => 'tt0383574',
 		'tags' => 'adventure',
 		'image' => 'Pirates_of_the_Caribbean_Dead_Mans_Chest.jpg'
 		
 		
 		// No silver bg
+	),
+	'Pirates of the Caribbean 3: At World\'s End' => array(
+		'imdb' => 'tt0449088',
+		'tags' => 'adventure added_jan_15',
+		'image' => 'Pirates_of_the_Caribbean_At_Worlds_End.jpg'
 	),
 	'Pitch Black' => array(
 		'imdb' => 'tt0134847',
@@ -1320,6 +1406,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Upside down ship, dark BG, five people on bottom
 	),
+	'Practical Magic' => array(
+		'imdb' => 'tt0120791',
+		'tags' => 'comedy romance added_jan_15',
+		'image' => 'Practical_Magic.jpg'
+	),
 	'Princess Bride, The' => array(
 		'imdb' => 'tt0093779',
 		'tags' => 'fantasy romance',
@@ -1327,6 +1418,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Princess left of center, the two at bottom
+	),
+	'Punisher, The' => array(
+		'imdb' => 'tt0330793',
+		'tags' => 'action added_jan_15',
+		'image' => 'Punisher.jpg'
 	),
 	'Purple Rain' => array(
 		'imdb' => 'tt0087957',
@@ -1344,6 +1440,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// No disc
+	),
+	'Ratatouille' => array(
+		'imdb' => 'tt0382932',
+		'tags' => 'animated kid_safe added_jan_15',
+		'image' => 'Ratatouille.jpg'
 	),
 	'Resident Evil' => array(
 		'imdb' => 'tt0120804',
@@ -1381,6 +1482,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Try to not get the movie poster
+	),
+	'Romeo Must Die' => array(
+		'imdb' => 'tt0165929',
+		'tags' => 'martial_arts action added_jan_15',
+		'image' => 'Romeo_Must_Die.jpg'
 	),
 	'Runaway Jury' => array(
 		'imdb' => 'tt0313542',
@@ -1528,6 +1634,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Not movie poster
 	),
+	'Smokin\' Aces' => array(
+		'imdb' => 'tt0475394',
+		'tags' => 'action added_jan_15',
+		'image' => 'Smokin_Aces.jpg'
+	),
 	'Sneakers' => array(
 		'imdb' => 'tt0105435',
 		'tags' => 'comedy robbery',
@@ -1650,6 +1761,15 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'kid_safe',
 		'image' => 'Thomas_and_Friends_Thomas_and_His_Friends_Help_Out.jpg'
 	),
+	'Thomas and the Magic Railroad' => array(
+		'imdb' => 'tt0205461',
+		'tags' => 'kid_safe added_jan_15',
+		'image' => 'Thomas_and_the_Magic_Railroad.jpg'
+	),
+	'Thomas and the Treasure' => array(
+		'tags' => 'kid_safe added_jan_15',
+		'image' => 'Thomas_and_the_Treasure.jpg'
+	),
 	'Titanic' => array(
 		'imdb' => 'tt0120338',
 		'tags' => 'romance drama',
@@ -1700,6 +1820,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Two standing in front of buildings in tons of money
 	),
+	'Transporter, The' => array(
+		'imdb' => 'tt0293662',
+		'tags' => 'action added_jan_15',
+		'image' => 'Transporter.jpg'
+	),
 	'Transporter 2' => array(
 		'imdb' => 'tt0388482',
 		'tags' => 'action',
@@ -1745,6 +1870,11 @@ $GLOBALS['Movies'] = array(
 		
 		// picture is lower, title above
 	),
+	'Unbreakable' => array(
+		'imdb' => 'tt0217869',
+		'tags' => 'superhero drama added_jan_15',
+		'image' => 'Unbreakable.jpg'
+	),
 	'Underworld' => array(
 		'imdb' => 'tt0320691',
 		'tags' => 'scary',
@@ -1754,10 +1884,20 @@ $GLOBALS['Movies'] = array(
 		
 		// Crouching on top of building, moon only top 1/2
 	),
+	'Undead' => array(
+		'imdb' => 'tt0339840',
+		'tags' => 'catastrophe added_jan_15',
+		'image' => 'Undead.jpg'
+	),
 	'Village, The' => array(
 		'imdb' => 'tt0368447',
 		'tags' => 'scary suspense',
 		'image' => 'Village.jpg'
+	),
+	'Wall-E' => array(
+		'imdb' => 'tt0910970',
+		'tags' => 'animated kid_safe scifi added_jan_15',
+		'image' => 'Wall_E.jpg'
 	),
 	'War of the Worlds' => array(
 		'imdb' => 'tt0407304',
@@ -1767,10 +1907,17 @@ $GLOBALS['Movies'] = array(
 		
 		// Tom and daughter on top, burning stuff below title
 	),
+	'Waterboy, The' => array(
+		'imdb' => 'tt0120484',
+		'tags' => 'comedy sports added_jan_15',
+		'image' => 'Waterboy.jpg'
+	),
 	'Waterworld' => array(
 		'imdb' => 'tt0114898',
-		'tags' => 'scifi catastrophe',
-		'image' => 'Waterworld.jpg'
+		'tags' => 'scifi catastrophe added_jan_15',
+		'attrs' => 'directors_cut',
+		'image' => 'Waterworld.jpg',
+		'notes' => 'The added footage makes it a significantly better movie.'
 		
 		
 		// Right picture, but needs to be more square
@@ -1798,10 +1945,15 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'drama',
 		'image' => 'White_Oleander.jpg'
 	),
+	'Wild Things' => array(
+		'imdb' => 'tt0120890',
+		'tags' => 'drama thriller added_jan_15',
+		'image' => 'Wild_Things.jpg'
+	),
 	'Wild Thornberrys Movie, The' => array(
 		'imdb' => 'tt0282120',
 		'tags' => 'animated kid_safe',
-		'Wild_Thornberrys_Movie.jpg'
+		'image' => 'Wild_Thornberrys_Movie.jpg'
 	),
 	'Wrong Turn' => array(
 		'imdb' => 'tt0295700',
@@ -1862,35 +2014,15 @@ $GLOBALS['Movies'] = array(
 		
 		// Robot on top, three faces center left, space down and right
 	),
-	'13th Warrior' => array(
-		'imdb' => 'tt0120657',
-		'tags' => 'fantasy drama action adventure wanted',
-		'image' => '13th_Warrior.jpg'
-	),
-	'28 Weeks Later' => array(
-		'imdb' => 'tt0463854',
-		'tags' => 'scary gore suspense catastrophe wanted',
-		'image' => '28_Weeks_Later.jpg'
-	),
 	'American Outlaws' => array(
 		'imdb' => 'tt0244000',
 		'tags' => 'western action wanted',
 		'image' => 'American_Outlaws.jpg'
 	),
-	'Babe' => array(
-		'imdb' => 'tt0112431',
-		'tags' => 'wanted kid_safe cute',
-		'image' => 'Babe.jpg'
-	),
 	'Born in East L.A.' => array(
 		'imdb' => 'tt0092690',
 		'tags' => 'wanted comedy',
 		'image' => 'Born_in_East_LA.jpg'
-	),
-	'Cheech &amp; Chong\'s The Corsican Brothers' => array(
-		'imdb' => 'tt0087042',
-		'tags' => 'wanted comedy',
-		'image' => 'Cheech_Chongs_The_Corsican_Brothers.jpg'
 	),
 	'Children of Dune' => array(
 		'imdb' => 'tt0287839',
@@ -1923,11 +2055,6 @@ $GLOBALS['Movies'] = array(
 		'notes' => 'No legal DVD version?  There were rumors of a 2005 release.',
 		'image' => 'Damnation_Alley.jpg'
 	),
-	'Day X' => array(
-		'imdb' => 'tt0487891',
-		'tags' => 'catastrophe wanted',
-		'image' => 'Day_X.jpg'
-	),
 	'First Knight' => array(
 		'imdb' => 'tt0113071',
 		'tags' => 'wanted fantasy',
@@ -1937,11 +2064,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0107282',
 		'tags' => 'wanted drama',
 		'image' => 'Joy_Luck_Club.jpg'
-	),
-	'Jumper' => array(
-		'imdb' => 'tt0489099',
-		'tags' => 'action scifi wanted',
-		'image' => 'Jumper.jpg',
 	),
 	'Last Samurai, The' => array(
 		'imdb' => 'tt0325710',
@@ -1998,21 +2120,6 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'wanted animated scifi',
 		'image' => 'Titan_AE.jpg'
 	),
-	'Transporter, The' => array(
-		'imdb' => 'tt0293662',
-		'tags' => 'wanted action',
-		'image' => 'Transporter.jpg'
-	),
-	'Unbreakable' => array(
-		'imdb' => 'tt0217869',
-		'tags' => 'wanted superhero drama',
-		'image' => 'Unbreakable.jpg'
-	),
-	'Undead' => array(
-		'imdb' => 'tt0339840',
-		'tags' => 'catastrophe wanted',
-		'image' => 'Undead.jpg'
-	),
 	'Underworld: Evolution' => array(
 		'imdb' => 'tt0401855',
 		'tags' => 'wanted scary',
@@ -2027,13 +2134,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0499556',
 		'tags' => 'action wanted',
 		'image' => 'War.jpg'
-	),
-	'Waterworld*' => array(
-		'imdb' => 'tt0114898',
-		'tags' => 'wanted scifi catastrophe',
-		'attrs' => 'directors_cut',
-		'notes' => 'It appears this will be coming out officially on November 4th!',
-		'image' => 'Waterworld.jpg'
 	),
 	'Year of the Comet' => array(
 		'imdb' => 'tt0105871',

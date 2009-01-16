@@ -40,9 +40,6 @@ var Movies = [
 <?php
 	
 	$tagMap = array(
-		'fast_paced' => 'Fast Paced',
-		'kid_safe' => 'Kid Safe',
-		'martial_arts' => 'Martial Arts',
 		'scifi' => 'Sci-Fi',
 	);
 	$addComma = false;
@@ -62,7 +59,8 @@ var Movies = [
 			if (isset($tagMap[$tag])) {
 				$tag = $tagMap[$tag];
 			} else {
-				$tag = ucfirst($tag);
+				$tag = str_replace('_', ' ', $tag);
+				$tag = ucwords($tag);
 			}
 			
 			$tag = '\'' . addslashes($tag) . '\'';
