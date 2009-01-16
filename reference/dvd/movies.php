@@ -295,23 +295,6 @@ $GLOBALS['Movies'] = array(
 		
 		// Gold background, guy doing backflip
 	),
-	'Beat Street' => array(
-		'imdb' => 'tt0086946',
-		'tags' => 'dance',
-		'notes' => 'Third movie in the Breakin\' Collection box set.',
-		'image' => 'Beat_Street.jpg'
-		
-		
-		// Red streaks in sky to top, some torso-press guy in foreground
-	),
-	'Breakin\' DVD Collection Bonus Disc' => array(
-		'tags' => 'dance',
-		'notes' => 'Fourth disc in the Breakin\' Collection box set.',
-		'image' => 'Breakin_DVD_Collection_Bonus_Disc.jpg',
-		
-		
-		// TODO:  Image - Cartoon guy doing press, surrounded by crowd
-	),
 	'Bridge to Terabithia' => array(
 		'imdb' => 'tt0398808',
 		'tags' => 'adventure fantasy',
@@ -984,6 +967,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Too dark - purple open mouth on the right
+	),
+	'Island, The' => array(
+		'imdb' => 'tt0399201',
+		'tags' => 'action scifi added_jan_15',
+		'image' => 'Island.jpg'
 	),
 	'Italian Job, The' => array(
 		'imdb' => 'tt0317740',
