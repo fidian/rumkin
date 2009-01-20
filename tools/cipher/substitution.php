@@ -34,11 +34,13 @@ as possible.  You'll see what I mean when you start playing with it.</p>
 <option value="TI_hex">Text:  Hexadecimal</option>
 <option value="TI_octal">Text:  Octal</option>
 <option value="T_spirit">Text:  Spirit DVD Code</option>
-<option value="T_phone">Text:  Telephone</option>
+<option value="T_phone">Text:  Telephone (Symbols)</option>
+<option value="T_phonedec">Text:  Telephone (Decimal)</option>
 </select></p>
 <p><div id="moreinput"></div></p>
 
-<p><textarea name="text" rows="5" cols="80"></textarea></p>
+<p>Message to encode:<br>
+<textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <?php MakeBoxTop('center') ?>
 <div id="result"></div>
@@ -273,27 +275,49 @@ function EncodeText(set, t) {
 		flags = set.slice(0, pos);
 		set = set.slice(pos + 1, set.length);
 	}
-   
-	for (var i = 0; i < t.length; i ++) {
-		var c = t.charAt(i);
 
-		if (flags.indexOf('I') < 0) {
-			c = c.toUpperCase();
+	if (set == 'phonedec') {
+		t = t.toUpperCase();
+		var codes = '0 1 2,A,B,C 3,D,E,F 4,G,H,I 5,J,K,L 6,M,N,O 7,P,Q,R,S 8,T,U,V 9,W,X,Y,Z'.split(' ');
+		for (var i = 0; i < codes.length; i ++) {
+			codes[i] = codes[i].split(',');
 		}
-      
-		var e = document.getElementById('Text_Link_' + c.charCodeAt(0));
-
-		if (e) {
-			s += e.innerHTML;
-		} else {
-			s += t.charAt(i);
+		for (var i = 0; i < t.length; i ++) {
+			var c = t.charAt(i);
+			var cCode = c.charCodeAt(0);
+			if (cCode < 10 || cCode >= 100) {
+				s += c;
+			} else {
+				for (var j = 0; j < 2; j ++) {
+					var idx = cCode.toString().charAt(j);
+					var max = codes[idx].length;
+					var rnd = Math.floor(Math.random() * max);
+					s += codes[idx][rnd];
+				}
+			}
 		}
+	} else {
+		for (var i = 0; i < t.length; i ++) {
+			var c = t.charAt(i);
 
-		if (set == 'decimal') {
-			s += ' ';  // Need a space between numbers
+			if (flags.indexOf('I') < 0) {
+				c = c.toUpperCase();
+			}
+		  
+			var e = document.getElementById('Text_Link_' + c.charCodeAt(0));
+
+			if (e) {
+				s += e.innerHTML;
+			} else {
+				s += c;
+			}
+
+			if (set == 'decimal') {
+				s += ' ';  // Need a space between numbers
+			}
 		}
 	}
-   
+	   
 	return HTMLEscape(s);
 }
 
@@ -532,6 +556,10 @@ function ShowText(set) {
       
 		return s;
 	}
+
+	if (set == 'phonedec') {
+		return '';
+	}
 	
 	return "Insert " + set + " text info here.";
 }
@@ -542,7 +570,7 @@ function ShowDecodeBox() {
 		'<textarea name=decodeBox width=40 height=1>' +
 		'</textarea> ' +
 		'<span id=decodeBoxLink>[<a href="#" onclick="ProcessDecodeBox(0); return false">' +
-		'Add To Message Box</a>]</span>' +
+		'Decode and Add to Message Box</a>]</span>' +
 		'<span id=decodeBoxWorking style="display: none">[WORKING]</span>';
 }
 
@@ -558,7 +586,7 @@ var Process_Text_Done;
 var Process_Text_Lookup;
 
 function ProcessDecodeBox(work) {
-	var t = document.encoder.decodeBox.value;
+	var t = document.encoder.decodeBox.value.toUpperCase();
 	var d = GetSeconds();
 	var Lookup = new Array();
    
@@ -568,11 +596,28 @@ function ProcessDecodeBox(work) {
 		Process_Text_Done = document.encoder.text.value;
 		Process_Text_Lookup = new Array();
 
-		for (var i = 0; i < 256; i ++) {
-			var e = document.getElementById('Text_Link_' + i.toString());
+		if (document.encoder.method.value == 'T_phonedec') {
+			var codes = '0 1 2,A,B,C 3,D,E,F 4,G,H,I 5,J,K,L 6,M,N,O 7,P,Q,R,S 8,T,U,V 9,W,X,Y,Z'.split(' ');
+			for (var i = 0; i < codes.length; i ++) {
+				codes[i] = codes[i].split(',');
+			}
 
-			if (e) {
-				Process_Text_Lookup[e.innerHTML] = String.fromCharCode(i);
+			for (var i = 10; i < 100; i ++) {
+				var first = i.toString().charAt(0);
+				var second = i.toString().charAt(1);
+				for (var j = 0; j < codes[first].length; j ++) {
+					for (var k = 0; k < codes[second].length; k ++) {
+						Process_Text_Lookup[codes[first][j] + codes[second][k]] = String.fromCharCode(i);
+					}
+				}
+			}
+		} else {
+			for (var i = 0; i < 256; i ++) {
+				var e = document.getElementById('Text_Link_' + i.toString());
+
+				if (e) {
+					Process_Text_Lookup[e.innerHTML] = String.fromCharCode(i);
+				}
 			}
 		}
       
