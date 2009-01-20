@@ -21,7 +21,9 @@ bottom of the page.</p>
 
 <p><b>Samsung N400 Users:</b>  You can only use your
 <i>username</i>@sprintpcs.com address.  Entering in your phone number
-will not work.
+will not work.</p>
+
+<p>I am trying to get training videos made for newbies made by JarrodJS.  Search youtube for "rumkin" to see the one video he's already made.</p>
 
 	
 <?php Section('Upload Images, Sounds, Etc.'); ?>
