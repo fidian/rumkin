@@ -3,6 +3,7 @@ Gallery|browse.php
 Links|links.php
 File Formats|formats.php
 Downloads|downloads.php
+-
 FAQ / Help|faq/index.php
 Problems?|../decision_tree/index.php?Tree=uploader
-Chat|http://chat.rumkin.com/
+Tutorials|tutorials.php

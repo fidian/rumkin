@@ -9,35 +9,20 @@
 include 'common.inc';
 SprintStandardHeader('Phone Uploader');
 
+$sendToMessage = "Enter your <a href=\"faq/index.php?Topic=sms_email\">SMS email address</a> if you want a text message sent to your phone.  Sprint users can enter just their phone number.<br>If you leave this blank, you can use the generated <a href=\"faq/index.php?Topic=jumpcode\">jump code</a> to get the file.";
+
 ?>
 
-<p>This completely free uploader will let you send ringers, images, games,
-and screensavers to your phone. It works really well with Sprint PCS Vision
-phones, but it also works just fine with phones from most of the other
-providers. It has been used by thousands of people, but if it wipes out
-your phone or does something bad, it is your fault (standard disclaimer).
-Experiencing problems? Have suggestions? Email me &ndash; link at the 
-bottom of the page.</p>
+<p>Send ringers, images, games, and screensavers to your phone with this tool.  It is provided completely <a href="faq/index.php?topic=charge">free of charge</a>.  Make sure you have a data plan and can access the internet; <i>your carrier</i> may charge you if you do not.  It will probably work with your phone &mdash; give it a try.</p>
 
-<p><b>Samsung N400 Users:</b>  You can only use your
-<i>username</i>@sprintpcs.com address.  Entering in your phone number
-will not work.</p>
-	
-<?php Section('Upload Images, Sounds, Etc.'); ?>
+<p>New here?  Check out the <a href="tutorials.php">video tutorials</a>.  Have questions?  Take a look at the <a href="faq/">FAQ</a>.  Experiencing problems?  Run through the <a href="../decision_tree/index.php?Tree=uploader">"Problems?" troubleshooter</a>.</p>
+
+<?php Section('Upload Wallpapers, Ringers, Etc.'); ?>
 
 <form method=post action="upload.php" enctype="multipart/form-data">
 <input type=hidden name=MAX_FILE_SIZE value=<?php echo $GLOBALS['Max File Size'] ?>>
 <input type=hidden name=handle value=upload>	
 <table align=center border=1 cellpading=5 cellspacing=0>
-<tr>
-  <th>Send To<br><font size="-1">(Optional)</font></th>
-  <td><input type=text name="sendto" size=40 value=""><br>
-      <font size="-1">If you use Sprint, you can enter your 10-digit
-      phone number.  If not, you can enter your SMS email address.  If you
-      leave this blank, a jump code will be generated for you
-      automatically.
-      </font></td>
-</tr>
 <tr>
   <th>Description</th>
   <td><input type=text name="desc" size=25 maxsize=50><br>
@@ -49,26 +34,23 @@ will not work.</p>
   <td><input type=file name="fn" size=50></td>
 </tr>
 <tr>
+  <th>Send To<br><font size="-1">(Optional)</font></th>
+  <td><input type=text name="sendto" size=40 value=""><br>
+      <font size="-1"><?PHP echo $sendToMessage; ?></font>
+  </td>
+</tr>
+<tr>
   <td colspan=2 align=center><input type=submit value="Upload File"></td>
 </tr>
 </table>
 </form>
 
-<?php Section('Upload Java Midlets'); ?>
+<?php Section('Upload Games, Applications, Java Midlets'); ?>
 
 <form method=post action="upload.php" enctype="multipart/form-data">
 <input type=hidden name=MAX_FILE_SIZE value=<?php echo $GLOBALS['Max File Size'] ?>>
 <input type=hidden name=handle value=upload2>
 <table align=center border=1 cellpading=5 cellspacing=0>
-<tr>
-  <th>Send To<br><font size="-1">(Optional)</font></th>
-  <td><input type=text name="sendto" size=40 value=""><br>
-      <font size="-1"><b>Sprint Users:</b>  Use your 10-digit phone number<br>
-      <b>Everyone:</b>  Use your SMS email address to get a link delivered
-      to you<br>
-      Enter nothing and no SMS will be sent &ndash; use the jump code.
-      </font></td>
-</tr>
 <tr>
   <th>JAR File</th>
   <td><input type=file name="jar" size=50><br>
@@ -85,6 +67,13 @@ will not work.</p>
     <option value="userdef">Other (specify) --&gt;
     </select> <input type=text name=userdeffldr>
   </td>
+</tr>
+<tr>
+  <th>Send To<br><font size="-1">(Optional)</font></th>
+  <td><input type=text name="sendto" size=40 value=""><br>
+      <font size="-1"><?PHP echo $sendToMessage; ?></font>
+  </td>
+</tr>
 <tr>
   <td colspan=2 align=center><input type=submit value="Upload Midlet"></td>
 </tr>
@@ -109,7 +98,7 @@ error may be necessary.</p>
 <li><b>Sounds:</b> <a href="formats.php#mid">mid</a>, 
 <a href="formats.php#mid">midi</a>, <a href="formats.php#qcp">qcp</a>,
 <a href="formats.php#mp3">mp3</a>, <a href="formats.php#mp4">mp4</a>,
-<a href="formats.php#amr">amr</a>, <a href="formats.php#wav">wav</a>
+<a href="formats.php#amr">amr</a>, <a href="formats.php#wav">wav</a>,
 <a href="formats.php#wma">wma</a></li>
 <li><b>Misc:</b> <a href="formats.php#3gp">3gp</a>,
 <a href="formats.php#pmd">pmd</a>,
@@ -127,23 +116,15 @@ the <a href="formats.php">File Formats</a> page.</p>
 manufacturers, models, and a brief list of capabilities, look in the
 <a href="faq/index.php?Topic=phones">FAQ</a>.</p>
 
+<p><b>Will it mess up my phone?</b></p>
+
+<p>Probably not.  Hundreds of thousands of files have been sent to phones.  However, if this messes up anything on your phone, you take all responsibility.</p>
+
 <p><b>What if my question isn't answered here?</b></p>
 	
 <p>Don't worry.  I have a whole page set up to answer
 <a href="faq/">Frequently Asked Questions</a>.  You will likely find
-your answer there.</p>
-
-<?php Section('Privacy Information'); ?>
-
-<p>I do not collect phone numbers nor email addresses submitted with this
-program.  The information does go into the mail log, but I never look at
-that unless there is a problem with my server, and I will not share
-information in there without a warrant or other means of forcing me to hand
-it over.  If you feel that this is still a security risk, you can email me
-or just use <a href="links.php#uploaders">another tool</a>.</p>
-
-<p>Files uploaded are stored in a database and are expired after a few days.
-Also, information about who uploaded the file is not saved.</p>
+your answer there.  I commonly get questions about my <a href="faq/index.php?Topic=privacy">privacy policy</a>, how much this uploader <a href="faq/index.php?Topic=charge">charges</a>, and how to <a href="../decision_tree/index.php?Tree=uploader">troubleshoot problems</a>.</p>
 
 <?php
 

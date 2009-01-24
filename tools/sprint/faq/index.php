@@ -65,7 +65,7 @@ down the right track.  If you have additional information, I would
 <i>love</i> to hear it -- email me about it (link at bottom of page).</p>
 
 <p>Just so you know, I include questions about uploading files in general to
-mobilet phones &ndash; not just questions that are related directly to the
+mobile phones &ndash; not just questions that are related directly to the
 uploader.  That way, other people can write programs and set up web sites to
 give data to any mobile phone easier.</p>
 
