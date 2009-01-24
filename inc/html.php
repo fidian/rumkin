@@ -140,3 +140,50 @@ function MakeLinkList($Data) {
 	echo "</table>\n";
 }
 
+
+/**
+ * Include a YouTube video
+ * Suggested sizes:  320x265, 425x344, 480x385, 640x505
+ * Default on YouTube's copy-and-paste is 425x344
+ */
+function YouTube($video, $extra = array()) {
+	// $extra can specify color1 and color2 (hex colors, eg. "0x3a3a3a")
+	// $extra can specify the width and height (default 480x385)
+	$url = 'http://www.youtube.com/v/' . $video . '&hl=en&fs=1';
+	$width = 480;
+	$height = 385;
+
+	if (isset($extra['color1'])) {
+		$url .= '&color1=' . $extra['color1'];
+	}
+
+	if (isset($extra['color2'])) {
+		$url .= '&color2=' . $extra['color2'];
+	}
+
+	if (isset($extra['width'])) {
+		$width = $extra['width'];
+	}
+
+	if (isset($extra['height'])) {
+		$height = $extra['height'];
+	}
+
+	if (isset($extra['float'])) {
+		echo '<div style="float:' . $extra['float'] . '">';
+	}
+
+?><object width="<?PHP echo $width; ?>" height="<?PHP echo $height; ?>">
+<param name="movie" value="<?PHP echo $url; ?>"></param>
+<param name="allowFullScreen" value="true"></param>
+<param name="allowscriptaccess" value="always"></param>
+<embed src="<?PHP echo $url; ?>" type="application/x-shockwave-flash"
+allowscriptaccess="always" allowfullscreen="true"
+width="<?PHP echo $width; ?>" height="<?PHP echo $height; ?>"></embed>
+</object>
+<?PHP
+
+	if (isset($extra['float'])) {
+		echo '</div>';
+	}
+}
