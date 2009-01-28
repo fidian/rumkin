@@ -54,14 +54,34 @@ for (var i = 0; i < 100; i ++) {
 );
 $results = array(
 	array(
+		'Browser',
+		'Android RC30',
+		'6x faster'
+	),
+	array(
+		'Chrome 1.0.154.43',
+		'Windows XP',
+		'4x faster'
+	),
+	array(
 		'Firefox 2.0.0.1',
 		'Windows XP',
 		'5x faster'
 	),
 	array(
+		'Firefox 3.0.5',
+		'Linux (Ubuntu 8.10)',
+		'2x to 3x faster'
+	),
+	array(
 		'Internet Explorer 7',
 		'Windows XP',
 		'5x to 25x faster'
+	),
+	array(
+		'Midori 0.0.18',
+		'Linux (Ubuntu 8.10)',
+		'3x to 4x faster'
 	),
 	array(
 		'Opera 9.10',
@@ -108,14 +128,34 @@ a = a.join(\'\');'
 );
 $results = array(
 	array(
+		'Browser',
+		'Android RC30',
+		'Equal'
+	),
+	array(
+		'Chrome 1.0.154.43',
+		'Windows XP',
+		'2x slower'
+	),
+	array(
 		'Firefox 2.0.0.1',
 		'Windows XP',
 		'Questionable'
 	),
 	array(
+		'Firefox 3.0.5',
+		'Linux (Ubuntu 8.10)',
+		'Questionable'
+	),
+	array(
 		'Internet Explorer 7',
 		'Windows XP',
-		'6x faster'
+		'4x to 6x faster'
+	),
+	array(
+		'Midori 0.0.18',
+		'Linux (Ubuntu 8.10)',
+		'2x faster'
 	),
 	array(
 		'Opera 9.10',
@@ -131,6 +171,9 @@ ShowExample($code, $results);
 For littler string concatenations, it is actually slower to put the strings
 into an array and concatenate them.  For larger strings, the speed savings
 are negligable.</p>
+
+<p>Chrome's JavaScript engine makes the array building and concatenation
+actually slower than just appending to a string repeatedly.</p>
 
 <?php Section('Additional Resources'); ?>
 
