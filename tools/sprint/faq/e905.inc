@@ -32,3 +32,8 @@ the .jad file as it is in the Manifest file.  Also, case is important
 &ndash; the manifest file must be called META-INF/MANIFEST.mf.
 <i>(The uploader just generates its own .jad file from the Manifest file, and
 doesn't care about the case of the file, so it is a bit more flexible.)</i></p>
+
+<p><b>Wrong MIME Type</b> - One user set up the uploader on his own machine,
+and found out that his 905 errors were because Apache's MIME type for MP3 files
+(audio/mpeg) was not the same as the delivered GCD file (audio/mp3).
+<i>(This won't happen if you are using the uploader on rumkin.com)</i></p>
