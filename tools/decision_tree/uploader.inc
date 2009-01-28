@@ -188,7 +188,7 @@ $Tree = array(
 	
 	// Download :: Other
 	18 => array(
-		$HelpMessage . '18'
+		'Just to be aware, if you know that this model of phone used to work and now you have one where it does not work, it could be due to a firmware change.<br><br>' . $HelpMessage . '18'
 	),
 	
 	
