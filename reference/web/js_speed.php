@@ -250,7 +250,7 @@ function js_speed_work()
 	}
 	else if (js_loop <= 1)
 	{
-		js_loop = 4;
+		js_loop = 3;
 		js_speed_num = 1;
 		js_speed_loader();
 	}
