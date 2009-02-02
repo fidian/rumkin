@@ -1,17 +1,28 @@
 <?php
 
 include '../../functions.inc';
-StandardHeader(array(
-		'title' => 'Population Counter',
-		'header' => $NAME,
-		'topic' => 'population'
-	));
 
 if (! isset($_REQUEST['CCODE'])) {
 	Redirect('index.php');
 }
 
 $conn = OpenDBConnection('Population');
+
+
+/* Get the current country name */
+$ccode = $_REQUEST['CCODE'];
+$sql = 'select CNAME from idbctys where CCODE = "' . mysql_real_escape_string($ccode, $conn) . '"';
+$result = mysql_query($sql, $conn);
+$row = mysql_fetch_assoc($result);
+if (! $row) {
+	Redirect('index.php');
+	exit();
+}
+StandardHeader(array(
+		'title' => 'Population Counter for ' . $row['CNAME'],
+		'header' => $row['CNAME'],
+		'topic' => 'population'
+	));
 
 
 /* We want to grab today's year plus the year after or before depending on
@@ -34,7 +45,6 @@ if ($now >= $midyear) {
 $time_diff_year = $end_time - $start_time;
 $time_diff_now = $now - $start_time;
 $pct_time = $time_diff_now / $time_diff_year;
-$ccode = $_REQUEST['CCODE'];
 
 
 /* Calculate death rates by getting stats for current year and five years ago
