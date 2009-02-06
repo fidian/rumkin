@@ -128,8 +128,8 @@ class zipfile {
 		$hexdtime = '\x' . $dtime[6] . $dtime[7] . '\x' . $dtime[4] . $dtime[5] . '\x' . $dtime[2] . $dtime[3] . '\x' . $dtime[0] . $dtime[1];
 		eval('$hexdtime = "' . $hexdtime . '";');
 		$fr = "\x50\x4b\x03\x04";
-		$fr .= "\x14\x00";  // ver needed to extract
-		$fr .= "\x05\x00";  // gen purpose bit flag
+		$fr .= "\x14\x00";  // ver needed to extract.  Should be 0x1400 but for compatability, we could use 0x0A00
+		$fr .= "\x00\x00";  // gen purpose bit flag
 		$fr .= "\x08\x00";  // compression method
 		$fr .= $hexdtime;
 		
