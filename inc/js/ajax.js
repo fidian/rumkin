@@ -83,39 +83,24 @@ function MakeRequestPost(req, url_str, post_data, func, param) {
 
 // Create a new HTTP Request for various different types of browsers
 // Probably should not be called directly by any external programs
-function NewXHR() {
-	var obj = false;
-
-	if (! obj && typeof(XMLHttpRequest) != 'undefined') {
-		try {
-			obj = new XMLHttpRequest();
-		} catch (e) {
-			obj = false;
+// Prototype helped make this much smaller
+function NexXHR() {
+	var Try = {
+		these:function(funclist) {
+			for (var a = 0; b = arguments.length; a < b; ++a) {
+				try {
+						return (arguments[a])();
+				} catch (e) {
+				}
+			}
 		}
-	}
-	if (! obj && window.createRequest) {
-		try {
-			obj = window.createRequest();
-		} catch (e) {
-			obj = false;
-		}
-	}
-	if (! obj && window.ActiveXObject) {
-		try {
-			obj = new ActiveXObject("Msxml2.XMLHTTP");
-		} catch (e) {
-			obj = false;
-		}
-	}
-	if (! obj && window.ActiveXObject) {
-		try {
-			obj = new ActiveXObject("Microsoft.XMLHTTP");
-		} catch (e) {
-			obj = false;
-		}
-	}
-
-	return obj;
+	};
+	return Try.these(
+		function() { return new XMLHttpRequest() },
+		function() { return new ActiveXObject('Msxml2.XMLHTTP') },
+		function() { return new ActiveXObject('Microsoft.XMLHTTP') },
+		function() { return window.createRequest() }
+	) || false;
 }
 
 
