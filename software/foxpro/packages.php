@@ -23,7 +23,7 @@ that performs the task.</p>
 <li><a href="#zlib">zlib</a> (Library + Code)
 </ul>
 
-<?php Section('<a name="command">Command Window Simulator</a> (Form, ' . FidianFileSize($mediaDir . 'media/command.zip') . ' - <a href="media/command.zip">command.zip</a>)') ?>
+<?php Section('<a name="command">Command Window Simulator</a> (Form, ' . FidianFileSize($mediaDir . 'command.zip') . ' - <a href="media/command.zip">command.zip</a>)') ?>
 
 <p>Did you ever want to distribute an application but keep the command
 window?  Do you have advanced FoxPro users out there that like to type in
@@ -45,7 +45,7 @@ form and get the command window simulator running.</p>
 </pre>
 <?php MakeBoxBottom() ?>
 
-<?php Section('<a name="exceldde">Excel DDE</a> (Code, ' . FidianFileSize($mediaDir . 'media/exceldde.zip') . ' - <a href="media/exceldde.zip">exceldde.zip</a>)'); ?>
+<?php Section('<a name="exceldde">Excel DDE</a> (Code, ' . FidianFileSize($mediaDir . 'exceldde.zip') . ' - <a href="media/exceldde.zip">exceldde.zip</a>)'); ?>
 
 <p>You can always use "<tt>copy to FILENAME type xl5</tt>" in order to get
 your table in an Excel-ready format, but the formatting sucks.  Actually, it
@@ -54,7 +54,7 @@ is a complete and total lack of formatting that sucks.</p>
 <p>You can open up Excel, set up a DDE link to it, and then send data to the
 spreadsheet with DDEPoke().  To make this job a bit easier, I made a few
 utility functions.  An explanation of the DDE functions is available in a
-separate help file (<?php echo FidianFileSize($mediaDir . 'media/xlmacr8.zip')
+separate help file (<?php echo FidianFileSize($mediaDir . 'xlmacr8.zip')
 
 ?> - <a href="media/xlmacr8.zip">xlmacr8.zip</a>).</p>
 
@@ -115,7 +115,7 @@ equivalent, but puts the output in Excel.  The old DOS FoxPro had a useful
 output when you try that exact same command.  Printing it from Excel makes
 it look nice again.</p>
 
-<?php Section('<a name="fiscal">Fiscal Date Functions</a> (Code, ' . FidianFileSize($mediaDir . 'media/fiscal.zip') . ' - <a href="media/fiscal.zip">fiscal.zip</a>)'); ?>
+<?php Section('<a name="fiscal">Fiscal Date Functions</a> (Code, ' . FidianFileSize($mediaDir . 'fiscal.zip') . ' - <a href="media/fiscal.zip">fiscal.zip</a>)'); ?>
 
 <p>I am not sure if anyone else out there has to work with fiscal dates in
 FoxPro, but I did.  This set of functions will help you out immensely.  With
@@ -161,7 +161,7 @@ different algorithms, and they are also coded for other languages.  They are
 explained in detail on my <a href="../algorithms/fuzzy_strings/">fuzzy
 string matching</a> page.</p>
 
-<?php Section('<a name="getdate">GetDate</a> (Form, ' . FidianFileSize($mediaDir . 'media/getdate.zip') . ' - <a href="media/getdate.zip">getdate.zip</a>)'); ?>
+<?php Section('<a name="getdate">GetDate</a> (Form, ' . FidianFileSize($mediaDir . 'getdate.zip') . ' - <a href="media/getdate.zip">getdate.zip</a>)'); ?>
 
 <p>Tired of asking the user to type in a date?  Use this form to pop open a
 calendar.  I modified this one to remove extra weird code, make it more
@@ -194,7 +194,7 @@ endwith
 </pre>
 <?php MakeBoxBottom() ?>
 
-<?php Section('<a name="md5">MD5</a> (Library, ' . FidianFileSize($mediaDir . 'media/md5.zip') . ' - <a href="media/md5.zip">md5.zip</a>)'); ?>
+<?php Section('<a name="md5">MD5</a> (Library, ' . FidianFileSize($mediaDir . 'md5.zip') . ' - <a href="media/md5.zip">md5.zip</a>)'); ?>
 	
 <p>Did you ever need to make a MD5 checksum of a file or a string?
 This will certainly be exactly what you need.  I found this code out on
@@ -234,7 +234,7 @@ endfunc
 </pre>
 <?php MakeBoxBottom(); ?>
 
-<?php Section('<a name="prompter">Prompter</a> (Form, ' . FidianFileSize($mediaDir . 'media/prompter.zip') . ' - <a href="media/prompter.zip">prompter.zip</a>)'); ?>
+<?php Section('<a name="prompter">Prompter</a> (Form, ' . FidianFileSize($mediaDir . 'prompter.zip') . ' - <a href="media/prompter.zip">prompter.zip</a>)'); ?>
 
 <p>I don't know why FoxPro did not include a message box that could prompt
 the user for information.  They have MessageBox(), but nothing like prompt()
@@ -258,7 +258,7 @@ do form Prompter with "What is 2 * 3?", "6" to m.result2
 </pre>
 <?php MakeBoxBottom() ?>
 
-<?php Section('<a name="zlib">zlib</a> (Library + Code, ' . FidianFileSize($mediaDir . 'media/zlib.zip') . ' - <a href="media/zlib.zip">zlib.zip</a>)') ?>
+<?php Section('<a name="zlib">zlib</a> (Library + Code, ' . FidianFileSize($mediaDir . 'zlib.zip') . ' - <a href="media/zlib.zip">zlib.zip</a>)') ?>
 
 <p>I have found that it is often to my advantage to compress my stray
 .dbf files that I rarely use.  I have written code to detect if my file
