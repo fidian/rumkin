@@ -5,7 +5,7 @@ StandardHeader(array(
 		'title' => 'SalangMenu',
 		'topic' => 'salangmenu'
 	));
-$Applet = '<applet code="media/SalangMenu.class" width="300" height="30">
+$Applet = '<applet codebase="media/" code="SalangMenu.class" width="300" height="30">
     <!-- Needs to be in here -->
     <param name="copyright" value="jzs club">
     <!-- Color setup -->
@@ -82,12 +82,11 @@ This is is how I got the above menu displayed:</p>
 
 <dl>
 
-<dt>applet code="media/SalangMenu.class" width="300" height="30"</dt>
+<dt>applet codebase="media/" code="SalangMenu.class" width="300" height="30"</dt>
 <dd>Make sure that it is wide enough and tall enough for your use.  The
 class files are case sensitive, so make sure you have them named correctly
 and refer to the appropriately.  Popup.class, Pulldown.class,
-SalangMenu.class.  I put mine into a "media" directory; you need not do
-the same.</dd>
+SalangMenu.class.  I put mine into a "media" directory, which explains the "codebase" attribute.</dd>
 
 <dt>param name="copyright" value="jzs club"
 <dd>Must be in here.  Sad, really, since searching for "jzs club" on the web
