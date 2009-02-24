@@ -24,8 +24,9 @@ essentialy "slide" the alphabet over to the left or right.</p>
 <form name="encoder" method=post action="#" onsubmit="return false;">
 <div id='table'>Loading ...</div>
 <p>Quickly swap two letters by typing them in here:  <input name=swap
-type=text onkeyup="quickswap()" size=3> or <a href="#"
-onclick="WriteTable(false); return false">reset the letters</a>.</p>
+type=text onkeyup="quickswap()" size=3> or reset the letters to
+<a href="#" onclick="WriteTable(false, Letters); return false">A-Z</a> or
+<a href="#" onclick="WriteTable(false, LettersAtbash); return false">Z-A</a>.</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>Result:</p>
@@ -50,6 +51,7 @@ function insert_js() {
 // It would be nice if you left this header intact.  http://rumkin.com
 
 var Letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+var LettersAtbash = 'ZYXWVUTSRQPONMLKJIHGFEDCBA0123456789';
 var last_alphabet = '', curr_alphabet = '';
 var TableColumns = 8;
 var Advanced = 0;
@@ -313,7 +315,7 @@ function Colorize(n, v)
 }
 
 
-function WriteTable(AdvMode)
+function WriteTable(AdvMode, LettersToSet)
 {
    var e = document.getElementById('table');
    var s = '', i;
@@ -324,6 +326,7 @@ function WriteTable(AdvMode)
    for (i = 0; i < Letters.length; i ++)
    {
       var c = Letters.charAt(i);
+	  var cVal = LettersToSet.charAt(i);
       
       if (i % TableColumns == 0)
       {
@@ -331,7 +334,7 @@ function WriteTable(AdvMode)
       }
       
       s += '<td align=right><b>' + c + ':</b> <input type=text name=L_' +
-         c + ' value="' + c + '" size=2 onblur="RecalcAlphabet()">';
+         c + ' value="' + cVal + '" size=2 onblur="RecalcAlphabet()">';
       
       if (Advanced)
       {
@@ -391,7 +394,7 @@ function WriteTable(AdvMode)
    {
       s += '<tr><td align=center colspan=' + TableColumns + '>' +
          '<font size="-1">' +
-         '<a href="#" onclick="WriteTable(true);">' + 
+         '<a href="#" onclick="WriteTable(true, Letters);">' + 
 	 'Advanced View</a></font></td></tr>';
    }
 
@@ -420,7 +423,7 @@ function start_update()
       return;
    }
    
-   WriteTable(false);
+   WriteTable(false, Letters);
    
    upd();
 }
