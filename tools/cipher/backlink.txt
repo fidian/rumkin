@@ -1,4 +1,5 @@
 Affine|affine.php
+Atbash|atbash.php
 Baconian|baconian.php
 Base64|base64.php
 Bifid|bifid.php
