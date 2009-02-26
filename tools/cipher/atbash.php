@@ -14,13 +14,9 @@ StandardHeader(array(
 <p>The Atbash cipher can be implemented as an <a href="affine.php">Affine cipher</a> by setting both "a" and "b" to 25.</p>
 
 <form name="encoder" method=post action="#" onsubmit="return false;">
-<p><select name="encdec">
-   <option value="1">Encrypt
-   <option value="-1">Decrypt
-</select></p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
-<p>This is your encoded or decoded text:</p>
+<p>This is your encoded/decoded text:</p>
 <?php MakeBoxTop('center'); ?>
 <span id='affine'></span>
 <?php
@@ -57,7 +53,7 @@ function start_update()
 
 function upd()
 {
-   if (IsUnchanged(document.encoder.encdec) * IsUnchanged(document.encoder.text))
+   if (IsUnchanged(document.encoder.text))
    {
       window.setTimeout('upd()', 100);
       return;
@@ -71,8 +67,7 @@ function upd()
    }
    else
    {
-      e.innerHTML = SwapSpaces(HTMLEscape(Affine(document.encoder.encdec.value * 1,
-	 document.encoder.text.value, 25, 25)));
+      e.innerHTML = SwapSpaces(HTMLEscape(Affine(1, document.encoder.text.value, 25, 25)));
    }
    
    window.setTimeout('upd()', 100);
