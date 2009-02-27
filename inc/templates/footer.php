@@ -121,7 +121,7 @@ if (isset($_SERVER['HTTPS'])) {
 	echo 'http://www.';
 }
 
-?>" type="text/javascript"></script>
+?>google-analytics.com/ga.js" type="text/javascript"></script>
 <script type="text/javascript">
 try {
 	var pageTracker = _gat._getTracker("UA-7684564-1");
