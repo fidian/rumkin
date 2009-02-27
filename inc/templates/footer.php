@@ -113,5 +113,20 @@ jsMath.Process();
 ?>
 </div>
 </td></tr></table>
+<script src="<?PHP
+
+if (isset($_SERVER['HTTPS'])) {
+	echo 'https://ssl.';
+} else {
+	echo 'http://www.';
+}
+
+?>" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-7684564-1");
+	pageTracker._trackPageview();
+} catch(err) {}
+</script>
 </body>
 </html>
