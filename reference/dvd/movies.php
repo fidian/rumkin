@@ -1,5 +1,7 @@
 <?php
 
+// Retag for new category, "crime" + "mystery"
+
 $GLOBALS['Movies'] = array(
 	'13th Warrior' => array(
 		'imdb' => 'tt0120657',
@@ -21,9 +23,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0416449',
 		'tags' => 'adventure',
 		'image' => '300.jpg'
-		
-		
-		// Guy with sword, no armor/shield
 	),
 	'6th Day, The' => array(
 		'imdb' => 'tt0216216',
@@ -34,9 +33,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0367479',
 		'tags' => 'action robbery',
 		'image' => 'After_The_Sunset.jpg'
-		
-		
-		// Five thin vertical slices of people
 	),
 	'Alien' => array(
 		'imdb' => 'tt0078748',
@@ -48,48 +44,39 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'scifi action',
 		'attrs' => 'special_edition',
 		'image' => 'Aliens.jpg'
-		
-		
-		// Right image, but shows 3d
 	),
 	'Alien 3' => array(
 		'imdb' => 'tt0103644',
 		'tags' => 'scifi action',
 		'image' => 'Alien_3.jpg'
-		
-		
-		// Similar to fire symbol in Magic: The Gathering
 	),
 	'Alien Resurrection' => array(
 		'imdb' => 'tt0118583',
 		'tags' => 'scifi action',
 		'image' => 'Alien_Resurrection.jpg'
-		
-		
-		// Right image but it is 3d
 	),
 	'Alone In The Dark' => array(
 		'imdb' => 'tt0369226',
 		'tags' => 'suspense scary thriller',
 		'image' => 'Alone_In_The_Dark.jpg'
 	),
+	'American Outlaws' => array(
+		'imdb' => 'tt0244000',
+		'tags' => 'western action added_mar_1',
+		'image' => 'American_Outlaws.jpg'
+		// red clouds, three people, jumping onto train on bottom
+	),
 	'American Pie' => array(
 		'imdb' => 'tt0163651',
 		'tags' => 'comedy',
 		'attrs' => 'unrated',
 		'image' => 'American_Pie.jpg'
-		
-		
-		// Unrated, 3 girls, holy pie
 	),
 	'American Pie 2' => array(
 		'imdb' => 'tt0252866',
 		'tags' => 'comedy',
 		'attrs' => 'unrated',
 		'image' => 'American_Pie_2.jpg'
-		
-		
-		// Class photo-ish
 	),
 	'American Wedding' => array(
 		'imdb' => 'tt0328828',
@@ -118,17 +105,11 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0137363',
 		'tags' => 'suspense',
 		'image' => 'Arlington_Road.jpg'
-		
-		
-		// Shows two faces but they are much older, then guy running away on bottom
 	),
 	'Army of Darkness' => array(
 		'imdb' => 'tt0106308',
 		'tags' => 'comedy fantasy superhero',
 		'image' => 'Army_of_Darkness.jpg'
-		
-		
-		// Chainsaw, posing, girl on leg
 	),
 	'Around the World in 80 Days' => array(
 		'imdb' => 'tt0327437',
@@ -139,9 +120,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0160009',
 		'tags' => 'action',
 		'image' => 'Art_of_War.jpg'
-		
-		
-		// Seems washed out
 	),
 	'Avengers, The' => array(
 		'imdb' => 'tt0118661',
@@ -152,9 +130,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0338751',
 		'tags' => 'drama',
 		'image' => 'Aviator.jpg'
-		
-		
-		// Right photo, remove discs
 	),
 	'Babe' => array(
 		'imdb' => 'tt0112431',
@@ -195,9 +170,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0286499',
 		'tags' => 'sports comedy',
 		'image' => 'Bend_it_Like_Beckham.jpg'
-		
-		
-		// Mouth shut (widescreen?)
 	),
 	'Better Off Dead' => array(
 		'imdb' => 'tt0088794',
@@ -208,34 +180,26 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0120609',
 		'tags' => 'action comedy martial_arts',
 		'image' => 'Big_Hit.jpg'
-		
-		
-		// Red background, pointing down with gun
 	),
 	'Blade' => array(
 		'imdb' => 'tt0120611',
 		'tags' => 'scary action martial_arts superhero',
 		'image' => 'Blade.jpg'
-		
-		
-		// Black background, 1/2 kneel, blade horizontal
 	),
 	'Blade II' => array(
 		'imdb' => 'tt0187738',
 		'tags' => 'scary action martial_arts superhero',
 		'image' => 'Blade_II.jpg'
-		
-		
-		// Image is 3d
 	),
 	'Blade: Trinity' => array(
 		'imdb' => 'tt0359013',
 		'tags' => 'scary action martial_arts superhero',
 		'attrs' => 'unrated',
 		'image' => 'Blade_Trinity.jpg'
-		
-		
-		// Silver background, blade in front, other two foggy
+	),
+	'Blue Collar Comedy Tour:  The Movie' => array(
+		'tags' => 'comedy added_mar_1',
+		// FIXME:  Expand
 	),
 	'Bob the Builder: Building Bobland Bay' => array(
 		'imdb' => 'tt0262151',
@@ -247,6 +211,14 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'animated kid_safe',
 		'image' => 'Bob_the_Builder_Celebrate_with_Bob.jpg'
 	),
+	'Bob the Builder: Digging for Treasure' => array(
+		'tags' => 'animated kid_safe added_mar_1',
+		// FIXME:  Expand
+	),
+	'Bob the Builder: Getting the Job Done' => array(
+		'tags' => 'animated kid_safe added_mar_1',
+		// FIXME:  Expand
+	),
 	'Bob the Builder: Knights of Fix-a-lot, The' => array(
 		'imdb' => 'tt0397931',
 		'tags' => 'animated kid_safe',
@@ -256,6 +228,10 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0262151',
 		'tags' => 'animated kid_safe',
 		'image' => 'Bob_the_Builder_Pets_in_a_Pickle.jpg'
+	),
+	'Bob the Builder: Teamwork' => array(
+		'tags' => 'animated kid_safe added_mar_1',
+		// FIXME:  Expand
 	),
 	'Bob the Builder: Tool Power!' => array(
 		'imdb' => 'tt0262151',
@@ -267,6 +243,14 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'animated kid_safe',
 		'image' => 'Bob_the_Builder_Top_Team.jpg'
 	),
+	'Bob the Builder: Yes We Can' => array(
+		'tags' => 'animated kid_safe',
+		// FIXME:  Expand
+	),
+	'Book of Shadows: Blair Witch 2' => array(
+		'tags' => 'scary added_mar_1',
+		// FIXME:  Expand
+	),
 	'Book of Pooh: Stories from the Heart' => array(
 		'tags' => 'animated kid_safe added_jan_15',
 		'image' => 'Book_of_Pooh_Stories_from_the_Heart.jpg'
@@ -275,30 +259,33 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0112573',
 		'tags' => 'drama action',
 		'image' => 'Braveheart.jpg'
-		
-		
-		// Red background - fire-ish effect?
 	),
 	'Breakin\'' => array(
 		'imdb' => 'tt0086998',
 		'tags' => 'dance',
 		'image' => 'Breakin.jpg'
-		
-		
-		// White top, spinning on back on bottom
 	),
 	'Breakin\' 2: Electric Boogaloo' => array(
 		'imdb' => 'tt0086999',
 		'tags' => 'dance',
 		'image' => 'Breakin_2_Electric_Boogaloo.jpg'
-		
-		
-		// Gold background, guy doing backflip
 	),
 	'Bridge to Terabithia' => array(
 		'imdb' => 'tt0398808',
 		'tags' => 'adventure fantasy',
 		'image' => 'Bridge_to_Terabithia.jpg'
+	),
+	'Bulletproof Monk' => array(
+		'tags' => 'martial_arts added_mar_1',
+		// FIXME:  Expand
+	),
+	'Care Bears: Bedtime Stories' => array(
+		'tags' => 'animated kid_safe added_mar_1',
+		// FIXME:  Expand
+	),
+	'Care Bears: Desert Gold and Bad Luck Friday' => array(
+		'tags' => 'animated kid_safe added_mar_1',
+		// FIXME:  Expand
 	),
 	'Cars' => array(
 		'imdb' => 'tt0317219',
@@ -308,42 +295,42 @@ $GLOBALS['Movies'] = array(
 	'Charlie\'s Angels: Full Throttle' => array(
 		'imdb' => 'tt0305357',
 		'tags' => 'action',
-		'attrs' => 'special_edition',
+		'attrs' => 'special_edition unrated',
 		'image' => 'Charlies_Angels_Full_Throttle.jpg'
-		
-		
-		// Red background, three nearly matching black outfits
+	),
+	'Cheech &amp; Chong\'s The Corsican Brothers' => array(
+		'imdb' => 'tt0087042',
+		'tags' => 'comedy added_jan_15',
+		'image' => 'Cheech_Chongs_The_Corsican_Brothers.jpg'
 	),
 	'Children of Men' => array(
 		'imdb' => 'tt0206634',
 		'tags' => 'drama catastrophe',
 		'image' => 'Children_of_Men.jpg'
 	),
+	'Children\'s Favorites Spring Into Fun' => array(
+		'tags' => 'kid_safe added_mar_1',
+		// FIXME:  Expand
+	),
 	'Chronicles of Narnia: The Lion, the Witch and the Wardrobe, The' => array(
 		'imdb' => 'tt0363771',
 		'tags' => 'fantasy',
 		'image' => 'Chronicles_of_Narnia_The_Lion_the_Witch_and_the_Wardrobe.jpg'
-		
-		
-		// Red wood carved wardrobe
 	),
 	'Chronicles of Riddick, The' => array(
 		'imdb' => 'tt0296572',
-		'tags' => 'scifi action',
 		'attrs' => 'unrated directors_cut',
 		'image' => 'Chronicles_of_Riddick.jpg'
-		
-		
-		// Riddic + knives above, underlord below
+	),
+	'City By The Sea' => array(
+		'tags' => 'crime drama thriller added_mar_1',
+		// FIXME:  Expand
 	),
 	'Click' => array(
 		'imdb' => 'tt0389860',
 		'tags' => 'comedy',
 		'attrs' => 'special_edition',
 		'image' => 'Click.jpg'
-		
-		
-		// Blue background, Sandler + remote - Special
 	),
 	'Cloverfield' => array(
 		'imdb' => 'tt1060277',
@@ -355,18 +342,14 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'scary fantasy',
 		'image' => 'Company_of_Wolves.jpg'
 	),
-	'Cheech &amp; Chong\'s The Corsican Brothers' => array(
-		'imdb' => 'tt0087042',
-		'tags' => 'comedy added_jan_15',
-		'image' => 'Cheech_Chongs_The_Corsican_Brothers.jpg'
-	),
 	'Count of Monte Cristo, The' => array(
 		'imdb' => 'tt0245844',
 		'tags' => 'drama',
 		'image' => 'Count_of_Monte_Cristo.jpg'
-		
-		
-		// Two faces looking through crack in black cover
+	),
+	'Constant Gardener, The' => array(
+		'tags' => 'drama romance thriller added_mar_1',
+		// FIXME:  Expand
 	),
 	'Covenant, The' => array(
 		'imdb' => 'tt0475944',
@@ -388,6 +371,10 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'drama',
 		'image' => 'Crash.jpg'
 	),
+	'Crossroads' => array(
+		'tags' => 'adventure comedy drama added_mar_1',
+		// FIXME:  Expand
+	),
 	'Crouching Tiger Hidden Dragon' => array(
 		'imdb' => 'tt0190332',
 		'tags' => 'action martial_arts drama',
@@ -397,9 +384,6 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0104040',
 		'tags' => 'sports romance',
 		'image' => 'Cutting_Edge.jpg'
-		
-		
-		// Gold medal edition has gold banner on top, closer picture, dots
 	),
 	'Daredevil' => array(
 		'imdb' => 'tt0287978',
@@ -430,6 +414,10 @@ $GLOBALS['Movies'] = array(
 		'notes' => 'In George A. Romero\'s "Dead" series: Night, Dawn, Day, Land, and Diary of the Dead.',
 		'image' => 'Day_of_the_Dead.jpg'
 	),
+	'Day Watch' => array(
+		'tags' => 'action added_mar_1',
+		// FIXME:  Expand
+	),
 	'Day X' => array(
 		'imdb' => 'tt0487891',
 		'tags' => 'catastrophe added_jan_15',
@@ -458,6 +446,10 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'scifi action',
 		'image' => 'Demolition_Man.jpg'
 	),
+	'Derailed' => array(
+		'tags' => 'drama thriller added_mar_1',
+		// FIXME:  Expand
+	),
 	'Descent, The' => array(
 		'imdb' => 'tt0435625',
 		'tags' => 'scary suspense',
@@ -466,6 +458,10 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// image is 3d
+	),
+	'Desperado' => array(
+		'tags' => 'action added_mar_1',
+		// FIXME:  Expand
 	),
 	'Devil Wears Prada, The' => array(
 		'imdb' => 'tt0458352',
@@ -513,6 +509,11 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'drama',
 		'image' => 'Dollmaker.jpg'
 	),
+	'Doom' => array(
+		'tags' => 'thriller scifi scary action added_mar_1',
+		'attrs' => 'unrated extended_edition',
+		// FIXME:  Expand
+	),
 	'Double Team' => array(
 		'imdb' => 'tt0119013',
 		'tags' => 'action',
@@ -549,6 +550,10 @@ $GLOBALS['Movies'] = array(
 		
 		// 3d image
 	),
+	'Dunston Checks In' => array(
+		'tags' => 'comedy adventure family added_mar_1',
+		// FIXME:  Expand
+	),
 	'Eight Below' => array(
 		'imdb' => 'tt0397313',
 		'tags' => 'kid_safe cute adventure',
@@ -564,6 +569,10 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// White on left, red on right, crossing arms with sais
+	),
+	'Enemy at the Gates' => array(
+		'tags' => 'action drama added_mar_1',
+		// FIXME:  Expand
 	),
 	'Enemy of the State' => array(
 		'imdb' => 'tt0120660',
@@ -617,6 +626,10 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Gold, not silver on top and bottom
+	),
+	'Fear Dot Com' => array(
+		'tags' => 'scary added_mar_1',
+		// FIXME:  Expand
 	),
 	'Feast of All Saints, The' => array(
 		'imdb' => 'tt0255730',
@@ -793,6 +806,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Darker, wider, no silver bar
 	),
+	'Hannibal' => array(
+		'tags' => 'scary thriller added_mar_1',
+		// FIXME:  Expand
+	),
 	'Happening, The' => array(
 		'imdb' => 'tt0949731',
 		'tags' => 'catastrophe',
@@ -859,6 +876,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Two in lower center, army behind, 5 stars
 	),
+	'High Crimes' => array(
+		'tags' => 'crime thriller drama added_mar_1',
+		// FIXME:  Expand
+	),
 	'Highlander' => array(
 		'imdb' => 'tt0091203',
 		'tags' => 'martial_arts action fantasy',
@@ -888,6 +909,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Weird alien-looking tentacle thing
 	),
+	'House Next Door, The' => array(
+		'imdb' => 'tt0286702',
+		'tags' => 'scary suspense',
+		'image' => 'House_Next_Door.jpg'
+	),
 	'House of Flying Daggers' => array(
 		'imdb' => 'tt0385004',
 		'tags' => 'martial_arts fantasy',
@@ -896,12 +922,11 @@ $GLOBALS['Movies'] = array(
 		
 		// Three above, bamboo scene below
 	),
-	'House Next Door, The' => array(
-		'imdb' => 'tt0286702',
-		'tags' => 'scary suspense',
-		'image' => 'House_Next_Door.jpg'
-	),
 	'House on Haunted Hill' => array(
+		'tags' => 'scary added_mar_1',
+		// FIXME:  Expand
+	),
+	'House on Haunted Hill [Old]' => array(
 		'imdb' => 'tt0051744',
 		'tags' => 'scary',
 		'attrs' => 'multi_pack',
@@ -1015,10 +1040,19 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'action scifi added_jan_15',
 		'image' => 'Jumper.jpg',
 	),
+	'Junk' => array(
+		'imdb' => 'tt0273302', // TODO:  Confirm
+		'tags' => 'scary catastrophe added_mar_1',
+		// FIXME:  Expand
+	),
 	'Jurassic Park' => array(
 		'imdb' => 'tt0107290',
 		'tags' => 'scary thriller',
 		'image' => 'Jurassic_Park.jpg'
+	),
+	'Jurassic Park III' => array(
+		'tags' => 'scary thriller added_mar_1',
+		// FIXME:  Expand
 	),
 	'Knight\'s Tale, A' => array(
 		'imdb' => 'tt0183790',
@@ -1047,6 +1081,11 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Black background, willis on top shooting left, thugs on bottom
+	),
+	'Last Samurai, The' => array(
+		'imdb' => 'tt0325710',
+		'tags' => 'martial_arts adventure added_mar_1',
+		'image' => 'Last_Samurai.jpg'
 	),
 	'Last Starfighter, The' => array(
 		'imdb' => 'tt0087597',
@@ -1077,6 +1116,10 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Crystal ball
+	),
+	'Legend of Hell House' => array(
+		'tags' => 'scary added_mar_1',
+		// FIXME:  Expand
 	),
 	'Legends of the Fall' => array(
 		'imdb' => 'tt0110322',
@@ -1231,6 +1274,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Five people, MUMMY on top, invading army on bottom
 	),
+	'Murder By Numbers' => array(
+		'tags' => 'mystery thriller suspense added_mar_1',
+		// FIXME:  Expand
+	),
 	'Musketeer, The' => array(
 		'imdb' => 'tt0246544',
 		'tags' => 'adventure fantasy martial_arts action',
@@ -1265,6 +1312,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Door with person opening into space
 	),
+	'Night Watch' => array(
+		'tags' => 'scary added_mar_1',
+		// FIXME:  Expand
+	),
 	'Night of the Living Dead' => array(
 		'imdb' => 'tt0063350',
 		'tags' => 'catastrophe scary',
@@ -1281,6 +1332,10 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0151804',
 		'tags' => 'comedy robbery',
 		'image' => 'Office_Space.jpg'
+	),
+	'Omen, The' => array(
+		'tags' => 'scary added_mar_1',
+		// FIXME:  Expand
 	),
 	'Once Upon A Time In Mexico' => array(
 		'imdb' => 'tt0285823',
@@ -1407,6 +1462,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Princess left of center, the two at bottom
 	),
+	'Protocol' => array(
+		'tags' => 'romance comedy added_mar_1',
+		// FIXME:  Expand
+	),
 	'Punisher, The' => array(
 		'imdb' => 'tt0330793',
 		'tags' => 'action added_jan_15',
@@ -1429,10 +1488,22 @@ $GLOBALS['Movies'] = array(
 		
 		// No disc
 	),
+	'Radio' => array(
+		'tags' => 'drama added_mar_1',
+		// FIXME:  Expand
+	),
 	'Ratatouille' => array(
 		'imdb' => 'tt0382932',
 		'tags' => 'animated kid_safe added_jan_15',
 		'image' => 'Ratatouille.jpg'
+	),
+	'Red Planet' => array(
+		'tags' => 'scifi scary added_mar_1',
+		// FIXME:  Expand
+	),
+	'Replacement Killers' => array(
+		'tags' => 'action crime added_mar_1',
+		// FIXME:  Expand
 	),
 	'Resident Evil' => array(
 		'imdb' => 'tt0120804',
@@ -1500,6 +1571,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Black and white, but basically the same
 	),
+	'Sahara' => array(
+		'tags' => 'action thriller added_mar_1',
+		// FIXME:  Expand
+	),
 	'Saint, The' => array(
 		'imdb' => 'tt0120053',
 		'tags' => 'action robbery',
@@ -1553,6 +1628,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Smiling face in center, dark bg, singer lower left
 	),
+	'Sentinel, The' => array(
+		'tags' => 'action crime drama added_mar_1',
+		// FIXME:  Expand
+	),
 	'Serenity' => array(
 		'imdb' => 'tt0379786',
 		'tags' => 'action scifi',
@@ -1568,6 +1647,10 @@ $GLOBALS['Movies'] = array(
 		
 		
 		// Jackie and owen top, owen and jackie in tubs below
+	),
+	'Siege, The' => array(
+		'tags' => 'action crime thriller added_mar_1',
+		// FIXME:  Expand
 	),
 	'Signs' => array(
 		'imdb' => 'tt0286106',
@@ -1655,6 +1738,15 @@ $GLOBALS['Movies'] = array(
 		
 		// Two swinging, skyline down below
 	),
+	'Spirit' => array(
+		'tags' => 'animated kid_safe added_mar_1',
+		// FIXME:  Expand
+	),
+	'Sphere' => array(
+		'tags' => 'scifi scary added_mar_1',
+		'attrs' => 'special_edition',
+		// FIXME:  Expand
+	),
 	'SpongeBob Squarepants Movie, The' => array(
 		'tags' => 'animated kid_safe',
 		'image' => 'SpongeBob_Squarepants_Movie.jpg'
@@ -1675,6 +1767,18 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0286152',
 		'tags' => 'comedy robbery',
 		'image' => 'Stark_Raving_Mad.jpg'
+	),
+	'Starship Troopers' => array(
+		'tags' => 'scifi action added_mar_1',
+		// FIXME:  Expand
+	),
+	'Starship Troopers 2: Hero of the Federation' => array(
+		'tags' => 'scifi action added_mar_1',
+		// FIXME:  Expand
+	),
+	'Starship Troopers 3: Marauder' => array(
+		'tags' => 'scifi action added_mar_1',
+		// FIXME:  Expand
 	),
 	'Strictly Ballroom' => array(
 		'imdb' => 'tt0105488',
@@ -1704,6 +1808,10 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0324127',
 		'tags' => 'drama scary scifi',
 		'image' => 'Suspect_Zero.jpg'
+	),
+	'Tears of the Sun' => array(
+		'tags' => 'action added_mar_1',
+		// FIXME:  Expand
 	),
 	'Terminator 2:  Judgement Day' => array(
 		'imdb' => 'tt0103064',
@@ -1808,6 +1916,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Two standing in front of buildings in tons of money
 	),
+	'Traffic' => array(
+		'tags' => 'crime drama added_mar_1',
+		// FIXME:  Expand
+	),
 	'Transporter, The' => array(
 		'imdb' => 'tt0293662',
 		'tags' => 'action added_jan_15',
@@ -1882,6 +1994,11 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'scary suspense',
 		'image' => 'Village.jpg'
 	),
+	'Virus' => array(
+		'imdb' => 'tt0080768',
+		'tags' => 'catastrophe added_mar_1',
+		// FIXME:  Expand
+	),
 	'Wall-E' => array(
 		'imdb' => 'tt0910970',
 		'tags' => 'animated kid_safe scifi added_jan_15',
@@ -1951,6 +2068,10 @@ $GLOBALS['Movies'] = array(
 		
 		// Not movie poster
 	),
+	'X-Files: Fight the Future' => array(
+		'tags' => 'scifi scary adventure added_mar_1',
+		// FIXME:  Expand
+	),
 	'X-Men' => array(
 		'imdb' => 'tt0120903',
 		'tags' => 'action',
@@ -2002,11 +2123,6 @@ $GLOBALS['Movies'] = array(
 		
 		// Robot on top, three faces center left, space down and right
 	),
-	'American Outlaws' => array(
-		'imdb' => 'tt0244000',
-		'tags' => 'western action wanted',
-		'image' => 'American_Outlaws.jpg'
-	),
 	'Born in East L.A.' => array(
 		'imdb' => 'tt0092690',
 		'tags' => 'wanted comedy',
@@ -2053,11 +2169,6 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'wanted drama',
 		'image' => 'Joy_Luck_Club.jpg'
 	),
-	'Last Samurai, The' => array(
-		'imdb' => 'tt0325710',
-		'tags' => 'wanted martial_arts adventure',
-		'image' => 'Last_Samurai.jpg'
-	),
 	'Murder at 1600' => array(
 		'imdb' => 'tt0119731',
 		'tags' => 'wanted action',
@@ -2083,6 +2194,10 @@ $GLOBALS['Movies'] = array(
 		'tags' => 'catastrophe scifi wanted',
 		'image' => 'Reign_of_Fire.jpg'
 	),
+	'Relic, The' => array(
+		'tags' => 'horror wanted',
+		// FIXME:  Expand
+	),
 	'Ring of Steel' => array(
 		'imdb' => 'tt0110991',
 		'tags' => 'wanted sports',
@@ -2097,6 +2212,14 @@ $GLOBALS['Movies'] = array(
 		'imdb' => 'tt0465602',
 		'tags' => 'action wanted',
 		'image' => 'Shoot_Em_Up.jpg'
+	),
+	'Species' => array(
+		'tags' => 'horror wanted',
+		// FIXME:  Expand
+	),
+	'Terminator' => array(
+		'tags' => 'scifi action',
+		// FIXME:  Expand
 	),
 	'Tin Cup' => array(
 		'imdb' => 'tt0117918',
