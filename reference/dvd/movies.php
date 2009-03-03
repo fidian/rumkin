@@ -319,6 +319,7 @@ $GLOBALS['Movies'] = array(
 	),
 	'Chronicles of Riddick, The' => array(
 		'imdb' => 'tt0296572',
+		'tags' => 'scifi action',
 		'attrs' => 'unrated directors_cut',
 		'image' => 'Chronicles_of_Riddick.jpg'
 	),
