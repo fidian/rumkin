@@ -88,6 +88,11 @@ $results = array(
 		'Windows XP',
 		'6x faster'
 	),
+	array(
+		'Safari 4.0 Beta',
+		'Mac OS X',
+		'7x faster'
+	),
 );
 ShowExample($code, $results);
 
@@ -161,6 +166,11 @@ $results = array(
 		'Opera 9.10',
 		'Windows XP',
 		'2x faster'
+	),
+	array(
+		'Safari 4.0 Beta',
+		'Mac OS X',
+		'1.8x faster'
 	),
 );
 ShowExample($code, $results);
