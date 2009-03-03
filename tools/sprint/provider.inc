@@ -145,6 +145,7 @@ $GLOBALS['Providers'] = array(
 	'@messaging.nextel.com',  // Nextel
 	'@page.nextel.com',  // Nextel
 	'@nextel.com.br',  // Nextel
+	'@txt.northerntelmobility.com',  // NorthernTel Mobility
 	'@npiwireless.com',  // NPI Wireless
 	'@pcs.ntelos.com',  // Ntelos
 	'@omnipoint.com',  // Omnipoint
