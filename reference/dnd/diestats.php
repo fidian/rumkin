@@ -91,111 +91,127 @@ function roll() {
    resultsDiv.innerHTML = out;
 }
 
+function rollDice(times, dieMax) {
+	var rolls = new Array();
+	while (times --) {
+		if (rolls.length == 0) {
+			for (var die = 1; die <= dieMax; die ++) {
+				var rollSet = new Array();
+				rollSet.push(die);
+				rolls[rolls.length] = rollSet;
+			}
+		} else {
+			var newRolls = new Array();
+			for (var die = 1; die <= dieMax; die ++) {
+				for (var i in rolls) {
+					var rollSet = rolls[i].slice();
+					rollSet.push(die);
+					newRolls[newRolls.length] = rollSet;
+				}
+			}
+			rolls = newRolls;
+		}
+	}
+
+	return rolls;
+}
+
+function dropDice(drop, rolls) {
+	for (var i in rolls) {
+		var rollSet = rolls[i];
+		rollSet.sort(sortNumeric);
+		var drops = drop;
+		while (drops --) {
+			rollSet.pop();
+		}
+		rolls[i] = rollSet;
+	}
+	return rolls;
+}
+
+function sortNumeric(a, b) {
+	return (b * 1) - (a * 1);
+}
+
+function tallyResults(results, rolls, sign) {
+	var newResults = new Array();
+	for (var roll in rolls) {
+		var rollSet = rolls[roll];
+		var sum = 0;
+		for (var i in rollSet) {
+			sum += rollSet[i] * 1;
+		}
+		sum *= sign;
+		for (var i in results) {
+			var idx = (i * 1) + sum;
+			if (newResults[idx]) {
+				newResults[idx] += results[i];
+			} else {
+				newResults[idx] = results[i];
+			}
+		}
+	}
+	return newResults;
+}
+
 function parseStr(rollStr) {
-   var results = new Array();
+	var results = new Array();
+
+	rollStr = rollStr.replace(/[ \t]/, '');
+	rollStr = rollStr.replace(/-/, '+-');
+	rollStr = rollStr.split('+');
+	results[0] = 1;
    
-   rollStr = rollStr.replace(/[ \t]/, '');
-   rollStr = rollStr.replace(/-/, '+-');
-   rollStr = rollStr.split('+');
-   results[0] = 1;
-   
-   while (rollStr.length) {
-      var thisBit = rollStr.shift();
-      var sign = 1;
-      if (thisBit.slice(0, 1) == '-') {
-         sign = -1;
-	 thisBit = thisBit.slice(1);
-      }
-      if (thisBit == '') {
-         thisBit = '0';
-      }
-      if (thisBit.indexOf('d') < 0) {
-      	 thisBit = parseInt(thisBit);
-         if (results.length) {
-	    var newResults = new Array();
-	    for (var i in results) {
-	       newResults[(i * 1) + (sign * thisBit)] = results[i];
-	    }
-	    results = newResults;
-	 }
-      } else {
-         thisBit = thisBit.split('d');
-	 var times = thisBit[0] * 1;
-	 thisBit = thisBit[1].split('D');
-	 var dieMax = thisBit[0] * 1;
-	 var drop = thisBit[1] * 1;
-	 if (times < 1) {
-	    times = 1;
-	 }
-	 if (dieMax < 1) {
-	    dieMax = 1;
-	 }
-	 if (drop < 1) {
-	    drop = 0;
-	 }
-	 if (drop >= times) {
-	    drop = times - 1;
-	 }
-	 
-	 var rolls = new Array();
-	 while (times --) {
-	    if (rolls.length == 0) {
-	       for (var die = 1; die <= dieMax; die ++) {
-	          var rollSet = new Array();
-		  rollSet.push(die);
-	          rolls[rolls.length] = rollSet;
-	       }
-	    } else {
-	       var newRolls = new Array();
-	       for (var die = 1; die <= dieMax; die ++) {
-	          for (var i in rolls) {
-		     var rollSet = rolls[i].slice();
-		     rollSet.push(die);
-		     newRolls[newRolls.length] = rollSet;
-		  }
-	       }
-	       rolls = newRolls;
-	    }
-	 }
-	 while (drop --) {
-	    for (var i in rolls) {
-	       var minIdx = -1;
-	       for (var j in rolls[i]) {
-	          if (rolls[i][j] * 1 > 0) {
-	             if (minIdx == -1 ||
-	                 rolls[i][minIdx] * 1 > rolls[i][j] * 1) {
-		        minIdx = j;
-                     }	
-		  }
-	       }
-	       rolls[i][minIdx] = 0;
-	    }
-	 }
-	 var newResults = new Array();
-	 for (var roll in rolls) {
-	    var rollSet = rolls[roll];
-	    var sum = 0;
-	    for (var i in rollSet) {
-	       sum += rollSet[i] * 1;
-	    }
-	    sum *= sign;
-	    for (var i in results) {
-	       var idx = (i * 1) + sum;
-	       if (newResults[idx]) {
-		  newResults[idx] += results[i];
-	       } else {
-		  newResults[idx] = results[i];
-	       }
-	    }
-	 }
-	 results = newResults;
-      }
-   }
-   
-   if (results.length == 1 && results[0] == 1) {
-      return '';
-   }
-   return results;
+	while (rollStr.length) {
+		var thisBit = rollStr.shift();
+		var sign = 1;
+		if (thisBit.slice(0, 1) == '-') {
+			sign = -1;
+			thisBit = thisBit.slice(1);
+		}
+		if (thisBit == '') {
+			thisBit = '0';
+		}
+		if (thisBit.indexOf('d') < 0) {
+			thisBit = parseInt(thisBit);
+			if (results.length) {
+				var newResults = new Array();
+				for (var i in results) {
+					newResults[(i * 1) + (sign * thisBit)] = results[i];
+				}
+				results = newResults;
+			}
+		} else {
+			thisBit = thisBit.split('d');
+			var times = thisBit[0] * 1;
+			thisBit = thisBit[1].split('D');
+			var dieMax = thisBit[0] * 1;
+			var drop = thisBit[1] * 1;
+			if (times < 1) {
+				times = 1;
+			}
+			if (dieMax < 1) {
+				dieMax = 1;
+			}
+			if (drop < 1) {
+				drop = 0;
+			}
+			if (drop >= times) {
+				drop = times - 1;
+			}
+	
+			var rolls = rollDice(times, dieMax);
+			if (drop) {
+				rolls = dropDice(drop, rolls);
+			}
+			results = tallyResults(results, rolls, sign);
+		}
+	}
+
+	if (results.length == 1 && results[0] == 1) {
+		return '';
+	}
+	return results;
 }
 
 function genStats(rollData) {
