@@ -58,6 +58,8 @@ mixer.</p>
 
 <p>Which wristwatches are Swiss wristwatches?</p>
 
+<p>Ritz wristwatch [a <a href="media/ritz_wristwatch.jpg">Ritz variant</a> on the above]</p>
+
 <p>A box of biscuits, a box of mixed biscuits, and a biscuit mixer.</p>
 
 <p>If a black bug bleeds black blood, what color blood does a blue bug
