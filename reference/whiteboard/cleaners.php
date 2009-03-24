@@ -170,21 +170,6 @@ $Cleaners = array(
 		'It was advertised to remove crayon, marker, and a slew of ' . 'other things.  We had to throw it away because it smeared the ink ' . 'and it got into the sponge.  Don\'t waste your money on this ' . 'product.'
 	),
 	array(
-		'Graffiti Remover MB-10',
-		'Solutions MB',
-		5,
-		5,
-		'mb_10',
-		'The best cleaner tested, mild irritant',
-		'mb10.jpg',
-		'I am unable to say enough good things about this product',
-		'<a href="http://solutionsmb.com">Solutions MB</a> contacte me ' . 'and let me know about a whiteboard paint that they produce, and ' . 'they told me about the cleaner.  They talked me into it and I ' . 'purchased a bottle (without any discount or anything!).  ' . 'When I first got it in the mail, I smelled it and it just smelled ' . 'like soapy water.  Immediatly, I thought it would fail.  When it ' . 'came time to do the test, we waited a bit before testing this ' . 'product.  I sprayed the whiteboard, waited the full amount of time, ' . 'and I didn\'t see much change in the marks.  I was still skeptical ' . 'before I started wiping, but after the very first wipe, a good ' . 'portion of the square was already clean.  Three or four more wipes, ' . 'and I was done.',
-		'My testing partner let out a "Wow" and I wanted to test it ' . 'again.  A couple spritz over on another section of the board, ' . 'wait five seconds, then wiped.  Again, almost everything came off.',
-		'If you are going to buy a product to clean your board, I strongly ' . 'suggest this one!  After the test, we cleaned the whole 4\' x 8\' ' . 'board with just a few tablespoons of the cleaner and it removed ' . 'the <a href="#baby_oil">baby oil</a>, <a href="#lysol">Lysol ' . 'Kitchen Cleaner</a> film, and other residues that remained.',
-		'The product does produce some sort of irritation.  It isn\'t like ' . 'the fumes that some cleaners have.  Instead, when you use the ' . 'spray bottle and the fine mist is sprayed out, one might inhale ' . 'a tiny bit of that mist and it just feels irritating in your ' . 'throat.  I\'m sure that breathing any cleaner is a bad thing, ' . 'and I only noticed the sensation when I got my head close ' . 'to the cleaning surface.  It did not happen when I first opened ' . 'up the bottle and stuck my nose an inch above the opening.',
-		'I have been told that MB10 and MB10w are the same product, but ' . 'MB10 is gelled so it will cling to vertical surfaces longer to ' . 'help remove heavy residue.  MB10w is more of a liquid form ' . 'for packaging in a fingre pump sprayer, which is what I tested.'
-	),
-	array(
 		'Hair Spray',
 		'Suave Naturals',
 		3,
@@ -233,6 +218,21 @@ $Cleaners = array(
 		'Did not add any cleaning power',
 		'marker_wet.jpg',
 		'I ruined a marker in order to show everyone that it worked just as ' . 'well as a wet cloth.  You don\'t need to replicate this particular ' . 'cleaning experiment.'
+	),
+	array(
+		'MB10W Whiteboard Cleaner',
+		'Solutions MB',
+		5,
+		5,
+		'mb10w',
+		'The best cleaner tested, mild irritant',
+		'mb10.jpg',
+		'I am unable to say enough good things about this product',
+		'<a href="http://solutionsmb.com">Solutions MB</a> contacted me ' . 'and let me know about a whiteboard paint that they produce, and ' . 'they told me about the cleaner.  They talked me into it and I ' . 'purchased a bottle (without any discount or anything!).  ' . 'When I first got it in the mail, I smelled it and it just smelled ' . 'like soapy water.  Immediatly, I thought it would fail.  When it ' . 'came time to do the test, we waited a bit before testing this ' . 'product.  I sprayed the whiteboard, waited the full amount of time, ' . 'and I didn\'t see much change in the marks.  I was still skeptical ' . 'before I started wiping, but after the very first wipe, a good ' . 'portion of the square was already clean.  Three or four more wipes, ' . 'and I was done.',
+		'My testing partner let out a "Wow" and I wanted to test it ' . 'again.  A couple spritz over on another section of the board, ' . 'wait five seconds, then wiped.  Again, almost everything came off.',
+		'If you are going to buy a product to clean your board, I strongly ' . 'suggest this one!  After the test, we cleaned the whole 4\' x 8\' ' . 'board with just a few tablespoons of the cleaner and it removed ' . 'the <a href="#baby_oil">baby oil</a>, <a href="#lysol">Lysol ' . 'Kitchen Cleaner</a> film, and other residues that remained.',
+		'The product does produce some sort of irritation.  It isn\'t like ' . 'the fumes that some cleaners have.  Instead, when you use the ' . 'spray bottle and the fine mist is sprayed out, one might inhale ' . 'a tiny bit of that mist and it just feels irritating in your ' . 'throat.  I\'m sure that breathing any cleaner is a bad thing, ' . 'and I only noticed the sensation when I got my head close ' . 'to the cleaning surface.  It did not happen when I first opened ' . 'up the bottle and stuck my nose an inch above the opening.',
+		'If you need a stronger form, MB10 (without the W at the end) is gelled and will cling to vertical services longer to remove heavy residue, which is designed to be a graffiti remover more than a whiteboard cleaner.'
 	),
 	array(
 		'Mineral Spirits',
@@ -323,7 +323,7 @@ $Cleaners = array(
 		'greased_lightning',
 		'Removed most marks',
 		'lightning.jpg',
-		'Nearly everything was removed by this stain remover.  My mom ' . 'uses it to get stains (oil, pizza, tar, etc.) off of clothing.  ' . 'It looks like you can use it nicely on the board as well.  It ' . 'did not have instant results like the ' . '<a href="#paint_stripper">paint stripper</a> or ' . '<a href="#mb_10">MB-10</a>, ' . 'but we didn\'t need to work too hard to make most of the marks ' . 'come off the board.'
+		'Nearly everything was removed by this stain remover.  My mom ' . 'uses it to get stains (oil, pizza, tar, etc.) off of clothing.  ' . 'It looks like you can use it nicely on the board as well.  It ' . 'did not have instant results like the ' . '<a href="#paint_stripper">paint stripper</a> or ' . '<a href="#mb10w">MB10W</a>, ' . 'but we didn\'t need to work too hard to make most of the marks ' . 'come off the board.'
 	),
 	array(
 		'Stain Remover',

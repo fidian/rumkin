@@ -105,7 +105,14 @@ $Things = array(
 		5,
 		'mb3000',
 		'Turns a surface into a whiteboard',
-		'<a href="images/mb3000.jpg"><img align="right" src="images/mb3000_small.jpg"></a>I was contacted by <a href="http://solutionsmb.com/">Solutions MB</a> regarding their whiteboard repair kit.  Really, it is a clear coating that you can apply to a surface that will turn it into a whiteboard.  I used the product to turn my ruined whiteboard into a new "pinkboard."  The surface wipes off markers well, but not quite as well as a whiteboard.  It was $40 for 8 oz, but you use only a thin coat to turn any painted surface into a whiteboard.</p><p>The down side is that when you apply it with a foam brush, it may cause some minor streaks and really tiny bubbles to show up on the surface of the coating.  The problem I had may have been made worse because I didn\'t wait for the paint underneath to finish curing.  See my instructions for <a href="make.php#mb3000">making a whiteboard</a> with with MB-3000 for more information.</p><p>If you want to turn the walls of your house into whiteboard surfaces, this might be perfect.'
+		'<a href="images/mb3000.jpg"><img align="right" src="images/mb3000_small.jpg"></a>I was contacted by <a href="http://www.solutionsmb.com/">Solutions MB</a> regarding their whiteboard repair kit.  Really, it is a clear coating that you can apply to a surface that will turn it into a whiteboard.  I used the product to turn my ruined whiteboard into a new "pinkboard."  The surface wipes off markers well, but not quite as well as a whiteboard.  It was $40 for 8 oz, but you use only a thin coat to turn any painted surface into a whiteboard.</p><p>The down side is that when you apply it with a foam brush, it may cause some minor streaks and really tiny bubbles to show up on the surface of the coating.  The problem I had may have been made worse because I didn\'t wait for the paint underneath to finish curing.  See my instructions for <a href="make.php#mb3000">making a whiteboard</a> with with MB-3000 for more information.</p><p>If you want to turn the walls of your house into whiteboard surfaces, this might be perfect.'
+	),
+	'MB4000W Whiteboard Coating' => array(
+		3,
+		5,
+		'mb4000w',
+		'Water-based coating to create a whiteboard',
+		'<p><a href="http://www.solutionsmb.com/">Solutions MB</a> came out with a water-based version of their MB3000 coating and asked if I would try it.  After several attempts to get it to apply smoothly, I believe that I have finally discovered the right way to apply it.  You want to follow their directions and prep the area just right.  Then, when you coat the surface, you want to only put on a thin layer (just make it wet).  Let it dry completely, then add another layer if you desire.  If the layer is too thick or if you work the material as it is drying, you will make the surface rough and no marker will erase.</p><p>I also have issues wiping marker off sometimes.  I have two boards that I attempted to coat identically.  One erases like magic, the other (the one I had a hard time coating) has ghosting in areas.</p><p>Done right, this stuff works well.</p>',
 	),
 	'Metal, Sheet' => array(
 		0,
