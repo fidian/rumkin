@@ -8,6 +8,22 @@ SprintStandardHeader('Phone Uploader');
 
 <?PHP
 
+Section('Ringers');
+YouTube('dzQWKWZurMQ', array('float' => 'right')); // Create a ringer
+
+?>
+
+<ol>
+<li>Find a good chunk of audio that you want to turn into a ringer.
+<li>Use free software to crop, run a high pass, run a low pass, and normalize the sounds.
+<li>Save and convert to MP3 using an online tool.
+<li>Upload to this web site.
+<li>Use your phone's browser to go to the jump page and enter the jump code.
+<li>Download the file to your phone.  It should now be an available ringer on your phone.  If not, please go to the <a href="/tools/decision_tree/index.php?Tree=uploader">problems troubleshooter</a>.
+</ol>
+
+<?PHP
+
 Section('Wallpapers');
 YouTube('Mo6TOw0EqK4', array('float' => 'right')); // wallpapers
 
@@ -52,22 +68,6 @@ YouTube('tj6Ejg2ZHLo', array('float' => 'right'));  // app
 <li>Enter the jump code.
 <li>Download the program to your phone.
 <li>Test the program.  It might not work for your phone, so don't get too upset if there are <a href="/tools/decision_tree/index.php?Tree=uploader">problems</a>.
-</ol>
-
-<?PHP
-
-Section('Uploading Ringtones');
-YouTube('vUYT-6e6pAA', array('float' => 'right'));  // upload ringtone
-
-?>
-
-<ol>
-<li>Go find a song or ringer and save it on your computer.
-<li>Upload it to the uploader.
-<li>Use your phone's browser to go to the jump page.
-<li>Enter the jump code.
-<li>Download the ringer to your phone.
-<li>Assign the ringer to a contact or assign it as your default ringer.  Your phone may not be so friendly - see the <a href="/tools/decision_tree/index.php?Tree=uploader">problems troubleshooter</a> if there are issues.
 </ol>
 
 <?PHP
