@@ -6,6 +6,15 @@
 //      showed me places to improve ChangeAt()
 
 
+// Use whatever escaping function is available
+function esc(v) {
+	if (typeof encodeURIComponent == "function") {
+		return encodeURIComponent(v);
+	}
+	return escape(v);
+}
+
+
 // Do the encode
 function RunEncode()
 {
@@ -458,21 +467,21 @@ function AdditionalPartOfLink()
     chk = "?";
     if (document.MailtoForm.Subject.value != "")
     {
-        Str += chk + "subject=" + escape(document.MailtoForm.Subject.value);
+        Str += chk + "subject=" + esc(document.MailtoForm.Subject.value);
 	chk = "&";
     }
     if (document.MailtoForm.Cc.value != "")
     {
-        Str += chk + "cc=" + escape(document.MailtoForm.Cc.value);
+        Str += chk + "cc=" + esc(document.MailtoForm.Cc.value);
 	chk = "&";
     }
     if (document.MailtoForm.Bcc.value != "")
     {
-        Str += chk + "bcc=" + escape(document.MailtoForm.Bcc.value);
+        Str += chk + "bcc=" + esc(document.MailtoForm.Bcc.value);
 	chk = "&";
     }
     if (document.MailtoForm.Body.value != "")
-        Str += chk + "body=" + escape(document.MailtoForm.Body.value);
+        Str += chk + "body=" + esc(document.MailtoForm.Body.value);
     return Str;
 }
 
