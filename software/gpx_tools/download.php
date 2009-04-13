@@ -16,6 +16,9 @@ and what you do not like.</p>
 <?php
 
 $versions = array(
+	'1.1' => array(
+		'notes' => 'April 2009.  Bugfixes and added 2 new format codes.'
+	),
 	'1.0' => array(
 		'notes' => 'August 2008.'
 	),

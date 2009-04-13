@@ -205,7 +205,12 @@ $Codes = array(
 	array(
 		'%I',
 		'1234',
-		'The code after the "GC" in the waypoint ID.  ' . 'This is an example for a waypoint GC1234.'
+		'The code after the "GC" in the waypoint ID.  If the waypoint doesn\'t start with GC, the entire code remains.  This is an example for a waypoint GC1234.'
+	),
+	array(
+		'%i',
+		'1234',
+		'The code after the first two characters in the waypoint ID.  This is nearly identical to %I except that this always removes the first two characters.  This is an example for a waypoint TB1234.'
 	),
 	array(
 		'%L',
@@ -226,6 +231,11 @@ $Codes = array(
 		'%P',
 		'KB&nbsp;&amp;&nbsp;Crew',
 		'Who placed the cache.'
+	),
+	array(
+		'%p',
+		'GC',
+		'The first two characters of the waypoint code.  With a combination of %p and %i you have more control over splitting up the waypoint code if you want.  This is an example for the waypoint GC1234.'
 	),
 	array(
 		'%S',
