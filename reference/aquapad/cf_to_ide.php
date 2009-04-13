@@ -29,8 +29,7 @@ two hard drives to the one CF slot.</p>
 <dl>
 
 <dt>Esskabel - <a
-href="http://www.esskabel.de/English-Site/products/adapters/CompactFlash/ADA-COMPACTFLASH-ATA-IDE-40/ADA-COMPACTFLASH-ATA-IDE40-haupt.htm">
-ADA-COMPACTFLASH-ATA-IDE40</a></dt>
+href="http://en.esskabel.de/adapter/C68/lang/_eng/">ADA-COMPACTFLASH-ATA-IDE40</a></dt>
 <dd>Type II adaptor.  <a
 href="media/ADA-COMPACTFLASH-ATA-IDE40.pdf">datasheet (pdf)</a>
 <dd>Price is reasonable, but international shipping and a minimum order of
