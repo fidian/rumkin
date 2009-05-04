@@ -13,7 +13,7 @@ StandardHeader(array(
 It is not a true cipher, but just a way to conceal your secret text within
 plain sight.  The way it originally worked is that the writer would use two
 different typefaces.  One would be the "A" typeface and the other would be
-"B".  Your message would be written with the two fonts intermingled, thush
+"B".  Your message would be written with the two fonts intermingled, thus
 hiding your message within a perfectly normal text.</p>
 
 <p>There are two versions.  The first uses the same code for I and J, plus
