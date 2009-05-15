@@ -31,7 +31,7 @@ YouTube('WHV8FjQRsp4', array('float' => 'right')); // wallpapers
 
 <ol>
 <li>Find a picture and save it on your computer.
-<li>Use an online tool to scale it down and crop it to just what you want it to be.
+<li>Use Cellsea's <a href="http://www.cellsea.com/media/index.htm">online tool</a> to scale it down and crop it to just what you want it to be.
 <li>Save the modified version on your computer.
 <li>Upload it to the uploader.
 <li>Use your phone's browser to go to the jump page.
