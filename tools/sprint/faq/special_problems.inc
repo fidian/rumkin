@@ -31,6 +31,10 @@ href="http://www.t1mmy.net/visionTool.html">T1mmy.net</a>.</p>
 from outside providers with this phone.  You are only allowed to download
 content from Sprint's "ringers and more" service.</p>
 
+<?php Section('LG LX260 (Rumor/Rumour)') ?>
+
+<p>This phone can come with Java or Brew installed; it depends on what the carrier wants on the phone.  This may enable/restrict games that can be placed on the phone.</p>
+
 <?php Section('LG VX6100 / LG VX9800 with Verizon') ?>
 
 <ul>
