@@ -2,21 +2,15 @@
 
 require '../../functions.inc';
 
-if (isset($_POST) && get_magic_quotes_gpc()) {
-	foreach ($_POST as $k => $v) {
-		$_POST[$k] = stripslashes($v);
-	}
-}
-
 StandardHeader(array(
 		'title' => 'Rumkin Trivia',
 		'topic' => 'trivia'
 	));
 $dbconn = OpenDBConnection('Trivia');
 
-if (isset($category)) {
+if (isset($_GET['category'])) {
 	echo "<p>Back to the <a href=index.php>Category List</a></p>\n";
-	TriviaCategory($category, $dbconn);
+	TriviaCategory($_GET['category'], $dbconn);
 } else {
 	TriviaIntro();
 	TriviaIndex($dbconn);
