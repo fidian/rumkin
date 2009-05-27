@@ -9,7 +9,7 @@
 include 'common.inc';
 SprintStandardHeader('Phone Uploader');
 
-$sendToMessage = "Enter your <a href=\"faq/index.php?Topic=sms_email\">SMS email address</a> if you want a text message sent to your phone.  Sprint users can enter just their phone number.<br>If you leave this blank, you can use the generated <a href=\"faq/index.php?Topic=jumpcode\">jump code</a> to get the file.";
+$sendToMessage = "Enter your <a href=\"faq/index.php?Topic=sms_emails\">SMS email address</a> if you want a text message sent to your phone.  Sprint users can enter just their phone number.<br>If you leave this blank, you can use the generated <a href=\"faq/index.php?Topic=jumpcode\">jump code</a> to get the file.";
 
 ?>
 
