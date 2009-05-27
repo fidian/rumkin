@@ -9,7 +9,7 @@
 $GLOBALS['Topics'] = array(
 	'High-Priority Topics' => array(
 		'special_problems' => 'Problems with specific phones and carriers',
-		'bluesealth' => 'Info on Bluestealth and e-Stealth software',
+		'bluestealth' => 'Info on Bluestealth and e-Stealth software',
 	),
 	'Initial Concerns / Background Info' => array(
 		'about' => 'What is this uploader site thing?',
@@ -18,7 +18,7 @@ $GLOBALS['Topics'] = array(
 		'requirements' => 'What do I need for the uploader to work?',
 		'usage' => 'How do I use the uploader?',
 		'phones' => 'What does my phone support?  What phones work with ' . 'the uploader?',
-		'sms_email' => 'What is my phone\'s SMS email address?',
+		'sms_emails' => 'What is my phone\'s SMS email address?',
 		'resize' => 'Will the image be shrunk to fit my phone?',
 		'screen_size' => 'What if my screen size doesn\'t match what you ' . 'show on the jump page?',
 		'jump' => 'Can I skip the SMS process and just bookmark you?',
