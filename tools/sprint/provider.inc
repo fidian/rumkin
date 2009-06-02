@@ -109,6 +109,7 @@ $GLOBALS['Providers'] = array(
 	'@jsmtel.com',  // JSM Tele-Page
 	'@escotelmobile.com',  // Kerala Escotel
 	'@airtelkol.com',  // Kolkata Airtel
+	'@msg.koodomobile.com',  // Koodo Mobile
 	'@smsmail.lmt.lv',  // Kyivstar
 	'@e-page.net',  // Lauttamus Communication
 	'@smsmail.lmt.lv',  // LMT
