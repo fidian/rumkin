@@ -119,37 +119,37 @@ $GLOBALS['File Types'] = array(
 	0 => array(
 		'*',
 		'application/octet-stream',
-		'The default MIME type.',
+		'The default MIME type',
 		0
 	),
 	1 => array(
 		'gcd',
 		'text/x-pcs-gcd',
-		'Sprint PCS GCD files.',
+		'Sprint PCS GCD files',
 		0
 	),
 	2 => array(
 		'qcp',
 		'audio/vnd.qcelp',
-		'Compressed audio.',
+		'Compressed audio',
 		2
 	),
 	3 => array(
 		'jad',
 		'text/vnd.sun.j2me.app-descriptor',
-		'Java midlet descriptor.',
+		'Java midlet descriptor',
 		0
 	),
 	4 => array(
 		'jar',
 		'application/java-archive',
-		'Java midlet.  May alternatively be ' . 'application/x-java-archive',
+		'Java midlet; may alternatively be application/x-java-archive',
 		0
 	),
 	5 => array(
 		'wbmp',
 		'image/vnd.wap.wbmp',
-		'Wireless bitmap -- not a ' . 'Windows bitmap.',
+		'Wireless bitmap -- not a Windows bitmap',
 		1
 	),
 	6 => array(
@@ -159,19 +159,19 @@ $GLOBALS['File Types'] = array(
 			'jpeg'
 		),
 		'image/jpeg',
-		'JPEG compressed image.',
+		'JPEG compressed image',
 		1
 	),
 	7 => array(
 		'png',
 		'image/png',
-		'PNG compressed image.',
+		'PNG compressed image',
 		1
 	),
 	8 => array(
 		'pmd',
 		'application/x-pmd',
-		'Animation.',
+		'Animation',
 		0
 	),
 	9 => array(
@@ -180,49 +180,49 @@ $GLOBALS['File Types'] = array(
 			'midi'
 		),
 		'audio/midi',
-		'MIDI sound sequence.',
+		'MIDI sound sequence',
 		2
 	),
 	10 => array(
 		'txt',
 		'text/plain',
-		'Text files.',
+		'Text files',
 		0
 	),
 	11 => array(
 		'gif',
 		'image/gif',
-		'GIF compressed image.',
+		'GIF compressed image',
 		1
 	),
 	12 => array(
 		'mp3',
 		'audio/mp3',
-		'MP3 File.',
+		'MP3 File',
 		2
 	),
 	13 => array(
 		'mmf',
 		'application/vnd.smaf',
-		'MMF Audio File.',
+		'MMF Audio File',
 		2
 	),
 	14 => array(
 		'mp4',
 		'video/mp4',
-		'MP4 Video.',
+		'MP4 Video',
 		0
 	),
 	15 => array(
 		'm4a',
 		'audio/mp4',
-		'M4A Audio.',
+		'M4A Audio',
 		2
 	),
 	16 => array(
 		'amr',
 		'audio/3gpp',
-		'AMR Audio.',
+		'AMR Audio',
 		2
 	),
 	17 => array(
@@ -231,37 +231,46 @@ $GLOBALS['File Types'] = array(
 			'3gpp'
 		),
 		'video/3gpp',
-		'3GP Audio/Video/Text.',
+		'3GP Audio/Video/Text',
 		0
 	),
 	18 => array(
 		'wma',
 		'audio/x-ms-wma',
-		'WMA Audio.',
+		'WMA Audio',
 		2
 	),
 	19 => array(
 		'wav',
 		'audio/x-wav',
-		'WAV Audio.',
+		'WAV Audio',
 		2
 	),
 	20 => array(
 		'cab',
 		'application/octet-stream',
-		'CAB files.',
+		'CAB files',
 		0
 	),
 	21 => array(
 		'aac',
 		'audio/x-aac',
-		'AAC Audio.',
+		'AAC Audio',
 		2
 	),
 	22 => array(
 		'bar',
 		'x-pcs/theme',
 		'Sprint PCS Theme',
+		0
+	),
+	23 => array(
+		array(
+			'3g2',
+			'3gpp2'
+		),
+		'video/3gpp2',
+		'3GP2 Audio/Video/Text',
 		0
 	),
 );
