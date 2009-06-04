@@ -309,8 +309,8 @@ $GLOBALS['Logins'] = array(
  * $GLOBALS['Admin Email'] = 'user@host.name';
  * Restrict files uploaded to this regular expression
  * Uncomment these lines to not restrict by file type */
-$GLOBALS['File Match'] = '/\\.(3gpp?|aac|bar|cab|gcd|qcp|wbmp|jpg|jpeg?|png|pmd|midi?|gif|mp[34]|mmf|m4a|amr|wma|wav)$/i';
-$GLOBALS['File Match Message'] = 'You can only upload files of these types:  ' . '3gp, aac, amr, bar, cab, gif, jpg, jpeg, ' . 'gcd, m4a, mid, midi, mmf, mp3, mp4, ' . 'pmd, png, qcp, wav, wbmp, wma';
+$GLOBALS['File Match'] = '/\\.(3gpp?|3g2|3gpp2|aac|bar|cab|gcd|qcp|wbmp|jpg|jpeg?|png|pmd|midi?|gif|mp[34]|mmf|m4a|amr|wma|wav)$/i';
+$GLOBALS['File Match Message'] = 'You can only upload files of these types:  3gp, 3g2, aac, amr, bar, cab, gif, jpg, jpeg, gcd, m4a, mid, midi, mmf, mp3, mp4, pmd, png, qcp, wav, wbmp, wma';
 $GLOBALS['Jar Match'] = '/\\.jar$/i';
 $GLOBALS['Jar Match Message'] = 'Only .jar files can be used in the JAR ' . 'section.';
 
