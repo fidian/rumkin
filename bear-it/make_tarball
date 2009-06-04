@@ -1,5 +1,0 @@
-#!/bin/bash
-tar cvfz photoarchive_modified.tar.gz --exclude=old --exclude=backup \
-   --exclude=make_tarball --exclude=config.inc  --exclude=\*~ \
-   --exclude=photoarchive_modified.tar.gz \
-   .
