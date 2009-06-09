@@ -223,12 +223,12 @@ function SaveFileDesc($file_id, $filename, $folder, $desctext, $gallery) {
 	}
 	
 	// Add this to the database
-	$sql = 'insert into ' . $GLOBALS['FileDesc Table'] . ' (FileID, FileName, Folder, DescText, TimeStamp, ' . 'GallerySuggestion) values (' . $file_id . ', \'' . addslashes($filename) . '\', \'' . addslashes($folder) . '\', \'' . addslashes($desctext) . '\', NOW(), ' . $gallery . ')';
+	$sql = 'insert into ' . $GLOBALS['FileDesc Table'] . ' (FileID, FileName, Folder, DescText, TimeStamp, ' . 'GallerySuggestion) values (' . $file_id . ', \'' . EscapeDB($filename) . '\', \'' . EscapeDB($folder) . '\', \'' . EscapeDB($desctext) . '\', NOW(), ' . $gallery . ')';
 	$result = RunQuery($sql);
 	DoneWithResult($result);
 	
 	// Return the new ID
-	$sql = 'select max(ID) as ID from ' . $GLOBALS['FileDesc Table'] . ' where FileID = ' . $file_id . ' and FileName = \'' . addslashes($filename) . '\' and Folder = \'' . addslashes($folder) . '\' and DescText = \'' . addslashes($desctext) . '\'';
+	$sql = 'select max(ID) as ID from ' . $GLOBALS['FileDesc Table'] . ' where FileID = ' . $file_id . ' and FileName = \'' . EscapeDB($filename) . '\' and Folder = \'' . EscapeDB($folder) . '\' and DescText = \'' . EscapeDB($desctext) . '\'';
 	$result = RunQuery($sql);
 	
 	if ($result && $data = FetchAssoc($result)) {
@@ -340,7 +340,7 @@ function ResizeCustomImage($FileID, $Width, $Height, $Format) {
 	$func($gd2);
 	$data = ob_get_clean();
 	imagedestroy($gd2);
-	$sql = 'insert into ' . $GLOBALS['FileThumb Table'] . ' (FileID, Width, Height, FileSize, ' . 'FileType, FileData) values(' . $FileID . ', ' . $Width . ', ' . $Height . ', ' . strlen($data) . ', ' . $Format . ', \'' . addslashes($data) . '\')';
+	$sql = 'insert into ' . $GLOBALS['FileThumb Table'] . ' (FileID, Width, Height, FileSize, ' . 'FileType, FileData) values(' . $FileID . ', ' . $Width . ', ' . $Height . ', ' . strlen($data) . ', ' . $Format . ', \'' . EscapeDB($data) . '\')';
 	$result = RunQuery($sql);
 	DoneWithResult($result);
 	return $data;
@@ -622,14 +622,14 @@ function GetPhoneInfo($PhoneID = false) {
 	}
 	
 	if ($PhoneID === false) {
-		$sql = 'select * from ' . $GLOBALS['Phones Table'] . ' where \'' . addslashes($_SERVER['HTTP_USER_AGENT']) . '\' like UserAgent and UseRecord = 1 and ';
+		$sql = 'select * from ' . $GLOBALS['Phones Table'] . ' where \'' . EscapeDB($_SERVER['HTTP_USER_AGENT']) . '\' like UserAgent and UseRecord = 1 and ';
 		
 		if (isset($_SERVER['HTTP_X_WAP_PROFILE'])) {
-			$sql .= '\'' . addslashes($_SERVER['HTTP_X_WAP_PROFILE']) . '\' like XWapProfile';
+			$sql .= '\'' . EscapeDB($_SERVER['HTTP_X_WAP_PROFILE']) . '\' like XWapProfile';
 		} elseif (isset($_SERVER['HTTP_PROFILE'])) {
-			$sql .= '\'' . addslashes($_SERVER['HTTP_PROFILE']) . '\' like XWapProfile';
+			$sql .= '\'' . EscapeDB($_SERVER['HTTP_PROFILE']) . '\' like XWapProfile';
 		} elseif (isset($_SERVER['HTTP_13_PROFILE'])) {
-			$sql .= '\'' . addslashes($_SERVER['HTTP_13_PROFILE']) . '\' like XWapProfile';
+			$sql .= '\'' . EscapeDB($_SERVER['HTTP_13_PROFILE']) . '\' like XWapProfile';
 		} else {
 			$sql .= '(XWapProfile is NULL or XWapProfile = \'\' or ' . 'XWapProfile = \'%\')';
 		}
@@ -1048,7 +1048,7 @@ function SendPossibleLog() {
 function IsNormalBrowser($UA) {
 	// We count the SDK as a normal browser
 	if (strpos(strtoupper($_SERVER['HTTP_X_WAP_PROFILE']), 'OPENWAVE.COM') >= 0)return true;
-	$sql = 'select * from ' . $GLOBALS['Phones Table'] . ' where \'' . addslashes($UA) . '\' like UserAgent and UseRecord = 2';
+	$sql = 'select * from ' . $GLOBALS['Phones Table'] . ' where \'' . EscapeDB($UA) . '\' like UserAgent and UseRecord = 2';
 	$r = RunQuery($sql);
 	$data = FetchAssoc($r);
 	DoneWithResult($r);
@@ -1083,3 +1083,10 @@ function PhoneDataHas($name) {
 	return true;
 }
 
+
+function EscapeDB($v) {
+	if (function_exists('mysql_real_escape_string')) {
+		return mysql_real_escape_string($v);
+	}
+	return mysql_escape_string($v);
+}

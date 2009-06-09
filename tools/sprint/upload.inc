@@ -160,7 +160,7 @@ function SaveFile($filetype, $filetmpname, $desctext) {
 	$md = md5($filedata);
 	
 	// See if this is already in the database
-	$sql = 'select ID from ' . $GLOBALS['File Table'] . ' where FileMD5 = \'' . addslashes($md) . '\' and FileType = \'' . addslashes($filetype) . '\' and FileSize = ' . $filesize . ' and DescFile = \'' . addslashes($descdata) . '\'';
+	$sql = 'select ID from ' . $GLOBALS['File Table'] . ' where FileMD5 = \'' . EscapeDB($md) . '\' and FileType = \'' . EscapeDB($filetype) . '\' and FileSize = ' . $filesize . ' and DescFile = \'' . EscapeDB($descdata) . '\'';
 	$result = RunQuery($sql);
 	
 	if ($result && $data = FetchAssoc($result)) {
@@ -174,12 +174,12 @@ function SaveFile($filetype, $filetmpname, $desctext) {
 	}
 	
 	// File does not exist.  Add to database.
-	$sql = 'insert into ' . $GLOBALS['File Table'] . ' (FileMD5, FileData, FileType, DescFile, FileSize, Uploaded, ' . 'Downloaded) ' . ' values (\'' . $md . '\', \'' . addslashes($filedata) . '\', \'' . addslashes($filetype) . '\', \'' . addslashes($descdata) . '\', ' . $filesize . ', NOW(), NOW())';
+	$sql = 'insert into ' . $GLOBALS['File Table'] . ' (FileMD5, FileData, FileType, DescFile, FileSize, Uploaded, ' . 'Downloaded) ' . ' values (\'' . $md . '\', \'' . EscapeDB($filedata) . '\', \'' . EscapeDB($filetype) . '\', \'' . EscapeDB($descdata) . '\', ' . $filesize . ', NOW(), NOW())';
 	$result = RunQuery($sql);
 	DoneWithResult($result);
 	
 	// Return the new ID
-	$sql = 'select ID from ' . $GLOBALS['File Table'] . ' where FileMD5 = \'' . addslashes($md) . '\' and FileType = \'' . addslashes($filetype) . '\' and FileSize = ' . $filesize . ' and DescFile = \'' . addslashes($descdata) . '\'';
+	$sql = 'select ID from ' . $GLOBALS['File Table'] . ' where FileMD5 = \'' . EscapeDB($md) . '\' and FileType = \'' . EscapeDB($filetype) . '\' and FileSize = ' . $filesize . ' and DescFile = \'' . EscapeDB($descdata) . '\'';
 	$result = RunQuery($sql);
 	
 	if ($result && $data = FetchAssoc($result)) {

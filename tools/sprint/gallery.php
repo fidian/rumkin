@@ -128,7 +128,7 @@ function ShowPage($Path) {
 function FindCodeByPath($File, $Path, $Desc) {
 	$fp = $Path . '/' . $File;
 	$ffp = $GLOBALS['Gallery Directory'] . $fp;
-	$res = RunQuery('select ID, FileID from ' . $GLOBALS['FileDesc Table'] . ' where FilePath = "' . addslashes($fp) . '" and DescText = "' . addslashes($Desc) . '"');
+	$res = RunQuery('select ID, FileID from ' . $GLOBALS['FileDesc Table'] . ' where FilePath = "' . EscapeDB($fp) . '" and DescText = "' . EscapeDB($Desc) . '"');
 	$data = FetchAssoc($res);
 	DoneWithResult($res);
 	
@@ -153,7 +153,7 @@ function FindCodeByPath($File, $Path, $Desc) {
 	
 	$file_id = SaveFile($filetype, $ffp, $desc_data);
 	$id = SaveFileDesc($file_id, $safefn, '', $Desc, 0);
-	RunQuery('update ' . $GLOBALS['FileDesc Table'] . ' set FilePath = "' . addslashes($fp) . '" where ID = ' . $id);
+	RunQuery('update ' . $GLOBALS['FileDesc Table'] . ' set FilePath = "' . EscapeDB($fp) . '" where ID = ' . $id);
 	return array(
 		$id,
 		$file_id

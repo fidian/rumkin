@@ -78,9 +78,9 @@ foreach ($FileTypes as $F) {
 $Header .= "</tr>\n";
 $sql = 'select * from ' . $GLOBALS['Phones Table'] . ' where UseRecord = 1';
 
-if (isset($_POST['make']) && $_POST['make'])$sql .= ' and Make = "' . addslashes($_POST['make']) . '"';
+if (isset($_POST['make']) && $_POST['make'])$sql .= ' and Make = "' . EscapeDB($_POST['make']) . '"';
 
-if (isset($_POST['model']) && $_POST['model'])$sql .= ' and Model like "%' . addslashes($_POST['model']) . '%"';
+if (isset($_POST['model']) && $_POST['model'])$sql .= ' and Model like "%' . EscapeDB($_POST['model']) . '%"';
 $sql .= ' order by Make, Model';
 $r = RunQuery($sql);
 $LastMake = false;

@@ -79,7 +79,7 @@ function InsertRecord($Record) {
 	
 	foreach ($Record as $k => $v) {
 		$keys[] = $k;
-		$values[] = '\'' . addslashes($v) . '\'';
+		$values[] = '\'' . EscapeDB($v) . '\'';
 	}
 	
 	$sql = 'insert into ' . $GLOBALS['Phones Table'] . ' (' . join(', ', $keys) . ') values (' . join(', ', $values) . ')';
@@ -103,7 +103,7 @@ function UpdateRecord($Record, $Current, $RecordID) {
 			}
 			
 			if ($Current[$k] != $v) {
-				$sql = 'Update ' . $GLOBALS['Phones Table'] . ' set ' . $k . ' = \'' . addslashes($v) . '\' where ID = ' . $RecordID;
+				$sql = 'Update ' . $GLOBALS['Phones Table'] . ' set ' . $k . ' = \'' . EscapeDB($v) . '\' where ID = ' . $RecordID;
 				echo htmlspecialchars($sql) . "<br>\n";
 				DoneWithResult(RunQuery($sql));
 				$Changes ++;
