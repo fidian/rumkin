@@ -257,7 +257,7 @@ function MakeTable($type) {
 	
 	?>
 <tr><td colspan=6 align=center>
-<input type=submit value="Make Zip File">
+<input type=submit value="Make Zip File"> of selected files
 </td></tr>
 </table>
 </form>
