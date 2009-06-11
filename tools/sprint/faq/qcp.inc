@@ -21,7 +21,7 @@ file (probably a MP3 file) into a WAV file.  Use
 freeware" (or whatever type of file you are starting with).  You can find
 several good programs this way.  One nice program is 
 <a href="http://www.dbpoweramp.com/dmc.html">dBpowerAMP Music
-Converter</a>.</p>
+Converter</a>.  There is also an <a href="http://media-convert.com">online converter</a> that is a free service.</p>
 
 <p>Now you need to downsample the WAV file to make it smaller and so that
 PureVoice can convert it.  Change it to 8 khz (8,000 hz), 16-bit sound, 
