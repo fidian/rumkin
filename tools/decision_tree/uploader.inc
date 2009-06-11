@@ -313,6 +313,6 @@ $Tree = array(
 	
 	// Download :: Error :: Server Error 950
 	38 => array(
-		'Sorry, but this error message is from your provider.  ' . 'I have no idea what could be causing it, nor if it is a ' . 'temporary problem.  I suggest you try again after a few days or try ' . 'a different type of file.' . $SolvedExtra
+		'Sorry, but this error message is from your provider.  ' . 'I have no idea what could be causing it, nor if it is a ' . 'temporary problem.  I suggest you try again after a few days or try ' . 'a different type of file.  One user suggests changing the title to be between 5 and 8 characters.' . $SolvedExtra
 	),
 );
