@@ -72,3 +72,22 @@ to work.  Register at developer.sprint.com and ask to whitelist your site.
 --- I was whitelisted thanks to Joel D Boutin Joel.Boutin@sprint.com
 --- add that to the FAQ
 --- more info @ http://wapreview.com/blog/?p=514
+
+
+
+
+If you are trying to send image data to a mobile phone from PHP, some models (Motorola RAZOR V3 on Cingular) for whatever reason require the "Last-Modified" header or they will not show the image.
+
+<?php
+ob_start();
+// assuming you have image data in $imagedata
+$length = strlen($imagedata);
+header('Last-Modified: '.date('r'));
+header('Accept-Ranges: bytes');
+header('Content-Length: '.$length);
+header('Content-Type: image/jpeg');
+print($imagedata);
+ob_end_flush();
+?>
+
+date('r') produces the date with the numeric timezone offset (-0400) versus Apache, which uses timezone names (GMT), but according to the HTTP/1.1 RFC, dates should be formatted  by RFC 1123 (RFC 822) which states: "There is a strong trend towards the use of numeric timezone indicators, and implementations SHOULD use numeric timezones instead of timezone names.  However, all implementations MUST accept either notation." (http://www.ietf.org/rfc/rfc1123.txt)
