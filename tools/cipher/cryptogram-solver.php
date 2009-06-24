@@ -39,11 +39,13 @@ if ($text != '') {
 	$text = preg_replace('/[^A-Z\']/', ' ', $text);
 	$text = preg_replace('/ +/', ' ', $text);
 	$text = trim($text);
-	$a = exec('tools/cryptogram "' . $text . '" tools/wordlists/american-english', $out);
+	chdir(getenv('MEDIABASE') . 'tools/cipher/tools');
+	$a = exec('./cryptogram "' . $text . '" wordlists/american-english', $out);
 	$out = implode("<br>\n", $out);
 	
-	if ($out == '')echo 'Sorry, no quotes found.';
-	else {
+	if ($out == '') {
+		echo 'Sorry, no quotes found.';
+	} else {
 		echo $out;
 	}
 }
