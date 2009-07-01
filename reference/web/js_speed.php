@@ -74,14 +74,19 @@ $results = array(
 		'2x to 3x faster'
 	),
 	array(
+		'Firefox 3.5',
+		'Linux (Ubuntu 9.04)',
+		'7x to 8x faster'
+	),
+	array(
 		'Internet Explorer 7',
 		'Windows XP',
 		'5x to 25x faster'
 	),
 	array(
-		'Midori 0.0.18',
-		'Linux (Ubuntu 8.10)',
-		'3x to 4x faster'
+		'Midori 0.1.2',
+		'Linux (Ubuntu 9.04)',
+		'2x faster'
 	),
 	array(
 		'Opera 9.10',
@@ -153,14 +158,19 @@ $results = array(
 		'Questionable'
 	),
 	array(
+		'Firefox 3.5',
+		'Linux (Ubuntu 9.04)',
+		'2x slower'
+	),
+	array(
 		'Internet Explorer 7',
 		'Windows XP',
 		'4x to 6x faster'
 	),
 	array(
-		'Midori 0.0.18',
-		'Linux (Ubuntu 8.10)',
-		'2x faster'
+		'Midori 0.1.2',
+		'Linux (Ubuntu 9.04)',
+		'4x to 5x faster'
 	),
 	array(
 		'Opera 9.10',
