@@ -48,6 +48,7 @@ $GLOBALS['Topics'] = array(
 		'handler' => 'What is "A Handler Is Needed To Use This Content Type"?',
 		'e406' => 'What is "Data Error 406 / Content Not Acceptable"?',
 		'e901' => 'What is "Data Error 901 / Content Size Too Large"?',
+		'e903' => 'What is "Data Error 901 / Loss of Service"?',
 		'e904' => 'What is "Data Error 904 / Size Mismatched"?',
 		'e905' => 'What is "Data Error 905 / Attribute Mismatch"?',
 		'e906' => 'What is "Data Error 906 / Invalid Descriptor"?',
