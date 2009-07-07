@@ -307,7 +307,7 @@ $Tree = array(
 	
 	// Download :: Error :: Loss of Service
 	37 => array(
-		'Sorry, but this message is caused by your provider.  ' . 'If you were trying to send a large file, such as a .WAV audio ' . 'file, I suggest trying a different format.  Perhaps you could ' . 'try compressing it as .MP3 or .QCP.' . '<br><br>' . 'If that does not solve your problem, then it is the most likely ' . 'that your provider is performing maintenance on their servers ' . 'or perhaps an affiliate is having problems routing your ' . 'content.  There is nothing really that I can do about it.  ' . 'Wait a while, perhaps even a day or two, and then try again.' . $SolvedExtra
+		'Sorry, but this message is caused by your provider.  If you were trying to send a large file, such as a .WAV audio file, I suggest trying a different format.  Perhaps you could try compressing it as .MP3 or .QCP.  If you were sending a ringer, perhaps it is too large.  I have had one report that by making the ringer smaller (changing the bitrate, format, or just cutting it down to 30 seconds) made it work.<br><br>If that does not solve your problem, then it is the most likely that your provider is performing maintenance on their servers or perhaps an affiliate is having problems routing your content.  There is nothing really that I can do about it.<br><br>Try cutting the size to a minimum.  If that fails, wait a while, perhaps even a day or two, and then try again.' . $SolvedExtra
 	),
 	
 	
