@@ -35,6 +35,7 @@ $files = array(
 	'readme.txt',
 	'tables.txt',
 	'thumb.php',
+	'unzip.php',
 	'upload.inc',
 	'upload.php',
 	'admin/',
