@@ -1,4 +1,7 @@
-2008-02-025:
+2009-07-21:
+ * Added unzip.php from Erik McDonald
+
+2008-02-25:
  * Added a phone number ban list
  * Scan HTTP_CLIENTID header (not HTTP_CLIENT_ID) for Sprint updates
  
