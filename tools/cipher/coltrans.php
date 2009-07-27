@@ -58,13 +58,6 @@ around, so you can take "a b c" with a key of "2 1" and get "&nbsp;&nbsp;abc" (n
 the two spaces in front).  I suggest you remove all spaces before you encode
 the text, but they should be preserved even if you don't.  Newlines are ignored and not taken into consideration.</p>
 
-<p>This cipher is actually used in the <a
-href="http://google.com/search?q=kryptos">Kryptos</a> sculpture at the CIA
-headquarters in what is generally known as <a href="#" 
-onclick="insert_k3(); return false">K3</a> (the third section of the
-sculpture), but this encoder will not give you the answer directly.  You
-still need to do work to see the decoded message.</p>
-
 <form name="encoder" method=post action="#" onsubmit="return false;">
 <p><select name=encdec><option value="1">Encrypt
 <option value="-1">Decrypt</select></p>
@@ -133,26 +126,6 @@ function upd()
    }
    
    window.setTimeout('upd()', 100);
-}
-
-
-function insert_k3()
-{
-   document.encoder.encdec.value = "-1";
-   document.encoder.colkey.value = "KRYPTOS";
-   document.encoder.colkey_type.value = "alpha"
-   document.encoder.text.value =
-"ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA\n" +
-"CHTNREYULDSLLSLLNOHSNOSMRWXMNE\n" +
-"TPRNGATIHNRARPESLNNELEBLPIIACAE\n" +
-"WMTWNDITEENRAHCTENEUDRETNHAEOE\n" +
-"TFOLSEDTIWENHAEIOYTEYQHEENCTAYCR\n" +
-"EIFTBRSPAMHHEWENATAMATEGYEERLB\n" +
-"TEEFOASFIOTUETUAEOTOARMAEERTNRTI\n" +
-"BSEDDNIAAHTTMSTEWPIEROAGRIEWFEB\n" +
-"AECTDDHILCEIHSITEGOEAOSDDRYDLOT\n" +
-"RKLMLEHAGTDHARDPNEOHMGFMFEUHE\n" +
-"ECDMRIPFEIMEHNLSSTTRTVDOHW?";
 }
 
 function insert_example()
