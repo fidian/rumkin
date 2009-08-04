@@ -168,6 +168,7 @@ $GLOBALS['Providers'] = array(
 	'@pcsone.net',  // PCS One
 	'@msg.pioneerenidcellular.com',  // Pioneer / Enid Cellular
 	'@text.plusgsm.pl',  // PlusGSM
+	'@sms.pocket.com', // Pocket Communications
 	'@bplmobile.com',  // Pondicherry BPL Mobile
 	'@voicestream.net',  // Powertel
 	'@mobilecell1se.com',  // Price Communications
