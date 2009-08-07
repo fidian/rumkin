@@ -70,8 +70,7 @@ $GLOBALS['Banned Words'] = array(
 	
 	
 	// Phrases
-	'/(suck|lick) my (balls|nuts)/i',
-	'/(sucks|licks) (balls|nuts)/i',
+	'/(sucks?|licks?) (my|your)? (balls|nuts)/i',
 	
 	
 	// Phone numbers
@@ -260,7 +259,7 @@ function Topic_Post($topic, $name, $mesg, $page) {
 	$n2 = strtolower($name);
 	$n2 = preg_replace('/[^a-z0-9]/', '', $n2);
 	
-	if (preg_match('/^ty[li1]er(ak[li1]ns)?$/i', $n2))$name = 'Not Tyler';
+	if (preg_match('/^ty[li1]er(a(k[li1]ns?)?)?$/i', $n2))$name = 'Not Tyler';
 	
 	if ($n2 == 'administrator' || $n2 == 'admin')$name = 'Not the Administrator';
 	
