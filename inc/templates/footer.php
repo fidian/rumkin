@@ -68,7 +68,7 @@ Tyler Akins &lt;<?php echo HideEmail('fidian', 'rumkin.com'); ?>&gt;
 	
 	?>
 </td><td class="r_info" align=right valign=top>
-Tyler Akins &lt;<?php echo HideEmail('fidian', 'tiny.net'); ?>&gt;
+Tyler Akins &lt;<?php echo HideEmail('fidian', 'rumkin.com'); ?>&gt;
 <?php
 	
 	if (isset($_SESSION['Login_Time'])) {
