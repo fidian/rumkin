@@ -28,7 +28,7 @@ of spambots:</p>
 <ul>
 <li>Really dumb ones that only parse text and search for
 username@host.name</li>
-<li>The smarter ones that can decode <tt>&amp;#075</tt> HTML encoded 
+<li>The smarter ones that can decode <tt>&amp;#075;</tt> HTML encoded 
 characters and <tt>%7f</tt> Javascript encoded characters</li>
 <li>The even smarter ones that can run JavaScript on a web page that can
 decode and run initial document.write() statements [very few, if any]</li>
