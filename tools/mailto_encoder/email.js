@@ -44,8 +44,6 @@ function Hexer(From, Frequency, Selection, Append)
             if (Rand(100) < Selection)
             {
                 Code = GetCharCode(From.charAt(ii), 10);
-                while (Code.length < 3)
-                    Code = "0" + Code;
                 To += "&#" + Code + ";" + Append;
             }
             else
