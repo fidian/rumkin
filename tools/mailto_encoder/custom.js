@@ -468,17 +468,17 @@ function AdditionalPartOfLink()
     if (document.MailtoForm.Subject.value != "")
     {
         Str += chk + "subject=" + esc(document.MailtoForm.Subject.value);
-	chk = "&";
+	chk = "&amp;";
     }
     if (document.MailtoForm.Cc.value != "")
     {
         Str += chk + "cc=" + esc(document.MailtoForm.Cc.value);
-	chk = "&";
+	chk = "&amp;";
     }
     if (document.MailtoForm.Bcc.value != "")
     {
         Str += chk + "bcc=" + esc(document.MailtoForm.Bcc.value);
-	chk = "&";
+	chk = "&amp;";
     }
     if (document.MailtoForm.Body.value != "")
         Str += chk + "body=" + esc(document.MailtoForm.Body.value);
