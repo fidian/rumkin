@@ -99,7 +99,7 @@ user.</p>
 </tr>
 <tr>
   <td><input type=radio name="Encode_Link" value="Hexer"></td>
-  <td>Use HTML hex codes (e.g. "&amp;#117") and URL encoded characters 
+  <td>Use HTML hex codes (e.g. "&amp;#117;") and URL encoded characters 
       (e.g. "%75") when writing the HTML.  Better if you do not plan on
       using JavaScript encoding.<br>
       Chance a letter will be encoded:
@@ -184,7 +184,7 @@ address.</p>
 </tr>
 <tr>
   <td><input type=radio name="Encode_Visible" value="Hexer"></td>
-  <td>Use HTML character encoding (e.g. "&amp;#117") on some or all of the
+  <td>Use HTML character encoding (e.g. "&amp;#117;") on some or all of the
       letters.<br>
       Chance a letter is encoded:
       <input type=text name="HexerLink_Frequency" size=3 value=40>%
