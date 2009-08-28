@@ -35,7 +35,7 @@ if ($Month == 11) {
 }
 
 if ($Month == 12)$ThemesByDate['christmas'] = mktime(0, 0, 0, 12, 25);
-$now = mktime();
+$now = time();
 $DaysPrior = 3600 * 24 * 7;
 $DaysAfter = 3600 * 24;
 $Earliest = 0;
