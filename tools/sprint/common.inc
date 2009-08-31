@@ -848,6 +848,7 @@ function OutputDescFile_Jar($FileData, $FileDesc, $PhoneID = false) {
 	Header('Content-Type: ' . $GLOBALS['File Types'][FILE_TYPE_JAD][1]);
 	$m = str_replace("\r\n", "\n", $FileData['DescFile']);
 	$m = str_replace("\r", "\n", $m);
+	$m = str_replace("\n ", $m);  // 72-character "continuation line"
 	$m = split("\n", $m);
 	$did_icon = false;
 	$did_name = false;
