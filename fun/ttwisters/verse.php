@@ -114,7 +114,7 @@ But it was sad to see Soar so sore just because See's saw sawed Soar's
 seesaw.</p>
 
 <p>Once a fellow met a fellow in a field of beans.<br>
-Sed a fellow to a fellow, "If a fellow asks a fellow,<br>
+Said a fellow to a fellow, "If a fellow asks a fellow,<br>
 Can a fellow tell a fellow what a fellow means?"</p>
 
 <p>I slit a sheet, a sheet I slit.<br>

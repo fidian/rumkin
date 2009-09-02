@@ -36,7 +36,7 @@ Three smart fellows, they felt smart.<br>
 
 <p>Red bulb, blue bulb.</p>
 
-<p>Red blood, blue bulb.</p>
+<p>Red blood, blue blood.</p>
 
 <p>Bubble bobble.</p>
 
