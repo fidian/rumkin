@@ -91,7 +91,7 @@ doctored.)</p>
 
 <p>A tree toad loved a she-toad who lived up in a tree.<br>
 He was a two-toed tree toad but a three-toed was she.<br>
-The two-toed tree toad tried to win the three-ted she-toad's heart,<br>
+The two-toed tree toad tried to win the three-toed she-toad's heart,<br>
 For the two-toed tree toad loved the ground that the three-toed tree toad
 trod.<br>
 But the two-toed tree toad tried in vain.  He couldn't please her whim.<br>
