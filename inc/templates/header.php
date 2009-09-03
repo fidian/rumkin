@@ -41,6 +41,7 @@ $GLOBALS['DirToName'] = array(
 	'tools/population' => 'Population Counter',
 	'tools/sprint' => 'Phone Uploader',
 	'tools/ssh' => 'Java SSH Client',
+	'tools/wcn' => 'Windows Connect Now',
 	'tools/weeble' => 'Weeble FTP Client',
 );
 
