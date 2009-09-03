@@ -28,6 +28,14 @@ The easiest thing to do at this point is to just unzip it on a USB jump drive.
 If you already had an "autorun.inf" file on there, rename it first so it
 will not get overwritten by accident.</p>
 
+<p>Inside the zip file, you will find the setupSNK.exe program to ease
+installation for Windows XP and Vista (perhaps Windows 7?) computers.
+Custom WSETTING.TXT and WSETTING.WFC files will have your networking
+configuration.  Plus, you have the option of an easy batch file,
+Install_Wireless.bat to help set up your network.  If you include the
+AUTORUN.INI, you'll also get a logo file to make your jump drive have a cool
+icon.</p>
+
 <form method="post" action="wcn.php/wcd-usb.zip">
 <table border=1 cellpadding=2 cellspacing=0 align=center>
 <tr>
