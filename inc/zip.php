@@ -213,8 +213,12 @@ function ShowZipFileHeaders($zipname) {
 	header('Pragma: ');
 	header('Cache-Control: cache');
 	$badIE = 0;
-	
-	if (strstr($HTTP_USER_AGENT, 'compatible; MSIE ') !== false && strstr($HTTP_USER_AGENT, 'Opera') === false && strstr($HTTP_USER_AGENT, 'compatible; MSIE 6') === false) {
+	$ua = '';
+	if (! empty($_SERVER['HTTP_USER_AGENT'])) {
+		$ua = $_SERVER['HTTP_USER_AGENT'];
+	}
+
+	if (strstr($ua, 'compatible; MSIE ') !== false && strstr($ua, 'Opera') === false && strstr($ua, 'compatible; MSIE 6') === false) {
 		$badIE = 1;
 	}
 	
