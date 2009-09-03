@@ -93,7 +93,11 @@ if ($data['batch']) {
 $mediaDir = getenv('MEDIABASE') . 'tools/wcn/';
 addFile($zip, $mediaDir . 'base/', 'setupSNK.exe');
 $zip->addDir('SMRTNTKY/', filemtime($mediaDir . 'base/SMRTNTKY/'));
-addFile($zip, $mediaDir . 'base/', 'SMRTNTKY/fcw.ico');
+
+if ($data['autorun']) {
+	addFile($zip, $mediaDir . 'base/', 'SMRTNTKY/fcw.ico');
+}
+
 addFile($zip, 'addons/', 'SMRTNTKY/MessageB.txt');
 $zip->addFile($xml, 'SMRTNTKY/WSETTING.WFC');
 $zip->addFile($wsetting, 'SMRTNTKY/WSETTING.TXT');
