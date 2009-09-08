@@ -829,11 +829,6 @@ function OutputDescFile($ID, $PhoneID = false) {
 	$FileDesc = GetFileDesc($ID);
 	$FileData = GetFileData($FileDesc['FileID'], 'ID, FileType, DescFile, FileSize');
 	
-	if ($ID == 1159842) {
-		var_dump($FileDesc);
-		exit();
-	}
-	
 	if ($FileData['FileType'] == FILE_TYPE_JAR) {
 		OutputDescFile_Jar($FileData, $FileDesc, $PhoneID);
 	} else {
@@ -848,7 +843,7 @@ function OutputDescFile_Jar($FileData, $FileDesc, $PhoneID = false) {
 	Header('Content-Type: ' . $GLOBALS['File Types'][FILE_TYPE_JAD][1]);
 	$m = str_replace("\r\n", "\n", $FileData['DescFile']);
 	$m = str_replace("\r", "\n", $m);
-	$m = str_replace("\n ", $m);  // 72-character "continuation line"
+	$m = str_replace("\n ", "", $m);  // 72-character "continuation line"
 	$m = split("\n", $m);
 	$did_icon = false;
 	$did_name = false;
