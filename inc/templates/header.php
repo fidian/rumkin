@@ -75,6 +75,7 @@ if (isset($GLOBALS['HeaderOpts']['sorttable'])) {
 
 ?>
 <script src="/inc/js/site.js?1" type="text/javascript"></script>
+<script src="/inc/js/voter.js?1" type="text/javascript"></script>
 </head>
 <body>
 <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
