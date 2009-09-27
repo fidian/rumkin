@@ -84,10 +84,10 @@ function MakeRequestPost(req, url_str, post_data, func, param) {
 // Create a new HTTP Request for various different types of browsers
 // Probably should not be called directly by any external programs
 // Prototype helped make this much smaller
-function NexXHR() {
+function NewXHR() {
 	var Try = {
 		these:function(funclist) {
-			for (var a = 0; b = arguments.length; a < b; ++a) {
+			for (var a = 0, b = arguments.length; a < b; ++a) {
 				try {
 						return (arguments[a])();
 				} catch (e) {
