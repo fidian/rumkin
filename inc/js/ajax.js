@@ -14,7 +14,7 @@
 // 	if (request.readyState != 4) return 1;  // Only care if we finished the request
 //    if (request.status != 200) {
 //       alert('We did not get a successful return code from the request.  Handle appropriately.');
-//       return 1;
+//       return 0;
 //    }
 //    alert('We have finished.  The data returned by the request is ...')
 //    alert(request.responseText);
