@@ -171,6 +171,7 @@ $GLOBALS['Providers'] = array(
 	'@sms.pocket.com', // Pocket Communications
 	'@bplmobile.com',  // Pondicherry BPL Mobile
 	'@voicestream.net',  // Powertel
+	'@mobiletxt.ca', // Presidents Choice Mobile
 	'@mobilecell1se.com',  // Price Communications
 	'@primeco.textmsg.com',  // Primco
 	'@sms.primtel.ru',  // Primtel
