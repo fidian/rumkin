@@ -16,7 +16,7 @@ $Links = array(
 	array(
 		'Name' => 'Touch Screen Drivers',
 		'Desc' => 'Windows touch screen drivers.',
-		'URL' => 'media/drivers_audio.zip'
+		'URL' => 'media/drivers_touch-screen.zip'
 	),
 	array(
 		'Name' => 'BIOS Flash Hard Drive Image',
