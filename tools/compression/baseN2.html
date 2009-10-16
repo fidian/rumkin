@@ -1,93 +1,85 @@
 <html><head><title>Base N Encoding</title>
+<script language="JavaScript" src="/inc/js/browser_faster.js"></script>
 <script language="javascript"><!--
 
 var Chars = "0123456789ABCDEF";
 
-function Debug(str)
-{
-   if (document.compform.debug.value != "")
-      document.compform.debug.value += "\n";
-   document.compform.debug.value += str;
+function Debug(str) {
+	if (document.compform.debug.value != "") {
+		document.compform.debug.value += "\n";
+	}
+	document.compform.debug.value += str;
 }
 
 
-function baseNencode(str)
-{
-   var out = "";
-   var pos, remainder, i, s, clen;
-   
-   clen = Chars.length;
-   while (str.length)
-   {
-      pos = str.length;
-      remainder = 0;
-      s = "";
-      while (pos)
-      {
-         pos --;
-	 i = remainder * 256 + str.charCodeAt(pos);
-	 remainder = i % clen;
-	 i -= remainder;
-	 i /= clen;
-	 if (s.length || i)
-	 {
-	    s = String.fromCharCode(i) + s;
-	 }
-      }
-      
-      str = s;
-      out += Chars.charAt(remainder);
+function baseNencode(str) {
+	var out = new StringMaker();
+	var pos, remainder, i, s, clen;
+
+	clen = Chars.length;
+	while (str.length) {
+		pos = str.length;
+		remainder = 0;
+		s = "";
+		while (pos)
+		{
+			pos --;
+			i = remainder * 256 + str.charCodeAt(pos);
+			remainder = i % clen;
+			i -= remainder;
+			i /= clen;
+			if (s.length || i)
+			{
+				s = String.fromCharCode(i) + s;
+			}
+		}
+
+		str = s;
+		out.append(Chars.charAt(remainder));
    }
    
-   return out;
+   return out.toString();
 }
 
-function baseNdecode(str)
-{
-   var out = "";
-   var overflow, i, j, pos, spos, o, olen, clen;
-   
-   spos = str.length;
-   clen = Chars.length;
-   while (spos)
-   {
-      spos --;
-      pos = 0;
-      o = "";
-      olen = out.length
-      overflow = Chars.indexOf(str.charAt(spos));
-      while (pos < olen)
-      {
-         i = out.charCodeAt(pos);
-	 i *= clen;
-	 i += overflow;
-	 j = i % 256;
-	 overflow = (i - j) / 256;
-	 o = o + String.fromCharCode(j)
-	 pos ++;
-      }
-      if (overflow)
-      {
-         o = o + String.fromCharCode(overflow);
-      }
-      out = o;
-   }
-    
-   return out;
+function baseNdecode(str) {
+	var out = "";
+	var overflow, i, j, pos, spos, o, olen, clen;
+
+	spos = str.length;
+	clen = Chars.length;
+	while (spos) {
+		spos --;
+		pos = 0;
+		o = "";
+		olen = out.length;
+		overflow = Chars.indexOf(str.charAt(spos));
+		while (pos < olen) {
+			i = out.charCodeAt(pos);
+			i *= clen;
+			i += overflow;
+			j = i % 256;
+			overflow = (i - j) / 256;
+			o = o + String.fromCharCode(j);
+			pos ++;
+		}
+		if (overflow) {
+			o = o + String.fromCharCode(overflow);
+		}
+		out = o;
+	}
+
+	return out;
 }
 
-function RunSquish()
-{
-    document.compform.debug.value = "";
-    document.compform.squished.value =
-        baseNencode(document.compform.from.value);
-    document.compform.unsquished.value =
-        baseNdecode(document.compform.squished.value);
-    if (document.compform.from.value == document.compform.unsquished.value) {
-        document.compform.result.value = "Works!";
-    } else {
-        document.compform.result.value = "Broken.  :-(";
-    }
+function RunSquish() {
+	document.compform.debug.value = "";
+	document.compform.squished.value = baseNencode(document.compform.from.value);
+	document.compform.unsquished.value = baseNdecode(document.compform.squished.value);
+	if (document.compform.from.value == document.compform.unsquished.value) {
+		document.compform.result.value = "Works!";
+	} else {
+		document.compform.result.value = "Broken.  :-(";
+	}
 }
 
 // --></script>
