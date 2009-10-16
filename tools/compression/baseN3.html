@@ -15,7 +15,7 @@ function Debug(str) {
 
 
 function baseNencode(str) {
-	var out = "";
+	var out = new StringMaker();
 	var i, curr_val, mult;
 	var outc;
 
@@ -32,7 +32,7 @@ function baseNencode(str) {
 		while (mult >= Chars.length) {
 			outc = curr_val % Chars.length;
 			Debug("curr " + curr_val + " -- mult " + mult + " -- outc = " + outc);
-			out = Chars.charAt(outc) + out;
+			out.prepend(Chars.charAt(outc));
 			curr_val = Math.floor(curr_val / Chars.length);
 			mult = Math.ceil(mult / Chars.length);
 		}
@@ -40,12 +40,12 @@ function baseNencode(str) {
 	}
 	if (mult > 1) {
 		Debug("curr " + curr_val + " -- mult " + mult);
-		out = Chars.charAt(curr_val) + Chars.charAt(mult) + out;
+		out.prepend(Chars.charAt(curr_val) + Chars.charAt(mult));
 	} else {
-		out = Chars.charAt(0) + Chars.charAt(1) + out;
+		out.prepend(Chars.charAt(0) + Chars.charAt(1));
 	}
 
-	return out;
+	return out.toString();
 }
 
 function baseNdecode(str) {

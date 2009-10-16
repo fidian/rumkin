@@ -56,7 +56,8 @@ StandardFooter();
 
 function Add_Javascript() {
 	
-	?><script language="JavaScript">
+	?><script language="JavaScript" src="/inc/js/browser_faster.js"></script>
+<script language="JavaScript">
 <!--
 
 function BytesToBits(len, num) {
@@ -73,28 +74,35 @@ function BytesToBits(len, num) {
 }
 
 function BitsToBytes(i) {
-   o = 42;
-   if (i.charAt(0) == '1')
-      o += 32;
-   if (i.charAt(1) == '1')
-      o += 16;
-   if (i.charAt(2) == '1')
-      o += 8;
-   if (i.charAt(3) == '1')
-      o += 4;
-   if (i.charAt(4) == '1')
-      o += 2;
-   if (i.charAt(5) == '1')
-      o += 1;
-   if (o >= 92)
-      o ++;
-   return String.fromCharCode(o);
+	o = 42;
+	if (i.charAt(0) == '1') {
+		o += 32;
+	}
+	if (i.charAt(1) == '1') {
+		o += 16;
+	}
+	if (i.charAt(2) == '1') {
+		o += 8;
+	}
+	if (i.charAt(3) == '1') {
+		o += 4;
+	}
+	if (i.charAt(4) == '1') {
+		o += 2;
+	}
+	if (i.charAt(5) == '1') {
+		o += 1;
+	}
+	if (o >= 92) {
+		o ++;
+	}
+	return String.fromCharCode(o);
 }
 
 function CompressConfirm() {
-   if (confirm("Are you sure that you want to do this?  It can take a long time!")) {
-      CompressCode();
-   }
+	if (confirm("Are you sure that you want to do this?  It can take a long time!")) {
+		CompressCode();
+	}
 }
 
 function CompressCode() {
@@ -102,7 +110,7 @@ function CompressCode() {
 	var code_len = 1;
 	var code_next = 0;
 	var code_len_trigger = 1;
-	var t_out = "";
+	var t_out = new StringMaker();
 	var t_bits = "";
 	var t_in = document.daForm.Orig.value;
 	var prog = document.daForm.Progress;
@@ -148,7 +156,7 @@ function CompressCode() {
 			letter_codes[search_value] = code_next ++;
 			t_bits += BytesToBits(code_len, last_code);
 			while (t_bits.length >= 6) {
-				t_out += BitsToBytes(t_bits);
+				t_out.append(BitsToBytes(t_bits));
 				t_bits = t_bits.slice(6, t_bits.length);
 			}
 			search_value = t_in.charAt(i);
@@ -161,31 +169,29 @@ function CompressCode() {
 	}
 	t_bits += BytesToBits(code_len, last_code);
 	while (t_bits.length) {
-		t_out += BitsToBytes(t_bits);
+		t_out.append(BitsToBytes(t_bits));
 		t_bits = t_bits.slice(6, t_bits.length);
 	}
 
-	document.daForm.Comp.value = WrapInJS(t_out, mincode, maxcode);
+	document.daForm.Comp.value = WrapInJS(t_out.toString(), mincode, maxcode);
 <?php
 	
 	if (isset($_REQUEST['test'])) { ?>
-	document.daForm.Decomp.value = decode(t_out, mincode, maxcode);
+	document.daForm.Decomp.value = decode(t_out.toString(), mincode, maxcode);
 <?php
 	} ?>
 	prog.value = "Done = " + t_in.length + " to " + document.daForm.Comp.value.length +
 		" = " + (t_in.length - document.daForm.Comp.value.length) + " bytes of savings"
 }
 
-function CreatePopup(str)
-{
+function CreatePopup(str) {
     ShowMeWindow = window.open("", "", "location=no,directories=no,menubar=no," +
         "resizable=yes,scrollbars=yes,status=yes,toolbar=no,width=300,height=240");
     ShowMeWindow.document.write(str);
     ShowMeWindow.document.close();
 }
 
-function WrapInJS(str, mincode, maxcode)
-{
+function WrapInJS(str, mincode, maxcode) {
 	var out = '<sc' + 'ript language="JavaScript">' + "\n";
 	out += 'd="'
 	while (str.length > 80)
@@ -213,8 +219,7 @@ function WrapInJS(str, mincode, maxcode)
 	if (isset($_REQUEST['test'])) { ?>
 // This is the long version.  Use a "smooshed" version in WrapInJS().
 // d = data, y = min code number, z = max code number
-function decode(d, y, z)
-{
+function decode(d, y, z) {
 	var l = -1;  // Current letter character code
 	var x = 0;  // Next letter index
 	var b = 0;  // Number of bits left

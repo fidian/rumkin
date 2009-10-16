@@ -2,7 +2,7 @@
    <head>
       <title>base64 Encoding/Decoding</title>
    </head>
-
+	<script language="JavaScript" src="/inc/js/browser_faster.js"></script>
    <script type="text/javascript"><!--
 
 /* gunzip routine for JavaScript to inflate a single Base64 encoded string.
@@ -24,62 +24,63 @@ var byteBufferLeft = 0; // Bytes in byte buffer
 var byteBufferBits = 0; // Bits in current byte
 
 function gunzip(cstr) {
-   compStr = cstr;
-   
-   // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
-   compStr = cstr.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-   compStrIndex = 0;
-   byteBufferLeft = 0;
-   byteBufferBits = 0;
+	compStr = cstr;
+
+	// remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+	compStr = cstr.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+	compStrIndex = 0;
+	byteBufferLeft = 0;
+	byteBufferBits = 0;
 }
    
 
 function decode64() {
-   var enc1, enc2, enc3, enc4;
+	var enc1, enc2, enc3, enc4;
 
-   if (i >= compStr.length)
-      return 1;
-      
-   enc1 = keyStr.indexOf(compStr.charAt(i++));
-   enc2 = keyStr.indexOf(compStr.charAt(i++));
-   enc3 = keyStr.indexOf(compStr.charAt(i++));
-   enc4 = keyStr.indexOf(compStr.charAt(i++));
+	if (i >= compStr.length)
+		return 1;
 
-   byteBuffer1 = (enc1 << 2) | (enc2 >> 4);
-   byteBuffer2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-   byteBuffer3 = ((enc3 & 3) << 6) | enc4;
-      
-   byteBufferLeft = (enc3==64)?1:((enc4==64)?2:3);
-   byteBufferBits = 8;
-   return 0;
+	enc1 = keyStr.indexOf(compStr.charAt(i++));
+	enc2 = keyStr.indexOf(compStr.charAt(i++));
+	enc3 = keyStr.indexOf(compStr.charAt(i++));
+	enc4 = keyStr.indexOf(compStr.charAt(i++));
+
+	byteBuffer1 = (enc1 << 2) | (enc2 >> 4);
+	byteBuffer2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+	byteBuffer3 = ((enc3 & 3) << 6) | enc4;
+
+	byteBufferLeft = (enc3==64)?1:((enc4==64)?2:3);
+	byteBufferBits = 8;
+	return 0;
 }
 
 
 // Reads [a] bits from the stream
 // Make sure [a] is <= 16
 function ReadBits(a) {
-   var res = 0, pos = 0;
-   
-   while (a --) 
-     {
-        if (byteBufferBits == 0) {
-	   // Ran out of bytes.  Populate the byte buffer.
-	   if (byteBufferLeft) {
-	      byteBuffer1 = byteBuffer2;
-	      byteBuffer2 = byteByffer3;
-	      byteBufferLeft --;
-	      byteBufferBits = 8;
-	   } else if (decode64())
-	      return 1;
+	var res = 0, pos = 0;
+
+	while (a --) 
+	{
+		if (byteBufferBits == 0) {
+			// Ran out of bytes.  Populate the byte buffer.
+			if (byteBufferLeft) {
+				byteBuffer1 = byteBuffer2;
+				byteBuffer2 = byteByffer3;
+				byteBufferLeft --;
+				byteBufferBits = 8;
+			} else if (decode64()) {
+				return 1;
+			}
+		}
+
+		res += (byteBuffer1 & 1) << pos;
+		byteBuffer1 >>= 1;
+		byteBufferBits --;
+		pos ++;
 	}
-	
-	res += (byteBuffer1 & 1) << pos;
-	byteBuffer1 >>= 1;
-	byteBufferBits --;
-	pos ++;
-     }
-   
-   return res;
+
+	return res;
 }
 
 

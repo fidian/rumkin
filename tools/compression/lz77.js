@@ -25,13 +25,13 @@ function lz77_compress(inStr, doneCallback, statusCallback) {
 	job.len = inStr.length;
 	job.pos = 0;
 	job.literals = '';
-	job.output = '';
+	job.output = new StringMaker();
 	// Spans "\\", dec 92, which I skip
 	job.outChars = "#$%&'()*+,-." + // 12
 					"/0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[" + // 45
 					"]^_`abcdefghijklmnopqrstuvwxyz{|}~"; // 34
 	job.doneCallback = function() {
-		doneCallback(this.output);
+		doneCallback(this.output.toString());
 	};
 	
 	if (statusCallback) {
@@ -51,8 +51,7 @@ function lz77_compress(inStr, doneCallback, statusCallback) {
 		// Find the longest string in the entire history
 		var searchLen = 3;
 		var bestIndex = -1;
-		var findIndex = this.input.indexOf(this.input.substring(this.pos, this.pos + searchLen),
-			this.pos - (this.outChars.length * this.outChars.length));
+		var findIndex = this.input.indexOf(this.input.substring(this.pos, this.pos + searchLen), this.pos - (this.outChars.length * this.outChars.length));
 		if (findIndex == this.pos) {
 			// No matches, encode as literal
 			this.literals += this.input.charAt(this.pos);
@@ -89,8 +88,7 @@ function lz77_compress(inStr, doneCallback, statusCallback) {
 			if (bytes > 12) {
 				bytes = 12;
 			}
-			this.output += this.outChars.charAt(bytes - 1);
-			this.output += this.literals.substring(0, bytes);
+			this.output.append(this.outChars.charAt(bytes - 1) + this.literals.substring(0, bytes));
 			this.literals = this.literals.substring(bytes, this.literals.length);
 		}
 	};
@@ -105,8 +103,7 @@ function lz77_compress(inStr, doneCallback, statusCallback) {
 				var low = charsBack % this.outChars.length;
 				var high = (charsBack - low) / this.outChars.length;
 				this.encodeLiterals();
-				this.output += this.outChars.charAt(57 + high);
-				this.output += this.outChars.charAt(low);
+				this.output.append(this.outChars.charAt(57 + high) + this.outChars.charAt(low));
 				this.pos += 3;
 				return;
 			}
@@ -132,11 +129,10 @@ function lz77_compress(inStr, doneCallback, statusCallback) {
 			searchLen = 48;
 		}
 		this.encodeLiterals();
-		this.output += this.outChars.charAt(8 + searchLen);
+		this.output.append(this.outChars.charAt(8 + searchLen));
 		var low = charsBack % this.outChars.length;
 		var high = (charsBack - low) / this.outChars.length;
-		this.output += this.outChars.charAt(high);
-		this.output += this.outChars.charAt(low);
+		this.output.append(this.outChars.charAt(high) + this.outChars.charAt(low));
 		this.pos += searchLen;
 	};
 
@@ -144,9 +140,7 @@ function lz77_compress(inStr, doneCallback, statusCallback) {
 	if (job.len < 6) {
 		if (job.len > 0) {
 			job.literals = job.input;
-			job.output = job.encodeLiterals();
-		} else {
-			job.output = '';
+			job.output.append(job.encodeLiterals());
 		}
 		job.doneCallback();
 	} else {

@@ -1,4 +1,5 @@
 <html><head><title>JavaScript compression</title>
+<script language="JavaScript" src="/inc/js/browser_faster.js"></script>
 <script language="JavaScript">
 // This is the list of usable characters for command characters and
 // replacements.  Avoid ones that need to be quoted again, such as "
@@ -12,13 +13,13 @@ var ToBeCompressed;
 
 
 function StringReplace(From, To, String) {
-   var S;
-   S = String.split(From);
-   String = S[0];
+   var S = String.split(From);
+   var out = new StringMaker();
+   out.append(S[0]);
    for (var i = 1; i < S.length; i ++) {
-      String += To + S[i];
+	   out.append(To + S[i]);
    }
-   return String;
+   return out.toString();
 }
 
 function AlterNewlines() {
@@ -95,8 +96,7 @@ function ReplaceCompChars(From) {
       ReplacedWith += Chars.charAt(RW);
       RW = Ch;
    }
-   ToBeCompressed = StringReplace(From, 
-      CommandChar + ReplacedWith + CommandChar, ToBeCompressed);
+   ToBeCompressed = StringReplace(From, CommandChar + ReplacedWith + CommandChar, ToBeCompressed);
    CommandReplacement ++;
    return ReplacedWith;
 }
@@ -108,8 +108,7 @@ function FindBestMatch(size) {
    var HitsHits = new Array();
    for (i = 0; i < ToBeCompressed.length - size + 1; i ++) {
       if (i - (Math.floor(i / 50) * 50) == 0) {
-         AddProgress("Finding best replacement (" + 
-            Math.floor ((i / (ToBeCompressed.length - size + 1)) * 1000) / 10 + "%)");
+         AddProgress("Finding best replacement (" + Math.floor ((i / (ToBeCompressed.length - size + 1)) * 1000) / 10 + "%)");
       }
       Found = -1;
       Str = ToBeCompressed.substr(i, size);

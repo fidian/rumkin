@@ -1,96 +1,86 @@
 <html><head><title>Base N Encoding</title>
+<script language="JavaScript" src="inc/js/browser_faster.js"></script>
 <script language="javascript"><!--
 
 var Chars = "012345678";
 
-function baseNencode(str)
-{
-   var out = "";
-   var valLeft = 1;
-   var nextChar = 0;
-   var val = 0;
+function baseNencode(str) {
+	var out = new StringMaker();
+	var valLeft = 1;
+	var nextChar = 0;
+	var val = 0;
 
-   while (nextChar < str.length || valLeft >= Chars.length)
-   {
-      if (valLeft < Chars.length)
-      {
-         val += str.charCodeAt(nextChar++) * valLeft;
-	 valLeft *= 256;
-      }
-   
-      var ov = val % Chars.length;
-      val -= ov;
-      val /= Chars.length;
-      valLeft /= Chars.length;
-      
-      out += Chars.charAt(ov);
-   }
-   
-   while (valLeft > 1)
-   {
-      var ov = val % Chars.length;
-      val -= ov;
-      val /= Chars.length;
-      valLeft /= Chars.length;
-      
-      out += Chars.charAt(ov);
-   }
-   
-   return out;
+	while (nextChar < str.length || valLeft >= Chars.length) {
+		if (valLeft < Chars.length) {
+			val += str.charCodeAt(nextChar++) * valLeft;
+			valLeft *= 256;
+		}
+
+		var ov = val % Chars.length;
+		val -= ov;
+		val /= Chars.length;
+		valLeft /= Chars.length;
+
+		out.append(Chars.charAt(ov));
+	}
+
+	while (valLeft > 1) {
+		var ov = val % Chars.length;
+		val -= ov;
+		val /= Chars.length;
+		valLeft /= Chars.length;
+
+		out.append(Chars.charAt(ov));
+	}
+
+	return out.toString();
 }
 
-function baseNdecode(str)
-{
-   var out = "";
-   var valLeft = 1;
-   var nextChar = 0;
-   var val = 0;
-   var debug;
-   
-   while (nextChar < str.length || valLeft >= 256)
-   {
-      while (valLeft < 256)
-      {
-         val += Chars.indexOf(str.charAt(nextChar++)) * valLeft;
-	 valLeft *= Chars.length;
-      }
-      
-      debug = "\nVAL " + val + " LEFT " + valLeft + "\n";
-      var ov = val % 256;
-      val -= ov;
-      val /= 256;
-      valLeft /= 256;
-      debug += "  ov " + ov + "\n  val " + val + "\n  left " + valLeft + "\n"
-      debug += "  out \"" + String.fromCharCode(ov) + "\"\n";
-      
-      if (ov != document.compform.from.value.charCodeAt(out.length))
-      {
-         return out + debug;
-      }
-      
-      out += String.fromCharCode(ov);
-   }
+function baseNdecode(str) {
+	var out = new StringMaker();
+	var valLeft = 1;
+	var nextChar = 0;
+	var val = 0;
+	var debug;
 
-   if (valLeft > 1 && val > 0)
-   {
-      out += String.fromCharCode(val);
-   }
-   
-   return out;
+	while (nextChar < str.length || valLeft >= 256) {
+		while (valLeft < 256) {
+			val += Chars.indexOf(str.charAt(nextChar++)) * valLeft;
+			valLeft *= Chars.length;
+		}
+
+		debug = "\nVAL " + val + " LEFT " + valLeft + "\n";
+		var ov = val % 256;
+		val -= ov;
+		val /= 256;
+		valLeft /= 256;
+		debug += "  ov " + ov + "\n  val " + val + "\n  left " + valLeft + "\n"
+			debug += "  out \"" + String.fromCharCode(ov) + "\"\n";
+
+		if (ov != document.compform.from.value.charCodeAt(out.length)) {
+			return out.toString() + debug;
+		}
+
+		out.append(String.fromCharCode(ov));
+	}
+
+	if (valLeft > 1 && val > 0) {
+		out.append(String.fromCharCode(val));
+	}
+
+	return out.toString();
 }
 
-function RunSquish()
-{
-    document.compform.squished.value =
-        baseNencode(document.compform.from.value);
-    document.compform.unsquished.value =
-        baseNdecode(document.compform.squished.value);
-    if (document.compform.from.value == document.compform.unsquished.value) {
-        document.compform.result.value = "Works!";
-    } else {
-        document.compform.result.value = "Broken.  :-(";
-    }
+function RunSquish() {
+	document.compform.squished.value = baseNencode(document.compform.from.value);
+	document.compform.unsquished.value = baseNdecode(document.compform.squished.value);
+	if (document.compform.from.value == document.compform.unsquished.value) {
+		document.compform.result.value = "Works!";
+	} else {
+		document.compform.result.value = "Broken.  :-(";
+	}
 }
+
 // --></script>
 </head>
 <body bgcolor=#FFFFFF>

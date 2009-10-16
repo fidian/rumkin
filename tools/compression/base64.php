@@ -100,7 +100,7 @@ function decode64(input) {
 		}
 	}
 
-	return output;
+	return output.toString();
 }
 
 //--></script>

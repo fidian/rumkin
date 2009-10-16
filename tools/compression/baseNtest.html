@@ -8,60 +8,49 @@ var toBase = 23;
 var inSrc = new Array();
 
 document.write("inSrc = ");
-for (i = 0; i < 20; i ++)
-{
-   inSrc[i] = Math.floor(Math.random() * 256);
-   document.write(inSrc[i] + " ");
+for (i = 0; i < 20; i ++) {
+	inSrc[i] = Math.floor(Math.random() * 256);
+	document.write(inSrc[i] + " ");
 }
 document.write("\n");
 
-if (! FindString(0, 1, 0))
-   document.write("No soultion\n");
+if (! FindString(0, 1, 0)) {
+	document.write("No soultion\n");
+}
 
-function FindString(inPos, mult, over)
-{
-   var j, k, l, m, n;
-   
-   if (mult >= toBase)
-   {
-      document.write("multiplier overflow\n");
-      return 1;
-   }
-   if (inPos >= 20)
-   {
-      document.write("found\n");
-      return 1;
-   }
-   
-   j = toBase
-   while (j > 0)
-   {
-      j --;
-      k = toBase;
-      while (k > 0)
-      {
-         k --;
-	 
-	 l = over + mult * (j + k * toBase);
-	 m = l % 256;
-	 if (m == inSrc[inPos])
-	 {
-	    for (n = 0; n < inPos; n ++)
-	    {
-	       document.write("-- ");
-	    }
-	    document.write(j + " " + k + " -- " + l + " -- " + m + " " + 
-	                   (l - m) / 256 + "\n");
-	    if (FindString(inPos + 1, 
-	                   Math.floor(mult * toBase * toBase / 256),
-			   (l - m) / 256))
-	    {
-	       return 1;
-	    }
-	 }
-      }
-   }
-//   document.write("not found.");
+function FindString(inPos, mult, over) {
+	var j, k, l, m, n;
+
+	if (mult >= toBase) {
+		document.write("multiplier overflow\n");
+		return 1;
+	}
+	if (inPos >= 20) {
+		document.write("found\n");
+		return 1;
+	}
+
+	j = toBase;
+	while (j > 0) {
+		j --;
+		k = toBase;
+		while (k > 0) {
+			k --;
+
+			l = over + mult * (j + k * toBase);
+			m = l % 256;
+			if (m == inSrc[inPos]) {
+				for (n = 0; n < inPos; n ++) {
+					document.write("-- ");
+				}
+				document.write(j + " " + k + " -- " + l + " -- " + m + " " + (l - m) / 256 + "\n");
+				if (FindString(inPos + 1, Math.floor(mult * toBase * toBase / 256), (l - m) / 256)) {
+					return 1;
+				}
+			}
+		}
+	}
+	//   document.write("not found.");
 }
 
 // --></script>

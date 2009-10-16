@@ -21,15 +21,13 @@ function baseNencode(str) {
 		pos = str.length;
 		remainder = 0;
 		s = "";
-		while (pos)
-		{
+		while (pos) {
 			pos --;
 			i = remainder * 256 + str.charCodeAt(pos);
 			remainder = i % clen;
 			i -= remainder;
 			i /= clen;
-			if (s.length || i)
-			{
+			if (s.length || i) {
 				s = String.fromCharCode(i) + s;
 			}
 		}
