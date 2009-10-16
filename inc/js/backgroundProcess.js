@@ -25,9 +25,7 @@ eval, see objects.js.
 	
 *************************************************************************** */
 
-debug('processing backgroundProcess.js');
 function backgroundProcess() {
-	debug('making backgroundProcess');
 	this.workCallback = function() {
 		// Override this!
 		// Return false to continue processing.
