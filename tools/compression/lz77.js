@@ -20,7 +20,7 @@ Untested with unicode.
 *************************************************************************** */
 
 function lz77_compress(inStr, doneCallback, statusCallback) {
-	var job = new backgroundProcess();
+	var job = new BackgroundProcess();
 	job.input = inStr;
 	job.len = inStr.length;
 	job.pos = 0;
