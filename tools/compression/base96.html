@@ -1,4 +1,5 @@
 <html><head><title>Base 96 Compression</title>
+<script language="JavaScript" src="/inc/js/browser_faster.js"></script>
 <script language="javascript"><!--
 
 var Chars = "";
@@ -8,61 +9,51 @@ for (i = 32; i < 127; i ++)
 // In byte order (1234), out (54321)
 function base96encode(str)
 {
-   var a, i, o, out = "";
-   while (str.length)
-   {
-      o = "";
-      i = ((str.charCodeAt(3) * 256 + str.charCodeAt(2)) * 256 +
-         str.charCodeAt(1)) * 256 + str.charCodeAt(0);
-      for (a = 0; a < 5; a ++)
-      {
-         o = Chars.charAt(i % 96) + o;
-         i = Math.floor(i / 96);
-      }
-      str = str.substring(4);
-      for (a = 0; a < 4; a ++)
-      {
-         out += String.fromCharCode(i % 256);
-	 i = Math.floor(i / 256)
-      }
-      out += o;
-   }
-   return out;
+	var a, i, o, out = new StringMaker();
+	while (str.length) {
+		o = "";
+		i = ((str.charCodeAt(3) * 256 + str.charCodeAt(2)) * 256 +
+				str.charCodeAt(1)) * 256 + str.charCodeAt(0);
+		for (a = 0; a < 5; a ++) {
+			o = Chars.charAt(i % 96) + o;
+			i = Math.floor(i / 96);
+		}
+		str = str.substring(4);
+		for (a = 0; a < 4; a ++) {
+			out.append(String.fromCharCode(i % 256));
+			i = Math.floor(i / 256)
+		}
+	}
+	return out.toString();
 }
 
 // In byte order (54321), out byte order (1234)
-function base96decode(str)
-{
-   var a, i, out = "";
-   while (str.length)
-   {
-      i = 0;
-      for (a = 0; a < 5; a ++)
-      {
-         i *= 96;
-	 i += Chars.indexOf(str.charAt(i));
-      }
-      str = str.substring(5);
-      for (a = 0; a < 4; a ++)
-      {
-         out += String.fromCharCode(i % 256);
-	 i = Math.floor(i / 256);
-      }
-   }
-   return out;
+function base96decode(str) {
+	var a, i, out = new StringMaker();
+	while (str.length) {
+		i = 0;
+		for (a = 0; a < 5; a ++) {
+			i *= 96;
+			i += Chars.indexOf(str.charAt(i));
+		}
+		str = str.substring(5);
+		for (a = 0; a < 4; a ++)
+		{
+			out.append(String.fromCharCode(i % 256));
+			i = Math.floor(i / 256);
+		}
+	}
+	return out.toString();
 }
 
-function RunSquish()
-{
-    document.compform.squished.value =
-        base96encode(document.compform.from.value);
-    document.compform.unsquished.value =
-        base96decode(document.compform.squished.value);
-    if (document.compform.from.value == document.compform.unsquished.value) {
-        document.compform.result.value = "Works!";
-    } else {
-        document.compform.result.value = "Broken.  :-(";
-    }
+function RunSquish() {
+	document.compform.squished.value = base96encode(document.compform.from.value);
+	document.compform.unsquished.value = base96decode(document.compform.squished.value);
+	if (document.compform.from.value == document.compform.unsquished.value) {
+		document.compform.result.value = "Works!";
+	} else {
+		document.compform.result.value = "Broken.  :-(";
+	}
 }
 // --></script>
 </head>
