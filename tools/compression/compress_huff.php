@@ -137,8 +137,9 @@ function CompressCode() {
 
 	for (i = 0; i < ov.length; i ++) {
 		if ((i & 0xFF) == 0) {
-			P.value = "Counting Letters - " + Math.floor((100 * i) / ov.length) + "%" Letters[ov.charCodeAt(i)] ++;
+			P.value = "Counting Letters - " + Math.floor((100 * i) / ov.length) + "%";
 		}
+		Letters[ov.charCodeAt(i)] ++;
 	}
 
 	//   This is a testing tree
@@ -285,18 +286,18 @@ function CompressCode() {
 	// The bits string could get very large
 	P.value = "Building data stream";
 	bits = "";
-	bytes = "";
+	var bytes = new StringMaker();
 	for (i = 0; i < ov.length; i ++) {
 		if ((i & 0xFF) == 0) {
 			P.value = "Building Data Stream - " + Math.floor((100 * i) / ov.length) + "%";
 		}
 		bits += LetterCodes[ov.charCodeAt(i)];
 		while (bits.length > 5) {
-			bytes += BitsToBytes(bits);
+			bytes.append(BitsToBytes(bits));
 			bits = bits.slice(6, bits.length);
 		}
 	}
-	bytes += BitsToBytes(bits);
+	bytes.append(BitsToBytes(bits));
 
 	P.value = "Writing final script";
 
@@ -328,6 +329,7 @@ function CompressCode() {
 	S += "while(a.length){l.push((Y(a.charCodeAt(0))<<6)+Y(a.charCodeAt(1))-512);\n";
 	S += "a=a.slice(2,a.length)}\n";
 	S += 'd=';
+	bytes = bytes.toString();
 	while (bytes.length > 74) {
 		S += '"' + bytes.slice(0, 74) + "\"\n+";
 		bytes = bytes.slice(74, bytes.length);
@@ -347,7 +349,7 @@ function CompressCode() {
 }
 
 function CreatePopup(str) {
-	ShowMeWindow = window.open("", "", "location=no,directories=no,menubar=no," + "resizable=yes,scrollbars=yes,status=yes,toolbar=no,width=300,height=240");
+	ShowMeWindow = window.open("", "", "location=no,directories=no,menubar=no,resizable=yes,scrollbars=yes,status=yes,toolbar=no,width=300,height=240");
 	ShowMeWindow.document.write(str);
 	ShowMeWindow.document.close();
 }
