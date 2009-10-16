@@ -25,7 +25,7 @@ eval, see objects.js.
 	
 *************************************************************************** */
 
-function backgroundProcess() {
+function BackgroundProcess() {
 	this.workCallback = function() {
 		// Override this!
 		// Return false to continue processing.
