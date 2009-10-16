@@ -10,14 +10,14 @@ StandardHeader(array(
 ?>
 
 <p>I have often wondered the statistical differences between
-<a href="#" onclick="SetRoll('2d6')">2d6</a> and
-<a href="#" onclick="SetRoll('3d4')">3d4</a>.  They both have a maximum of
+<a href="#" onclick="return SetRoll('2d6')">2d6</a> and
+<a href="#" onclick="return SetRoll('3d4')">3d4</a>.  They both have a maximum of
 12, but both the minimums and the averages are higher with 3d4.  This is
 especially applicable for character generation.  As a DM/GM/super-powerful
 narrator, I decide how the characters get to roll up their attributes.  Do
-they use <a href="#" onclick="SetRoll('3d6')">3d6</a> like 2nd edition, or
-perhaps <a href="#" onclick="SetRoll('4d6D1')">4d6, dropping the lowest</a>?
-My old method even let you <a href="#" onclick="SetRoll('4d5D1+3')">reroll
+they use <a href="#" onclick="return SetRoll('3d6')">3d6</a> like 2nd edition, or
+perhaps <a href="#" onclick="return SetRoll('4d6D1')">4d6, dropping the lowest</a>?
+My old method even let you <a href="#" onclick="return SetRoll('4d5D1+3')">reroll
 ones</a> and that left you with an even higher average with more of a
 tendency of higher numbers.</p>
 
@@ -27,11 +27,11 @@ dice, otherwise it will take significantly longer to generate statistics.
 My machine bombs out at about 10 dice.</p>
 
 <p>Sample rolls for character generation:
-<a href="#" onclick="SetRoll('3d6')">3d6</a>,
-<a href="#" onclick="SetRoll('4d4+2')">4d4 + 2</a>,
-<a href="#" onclick="SetRoll('6d3')">6d3</a>,
-<a href="#" onclick="SetRoll('4d6D1')">4d6, drop lowest</a>,
-<a href="#" onclick="SetRoll('4d5D1+3')">4d6, reroll 1s, drop lowest</a>
+<a href="#" onclick="return SetRoll('3d6')">3d6</a>,
+<a href="#" onclick="return SetRoll('4d4+2')">4d4 + 2</a>,
+<a href="#" onclick="return SetRoll('6d3')">6d3</a>,
+<a href="#" onclick="return SetRoll('4d6D1')">4d6, drop lowest</a>,
+<a href="#" onclick="return SetRoll('4d5D1+3')">4d6, reroll 1s, drop lowest</a>
 <form method="GET" action="#" onSubmit="return false;">
 Dice Roll String:
 <input type="text" name="dice" value="" onKeyUp="roll()" onChange="roll()"
@@ -82,7 +82,7 @@ StandardFooter();
 function insert_js() {
 	
 	?>
-<script language="JavaScript"
+<script language="JavaScript">
 <!--
 
 lastStr = false;
@@ -213,7 +213,7 @@ function parseStr(rollStr) {
 			if (drop < 1) {
 				drop = 0;
 			}
-			if (drop >= times) {
+			if (times <= drop) {
 				drop = times - 1;
 			}
 	
@@ -246,7 +246,7 @@ function genStats(rollData) {
          if (die < min) {
 	    min = die;
 	 }
-	 if (die > max) {
+	 if (max < die) {
 	    max = die;
 	 }
 	 count += freq;
@@ -322,6 +322,7 @@ function genTable(rollData) {
 function SetRoll(txt) {
    document.getElementById('rollString').value = txt;
    roll();
+   return false;
 }
 
 // --></script>
