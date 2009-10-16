@@ -74,6 +74,11 @@ $results = array(
 		'2x to 3x faster'
 	),
 	array(
+		'Firefox 3.0.5',
+		'Windows',
+		'5x faster'
+	),
+	array(
 		'Firefox 3.5',
 		'Linux (Ubuntu 9.04)',
 		'7x to 8x faster'
@@ -158,6 +163,11 @@ $results = array(
 		'Questionable'
 	),
 	array(
+		'Firefox 3.0.5',
+		'Windows',
+		'Questionable'
+	),
+	array(
 		'Firefox 3.5',
 		'Linux (Ubuntu 9.04)',
 		'2x slower'
@@ -165,7 +175,7 @@ $results = array(
 	array(
 		'Internet Explorer 7',
 		'Windows XP',
-		'4x to 6x faster'
+		'4x to 7x faster'
 	),
 	array(
 		'Midori 0.1.2',
