@@ -195,6 +195,9 @@ are negligable.</p>
 <p>Chrome's JavaScript engine makes the array building and concatenation
 actually slower than just appending to a string repeatedly.</p>
 
+<p>To help combat this problem, I have started working on a cross-browser
+library to improve the speed of these comparisons, <a href="/inc/js/browser_faster.js">browser_faster.js</a>.</p>
+
 <?php Section('Additional Resources'); ?>
 
 <ol>
