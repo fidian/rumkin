@@ -57,6 +57,23 @@ order &ndash; do not assign numbers to stats as you see fit.
 <li>Roll a pool of 12 scores using 3d6, pick the best 6 scores.
 </ul>
 
+<p>I have also been contacted about making some stats that would be useful for Legend of the Five Rings (L5R).  In there, you have a stat and a skill.  when you roll against that, you keep a number of 10-sided dice equal to your stat.  You can also "roll up" by rolling again when you roll a ten and adding the new roll to the ten.  You can continue rolling up as long as you keep rolling tens.</p>
+
+<p>I wrote up a small <a href="dice/l5r.c">c program</a> to only do the rolling of 1-10 10 sided dice and keeping just the highest digit, then averaging the rolls.  Let me know if you would like alternate die roll stats and I will see what I can do to help out.</p>
+
+<ol>
+<li>Rolling 1d10, keeping the highest:  average roll of 5.5</li>
+<li>Rolling 2d10, keeping the highest:  average roll of 7.15</li>
+<li>Rolling 3d10, keeping the highest:  average roll of 7.975</li>
+<li>Rolling 4d10, keeping the highest:  average roll of 8.4667</li>
+<li>Rolling 5d10, keeping the highest:  average roll of 8.79175</li>
+<li>Rolling 6d10, keeping the highest:  average roll of 9.021595</li>
+<li>Rolling 7d10, keeping the highest:  average roll of 9.1919575</li>
+<li>Rolling 8d10, keeping the highest:  average roll of 9.32268667</li>
+<li>Rolling 9d10, keeping the highest:  average roll of 9.425695015</li>
+<li>Rolling 10d10, keeping the highest:  average roll of 9.5085658075</li>
+</ol>
+
 <?php
 
 StandardFooter();
