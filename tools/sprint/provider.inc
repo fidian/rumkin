@@ -219,6 +219,7 @@ $GLOBALS['Providers'] = array(
 	'@t-mobile.uk.net',  // T-Mobile UK
 	'@bplmobile.com',  // Tamil Nadu BPL Mobile
 	'@sms.tele2.lv',  // Tele2 Latvia
+	'@txt.telebec.com',  // Telebec
 	'@teleflip.com',  // Teleflip
 	'@movistar.net',  // Telefonica Movistar
 	'@mobilpost.no',  // Telenor
