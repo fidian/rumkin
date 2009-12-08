@@ -166,11 +166,11 @@ function decode(str, alphabet)
       {
          var idx = 0;
 	 
-	 idx += (buffer[0] == 'A')? 0 : 16;
-	 idx += (buffer[1] == 'A')? 0 : 8;
-	 idx += (buffer[2] == 'A')? 0 : 4;
-	 idx += (buffer[3] == 'A')? 0 : 2;
-	 idx += (buffer[4] == 'A')? 0 : 1;
+	 idx += (buffer.charAt(0) == 'A')? 0 : 16;
+	 idx += (buffer.charAt(1) == 'A')? 0 : 8;
+	 idx += (buffer.charAt(2) == 'A')? 0 : 4;
+	 idx += (buffer.charAt(3) == 'A')? 0 : 2;
+	 idx += (buffer.charAt(4) == 'A')? 0 : 1;
 	 
 	 buffer = '';
 	 
