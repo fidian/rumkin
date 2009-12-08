@@ -45,7 +45,7 @@ $GLOBALS['Topics'] = array(
 		'not_working' => 'Uploading isn\'t working!  What do I do?',
 	),
 	'Phone Error Messages' => array(
-		'handler' => 'What is "A Handler Is Needed To Use This Content Type"?',
+		'handler' => 'What is "A Handler Is Needed To Use This Content Type" or some message about needing a plugin?',
 		'e406' => 'What is "Data Error 406 / Content Not Acceptable"?',
 		'e901' => 'What is "Data Error 901 / Content Size Too Large"?',
 		'e903' => 'What is "Data Error 901 / Loss of Service"?',
