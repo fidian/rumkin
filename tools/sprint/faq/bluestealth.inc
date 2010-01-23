@@ -32,7 +32,7 @@
 <p>Special notes:</p>
 
 <ul>
-<li>No, .jar files do not install on Palm OS phones.  They need to be .pdb files.  I am aware that there was a really horrible converter, but it didn't do system-specific stuff, like talk to your Bluetooth transmitter.  You need to get a Palm OS version or a refund.
+<li>No, .jar files do not drectly install on Palm OS phones.  They need to be .prc files.  I am aware that there was a really horrible converter, but it didn't do system-specific stuff, like talk to your Bluetooth transmitter.  You need to get a Palm OS version or a refund.
 <li>No, .jar files do not install on a Windows Mobile device.  You might have received another file and you should sync it with your cable.
 <li>If you have issues downloading it and wish to try a cable, I have links to some software on the <a href="../links.php">Links</a> page.
 <li>If you get a system error or some other message, check out my <a href="/tools/decision_tree/index.php?Tree=uploader">Problems Troubleshooter</a>.
