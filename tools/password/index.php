@@ -49,7 +49,7 @@ and "Pa5$w0rD".
 <?php Section('Links'); ?>
 
 <ul>
-<li><a href="http://www.securitystats.com/tools/password.php">Security
+<li><a href="http://www.surveillance-video.com/password-jan-2010.html">Security
 Stats</a> - Tips for creating good passwords
 <li><a href="http://www.diceware.com/">Diceware</a> -
 Create good passphrases by shaking a few dice and looking up words on a
