@@ -111,6 +111,11 @@ $Links = array(
 		'URL' => 'http://www.gtoal.com/pcs/'
 	),
 	array(
+		'Name' => 'Hwyman.com',
+		'Desc' => 'Maybe this one will work for you?',
+		'URL' => 'http://upload.hwyman.com/',
+	),
+	array(
 		'Name' => 'Knuckledragger.net',
 		'Desc' => 'Another older copy of my uploader.  Seems like this ' . 'free stuff is quite popular.',
 		'URL' => 'http://www.knuckledragger.net/sprintpcsuploads.htm'
