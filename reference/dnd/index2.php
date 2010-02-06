@@ -7,6 +7,15 @@ StandardHeader(array(
 		'header' => '3ed D&amp;D - Restricted Page',
 		'topic' => 'dnd_restricted'
 	));
+Section('Downloads');
+$Links = array(
+	array(
+		'Name' => 'Pathfinder Player\'s Guide (Beta)',
+		'Desc' => 'The open gaming system based on traditional d20 rules, ' . 'but freer and improved by thousands of people.  Warning:  This ' . 'file is about 25 megs.',
+		'URL' => 'media/PathfinderRPGBeta.pdf'
+	),
+);
+MakeLinkList($Lins);
 Section('Magic Items');
 echo '<p>These are scanned pages of books containing magic items.</p>';
 MakePageList('Dungeon Master Guide', 'dmg', 41);

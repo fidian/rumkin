@@ -14,11 +14,6 @@ echo htmlspecialchars($tip);
 MakeBoxBottom();
 $Links = array(
 	array(
-		'Name' => 'Pathfinder Player\'s Guide (Beta)',
-		'Desc' => 'The open gaming system based on traditional d20 rules, ' . 'but freer and improved by thousands of people.  Warning:  This ' . 'file is about 25 megs.',
-		'URL' => 'media/PathfinderRPGBeta.pdf'
-	),
-	array(
 		'Name' => 'Pathfinder Web Enhancements (Beta)',
 		'Desc' => 'Additional spells and magic items dropped from the ' . 'player\'s guide because they were infrequently used.',
 		'URL' => 'media/PathfinderRPGBeta-WebEnhancement.pdf'
