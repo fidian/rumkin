@@ -46,6 +46,7 @@ $GLOBALS['Providers'] = array(
 	'@blsdcs.net',  // Bell South Mobility
 	'@sms.bluecell.com',  // Bluegrass Cellular
 	'@myboostmobile.com',  // Boost Mobile
+	'@myboostmobile.sprintpcs.com',  // Boost Mobile
 	'@bplmobile.com',  // BPL mobile
 	'@cmcpaging.com',  // Carolina Mobile Communications
 	'@sms.celcom.com.my',  // Celcom
