@@ -85,7 +85,9 @@ passphrase contains a character from the subset, that subset is added to
 the pool, increasing the size of the character set and increasing the amount
 of entropy in your password.
 </ul>
-  
+
+<p>For further information, try NIST's Special Publication 800-63, <a href="http://csrc.nist.gov/publications/nistpubs/800-63/SP800-63V1_0_2.pdf">Electronic Authentication Guideline</a>, Appendix A: Estimating Password Entropy and Strength.  Also, C.E. Shannon's <a href="http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf">A Mathematical Theory of Communication</a>.</p>
+
 <p>If you really like this program and you want to include it with your
 software or on your site, you can download it here: <a
 href="media/passchk.zip">passchk.zip</a> (<?php
