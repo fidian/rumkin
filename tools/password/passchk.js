@@ -239,7 +239,7 @@ function ShowStats()
    if (pass.length > 1)
    {
       var c, aidx = 0, bits = 0, charSet;
-      charSet = Math.log(Get_Charset_Size(pass));
+      charSet = Math.log(Get_Charset_Size(pass)) / Math.log(2);
       aidx = Get_Index(plower.charAt(0));
       for (var b = 1; b < plower.length; b ++)
       {
