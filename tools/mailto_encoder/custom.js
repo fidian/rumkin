@@ -15,6 +15,22 @@ function esc(v) {
 }
 
 
+// Shuffle and unique-ify letters in a string
+function ShuffleAndUnique(inStr) {
+	var out = "";
+	var loc = 0;
+	while (loc < inStr.length) {
+		var l = inStr.charAt(loc);
+		if (out.indexOf(l) == -1) {
+			var p = Rand(out.length + 1);
+			out = out.slice(0, p) + l + out.slice(p, out.length + 1);
+		}
+		loc ++;
+	}
+	return out;
+}
+
+
 // Do the encode
 function RunEncode()
 {
@@ -371,18 +387,11 @@ function JavascriptEncode()
     else if (Opt == "Subst")
     {
         loc = 0;
-	LetterList = "";
-	while (loc < From.length)
-	{
-	    l = From.slice(loc, loc+1);
-	    if (LetterList.indexOf(l) == -1)
-	    {
-	        p = Rand(LetterList.length + 1);
-	        LetterList = LetterList.slice(0, p) + l +
-		    LetterList.slice(p, LetterList.length + 1);
-	    }
-	    loc ++;
-	}
+		LetterList = ShuffleAndUnique(From);
+		while (LetterList.indexOf("<?") != -1 || LetterList.indexOf("<%") != -1) {
+			LetterList = ShuffleAndUnique(From);
+		}
+
 	
 	LetterListEscaped = LetterList;
 	
