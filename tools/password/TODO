@@ -1,5 +1,10 @@
+The first character appears to not provide any bits of entropy.
+
+Change the Math.log(xxx) into Math.log(xxx) / Math.log(2) since it is likely I mis-implemented the formula.
+
 Use the letter frequency tables at
 http://www.data-compression.com/english.shtml
+or make my own
 
 http://www.data-compression.com/stat3_out.gz
 
