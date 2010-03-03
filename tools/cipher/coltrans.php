@@ -47,7 +47,7 @@ H A C W T<br>
 <p>Now, you just read the columns down in the order that you number them.
 Above, you will see the key is 4 2 5 3 1, which means you write down the
 last column first, then the second, then the fourth, the first, and finally
-the last.  When you are all done, you will get
+the middle.  When you are all done, you will get
 "HTHESTHHRASWRASCSCRSSCWWWESWWEIITAIIT".  I can put the example's information
 into the encoder for you:  
 <a href="#" onclick="insert_example(); return false">Encode</a> or
