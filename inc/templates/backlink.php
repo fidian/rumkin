@@ -12,18 +12,16 @@ $pre = $GLOBALS['HeaderOpts']['Backlinks'][1];
 
 foreach ($links as $d) {
 	echo "\n<br>";
-	$d[0] = str_replace(' ', '&nbsp;', $d[0]);
 	
-	if (count($d) > 1) {
-		
-		?><a href="<?php echo $d[1] ?>"><?php echo $d[0] ?></a>
-<?php
-	} elseif ($d[0][0]) {
-		
-		?><br>
-<b><?php echo strtoupper($d[0]) ?></b>
-<br>
-<?php
+	if (! empty($d[0])) {
+		$d[0] = str_replace(' ', '&nbsp;', $d[0]);
+	
+		if (count($d) > 1) {
+			echo '<a href="' . $d[1] . '">' . $d[0] . "</a>\n";
+		} elseif ($d[0][0]) {
+			echo "<br>\n";
+			echo '<b>' . strtoupper($d[0]) . "</b>\n";
+		}
 	}
 }
 
