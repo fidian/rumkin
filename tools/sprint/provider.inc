@@ -117,6 +117,7 @@ $GLOBALS['Providers'] = array(
 	'@bplmobile.com',  // Maharashtra BPL Mobile
 	'@ideacellular.net',  // Maharashtra Idea Cellular
 	'@text.mtsmobility.ca',  // Manitoba Telecom Systems
+	'@mtsmobility.com',  // Manitoba Telecom Systems
 	'@text.mtsmobility.com',  // Manitoba Telecom Systems
 	'@mci.com',  // MCI Phone
 	'@pagemci.com',  // MCI
