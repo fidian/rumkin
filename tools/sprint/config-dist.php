@@ -57,7 +57,7 @@ $GLOBALS['Only Provider Emails'] = 1;
 
 /* 0 or 1
  * Should I send SMS messages through Sprint's web site or use email? */
-$GLOBALS['Use Sprint Website'] = 1;
+$GLOBALS['Use Sprint Website'] = 0;
 
 
 /* 0 or 1
