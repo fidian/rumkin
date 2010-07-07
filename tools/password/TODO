@@ -1,7 +1,5 @@
 The first character appears to not provide any bits of entropy.
 
-Change the Math.log(xxx) into Math.log(xxx) / Math.log(2) since it is likely I mis-implemented the formula.
-
 Use the letter frequency tables at
 http://www.data-compression.com/english.shtml
 or make my own
@@ -14,3 +12,5 @@ Check for repeated patterns of letters 3 characters long and more.
 
 Make a new corpus from wikipedia?  Gutenberg?  Everything?
 When done, email websmith@eeep.com - they wanted an updated frequency.js file.
+
+Flag passwords as bad with the Twitter list and the password breach.
