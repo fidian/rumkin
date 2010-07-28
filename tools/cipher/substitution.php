@@ -29,6 +29,7 @@ as possible.  You'll see what I mean when you start playing with it.</p>
 <option value="I_dancingmen">Image:  Dancing Men</option>
 <option value="I_pigpen">Image:  Pigpen #X#X</option>
 <option value="I_pigpen2">Image:  Pigpen ##XX</option>
+<option value="T_alphabet">Text:  Alphabetical Index</option>
 <option value="T_goldbug">Text:	 Gold Bug</option>
 <option value="TI_decimal">Text:  Decimal</option>
 <option value="TI_hex">Text:  Hexadecimal</option>
@@ -463,6 +464,26 @@ function ShowText(set) {
 		return s;
 	}
   
+	if (set == 'alphabet') {
+		var s = '';
+		var l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+		for (var i = 0; i < l.length; i ++) {
+			if (s != '') {
+				s += '&nbsp;&nbsp; ';
+			}
+
+			var c = l.charAt(i);
+
+			c = "'" + c + "'";
+
+			s += '<a onclick="return L(' + c + ')" id="Text_Link_' + 
+				l.charCodeAt(i) + '" href="#">' + (i + 1) + '</a>';
+		}
+
+		return s;
+	}
+
 	if (set == 'decimal') {
 		var s = '';
 
@@ -626,17 +647,19 @@ function ProcessDecodeBox(work) {
 	}
    
 	while (t.length && d == GetSeconds()) {
-		var c = '';
+		var bestCode = null;
       
 		for (var code in Process_Text_Lookup) {
 			if (code == t.slice(0, code.length)) {
-				c += Process_Text_Lookup[code];
-				t = t.slice(code.length);
+				if (bestCode == null || bestCode.length < code.length) {
+					bestCode = code;
+				}
 			}
 		}
-      
-		if (c != '') {
-			Process_Text_Done += c;
+
+		if (bestCode != null) {
+			Process_Text_Done += Process_Text_Lookup[bestCode];
+			t = t.slice(bestCode.length, t.length);
 		} else {
 			Process_Text_Done += t.charAt(0);
 			t = t.slice(1, t.length);
