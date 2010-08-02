@@ -8,17 +8,17 @@ $GLOBALS['MenuLinks'] = array(
 		'Links' => array(
 			array(
 				'Name' => 'D&D Helper',
-				'Desc' => 'Palm OS software to help speed up your ' . 'Dungeons and Dragons campaign (or other type of ' . 'dice-based system) by rolling dice, looking up ' . 'information, and generating interesting things.',
+				'Desc' => 'Palm OS software to help speed up your Dungeons and Dragons campaign (or other type of dice-based system) by rolling dice, looking up information, and generating interesting things.',
 				'URL' => '/software/dnd_helper/'
 			),
 			array(
 				'Name' => 'Java Puzzle Applet',
-				'Desc' => 'Free puzzle applet that lets you easily add ' . 'an image puzzle to your web site.  Very ' . 'customizable.',
+				'Desc' => 'Free puzzle applet that lets you easily add an image puzzle to your web site.  Very customizable.',
 				'URL' => '/software/puzzle/'
 			),
 			array(
 				'Name' => 'Marco',
-				'Desc' => 'A set of surveyor programs that run on Palm ' . 'OS, intended to replace outdated hardware and bulky ' . 'laptops in the field.',
+				'Desc' => 'A set of surveyor programs that run on Palm OS, intended to replace outdated hardware and bulky laptops in the field.',
 				'URL' => '/software/marco/'
 			),
 		)
@@ -29,17 +29,17 @@ $GLOBALS['MenuLinks'] = array(
 		'Links' => array(
 			array(
 				'Name' => 'Interactive Games',
-				'Desc' => 'Java applets and other things that I have ' . 'found elsewhere',
+				'Desc' => 'Java applets and other things that I have found elsewhere',
 				'URL' => '/fun/games/'
 			),
 			array(
 				'Name' => 'Personality Tests',
-				'Desc' => 'Fun little multiple-choice questions ' . 'that are intended to reveal information about ' . 'yourself that you never thought of before.',
+				'Desc' => 'Fun little multiple-choice questions that are intended to reveal information about yourself that you never thought of before.',
 				'URL' => '/fun/tests/'
 			),
 			array(
 				'Name' => 'Trivia and Fun Facts',
-				'Desc' => 'An archive of the amazing trivia, facts, ' . 'and the occasional quotes that are ' . 'put up on a whiteboard at my work.',
+				'Desc' => 'An archive of the amazing trivia, facts, and the occasional quotes that are put up on a whiteboard at my work.',
 				'URL' => '/fun/trivia/'
 			),
 		)
@@ -50,12 +50,12 @@ $GLOBALS['MenuLinks'] = array(
 		'Links' => array(
 			array(
 				'Name' => 'D&D Resources',
-				'Desc' => 'House rules and software used by our D&D ' . 'sessions.',
+				'Desc' => 'House rules and software used by our D&D sessions.',
 				'URL' => '/reference/dnd/'
 			),
 			array(
 				'Name' => 'Email Information for Rumkin.com',
-				'Desc' => 'Useful information for people who use this ' . 'machine as their email server.',
+				'Desc' => 'Useful information for people who use this machine as their email server.',
 				'URL' => '/reference/email/'
 			),
 			array(
@@ -71,23 +71,23 @@ $GLOBALS['MenuLinks'] = array(
 		'URL' => '/tools/',
 		'Links' => array(
 			array(
-				'Name' => 'Sprint PCS Vision Uploader',
-				'Desc' => 'Send new ringtones, images, and Java midlets ' . 'to your phone with ease.  Also works with many ' . 'phones from other providers.',
+				'Name' => 'Phone Uploader',
+				'Desc' => 'Send new ringtones, images, and Java midlets to your phone with ease.  Works with many phones and providers.',
 				'URL' => '/tools/sprint/'
 			),
 			array(
 				'Name' => 'SSH Applet',
-				'Desc' => 'Need to log into a remote machine but you ' . 'don\'t have an SSH client handy?  On a loaner ' . 'computer or can\'t install software?  Just need to ' . 'SCP that one file?  Here you go!',
+				'Desc' => 'Need to log into a remote machine but you don\'t have an SSH client handy?  On a loaner computer or can\'t install software?  Just need to SCP that one file?  Here you go!',
 				'URL' => '/tools/ssh/'
 			),
 			array(
 				'Name' => 'Mailto Encoder',
-				'Desc' => 'A safe way to put your email address on a web ' . 'page and not have it harvested by spambots!',
+				'Desc' => 'A safe way to put your email address on a web page and not have it harvested by spambots!',
 				'URL' => '/tools/mailto_encoder/'
 			),
 			array(
 				'Name' => 'PJIRC',
-				'Desc' => 'Java IRC applet, for those times that you ' . 'need to chat and you are away from your normal IRC ' . 'client.',
+				'Desc' => 'Java IRC applet, for those times that you need to chat and you are away from your normal IRC client.',
 				'URL' => '/tools/pjirc/'
 			),
 		)
