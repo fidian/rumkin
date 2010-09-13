@@ -183,6 +183,7 @@ $GLOBALS['Providers'] = array(
 	'@qwest.sprintpcs.com',  // Qwest (Partnered with Sprint)
 	'@ram-page.com',  // RAM Page
 	'@pcs.rogers.com',  // Rogers AT&T Wireless
+	'@rci.rogers.com',  // Rogers Canada
 	'@pcs.rogers.com',  // Rogers Canada
 	'@info2go.com',  // Rural Cellular Corp
 	'@safaricomsms.com',  // Safaricom
