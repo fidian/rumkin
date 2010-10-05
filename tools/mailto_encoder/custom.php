@@ -20,7 +20,7 @@ StandardHeader(array(
 
 ?>
 
-<p>Below is one of the most fexible email address encoders available on the
+<p>Below is one of the most flexible email address encoders available on the
 web.  You are allowed to pick from several options, to select things you
 want to do and things that you don't, and to finally see the end results.</p>
 
