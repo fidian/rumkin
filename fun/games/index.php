@@ -103,6 +103,11 @@ $Links = array(
 		'URL' => 'media/stickmansam4.swf'
 	),
 	array(
+		'Name' => 'Territory War (Flash)',
+		'Desc' => 'Play against another person or the computer and see who can conquery the enemy first.',
+		'URL' => 'media/territory_war.swf'
+	),
+	array(
 		'Name' => 'Tetris (Flash)',
 		'Desc' => 'Provided for all of you tetris fans out there.',
 		'URL' => 'media/neave_tetris.swf'
