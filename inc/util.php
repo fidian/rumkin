@@ -103,7 +103,7 @@ function UseCachedVersion($timestamp) {
 	else return;
 	$scriptmod = filemtime($scriptname);
 	
-	if ($scriptmod && scriptmod > $timestamp)$timestamp = $scriptmod;
+	if ($scriptmod && $scriptmod > $timestamp)$timestamp = $scriptmod;
 	
 	if ($timestamp > time())$timestamp = time();
 	$lastmod = gmdate('D, d M Y H:i:s \G\M\T', $timestamp);
