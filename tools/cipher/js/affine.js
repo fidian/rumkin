@@ -24,11 +24,12 @@ function Affine(encdec, text, mult, inc, key, alphabet)
    inc = inc * 1;
    
    if (encdec < 0) {
-      var i;
-      inc = alphabet.length - inc;
-      for (i = 1; mult * i % 26 != 1; i += 2) {
-      }
+      var i = 1;
+	  while ((mult * i) % 26 != 1) {
+		  i += 2;
+	  }
       mult = i;
+      inc = mult * (alphabet.length - inc) % alphabet.length;
    }
    
    key = MakeKeyedAlphabet(key, alphabet);
