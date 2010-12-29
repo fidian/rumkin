@@ -9,7 +9,7 @@
 $GLOBALS['Topics'] = array(
 	'High-Priority Topics' => array(
 		'special_problems' => 'Problems with specific phones and carriers',
-		'bluestealth' => 'Info on Bluestealth and e-Stealth software',
+		'bluestealth' => 'Info on Bluestealth, e-Stealth, Cignal Spy',
 	),
 	'Initial Concerns / Background Info' => array(
 		'about' => 'What is this uploader site thing?',

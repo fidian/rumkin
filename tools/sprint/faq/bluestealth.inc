@@ -1,6 +1,10 @@
-<p>Sorry if I redirected you to this FAQ entry after you emailed me.  I get several questions about BlueStealth and decided to write up a page with a thorough explanation instead of one-line responses going back and forth for a while.  Hopefully you understand why and appreciate the level of detail on this page.</p>
+<p>Sorry if I redirected you to this FAQ entry after you emailed me.  I get several questions about BlueStealth and CignalSpy and decided to write up a page with a thorough explanation instead of one-line responses going back and forth for a while.  Hopefully you understand why and appreciate the level of detail on this page.</p>
 
-<p>First off, the BlueStealth software sold by e-stealth.com is a scam (<a href="http://www.mobile-spy.com/e-stealth.html">more info here</a>).  Everyone who has ever talked to me about it has had issues getting it on their phone or had problems getting a refund.  Demand your money back or call your credit card company and contest the charges, saying that the sofware is defective and does not work as advertised.</p>
+<p>First off, the BlueStealth software sold by e-stealth.com is a scam (<a href="http://www.mobile-spy.com/e-stealth.html">more info here</a>).  Everyone who has ever talked to me about it has had issues getting it on their phone or had problems getting a refund.</p>
+
+<p>It is looking like CignalSpy is also a scam or is being managed by a person who doesn't believe in customer service once you send money in.</p>
+
+<p>If you are having problems, <b>demand your money back or call your credit card company and contest the charges, saying that the sofware is defective and does not work as advertised.</b></p>
 
 <p>Secondly, I am not affiliated with these people.  They send you over to this site because the uploader works for most people.  It's an easy way to get the problems (you) out of their hair.  Please do not email me when the software does not work or if it just won't install no matter how hard you try.  Email the people who own the site where you purchased the software.</p>
 
