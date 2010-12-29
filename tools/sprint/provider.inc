@@ -83,6 +83,7 @@ $GLOBALS['Providers'] = array(
 	'@sms.comviq.se',  // Comviq
 	'@cookmail.com',  // Cook Paging
 	'@corrwireless.net',  // Corr Wireless Communications
+	'@mms.cox.net',  // Cox Communications
 	'@mms.mycricket.com',  // Cricket
 	'@airtelmail.com',  // Delhi Aritel
 	'@delhi.hutch.co.in',  // Delhi Hutch
