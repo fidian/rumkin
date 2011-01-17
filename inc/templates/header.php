@@ -110,6 +110,10 @@ Search:
 </div>
 </form>
 </div>
+<div style="border: 10px solid yellow; width: 90%; padding: 2em; margin: auto; background: #882222; text-align: center"><b style="color: #FFFFFF; font-size: 1.563em">
+This server is scheduled for maintenance.  I am switching hosting providers.<br>
+Expect things to not work from Thursday (Jan 20) until late Saturday (Jan 22).<br>
+During this time, there will be a link to the testing server after the database gets set up.</b></div>
 <?php
 
 if ($GLOBALS['HeaderOpts']['Backlinks'] !== false) {
