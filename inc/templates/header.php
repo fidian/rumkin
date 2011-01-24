@@ -117,7 +117,6 @@ if (time() < 1296099089) {
 I've switched servers.  The extra bandwidth should make you happier.
 If you find problems, email me (bottom of page).
 <br>Thank you!  This wouldn't have been possible without your donations.
-<br><i>Update:</i>  Outgoing email appears to be blocked - if you are uploading a file, try using the jump code directly.
 </div>
 <?php
 }
