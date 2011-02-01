@@ -1043,7 +1043,9 @@ function SendPossibleLog() {
 
 function IsNormalBrowser($UA) {
 	// We count the SDK as a normal browser
-	if (strpos(strtoupper($_SERVER['HTTP_X_WAP_PROFILE']), 'OPENWAVE.COM') >= 0)return true;
+	if (! empty($_SERVER['HTTP_X_WAP_PROFILE']) && strpos(strtoupper($_SERVER['HTTP_X_WAP_PROFILE']), 'OPENWAVE.COM') >= 0) {
+		return true;
+	}
 	$sql = 'select * from ' . $GLOBALS['Phones Table'] . ' where \'' . EscapeDB($UA) . '\' like UserAgent and UseRecord = 2';
 	$r = RunQuery($sql);
 	$data = FetchAssoc($r);
