@@ -69,7 +69,7 @@ opacity:0.75;">Option 4 - 75% opaque
 <p>Moving your mouse over this image will make it fade away (almost
 completely) and moving your mouse away will let it come back again.</p>
 
-<form name=imgform action=get method="<?php echo $PHP_SELF ?>">
+<form name=imgform action="#" method="get">
 <img name="testImage" src="world.gif" id='testImage'
  style="filter:alpha(opacity=99); -moz-opacity: 0.99; opacity=0.99"
  onmouseover="SetOpacityStep(11)" onmouseout="SetOpacityStep(99)">
