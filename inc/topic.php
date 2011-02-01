@@ -118,7 +118,7 @@ $GLOBALS['Post Message'] = array(
 );
 
 
-function ShowTopic($topic, $theme, $messages = 20) {
+function ShowTopic($topic, $theme, $messages = 20, $page = '') {
 	$dbconn = OpenDBConnection('Topic');
 	
 	/* Current topic or the "*" topic

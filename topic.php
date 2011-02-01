@@ -9,6 +9,7 @@
 include 'functions.inc';
 $topic = '';
 $theme = '';
+$page = '';
 
 if (isset($_GET['topic']))$topic = $_GET['topic'];
 
@@ -17,6 +18,10 @@ if (isset($_POST['topic']))$topic = $_POST['topic'];
 if (isset($_GET['theme']))$theme = $_GET['theme'];
 
 if (isset($_POST['theme']))$theme = $_POST['theme'];
+
+if (isset($_GET['page']))$page = $_GET['page'];
+
+if (isset($_POST['page']))$page = $_POST['page'];
 
 if ($theme == '' || $topic == '') {
 	TinyHeader('Invalid');
@@ -28,9 +33,6 @@ if ($theme == '' || $topic == '') {
 if (isset($_POST['f_name']) && isset($_POST['f_mesg'])) {
 	$fn = $_POST['f_name'];
 	$fm = $_POST['f_mesg'];
-	$page = '';
-	
-	if (isset($_POST['page']))$page = $_POST['page'];
 	
 	if (get_magic_quotes_gpc()) {
 		$topic = stripslashes($topic);
@@ -56,7 +58,7 @@ if (isset($_GET['msg']) && isset($GLOBALS['Post Message'][$_GET['msg']])) {
 	echo '<b>' . $GLOBALS['Post Message'][$_GET['msg']] . "</b><br>\n";
 }
 
-ShowTopic($topic, $theme, 50);
+ShowTopic($topic, $theme, 50, $page);
 TinyFooter();
 
 
