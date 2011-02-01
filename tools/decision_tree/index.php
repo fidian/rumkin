@@ -1,7 +1,7 @@
 <?php
 
 include '../../functions.inc';
-$GLOBALS['TopLink'] = 'Back to the <a href="' . $PHP_SELF . '?">Decision Tree Index</a>';
+$GLOBALS['TopLink'] = 'Back to the <a href="index.php?">Decision Tree Index</a>';
 $TreeFile = '';
 
 if (isset($_GET['Tree']))$TreeFile = $_GET['Tree'];
@@ -48,7 +48,7 @@ possibilities very quickly.</p>
 <p>This is a quick implementation of decision trees in PHP so that I could
 write a problem solving tree for people having issues playing Diablo II.</p>
 
-<p>Try the <a href="<?php echo $PHP_SELF ?>?Tree=uploader">Phone Uploader Problem
+<p>Try the <a href="index.php?Tree=uploader">Phone Uploader Problem
 Solving Tree</a></p>
 
 <?php
@@ -106,7 +106,7 @@ function ShowOptions($TreeFile, $Opt, $Horiz) {
 	foreach ($Opt as $k => $v) {
 		if (! $Horiz)echo '<tr>';
 		echo '<td>';
-		echo '<a href="' . $PHP_SELF . '?Tree=' . $TreeFile . '&Node=' . urlencode($v) . '">' . $k . '</a>';
+		echo '<a href="index.php?Tree=' . $TreeFile . '&Node=' . urlencode($v) . '">' . $k . '</a>';
 		echo '</td>';
 		
 		if (! $Horiz)echo '</tr>';
