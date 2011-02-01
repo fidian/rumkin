@@ -336,7 +336,7 @@ function Topic_Post($topic, $name, $mesg, $page) {
 
 
 function Topic_Censor($str) {
-	return preg_replace_callback($GLOBALS['Banned Words'], Topic_Censor_Word, $str);
+	return preg_replace_callback($GLOBALS['Banned Words'], 'Topic_Censor_Word', $str);
 }
 
 
