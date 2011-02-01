@@ -31,16 +31,12 @@
  * piece of crap that is) has a hard time opening the generated file.
  * / */
 class zipfile {
-	public
 	public $datasec = array();  // Stores compressed data
-	public
 	public $ctrl_dir = array();  // Central directory
-	public
 	public $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
 	
 	
 	// End of central directory record
-	public
 	public $old_offset = 0;
 	
 	
