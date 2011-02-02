@@ -89,7 +89,7 @@ function DisplayNode($TreeFile, $Data) {
 	echo $Data[0];
 	echo '</p>';
 	
-	if (is_array($Data[1]))ShowOptions($TreeFile, $Data[1], false);
+	if (!empty($Data[1]) && is_array($Data[1]))ShowOptions($TreeFile, $Data[1], false);
 	elseif (isset($Data[2]))ShowOptions($TreeFile, array(
 			'Yes' => $Data[1],
 			'No' => $Data[2]
