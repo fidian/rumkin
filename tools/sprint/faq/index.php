@@ -15,7 +15,7 @@ include 'faq.inc';
  * all = ... well, all of them */
 $GLOBALS['FAQ Topic'] = '';
 
-if ($_GET['Topic']) {
+if (! empty($_GET['Topic'])) {
 	$GLOBALS['FAQ Topic'] = preg_replace('/[^-_a-zA-Z0-9]/', '', $_GET['Topic']);
 }
 $GLOBALS['FAQ Topic'] = strtolower($GLOBALS['FAQ Topic']);
