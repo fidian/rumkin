@@ -70,7 +70,6 @@ function GenerateOutputLetterPair($info, $count) {
 
 
 class FakePalmClass {
-	public
 	public $Data = array();
 	
 	
