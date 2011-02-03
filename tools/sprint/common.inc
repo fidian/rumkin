@@ -1036,7 +1036,9 @@ function SendPossibleLog() {
 		}
 		
 		// Mail
-		mail($GLOBALS['Admin Email'], 'Unhandled phone: ' . substr($_SERVER['HTTP_USER_AGENT'], 0, 30), $Str, 'From: ' . $GLOBALS['Admin Email']);
+		$headers = 'From: ' . $GLOBALS['Admin Email'] . "\r\n";
+		$headers .= 'In-Reply-To: <' . md5($_SERVER['HTTP_USER_AGENT']) . '-' . $GLOBALS['Admin Email'] . '>';  // No \r\n on last line of headers
+		mail($GLOBALS['Admin Email'], 'Unhandled phone: ' . substr($_SERVER['HTTP_USER_AGENT'], 0, 30), $Str, $headers);
 	}
 }
 
