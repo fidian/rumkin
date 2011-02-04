@@ -123,7 +123,8 @@ function ShowTopic($topic, $theme, $messages = 20, $page = '') {
 	
 	/* Current topic or the "*" topic
 	 * Last 180 days */
-	$result = mysql_query('select name, message, posttime + 0 as posttime, ip_addr ' . 'from messages ' . 'where (topic = "' . addslashes($topic) . '" ' . 'or topic = "*") and DATE_ADD(posttime, INTERVAL 180 DAY) >= NOW() ' . 'order by posttime desc limit ' . $messages, $dbconn);
+	$postTime = date('%Y-%m-%d 00:00:00', strtotime('180 days ago'));
+	$result = mysql_query('select name, message, posttime + 0 as posttime, ip_addr from messages where (topic = "' . addslashes($topic) . '" ' . 'or topic = "*") and posttime >= "' . $postTime . '" order by posttime desc limit ' . $messages, $dbconn);
 	$data = array();
 	$res = mysql_fetch_array($result);
 	
