@@ -444,7 +444,7 @@ function CleanDatabase() {
 	
 	while ($data = FetchAssoc($r)) {
 		// If a file has not been seen by the file manager
-		if ($data['Seen'] == 0 && $data['GallerySuggestion'] == 0) {
+		if ($data['Seen'] == 0) {
 			// Delete if older than the threshold
 			if ($data['UpAge'] > $GLOBALS['Delete If Not Seen']) {
 				$DeleteList[] = $data['ID'];
