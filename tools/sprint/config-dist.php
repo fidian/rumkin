@@ -341,10 +341,6 @@ $GLOBALS['Gallery Directory'] = 'gallery/';
 $GLOBALS['Gallery Type'] = 'DB';
 
 
-// Where to get phoneinfo.php updates from
-$GLOBALS['Phone Data URL'] = 'http://rumkin.com/tools/sprint/phonedata.php';
-
-
 /* Where to create temporary files
  * Called like this:  $fn = tempnam($GLOBALS['Temp Files'], 'sprint') */
 $GLOBALS['Temp Dir'] = '/tmp';

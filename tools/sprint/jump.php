@@ -27,22 +27,21 @@ $GLOBALS['This Phone'] = GetPhoneInfo($PhoneID);
 
 if ($num) {
 	settype($num, 'integer');
-	$DescData = GetFileDesc($num);
-	$FileData = GetFileData($DescData['FileID'], 'FileType');
+	$FileData = GetFileData($num);
 	
-	if (IsSprintPhone() || $FileData['FileType'] == FILE_TYPE_JAR) {
-		$URL = $DescData['FileName'];
+	if (IsSprintPhone() || $FileData['type'] == FILE_TYPE_JAR) {
+		$URL = $FileData['FileName'];
 		$URL = substr($URL, 0, strrpos($URL, '.'));
 		
-		if ($FileData['FileType'] == FILE_TYPE_JAR)$URL .= '.jad';
+		if ($FileData['type'] == FILE_TYPE_JAR)$URL .= '.jad';
 		else $URL .= '.gcd';
 		
 		if (PhoneDataHas('ID'))$URL = $GLOBALS['This Phone']['ID'] . '/' . $URL;
-		Redirect($GLOBALS['URL Base'] . 'desc.php/' . $DescData['ID'] . '/' . $URL);
+		Redirect($GLOBALS['URL Base'] . 'desc.php/' . $num . '/' . $URL);
 	}
 	
 	if (PhoneDataHas('ID'))$URL = $GLOBALS['This Phone']['ID'] . '/' . $URL;
-	Redirect($GLOBALS['URL Base'] . 'dl.php/' . $DescData['FileID'] . '/' . $DescData['FileName']);
+	Redirect($GLOBALS['URL Base'] . 'dl.php/' . $num . '/' . $FileData['name']);
 }
 
 /* Wild guess about supporting WML

@@ -32,14 +32,11 @@ SendPossibleLog();
 
 
 // Get info for file and description
-$FileData = GetFileData($ID, '*');
+$FileData = GetFileData($ID);
 
 
 // Update the downloaded time
-$sql = 'update ' . $GLOBALS['File Table'] . ' set Downloaded = NOW() where id = ' . $ID;
-$result = RunQuery($sql);
-DoneWithResult($result);
-ResizeImageIfNeedBe($FileData);
-Header('Content-Type: ' . $GLOBALS['File Types'][$FileData['FileType']][1]);
-Header('Content-Length: ' . $FileData['FileSize']);
-echo $FileData['FileData'];
+$data = ResizeImageIfNeedBe($ID, $FileData);
+Header('Content-Type: ' . $GLOBALS['File Types'][$data['type']][1]);
+Header('Content-Length: ' . strlen($data['content']));
+echo $data['content'];

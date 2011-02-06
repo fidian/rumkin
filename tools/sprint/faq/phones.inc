@@ -9,12 +9,9 @@
 
 ?>
 
-<p>The information below was provided by several kind people who took the
-time to run their phones through <a href="../newphone.php">this test</a>.  If
-some of the features for your phone have question marks, you can help fill
-in the missing information with the <a href="../newphone.php">guided test</a>.
-The information is used by this uploader to make sure images are in the
-correct format and are sized appropriately for your phone.</p>
+<p>The phone information below was painfully researched by Tyler, and it is
+used by this uploader to ensure images are in the correct format and are
+sized appropriately for the device.</p>
 
 <p>This doesn't track everything that a phone can support; that would take a
 lot more work than I'm willing to put into the project.  Basically, you

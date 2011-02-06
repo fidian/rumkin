@@ -1,5 +1,4 @@
 Uploader|index.php
-Gallery|browse.php
 Links|links.php
 File Formats|formats.php
 Downloads|downloads.php

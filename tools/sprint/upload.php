@@ -19,11 +19,9 @@ if (! isset($_GET['skip'])) {
 	 * with an error message. */
 	$info = HandleUpload();
 	
-	/* $info['ID'] = Description ID
-	 * $info['FileID'] = File ID
-	 * $info['FileName'] = Name of file
-	 * $info['Folder'] = Folder name, if applicable
-	 * $info['DescText'] = Description of file
+	/* $info['name'] = Name of file
+	 * $info['folder'] = Folder name, if applicable
+	 * $info['description'] = Description of file
 	 * $info['URL'] = URL of the file to download (GCD/JAD)
 	 * $info['URL2'] = URL of the file to download (direct)
 	 * $info['SendTo'] = Who it was sent to
@@ -33,7 +31,7 @@ if (! isset($_GET['skip'])) {
 	}
 } else {
 	$info = array();
-	$info['FileName'] = 'file.zip';
+	$info['name'] = 'file.zip';
 	$info['Jump'] = 0;
 }
 
@@ -44,7 +42,7 @@ if ($info['SendTo'] != '') {
 	else $sendto_type = 'phone number';
 	
 	?>
-<p>Sent the download link for <b><?php echo $info['FileName'] ?></b> to the
+<p>Sent the download link for <b><?php echo $info['name'] ?></b> to the
 <?php echo $sendto_type ?> <?php echo $info['SendTo'] ?>.</p>
 
 <p>Please be patient and wait a few minutes for your phone to get the
