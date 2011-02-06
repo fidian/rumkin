@@ -278,7 +278,6 @@ function Topic_Post($topic, $name, $mesg, $page) {
 	}
 	
 	$dbconn = OpenDBConnection('Topic');
-	mysql_select_db($Info['DB'], $dbconn);
 	
 	// Check for banned IP addresses
 	$result = mysql_query('select count(*) from banned_ip ' . 'where ipaddr = INET_ATON("' . $_SERVER['REMOTE_ADDR'] . '")', $dbconn);
