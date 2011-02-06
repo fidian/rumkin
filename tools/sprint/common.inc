@@ -83,7 +83,7 @@ function Bail($msg) {
 
 /* Returns the record from the File table
  * Pass in the ID of the record and the fields to grab as per SQL syntax */
-function GetFileData($id, $fields) {
+function GetFileData($id) {
 	settype($id, 'integer');
 
 	if ($id < 1) {
@@ -514,7 +514,7 @@ function OutputDescFile_Jar($code, $FileData, $PhoneID = false) {
 	echo 'MIDlet-Jar-URL: ' . $GLOBALS['URL Base'] . 'dl.php/' . $code . '/';
 	
 	if (PhoneDataHas('ID'))echo $GLOBALS['This Phone']['ID'] . '/';
-	echo $FileDesc['name'] . "\n";
+	echo $FileData['name'] . "\n";
 	echo 'MIDlet-Jar-Size: ' . filesize($GLOBALS['Upload Dir'] . '/' . $code . '/data');
 	
 	foreach ($m as $d) {
@@ -550,7 +550,7 @@ function OutputDescFile_Jar($code, $FileData, $PhoneID = false) {
 		echo "\nMIDlet-Icon: $Alt_Icon";
 	}
 	
-	if (isset($FileDesc['folder']) && $FileDesc['folder'] != '')echo "\nContent-Folder: " . $FileDesc['folder'];
+	if (isset($FileData['folder']) && $FileData['folder'] != '')echo "\nContent-Folder: " . $FileData['folder'];
 	
 	/* For our Canadian friends.
 	 *    $jad_file = $FileDesc['FileName'];
@@ -583,14 +583,14 @@ function OutputDescFile_GCD($code, $FileData, $PhoneID = false) {
 			break;
 	}
 	
-	if (trim($FileDesc['description']) != '')echo 'Content-Name: ' . $FileDesc['description'] . "\n";
+	if (trim($FileData['description']) != '')echo 'Content-Name: ' . $FileData['description'] . "\n";
 	else echo "Content-Name: Untitled\n";
 	echo 'Content-Version: ' . $GLOBALS['Content Version'] . "\n";
 	echo 'Content-Vendor: ' . $GLOBALS['Content Vendor'] . "\n";
 	echo 'Content-URL: ' . $GLOBALS['URL Base'] . 'dl.php/' . $code . '/';
 	
 	if (PhoneDataHas('ID'))echo $GLOBALS['This Phone']['ID'] . '/';
-	echo $FileDesc['name'] . "\n";
+	echo $FileData['name'] . "\n";
 	echo 'Content-Size: ' . strlen($data['content']) . "\n";
 	
 	/* For our Canadian friends.

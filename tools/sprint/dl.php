@@ -38,5 +38,5 @@ $FileData = GetFileData($ID);
 // Update the downloaded time
 $data = ResizeImageIfNeedBe($ID, $FileData);
 Header('Content-Type: ' . $GLOBALS['File Types'][$data['type']][1]);
-Header('Content-Length: ' . strlen($data['content']));
-echo $data['content'];
+Header('Content-Length: ' . strlen($data['data']));
+echo $data['data'];

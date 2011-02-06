@@ -30,7 +30,7 @@ if ($num) {
 	$FileData = GetFileData($num);
 	
 	if (IsSprintPhone() || $FileData['type'] == FILE_TYPE_JAR) {
-		$URL = $FileData['FileName'];
+		$URL = $FileData['name'];
 		$URL = substr($URL, 0, strrpos($URL, '.'));
 		
 		if ($FileData['type'] == FILE_TYPE_JAR)$URL .= '.jad';

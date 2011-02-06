@@ -100,7 +100,7 @@ function HandleUpload() {
 		
 		// Save the info into the database
 		$code = SaveFile($_FILES['jar']['tmp_name'], $desc_data);
-		SaveFileDesc($code, $safefn, $folder, '', $FILE_TYPE_JAR);
+		SaveFileDesc($code, $safefn, $folder, '', FILE_TYPE_JAR);
 	}
 	
 	$DescURL = SendFileToUser($sendto, $code);
