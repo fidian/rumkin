@@ -28,7 +28,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 <?php
 
 $useTopic = false;
-$useTagline = false;
 
 if ($useTopic && $useTagline) {
 	
