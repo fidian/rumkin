@@ -2,6 +2,8 @@
 
 include('functions.inc');
 $redirects = array(
+	'/jump' => '/tools/sprint/jump.php',
+	'/cignalspy' => '/tools/sprint/faq/?Topic=bluestealth',
 	'/tools/cipher/elonka.html' => '/reference/kryptos/elonka.html',
 	
 	
