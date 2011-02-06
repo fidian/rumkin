@@ -64,7 +64,7 @@ MakeBoxTop('center');
 <b><a href="faq/index.php?Topic=jumpcode">Jump Code:</a>  <?php echo $info['Jump'] ?></b><br>
 To get a file with the <a href="faq/index.php?Topic=jumpcode">jump code</a>, use your
 phone's browser and go to<br>
-<?php echo $GLOBALS['URL Base'] ?>jump.php
+http://rumkin.com/jump
 
 <?php
 

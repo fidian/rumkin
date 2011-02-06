@@ -23,7 +23,7 @@
 <li>Once uploaded, write down the jump code presented.
 <li><b>Switch to your phone</b>
 <li>On your phone, open up the web browser.
-<li>Enter in the following URL.  <tt>http://rumkin.com/tools/sprint/jump.php</tt>
+<li>Enter in the following URL.  <tt>http://rumkin.com/jump</tt>
 	<ul>
 	<li>Sorry, I don't know how your particular web browser does it, but it is probably in a menu somewhere.
 	</ul>
