@@ -47,7 +47,7 @@ function HandleUpload() {
 		
 		// Check the file, make sure one was uploaded
 		if (! isset($_FILES['fn']))Bail('You need to select a file to upload.');
-		
+	
 		// Check file size
 		if ($_FILES['fn']['size'] < 1)Bail('Uploaded file had no data or is WAY too big.  Try again.');
 		
@@ -69,6 +69,8 @@ function HandleUpload() {
 		}
 		
 		if (! isset($folder))$folder = '';
+
+		if (! isset($_FILES['jar']))Bail('You need to select a file to upload.');
 		
 		// Check file sizes
 		if ($_FILES['jar']['size'] < 1)Bail('Java midlet had no data or was WAY too big.  Try again.');
@@ -102,7 +104,7 @@ function HandleUpload() {
 		$code = SaveFile($_FILES['jar']['tmp_name'], $desc_data);
 		SaveFileDesc($code, $safefn, $folder, '', FILE_TYPE_JAR);
 	}
-	
+
 	$DescURL = SendFileToUser($sendto, $code);
 	$DescFile = GetFileData($code);
 	$DescFile['URL'] = $DescURL;
