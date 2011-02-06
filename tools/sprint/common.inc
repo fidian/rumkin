@@ -220,7 +220,7 @@ function SaveFile($tempname, $desc = null) {
 		$code = makeId();
 	}
 	$destDir = $GLOBALS['Upload Dir'] . '/' . $code;
-	mkdir($destDir);
+	mkdir($destDir, 0777);
 	move_uploaded_file($tempname, $destDir . '/data');
 
 	if (! empty($desc)) {
@@ -252,7 +252,7 @@ function SaveFileDesc($code, $filename, $folder, $desctext, $filetype) {
 
 function SaveMeta($code, $meta) {
 	$meta = json_encode($meta);
-	file_put_contents($GLOBALS['Upload Dir'] . '/meta', $meta);
+	file_put_contents($GLOBALS['Upload Dir'] . '/' . $code . '/meta', $meta);
 }
 
 /* Could return array(0, 0) if it had problems finding the width/height
@@ -591,7 +591,7 @@ function OutputDescFile_GCD($code, $FileData, $PhoneID = false) {
 	
 	if (PhoneDataHas('ID'))echo $GLOBALS['This Phone']['ID'] . '/';
 	echo $FileData['name'] . "\n";
-	echo 'Content-Size: ' . strlen($data['content']) . "\n";
+	echo 'Content-Size: ' . strlen($data['data']) . "\n";
 	
 	/* For our Canadian friends.
 	 *    $gcd_file = $FileDesc['FileName'];
