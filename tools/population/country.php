@@ -457,7 +457,7 @@ function GetCurrentStats($conn, $ccode, $start_year, $end_year, $pct_time, $popu
 	$stats = array();
 	
 	foreach ($keys as $k => $v) {
-		$per_k = $rates[$start_year][$k] * (1 - $pct) + $rates[$end_year][$k] * $pct;
+		$per_k = $rates[$start_year][$k] * (1 - $pct_time) + $rates[$end_year][$k] * $pct_time;
 		$stats[$k] = ($population_total[0] / 1000) * $per_k;
 		settype($stats[$k], 'integer');
 	}
