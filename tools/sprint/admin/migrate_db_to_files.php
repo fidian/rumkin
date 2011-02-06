@@ -76,6 +76,7 @@ foreach ($ids as $id) {
 
 		DoneWithResult($res);
 		showResults($results);
+		checkUptime();
 	}
 }
 
@@ -83,6 +84,16 @@ showResults($results);
 
 
 
+function checkUptime() {
+	$x = file_get_contents('/proc/loadavg');
+	$x = explode(' ', $x);
+	while ($x[0] >= 1) {
+		echo "Delay due to load average of " . $x[0] . "\n";
+		sleep(1);
+		$x = file_get_contents('/proc/loadavg');
+		$x = explode(' ', $x);
+	}
+}
 
 function showResults($results) {
 	$o = array();
