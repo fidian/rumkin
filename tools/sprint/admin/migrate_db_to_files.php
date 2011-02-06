@@ -89,7 +89,7 @@ function checkUptime() {
 	$x = explode(' ', $x);
 	while ($x[0] >= 1) {
 		echo "Delay due to load average of " . $x[0] . "\n";
-		sleep(1);
+		sleep(10);
 		$x = file_get_contents('/proc/loadavg');
 		$x = explode(' ', $x);
 	}
