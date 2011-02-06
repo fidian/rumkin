@@ -414,7 +414,7 @@ function GetInfantMortalityRate($conn, $ccode, $start_year, $end_year, $pct_time
 	);
 	
 	for ($i = 0; $i < 3; $i ++) {
-		$rate = $rates[$start_year][$i] * (1 - $pct) + $rates[$end_year][$i] * $pct;
+		$rate = $rates[$start_year][$i] * (1 - $pct_time) + $rates[$end_year][$i] * $pct_time;
 		$deaths[$i] = $population_total[$i] * $rate;
 		settype($deaths[$i], 'integer');
 	}
