@@ -33,7 +33,7 @@ $GLOBALS['Phones Table'] = 'Phones';
 
 /* Maximum file size that can be uploaded and the maximum file size for the
  * description file that can be uploaded */
-$GLOBALS['Max File Size'] = 6000000;
+$GLOBALS['Max File Size'] = 6*1024*1024;
 $GLOBALS['Max Desc Size'] = 10000;
 
 
@@ -341,10 +341,6 @@ $GLOBALS['Gallery Directory'] = 'gallery/';
 $GLOBALS['Gallery Type'] = 'DB';
 
 
-// Where to get phoneinfo.php updates from -- DEPRECATED
-$GLOBALS['Phone Data URL'] = 'http://rumkin.com/tools/sprint/phonedata.php';
-
-
 /* Where to create temporary files
  * Called like this:  $fn = tempnam($GLOBALS['Temp Files'], 'sprint') */
 $GLOBALS['Temp Dir'] = '/tmp';
@@ -357,3 +353,10 @@ $GLOBALS['Ban Phone'] = array(
 	'911',
 	'1112223333'
 );
+
+
+// Directory for writing files that are uploaded.  It is your job to
+// also run a cron job to delete old contents inside.  This is just
+// a base directory name - additional directories will be created inside.
+// This directory must be writable by the web server
+$GLOBALS['Upload Dir'] = __DIR__ . '/uploaded/';

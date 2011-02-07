@@ -109,7 +109,7 @@ function GetCellData($data) {
 		case 7:  // png
 			
 		case 11:  // gif
-			echo '<img src="../thumb.php/' . $data['ID'] . '/' . $d2['FileName'] . '">';
+			echo '<img src="thumb.php/' . $data['ID'] . '/' . $d2['FileName'] . '">';
 			break;
 
 		case 8:  // pmd

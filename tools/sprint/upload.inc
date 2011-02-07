@@ -40,13 +40,6 @@ function HandleUpload() {
 	// This cleans up the recipient, or calls Bail()
 	$sendto = FilterSendto($_POST['sendto']);
 	
-	// Handle the gallery submissions
-	$gallery = 0;
-	
-	if (isset($_POST['gallery']) && $_POST['gallery'] && $GLOBALS['Gallery Submissions']) {
-		$gallery = 1;
-	}
-	
 	// If just the single file
 	if (! $is_jar) {
 		// Check the description
@@ -54,7 +47,7 @@ function HandleUpload() {
 		
 		// Check the file, make sure one was uploaded
 		if (! isset($_FILES['fn']))Bail('You need to select a file to upload.');
-		
+	
 		// Check file size
 		if ($_FILES['fn']['size'] < 1)Bail('Uploaded file had no data or is WAY too big.  Try again.');
 		
@@ -76,6 +69,8 @@ function HandleUpload() {
 		}
 		
 		if (! isset($folder))$folder = '';
+
+		if (! isset($_FILES['jar']))Bail('You need to select a file to upload.');
 		
 		// Check file sizes
 		if ($_FILES['jar']['size'] < 1)Bail('Java midlet had no data or was WAY too big.  Try again.');
@@ -94,8 +89,8 @@ function HandleUpload() {
 		$safefn = SafeFilename($_FILES['fn']['name']);
 		
 		// Save the info into the database
-		$file_id = SaveFile($filetype, $_FILES['fn']['tmp_name'], false);
-		$id = SaveFileDesc($file_id, $safefn, '', $_POST['desc'], $gallery);
+		$code = SaveFile($_FILES['fn']['tmp_name']);
+		SaveFileDesc($code, $safefn, '', $_POST['desc'], $filetype);
 	} else {
 		$safefn = SafeFilename($_FILES['jar']['name']);
 		
@@ -106,16 +101,16 @@ function HandleUpload() {
 		if ($desc_data == false || $desc_data == '')Bail('Unable to get META-INF/MANIFEST.mf data.  Did you upload a midlet?');
 		
 		// Save the info into the database
-		$file_id = SaveFile(FILE_TYPE_JAR, $_FILES['jar']['tmp_name'], $desc_data);
-		$id = SaveFileDesc($file_id, $safefn, $folder, '', $gallery);
+		$code = SaveFile($_FILES['jar']['tmp_name'], $desc_data);
+		SaveFileDesc($code, $safefn, $folder, '', FILE_TYPE_JAR);
 	}
-	
-	$DescURL = SendFileToUser($sendto, $id);
-	$DescFile = GetFileDesc($id);
+
+	$DescURL = SendFileToUser($sendto, $code);
+	$DescFile = GetFileData($code);
 	$DescFile['URL'] = $DescURL;
-	$DescFile['URL2'] = $GLOBALS['URL Base'] . 'dl.php/' . $DescFile['FileID'] . '/' . $DescFile['FileName'];
+	$DescFile['URL2'] = $GLOBALS['URL Base'] . 'dl.php/' . $code . '/' . $DescFile['name'];
 	$DescFile['SendTo'] = $sendto;
-	$DescFile['Jump'] = $id;
+	$DescFile['Jump'] = $code;
 	return $DescFile;
 }
 
@@ -133,62 +128,6 @@ function GetFileType($Ext) {
 	}
 	
 	return 0;
-}
-
-/* Saves the file to the database, or skips saving if the file is already
- * there.  Must match MD5, mime type, file size, and descfile if that
- * exists. */
-function SaveFile($filetype, $filetmpname, $desctext) {
-	// Load description data
-	$descdata = '';
-	
-	if ($desctext != false) {
-		$descdata = $desctext;
-		
-		// Alter the description data to have consistent line feeds
-		$descdata = str_replace("\r\n", "\n", $descdata);
-		$descdata = str_replace("\r", "\n", $descdata);
-	}
-	
-	// Load file data
-	$filesize = filesize($filetmpname);
-	$fp = fopen($filetmpname, 'rb');
-	
-	if (! $fp)Bail('Can not open temporary file.  System misconfigured.');
-	$filedata = fread($fp, $filesize);
-	fclose($fp);
-	$md = md5($filedata);
-	
-	// See if this is already in the database
-	$sql = 'select ID from ' . $GLOBALS['File Table'] . ' where FileMD5 = \'' . EscapeDB($md) . '\' and FileType = \'' . EscapeDB($filetype) . '\' and FileSize = ' . $filesize . ' and DescFile = \'' . EscapeDB($descdata) . '\'';
-	$result = RunQuery($sql);
-	
-	if ($result && $data = FetchAssoc($result)) {
-		DoneWithResult($result);
-		
-		// Update the uploaded time to keep the file around
-		$sql = 'update ' . $GLOBALS['File Table'] . ' set Uploaded = NOW() where ID = ' . $data['ID'];
-		$r = RunQuery($sql);
-		DoneWithResult($r);
-		return $data['ID'];
-	}
-	
-	// File does not exist.  Add to database.
-	$sql = 'insert into ' . $GLOBALS['File Table'] . ' (FileMD5, FileData, FileType, DescFile, FileSize, Uploaded, ' . 'Downloaded) ' . ' values (\'' . $md . '\', \'' . EscapeDB($filedata) . '\', \'' . EscapeDB($filetype) . '\', \'' . EscapeDB($descdata) . '\', ' . $filesize . ', NOW(), NOW())';
-	$result = RunQuery($sql);
-	DoneWithResult($result);
-	
-	// Return the new ID
-	$sql = 'select ID from ' . $GLOBALS['File Table'] . ' where FileMD5 = \'' . EscapeDB($md) . '\' and FileType = \'' . EscapeDB($filetype) . '\' and FileSize = ' . $filesize . ' and DescFile = \'' . EscapeDB($descdata) . '\'';
-	$result = RunQuery($sql);
-	
-	if ($result && $data = FetchAssoc($result)) {
-		DoneWithResult($result);
-		return $data['ID'];
-	}
-	
-	DoneWithResult($result);
-	Bail('Unable to find newly uploaded file in database.  ' . 'Please try again.');
 }
 
 

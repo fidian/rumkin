@@ -23,21 +23,13 @@ properly formatted message.  This works far better than sending messages
 with the email method, but you will need to update the script when/if Sprint
 changes their messaging pages.</p>
 
-<?php Section('<a href="makezip.php/uploader.zip">uploader.zip</a>'); ?>
+<?php Section('Uploader Source'); ?>
 
-<p>Want my uploader?  This file contains the PHP source code that is running
-this uploader site.  To use it, you need a PHP web server and a MySQL 
-database.  This is not software that runs on your home computer.  When you
-download it, you get the absolutely latest version -- the zip file is 
-created for you on the fly!  Can't beat that.  Apparently some browsers (IE)
-has issues downloading the zip file, making it look password protected.
-Try downloading it another way; there is <b>no password</b> on the zip file.</p>
-	
-<p>This comes with a live copy of the scripts that I have here, the
-administration scripts, a quick and dirty message sending page, and other
-things.</p>
-
-<p>Older versions:</p>
+<p>I no longer give out copies of my code.  Previous versions are available
+for you here (at least for now).  These files contain the old PHP source code
+so you can put this uploader on your own site.  It requires a web server that
+can run PHP and a MySQL database; this is not software that runs on your
+phone nor home computer.</p>
 
 <ul>
 

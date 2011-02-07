@@ -27,13 +27,8 @@ include_once($Extra_Pre . '../../functions.inc');
 /* Open the database connection
  * Change mysql_pconnect to mysql_connect to prevent
  * caching of mysql connections. */
-$GLOBALS['Database Connection'] = mysql_connect($GLOBALS['Database Server'], $GLOBALS['Database User'], $GLOBALS['Database Password']);
+$GLOBALS['Database Connection'] = mysql_pconnect($GLOBALS['Database Server'], $GLOBALS['Database User'], $GLOBALS['Database Password']);
 mysql_select_db($GLOBALS['Database Database'], $GLOBALS['Database Connection']) || die(mysql_errno() . ': ' . mysql_error());
-
-// Random chance of cleaning the database
-if (($GLOBALS['AutoClean Chance'] > 0 && mt_rand(0, $GLOBALS['AutoClean Chance']) == 0) || isset($GLOBALS['Force Clean'])) {
-	CleanDatabase();
-}
 
 /* Runs a MySQL query.  Returns the result upon success, calls Bail()
  * if there is an error. */
@@ -86,31 +81,27 @@ function Bail($msg) {
 	exit();
 }
 
-// Returns the record from the FileDesc table.
-function GetFileDesc($id) {
-	$result = RunQuery('select * from ' . $GLOBALS['FileDesc Table'] . ' where ID = ' . $id);
-	$DescData = FetchAssoc($result);
-	DoneWithResult($result);
-	
-	if (! $DescData) {
-		Bail('Problem locating file in description table.');
-	}
-	
-	return $DescData;
-}
-
 /* Returns the record from the File table
  * Pass in the ID of the record and the fields to grab as per SQL syntax */
-function GetFileData($id, $fields) {
-	$result = RunQuery('select ' . $fields . ' from ' . $GLOBALS['File Table'] . ' where ID = ' . $id);
-	$FileData = FetchAssoc($result);
-	DoneWithResult($result);
-	
-	if (! $FileData) {
-		Bail('Problem locating file in data table.');
+function GetFileData($id) {
+	settype($id, 'integer');
+
+	if ($id < 1) {
+		Bail('Invalid ID supplied');
 	}
-	
-	return $FileData;
+
+	$contents = @file_get_contents($GLOBALS['Upload Dir'] . '/' . $id . '/meta');
+	if (empty($contents)) {
+		Bail('Invalid ID - Contents probably expired or wrong ID entered');
+	}
+
+	$contents = json_decode($contents, true);
+
+	if (! is_array($contents)) {
+		Bail('Invalid meta data stored for ID ' . $id);
+	}
+
+	return $contents;
 }
 
 /* Sends an email - wrapper function to just make sure I don't specify the
@@ -122,8 +113,7 @@ function SendEmailToUser($address, $subj, $body) {
 // Sends the file download link to the user
 function SendFileToUser($sendto, $id) {
 	// get file info
-	$DescData = GetFileDesc($id);
-	$FileData = GetFileData($DescData['FileID'], 'DescFile, FileType');
+	$FileData = GetFileData($id);
 	
 	// Construct the URL to the jump page
 	$URL = $GLOBALS['URL Base'] . 'jump.php/' . $id;
@@ -135,17 +125,17 @@ function SendFileToUser($sendto, $id) {
 		$username = preg_replace('/[^0-9]/', '', $username);
 		
 		if (! in_array($username, $GLOBALS['Ban Phone'])) {
-			SendEmailToUser($sendto, $DescData['DescText'], $URL);
+			SendEmailToUser($sendto, $FileData['description'], $URL);
 		}
 	} elseif ($sendto >= 1000000000) {
 		if (! in_array($sendto, $GLOBALS['Ban Phone'])) {
 			if ($GLOBALS['Use Sprint Website']) {
-				if (SendSprintSMS($sendto, $DescData['DescText'] . "\n" . $URL)) {
+				if (SendSprintSMS($sendto, $FileData['description'] . "\n" . $URL)) {
 					// Fall back on sending via email
-					SendEmailToUser($sendto . '@messaging.sprintpcs.com', $DescData['DescText'], $URL);
+					SendEmailToUser($sendto . '@messaging.sprintpcs.com', $FileData['description'], $URL);
 				}
 			} else {
-				SendEmailToUser($sendto . '@messaging.sprintpcs.com', $DescData['DescText'], $URL);
+				SendEmailToUser($sendto . '@messaging.sprintpcs.com', $FileData['description'], $URL);
 			}
 		}
 	}
@@ -214,41 +204,66 @@ function ShowPhoneList($skipIncomplete = 0) {
 	echo "</td></tr></table>\n";
 }
 
+function makeId() {
+	$code = mt_rand(1, 9);
+	$code .= mt_rand(0, 9);
+	$code .= mt_rand(0, 9);
+	$code .= mt_rand(0, 9);
+	$code .= mt_rand(0, 9);
+	$code .= mt_rand(0, 9);
+	return $code;
+}
+
+function SaveFile($tempname, $desc = null) {
+	$code = makeId();
+	while (is_dir($GLOBALS['Upload Dir'] . '/' . $code)) {
+		$code = makeId();
+	}
+	$destDir = $GLOBALS['Upload Dir'] . '/' . $code;
+	mkdir($destDir, 0777);
+	move_uploaded_file($tempname, $destDir . '/data');
+
+	if (! empty($desc)) {
+		$desc = str_replace("\r\n", "\n", $desc);
+		$desc = str_replace("\r", "\n", $desc);
+		file_put_contents($destDir . '/desc', $desc);
+	}
+
+	return $code;
+}
+
 // Returns the ID of the description in the database.
-function SaveFileDesc($file_id, $filename, $folder, $desctext, $gallery) {
+function SaveFileDesc($code, $filename, $folder, $desctext, $filetype) {
 	// Alter filename if necessary
 	if (strlen($filename) > $GLOBALS['Max Name Length']) {
 		$ext = substr($filename, strrpos($filename, '.'));
 		$filename = substr($filename, $GLOBALS['Max Name Length'] - strlen($ext)) . $ext;
 	}
-	
-	// Add this to the database
-	$sql = 'insert into ' . $GLOBALS['FileDesc Table'] . ' (FileID, FileName, Folder, DescText, TimeStamp, ' . 'GallerySuggestion) values (' . $file_id . ', \'' . EscapeDB($filename) . '\', \'' . EscapeDB($folder) . '\', \'' . EscapeDB($desctext) . '\', NOW(), ' . $gallery . ')';
-	$result = RunQuery($sql);
-	DoneWithResult($result);
-	
-	// Return the new ID
-	$sql = 'select max(ID) as ID from ' . $GLOBALS['FileDesc Table'] . ' where FileID = ' . $file_id . ' and FileName = \'' . EscapeDB($filename) . '\' and Folder = \'' . EscapeDB($folder) . '\' and DescText = \'' . EscapeDB($desctext) . '\'';
-	$result = RunQuery($sql);
-	
-	if ($result && $data = FetchAssoc($result)) {
-		DoneWithResult($result);
-		return $data['ID'];
-	}
-	
-	DoneWithResult($result);
-	Bail('Unable to find newly uploaded description in database.  ' . 'Please try again.');
+
+	$meta = array(
+		'name' => $filename,
+		'folder' => $folder,
+		'description' => $desctext,
+		'type' => $filetype,
+	);
+	SaveMeta($code, $meta);
+}
+
+
+function SaveMeta($code, $meta) {
+	$meta = json_encode($meta);
+	file_put_contents($GLOBALS['Upload Dir'] . '/' . $code . '/meta', $meta);
 }
 
 /* Could return array(0, 0) if it had problems finding the width/height
  * Returns array(width, height) */
-function GetCustomImageSize($FileID) {
-	$FileData = GetFileData($FileID, 'Width, Height');
-	
-	if (defined($FileData['Width']) && defined($FileData['Height']) && $FileData['Width'] != 0 && $FileData['Height'] != 0) {
+function GetCustomImageSize($code) {
+	$FileData = GetFileData($code);
+
+	if (! empty($FileData['width']) && ! empty($FileData['height']) && $FileData['width'] != 0 && $FileData['height'] != 0) {
 		return array(
-			$FileData['Width'],
-			$FileData['Height']
+			$FileData['width'],
+			$FileData['height']
 		);
 	}
 	
@@ -264,10 +279,10 @@ function GetCustomImageSize($FileID) {
 		$Width = imagesx($gd);
 		$Height = imagesy($gd);
 	}
-	
-	$sql = 'update File set Width = ' . $Width . ', Height = ' . $Height . ' where ID = ' . $FileID;
-	$result = RunQuery($sql);
-	DoneWithResult($result);
+
+	$meta['width'] = $Width;
+	$meta['height'] = $Height;
+	SaveMeta($code, $meta);
 	return array(
 		$Width,
 		$Height
@@ -277,32 +292,18 @@ function GetCustomImageSize($FileID) {
 /* Resizes the image to the specified width/height and format
  * format = the file type number (5 = wbmp, etc.)
  * Returns the file data */
-function ResizeCustomImage($FileID, $Width, $Height, $Format) {
-	$FileData = GetFileData($FileID, 'Width, Height');
+function ResizeCustomImage($code, $Width, $Height, $Format) {
+	$FileData = GetFileData($code);
 	
-	if ($FileData['Width'] == $Width && $FileData['Height'] == $Height) {
-		$FileData = GetFileData($FileID, 'FileData');
-		return $FileData['FileData'];
+	if ($FileData['width'] == $Width && $FileData['height'] == $Height) {
+		return file_get_contents($GLOBALS['Upload Dir'] . '/' . $code . '/data');
 	}
 	
-	$sql = 'select * from ' . $GLOBALS['FileThumb Table'] . ' where FileID = ' . $FileID . ' and Width = ' . $Width . ' and Height = ' . $Height . ' and FileType = ' . $Format;
-	$result = RunQuery($sql);
-	$Data = FetchAssoc($result);
-	DoneWithResult($result);
-	
-	if ($Data) {
-		$sql = 'update ' . $GLOBALS['FileThumb Table'] . ' set TimeStamp = NOW() where ID = ' . $Data['ID'];
-		$result = RunQuery($sql);
-		DoneWithResult($result);
-		return $Data['FileData'];
-	}
-	
-	$gd = MakeGD($FileID);
+	$gd = MakeGD($code);
 	
 	if (! $gd) {
 		// Dang -- can't resize
-		$FileData = GetFileData($ID, 'FileData');
-		return $FileData['FileData'];
+		return file_get_contents($GLOBALS['Upload Dir'] . '/' . $code . '/data');
 	}
 	
 	$gd2 = imagecreatetruecolor($Width, $Height);
@@ -333,24 +334,21 @@ function ResizeCustomImage($FileID, $Width, $Height, $Format) {
 			 * break; */
 			
 		default:
-			echo 'Unknown file type number ' . $FileData['FileType'];
+			echo 'Unknown file type number ' . $FileData['type'];
 			exit();
 	}
 	
 	$func($gd2);
 	$data = ob_get_clean();
 	imagedestroy($gd2);
-	$sql = 'insert into ' . $GLOBALS['FileThumb Table'] . ' (FileID, Width, Height, FileSize, ' . 'FileType, FileData) values(' . $FileID . ', ' . $Width . ', ' . $Height . ', ' . strlen($data) . ', ' . $Format . ', \'' . EscapeDB($data) . '\')';
-	$result = RunQuery($sql);
-	DoneWithResult($result);
 	return $data;
 }
 
 
-function MakeGD($FileID) {
-	$FileData = GetFileData($FileID, 'FileType, FileData');
+function MakeGD($code) {
+	$FileData = GetFileData($code);
 	
-	switch ($FileData['FileType']) {
+	switch ($FileData['type']) {
 		case 5:  // wbmp
 			$func = 'imagecreatefromwbmp';
 			break;
@@ -368,30 +366,28 @@ function MakeGD($FileID) {
 			break;
 
 		default:
-			echo 'Unknown file type number ' . $FileData['FileType'];
+			echo 'Unknown file type number ' . $FileData['type'];
 			exit();
 	}
-	
-	$fn = tempnam($GLOBALS['Temp Dir'], 'sprint');
-	$fp = fopen($fn, 'w');
-	fwrite($fp, $FileData['FileData']);
-	fclose($fp);
+
+	$fn = $GLOBALS['Upload Dir'] . '/' . $code . '/data';
 	
 	// imagecreatefromstring() could be useful if it knows how to parse it.
+	/* I hope we don't need this code any more.  It's been YEARS.
 	if ($func == 'imagecreatefromgif') {
 		$fn2 = tempnam($GLOBALS['Temp Dir'], 'sprint');
 		
-		/* Yeah, the GIF loading function doesn't work, even though
-		 * the patent expired, and only the creation of GIF images
-		 * was patented. */
-		exec('giftopnm -image 1 ' . $fn . ' | pnmtopng > ' . $fn2);
+		// Yeah, the GIF loading function doesn't work, even though
+		// the patent expired, and only the creation of GIF images
+		// was patented.
+		exec('giftopnm -image 1 \'' . $fn . '\' | pnmtopng > ' . $fn2);
 		unlink($fn);
 		$fn = $fn2;
 		$func = 'imagecreatefrompng';
 	}
+	*/
 	
 	$gd = @$func($fn);
-	unlink($fn);
 	return $gd;
 }
 
@@ -410,196 +406,6 @@ function ImageBestFit($currentX, $currentY, $maxX, $maxY) {
 		$newWidth,
 		$newHeight
 	);
-}
-
-
-function CleanDatabase() {
-	$FilesInGallery = array();
-	
-	if (isset($GLOBALS['Force Clean']))echo "Finding items in the gallery (database version)\n";
-	$sql = 'select FileID from ' . $GLOBALS['FileCategory Table'];
-	$r = RunQuery($sql);
-	
-	while ($data = FetchAssoc($r)) {
-		$FilesInGallery[$data['FileID']] = $data['FileID'];
-	}
-	
-	if (isset($GLOBALS['Force Clean']))echo "Finding items in the gallery (file version)\n";
-	$sql = 'select distinct FileID from ' . $GLOBALS['FileDesc Table'] . ' where FilePath != ""';
-	$r = RunQuery($sql);
-	
-	while ($data = FetchAssoc($r)) {
-		$FilesInGallery[$data['FileID']] = $data['FileID'];
-	}
-	
-	$DeleteList = array();
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo "Scanning all items\n";
-		flush();
-	}
-	
-	$sql = 'select ID, ((UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(Uploaded)) ' . '/ 86400) as UpAge, ((UNIX_TIMESTAMP(NOW()) - ' . 'UNIX_TIMESTAMP(Downloaded)) / 86400) as ' . 'DownAge, Seen from ' . $GLOBALS['File Table'] . ' where KeepAround = 0';
-	$r = RunQuery($sql);
-	
-	while ($data = FetchAssoc($r)) {
-		// If a file has not been seen by the file manager
-		if ($data['Seen'] == 0) {
-			// Delete if older than the threshold
-			if ($data['UpAge'] > $GLOBALS['Delete If Not Seen']) {
-				$DeleteList[] = $data['ID'];
-			}
-		}
-		
-		// If not in gallery, but was either seen or is a suggestion
-		elseif (! isset($FilesInGallery[$data['ID']])) {
-			if ($GLOBALS['Delete If Not In Gallery'] < $data['UpAge']) {
-				$DeleteList[] = $data['ID'];
-			}
-		}
-		
-		// Yes, it is in the gallery.  Is it something nobody wants?
-		elseif ($GLOBALS['Delete If Stale'] < $data['DownAge']) {
-			$DeleteList[] = $data['ID'];
-		}
-	}
-	
-	DoneWithResult($r);
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo 'Deleting expired images (';
-		echo count($DeleteList) . " records)\n";
-		flush();
-	}
-	
-	if (count($DeleteList)) {
-		$sql = 'delete from ' . $GLOBALS['File Table'] . ' where ID in (' . join(', ', $DeleteList) . ')';
-		$r = RunQuery($sql);
-		DoneWithResult($r);
-	}
-	
-	// Clean up the rest of the tables
-	$DeleteList = array();
-	$FileList = array();
-	$DescList = array();
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo "Getting remaining file IDs\n";
-		flush();
-	}
-	
-	$r = RunQuery('select ID from ' . $GLOBALS['File Table']);
-	
-	while ($data = FetchAssoc($r))$FileList[$data['ID']] = $data['ID'];
-	DoneWithResult($r);
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo "Scanning for expired descriptions\n";
-		flush();
-	}
-	
-	$r = RunQuery('select ID, FileID from ' . $GLOBALS['FileDesc Table']);
-	
-	while ($data = FetchAssoc($r)) {
-		if (! isset($FileList[$data['FileID']]))$DeleteList[] = $data['ID'];
-		else $DescList[$data['ID']] = $data['ID'];
-	}
-	
-	DoneWithResult($r);
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo 'Deleting expired entries from description table (';
-		echo count($DeleteList) . " records)\n";
-		flush();
-	}
-	
-	if (count($DeleteList)) {
-		$r = RunQuery('delete from ' . $GLOBALS['FileDesc Table'] . ' where ID in (' . join(', ', $DeleteList) . ')');
-		DoneWithResult($r);
-	}
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo "Scanning for thumbnails to delete\n";
-		flush();
-	}
-	
-	$DeleteList = array();
-	$r = RunQuery('select ID, FileID from ' . $GLOBALS['FileThumb Table']);
-	
-	while ($data = FetchAssoc($r)) {
-		if (! isset($FileList[$data['FileID']]))$DeleteList[] = $data['ID'];
-	}
-	
-	DoneWithResult($r);
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo 'Deleting expired thumbnails (';
-		echo count($DeleteList) . " records)\n";
-		flush();
-	}
-	
-	if (count($DeleteList)) {
-		$r = RunQuery('delete from ' . $GLOBALS['FileThumb Table'] . ' where ID in (' . join(', ', $DeleteList) . ')');
-		DoneWithResult($r);
-	}
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo "Finding expired gallery associations for unpopular images\n";
-		flush();
-	}
-	
-	$DeleteList = array();
-	$DeleteListDesc = array();
-	$r = RunQuery('select distinct FileID, DescID from ' . $GLOBALS['FileCategory Table']);
-	
-	while ($data = FetchAssoc($r)) {
-		if (! isset($FileList[$data['FileID']]))$DeleteList[] = $data['FileID'];
-		
-		if (! isset($DescList[$data['DescID']]))$DeleteListDesc[] = $data['DescID'];
-	}
-	
-	DoneWithResult($r);
-	
-	if (isset($GLOBALS['Force Clean'])) {
-		echo 'Deleting associations that are bad (';
-		echo count($DeleteList) . ' FileID, ';
-		echo count($DeleteListDesc) . " DescID)\n";
-		flush();
-	}
-	
-	if (count($DeleteList)) {
-		$r = RunQuery('delete from ' . $GLOBALS['FileCategory Table'] . ' where FileID in (' . join(', ', $DeleteList) . ')');
-		DoneWithResult($r);
-	}
-	
-	if (count($DeleteListDesc)) {
-		$r = RunQuery('delete from ' . $GLOBALS['FileCategory Table'] . 'where DescID in (' . join(', ', $DeleteListDesc) . ')');
-		DoneWithResult($r);
-	}
-	
-	if (isset($GLOBALS['Force Clean']) && $GLOBALS['Optimize Tables']) {
-		echo "Optimizing Tables\n";
-		flush();
-		
-		foreach (array(
-				'Category Table',
-				'File Table',
-				'FileCategory Table',
-				'FileDesc Table',
-				'FileThumb Table',
-				'Phones Table'
-			) as $TableNameG) {
-			$TableName = $GLOBALS[$TableNameG];
-			
-			if (isset($GLOBALS['Force Clean'])) {
-				echo " ... $TableName\n";
-				flush();
-			}
-			
-			$r = RunQuery("optimize table $TableName");
-			DoneWithResult($r);
-		}
-	}
 }
 
 
@@ -676,172 +482,28 @@ function GetPhoneInfo($PhoneID = false) {
 	return $data;
 }
 
-/* Shows a standard table
- * 
- * $data is the HTML to show in the cells of the table
- * $extra is an associative array of extra parameters
- *   'OnlyPageOne' => true    Only shows page 1. */
-function ShowTableWithLinks($data, $extra = false) {
-	if ($extra === false || ! is_array($extra))$extra = array();
-	
-	if (isset($extra['OnlyPageOne']) && $extra['OnlyPageOne']) {
-		$page = 1;
-	} else {
-		$page = 1;
-		
-		if (isset($_GET['Page']))$page = $_GET['Page'];
-		
-		if (isset($_POST['Page']))$page = $_POST['Page'];
-		settype($page, 'integer');
-		$max = ceil(count($data) / ($GLOBALS['List Rows'] * $GLOBALS['List Cols']));
-		$page = min(max($page, 1), $max);
-		$skip = ($page - 1) * $GLOBALS['List Rows'] * $GLOBALS['List Cols'];
-		
-		while ($skip --)array_shift($data);
-	}
-	
-	if (! isset($extra['OnlyPageOne']) || ! $extra['OnlyPageOne'])ShowPageLinks($page, $max, $extra);
-	
-	if (isset($extra['DoFilter']) && $extra['DoFilter'])ShowExcludeForm();
-	ShowTableWithLinks_Table($data, $extra);
-	
-	if (! isset($extra['OnlyPageOne']) || ! $extra['OnlyPageOne'])ShowPageLinks($page, $max, $extra);
-}
-
-
-function ShowTableWithLinks_Table(&$data, $extra) {
-	echo '<table border=1 cellpadding=3 cellspacing=0 align=center>';
-	$i = $GLOBALS['List Rows'];
-	
-	while ($i > 0 && ShowTableWithLinks_Row($data, $extra)) {
-		$i --;
-	}
-	
-	echo '</table>';
-}
-
-
-function ShowTableWithLinks_Row(&$data, $extra) {
-	if (count($data) == 0)return 0;
-	echo '<tr>';
-	$i = $GLOBALS['List Cols'];
-	
-	while ($i >= 1 && count($data) > 0) {
-		ShowTableWithLinks_Cell(array_shift($data), $extra);
-		$i --;
-	}
-	
-	if ($i) {
-		echo "<td colspan=$i>&nbsp;</td>";
-	}
-	
-	echo "</tr>\n";
-	return count($data);
-}
-
-
-function ShowTableWithLinks_Cell($data, $extra) {
-	if (isset($extra['CellCallback'])) {
-		$func = $extra['CellCallback'];
-		$func($data);
-	} else {
-		echo '<td align=center>';
-		echo $data;
-		echo "</td>\n";
-	}
-}
-
-
-function ShowPageLinks($page, $max, $extra) {
-	if ($max == 1)return;
-	echo 'Show page: ';
-	
-	for ($i = 1; $i <= $max; $i ++) {
-		if ($i != $page) {
-			echo ' <a href="' . $_SERVER['PHP_SELF'] . '?Page=' . $i;
-			$amp = 0;
-			
-			if (isset($extra['DoFilter']) && $extra['DoFilter'] && isset($GLOBALS['filter']) && count($GLOBALS['filter'])) {
-				$amp = 1;
-				echo '&filter=' . join(',', $GLOBALS['filter']);
-			}
-			
-			if (isset($GLOBALS['size'])) {
-				echo '&size=' . $GLOBALS['size'];
-			}
-			
-			echo '">' . $i . '</a>';
-		} else {
-			echo " <b>$i</b>";
-		}
-	}
-	
-	echo "\n";
-}
-
-
-function ShowExcludeForm() {
-	echo '<form method=post action="' . $_SERVER['PHP_SELF'] . '">';
-	echo 'Min size:  <input type=text name=size value="';
-	$size = 0;
-	
-	if (isset($GLOBALS['size']))$size = $GLOBALS['size'];
-	echo $size . '"> kilobytes<br>';
-	echo '<input type=submit value="Exclude">';
-	echo '<input type=hidden name=skip value="0">';
-	$OnOff = array();
-	
-	foreach ($GLOBALS['File Types'] as $i => $v) {
-		$OnOff[$i] = 1;
-	}
-	
-	if (isset($GLOBALS['filter'])) {
-		foreach ($GLOBALS['filter'] as $f) {
-			$OnOff[$f] = 0;
-		}
-	}
-	
-	foreach ($GLOBALS['File Types'] as $i => $v) {
-		echo "<input type=checkbox value=$i name=filter[]";
-		
-		if ($OnOff[$i] == 0)echo ' CHECKED';
-		echo '> ';
-		
-		if (is_array($v[0]))echo $v[0][0];
-		else echo $v[0];
-		echo '&nbsp; ';
-	}
-	
-	echo "</form>\n";
-}
 
 /* Writes the description file
  * If the phone doesn't need it, proceeds directly to download */
 function OutputDescFile($ID, $PhoneID = false) {
 	SendPossibleLog();
 	
-	// Update the downloaded time
-	$sql = 'update ' . $GLOBALS['File Table'] . ' set Downloaded = NOW() where id = ' . $ID;
-	$result = RunQuery($sql);
-	DoneWithResult($result);
-	
 	// Get info for file and description
-	$FileDesc = GetFileDesc($ID);
-	$FileData = GetFileData($FileDesc['FileID'], 'ID, FileType, DescFile, FileSize');
-	
-	if ($FileData['FileType'] == FILE_TYPE_JAR) {
-		OutputDescFile_Jar($FileData, $FileDesc, $PhoneID);
+	$FileData = GetFileData($ID);
+
+	if ($FileData['type'] == FILE_TYPE_JAR) {
+		OutputDescFile_Jar($ID, $FileData, $PhoneID);
 	} else {
-		OutputDescFile_GCD($FileData, $FileDesc, $PhoneID);
+		OutputDescFile_GCD($ID, $FileData, $PhoneID);
 	}
 }
 
 /* NOTE:  The Samsung VI660 *requires* a Content-Folder
  * Juicy info at http://sprintdevelopers.com/article10.html */
-function OutputDescFile_Jar($FileData, $FileDesc, $PhoneID = false) {
+function OutputDescFile_Jar($code, $FileData, $PhoneID = false) {
 	// Write a JAD file
 	Header('Content-Type: ' . $GLOBALS['File Types'][FILE_TYPE_JAD][1]);
-	$m = str_replace("\r\n", "\n", $FileData['DescFile']);
+	$m = str_replace("\r\n", "\n", file_get_contents($GLOBALS['Upload Dir'] . '/' . $code . '/desc'));
 	$m = str_replace("\r", "\n", $m);
 	$m = str_replace("\n ", "", $m);  // 72-character "continuation line"
 	$m = split("\n", $m);
@@ -849,11 +511,11 @@ function OutputDescFile_Jar($FileData, $FileDesc, $PhoneID = false) {
 	$did_name = false;
 	$Alt_Icon = false;
 	$Alt_Name = false;
-	echo 'MIDlet-Jar-URL: ' . $GLOBALS['URL Base'] . 'dl.php/' . $FileDesc['FileID'] . '/';
+	echo 'MIDlet-Jar-URL: ' . $GLOBALS['URL Base'] . 'dl.php/' . $code . '/';
 	
 	if (PhoneDataHas('ID'))echo $GLOBALS['This Phone']['ID'] . '/';
-	echo $FileDesc['FileName'] . "\n";
-	echo 'MIDlet-Jar-Size: ' . $FileData['FileSize'];
+	echo $FileData['name'] . "\n";
+	echo 'MIDlet-Jar-Size: ' . filesize($GLOBALS['Upload Dir'] . '/' . $code . '/data');
 	
 	foreach ($m as $d) {
 		if (strtolower(substr($d, 0, 7)) == 'midlet-') {
@@ -888,7 +550,7 @@ function OutputDescFile_Jar($FileData, $FileDesc, $PhoneID = false) {
 		echo "\nMIDlet-Icon: $Alt_Icon";
 	}
 	
-	if (isset($FileDesc['Folder']) && $FileDesc['Folder'] != '')echo "\nContent-Folder: " . $FileDesc['Folder'];
+	if (isset($FileData['folder']) && $FileData['folder'] != '')echo "\nContent-Folder: " . $FileData['folder'];
 	
 	/* For our Canadian friends.
 	 *    $jad_file = $FileDesc['FileName'];
@@ -898,16 +560,16 @@ function OutputDescFile_Jar($FileData, $FileDesc, $PhoneID = false) {
 }
 
 
-function OutputDescFile_GCD($FileData, $FileDesc, $PhoneID = false) {
-	ResizeImageIfNeedBe($FileData);
+function OutputDescFile_GCD($code, $FileData, $PhoneID = false) {
+	$data = ResizeImageIfNeedBe($code, $FileData);
 	
 	// Display a GCD file
 	Header('Content-Type: ' . $GLOBALS['File Types'][FILE_TYPE_GCD][1]);
 	
-	// Spit out header
-	echo 'Content-Type: ' . $GLOBALS['File Types'][$FileData['FileType']][1] . "\n";
+	// Spit out header for the file we are describing
+	echo 'Content-Type: ' . $GLOBALS['File Types'][$data['type']][1] . "\n";
 	
-	switch ($GLOBALS['File Types'][$FileData['FileType']][3]) {
+	switch ($GLOBALS['File Types'][$FileData['type']][3]) {
 		case 1:
 			echo 'Content-ID: ' . $GLOBALS['Content Vendor'] . "/image\n";
 			break;
@@ -921,15 +583,15 @@ function OutputDescFile_GCD($FileData, $FileDesc, $PhoneID = false) {
 			break;
 	}
 	
-	if (trim($FileDesc['DescText']) != '')echo 'Content-Name: ' . $FileDesc['DescText'] . "\n";
+	if (trim($FileData['description']) != '')echo 'Content-Name: ' . $FileData['description'] . "\n";
 	else echo "Content-Name: Untitled\n";
 	echo 'Content-Version: ' . $GLOBALS['Content Version'] . "\n";
 	echo 'Content-Vendor: ' . $GLOBALS['Content Vendor'] . "\n";
-	echo 'Content-URL: ' . $GLOBALS['URL Base'] . 'dl.php/' . $FileDesc['FileID'] . '/';
+	echo 'Content-URL: ' . $GLOBALS['URL Base'] . 'dl.php/' . $code . '/';
 	
 	if (PhoneDataHas('ID'))echo $GLOBALS['This Phone']['ID'] . '/';
-	echo $FileDesc['FileName'] . "\n";
-	echo 'Content-Size: ' . $FileData['FileSize'] . "\n";
+	echo $FileData['name'] . "\n";
+	echo 'Content-Size: ' . strlen($data['data']) . "\n";
 	
 	/* For our Canadian friends.
 	 *    $gcd_file = $FileDesc['FileName'];
@@ -940,11 +602,18 @@ function OutputDescFile_GCD($FileData, $FileDesc, $PhoneID = false) {
 }
 
 
-function ResizeImageIfNeedBe(&$FileData) {
-	if (! PhoneDataHas(false))return;
+function ResizeImageIfNeedBe($code, $FileData) {
+
+	if (! PhoneDataHas(false)) {
+		$content = file_get_contents($GLOBALS['Upload Dir'] . '/' . $code . '/data');
+		return array(
+			'data' => $content,
+			'type' => $FileData['type']
+		);
+	}
 	
-	if ($FileData['FileType'] != FILE_TYPE_WBMP && $FileData['FileType'] != FILE_TYPE_JPG && $FileData['FileType'] != FILE_TYPE_PNG && $FileData['FileType'] != FILE_TYPE_GIF)return;
-	$dimensions = GetCustomImageSize($FileData['ID']);
+	if ($FileData['type'] != FILE_TYPE_WBMP && $FileData['type'] != FILE_TYPE_JPG && $FileData['type'] != FILE_TYPE_PNG && $FileData['type'] != FILE_TYPE_GIF)return;
+	$dimensions = GetCustomImageSize($code);
 	
 	if ($dimensions[0] == 0 || $dimensions[1] == 0)return;
 	$thumbSize = ImageBestFit($dimensions[0], $dimensions[1], $GLOBALS['This Phone']['Width'], $GLOBALS['This Phone']['Height']);
@@ -956,9 +625,11 @@ function ResizeImageIfNeedBe(&$FileData) {
 	elseif ($GLOBALS['This Phone']['Png'])$UseFormat = FILE_TYPE_PNG;
 	elseif ($GLOBALS['This Phone']['Wbmp'])$UseFormat = FILE_TYPE_WBMP;
 	else $UseFormat = FILE_TYPE_JPG;
-	$FileData['FileData'] = ResizeCustomImage($FileData['ID'], $thumbSize[0], $thumbSize[1], $UseFormat);
-	$FileData['FileType'] = $UseFormat;
-	$FileData['FileSize'] = strlen($FileData['FileData']);
+	$content = ResizeCustomImage($FileData['ID'], $thumbSize[0], $thumbSize[1], $UseFormat);
+	return array(
+		'data' => $content,
+		'type' => $UseFormat
+	);
 }
 
 
@@ -1037,6 +708,8 @@ function SendPossibleLog() {
 		
 		// Mail
 		$headers = 'From: ' . $GLOBALS['Admin Email'] . "\r\n";
+
+		// Thread in Gmail with this line
 		$headers .= 'In-Reply-To: <' . md5($_SERVER['HTTP_USER_AGENT']) . '-' . $GLOBALS['Admin Email'] . '>';  // No \r\n on last line of headers
 		mail($GLOBALS['Admin Email'], 'Unhandled phone: ' . substr($_SERVER['HTTP_USER_AGENT'], 0, 30), $Str, $headers);
 	}
