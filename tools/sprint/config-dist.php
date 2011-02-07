@@ -341,7 +341,7 @@ $GLOBALS['Gallery Directory'] = 'gallery/';
 $GLOBALS['Gallery Type'] = 'DB';
 
 
-// Where to get phoneinfo.php updates from
+// Where to get phoneinfo.php updates from -- DEPRECATED
 $GLOBALS['Phone Data URL'] = 'http://rumkin.com/tools/sprint/phonedata.php';
 
 
