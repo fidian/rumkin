@@ -258,6 +258,7 @@ $GLOBALS['Providers'] = array(
 	'@vmobile.com',  // Virgin Mobile
 	'@vmpix.com',  // Virgin Mobile
 	'@virgin.ca',  // Virgin Mobile Canada
+	'@vmobile.ca',  // Virgin Mobile Canada
 	'@sms.vodafone.it',  // Vodafone Italy
 	'@c.vodafone.ne.jp',  // Vodafone Japan
 	'@h.vodafone.ne.jp',  // Vodafone Japan
