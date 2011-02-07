@@ -26,7 +26,6 @@ links.php		Links to other sites
 makezip.php		Makes the downloadable zip file of live files
 messaging.inc		Class for sending messages to phones
 newphone.php		Script people can run a phone through
-phonedata.php		Dumps the Phones table to a serialized string
 phoneinfo.php		Logs every header that a phone sends (debugging)
 provider.inc		Email host list for wireless providers
 thumb.php		Thumbnailer (for browse.php)
@@ -39,5 +38,4 @@ clean.php               Deletes old files in the uploader
 check.php		Checks the download of a .jad/.gcd file
 file.php		Moves files into the gallery
 sendmessage.php		Sends a message to a Sprint phone with messaging.inc
-update.php		Updates Phones table from a server's phonedata.php
 viewer.php		Views uploaded files, can filter them

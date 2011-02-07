@@ -129,21 +129,9 @@ restricted flies with that username and password.  You can add other people
 
 8)  Update phone information
 
-If your copy of the uploader is at http://rumkin.com/tools/sprint/ (like mine)
-go to http://rumkin.com/tools/sprint/admin/update.php
-
-You will need to log in with the username and password that you entered when
-you were making config.php.  It will then download the updated phone list
-from my server.
-
-You should periodically run the update.php file, but read the readme.txt
-file for precautions, warnings, etc.
-
-If you can't get to my server from your server because it is blocked for
-some reason or you have safe mode enabled or something, you can save the
-results of my phonedata.php page to a text file, copy it to your server,
-and then change the Phone Data URL in your config file to point to the 
-copy you have on your server.
+*** DEPRECATED ***
+I don't provide phone updates any longer.  You can manually create phone
+information records for your database.
 
 
 9)  Test
