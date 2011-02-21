@@ -591,8 +591,12 @@ version.extensions.BackupOptionsPlugin = {
 
 if (!config.options.txtBackupOptionsFormat)
 	config.options.txtBackupOptionsFormat = &quot;%N.%Y%M%D.%h%m%s%n.html&quot;; // Same as default format
-if (config.optionsDesc)
+if (!config.options.txtBackupCount)
+	config.options.txtBackupCount = 1;  // Counter starts at 1
+if (config.optionsDesc) {
 	config.optionsDesc.txtBackupOptionsFormat = &quot;Filename format for backups.&quot;
+	config.optionsDesc.txtBackupCount = &quot;Backup counter to generate filenames&quot;;
+}
 
 if (version.major &lt; 2) alertAndThrow(&quot;BackupOptionsPlugin requires TiddlyWiki 2.0 or newer.&quot;);
 
@@ -601,6 +605,7 @@ if (version.major &lt; 2) alertAndThrow(&quot;BackupOptionsPlugin requires Tiddl
 
 getBackupPath = function(localPath) {
 	var formatString = config.options['txtBackupOptionsFormat'];
+	var counter = config.options.txtBackupCount;
 	if (formatString == undefined || ! formatString || formatString == '')
 		formatString = '%N.%Y%M%D.%h%m%s%n.html';
 	var backSlash = true;
@@ -659,11 +664,12 @@ getBackupPath = function(localPath) {
 				case '(':
 					var result = formatString.match(/%\((\d+)\)/);
 					if (result) {
-						if (config.options.txtBackupCount &lt;= 0 || config.options.txtBackupCount &gt; result[1]) {
-							config.options.txtBackupCount = 1;
+						if (counter &lt;= 0 || counter &gt;= result[1]) {
+							counter = 1;
 						}
 						backupPath += config.options.txtBackupCount;
-						config.options.txtBackupCount = config.options.txtBackupCount + 1;
+						config.options.txtBackupCount = counter + 1;
+						saveOption(&quot;txtBackupCount&quot;);
 						formatString = formatString.substr(result[0].length - 2);  // -2 because of later substring
 					} else {
 						formatHandled = 0;
