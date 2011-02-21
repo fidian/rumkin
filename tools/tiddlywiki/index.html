@@ -512,10 +512,10 @@ Also see [[AdvancedOptions]]</pre>
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="BackupOptionsPlugin" modifier="Tyler" created="200611151643" modified="200710011346" tags="systemConfig">
+<div title="BackupOptionsPlugin" modifier="Tyler" created="200611151643" modified="201102210544" tags="systemConfig">
 <pre>/***
 |''Name:''|BackupOptionsPlugin|
-|''Version:''|1.0.1 (2007-09-29)|
+|''Version:''|1.0.2 (2011-02-21)|
 |''Source:''|None|
 |''Author:''|Tyler Akins|
 |''Licence:''|Public domain|
@@ -557,8 +557,14 @@ Based on a base filename of &quot;TiddlyWiki.html&quot;, and a date of 2006-11-1
 | //TiddlyWiki-2006-11-18.html// |~|
 | ''Backups\%Y%M\%N-%D-%h%m.bak'' |Save all backups in a set of directories, with one directory that contains all, then another subdirectory that holds a year and month, and then the backup file.|
 | //Backups\200611\TiddlyWiki-18-2159.bak// |~|
+| ''%N-%(5).html'' |Saves up to the specified number (5 in this example) of backups in a rolling fashion.  Will start at 1 and proceed up to the maximum number set, then starts over with 1.  A great way to limit the total number of backsup.|
+| //TiddlyWiki-1.html//, ..., //TiddlyWiki-5.html// |~|
 
 !Revision history
+* v1.0.2 (2011-02-21)
+** Addded %(5) format, courtesy of Devosse Jaufre.
+* v1.0.1 (?)
+** Bugfixes to work with newer TiddlyWiki version
 * v1.0.0 (2007-09-29)
 ** Initial release
 
@@ -650,14 +656,27 @@ getBackupPath = function(localPath) {
 				case '%':
 					backupPath += '%';
 					break;
+				case '(':
+					var result = formatString.match(/%\((\d+)\)/);
+					if (result) {
+						if (config.options.txtBackupCount &lt;= 0 || config.options.txtBackupCount &gt; result[1] {
+							config.options.txtBackupCount = 1;
+						}
+						backupPath += config.options.txtBackupCount;
+						config.options.txtBackupCount = config.options.txtBackupCount + 1;
+						formatString = formatString.substr(result[0].length - 2);  // -2 because of later substring
+					} else {
+						formatHandled = 0;
+					}
+					break;
 				default:
 					formatHandled = 0;
 			}
-			if (formatHandled)
+			if (formatHandled) {
 				formatString = formatString.substr(2);
+			}
 		}
-		if (! formatHandled)
-		{
+		if (! formatHandled) {
 			backupPath += formatString.charAt(0);
 			formatString = formatString.substr(1);
 		}
