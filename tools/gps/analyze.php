@@ -78,14 +78,14 @@ StandardHeader(array(
 	));
 
 if (isset($_POST['debug'])) {
-	$HTTP_POST_FILES = array(
+	$_FILES = array(
 		'the_file' => array(
 			'tmp_name' => 'debug.zip'
 		)
 	);
 }
 
-if (! isset($HTTP_POST_FILES) || ! is_array($HTTP_POST_FILES) || count($HTTP_POST_FILES) == 0) {
+if (! isset($_FILES) || ! is_array($_FILES) || count($_FILES) == 0) {
 	
 	?>
 
@@ -129,7 +129,7 @@ checked the box to get a list of the counties where you have found a cache.</p>
 	exit();
 }
 
-$fn = $HTTP_POST_FILES['the_file']['tmp_name'];
+$fn = $_FILES['the_file']['tmp_name'];
 
 // Attempt to just open
 $file = fopen($fn, 'r');
