@@ -659,7 +659,7 @@ getBackupPath = function(localPath) {
 				case '(':
 					var result = formatString.match(/%\((\d+)\)/);
 					if (result) {
-						if (config.options.txtBackupCount &lt;= 0 || config.options.txtBackupCount &gt; result[1] {
+						if (config.options.txtBackupCount &lt;= 0 || config.options.txtBackupCount &gt; result[1]) {
 							config.options.txtBackupCount = 1;
 						}
 						backupPath += config.options.txtBackupCount;
