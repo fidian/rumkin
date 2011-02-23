@@ -512,11 +512,11 @@ Also see [[AdvancedOptions]]</pre>
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="BackupOptionsPlugin" modifier="Tyler" created="200611151643" modified="201102210544" tags="systemConfig">
+<div title="BackupOptionsPlugin" modifier="Tyler" created="200611151643" modified="201102230531" tags="systemConfig">
 <pre>/***
 |''Name:''|BackupOptionsPlugin|
-|''Version:''|1.0.2 (2011-02-21)|
-|''Source:''|None|
+|''Version:''|1.0.3 (2011-02-23)|
+|''Source:''|http://rumkin.com/tools/tiddlywiki/#BackupOptionsPlugin|
 |''Author:''|Tyler Akins|
 |''Licence:''|Public domain|
 |''TiddlyWiki:''|2.0+|
@@ -561,8 +561,11 @@ Based on a base filename of &quot;TiddlyWiki.html&quot;, and a date of 2006-11-1
 | //TiddlyWiki-1.html//, ..., //TiddlyWiki-5.html// |~|
 
 !Revision history
+* v1.0.3 (2011-02-23)
+** Fixed %M format, thanks to John Antony
+** Fixed version number and date
 * v1.0.2 (2011-02-21)
-** Addded %(5) format, courtesy of Devosse Jaufre.
+** Addded %(5) format, courtesy of Jaufr&eacute; Devosse
 * v1.0.1 (?)
 ** Bugfixes to work with newer TiddlyWiki version
 * v1.0.0 (2007-09-29)
@@ -582,8 +585,8 @@ if (!version.extensions.BackupOptionsPlugin) {
 setStylesheet(&quot;.wideInput input { width:30em; }&quot;,&quot;BackupOptionsStylesheet&quot;);
 
 version.extensions.BackupOptionsPlugin = {
-    major: 1, minor: 0, revision: 0,
-    date: new Date(2007, 9, 11), 
+    major: 1, minor: 0, revision: 3,
+    date: new Date(2011, 2, 23), 
     type: 'plugin',
     source: &quot;http://rumkin.com/tools/tiddlywiki/#BackupOptionsPlugin&quot;
 };
@@ -638,7 +641,7 @@ getBackupPath = function(localPath) {
 					backupPath += String.zeroPad(d.getUTCHours(), 2);
 					break;
 				case 'M':
-					backupPath += String.zeroPad(d.getUTCMonth(), 2);
+					backupPath += String.zeroPad(d.getUTCMonth() + 1, 2);
 					break;
 				case 'm':
 					backupPath += String.zeroPad(d.getUTCMinutes(), 2);
