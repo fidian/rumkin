@@ -4,7 +4,7 @@ int roll(int sides) {
 	int byte = 0, rangeMax;
 	FILE *fp;
 
-	fp = fopen('/dev/urandom');
+	fp = fopen("/dev/urandom", "r");
 	rangeMax = 256;
 	while (rangeMax >= 256) {
 		byte = fread(&byte, 1, 1, fp);
