@@ -33,6 +33,7 @@ as possible.  You'll see what I mean when you start playing with it.</p>
 <option value="T_goldbug">Text:	 Gold Bug</option>
 <option value="TI_decimal">Text:  Decimal</option>
 <option value="TI_hex">Text:  Hexadecimal</option>
+<option value="TI_bin">Text:  Binary</option>
 <option value="TI_octal">Text:  Octal</option>
 <option value="T_spirit">Text:  Spirit DVD Code</option>
 <option value="T_phone">Text:  Telephone (Symbols)</option>
@@ -197,11 +198,12 @@ function Encode(t) {
 	} else if (document.encoder.method.value.charAt(0) == 'I') {
 		elem.style.fontSize = "30px";
 		elem.innerHTML = EncodeImage(document.encoder.method.value, t);
-	} else if (document.encoder.method.value.charAt(0) == 'T' && document.encoder.method.value != 'T_spirit') {
-		elem.style.fontSize = "30px";
-		elem.innerHTML = EncodeText(document.encoder.method.value, t);
 	} else if (document.encoder.method.value.charAt(0) == 'T') {
-		elem.style.fontSize = "1em";
+		if (document.encoder.method.value != 'T_spirit') {
+			elem.style.fontSize = "30px";
+		} else {
+			elem.style.fontSize = "1em";
+		}
 		elem.innerHTML = EncodeText(document.encoder.method.value, t);
 	} else {
 		elem.style.fontSize = "20px";
@@ -394,11 +396,11 @@ function ShowText(set) {
 
 		if (set == 'goldbug') {
 			var patt = '0 1 2 3 4 5 6 7 8 9 . , : ; ( ) [ ] &dagger; &Dagger; $ &cent; - * ? &para;';
-         var alph = 'L F B G H A I K E M P J Y T R S Z W D O Q X C N U V';
-      } else if (set == 'spirit') {
-         var patt = '--- --1 -1- -11 1-- 1-1--- 1-1--1 1-1-1- 1-1-11 1-11-- 1-11-1 1-111- 1-1111--- 1-1111--1 1-1111-1- 1-1111-11 1-11111-- 1-11111-1 11---- 11---1 11--1- 11--11 11-1-- 11-1-1 11-11- 11-111 111';
-		 var alph = '&nbsp; E A O R M W F G Y P B V K J X Q Z T I N H D L C U S';
-	  }
+			var alph = 'L F B G H A I K E M P J Y T R S Z W D O Q X C N U V';
+		} else if (set == 'spirit') {
+			var patt = '--- --1 -1- -11 1-- 1-1--- 1-1--1 1-1-1- 1-1-11 1-11-- 1-11-1 1-111- 1-1111--- 1-1111--1 1-1111-1- 1-1111-11 1-11111-- 1-11111-1 11---- 11---1 11--1- 11--11 11-1-- 11-1-1 11-11- 11-111 111';
+			var alph = '&nbsp; E A O R M W F G Y P B V K J X Q Z T I N H D L C U S';
+		}
       
 		while (patt.length > 0 && alph.length > 0) {
 			var letter, token, i;
@@ -443,8 +445,8 @@ function ShowText(set) {
 
 	if (set == 'phone') {
 		var s = '';
-		var patt = "2\\2|2/3\\3|3/4\\4|4/5\\5|5/6\\6|6/7\\0\\7|7/8\\8|8/9\\9|9/0/"
-			var c = 'onkeypress="Tel_upd()" onkeyup="Tel_upd()" onchange="Tel_upd()"';
+		var patt = "2\\2|2/3\\3|3/4\\4|4/5\\5|5/6\\6|6/7\\0\\7|7/8\\8|8/9\\9|9/0/";
+		var c = 'onkeypress="Tel_upd()" onkeyup="Tel_upd()" onchange="Tel_upd()"';
 		s += 'Left: <input type="text" name="slash1" size=1 value="\\" ' + c + '> &nbsp; ';
 		s += 'Middle: <input type="text" name="slash2" size=1 value="|" ' + c + '> &nbsp; ';
 		s += 'Right: <input type="text" name="slash3" size=1 value="/" ' + c + '> &nbsp; ';
@@ -540,7 +542,7 @@ function ShowText(set) {
 			s += hexchars.charAt(h);
 			s += '</a>';
 		}
-      
+
 		return s;
 	}
 
@@ -575,6 +577,44 @@ function ShowText(set) {
 			s += '</a>';
 		}
       
+		return s;
+	}
+
+	if (set == 'bin') {
+		var s = '';
+
+		for (var i = 32; i < 127; i ++) {
+			if (s != '') {
+				s += '&nbsp;&nbsp; ';
+			}
+
+			var c = String.fromCharCode(i);
+
+			if (c == "'" || c == "\\") {
+				c = "\\" + c;
+			}
+
+			c = "'" + c + "'";
+
+			if (c == "\'\"\'") {
+				c = "String.fromCharCode(" + i + ")";
+			}
+
+			s += '<a onclick="return L(' + c + ')" id="Text_Link_' + i + '" href="#">';
+			var b = '';
+			var iCopy = i;
+			for (var bits = 0; bits < 8; bits ++) {
+				if (iCopy & 1 == 1) {
+					b = '1' + b;
+				} else {
+					b = '0' + b;
+				}
+				iCopy = Math.floor(iCopy / 2);
+			}
+			s += b;
+			s += '</a>';
+		}
+
 		return s;
 	}
 
