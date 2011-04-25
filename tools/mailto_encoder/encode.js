@@ -6,6 +6,11 @@
 //      showed me places to improve ChangeAt()
 
 
+function escapeToJs(s) {
+	return '"' + s.replace(/\\/g, "\\\\").replace(/\n/mg, "\\n").replace(/\r/mg, "\\r").replace(/\t/g, "\\t").replace(/"/g, "\\\"").replace(/<(.)/g, "<\"+\"$1") + '"';
+}
+
+
 // Do the encode
 function RunEncode()
 {
@@ -18,7 +23,7 @@ function RunEncode()
     {
         To = "<script type=\"text/javascript\" language=\"javascript\">";
 	To += "<!--\n";
-        To += "document.write(unescape(\"" + escape(From) + "\"))";
+        To += "document.write(" + escapeToJs(From) + ")";
 	To += "\n// --></scr" + "ipt>";
     }
     else if (Opt == "Break")
@@ -31,14 +36,14 @@ function RunEncode()
         while (loc < From.length)
         {
             jump = Rand(4) + (4 + Math.floor(Math.sqrt(Math.sqrt(From.length))));
-            To += "MaIlMe[" + Counter + "]=\"";
-            To += escape(From.slice(loc, loc+jump));
-            To += "\";\n";
+            To += "MaIlMe[" + Counter + "]=";
+			To += escapeToJs(From.slice(loc, loc+jump));
+            To += ";\n";
             loc += jump;
             Counter ++;
         }
         To += "for (i = 0; i < MaIlMe.length; i ++)\n{\n    ";
-        To += "document.write(unescape(MaIlMe[i]))\n}\n"
+        To += "document.write(MaIlMe[i])\n}\n";
 	To += "// -->\n</scr" + "ipt>";
     }
     else if (Opt == "Subst")
@@ -57,38 +62,23 @@ function RunEncode()
 	    loc ++;
 	}
 	
-	LetterListEscaped = LetterList;
-	
-	// At this point there should only be at most one \ and "
-	// in LetterList and LetterListEscaped
-	p = LetterListEscaped.indexOf("\\");
-	if (p != -1)
-	{
-	    LetterListEscaped = LetterListEscaped.slice(0, p) + "\\" +
-	        LetterListEscaped.slice(p, LetterListEscaped.length);
-	}
-	p = LetterListEscaped.indexOf("\"");
-	if (p != -1)
-	{
-	    LetterListEscaped = LetterListEscaped.slice(0, p) + "\\" +
-	        LetterListEscaped.slice(p, LetterListEscaped.length);
-	}
+	LetterListEscaped = escapeToJs(LetterList);
 	
         To = "<script type=\"text/javascript\" language=\"javascript\">\n";
 	To += "<!--\n";
-	To += "ML=\"" + LetterListEscaped + "\";\n";
-	To += "MI=\"";
+	To += "ML=" + LetterListEscaped + ";\n";
+	Mi = "";
 	
 	loc = 0;
 	while (loc < From.length)
 	{
 	    p = LetterList.indexOf(From.slice(loc, loc+1));
 	    p += 48;
-	    To += String.fromCharCode(p);
+	    Mi += String.fromCharCode(p);
 	    loc ++;
 	}
 	
-	To += "\";\n";
+	To += "MI=" + escapeToJs(Mi) + ";\n";
 	To += "OT=\"\";\n";
 	To += "for(j=0;j<MI.length;j++){\n";
 	To += "OT+=ML.charAt(MI.charCodeAt(j)-48);\n";
