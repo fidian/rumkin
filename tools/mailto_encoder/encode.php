@@ -7,7 +7,7 @@ function Insert_JS() {
 	
 	?>
 <SCRIPT LANGUAGE="javascript" type='text/javascript' src="email.js"></SCRIPT>
-<SCRIPT LANGUAGE="javascript" type='text/javascript' src="encode.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" type='text/javascript' src="encode.js?2"></SCRIPT>
 <?php
 }
 
