@@ -10,7 +10,7 @@ $dbconn = OpenDBConnection('Trivia');
 
 if (isset($_GET['category'])) {
 	echo "<p>Back to the <a href=index.php>Category List</a></p>\n";
-	TriviaCategory($_GET['category'], $dbconn);
+	TriviaCategory((int) $_GET['category'], $dbconn);
 } else {
 	TriviaIntro();
 	TriviaIndex($dbconn);
