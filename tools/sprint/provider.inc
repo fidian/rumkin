@@ -196,6 +196,7 @@ $GLOBALS['Providers'] = array(
 	'@paging.acswireless.com',  // SBC Ameritech Paging
 	'@scs-900.ru',  // SCS-900
 	'@sfr.fr',  // SFR France
+	'@smtext.com',  // Simple Mobile
 	'@skytel.com',  // Skytel Pagers
 	'@email.skytel.com',  // Skytel Pagers
 	'@text.simplefreedom.net',  // Simple Freedom
