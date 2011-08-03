@@ -9,7 +9,7 @@ StandardHeader(array(
 
 
 // handle uploads
-foreach ($HTTP_POST_FILES as $File) {
+foreach ($_FILES as $File) {
 	if (! copy($File['tmp_name'], 'upload/' . $File['name'])) {
 		echo 'Unable to copy ' . $File['name'] . '<br>';
 	} else {

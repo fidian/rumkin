@@ -220,14 +220,21 @@ function SaveFile($tempname, $desc = null) {
 		$code = makeId();
 	}
 	$destDir = $GLOBALS['Upload Dir'] . '/' . $code;
-	mkdir($destDir, 0777);
-	move_uploaded_file($tempname, $destDir . '/data');
+	$old_umask = umask(0);
+	mkdir($destDir, 0770);
+	move_uploaded_file($tempname, $destDir . '/data.temp');
+	$c = file_get_contents($destDir . '/data.temp');
+	file_put_contents($destDir . '/data', $c);
+	chmod($destDir . '/data', 0660);
+	unlink($destDir . '/data.temp');
 
 	if (! empty($desc)) {
 		$desc = str_replace("\r\n", "\n", $desc);
 		$desc = str_replace("\r", "\n", $desc);
 		file_put_contents($destDir . '/desc', $desc);
+		chmod($destDir . '/desc', 0660);
 	}
+	umask($old_umask);
 
 	return $code;
 }
@@ -252,7 +259,10 @@ function SaveFileDesc($code, $filename, $folder, $desctext, $filetype) {
 
 function SaveMeta($code, $meta) {
 	$meta = json_encode($meta);
+	$old_umask = umask(0);
 	file_put_contents($GLOBALS['Upload Dir'] . '/' . $code . '/meta', $meta);
+	chmod($GLOBALS['Upload Dir'] . '/' . $code . '/meta', 0660);
+	umask($old_umask);
 }
 
 /* Could return array(0, 0) if it had problems finding the width/height
