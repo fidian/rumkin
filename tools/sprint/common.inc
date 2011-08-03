@@ -707,7 +707,8 @@ function SendPossibleLog() {
 		}
 		
 		// Mail
-		$headers = 'From: ' . $GLOBALS['Mail From'] . "\r\n";
+		$headers = 'From: "Phone Uploader" <' . $GLOBALS['Mail From'] . ">\r\n";
+		$headers .= 'Return-Path: <' . $GLOBALS['Mail From'] . ">\r\n";
 
 		// Thread in Gmail with this line
 		$headers .= 'In-Reply-To: <' . md5($_SERVER['HTTP_USER_AGENT']) . '-' . $GLOBALS['Admin Email'] . '>';  // No \r\n on last line of headers
