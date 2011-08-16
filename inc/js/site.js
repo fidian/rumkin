@@ -35,8 +35,6 @@ function R_LoadMenu(loop)
  
    e.innerHTML = '<ul class="r_menu"><li>' + e.innerHTML +
       R_Menu(
-         R_Link('/reference/site/chat.html', 'Live Chat') +
-         R_Link() +
          R_Link('/fun/', 'Fun&nbsp;Things') +
          R_Menu(
 	    R_Link('/fun/games/', 'Games') +
@@ -67,14 +65,6 @@ function R_LoadMenu(loop)
 	    R_Link('/tools/darkerirc/', 'IRC Client') +
 	    R_Link('/tools/ssh/', 'SSH Client'), '/tools/')) + '</ul>';
 }
-
-function R_ChatWindow() {
-   window.open('/reference/site/chat.html', 'r_chat',
-      'width=545, height=550, directories=no, location=no, ' +
-      'resizeable=no, menubar=no, toolbar=no, scrollbars=no, status=no');
-   return false;
-}
-
 
 if (document.getElementById)
 {
