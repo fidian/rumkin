@@ -48,7 +48,6 @@ Tyler Akins &lt;<?php echo HideEmail('fidian', 'rumkin.com'); ?>&gt;
 	
 	?>
 <br>
-<a href="/reference/site/chat.html" onclick="return R_ChatWindow()">Chat</a> -
 <a href="/reference/site/contact.php">Contact Me</a> - 
 <a href="/reference/site/legal.php">Legal Info</a>
 </td></tr><tr><td class="r_trivia" valign=bottom>
@@ -80,7 +79,6 @@ Tyler Akins &lt;<?php echo HideEmail('fidian', 'rumkin.com'); ?>&gt;
 	
 	?>
 <br>
-<a href="/reference/site/chat.html" onclick="return R_ChatWindow()">Chat</a> -
 <a href="/reference/site/contact.php">Contact Me</a> - 
 <a href="/reference/site/legal.php">Legal Info</a>
 </td></tr></table>
