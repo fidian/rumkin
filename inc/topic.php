@@ -109,7 +109,7 @@ $GLOBALS['Post Message'] = array(
 	1 => 'The duplicate message was skipped.',
 	2 => 'Enter a message for it to be posted.',
 	3 => 'Too many posts at once.  Wait a while or come back later.',
-	4 => 'Message posted.  Remember, this isn\'t ' . '<a href="/reference/site/chat.html">live chat</a>.',
+	4 => 'Message posted.  Remember, this isn\'t live chat.',
 	5 => 'Message sanity checks failed.  Try using real words.',
 	6 => 'Invalid message.',
 	7 => 'Do not post your phone number unless you want EVERYONE to ' . 'call.<br>If you really want to post it, separate each number ' . 'with spaces.',
