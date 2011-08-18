@@ -101,8 +101,6 @@ class zipfile {
 		$cdrec .= pack('v', 0);
 		$cdrec .= pack('v', 0);
 		$cdrec .= pack('v', 0);
-		$ext = "\x00\x00\x10\x00";
-		$ext = "\xff\xff\xff\xff";
 		$cdrec .= pack('V', 16);
 		$cdrec .= pack('V', $this->old_offset);
 		$cdrec .= $name;
