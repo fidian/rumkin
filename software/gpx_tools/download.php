@@ -9,7 +9,7 @@ StandardHeader(array(
 ?>
 
 <p>You're going to download the tools?  Awesome!  Let me know what you like
-and what you do not like.</p>
+and what you do not like.  Below are the release download links, or you can clone the git repository on <a href="https://github.com/fidian/gpx_tools">github</a>.</p>
 
 <dl>
 
