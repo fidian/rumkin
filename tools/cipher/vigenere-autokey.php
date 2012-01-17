@@ -21,6 +21,13 @@ decrypt or encrypt the text.</p>
    <option value="1">Encrypt
    <option value="-1">Decrypt
 </select>
+<p>Alphabet Key:  <input type=text name=key value="" size=30> -
+<span id="Keymaker0" target="document.encoder.key.value"></span></p>
+<p>Alphabet Used:  <B><tt><span
+id='alphabet'>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></tt></b> -
+<a id="tableau_link" href="#" onclick="ToggleTableau(); return false">Show 
+Tableau</a></p>
+<div id="tableau" style="display: none"></div>
 <p>Passphrase:  <input type=text name=pass value=""></p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
@@ -37,6 +44,7 @@ function insert_js() {
 	
 	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/vigenere.js"></script>
+<script language="JavaScript" src="js/keymaker.js"></script>
 <script language="JavaScript"><!--
 // This code was written by Tyler Akins and placed in the public domain.
 // It would be nice if you left this header intact.  http://rumkin.com
@@ -51,6 +59,7 @@ function start_update()
    }
 
    if ((! document.Vigenere_Loaded) || (! document.Util_Loaded) ||
+	   (! document.Keymaker_Loaded) ||
        (! document.getElementById('output')))
    {
       window.setTimeout('start_update()', 100);
@@ -62,7 +71,11 @@ function start_update()
 
 function upd()
 {
-   if (IsUnchanged(document.encoder.text) *
+   var e, keyunchaned;
+
+   keyunchanged = IsUnchanged(document.encoder.key);
+
+   if (keyunchanged * IsUnchanged(document.encoder.text) *
        IsUnchanged(document.encoder.pass) *
        IsUnchanged(document.encoder.encdec))
    {
@@ -72,11 +85,18 @@ function upd()
 	
    ResizeTextArea(document.encoder.text);
 
-   var e = document.getElementById('output');
+   if (! keyunchanged) {
+	   e = document.getElementById('alphabet');
+	   e.innerHTML = MakeKeyedAlphabet(document.encoder.key.value);
+	   e = document.getElementById('tableau');
+	   e.innerHTML = BuildTableau(document.encoder.key.value);
+   }
+
+   e = document.getElementById('output');
    if (document.encoder.text.value != '')
    {
       e.innerHTML = SwapSpaces(HTMLEscape(Vigenere(document.encoder.encdec.value * 1, 
-         document.encoder.text.value, document.encoder.pass.value, '', 1)));
+         document.encoder.text.value, document.encoder.pass.value, document.encoder.key.value, 1)));
    }
    else
    {
