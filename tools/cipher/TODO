@@ -16,6 +16,8 @@ Add:
  * RSA encoding
    http://en.wikipedia.org/wiki/RSA
  * VIC cipher
+ * Base-N encoding, like this numerical encoder:
+   http://www.swhistlesoft.com/demo/NumericalCoding/
 
 Make a sort of a command-line encoder/decoder.
  * have a box for plaintext
