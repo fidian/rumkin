@@ -43,6 +43,13 @@ $Things = array(
 		'Reported to work',
 		'Reported to work very well.  It is just like a whiteboard that you can stick to the walls.  The 27" x 32" might be a bit small for your purposes, but it would work great for a small office whiteboard.  My only questions are about durability and long-term marker stains.  One visitor mentioned that their marker bled through the sheet and actually stained the wall.'
 	),
+	'Aluminum Foil' => array(
+		0,
+		0,
+		'aluminum',
+		'An interesting solution',
+		'A visitor sent in a tip to use aluminum foil, which may be a fun classroom project.  All you need is some sort of backing, aluminum foil, and some type of glue that adheres to aluminum foil.  If you want a really easy backing, you could use cardboard.  As for the glue, I would recommend spray adhesive since bonding with the foil may be a challenge and spray ahesive sticks to almost anything.'
+	),
 	'Appliances' => array(
 		4,
 		1,
@@ -163,7 +170,7 @@ $Things = array(
 		'Suggestion from a visitor',
 		'This is another product that I was told about but have not yet had the pleasure of testing.  They are described as portable plastic sheets that stick (static cling?) to surfaces.  It works with dry erase, wet erase, and permanent markers.  I wonder how well it stands up to use and permanent markers.  The product I see is $23 for twelve 37" x 12" sheets or $46 for twenty 37" x 24" sheets.'
 	),
-	'Tileboard' => array(
+	'Tileboard / Melamine' => array(
 		2,
 		5,
 		'tileboard',
