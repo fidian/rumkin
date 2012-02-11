@@ -26,15 +26,15 @@ MakeBoxTop('center');
 $Names = array(
 	'contact' => 'Contact Paper',
 	'laminate' => 'Laminate',
-	'mb3000' => 'MB-3000',
+	'mb4000w' => 'MB4000W',
 	'plastic' => 'Plastic Sheets',
 	'polycoat' => 'Polycoated Cardboard',
 );
 $Methods = array(
 	array(
 		'Walls',
-		'mb3000',
-		'Keeps original wall cover'
+		'mb4000w',
+		'Keeps original wall color'
 	),
 	array(
 		'Personal boards',
@@ -58,7 +58,7 @@ $Methods = array(
 	),
 	array(
 		'Tables',
-		'mb3000',
+		'mb4000w',
 		''
 	),
 	array(
@@ -68,7 +68,7 @@ $Methods = array(
 	),
 	array(
 		'Whiteboard resurfacing',
-		'mb3000',
+		'mb4000w',
 		''
 	),
 );
@@ -117,7 +117,7 @@ you try to use some types of clear contact paper or a similar sticky plastic
 as a laminate.  You want to find the type that is melded together by heat
 under a roller as a press.</p>
 
-<?php Section('MB-3000 Whiteboard Coating', 'mb3000'); ?>
+<?php Section('MB4000W Whiteboard Coating', 'mb4000w'); ?>
 
 <p>This is similar to a clear paint and is sold by <a
 href="http://solutionsmb.com/">Solutions MB</a>.  It is quite durable and
@@ -126,30 +126,31 @@ and almost everything wipes right off.  It would be ideal for coating walls
 of a room, resurfacing a whiteboard, coating your desk or table, and making
 any sort of solid surface into a whiteboard.</p>
 
-<p><b>Pro:</b> It can cover large areas and turn them practically into a
-perfect whiteboard surface.  Can keep the original surface's colors and
+<p><b>Pro:</b> It can cover large areas and turn them into a
+whiteboard surface.  Can keep the original surface's colors and
 designs intact.<br>
-<b>Con:</b> It should be done with good ventillation and hopefully nobody in
-the room due to the fumes from the paint while it dries.  Tiny lines and
-miniscule bubbles from the foam brush are barely noticeable in places.<br>
-<a href="surfaces.php#mb3000"><b>See my review</b></a></p>
+<b>Con:</b> There is a little preparaion you need to do in order to have this
+product stick properly, but the process isn't hard and is totally worth it.
+Also, tiny lines and miniscule bubbles may form just because you are applying
+it with a foam brush or roller.<br>
+<a href="surfaces.php#mb4000w"><b>See my review</b></a></p>
 
 <p>First, you must prepare the surface.  It is best to work with the surface
-horizontally if possible.  They recommend that you use a
-high-gloss, quality latex-based enamel paint and coat the surface that you
-wish to be a whiteboard.  You do not need to use white!  I have a pinkboard,
-and you can even have a blackboard if you use white dry-erase markers.
-Painting is also optional, but it helps to keep the coating on the surface
-instead of allowing it to soak in.</p>
+horizontally if possible.  They recommend you first coat your surface with
+a matte or eggshell, latex-based paint base.  You do not need to use white.
+I used a rose colored pink.  It's possible to get the paint base before they
+add color to it so you can apply clear paint and preserve your original wall
+colors and decorations.</p>
 
-<p>If you painted, you must wait for the paint to cure (not dry).  This
-could take a week, so be patient.</p>
+<p>Wait for the paint to cure, not merely dry.  This could take a week to
+be safe.</p>
 
-<p>They also suggest you wipe down the surface with their <a
-href="cleaners.php#mb_10">MB-10 graffiti removal</a> cleaner.  It will
-destroy any lingering oils and make the surface suitable for coating.  After
-that, you just take a foam brush and put a very thin layer of MB-3000 on the
-surface of whatever you are coating.</p>
+<p>Now you simply use a foam brush, roller, or other really smooth way to
+apply the MB4000W coating.  It doesn't take much.  You can even go over it
+again after an hour or two to generate a thicker coating.  Now you need to
+wait at least three days for the layer to cure, but then you are able to
+doodle on your wall, use whiteboard markers on the table, or be artistic
+wherever you applied the coating.</p>
 
 <?php Section('Plastic Sheets', 'plastic'); ?>
 
