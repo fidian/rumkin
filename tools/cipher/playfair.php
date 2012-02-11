@@ -217,10 +217,14 @@ function upd()
    
    if (document.encoder.text.value != "")
    {
+	   var flags = 1;
+
+	   if (document.encoder.doubleencode.checked) {
+		   flags -= 1;
+		}
       elem.innerHTML = SwapSpaces(HTMLEscape(Playfair(document.encoder.encdec.value * 1,
          document.encoder.text.value, document.encoder.skip.value,
-         document.encoder.skipto.value, document.encoder.key.value, 
-	 (document.encoder.doubleencode.value * 1)?0:1)));
+         document.encoder.skipto.value, document.encoder.key.value, flags)));
    }
    else
    {
