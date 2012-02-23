@@ -19,6 +19,9 @@ $GLOBALS['Admin Email'] = 'fidian@rumkin.com';
 // Who emails are sent from
 $GLOBALS['Mail From'] = 'delete@rumkin.com';
 
+// Message ID hostname
+$GLOBALS['Hostname'] = 'rumkin.com';
+
 
 // Turn off automatic cleaning
 $GLOBALS['AutoClean Chance'] = 0;

@@ -21,6 +21,10 @@ another uploader and you are unable to do that with this uploader, I would
 href="http://www.pix2fone.com">Pix2Fone</a> and the uploader at <a
 href="http://www.t1mmy.net/visionTool.html">T1mmy.net</a>.</p>
 
+<?php Section('Virgin Mobile, Shuttle'); ?>
+
+<p>It appears that your file needs to be under about 65k.  This might be applicable to other Virgin Mobile phones.</p>
+
 <?php Section('Virgin Mobile, Canada'); ?>
 
 <p>If you get an "Access Denied" message, you might need to sign up for the unlimited data plan instead of the per-page data plan.</p>

@@ -107,7 +107,17 @@ function GetFileData($id) {
 /* Sends an email - wrapper function to just make sure I don't specify the
  * same things multiple times */
 function SendEmailToUser($address, $subj, $body) {
-	mail($address, $subj, $body, 'From: ' . $GLOBALS['Mail From'] . "\r\nReturn-Path: " . $GLOBALS['Mail From']);
+	// Amazon + postfix will rearrange headers.
+	// This breaks SMS gateways for some stupid reason.
+	$headers = array(
+		'Date: ' . date('r'),
+		'Return-Path: ' . $GLOBALS['Mail From'],
+		'Message-Id: <' . date('YmdHis') . '.' . uniqid() . '@' . $GLOBALS['Hostname'] . '>',
+		'From: ' . $GLOBALS['Mail From'],
+	);
+
+	$headers = implode("\r\n", $headers);
+	mail($address, $subj, $body, $headers);
 }
 
 // Sends the file download link to the user
