@@ -476,11 +476,16 @@ function ShowText(set) {
 			}
 
 			var c = l.charAt(i);
+			var code = i;
+
+			if (code < 10) {
+				code = "0" + code;
+			}
 
 			c = "'" + c + "'";
 
 			s += '<a onclick="return L(' + c + ')" id="Text_Link_' + 
-				l.charCodeAt(i) + '" href="#">' + (i + 1) + '</a>';
+				l.charCodeAt(i) + '" href="#">' + code + '</a>';
 		}
 
 		return s;
