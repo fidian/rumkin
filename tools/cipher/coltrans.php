@@ -65,7 +65,8 @@ the text, but they should be preserved even if you don't.  Newlines are ignored 
 <option value="alpha">Key Word(s) - Duplicates numbered forwards
 <option value="ahpla">Key Word(s) - Duplicates numbered backwards
 </select>:  <input type=text name=colkey><br>
-The resulting columnar key:  <b><span id='colkey_out'></span></b></p>
+The resulting columnar key:  <b><span id='colkey_out'></span></b><br>
+<input type=checkbox name="use_as_column_order"> - <label for="use_as_column_order">Use the key as column order instead of column labels</label></p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
@@ -104,6 +105,7 @@ function upd()
       
 	
    if (IsUnchanged(document.encoder.text) *
+	   IsUnchanged(document.encoder.use_as_column_order) *
        IsUnchanged(document.encoder.encdec) *
        keyunchanged)   
    {
@@ -121,8 +123,19 @@ function upd()
    }
    else
    {
+	   var ckt = colkey_text;
+	   if (document.encoder.use_as_column_order.checked) {
+		   original = ckt.split(' ');
+		   ckt = new Array(original.length);
+		  
+			for (var i = 0; i < original.length; i ++) {
+				ckt[original[i] - 1] = i + 1;
+			}
+
+		   ckt = ckt.join(' ');
+		}
       e.innerHTML = SwapSpaces(HTMLEscape(ColTrans(document.encoder.encdec.value * 1,
-         document.encoder.text.value, colkey_text)));
+         document.encoder.text.value, ckt)));
    }
    
    window.setTimeout('upd()', 100);
@@ -133,6 +146,7 @@ function insert_example()
    document.encoder.encdec.value = "1";
    document.encoder.colkey.value = "4 2 5 3 1";
    document.encoder.colkey_type.value = "num";
+   document.encoder.use_as_column_order.checked= false;
    document.encoder.text.value = "WHICHWRISTWATCHESARESWISSWRISTWATCHES";
 }
 
@@ -141,6 +155,7 @@ function insert_example2()
    document.encoder.encdec.value = "-1";
    document.encoder.colkey.value = "4 2 5 3 1";
    document.encoder.colkey_type.value = "num";
+   document.encoder.use_as_column_order.checked = false;
    document.encoder.text.value = "HTHESTHHRASWRASCSCRSSCWWWESWWEIITAIIT";
 }
 
