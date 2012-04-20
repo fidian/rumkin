@@ -30,8 +30,8 @@ The resulting columnar key:  <b><span id='colkey1_out'></span></b></p>
 <option value="alpha">Key Word(s) - Duplicates numbered forwards
 <option value="ahpla">Key Word(s) - Duplicates numbered backwards
 </select>:  <input type=text name=colkey2><br>
-The resulting columnar key:  <b><span id='colkey2_out'></span></b><br>
-<input type=checkbox name="use_as_column_order"> - <label for="use_as_column_order">Use the keys as column orders instead of column labels</label></p>
+The resulting columnar key:  <b><span id='colkey2_out'></span></b></p>
+<p><input type=checkbox name="use_as_column_order"> - <label for="use_as_column_order">Use the keys as column orders instead of column labels</label></p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
