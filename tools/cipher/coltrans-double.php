@@ -30,7 +30,8 @@ The resulting columnar key:  <b><span id='colkey1_out'></span></b></p>
 <option value="alpha">Key Word(s) - Duplicates numbered forwards
 <option value="ahpla">Key Word(s) - Duplicates numbered backwards
 </select>:  <input type=text name=colkey2><br>
-The resulting columnar key:  <b><span id='colkey2_out'></span></b></p>
+The resulting columnar key:  <b><span id='colkey2_out'></span></b><br>
+<input type=checkbox name="use_as_column_order"> - <label for="use_as_column_order">Use the keys as column orders instead of column labels</label></p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
@@ -79,6 +80,7 @@ function upd()
       
 	
    if (IsUnchanged(document.encoder.text) *
+	   IsUnchanged(document.encoder.use_as_column_order) *
        IsUnchanged(document.encoder.encdec) *
        key1unchanged * key2unchanged)
    {
@@ -97,8 +99,29 @@ function upd()
    else
    {
       var c = document.encoder.text.value;
-      c = ColTrans(document.encoder.encdec.value * 1, c, colkey1_text);
-      c = ColTrans(document.encoder.encdec.value * 1, c, colkey2_text);
+	   var ck1t = colkey1_text;
+	   var ck2t = colkey2_text;
+	   if (document.encoder.use_as_column_order.checked) {
+		   original = ck1t.split(' ');
+		   ck1t = new Array(original.length);
+		  
+			for (var i = 0; i < original.length; i ++) {
+				ck1t[original[i] - 1] = i + 1;
+			}
+
+		   ck1t = ck1t.join(' ');
+
+		   original = ck2t.split(' ');
+		   ck2t = new Array(original.length);
+		  
+			for (var i = 0; i < original.length; i ++) {
+				ck2t[original[i] - 1] = i + 1;
+			}
+
+		   ck2t = ck2t.join(' ');
+		}
+      c = ColTrans(document.encoder.encdec.value * 1, c, ck1t);
+      c = ColTrans(document.encoder.encdec.value * 1, c, ck2t);
       e.innerHTML = SwapSpaces(HTMLEscape(c));
    }
    
