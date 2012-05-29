@@ -36,6 +36,11 @@ $Links = array(
 		'URL' => 'bots/'
 	),
 	array(
+		'Name' => 'Cube Solution (NxNxN)',
+		'Desc' => 'Want a simpler way to solve a Rubik\'s Cube?  It may not be the fastest, but it is one I can remember.  As a bonus, it works for any size cube, not just the kind that have 3 on a side.',
+		'URL' => 'cube/'
+	),
+	array(
 		'Name' => 'Dakota Digital Camera',
 		'Desc' => 'Just a little information about a really cheap ' . 'digital camera and how to reuse it instead of paying ' . 'the processing fees.',
 		'URL' => 'dakota/'
