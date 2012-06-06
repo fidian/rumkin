@@ -17,6 +17,10 @@ and a chart showing letter frequency will be generated in the bottom.  If
 you want to see a demo, I can type in some <a href="#"
 onclick="insert_sample(0); return false">sample text</a> for you.</p>
 
+<p><b>Update:</b>  Fixed the display of the kappa-plaintext value.  Before,
+it would show 0.665 and now it properly shows 0.0665.  Incidentally, that's
+the approximate value for English text.</p>
+
 <form name="encoder" method=post action="#" onsubmit="return false;">
 <p>The text to analyze:</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
@@ -91,7 +95,7 @@ function upd()
    {
       f_ic = Friedman(document.encoder.text.value,
          'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-      f_kappa = Math.round(f_ic * 100000) / 10000;
+      f_kappa = Math.round(f_ic * 10000) / 10000;
       f_ic = Math.round(26 * f_ic * 10000) / 10000;
       e.innerHTML = 'Friedman IC:  ' + f_ic + ' (kappa-plaintext: ' + f_kappa + ')';
       e.innerHTML += '<br>';
