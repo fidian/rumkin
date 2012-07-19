@@ -109,6 +109,7 @@ $GLOBALS['Providers'] = array(
 	'@inlandlink.com',  // Inland Cellular Telephone
 	'@pager.tdspager.com',  // The Indiana Paging Co
 	'@rek2.com', // Iusacell (Mexico)
+	'@iwirelesshometext.com', // i wireless
 	'@jsmtel.com',  // JSM Tele-Page
 	'@escotelmobile.com',  // Kerala Escotel
 	'@airtelkol.com',  // Kolkata Airtel
