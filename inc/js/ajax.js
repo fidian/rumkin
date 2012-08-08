@@ -75,7 +75,7 @@ function MakeRequestPost(req, url_str, post_data, func, param) {
 	req_ts.setRequestHeader('Content-length', post_data.length);
 	req_ts.setRequestHeader('Connection', 'close');
 	req_ts.onreadystatechange = BindCallback;
-	req_ts.send(null);
+	req_ts.send(post_data);
 
 	return req_ts;
 }
