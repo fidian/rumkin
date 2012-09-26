@@ -231,9 +231,13 @@ Robert Patterson's letter to Thomas Jefferson
 http://en.wikipedia.org/wiki/Nihilist_cipher
 Nihilist Cipher
 msgibbs@capitol.net 2012-02-23
+The request is to do the straddling checkerboard instead of polybius square.  Why not do both?
+http://en.wikipedia.org/wiki/Nihilist_cipher
+http://en.wikipedia.org/wiki/Straddling_checkerboard
+http://en.wikipedia.org/wiki/Polybius_square
 
 
-Custom string swapping to let A => "5b" and B => "AA" or something.
+Custom string swapping to let A => "5b" and B => "AA" or something.  Detect non-reversible strings.
 
 
 Can you create a nihilist cipher on your webpage that converts letters to numerals. But do the more complex version with the straddling checkerboard instead of the polybius square.
