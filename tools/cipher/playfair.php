@@ -68,7 +68,7 @@ moving down and right one square ("LL" becomes "RR") where as traditional
 Playfair ciphers will automatically insert an X for you.</p>
 
 <p>This particular cipher was used by the future U.S. President, John F.
-Kennedy, Jr.  He sent a <a href="#" onclick="kennedy(); return false">message</a> about a boat going down.</p>
+Kennedy, Sr.  He sent a <a href="#" onclick="kennedy(); return false">message</a> about a boat going down.</p>
 
 <form name="encoder" method=post action="#" onsubmit="return false;">
 <p><select name="encdec">
