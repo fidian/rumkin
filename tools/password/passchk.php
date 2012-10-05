@@ -38,7 +38,8 @@ when you type in the "U".</p>
 strong a password is.  For email accounts, passwords to log into your
 personal machine, and other things that don't require the most strict
 authentication, feel free to use a password that is deemed "Weak" or
-"Reasonable".</p>
+"Reasonable".  However, be careful still; if you plan on using a single
+password for multiple things, I strongly suggest a better password.</p>
 
 <p>This runs completely in your browser and sends no information back to me.
 If you are paranoid, you can read the source code, unplug your machine from
