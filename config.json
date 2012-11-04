@@ -1,0 +1,11 @@
+{
+	"locals": {
+		"url": "http://localhost:8080",
+		"name": "Rumkin.com",
+		"owner": "Tyler Akins",
+		"description": "Arbitrary collection of things"
+	},
+	"plugins": [
+		"wintersmith-less"
+	]
+}

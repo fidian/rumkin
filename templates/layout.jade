@@ -1,0 +1,29 @@
+!!! 5
+include mixins/navtree
+html(lang="en")
+	head
+		block head
+			meta(charset="utf-8")
+			title
+				block title
+					= locals.name
+			link(rel="stylesheet", href="/css/site.css")
+	body
+		header
+			div.inner
+				block header
+					h1
+						a(href=locals.url)= locals.name
+					p= locals.description
+		#wrapper
+			nav
+				div.inner
+					block nav
+						mixin navtree(contents)
+			div#content
+				block content
+					p Content should have gone here
+		footer
+			div.inner
+				block footer
+					p &copy; #{ new Date().getFullYear() } #{ locals.owner }

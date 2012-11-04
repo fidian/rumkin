@@ -1,0 +1,44 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"/..
+
+# Update submodule
+git submodule init
+git submodule update
+
+# Get on the gh-pages branch
+(
+	cd build
+
+	if ! git branch | grep '^* gh-pages$'; then
+		if ! git branch | grep '^  gh-pages$'; then
+			# Branch does not even exist
+			git checkout -b gh-pages origin/gh-pages
+		fi
+
+		# Change to the branch
+		git checkout gh-pages
+	fi
+
+	# Update
+	git pull
+
+	# Remove all files because using wintersmith's clean option
+	# deletes this entire directory, causing the submodule
+	# relationship in git to break
+	git rm -rf *
+)
+
+wintersmith build
+
+# Commit
+(
+	cd build
+	git add .
+	git commit -m 'Updating with bin/rebuild script'
+	git pull
+	git push
+)
+
+git commit build -m 'Updating with bin/rebuild script'
+git push

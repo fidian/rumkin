@@ -1,0 +1,31 @@
+#!/bin/bash
+
+PROCESSED=0
+
+while [ ! -z "$1" ]; do
+	PROCESSED=$(( $PROCESSED + 1 ))
+
+	if [ ! -f "$1" ]; then
+		echo "File does not exist: $1"
+	else
+		NAME="${1##*/}"
+		FILEPATH="${1:0:-${#NAME}}"
+		BASE="${NAME%.*}"
+		EXTENSION="${NAME:${#BASE}+1}"
+		THUMBBASE="${FILEPATH}${BASE}-thumb."
+	
+		case "$EXTENSION" in
+			png)
+				pngtopnm $1 | pnmscale -xysize 300 300 | pnmtopng -compression 9 > "${THUMBBASE}png" 2>/dev/null
+				;;
+			*)
+				echo "Unsupported extension: $EXTENSION"
+		esac
+	fi
+
+	shift
+done
+
+if [ $PROCESSED -eq 0 ]; then
+	echo "Specify files for thumbnail generation"
+fi

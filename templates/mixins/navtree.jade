@@ -1,0 +1,13 @@
+mixin navtree(dir, depth)
+	if ! depth
+		depth = 0
+	if depth < 2
+		- var dirs = _.chain(dir._.directories).filter(function (item) {
+		-    return item.index && item.index.metadata && item.index.metadata.navtitle;
+		- }).sortBy(function (item) {
+		-    return item.index.metadata.navtitle.toLowerCase();
+		- }).value();
+		each subdir in dirs
+			div.navTree
+				a(href=subdir.index.url)= subdir.index.metadata.navtitle
+				mixin navtree(subdir, 1 + depth)
