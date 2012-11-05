@@ -1,3 +1,6 @@
 [submodule "build"]
 	path = build
 	url = git@github.com:fidian/rumkin.git
+[submodule "api"]
+	path = api
+	url = git@github.com:fidian/rumkin.git
