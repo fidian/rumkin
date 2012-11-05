@@ -1,9 +1,0 @@
-Features|features.php
-Download|download.php
-Credits|credits.php
-Links|links.php
--
-DB Types|gen_type.php
-DB Format|format.php
-Changelog|changelog.php
-PSR Format|psr.php

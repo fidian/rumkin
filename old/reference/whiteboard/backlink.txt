@@ -1,7 +1,0 @@
-Cleaners|cleaners.php
-Surfaces|surfaces.php
--
-Make One|make.php
--
-Tips|tips.php
-Links|links.php

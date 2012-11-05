@@ -1,3 +1,0 @@
-5 Times Fast|5times.php
-One-Liners|oneline.php
-Story &amp; Verse|verse.php

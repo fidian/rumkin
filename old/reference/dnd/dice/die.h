@@ -1,1 +1,0 @@
-int roll(int sides);

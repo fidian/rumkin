@@ -1,8 +1,0 @@
-#!/bin/bash
-
-DIR=~fidian/public_html/geocaching
-
-links -source http://www.navicache.com/cgi-bin/db/XMLSearchResults.pl\?\
-state=MN > $DIR/navicache.xml
-
-gpsbabel -i navicache -f $DIR/navicache.xml -o geo -F $DIR/navicache.loc

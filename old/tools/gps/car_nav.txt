@@ -1,7 +1,0 @@
-tgpsd = tiny gpsd alternative
-three different Linux car navigation systems
-http://thomashargrove.com/tgpsd/
-
-Mazda PC
-https://www.timekiller.org/carpc/index.php
-

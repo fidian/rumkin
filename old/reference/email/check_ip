@@ -1,6 +1,0 @@
-#!/bin/bash
-
-rblcheck -t -c -s sbl.spamhaus.org -s bl.spamcop.net -s relays.ordb.org \
- -s dnsbl.antispam.or.id -s dnsbl.njabl.org -s list.dsbl.org \
- -s proxies.relays.monkeys.com -s blackholes.easynet.nl \
- -s opm.blitzed.org $*
