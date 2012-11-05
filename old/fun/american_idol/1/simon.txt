@@ -1,0 +1,138 @@
+!Critique
+[Painful Insult]  [Insult]
+[Insult]  [Insult]
+[Insult]  [Insult]
+[Average]  [Insult]
+[Average]
+[Liked]
+
+!Painful Insult
+If you win, this show is an absolute failure.  [Insult]
+I think, based on that performance, if you were to win the competition, \
+it would be a disaster.  [Insult]
+I can't believe that it happened again.  [Karaoke]
+This was the worst I have heard throughout the entire competition
+
+!Insult
+[Setup Bad]
+[Setup Bad]
+I could only describe your voice as [Adj Bad].
+Very, very dissapointing.
+God, I thought that was absolutely [Adj Bad].
+How did you make it this far?
+[Shout]
+[Looks]
+[Karaoke]
+I think you just killed my favorite song of all time.
+That was [Adj Bad].  I mean [Adj Bad].
+There are only so many words in my vocabulary that I can drag out to \
+say how [Adj Bad] that was.
+
+!Average
+I don't think that the song matches your personality.
+Your performance was good-ish.
+That was not your best.
+I didn't feel enough emotion in your song.
+While I saw that as good, I don't see that as a winning performance.
+This was an average performance.
+I don't think that performance merits you to be proclaimed American Idol.
+[Thin Line]  I didn't know where you were going with the song.
+
+!Liked
+[Setup Good]
+We went from good to sensational.
+I think that this was so much better than what you did before.
+I think you've just raised the game, haven't you?
+You look great.
+Hands-down.  Amazing.
+I think you've proved you are a star.
+You did terriffic tonight.  And the great thing was that we were seeing \
+you as you.
+Ok, I admit it.  I've got a crush.
+
+!Setup Good
+[Bad Audition]  [However Good]
+[Thin Line]  But you managed to pull it off.
+[Top Ten]  [Support]
+[Great Voice]  [Support]
+[Find A Star] and you are a star.
+[America Is Known]  And you are one of them.
+[Fantastic Performance]  And you\'re one of them.
+
+!Setup Bad
+[Bad Audition]  And it kept getting worse.
+[Top Ten]  And you shouldn't be.
+[Great Voice]  Americal Idol?  No.
+It was good.  [However Bad]  [Insult]
+[Find A Star] and you are not a star.
+[Find A Star] and you are good.  Good, but not necessarily good enough.
+[America Is Known]  [However Bad]
+[Fantastic Performance]  [However Bad]
+
+!Fantastic Performance
+We've had so many absolutely fantastic performances.
+
+!America Is Known
+America is not known for nice singers, it is known for great singers.
+
+!Bad Audition
+I just think that it was a bad audition.
+
+!Find A Star
+This competition is about finding a star,
+Look, the competition is about finding a star,
+
+!Top Ten
+There are people in this room who should not be in the top ten, and there \
+are people in this room who should be in the top ten.
+
+!Shout
+You shouted the song.
+There is a difference between shouting and singing.  You need to learn it.
+
+!Thin Line
+I think there's a thin line between cool and boring.
+
+!However Good
+However, you've worked hard and it shows.
+
+!However Bad
+However, we have to pass judgement based on the other competetors.
+However, you've been outperformed by others tonight.
+
+!Karaoke
+This was karaoke once again.
+You sounded like Brazilian karaoke.
+You had a karaoke performance.
+
+!Great Voice
+I think you have a great voice.
+
+!Looks
+You don't look like the American Idol.
+You need to become what the American Idol looks like.
+Your voice is not the only thing that needs improvement.
+
+!Support
+If the American public doesn't vote for you, I'd be [Emotion Bad].
+I hope you go on.
+I really really hope you do well in this competition because it just \
+proves the point that nice people can be pop stars as well.'
+
+!Adj Bad
+ghastly
+horrid
+horrible
+dismal
+disgusting
+awful
+terrible
+dreadful
+
+!Emotion Bad
+dissapointed
+shocked
+astonished
+amazed
+saddened
+upset

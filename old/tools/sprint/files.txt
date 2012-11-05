@@ -1,0 +1,38 @@
+Documentation
+============================================================================
+CHANGELOG		History of changes to the software
+COPYING			GPL
+LEGAL			Brief statement of legal info
+TODO			My list of stuff to do
+files.txt		This list
+install.txt		HOW TO INSTALL THIS SOFTWARE
+readme.txt		Information about a couple things
+tables.txt		My list of table structure
+
+Program Files
+============================================================================
+common.inc		Every .php file includes this to make things simple
+config-dist.php		Standard config file (rename to config.php)
+desc.php		Writes a GCD or JAD for the desired file
+dl.php			Writes a resized image (if possible) or other file
+downloads.php		List of files that can be downloaded
+faq			Directory of FAQ topics
+formats.php		Lists common formats understood by phones
+functions.inc		Contains some utility functions (sample file)
+index.php		Boring main index and form for uploading
+jump.php		Lets people enter jump codes
+links.php		Links to other sites
+messaging.inc		Class for sending messages to phones
+phoneinfo.php		Logs every header that a phone sends (debugging)
+provider.inc		Email host list for wireless providers
+thumb.php		Thumbnailer (for browse.php)
+upload.inc		Logic behind uploader form
+upload.php		Uploader display stuff
+
+Admin Only - Files are in the admin/ directory
+============================================================================
+clean.php               Deletes old files in the uploader
+check.php		Checks the download of a .jad/.gcd file
+file.php		Moves files into the gallery
+sendmessage.php		Sends a message to a Sprint phone with messaging.inc
+viewer.php		Views uploaded files, can filter them

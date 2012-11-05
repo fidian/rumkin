@@ -1,0 +1,78 @@
+body {
+   background-image: url(/media/texture.jpg);
+}
+
+body.r_chat {
+   color: #F0F0FF;
+}
+
+div.r_header {
+   background: #00003D;
+   color: #F0F0FF;
+}
+
+div.r_headbar {
+   background: #00003D;
+   color: #F0F0FF;
+   border-bottom: 1px solid #D0D0FF;
+}
+
+input.r_headsearch, body.r_chat form input {
+   background: #D0D0FF;
+   border: 1px solid white;
+}
+
+div.r_backlink {
+   background: #D0D0FF;
+}
+
+div.r_backlink a:link {
+   color: #00003D;
+}
+
+div.r_backlink a:hover {
+   color: #8D0000;
+}
+
+div.r_backlink a:visited {
+   color: #210021;
+}
+
+div.r_backlink a:active {
+   color: orange;
+}
+
+div.r_main {
+   background: white;
+}
+
+div.r_footbar {
+   background: #00003D;
+   border-top: 1px solid #F0F0FF;
+}
+
+td.r_info {
+   color: #F0F0FF;
+}
+
+td.r_trivia {
+   color: #F0F0FF;
+}
+
+a.r_link:link, a.r_link:visited,
+td.r_info a:link, td.r_info a:visited, 
+td.r_trivia a:link, td_rtrivia a:visited,
+body.r_chat a:link, body.r_chat a:visited {
+   color: orange;
+}
+
+a.r_link:hover, a.r_link:active,
+td.r_info a:hover, td.r_info a:active,
+td.r_trivia a:hover, td.r_trivia a:active,
+body.r_chat a:hover, body.r_chat a:active {
+   color: yellow;
+}
+
+td.r_box {
+   background: #F0F0FF;
+}

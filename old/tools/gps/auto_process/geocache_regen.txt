@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# To test:
+#
+#    cat mail_message.txt | ./geocache_shell "Query Name"
+
+cd ~fidian/public_html/geocaching
+
+rm -f Geocaching.gpx
+CMD="gpsbabel -i gpx"
+for F in *.gpx; do {
+   CMD="$CMD -f $F"
+}; done
+CMD="$CMD -o gpx -F Geocaching.gpx"
+$CMD
+
+rm -fr */*.html *.html
+rmdir ? wp name > /dev/null 2>&1 
+php4-cgi gpx2html.php Geocaching.gpx > /dev/null
+
+#plucker-build -N "Geocaches" --noimages -M 2 --compression=zlib \
+#--no-urlinfo --stayonhost --beamable --title="Geocaches" \
+#--fragments=both -p . -f Geocaches.pdb file:index.html > /dev/null 2>&1
+
+rm -f Geocaching.zip
+zip -r9 Geocaching.zip */*.html *.html *.csv *.gpx > /dev/null
+chmod 644 *.gpx *.csv *.zip

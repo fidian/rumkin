@@ -1,0 +1,481 @@
+               The Official T$R Book of Adventure Suggestions
+
+                    (ie, the book of tricks and traps)
+---------------------------------------------------------------------------
+**Introduction**
+The content of this book should be pretty much self-explanatory. Most of
+the ideas will need fleshing out for your own RPGs - by leaving out all
+specific detail I keep T$R at bay and ensure that it's compatible with any
+game system, killing two lawyers with one shotgun shell :-).
+
+Almost none of the ideas here are my own. I've collected them from ADND-L,
+books, movies, other people, and my own RPGs. I hope no one minds, but the
+spirit of ADND-L - and AD&D itself - is the sharing of ideas and
+information. Most of the stuff here is so generic it's hard to copyright it
+anyway. Still, if anyone doesn't like it, mail me and I'll stop
+distributing the book.
+
+Like the rest of the AD&D files on the net, this book is free. You can
+mangle it, copy it, share it, and use it in any way you like. _But not sell
+it_. However, there is one charge :-) : If you think of any ideas that
+could appear here, you have to send them to me at
+gmorfey@cleese.apana.org.au for inclusion in the next version of TGNBODI
+(what an acronym!). Put TGNBODI in the subject line to make sure I see your
+message. Thanks..
+
+I'll post this to ADND-L every time I produce another version, and will
+place it on the ADND-L archiveserver if it still exists and someone can
+tell me how. If there are any RPG FTP sites still alive, mail me the
+address and I'll upload it there. But _DON'T_ post the address to the list!
+T$R has eyes everywhere..
+
+I suggest you don't allow your players to read this book, for obvious
+reasons :-). Some of the ideas here will still work if the players know
+about them, but not many. On the other hand, ask your entire RPG group for
+dungeon ideas and send them to me.
+
+This book was originally compiled into the Tome of Vast Knowledge, but
+after the Builder program crashed and murdered my database for the second
+time, I lost faith and it's now kept in 70 column .TXT format. Yeah, I
+know, it was all my fault. I should have kept a backup. But this program's
+as safe as houses, isn't it? Isn't it? If anyone wants to convert it to
+TOVK, go ahead, and good luck. You'll need it :-).
+
+---------------------------------------------------------------------------
+*Dud Door I*
+The players find a hidden door. It's painted bright pink and has hundreds
+of coloured lights and levers. Nothing can force it open, and clairvoyance,
+teleport etc don't work beyond it. If anyone pulls a lever, everyone within
+10' gets a 1hp electric shock and all the lights change colour.
+
+Afterthought: The characters are being chased by a powerful monster and
+they wind up in a dead end with this door as the only way out. See how
+desperate they get to figure it out with the monster 15 seconds behind
+them..
+
+---------------------------------------------------------------------------
+*Dud Door II*
+Somewhere in the dungeon the players find a locked door they can't force,
+pick, or whatever. Later the come across a large crystal key. If the key is
+placed in the lock, it is ripped from the character's grasp and swallowed
+by the door.
+
+Afterthought: The key then reappears wherever it was before.
+
+---------------------------------------------------------------------------
+*Invisible Bridge*
+An invisible bridge 1' wide and 50' long spans a deep chasm. The players
+have to
+
+     1) work out that it's there.
+     2) convince themselves that it's there.
+     3) work out a system of ropes etc to make sure no one falls.
+
+Use dex checks to determine chances of falling. Strong winds, hostile
+flying creatures, and a fear of heights could make this harder.
+Afterthought: There is a 3' long gap in the centre of the bridge, and if
+the players assume that it's solid all the way and walk over... The gap can
+be jumped easily once they know it's there.
+
+---------------------------------------------------------------------------
+*Appearing Bridge*
+Scenario similar to 'Invisible Bridge', except that the bridge isn't even
+there until someone tries to step on it. Then it appears, one foot at a
+time, and everyone can see it.
+
+Afterthought: The characters are being chased, and anyone running along the
+bridge will move faster than the blocks can appear, and fall. The blocks
+may disappear again behind the characters to stop the monster pursuing.
+
+---------------------------------------------------------------------------
+*Guard route*
+Guards patrol an area the characters must gain entry to. The guards are too
+nasty to fight and the party cannot risk raising the alarm.
+Solutions:
+
+     Sleep or charm spells
+     Impersonate guard
+     Impersonate high official and bluff
+     Kill a guard and take uniform
+     Invisibility or fly
+     Distraction
+     etc.
+
+---------------------------------------------------------------------------
+*Object on high hook*
+A valuable object (keys?) sits on a small hook 80' up an unclimbable wall.
+An anti-magic field surrounds the room. Solution: fire an arrow or throw
+something to knock the object off the hook.
+
+Afterthought: Object is fragile and someone must be standing ready to catch
+it.
+
+---------------------------------------------------------------------------
+*Sleeping guards*
+The characters gain entry to a guardroom full of sleeping guards. They must
+kill the guards or sneak past them to gain an object.
+
+Afterthought: If any of the PLAYERS speaks to another player (simulating
+character-character conversation) during this encounter, the guards wake.
+
+---------------------------------------------------------------------------
+*Pit trap with trapdoor*
+The first character falls into a pit trap for low damage. It's easy to get
+out again, but if they stop to search, they find a trapdoor to another area
+in the bottom of the pit.
+
+---------------------------------------------------------------------------
+*Archer attack at point-blank*
+The party engages in combat with a few archers, who eventually scatter and
+run for it. The characters don't pursue, and later open a door to find one
+of the archers 2' behind it pointing a crossbow at his head for /lots/ of
+damage.
+
+Afterthought: The archers are in fact scattered in ambush positions right
+through the dungeon. Hear noise will detect them on the other side of
+doors.
+
+---------------------------------------------------------------------------
+*Flammable slime*
+Gooey green slime drips onto a character's head. It does no damage (the
+player doesn't know that), but tell the player that it's itching and
+stinging. The slime can be scraped off easily with a weapon. However, it is
+highly flammable and attempts to burn it off are likely to end in disaster.
+
+Afterthought: The players then collect the slime, put it in the thumbscrews
+they found in a torture chamber a while back, and make molotov cocktails!
+
+---------------------------------------------------------------------------
+*Wounded monster seen escaping*
+The party turns a corner to see a wounded monster slinking off. They can
+capture it and interrogate it, but it may try to escape later.
+
+---------------------------------------------------------------------------
+*Glory device*
+The players find a statue of a fighter desperately trying to press the
+button in the centre of an amulet he's wearing. The amulet is not petrified
+and can be taken from the fighter (whose ghost later haunts them?).
+Pressing the button obliterates everything within 15' - the fighter knew he
+was going to die and was trying to take the monster with him.
+
+Afterthought: To be fair, you should give the players some kind of warning
+about the amulet rather than just killing them all off for experimenting.
+Perhaps a loud siren sounds the first time they press the button, and it
+explodes on the second?
+
+---------------------------------------------------------------------------
+*Statues abound; medusa?*
+The players find serval statues scattered around a room. The door is
+closed, and they should get the hint from the statues that the have to open
+it with eyes shut and mirrors ready. If not, well, it's their own fault.
+
+---------------------------------------------------------------------------
+*Stone block & trapdoor*
+A 5' x 5' x 5' stone block in the corner of a room with an 11' ceiling.
+Stand on block, poke ceiling and find a trapdoor to another area. (This is
+a really old trick, so expect the players to find it). Afterthought: The
+block rises up after the characters, blocking the trapdoor and trapping
+them.
+
+---------------------------------------------------------------------------
+*Alice in Wonderland I*
+The characters enter a room containing a potion labelled 'drink me'.
+Searching the room will reveal a mousehole about 4" high. Solution: drink
+potion. But how is the character going to get back to full size?
+
+---------------------------------------------------------------------------
+*Alice in Wonderland II*
+The party finds that they are being followed around by a grin. They can't
+hurt it in any way, or get rid of it, or escape it. It goes away by itself
+after thoroughly terrifying them. Just a good interlude..
+
+---------------------------------------------------------------------------
+*Riddling Statue*
+A room containing a statue of a sage and no doors (the door the party
+entered by has disappeared). Teleport etc won't get them out of the room.
+The statue will answer any question with 'what' in it (such as "What is the
+easiest way to get out of here?"), even if the party did not intend it as a
+question. One in four answers are false, and the statue will answer a
+maximum of six questions.
+
+The easiest way out is to ask the statue. If the characters waste their
+questions, they'll have to find another way..
+
+---------------------------------------------------------------------------
+*Bottomless Hole*
+For some reason (a bet? a spell?), the party has to find out whether a hole
+is bottomless or not. Easy. Drop something down and listen.
+
+Afterthought: If they watch it carefully, the party will find that the hole
+is slowly but steadily moving towards them. Anyone who falls in will
+probably never be recovered. The hole will chase them throughout the entire
+dungeon, which raises an interesting question: how do you kill a hole? You
+fill it in..
+
+---------------------------------------------------------------------------
+*Spiky Mat With Object*
+A 3' x 3' mat covered in long poisonous spikes. Stuck to the underside is a
+valuable object. Solution: Flip the mat over with a polearm.
+
+Afterthought: The mat wakes up and starts chasing the characters.
+
+---------------------------------------------------------------------------
+*Timebomb About to Explode*
+A room containing a 3' black sphere (a bomb), and a complicated timing
+device. It will explode and destroy some valuable treasure if the
+characters run. If they try to disarm it, either make an INT check or use
+this puzzle:
+
+The number needed to disarm the bomb is 330 (it will change each time the
+bomb is disarmed, but is always 1-999). A guess may be used to try a
+number, or find out if the answer is divisible by a number. They have 10
+guesses and 60 seconds. If they run out of either the bomb explodes.
+
+Afterthought: The players take the bomb with them (by rolling it along the
+ground), and later reactivate it to destroy something.
+
+---------------------------------------------------------------------------
+*Equipment Must be Destroyed Quickly*
+For some reason (about to summon a monster?), equipment in a room must be
+destroyed quickly and completely. Solution: use the bomb from 'Timebomb
+About to Explode'.
+
+---------------------------------------------------------------------------
+*Maths Puzzle*
+The walls of a room are made of bricks with numbers engraved in them, from
+1-999. The party has already found three strange artifacts, shaped like
+this:
+
+------\        /-------\         \   /
+      |        |       |          \ /
+/-----/        \-------/           X
+|                      |          / \
+\------                |         /   \
+
+Push brick 18 (2x9) for a bonus - all others are traps.
+
+---------------------------------------------------------------------------
+*Capture Enemy Mage*
+The party enters a mage's sleeping quarters to find him asleep on a bunk.
+They can capture him and interrogate, but must beware of verbal-only spells
+and sudden escape attempts.
+
+---------------------------------------------------------------------------
+*Glass Ceiling*
+Stuck for a way to get out of the dungeon, the party enters a room with a
+glass dome 50' up for a ceiling. Through the glass they can see the sky.
+Solution: Smash glass and climb or fly up.
+
+Afterthought: Shards of falling glass do some damage if they didn't get out
+of the way in time.
+
+---------------------------------------------------------------------------
+*Dead Rat With Gem*
+Inside a treasure chest the characters find: a dead rat. Inside the rat is
+a 1000GP gem - and if they don't cut it open they'll never know.
+
+---------------------------------------------------------------------------
+*Killer Veggies*
+A good trap to use if the group isn't cooperating. The first character in
+line opens a door to be grabbed by some strange vegetation. The victim will
+be digested in 30 seconds, and the only way to free them is for EVERY
+member of the group to assist in pulling them out.
+
+---------------------------------------------------------------------------
+*Scratches on Walls Near Lair*
+Observant characters will spot long scratches on the walls. They should
+thus be prepared for a surprise attack by a wererat, or equivalent. If
+nobody commented on the scratches or what they could signify, the monsters
+automatically get surprise.
+
+---------------------------------------------------------------------------
+*Invisible Force Field*
+A valuable item sits in the centre of the floor. If anyone tries to get
+near, they'll feel bars pushing against their chest and legs. Note that
+tall characters will NOT feel bars against their head, but you don't have
+to tell them this unless they ask. The bars are only 5' high, but it will
+take some experimenting to figure this out. Once they know, magic or a good
+jump should get them over.
+
+Afterthought: It could also be set up so that the bars are 8' tall, but
+only surround three sides of the item.
+
+---------------------------------------------------------------------------
+*Greed Trap I*
+A 20'x10' room with a door at each end. The floor is covered with gold
+pieces. The party can take as many as they can carry.
+
+The problem is, the gold is what's holding the floor down. The moment more
+than 150gp leaves the room (like when the first character leaves, and the
+others are still there), the floor will shoot up and slam them against the
+ceiling.
+
+---------------------------------------------------------------------------
+*Greed Trap II*
+A gently sloping corridor 5' wide and 100' long. Darkened. Every 10 feet
+there is a valuable item of some sort. The slope gradually steepens and
+becomes slippery. After 60', the characters cannot get back up, and will
+slide into a deep pit at the end of the corridor.
+
+Afterthought: Roping the characters together will fix this problem. They
+could also try descending into the pit and finding the treasure left behind
+when previous people fell for this.
+
+---------------------------------------------------------------------------
+*Doppleganger*
+One of the adventurers (better make it an NPC, to be fair) is silently
+killed and their place taken by a doppleganger. The doppleganger has all
+the powers of the person it killed and will betray the group at a suitable
+moment.
+
+---------------------------------------------------------------------------
+*Backstab Enemy Mage*
+A powerful mage steps out in front of the party and threatens them. They
+can't attack without getting roasted. Solution: a thief sneaks around and
+backstabs the mage. Could also use invisibility, distractions etc.
+
+---------------------------------------------------------------------------
+*Humungous Fungus*
+A 6'x6'x6' soft green lump in the centre of the room. Can climb over it -
+carefully - with no trouble. If it's punctured, spores do LOTS of damage.
+
+Afterthought: Several other, smaller, green lumps are seen throughout the
+dungeon. They gradually grow and multiply..
+
+---------------------------------------------------------------------------
+*Another Adventuring Party*
+The characters come across another adventuring party, of similar power to
+themselves. Role-play the meeting: attack? merge groups?
+
+---------------------------------------------------------------------------
+*Trapped Demon*
+A demon trapped in a magic pentagram tries to persuade the characters to
+release it (promises gold etc, actually just kills them).
+
+---------------------------------------------------------------------------
+*Fill Room With Water*
+A very small room with a trapdoor in the ceiling. An auto-refilling bucket
+of water sits in the corner. The walls cannot be climbed and it's an anti-
+magic zone. Solution: Fill the room with water and swim up.
+
+---------------------------------------------------------------------------
+*Player Controlled*
+One of the characters picks up a sword (or whatever), and is immediately
+controlled. The rest of the party must use unarmed combat to remove the
+weapon, without killing the controlled character.
+
+---------------------------------------------------------------------------
+*Rescue Prisoners*
+The party enters a jail of some sort. After killing the jailor, they rescue
+the prisoners. Some may be reliable, some could try to betray the
+characters.
+
+Afterthought: One of them is a lycanthrope. Or a vampire. Or a polymorphed
+evil mage.
+
+---------------------------------------------------------------------------
+*Scroll Hidden in Picture*
+A room lined with large, heavy tapestries. A scroll is either hidden behind
+one, or WRITTEN ON THE BACK. The tapestry will be awkward to carry around
+but the scroll cannot be removed..
+
+---------------------------------------------------------------------------
+*Dud Money*
+Treasure chest full of copper coins. An illusion has been cast on the coins
+to make them look like gold coins; it will fade within a few hours.
+
+---------------------------------------------------------------------------
+*Catch 22 pit trap:*
+The player falls in, taking standard falling damage, then the roof closes,
+sealing them in. Before them are two levers. The first lever throws the
+player out of the traps with a minor fireball 3d6 dmg from the fire plus
+3d6 dmg from the force of landing or hitting the ceiling. The other lever
+will let off a full fireball above the trapped player, getting his
+comrades.
+
+---------------------------------------------------------------------------
+*Teleporting Pit Trap:*
+When the player falls in he is teleported to a random location. If his
+companions follow, they might go to a different location.
+
+---------------------------------------------------------------------------
+*The Egg Beater Pit Trap:*
+There are three animated stone fists in the pit that grab the player once
+he's down, attempt to strip him of everything he is wearing, and give him a
+few good licks. The stone fists have a strength of 19 and 20 hitpoints.
+They are immune to fire and lightening. There is usually a lot of bones and
+treasure in the trap for those who are strong enough to take it.
+
+---------------------------------------------------------------------------
+*The delay trap*
+Hit the third character or wait one round before going off.
+
+---------------------------------------------------------------------------
+*The offset trap.*
+What happens if you open the door and a pit opens on either side of the
+door? Those characters standing off to the side would get it! One version
+of this had an entire hallway errupt into flame when a door around the
+corner was opened. I thought it might get one character, but it got all but
+the brave fool who opened the door. (He was met by three drow).
+
+---------------------------------------------------------------------------
+*The infinite loop!:*
+Being a CSCI major, I was enlightened to the possibility of this trap by a
+bad program. The character enters a teleporter that teleports him to
+another teleport that teleports him back. The loop continues until
+acondition is met (usually a dispel magic is cast or a lever somewhere down
+the corridor is pulled. This will frazzle most players.
+
+---------------------------------------------------------------------------
+*Yellow Mold Death.*
+Picture a room with Yellow Mold covering the floor. The room is 50x50 and
+30 feet high. On the ceiling are Stalagmites(or stalagtites, I get them
+mixed up). In reality they are piercers. In the back of the room is a chest
+that id bolted to the floor, it is not covered by the mold. If the
+characters walk on the floor then the mold will go off. So most of the time
+they will choose to fly(They think it is so simple!!) That is when the fun
+starts. When they get half way across the room the piercers start dropping.
+If they hit the fool who is flying then so be it. They will probably fall
+into the mold causing it to go off. But if the piercers miss, then they hit
+the mold. Very bad for the characters indeed..
+
+---------------------------------------------------------------------------
+*Trapped Door*
+First off, one of my own modification. When a character goes to open a
+door, have him make a saving throw(you can decide against what.) If he
+makes it, he takes half damage, if he doesn't, full. When the door opens,
+have a large glowing fist slam into the lead character. Of course, even if
+he makes the roll, he's going to go flying through the air. You can even
+make him roll a Dex check to see if he does additional damage. But, in
+order for your characters to truly appreciate this trap, you must explain
+that then the hand grasps the door knob and pulls the door shut behind it.
+My players get a kick out of it. They don't even feel bad for taking the
+damage(I usually make it about 2d20, half if they make the saving throw.)
+Now, assuming they have brains, they should realize the trap just reset
+itself. So, what's the trick? You have two options. You could just make it
+susceptible to dispel magic, but I prefer a little something different.
+Have them knock. They'll get a kick out of it if they ever figure it out.
+If you want to make it more difficult, have them have to then tell the hand
+a password, although if they figure out that they have to knock, I'd let
+them go.
+
+---------------------------------------------------------------------------
+*The Pedestal*
+Next, one I played in a Ravenloft module. Place some item of value on a
+pedestal(sp?) in the middle of the room. Make sure the room is pretty
+large, but otherwise featureless. Then tell them that there appears to be a
+chimney-like hole in the ceiling above, but that you can't see where it
+leads. Then, when they touch the item, have them make a saving throw vs.
+Death. If they make it they notice that the ceiling just collapsed and were
+able to jump back where the item was and stand under the chimney. If they
+don't make it, then they don't realize there only chance is the chimney and
+get flattened by the ceiling. They're most assuredly dead. Oh, and about
+that escape. Now that they are so much closer to the chimney, they realize
+it is only about eight feet tall...and air tight! They only have about an
+hour max worth of air. So, unless that character is traveling with a mage
+that can teleport, transmute rock or pass through it, they are pretty much
+dead.
+
+---------------------------------------------------------------------------
+
+Back to the Trap Page

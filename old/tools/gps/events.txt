@@ -1,0 +1,71 @@
+Track|Cache|CacheName|Desc|Date|Lat|Lon
+1|GCPGGH|MnGCA General Meeting|Next MnGCA Meeting|20051008|N46 24.645|W094 21.135
+1|GCN3MW|MnGCA General Meeting|Next MnGCA Meeting|20050428|N44 58.270|W093 14.829
+1|GCKT08|MnGCA General Meeting and Elections|Next MnGCA Meeting|20041027|N44 58.270|W093 14.829
+1|GCJ2DY|Duluth Area Geocaching Meeting|Next MnGCA Meeting|20040521|N46 45.628|W092 07.804
+1|GCHRGB|MnGCA General Meeting|Next MnGCA Meeting|20040413|N44 58.282|W093 14.829
+3|GCRWBW|MnGCA Breakfast Buddies - Richfield|MnGCA Events|20060325|N44 52.997|W093 16.645
+3|GCRDWC|MnGCA Breakfast Buddies - Roseville|MnGCA Events|20060225|N45 00.965|W093 10.622
+3|GCR5RB|MnGCA Breakfast Buddies - Maple Grove|MnGCA Events|20060128|N45 06.230|W093 27.183
+3|GCQNK5|MnGCA Breakfast Buddies - Duluth|MnGCA Events|20051231|N46 52.974|W091 55.002
+3|GCQCBV|MnGCA Breakfast Buddies - West St. Paul|MnGCA Events|20051119|N44 53.162|W093 04.833
+3|GCQ075|MnGCA Breakfast Buddies - Fridley|MnGCA Events|20051029|N45 05.204|W093 15.919
+3|GCPGGH|MnGCA Autumn Event and General Meeting|MnGCA Events|20051008|N46 24.645|W094 21.135
+3|GCPF4A|MnGCA Breakfast Buddies - Rochester|MnGCA Events|20050924|N44 00.316|W092 29.141
+3|GCP4FG|MnGCA Breakfast Buddies - Burnsville|MnGCA Events|20050827|N44 44.796|W093 16.687
+3|GCNNF3|MnGCA Breakfast Buddies - Lake Elmo|MnGCA Events|20050730|N44 57.100|W092 56.000
+3|GCN6Z7|MnGCA Breakfast Buddies - St. Cloud|MnGCA Events|20050625|N45 33.197|W094 11.938
+3|GCN1BR|Lester Park Bash|MnGCA Events|20050604|N46 50.430|W092 00.430
+3|GCN6Z1|MnGCA Breakfast Buddies - Coon Rapids|MnGCA Events|20050528|N45 11.845|W093 21.439
+3|GCN6AX|Breakfast Buddies - Maplewood|MnGCA Events|20050430|N45 01.889|W093 01.085
+3|GCN7MP|Mid-Week Breakfast Buddies|MnGCA Events|20050421|N44 58.893|W093 08.654
+3|GCMFQ7|Breakfast Buddies - Crystal|MnGCA Events|20050129|N45 03.243|W093 21.839
+3|GCM48N|Breakfast Buddies - St Paul|MnGCA Events|20041204|N44 55.072|W093 11.386
+3|GCKR96|Breakfast Buddies - Richfield|MnGCA Events|20041030|N44 52.997|W093 16.645
+3|GCKH07|Spring Lake Park Kachetober Fest|MnGCA Events|20041016|N44 46.120|W092 55.919
+3|GCJNFM|2nd Annual Greater Iron Range Geopicnic & Campout|MnGCA Events|20040918|N47 26.221|W092 30.350
+3|GCJJAB|Breakfast Buddies Maple Grove|MnGCA Events|20040626|N45 06.230|W093 27.183
+3|GCJAR9|Breakfast Buddies - Roseville|MnGCA Events|20040529|N45 00.968|W093 10.624
+3|GCHWF2|MnGCA Spring Event|MnGCA Events|20040522|N44 54.951|W093 12.391
+3|GCJ1W2|Breakfast Buddies - Burnsville|MnGCA Events|20040424|N44 44.796|W093 16.687
+3|GCHRGG|MNGCA National Cache In/Trash Out Event|MnGCA Events|20040417|N45 00.176|W093 01.468
+3|GCHPZE|Breakfast Buddies - Woodbury|MnGCA Events|20040327|N44 55.575|W092 56.500
+3|GCHPZD|Breakfast Buddies - Coon Rapids|MnGCA Events|20040228|N45 10.466|W093 20.742
+3|GCHC2W|2nd Annual Winter Bash|MnGCA Events|20040208|N44 59.552|W093 03.613
+3|GCHHV3|Breakfast Buddies - St. Paul Highland|MnGCA Events|20040131|N44 55.072|W093 11.386
+3|GCH669|Before-the-Snow-Flies Mankato Geo-Event|MnGCA Events|20031116|N44 08.739|W094 00.776
+3|GCDB80|Baseball Night|MnGCA Events|20030923|N40 04.626|W112 40.642
+3|GCGRTX|1st Annual Greater Iron Range Geopicnic|MnGCA Events|20030914|N47 40.230|W092 45.113
+3|GCGD75|MnGCA Summer Fling|MnGCA Events|20030719|N44 53.005|W093 35.926
+3|GCG2ZE|NW-Central MN Geo-picnic|MnGCA Events|20030531|N45 15.325|W094 06.655
+3|GCFB40|MNGCA Spring Trash Out|MnGCA Events|20030427|N44 52.203|W093 11.831
+3|GCB404|1st Annual Winter Cache/Bug Bash|MnGCA Events|20030202|N44 58.800|W093 09.290
+3|GC8D14|Monthly CITO Day|MnGCA Events|20020913|N45 00.000|W093 00.000
+4|GCPZQB|The Halloween Hoopla (v2.0)|Other MN Events|20051029|N44 53.843|W093 09.927
+4|GCQBJQ|The Beer and Bones Event (CITO)|Other MN Events|20050910|N46 10.825|W093 28.669
+4|GCPH4E|A Day at the Creek - Dawn to Dusk|Other MN Events|20050813|N44 15.882|W094 01.950
+4|GCPX7D|1st Annual GREATER ITASCA GeoEvent|Other MN Events|20050813|N47 13.827|W093 30.982
+4|GCPHD3|Hit the Bricks (Lilydale Brickyard Fossil Hunt)|Other MN Events|20050723|N44 55.500|W093 06.650
+4|GCP4YV|The Get Sauced Event X -- Saturday Night Style|Other MN Events|20050625|N45 03.050|W093 09.310
+4|GCP0QV|Get Sauced IX Thoroughbred Style|Other MN Events|20050609|N44 47.176|W093 28.190
+4|GCNRKA|Get Sauced VIII - Mongolian Style|Other MN Events|20050519|N45 01.303|W093 09.790
+4|GCMP3J|Geo-Doggie Event|Other MN Events|20050423|N44 42.601|W093 03.278
+4|GCMXF2|Earth Day 2005 (Minnesota C.I.T.O.)|Other MN Events|20050422|N44 53.843|W093 09.927
+4|GCNCMG|The Get Sauced Event VII -- Psychedelic Style|Other MN Events|20050420|N45 03.050|W093 09.310
+4|GCNCCJ|Help Those Dirty Swedes|Other MN Events|20050416|N44 57.701|W093 04.396
+4|GCN7JQ|Duluth Area Geocaching Meeting (second ever!)|Other MN Events|20050415|N46 48.506|W092 09.753
+4|GCMV9M|geo 101|Other MN Events|20050306|N44 56.243|W093 05.704
+4|GCKMGN|Silent Bobs Punchout!|Other MN Events|20050226|N44 42.500|W093 19.835
+4|GCM71Q|The Get Sauced Event VI|Other MN Events|20050111|N44 54.129|W093 04.830
+4|GCKJJW|The Get Sauced Event V--Dome Ball Style|Other MN Events|20041001|N44 58.470|W093 15.610
+4|GCJH25|The GetSauced Event IV--GutterBallStyle|Other MN Events|20040728|N45 03.050|W093 09.310
+4|GCHJ6Z|Get Sauced Event III - Deep Dish Style|Other MN Events|20040609|N44 49.822|W093 09.771
+4|GCJ2QV|geo 101|Other MN Events|20040410|N44 59.552|W093 03.613
+4|GCHTAP|Get Sauced II|Other MN Events|20040313|N45 03.244|W093 21.838
+4|GCHE8J|The Get Sauced Event|Other MN Events|20040113|N44 54.129|W093 04.830
+4|GC90C8|The Halloween Hoopla|Other MN Events|20021027|N44 53.843|W093 09.927
+4|GC696A|First Minnesota Cache Bash|Other MN Events|20020727|N45 12.795|W093 17.155
+5|GCN33P|Bertha Brock Park III|Midwest Events|20050723|N42 58.376|W085 07.234
+5|GCMG9P|2005 Midwest GeoBash|Midwest Events|20050715|N41 38.660|W084 22.305
+5|GCN3XN|WGA Geo-Campout|Midwest Events|20050520|N44 57.550|W091 17.396
+5|GCKR4A|MOGA 2005|Midwest Events|20050408|N38 12.410|W091 05.980

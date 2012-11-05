@@ -1,0 +1,28 @@
+Affine|affine.php
+Atbash|atbash.php
+Baconian|baconian.php
+Base64|base64.php
+Bifid|bifid.php
+Caesar|caesar.php
+- Keyed|caesar-keyed.php
+- ROT13|rot13.php
+Column Trans.|coltrans.php
+- Double|coltrans-double.php
+- &Uuml;bchi|ubchi.php
+Cryptogram|cryptogram.php
+Gronsfeld|gronsfeld.php
+Morse|morse.php
+Numbers|numbers.php
+One Time Pad|otp.php
+Playfair|playfair.php
+Railfence|railfence.php
+Rotate|rotate.php
+Skip|skip.php
+Substitution|substitution.php
+Vigenere|vigenere.php
+- Keyed|vigenere-keyed.php
+- Autokey|vigenere-autokey.php
+-
+Crypto Solver|cryptogram-solver.php
+Frequency|frequency.php
+Manipulator|manipulate.php

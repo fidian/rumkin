@@ -1,0 +1,121 @@
+diff -r -wu5 weeblefm/check_login.php weeble2/check_login.php
+--- weeblefm/check_login.php	2002-07-25 11:21:25.000000000 -0500
++++ weeble2/check_login.php	2003-08-11 10:01:31.000000000 -0500
+@@ -15,12 +15,12 @@
+   {
+     header ( "Location: login.php?ERROR=1\n\n" );
+     exit;
+   }
+   
+-  if ( isset ($login_server) && compat_array_key_exists ($login_server, $ftp_Servers) ) {
+-    $ftp_Server = strtok ($ftp_Servers[$login_server], ":");
++  if ( isset ($login_server) ) {
++    $ftp_Server = strtok ($login_server, ":");
+     $ftp_Port = strtok ( ":" );
+     if ( empty ($ftp_Port) ) $ftp_Port = 21;
+   } else {
+     header ( "Location: login.php?ERROR=2\n\n" );
+     exit;
+Only in weeble2: check_login.php~
+diff -r -wu5 weeblefm/functions-ftp.php weeble2/functions-ftp.php
+--- weeblefm/functions-ftp.php	2002-07-25 11:21:46.000000000 -0500
++++ weeble2/functions-ftp.php	2003-08-11 10:03:51.000000000 -0500
+@@ -603,11 +603,11 @@
+   
+   $style = $style . "a:active { font-weight: bold; text-decoration: none; color: #000066; ";
+   $style = $style . "background-color: " . $theme["thm_pg_lnk_hvr"] . "}\n";
+   
+   $style = $style . "a:hover { color: " . $theme["thm_pg_lnk_clr"] . "; ";
+-  $style = $style . "font-weight: bold; text-decoration: none; "; 
++  $style = $style . "text-decoration: none; "; 
+   $style = $style . "background-color: " . $theme["thm_pg_lnk_hvr"] . "}\n";
+   
+   $style = $style . "a:link { text-decoration: none; ";
+   $style = $style . "color: " . $theme["thm_pg_lnk_clr"] . "}\n";
+   
+Only in weeble2: functions-ftp.php~
+diff -r -wu5 weeblefm/login.php weeble2/login.php
+--- weeblefm/login.php	2002-05-01 09:45:31.000000000 -0500
++++ weeble2/login.php	2003-08-11 10:00:00.000000000 -0500
+@@ -33,11 +33,10 @@
+ 
+   // If register_globals = off display an error.
+   if ( !ini_get ("register_globals") && !isset ($ERROR) ) $ERROR = 21;
+   elseif ( (phpversion() >= "4.0.3") && !ini_get ("file_uploads") && !isset ($ERROR) ) $ERROR = 22;
+   elseif ( !extension_loaded ("ftp") && !isset ($ERROR) ) $ERROR = 23;
+-  elseif ( !isset ($ftp_Servers) && !isset ($ERROR) ) $ERROR = 10;
+ 
+ // Load the default theme into the login page.
+   if ( @is_readable( "themes/" . $default_theme . ".thm" ) ) {
+     $tp = fopen( "themes/" . $default_theme . ".thm", 'r' );
+     $theme = load_theme( $tp );
+@@ -71,22 +70,21 @@
+       <td align="right">Password:</td>
+       <td> 
+         <input type="password" name="ftp_Pass" size="20" value="<?php echo $cookie_array[1] ?>">
+       </td>
+     </tr>
+-<?php
+-  if ( isset ($ftp_Servers) ) {
+-    echo "<tr class=\"alt_row\"><td align=\"right\">Server:</td>";
+-    echo "<td><select name=\"login_server\">";
+-    while ( list ($key, $val) = each ($ftp_Servers) ) {
+-      echo "<option value=\"$key\"";
+-      if ( $cookie_array[2] == $key ) echo " SELECTED";
+-      echo ">$key</option>";
+-    }
+-    echo "</select></td></tr>";
+-  }
+-?>
++    <tr>
++      <td align="right">Server:</td>
++      <td>
++	<input type=text name="login_server" size="20" value="<?php
++	    if (isset($cookie_array[2]) && $cookie_array[2] != '')
++	       echo $cookie_array[2];
++            else
++	       echo 'rumkin.com';
++        ?>">
++      </td>
++    </tr>
+     <tr> 
+       <td colspan=2 align="center" class="buttonBar"> 
+           <input type="submit" name="Submit" value="Login" <?php if ($ERROR >= 10) echo "DISABLED"?>>
+           <input type="reset" name="Reset" value="Reset">
+       </td>
+@@ -132,13 +130,10 @@
+         echo "<B>Server could not be found.</B>";
+         break;
+       case 3:
+         echo "<B>Incorrect username or password.</B>";
+         break;
+-      case 10:
+-        echo "<B>No FTP servers have been defined.</B><BR>Please contact your system administrator to correct this error.";
+-        break;
+       case 20:
+         echo "<B><EM>Encryption (mcrypt) support is broken or not compiled into PHP4.</EM><BR>Please contact your system administrator to correct this error.</B>";
+         break;
+       case 21:
+         echo "<B><EM>register_globals=off</EM><BR>Please contact your system administrator to correct this error.</B>";
+Only in weeble2: login.php~
+diff -r -wu5 weeblefm/settings.php weeble2/settings.php
+--- weeblefm/settings.php	2003-08-11 09:41:40.000000000 -0500
++++ weeble2/settings.php	2003-08-11 10:01:12.000000000 -0500
+@@ -12,17 +12,10 @@
+ 
+ /*************************************************************************
+ 	SERVER SETTINGS
+ *************************************************************************/
+ 
+-  // List of available FTP servers and ports that the users are allowed to
+-  //  connect to.
+-  // *NOTE* The setting replaces the old $ftp_Server & $ftp_Port variables.
+-  $ftp_Servers = array (
+-    "Rumkin.com" => "127.0.0.1:21",
+-  );
+-
+   // Setting this to true will try to establish a passive mode FTP connection.
+   $ftp_Passive_Mode = TRUE;
+   
+ /*************************************************************************
+ 	DISPLAY SETTINGS

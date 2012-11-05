@@ -1,0 +1,83 @@
+!Critique
+[Disliked]
+[Disliked] [Off Topic]
+[Loved] [Off Topic] [Liked]
+[Liked] [Liked]
+[Quip]  [Liked]
+[Off Topic] [Loved]
+[Loved]
+
+!Off Topic
+This is a crazy wild show.
+The competition is getting tougher.
+It's a tough job to sing and make it your own.
+
+!Liked
+I liked it.
+Very [Good Adj] job.
+You sound [Good Adj].
+I thought that it was [Good Adj].
+I love the way you do things.  You never over-do it.
+I think that this is your best performance yet.
+You seem more confident.
+I thought that this was a [Good Adj] choice of song for you.
+
+!Loved
+I think you could be exactly what the American Idol is all about.
+Great.  Brilliant.
+You know you look beautiful.
+I've heard you sing better, but it was still a [Good Adj] job.
+You know I love you.
+[Quip]  I'm just so speechless and happy for you!
+What a [Good Adj] song for such a great singer.
+I didn't know you had all of that.  [Loved]
+You are exactly singing, performing, dressing, acting, everything what I \
+think the American Idol competition should be.
+
+!Disliked
+That was not really [Good Adj] at all.  That was really bad.
+I didn't think that was very [Good Adj] tonight.
+I didn't [Feeling] that.
+Vocally, you were a little missing for me tonight.
+It was a little [Music] [Time].
+I think we're going to see a lot better tonight.
+[Good Adj] song, but ... I don't know.
+The song that you chose did not fit your [Thing].
+I don't [Mind] if this was one of your best performances.
+
+!Thing
+image
+personality
+singing style
+
+!Mind
+think
+know
+
+!Feeling
+like
+love
+
+!Music
+sharp
+flat
+off-key
+
+!Time
+in the beginning
+at the end
+in the middle
+at times
+
+!Quip
+You did your thing.
+I think the competition's really tough.
+You sung your heart out.
+
+!Good Adj
+good
+great
+very interesting
+pretty amazing
+nice
+pretty good

@@ -1,0 +1,27 @@
+Top 25 Explanations by Programmers When Their Programs Don't Work:
+
+ 1. Strange...
+ 2. I've never heard about that.
+ 3. It did work yesterday.
+ 4. Well, the program needs some fixing.
+ 5. How is this possible?
+ 6. The machine seems to be broken.
+ 7. Has the operating system been updated?
+ 8. The user has made an error again.
+ 9. There is something wrong in your test data.
+10. I have not touched that module!
+11. Yes, yes, it will be ready in time.
+12. You must have the wrong executable.
+13. Oh, it's just a feature.
+14. I'm almost ready.
+15. Of course, I just have to do these small fixes.
+16. It will be done in no time at all.
+17. It's just some unlucky coincidence.
+18. I can't test everything!
+19. THIS can't do THAT.
+20. Didn't I fix it already?
+21. It's already there, but it has not been tested.
+22. It works, but it has not been tested.
+23. Somebody must have changed my code.
+24. There must be a virus in the application software.
+25. Even though it does not work, how does it feel?

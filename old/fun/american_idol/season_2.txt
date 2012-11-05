@@ -1,0 +1,408 @@
+*Intro
+
+!Critique
+[To You] your [Sound] [Sound Desc].  You [Action] [Direction] and \
+[Nervous] [Wait].
+
+!To You
+To you,
+You heard
+You were surprised that
+You thought that
+In your own mind, you thought
+
+!Sound
+voice
+singing
+melody
+audition
+performance
+song
+
+!Sound Desc
+came out [Adj]
+was maybe [Tiny] [Was Desc] but was still [Good]
+was [Adj]
+sounded [Adj]
+
+!Adj
+great
+outstanding
+nice
+
+!Tiny
+a little
+a tiny bit
+kinda
+sorta
+
+!Was Desc
+shaky
+off-key
+timid
+flat
+sharp
+weak
+too loud
+
+!Good
+good
+great
+wonderfully done
+pleasing to the ear
+better than the others (you thought)
+
+!Action
+gaze towards
+look at
+bite your fingernails and turn towards
+fidget, fall off the stage, get up and look at
+face
+pace the stage and walk towards
+
+!Direction
+the judges
+Paula and Randy (avoiding Simon)
+the floor
+the live audience
+anyone except Simon
+the hosts, pleadingly,
+towards the panel of judges
+
+!Nervous
+nervously
+anxiously
+somewhat dreadfully
+impatiently
+confidently
+
+!Wait
+wait for the [Verdict]
+await the [Verdict]
+brace yourself for the [Verdict]
+hope that everyone else thought you did good too
+
+!Verdict
+results
+critique
+review
+verdict
+judges' comments
+judges' opinions
+
+
+#########################################################################
+
+*Randy
+
+!Critique
+[Disliked]
+[Tolerable]
+[Liked]
+[Liked] [Liked]
+[Loved]
+
+!Tolerable
+You're just [Ok].
+It was just [Ok].
+I thought that you at least brought something interesting to it.
+
+!Disliked
+There were a couple of little pitch problems for me in the beginning and at
+the end.
+A little pitchy in the beginning, dropped a couple notes, but you're \
+probably really nervous, right?
+I just haven't been blown away.
+It was good, but it's like, nothing has been, "Oh my God!"
+When we're trying to find the best that we can find in America, I just feel
+like it is falling a little short tonight.
+It's all parts of good, but not like amazing.
+I'm just going to say no.
+I don't understand what is going on tonight.
+It was definately interesting.  [Randy stifles a laugh.]
+It just was [Bad Adj], [Dude].  [^Bad Adj].  [^Bad Adj].
+
+!Liked
+I thought it was [Good Adj].
+It was [Good Adj].
+It was [Good Adj], [Dude].
+That was [Good Adj].
+[^Good Adj].
+You brought something different to the song.
+I liked the run at the end.
+I was waiting for you to do something ... you did something.  So, I'm \
+[Good Adj].
+I'm all [Good Adj].
+It was a very interesting choice of song for me.
+It was the most passion I've seen all night from a vocalist.
+I actually liked it.
+I liked it, [Dude].
+I don't know what quite to do with that, but I liked it.
+
+!Good Adj
+cool
+a'ight
+good
+really good
+
+!Dude
+dude
+man
+dog
+
+!Loved
+You sang strong, had some conviction going on.
+You definately can sing.
+Wow!  I love this!
+
+!Ok
+alright
+
+!Bad Adj
+terrible
+
+You're just not really cut out to be a singer, I don't think.
+You're tone deaf.  You couldn't even hear those notes.  You didn't even \
+know what those notes were.  You could sing that song fifteen times, being \
+in the hot sun, you still wouldn't get it right.
+I think that you've got a good voice.
+You just don't have the talent to be a singer.  You have to start with some \
+talent.  Terrible.  Awful.
+You can't sing.
+There was nothing special about it for me.  Sorry.  It's good though.
+My God!  I've been waiting for that for the last 4 days!
+Nice voice.
+Good voice.  A little Broadway, a little theatre for me with the vibrotta, \
+but I liked it.
+I've got one phrase for you:  Don't sing ever, anymore.
+Stop singing.  Please.
+Singing is not for you.
+*stunned silence*
+Good dancing, good perfoming.  Not good singing for me.
+Very, very good.
+I absolutely loved you.  I think you've got the whole package.
+I love the outfit, but listen dude.  About the vocals, they're just not good \
+enough, man.
+We gave you a chance to sing.  It just wasn't good enough, dog.
+Excellent, dude.  One of the best I've heard today.  Excellent.
+Excellent.  Very good.
+Are you a little nervous?  It was a pretty good performance.  A little \
+sharp at the end.  There's just something about the way that you were \
+singing that was just throwing me off a little bit.
+It was a very tough song to sing, and we are looking for unbelievable.  \
+I didn't see any unbelievable emotion.  And singing a song with all that in \
+it and you are singing it without any emotion, I'm like, "Where's the \
+connection between you and the song?"
+The song was cool.  You just didn't perform it that good.
+Half the notes you didn't quite hit.
+I didn't think that this was really quite the right song.
+It was almost like you were kinda shouting it almost.  Know what I mean?
+I don't know man.  It didn't quite work.
+Very beautiful, you look great.  My biggest complaint with you is that I \
+just didn't feel anything from you, performance wise.  From the face.  You \
+just felt like you were stoic, and just standing in place, singing this song.
+Finally a good singer, singing a song that is perfect.
+Very beautiful.  You look amazing.
+It's now working for me dude.  I don't know, man.
+Good job dude!
+Sensational!  Sensational!
+Great song.
+It was a tough song for me.  I didn't love the song on you.
+Right song for the right guy.  Did your thing.  Did your homework.  I love \
+that.
+I guess I was waiting and hoping for a little more growth in the emotion \
+area, in connecting with us.
+I love the song, and I can tell that you were a bit nervous too.
+I'm not sure that was ther right song for you.  It just didn't quite \
+do you justice.  I still was not really moved by it.  It didn't work for me.
+I didn't enjoy it at all.  We're trying to find the best.
+I like it.
+You started off a little bit shaky, you're probably a little nervous, but at
+the end, I was like a'ight, you know what?  She's not bad.  She's a'ight.
+It was ok.
+You brought it home.
+You did your thing.  Great.  Very nice.  Very nice.
+
+# End of Randy
+
+
+#########################################################################
+
+*Paula
+
+!Critique
+I didn't expect to hear a pop voice come out of you.
+It was really interesting, but it was really refreshing.
+I think you did do alright.
+You have a very rich tone.
+You did fall flat in some areas.
+Now, you do have a personality.  You really, really do.
+You have a great personality.  You really, really do.
+You have a real wonderful voice.
+It is hard to sing that song.
+But, you did your thing.
+You did it really well.
+Good job.
+I think you've come a long way.
+I think you did really well today.
+That song is not the easiest one to sing, and I think you did your thing.
+I like the twist at the end.
+A little pitchy kinda in the middle, but overall good.
+You really put your all into it, especially at the end when you put your
+passion/gut into it.
+Passion is everything.
+I think that this is what you call a "seamless, beautiful, perfect performance."
+You did an amazing, amazing, brilliant, stupendous job.
+Unbelievable.
+It's amazing.
+Honey, you sang off-key, almost the entire song.  You don't hear that?  \
+You don't hear that when you're singing?
+You didn't sing remotely near the next American Idol that we'll pick.
+Nice voice.  Very nice voice.
+I think you'll come to Hollywood and nail it.
+No.  I'm sorry.  I don't think you did a great job here.
+I love it.  I love you.
+Really deep down inside, when you ask yourself, "Am I really a good singer?"  \
+Would you really, in your soul, think you are a good singer?
+You have a great voice.  Smooth.
+Amazing from the first note to the very last.  Brilliant.
+Oh boy.  I'm speechles.  Quite honestly, I don't know what to say.
+I think you are a beautiful girl.  You came in looking great.
+Very pure, very crystal clear, and very mature for your age.  Very very nice.
+Good job.  Nice voice.  Very nice.
+I've never seen so much committment from a contestant.  You're totally
+committed and I love you for that.  You're very committed.
+*stunned silence*
+Good voice.  Way to go.
+Wow.  I think you have the X factor.  Good.  Good.  Good.  Wonerful.
+Really unique.  And a nice song.  You nailed it.
+You have a unique sound.
+You really are beautiful.  You oversang the song.
+I really really like your voice.  I do.  I really love the song selection.
+I'm seeing a lot of oversinging.  I feel that once again, subtlety is key.
+Work on your showmanship because you have a real nice voice.
+You are stunning.  The camera loves you.
+Amazing!
+Unbelievable!  Unbelieveable!
+Great song.
+I'm telling you, you just blew me away.  Blew me away.
+What a beautiful voice, and different.  Unique.  Refreshing.
+In tune all the way!
+Brilliant.  Brilliant.  Brilliant.
+I think you have amazing star quality.
+I don't know if it was the right key for you.  You were a little under the \
+whole way through.
+This is what this competition's about.
+You raised the bar.  You surpassed the bar.
+You're a star.
+You have this confidence about you that is quiet and subtle.  It's not \
+intimidating, and you welcome everybody in.
+Yeah, I liked it.  Lots.  I really did.
+I definately fell that you did a much better job.  I was a little concerned, \
+especially with the song.
+Good job.
+You shine tonight.  You shine.
+
+# End of Paula
+
+
+#########################################################################
+
+*Simon
+
+!Critique
+You're probably capable of singing better than that.
+You know what I mean.
+It was like something ... not quite right.
+I think you could have done better than this, but well done.
+I thought that technically it was a good audition.
+I was watching you on the monitor and there's no spark.
+You look dead, like fish on a slab.
+This isn't going to make me very popular, but I'm going to say it.
+You have a great personality, great voice.
+Brilliant choice of song.
+I thought it was good.
+I'm not jumping out of my chair, but it was good.
+Very, very, very good.
+So what.
+I mean it, but I don't mean it rudely.
+Sometimes you walk away from these shows thinking, "God, that was amazing."
+And then some people you go, "So what?"
+It was quite a cabaret performance.
+It was a bit kinda "small bar Las Vegas."  Not big bar.
+You're capable of better than this.
+It was a bit old-fashioned.
+You're better than that.
+unchained melody
+I just thought that it was ok.
+no sparks
+a lot of nerves
+bad song choices
+I think the reality is, I've heard better people sing outside subway stations.
+Look, [saying]
+You were horrible.
+I agree with Paula.
+Good voice.
+You're good.  I'm just bored today.
+Let me just put this into perspective.  If you were to win, and sing a song, \
+you would kill the American record industry.  That's how bad you are.
+I don't want to be rude, but you could be the worst singer in New York.
+Very, very, very good.  You're one of the few people who've come in here and \
+made it look effortless.
+You have a very, very good tone to your voice.
+Great singer.
+That wasn't dreadful, and it wasn't horrible.  It was absolutely ghastly.
+You can't sing.
+There's only so much punishment a human being can take.
+I can't take any more.
+I liked your voice.  I just don't like the way you look, if I'm being honest.
+Without this competition, you walked into all the record labels in New York, \
+I don't think any of them would be jumping out of their offices.
+You have one of the worst voices I have ever heard.  Truthfully.  It is \
+absolutely terrible.  You can't sing.
+Go out of here, call up your vocal coach, and demand a refund.
+You have a very good voice.  Very good voice.
+One of the few people who have made that song interesting.
+I think you have a beautiful voice.
+You're one of the worst singers I've ever heard in my life.
+*stunned silence*
+You have so much more than a lot of people we have put through, which is you \
+make a good pop star.
+You look great.  You sound good.  Very good.  Very good.
+Everything hideous.
+Not even for Bulgarian Idol.
+I've heard better.
+Very good.  Your timing was a bit off, but very good.
+You have a nice face and a very good voice.
+It sounded to me like you were shouting.
+Your mouth is over accentuated.
+Interesting.  You looked at the end how I look in a dentist's chair.  You \
+looked really miserable at the end of the performance.  In pain.
+That was not good.  You really chose the wrong song.
+It didn't suit your voice.
+It didn't sound very good.
+You're singing the wrong kind of song.  You look the part.  You could sing \
+the part.
+It just looks right, you standing there where it says American Idol.
+When you started to sing, the first thing that went through my mind is that
+you sound like someone who should be singing on a cruise ship.  Then,
+halfway through the song, I imagined the ship singing.
+You put me in a good mood now.
+This is the time to really really shine, and it was unimpressive.
+I was really impressed!
+That was a fantastic performance.  Really really fantastic.
+It was great.  Really, really great.
+One of the most difficult songs to sing, that song.  I thought you did \
+brilliantly.
+It wasn't good enough.  Sorry.
+You had about as much passion as a kitten mewing.  Give it something!  It \
+was so wrong for you, that song.
+I thought it was a terrible audition.
+Wrong song choice, and I just think you are capable of better.
+I think you are the package.  One of the best we've seen in the \
+whole competition.
+It was good.  I'm not jumping out of my chair.  It was, in the words of \
+Paula Abdul, "Good job."
+Maybe I'm just in a bad mood.  *pout*
+
+# End of Simon

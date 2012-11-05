@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <title>Super Duper Google Mapper</title>
+    <link rel="stylesheet" type="text/css" href="mapper.css" />
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAApAIFdBd-VR8eN2IDiPllshRQ29WPShjkZm-4mvkBi40L1IxdPBSJmmoSzspUcUhLvlIa_ElIchaZYg"
+        type="text/javascript"></script>
+    <script src="mapper.js" type="text/javascript"></script>
+    <style type="text/css">
+
+v\:* {
+	behavior:url(#default#VML);
+}
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	overflow: hidden;
+}
+
+#bar {
+	border-right: 2px solid black;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 220px;
+	height: 100%;
+	float: left;
+	overflow: auto;
+	background: #666666;
+	padding: 0px;
+	margin: 0px;
+}
+
+#map {
+	height: 100%;
+	background: white;
+	color: black;
+	margin-left: 222px;
+}
+
+.tabDormant, .tabActive {
+	border: 1px solid black;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	width: 25px;
+	font-size: 12pt;
+	font-family: Arial;
+	font-weight: bold;
+	background: #BBBBBB;
+	color: #000000;
+	margin-top: 10px;
+}
+
+.tabActive {
+	width: 60px;
+	background: #F0F0FF;
+	color: #006600;
+	border-bottom: 1px solid #F0F0FF;
+}
+
+.pageDormant, .pageActive {
+	width: 210px;
+	clear: both;
+	padding: 5px 5px 5px 5px;
+	margin: 0px;
+	background: #F0F0FF;
+	font-family: Arial;
+	font-size: 12pt;
+	border: 0px;
+	display: none;
+}
+
+.pageActive {
+	display: block;
+}
+
+.findHidden, .findShow {
+	background: orange;
+	font-family: Arial;
+	font-size: 14pt;
+	border: 2px solid red;
+	font-weight: bold;
+	display: none;
+}
+
+.findShow {
+	display: block;
+}
+
+.markerClosed, .markerOpen {
+	padding: 0px;
+	margin: 0px;
+}
+
+.markerOpen {
+	border: 1px solid blue;
+	background: #C0C0FF;
+}
+
+.markerOpenSub {
+	padding: 0px 0px 0px 10px;
+	margin: 0px;
+	text-decoration: underline;
+}
+
+.infoDistance {
+	font-size: 8pt;
+}
+
+    </style>
+  </head>
+  <body onload="MapperLoad()" onunload="MapperUnload()">
+    <div id="bar">
+    
+      <div class="pageDormant" id="Page_Find">
+        <p>What do you want to find?</p>
+	<form onSubmit="return PageFindSubmit()" name="Find_Form">
+	  <input type=text name="Find_Input" id="Find_Input" style="width: 96%">
+	</form>
+	<span id="Find_Status" class="findHidden"></span>
+	<p><u>What can you find?</u></p>
+	<p>
+	  Addresses<br>
+	  City, State<br>
+	  Coordinates<br>
+	  Countries<br>
+	  <a href="http://www.geocaching.com/">Geocaches</a><br>
+	  IP Addresses (<a href="#" onclick="return StartIPLookup()">yours</a>)<br>
+	  States<br>
+	  Zip codes<br>
+	  ... and more?
+	</p>
+	<p>This mapper is part of the <a href="/tools/gps/">Mapping and 
+	GPS</a> section on <a href="http://rumkin.com/">Rumkin.com</a>.</p>
+	<p><u>To Do:</u></p>
+	<ul style="font-size: 0.7em">
+	  <li>Cache geocoding lookups</li>
+	  <li>Cache geocache lookups (server + client)</li>
+	  <li>Points - Rename/move point</li>
+	  <li>Info - Add last click spot as point<li>
+	  <li>Don't regenerate whole Points page on map move/click</li>
+	  <li>Bounce markers when created? (nobody knows how - be the first!)</li>
+	  <li>Save map type</li>
+	  <li>Additional mapping options (see geocaching.com)</li>
+	</ul>
+      </div>
+      
+      <div class="pageDormant" id="Page_Points">
+        <div id="Page_Points_Load">
+	  <p><a href="#" onclick="return LoadPoints()">Load Points</a></p>
+	</div>
+        <div id="Page_Points_Data">
+          <p>You have no points yet.</p>
+	</div>
+      </div>
+
+      <div class="pageDormant" id="Page_Info">
+        <p><b>Map Center:</b><br><span id="Info_Center">Not sure</span></p>
+	<p><b>Last Click:</b><br><span id="Info_Click">No clicks yet</span></p>
+      </div>
+      
+      <div class="pageDormant" id="Page_Config">
+        <form method=post name="Config_Form" onsubmit="return false">
+	  <p>Degree format:<br><span id="Config_Degrees"></span></p>
+	  <p>Units of measure:<br>
+	  <input type="radio" name="MeasureFormat" value="M"
+	  onclick="PageConfigSave()"> Metric<br>
+	  <input type="radio" name="MeasureFormat" value="I"
+	  onclick="PageConfigSave()"> Imperial</p>
+	  <p>Options:<br>
+	  <input type="checkbox" name="Confirmations"
+	  onclick="PageConfigSave()"> Confirm deletions</p>
+	  <hr size=2 width=90%>
+	  <p>Many thanks to <a href="http://www.google.com" style="text-decoration: none"><font color="blue">G</font><font color="red">o</font><font color="gold">o</font><font color="blue">g</font><font color="green">l</font><font color="red">e</font></a>
+	  for the use of their awesome <a href="http://maps.google.com">Google
+	  Maps</a> and their <a href="http://www.google.com/apis/maps/">API</a>,
+	  which makes this all possible!</p>
+	  <p>You can load a GPX or LOC file with waypoints.  To make the
+	  upload happen faster, you can compress the file in zip or gz
+	  formats.</p>
+	  <p>You can use keywords to customize a search.  Try 
+	  "whois:rumkin.com" to look up a whois search on my server.  You
+	  don't need the "whois:" part typically since many hostnames are
+	  detected automatically.</p>
+	  <p>This page also takes parameters.  If you append "find=" arguments
+	  to the URL, it will automatically search for specific things.  To
+	  see what I mean, check out <a href="?find=90210">90210</a> or the
+	  <a href="?find=208.42.148.115&find=Minneaplis,+MN&find=55402">multiple
+	  find</a> example.  If you click on those, check out the URL to
+	  see how it all works.</p>
+        </form>
+      </div>
+    </div>
+    <div id="map">Loading ...  Fear not, it will not take long.</div>
+  </body>
+</html>

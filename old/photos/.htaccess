@@ -1,0 +1,12 @@
+<Files *~>
+   Order deny,allow
+   Deny from all
+</Files>
+<Files .htaccess*>
+   Order deny,allow
+   Deny from all
+</Files>
+<Files *.inc>
+   Order deny,allow
+   Deny from all
+</Files>

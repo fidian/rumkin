@@ -1,0 +1,35 @@
+-- MySQL dump 9.11
+--
+-- Host: localhost    Database: sprint
+-- ------------------------------------------------------
+-- Server version	4.0.24_Debian-5
+
+--
+-- Table structure for table `Phones`
+--
+
+CREATE TABLE `Phones` (
+  `ID` int(11) NOT NULL auto_increment,
+  `UseRecord` tinyint(4) NOT NULL default '0',
+  `LogRecord` int(11) NOT NULL default '0',
+  `AvoidWAP` int(11) NOT NULL default '0',
+  `Make` varchar(20) NOT NULL default '',
+  `Model` varchar(40) NOT NULL default '',
+  `UserAgent` varchar(255) NOT NULL default '',
+  `XWapProfile` varchar(255) NOT NULL default '',
+  `Width` int(11) NOT NULL default '0',
+  `Height` int(11) NOT NULL default '0',
+  `ColorDepth` int(11) NOT NULL default '0',
+  `Jar` tinyint(4) NOT NULL default '0',
+  `Jpg` tinyint(4) NOT NULL default '0',
+  `Gif` tinyint(4) NOT NULL default '0',
+  `Png` tinyint(4) NOT NULL default '0',
+  `Wbmp` tinyint(4) NOT NULL default '0',
+  `Pmd` tinyint(4) NOT NULL default '0',
+  `Qcp` tinyint(4) NOT NULL default '0',
+  `Mid` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`ID`),
+  KEY `UserAgent` (`UserAgent`),
+  KEY `Make and Model` (`Make`,`Model`)
+) TYPE=MyISAM;
+

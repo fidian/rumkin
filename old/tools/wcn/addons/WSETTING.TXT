@@ -1,0 +1,19 @@
+Wireless Network Settings
+
+Print this document and store it in a safe place for future reference.  You may need these settings to add additional computers and devices to your network.
+
+
+Wireless Settings
+
+Network Name (SSID): ##SSID##
+Network Key (WEP/WPA Key): ##NETWORKKEY##
+Key Provided Automatically (802.1x): ##AUTOMATICALLY##
+Network Authentication Type: ##AUTHENTICATION##
+Data Encryption Type: ##ENCRYPTION##
+Connection Type: ##CONNECTION##
+Key Index: 
+
+
+To enable File and Printer Sharing on this computer, run the Network Setup Wizard.
+
+To set up your Internet connection, follow the instructions from your Internet Service Provider (ISP).

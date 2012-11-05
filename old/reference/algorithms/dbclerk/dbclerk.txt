@@ -1,0 +1,335 @@
+# Perl Module for Database Stuff
+# Not extremely fast, not extremely complex, but should fill the bill.
+
+# Where should I save the lock file?
+$LockFileDir = "/tmp";
+
+# Temporary file name ... used for additions, deletions
+$TempFile = "/tmp/dbclerk.temp";
+
+# What should the delimiter be?
+$Delimiter = "::";
+
+# If someone decides to add/modify a record with the $Delimiter in it,
+# what should we change $Delimiter into?  Note:  It is not changed back
+# when you retrieve the record.
+$DelimiterChange = ":";
+
+# End of user-configurable setup
+
+use File::Copy;
+
+require "lockfile.pm";
+$LockfileIsOpen = 0;
+$LockfileUsed = "";
+
+# Copies the temporary file created by delete and update to the
+# real database
+sub DBClerk_TempToReal
+{
+    local ($RealFile) = @_;
+    
+    DBClerk_Lock();
+    copy ($TempFile, $RealFile);
+    unlink ($TempFile);
+    DBClerk_Unlock();
+}
+
+# Makes sure only one DBClerk function is running at a time
+sub DBClerk_Lock
+{
+    $LockfileIsOpen ++;
+    return if ($LockfileIsOpen > 1);
+    $LockfileUsed = SetLockFile($LockFileDir, "dbclerk");
+}
+
+# Makes sure only one DBClerk function is running at a time
+sub DBClerk_Unlock
+{
+    $LockfileIsOpen --;
+    return if ($LockfileIsOpen != 0);
+    unlink($LockfileUsed);
+}
+
+# Adds a record to the database
+# Returns 0 if added, 1 if not (key already exists)
+sub DBClerk_Add
+{
+    local ($DBFile, %Data) = @_;
+    local (@KeyList, $Key, $NeedsDelimiter, %False);
+    
+    DBClerk_Lock();
+    @KeyList = DBClerk_KeyList($DBFile);
+    %False = DBClerk_Get($DBFile, $Data{@KeyList[0]});
+    if ($False{@KeyList[0]} eq $Data{@KeyList[0]})
+    {
+        DBClerk_Unlock();
+        return 1;
+    }
+    open (DB_A, ">>$DBFile");
+    $NeedsDelimiter = 0;
+    foreach (@KeyList)
+    {
+        $Key = $_;
+	
+	$Data{$Key} =~ s/$Delimiter/$DelimiterChange/g;
+	if ($NeedsDelimiter)
+	{
+	    print DB_A $Delimiter;
+	}
+	else
+	{
+	    $NeedsDelimiter = 1;
+	}
+	print DB_A $Data{$Key};
+    }
+    print DB_A "\n";
+    close (DB_A);
+    DBClerk_Unlock();
+    
+    return 0;
+}
+
+# Deletes the specified record
+# Returns 0 if success, 1 if ID did not exist
+sub DBClerk_Delete
+{
+    local ($DBFile, $Key) = @_;
+    local ($Line, $LineKey, $DidWork);
+    
+    $DidWork = 0;
+    DBClerk_Lock();
+    open (DB_D, $DBFile);
+    open (DB_D2, ">$TempFile");
+    $Line = <DB_D>;
+    print DB_D2 $Line;
+    foreach (<DB_D>)
+    {
+        $Line = $_;
+	($LineKey) = split($Delimiter, $Line);
+	chomp ($LineKey);
+	if ($LineKey ne $Key)
+	{
+	    print DB_D2 $Line;
+	}
+	else
+	{
+	    $DidWork = 1;
+	}
+    }
+    close (DB_D);
+    close (DB_D2);
+    DBClerk_TempToReal($DBFile);
+    DBClerk_Unlock();
+    
+    return 1 - $DidWork;
+}
+
+# Grabs a record from the database
+# Returns an empty record if the key was not found
+sub DBClerk_Get
+{
+    local ($DBFile, $Key) = @_;
+    local (@KeyList, $Line, %Data, @LineData);
+
+    DBClerk_Lock();
+    @KeyList = DBClerk_KeyList($DBFile);
+    if (!open(DB_G, $DBFile))
+    {
+        DBClerk_Unlock();
+        return 0;
+    }
+    $Line = <DB_G>;
+    foreach(<DB_G>)
+    {
+        $Line = $_;
+	chomp($Line);
+	@LineData = split($Delimiter, $Line);
+	if (@LineData[0] eq $Key)
+	{
+	    foreach(@KeyList)
+	    {
+	        $Data{$_} = shift(@LineData);
+	    }
+	    last;
+	}
+    }
+    close(DB_G);
+    DBClerk_Unlock();
+    return %Data;
+}
+
+# Returns a list of the keys of the database (column names)
+sub DBClerk_KeyList
+{
+    local ($DBFile) = @_;
+    local ($Temp, @KeyList);
+    
+    DBClerk_Lock();
+    open(DB_K, $DBFile);
+    $Temp = <DB_K>;
+    close(DB_K);
+    chomp($Temp);
+    @KeyList = split($Delimiter, $Temp);
+    DBClerk_Unlock();
+    
+    return @KeyList;
+}
+
+# Changes a record in the database
+# Returns 0 if record changed, 1 if not
+sub DBClerk_Update
+{
+    local ($DBFile, %Data) = @_;
+    local (@KeyList, $Key, $NeedsDelimiter);
+    local ($Line, $LineKey, $MadeChanges);
+    
+    $MadeChanges = 0;
+    DBClerk_Lock();
+    @KeyList = DBClerk_KeyList($DBFile);
+    open (DB_U, $DBFile);
+    open (DB_U2, ">$TempFile");
+    $Line = <DB_U>;
+    print DB_U2 $Line;
+    foreach (<DB_U>)
+    {
+        $Line = $_;
+	($LineKey) = split($Delimiter, $Line);
+	chomp ($LineKey);
+	if ($LineKey ne $Data{@KeyList[0]})
+	{
+	    print DB_U2 $Line;
+	}
+	else
+	{
+	    $MadeChanges = 1;
+            $NeedsDelimiter = 0;
+            foreach (@KeyList)
+            {
+                $Key = $_;
+	
+        	$Data{$Key} =~ s/$Delimiter/$DelimiterChange/g;
+		if ($NeedsDelimiter)
+		{
+		    print DB_U2 $Delimiter;
+		}
+		else
+		{
+		    $NeedsDelimiter = 1;
+		}
+		print DB_U2 $Data{$Key};
+	    }
+	    print DB_U2 "\n";
+	}
+    }
+    close (DB_U);
+    close (DB_U2);
+    DBClerk_TempToReal($DBFile);
+    DBClerk_Unlock();
+    
+    return 1 - $MadeChanges;
+}
+
+# Returns all of the keys of the records in the database
+sub DBClerk_FindAll
+{
+    local ($DBFile) = @_;
+    local ($Temp, @Fields, @IDs);
+    
+    DBClerk_Lock();
+    open (DB_F, $DBFile);
+    $Temp = <DB_F>;
+    foreach (<DB_F>)
+    {
+        $Temp = $_;
+	chomp($Temp);
+        @Fields = split($Delimiter, $Temp);
+	push (@IDs, @Fields[0]);
+    }
+    close (DB_F);
+    DBClerk_Unlock();
+    
+    return @IDs;
+}
+
+# Refines a search
+# Pass in the list of IDs to check, returns the list of IDs that passed
+sub DBClerk_Refine
+{
+    local ($Field, $Condition, $Data, $DBFile, @IDs) = @_;
+    local (%Check, @KeyList, %KeyHash, $i);
+    
+    foreach (@IDs)
+    {
+        $Check{$_} = 1;
+    }
+    
+    DBClerk_Lock();
+    @KeyList = DBClerk_KeyList($DBFile);
+    $i = 0;
+    foreach(@KeyList)
+    {
+        $KeyHash{$_} = $i;
+	$i ++;
+    }
+    
+    # None can match if the key doesn't match.
+    if (! defined($KeyHash{$Field}))
+    {
+        DBClerk_Unlock();
+        return ();
+    }
+    
+    open (DB_F, $DBFile);
+    $Temp = <DB_F>;
+    foreach (<DB_F>)
+    {
+        $Temp = $_;
+	chomp($Temp);
+        @Fields = split($Delimiter, $Temp);
+	if ($Check{@Fields[0]})
+	{
+	    if (! DBClerk_CheckCondition(@Fields[$KeyHash{$Field}],
+	          $Condition, $Data))
+	    {
+	        delete($Check{@Fields[0]});
+	    }
+	}
+    }
+    close (DB_F);
+    DBClerk_Unlock();    
+    
+    @IDs = ();
+    foreach(sort(keys(%Check)))
+    {
+        push (@IDs, $_);
+    }
+    
+    return @IDs;
+}
+
+sub DBClerk_CheckCondition
+{
+    local ($First, $Cond, $Last) = @_;
+    
+    return $First < $Last if ($Cond eq "<");
+    return $First <= $Last if ($Cond eq "<=");
+    return $First == $Last if ($Cond eq "==");
+    return $First != $Last if ($Cond eq "!=");
+    return $First >= $Last if ($Cond eq ">=");
+    return $First > $Last if ($Cond eq ">");
+
+    return $First ne $Last if ($Cond eq "ne");
+    return $First eq $Last if ($Cond eq "eq");
+    return $First lt $Last if ($Cond eq "lt");
+    return $First gt $Last if ($Cond eq "gt");
+
+    return $First =~ /$Last/ if ($Cond eq "=~");
+    return $First !~ /$Last/ if ($Cond eq "!~");
+    return $First =~ /$Last/i if ($Cond eq "=~i");
+    return $First !~ /$Last/i if ($Cond eq "!~i");
+    
+    return 0;
+}
+
+1;  # Must be the last line
