@@ -1,7 +1,5 @@
 # Just disallow pages that generate lots of dynamic content.
 User-agent: *
-Disallow: /bounce.php
-Disallow: /topic.php
 Disallow: /tools/population/country.php
 Disallow: /tools/sprint/browse.php
 Disallow: /tools/sprint/desc.php
