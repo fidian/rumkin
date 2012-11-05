@@ -1,5 +1,4 @@
 !!! 5
-include mixins/navtree
 html(lang="en")
 	head
 		block head
@@ -7,6 +6,7 @@ html(lang="en")
 			title
 				block title
 					= locals.name
+			script(src="/js/jquery-1.8.2.min.js")
 			link(rel="stylesheet", href="/css/site.css")
 	body
 		header
@@ -19,7 +19,7 @@ html(lang="en")
 			nav
 				div.inner
 					block nav
-						mixin navtree(contents)
+						p Nav nav nav
 			div#content
 				block content
 					p Content should have gone here
