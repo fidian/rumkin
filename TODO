@@ -1,3 +1,7 @@
+Update links to phone uploader in index, robots.txt
+
+Update debian/watch files that reference pearredir.php and change them to api.rumkin.com/pearredir/
+
 Go through tools/perl
 
 
