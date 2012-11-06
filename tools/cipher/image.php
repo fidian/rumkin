@@ -246,6 +246,7 @@ function MakeImage_dancingmen($def) {
 	$flagpole = 0.5;
 	$flagwave = 0.2;
 	$flagthickness = 1;
+	$flagpolehalved = $flagthickness / 2;
 	$flagwavethickness = 3;
 	$headthickness = 8;
 	$Lines = array();
@@ -291,16 +292,19 @@ function MakeImage_dancingmen($def) {
 	
 	// Flag definitions
 	$Flags = array(
-		'1' => array(- floor($armlegsqrt * $flagpole), - floor($armlegsqrt * $flagpole), - floor($armlegsqrt * $flagwave),
-			floor($armlegsqrt * $flagwave)
+		'1' => array(- floor($armlegsqrt * $flagpole), - floor($armlegsqrt * $flagpole),
+			round(sqrt(($flagpolehalved * $flagpolehalved) / 2)), - round(sqrt(($flagpolehalved * $flagpolehalved) / 2)),
+			- floor($armlegsqrt * $flagwave), floor($armlegsqrt * $flagwave)
 		),
 		'2' => array(
-			0, - floor($armleg * $flagpole), - floor($armleg * $flagwave),
-			0
+			0, - floor($armleg * $flagpole),
+			$flagpolehalved, 0,
+			- floor($armleg * $flagwave), 0
 		),
 		'B' => array(
-			0, - floor($armleg * $flagpole), - floor($armleg * $flagwave),
-			0
+			0, - floor($armleg * $flagpole),
+			$flagpolehalved, 0,
+			- floor($armleg * $flagwave), 0
 		)
 	);
 	
@@ -389,9 +393,11 @@ function MakeImage_dancingmen($def) {
 			);
 			$p = $ptemp;
 			$ptemp = array(
-				$p[0] + $pp[2],
-				$p[1] + $pp[3]
+				$p[0] + $pp[4],
+				$p[1] + $pp[5]
 			);
+			$p[0] += $pp[2];
+			$p[1] += $pp[3];
 			$Lines[] = array(
 				$flagwavethickness,
 				0,
@@ -443,9 +449,11 @@ function MakeImage_dancingmen($def) {
 			);
 			$p = $ptemp;
 			$ptemp = array(
-				$p[0] - $pp[2],
-				$p[1] + $pp[3]
+				$p[0] - $pp[4],
+				$p[1] + $pp[5]
 			);
+			$p[0] -= $pp[2];
+			$p[1] += $pp[3];
 			$Lines[] = array(
 				$flagwavethickness,
 				0,
