@@ -1,0 +1,3 @@
+[submodule "vendor/phptools"]
+	path = vendor/phptools
+	url = git@github.com:chrismcmacken/phptools.git
