@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/schema",
+	"$schema": "http://json-schema.org/draft-03/schema#",
 	"type": "object",
 	"properties": {
 		"ssid": {
@@ -58,28 +58,24 @@
 		"automatically": {
 			"title": "Key Provided Automatically",
 			"description": "Is the key provided by the network automatically?",
-			"type": "boolean",
-			"required": true
+			"type": "boolean"
 		},
 		"ieee802dot1x": {
 			"title": "IEEE 802.1x Enabled",
 			"description": "Is IEEE 802.1x access control enabled on this network?  If unsure, try not enabling this option.",
-			"type": "boolean",
-			"required": true
+			"type": "boolean"
 		},
 		"autorun": {
 			"title": "Include Autorun",
 			"description": "When enabled, adds an AUTORUN.INI file so the network settings program will be started right when you insert the jump drive into the computer.  This is usually a good thing.",
 			"type": "boolean",
-			"default": true,
-			"required": true
+			"default": true
 		},
 		"batch": {
 			"title": "Include Batch File",
 			"description": "If you plan on distributing wireless settings via email, on a network drive, or wish to use them from inside a subdirectory, the setup program works much better when you run it from this batch file.  Not needed if you are just using this on the root of a USB jump drive, but also never hurts.",
 			"type": "boolean",
-			"default": true,
-			"required": true
+			"default": true
 		}
 	}
 }
