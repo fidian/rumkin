@@ -9,11 +9,12 @@ $(function () {
 		urlSplit[2] = 'rumkin.fuf.me';
 	}
 
-	apiUrlBase = urlSplit.slice(0, 2).join('/') + "/api." + urlSplit[2];
+	urlSplit[2] = "api." + urlSplit[2];
+	apiUrlBase = urlSplit.slice(0, 3).join('/');
 	$("form.jsonform").each(function () {
 		var $form, schemaUrl;
 
-		$form = $(this);
+		$form = $(this).empty().text('Loading form');
 		schemaUrl = apiUrlBase + $form.attr('schema');
 		$form.attr('action', apiUrlBase + $form.attr('action'));
 		$.ajax({

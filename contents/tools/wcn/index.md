@@ -12,4 +12,4 @@ Inside the zip file that you will download, there is the setupSNK.exe program to
 installation for Windows XP and Vista (perhaps Windows 7?) computers. Custom WSETTING.TXT and WSETTING.WFC files will have your networking configuration.  Plus, you have the option of an easy batch file, Install_Wireless.bat to help set up your network.  If you include the AUTORUN.INI, you'll also get a logo file to make your jump drive have a cool
 icon.
 
-<form method="post" class="jsonform" schema="/schemas/wcn.json" action="/wcn/index.php/wcn-usb.zip"></form>
+<form method="post" class="jsonform" schema="/schemas/wcn.json" action="/wcn/index.php/wcn-usb.zip">You need JavaScript enabled to see this form.</form>
