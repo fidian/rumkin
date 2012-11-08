@@ -1,0 +1,85 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"type": "object",
+	"properties": {
+		"ssid": {
+			"title": "SSID",
+			"description": "The name of the network with which you want to connect.",
+			"type": "string",
+			"required": true,
+			"pattern": "^[^ ](.*[^ ])?$"
+		},
+		"connection": {
+			"title": "Connection Type",
+			"description": "ESS is infrastructure mode, IBSS is ad-hoc.  If you have an access point or if you are unsure, use ESS.",
+			"type": "string",
+			"required": true,
+			"enum": [
+				"ESS",
+				"IBSS"
+			],
+			"default": "ESS"
+		},
+		"authentication": {
+			"title": "Authentication",
+			"description": "How one authenticates to the network.  WPA stands for WiFi Protected Access.  PSK is Pre-Shared Key.",
+			"type": "string",
+			"required": true,
+			"enum": [
+				"open",
+				"shared",
+				"WPA-NONE",
+				"WPA",
+				"WPAPSK",
+				"WPA2",
+				"WPA2PSK"
+			],
+			"default": "open"
+		},
+		"encryption": {
+			"title": "Encryption",
+			"description": "WEP is insecure and you should switch to something better if possible.  Perhaps try WPA2PSK/AES.",
+			"type": "string",
+			"required": true,
+			"enum": [
+				"none",
+				"WEP",
+				"TKIP",
+				"AES"
+			],
+			"default": "none"
+		},
+		"networkkey": {
+			"title": "Network Key",
+			"description": "The secret passphrase or code used to join the network.",
+			"type": "string",
+			"required": true
+		},
+		"automatically": {
+			"title": "Key Provided Automatically",
+			"description": "Is the key provided by the network automatically?",
+			"type": "boolean",
+			"required": true
+		},
+		"ieee802dot1x": {
+			"title": "IEEE 802.1x Enabled",
+			"description": "Is IEEE 802.1x access control enabled on this network?  If unsure, try not enabling this option.",
+			"type": "boolean",
+			"required": true
+		},
+		"autorun": {
+			"title": "Include Autorun",
+			"description": "When enabled, adds an AUTORUN.INI file so the network settings program will be started right when you insert the jump drive into the computer.  This is usually a good thing.",
+			"type": "boolean",
+			"default": true,
+			"required": true
+		},
+		"batch": {
+			"title": "Include Batch File",
+			"description": "If you plan on distributing wireless settings via email, on a network drive, or wish to use them from inside a subdirectory, the setup program works much better when you run it from this batch file.  Not needed if you are just using this on the root of a USB jump drive, but also never hurts.",
+			"type": "boolean",
+			"default": true,
+			"required": true
+		}
+	}
+}
