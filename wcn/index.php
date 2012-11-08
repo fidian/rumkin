@@ -27,4 +27,4 @@ if ($data->autorun) {
 $zip->addFile('SMRTNTKY/MessageB.txt', 'files/SMRTNTKY/MessageB.txt');
 $zip->addFileData(buildWsettingXml($data), 'SMRTNTKY/WSETTING.WFC');
 $zip->addFileData(buildWsettingTxt($data), 'SMRTNTKY/WSETTING.TXT');
-$zip->outputToBrowser('wcd-usb.zip');
+$zip->outputToBrowser('wcn-usb.zip');
