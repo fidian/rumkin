@@ -20,11 +20,11 @@ $(function () {
 		$.ajax({
 			dataType: "json",
 			error: function (jqXHR, textStatus, errorThrown) {
-				$form.text("Unable to load form's schema from " + schemaUrl + " -- try again later or email me about this problem so I can fix it.  Error: " + errorThrown);
+				$form.empty().text("Unable to load form's schema from " + schemaUrl + " -- try again later or email me about this problem so I can fix it.  Error: " + errorThrown);
 			},
 			success: function (data, textStatus, jqXHR) {
 				// Build form
-				$form.jsonForm({
+				$form.empty().jsonForm({
 					schema: data
 				});
 			},
