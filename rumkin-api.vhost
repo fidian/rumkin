@@ -1,0 +1,17 @@
+AddDefaultCharset UTF-8
+
+<VirtualHost *:80>
+	ServerName api.rumkin.com
+	ServerAlias api.rumkin.fuf.me
+	DocumentRoot /home/fidian/rumkin-api
+	KeepAlive On
+
+	# This requires the "headers" module.  Use "a2enmod headers" to enable it.
+	Header set Access-Control-Allow-Origin *
+
+	php_flag display_errors off
+	php_flag display_startup_errors off
+	php_value error_reporting 2147483647
+	ErrorLog /var/log/apache2/error.log
+	CustomLog /var/log/apache2/access.log combined
+</VirtualHost>
