@@ -1,3 +1,6 @@
 [submodule "vendor/phptools"]
 	path = vendor/phptools
 	url = git@github.com:chrismcmacken/phptools.git
+[submodule "vendor/php-json-schema"]
+	path = vendor/php-json-schema
+	url = https://github.com/hasbridge/php-json-schema.git
