@@ -5,22 +5,56 @@ html(lang="en")
 			meta(charset="utf-8")
 			title
 				block title
-					= locals.name
-			script(src="/js/jquery-1.8.2.min.js")
+					= page.metadata.title
+			link(rel="stylesheet", href="/css/bootstrap.min.css")
 			link(rel="stylesheet", href="/css/site.css")
+			script(type="text/javascript", src="/js/jquery-1.8.2.min.js")
+			script(type="text/javascript", src="/js/bootstrap.min.js")
+			if page.metadata.jsonform
+				script(type="text/javascript", src="/js/underscore-min.js")
+				script(type="text/javascript", src="/js/jsv.js")
+				script(type="text/javascript", src="/js/jsonform.js")
+				script(type="text/javascript", src="/js/jsonform-auto.js")
 	body
-		header
-			div.inner
-				block header
-					h1
-						a(href=locals.url)= locals.name
-					p= locals.description
-		#wrapper
+		.wrapper
 			nav
-				div.inner
+				div.nav
 					block nav
-						p Nav nav nav
-			div#content
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+						div Nav nav nav
+			div.content
+				header
+					div.header
+						block header
+							h1= page.metadata.title
 				block content
 					p Content should have gone here
 		footer
