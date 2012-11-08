@@ -5,12 +5,12 @@ Print this document and store it in a safe place for future reference.  You may 
 
 Wireless Settings
 
-Network Name (SSID): ##SSID##
-Network Key (WEP/WPA Key): ##NETWORKKEY##
-Key Provided Automatically (802.1x): ##AUTOMATICALLY##
-Network Authentication Type: ##AUTHENTICATION##
-Data Encryption Type: ##ENCRYPTION##
-Connection Type: ##CONNECTION##
+Network Name (SSID): {{$data->ssid}}
+Network Key (WEP/WPA Key): {{$data->networkkey}}
+Key Provided Automatically (802.1x): {{$data->automatically}}
+Network Authentication Type: {{$data->authentication}}
+Data Encryption Type: {{$data->encryption}}
+Connection Type: {{$data->connection}}
 Key Index: 
 
 
