@@ -1,142 +1,353 @@
-// Scoreboard include file
+/**
+ * Create a scoreboard
+ *
+ * Copyright 2012 Tyler Akins
+ * http://rumkin.com/license.html
+ *
+ * Requires jQuery
+ */
+/*global window, module, jQuery*/
+jQuery(function () {
+	'use strict';
 
-var ScoreboardOldOnload = null;
-var ScoreboardDivName = 'scoreboard';
-var ScoreboardTally = new Array();
-var ScoreboardTallyAlpha = new Array();
+	var $ = jQuery;
 
-function AddPoint(what)
-{
-   for (var i = 0; i < ScoreboardTally.length; i ++)
-   {
-      if (ScoreboardTally[i][0] == what)
-      {
-         ScoreboardTally[i][1] ++;
-	 return;
-      }
-   }
-   ScoreboardTally[ScoreboardTally.length] = new Array(what, 1);
-}
+	function scoreboard(target, tallies) {
+		var i, talliesByName = {}, $menu, $content, $linkTop10, $linkFull, $linkAlpha;
 
-function ScoreboardSortTally(a, b)
-{
-   if (a[1] < b[1]) return 1;
-   if (a[1] > b[1]) return -1;
-   return 0;
-}
+		// Count tallies
+		for (i = 0; i < tallies.length; i += 1) {
+			if (!talliesByName[tallies[i]]) {
+				talliesByName[tallies[i]] = {
+					name: tallies[i],
+					count: 1
+				};
+			} else {
+				talliesByName[tallies[i]].count += 1;
+			}
+		}
 
-function ScoreboardSortAlpha(a, b)
-{
-   if (a[0].toUpperCase() > b[0].toUpperCase()) return 1;
-   if (a[0].toUpperCase() < b[0].toUpperCase()) return -1;
-   return 0;
-}
+		// Convert to array
+		tallies = [];
 
-function ScoreboardSetMenu2(which, active)
-{
-   var e = document.getElementById('scoreboard_link_' + which);
-   if (which == active)
-   {
-      e.className = 'scoreboard_active';
-   }
-   else
-   {
-      e.className = 'scoreboard_link';
-   }
-}
-   
-function ScoreboardSetMenu(which)
-{
-   ScoreboardSetMenu2('top', which);
-   ScoreboardSetMenu2('full', which);
-   ScoreboardSetMenu2('alpha', which);
-}
+		for (i in talliesByName) {
+			if (talliesByName.hasOwnProperty(i)) {
+				tallies.push(talliesByName[i]);
+			}
+		}
 
-function Scoreboard_Top()
-{
-   var e = document.getElementById(ScoreboardDivName + "content");
-   var s;
-   
-   ScoreboardTally = ScoreboardTally.sort(ScoreboardSortTally);
-   s = '<p class="scoreboard_top10">';
-   for (var i = 0; i < ScoreboardTally.length && i < 10; i ++)
-   {
-      if (i > 0)
-      {
-         s += "<br>";
-      }
-      if (i < 9)
-      {
-         s += "&nbsp;";
-      }
-      s += (i + 1) + '. ' + ScoreboardTally[i][0] + ' = ' + 
-         ScoreboardTally[i][1];
-   }
-   s += '</p>';
-   e.innerHTML = s;
-   ScoreboardSetMenu('top');
-   return false;
-}
+		function sortByCount(a, b) {
+			if (a.count < b.count) {
+				return 1;
+			}
 
-function Scoreboard_Full()
-{
-   var e = document.getElementById(ScoreboardDivName + "content");
-   var s = '<ol>';
-   
-   ScoreboardTally = ScoreboardTally.sort(ScoreboardSortTally);
-   for (var i = 0; i < ScoreboardTally.length; i ++)
-   {
-      s += '<li>' + ScoreboardTally[i][0] + ' = ' + ScoreboardTally[i][1];
-   }
-   s += '</ol>';
-   e.innerHTML = s;
-   ScoreboardSetMenu('full');
-   return false;
-}
+			if (a.count > b.count) {
+				return -1;
+			}
 
-function Scoreboard_Alpha()
-{
-   var e = document.getElementById(ScoreboardDivName + "content");
-   var s = '<ol>';
-   
-   ScoreboardTally = ScoreboardTally.sort(ScoreboardSortAlpha);
-   for (var i = 0; i < ScoreboardTally.length; i ++)
-   {
-      s += '<li>' + ScoreboardTally[i][0] + ' = ' + ScoreboardTally[i][1];
-   }
-   s += '</ol>';
-   e.innerHTML = s;
-   ScoreboardSetMenu('alpha');
-   return false;
-}
+			return 0;
+		}
 
-function ScoreboardOnload()
-{
-   var s, l, sep;
-   var e = document.getElementById(ScoreboardDivName);
+		function sortByName(a, b) {
+			if (a.name.toUpperCase() > b.name.toUpperCase()) {
+				return 1;
+			}
 
-   l = '<a href="#" class="scoreboard_link" onclick="return Scoreboard_';
-   sep = ' &nbsp; ';
-   s = '<div class="scoreboard_menu">';
-   s += l + 'Top()" id="scoreboard_link_top">Top 10</a>' + sep;
-   s += l + 'Full()" id="scoreboard_link_full">Full List</a>' + sep;
-   s += l + 'Alpha()" id="scoreboard_link_alpha">By Name</a>';
-   s += '</div>';
-   s += '<div class="scoreboard_content" id="' + ScoreboardDivName + 
-      'content"></div>';
-   e.innerHTML = s;
+			if (a.name.toUpperCase() < b.name.toUpperCase()) {
+				return -1;
+			}
 
-   Scoreboard_Top();
-   
-   if (ScoreboardOldOnload != null)
-   {
-      ScoreboardOldOnload();
-   }
-}
+			return 0;
+		}
 
-function ScoreboardSetup(divname)
-{
-   ScoreboardOldOnload = window.onload;
-   ScoreboardDivName = divname;
-   window.onload = ScoreboardOnload;
-}
+
+		function switchTo($link) {
+			if ($link.hasClass('scoreboard_active')) {
+				return false;
+			}
+
+			$('.scoreboard_link.scoreboard_active').removeClass('scoreboard_active');
+			$link.addClass('scoreboard_active');
+			return true;
+		}
+
+		function displayList(type, list) {
+			var i, $result;
+			$result = $(type);
+
+			for (i = 0; i < list.length; i += 1) {
+				$result.append($('<li/>').text(list[i].name + ' = ' + list[i].count));
+			}
+
+			$content.append($result);
+			$content.empty().append($result);
+			return $result;
+		}
+
+		function top10() {
+			var list, $result;
+
+			if (switchTo($linkTop10)) {
+				list = tallies.sort(sortByCount);
+				list = list.slice(0, 10);
+				$result = displayList('<ol/>', list);
+				$result.addClass('scoreboard_top10');
+			}
+
+			return false;
+		}
+
+		function full() {
+			var list;
+
+			if (switchTo($linkFull)) {
+				list = tallies.sort(sortByCount);
+				displayList('<ol/>', list);
+			}
+
+			return false;
+		}
+
+		function alpha() {
+			var list;
+
+			if (switchTo($linkAlpha)) {
+				list = tallies.sort(sortByName);
+				displayList('<ul/>', list);
+			}
+
+			return false;
+		}
+
+		$linkTop10 = $('<span/>').click(top10).addClass('scoreboard_link').text('Top 10');
+		$linkFull = $('<span/>').click(full).addClass('scoreboard_link').text('Full List');
+		$linkAlpha = $('<span/>').click(alpha).addClass('scoreboard_link').text('By Name');
+		$menu = $('<div/>').addClass('scoreboard_menu');
+		$menu.append($linkTop10).append($linkFull).append($linkAlpha);
+		$content = $('<div/>').addClass('scoreboard_content');
+		$(target).append($menu).append($content);
+
+		top10();
+	}
+
+	if (typeof module === 'object' && module.exports) {
+		module.exports = scoreboard;
+	}
+
+	// Add points for everyone in the order that the points were
+	// received.
+	scoreboard('#scoreboard', [
+		'15Tango',
+		'Silent Bob',
+		'arcticabn',
+		'Kitch',
+		'DragonSlay',
+		'Vanman',
+		'tomslusher',
+		'Scott Johnson',
+		'RINO SHAWN',
+		'Moe the Sleaze', 'Silent Bob',
+		// 10
+		'KC0GRN',
+		'timbrewlf',
+		'Silent Bob',
+		's4xton',
+		'kc0kep',
+		'QwertyToo',
+		'SaeSew',
+		'Astrogazer',
+		'Cathunter',
+		'Minnesota',
+		// 20
+		'JJJeffr',
+		'Astrogazer',
+		'kc0kep',
+		'Reding',
+		'Astrogazer',
+		'Reding',
+		'Vermadon',
+		'TECGeoJim',
+		'Ecorangers',  // Lowercase r
+		'towlebooth',
+		// 30
+		'FSU*Noles',
+		'DragonSlay',  // Removed the space
+		'Paklid',
+		'kleiner',
+		'GustoBob', 'Paklid',
+		'MN Lost Boy',
+		'arcticabn',
+		'Pto',
+		'Pear Head',
+		'TECGeoJim',
+		// 40
+		'Polar Express',
+		'BB&D',
+		'"Nic"',
+		'teamvista',
+		'Peter and Gloria',
+		'Longway Lowing',
+		'Minnesota',
+		'Marsha', 'Silent Bob',  // Split them up
+		'BB&D',
+		'Jonas and Julia',
+		// 50
+		'Cross-Country',
+		'TECGeoJim',
+		'KC0GRN',
+		'cfob',
+		'Silent Bob',
+		's4xton',
+		'zoejam72',
+		'KC0GRN',
+		'KC0GRN',
+		'sui generis',
+		// 60
+		'zoejam72',
+		'Moe the Sleaze',  // Changed "The" to "the"
+		'KC0GRN',
+		's4xton',
+		'kleiner',
+		'towlebooth',
+		'pogopod',
+		'The Cow Spots',
+		'rickrich',
+		'rickrich',
+		// 70
+		'Team TACK',
+		'rickrich',
+		'zoejam72',
+		'BB&D',
+		'arcticabn',
+		'Grey Wolf and Wild Rice',
+		'Banana Force',
+		'Irvingdog',
+		'Grey Wolf and Wild Rice',
+		'JoelCam',
+		// 80
+		'kmmnnd',
+		'mucluck',
+		'FSU*Noles', 'ArcticFox', 'OrangePeril',
+		'gengen',
+		'arcticabn',
+		'rickrich',
+		'rickrich',
+		'KC0GRN',
+		'mucluck',
+		'Rubber Toes',
+		// 90
+		'whatsagps',
+		'Minnesota',
+		'Minnesota',
+		'Minnesota',
+		'Minnesota',
+		'Minnesota',
+		'team-deadhead',
+		'spamhead',
+		'Team TACK',
+		'Hnts2Mch',
+		// 100
+		'Ramsey63',
+		'dgauss',
+		'Minnesota',
+		'mucluck',
+		'GSPr',
+		'dachebo',
+		'dachebo',
+		'loneeagle_24',
+		'Pike 1973',
+		'media601',
+		// 110
+		'Marsha', 'Silent Bob',  // Split them up
+		'EskoClimber',
+		'Pear Head',
+		'Team TACK',  // "Tack" changed into "TACK"
+		'jREST',
+		'TECGeoJim',
+		'Vermadon',
+		'Vermadon',
+		'EskoClimber',  // No space
+		'ka9tge',
+		// 120
+		'Pear Head',
+		'lizs',
+		'Winglady',
+		'twras',
+		'Kitch',
+		'jimho',
+		'motherhen647',
+		'VectorHound',
+		'Vermadon',
+		'Wee Willy', 'Hikeaday',
+		// 130
+		'B3Fiend',
+		'johnc98',
+		'carcon',
+		'cachemaster2000',
+		'fireman121',
+		'Oneied Cooky',
+		'MNMizzou',
+		'Vermadon',
+		'spamhead',  // Lowercase s
+		'spamhead',  // Lowercase s
+		// 140
+		'Zuma!',
+		'jonsom',
+		'tomslusher',
+		'fireman121',
+		'Zuma!',
+		'Zuma!',
+		'Zuma!',
+		'Zuma!',
+		'EskoClimber',
+		'Pear Head',
+		// 150
+		'team-deadhead',
+		'jREST',
+		'TheGilby3',
+		'CamoCacher',
+		'fidian',
+		'Posen',
+		'bobcatw98',
+		'fidian',
+		'bflentje',
+		'Ecorangers',
+		// 160
+		'Ecorangers',
+		'fidian',
+		'fidian',
+		'fidian',
+		'KC0GRN',
+		'Korsikan',
+		'Korsikan',
+		'Korsikan',
+		'Sokratz',
+		'jREST',
+		// 170
+		'Sokratz',
+		'Sokratz',
+		'Scuba Al',
+		'jambro',
+		'pogopod',
+		'acromander',
+		'zoejam72',
+		'rickrich',
+		'arcticabn',  // Lowercase a
+		'Team Dogs',
+		// 180
+		'Minnesota',
+		'fishcachers',
+		'kleiner',
+		'Team Dogs',
+		'Toby Tyler',
+		'caverdoc',
+		'caverdoc',
+		'GeoPierce',
+		'geomatrix',
+		'doohickey',
+		// 190
+		'CamoCacher',
+		'TeamVE',
+		'PharmTeam',
+		'Sokratz']);
+});
