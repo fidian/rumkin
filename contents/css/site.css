@@ -4,6 +4,13 @@ html, body, .wrapper {
 	border: 0;
 }
 
+textarea {
+	vertical-align: top;
+	transition: height 0.2s;
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+}
+
 .nav {
 	width: 100px;
 	float: left;
@@ -17,4 +24,13 @@ html, body, .wrapper {
 	position: relative;
 	max-width: 720px;
 	margin: auto;
+}
+
+.outline {
+	border: 1px solid black;
+	padding: 0.5em;
+}
+
+.wide {
+	width: 100%;
 }

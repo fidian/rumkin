@@ -6,10 +6,13 @@
 $(function () {
 	'use strict';
 
-	function makeRainbow(text) {
-		var $result, color, $span;
+	var $show = $('.show'),
+		$showText = $('.showText');
 
-		$result = $('<b/>');
+	$('.input').watchdog(function (text) {
+		var $result, color, html;
+
+		$result = $('<span/>');
 
 		function colorHex(i, mult) {
 			var pi, sv, dec;
@@ -29,16 +32,9 @@ $(function () {
 			$result.append($('<span/>').css('color', color).text(text.charAt(i)));
 		});
 
-		return $result;
-	}
-
-	$(':submit').click(function () {
-		var $result;
-
-		$result = makeRainbow($('.input').val());
-		$('.show').empty().append($result);
-		$('.showHtml').text($result.html());
-		return false;
+		html = $result.html();
+		$show.html(html);
+		$showText.text(html);
 	});
 });
 
