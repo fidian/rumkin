@@ -6,7 +6,7 @@
  *
  * Requires jQuery
  */
-/*global window, module, jQuery*/
+/*global window, module, jQuery, util*/
 jQuery(function () {
 	'use strict';
 
@@ -16,25 +16,22 @@ jQuery(function () {
 		var i, talliesByName = {}, $menu, $content, $linkTop10, $linkFull, $linkAlpha;
 
 		// Count tallies
-		for (i = 0; i < tallies.length; i += 1) {
-			if (!talliesByName[tallies[i]]) {
-				talliesByName[tallies[i]] = {
-					name: tallies[i],
+		util.each(tallies, function (val) {
+			if (!talliesByName[val]) {
+				talliesByName[val] = {
+					name: val,
 					count: 1
 				};
 			} else {
-				talliesByName[tallies[i]].count += 1;
+				talliesByName[val].count += 1;
 			}
-		}
+		});
 
 		// Convert to array
 		tallies = [];
-
-		for (i in talliesByName) {
-			if (talliesByName.hasOwnProperty(i)) {
-				tallies.push(talliesByName[i]);
-			}
-		}
+		util.each(talliesByName, function (val) {
+			tallies.push(val);
+		});
 
 		function sortByCount(a, b) {
 			if (a.count < b.count) {
@@ -74,11 +71,9 @@ jQuery(function () {
 		function displayList(type, list) {
 			var i, $result;
 			$result = $(type);
-
-			for (i = 0; i < list.length; i += 1) {
-				$result.append($('<li/>').text(list[i].name + ' = ' + list[i].count));
-			}
-
+			util.each(list, function (val) {
+				$result.append($('<li/>').text(val.name + ' = ' + val.count));
+			});
 			$content.append($result);
 			$content.empty().append($result);
 			return $result;

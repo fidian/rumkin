@@ -1,6 +1,6 @@
 title: Scoreboard
 template: page.jade
-js: scoreboard.js
+js: /js/util.js scoreboard.js
 css: scoreboard.css
 
 King Boreas' Hall of Fame

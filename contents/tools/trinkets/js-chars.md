@@ -1,6 +1,6 @@
 title: JS Chars
 template: page.jade
-js: js-chars.js
+js: /js/util.js js-chars.js
 
 Want to know the hex codes for unicode characters?  This will do it for you.  Just type and see what I mean.
 

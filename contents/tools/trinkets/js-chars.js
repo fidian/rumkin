@@ -3,7 +3,7 @@
  * Copyright 2012 Tyler Akins
  * http://rumkin.com/license.html
  */
-/*global $, window*/
+/*global $, window, util*/
 $(function () {
 	'use strict';
 
@@ -12,13 +12,11 @@ $(function () {
 		$output = $('#output');
 
 	function dumpChars(s) {
-		var c, i, o = "", Hex = "0123456789ABCDEF";
+		var c, i, o = "";
 
 		for (i = 0; i < s.length; i += 1) {
 			c = s.charCodeAt(i);
-			/*jslint bitwise: true*/
-			o += Hex.charAt((c >> 12) & 0x0F) + Hex.charAt((c >> 8) & 0x0F) + Hex.charAt((c >> 4) & 0x0F) + Hex.charAt(c & 0x0F) + " ";
-			/*jslint bitwise: false*/
+			o += util.hexByte(c / 256) + util.hexByte(c % 256);
 		}
 
 		return o;
