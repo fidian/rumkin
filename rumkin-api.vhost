@@ -8,6 +8,9 @@ AddDefaultCharset UTF-8
 
 	# This requires the "headers" module.  Use "a2enmod headers" to enable it.
 	Header set Access-Control-Allow-Origin *
+	Header set Access-Control-Allow-Headers "Content-type"
+	Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+	Header set Access-Control-Expose-Headers "Content-type, Location"
 
 	php_flag display_errors off
 	php_flag display_startup_errors off
