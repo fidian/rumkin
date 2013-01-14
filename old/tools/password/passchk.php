@@ -25,6 +25,7 @@ least three of those four groups.
 <li>... should not contain a date, a name, or other things that can be
 associated with you.
 <li>... should be <a href="pass_gen.php">created randomly</a> or semi-randomly.
+<li>... should not be a suggestion when you type in the first few characters into Google.
 </ul>
 
 <p>This password checker will gauge your password and give it a score
@@ -84,10 +85,10 @@ your real score when you use several symbols.</li>
 numbers, symbols above numbers, other symbols, and other characters.  If your
 passphrase contains a character from the subset, that subset is added to
 the pool, increasing the size of the character set and increasing the amount
-of entropy in your password.
+of entropy in your password.</li>
 </ul>
 
-<p>For further information, try NIST's Special Publication 800-63, <a href="http://csrc.nist.gov/publications/nistpubs/800-63/SP800-63V1_0_2.pdf">Electronic Authentication Guideline</a>, Appendix A: Estimating Password Entropy and Strength.  Also, C.E. Shannon's <a href="http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf">A Mathematical Theory of Communication</a>.</p>
+<p>For further information, try NIST's Special Publication 800-63, <a href="http://csrc.nist.gov/publications/nistpubs/800-63/SP800-63V1_0_2.pdf">Electronic Authentication Guideline</a>, Appendix A: Estimating Password Entropy and Strength.  Also, C.E. Shannon's <a href="http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf">A Mathematical Theory of Communication</a>.  I've also written up some thoughts <a href="http://www.fidian.com/programming/passwordsecurity">password security</a></p>
 
 <p>If you really like this program and you want to include it with your
 software or on your site, you can download it here: <a
