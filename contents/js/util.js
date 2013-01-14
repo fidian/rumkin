@@ -59,7 +59,7 @@
 						callback.call(thisArg, thing[i], i, thing);
 					}
 				}
-			} else {
+			} else if (typeof thing !== 'undefined') {
 				callback.call(thisArg, thing);
 			}
 		},
