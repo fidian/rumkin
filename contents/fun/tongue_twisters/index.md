@@ -49,6 +49,9 @@ This section is dedicated to the simplest tongue twisters.  Sometimes simply say
 
 18. Red lorrie, yellow lorrie.
 
+19. He threw three free throws.
+
+
 One-Liners
 ==========
 
@@ -143,10 +146,109 @@ mixer.
 
 44. A bloke's back brake block broke.
 
-Verse
-=====
+45. "Surely Sylvia swims!" shrieked Sammy, surprised.  "Someone should show Sylvia some strokes so she shall not sink."
 
-This last section is dedicated to the tongue twisters that are recited in verse.  There are numerous variations of many of these and each region seems to have it's own unique way of saying it.
+46. A big black bug bit a big black bear and made the big black bear bleed blood.
+
+47. A bloke's back bike brake lock broke.
+
+48. Betty and Bob brought back blue balloons from the big bazaar.
+
+49. Big black bugs bleed blue-black blood but baby black bugs bleed blue blood.
+
+50. Brad's big black bath brush broke.
+
+51. Can you imagine an imaginary menagerie manager imagining managing an imaginary menagerie?
+
+52. Cedar shingles should be shaved and saved.
+
+53. Chop shops stock chops.
+
+54. Cows graze in groves on grass which grows in grooves in groves.
+
+55. Five frantic frogs fled from fifty fierce fishes.
+
+56. Four furious friends fought for the phone.
+
+57. Fred fed Ted bread and Ted fed Fred bread.
+
+58. Give me the gift of a grip-top sock: a drip-drape, ship-shape, tip-top sock.
+
+59. Give the swiper's wife a knife, then give the swiper's wife's knife a swipe.
+
+60. Green glass globes glow greenly.
+
+61. How can one cram a clam in a clean cream can?
+
+62. I slit the sheet, the sheet I slit, and on the slitted sheet I sit.
+
+63. I wish to wash my Irish wristwatch.
+
+64. If Stu chews shoes, should Stu choose the shoes he chews?
+
+65. Just think, that sphinx has a sphincter that stinks!
+
+66. Kris Kringle carefully crunched on candy canes.
+
+67. Many an anemone sees an enemy anemone.
+
+68. My dame hath a lame tame crane.  My dame hath a crane that is lame.
+
+69. Nine nice night nurses nurse nicely.
+
+70. Old oily Ollie oils old oily autos.
+
+71. Pick a partner and practice passing, for if you pass proficiently, perhaps you'll play professionally.
+
+72. Rhys watched Ross switch his Irish wristwatch for a Swiss wristwatch.
+
+73. Rory the warrior and Roger the worrier were reared wrongly in a rural brewery.
+
+74. Round the rugged rock the ragged rascal ran.
+
+75. Sam's shop stocks short spotted socks.
+
+76. Sarah saw a shot-silk sash shop full of shot-silk sashes as the sunshine shone on the side of the shot-silk sash shop.
+
+77. Seven sleazy shysters in sharkskin suits sold sheared sealskins to seasick sailors.
+
+78. She said she should sit, and so she sat.
+
+79. She saw Sheriff's shoes on the sofa.  Was she so sure she saw Sheriff's shoes on the sofa?
+
+80. Singing Sammy sang songs on sinking sand.
+
+81. Six slippery, slimy snails siled silently, slowly seaward.
+
+82. The blue bluebird blinks.
+
+83. The crow flew over the river with a lump of raw liver.
+
+84. The great Greek grape growers grow great Greek grapes.
+
+85. The ochre ogre ogled the poker.
+
+86. The two-twenty-two train tore through the tunnel.
+
+87. There was a minimum of cinnamon in the aluminum pan.
+
+88. These six sheep shouldn't sleep in a shack. Sheep should sleep in a shed.
+
+89. Twelve twins twirled twelve pigs.
+
+90. We shall surely see the sun shine soon.
+
+91. What a shame such a shapely sash should such shabby stitches show.
+
+92. What time does the wristwatch strap shop shut?
+
+93. Wow, race winners really want red wine right away!
+
+
+Verse and Story
+======-========
+
+This last section is dedicated to the tongue twisters that portray a story or are often recited in a sing-song, rhyming style of verse.  There are numerous variations of many of these and each region seems to have it's own unique way of saying it.
 
 1. A tutor who tooted the flute<br>
 Tried to tutor two tutors to toot.<br>
@@ -265,3 +367,93 @@ On a light night like tonight.
 Two-Two was one too.<br>
 When One-One won one race,<br>
 Two-two won one too.
+
+23. A flea and a fly flew up in a flue.<br>
+Said the flea, "Let us fly!"<br>
+Said the fly, "Let us flee!"<br>
+So they flew through a flaw in the flue.
+
+24. A tree toad loved a she-toad who lived up in a tree.<br>
+He was a two-toed tree toad, but a three-toed tree toad was she.<br>
+The two-toed tree toad tried to win the three-toed she-toad's heart,<br>
+For the two-toed tree toad loved the ground that the three-toed tree toad trod.<br>
+But the two-toed tree toad tried in vain.  He couldn't please her whim.<br>
+From her tree-toad bower with her three-toed power, the she-toad vetoed him.
+
+25. Denise sees the fleece.<br>
+Denise sees the fleas.<br>
+At least Denise could sneeze<br>
+And feed and freeze the fleas.
+
+26. I'm not the pheasant plucker, I'm the pheasant plucker's son<br>
+And I'll pluck those pheasants until the pheasant plucking's done.
+
+27. I am not the pheasant plucker, I'm the pheasant plucker's mate.<br>
+I am only plucking pheasants `cause the pheasant plucker's late.
+
+28. I cannot bear to see a bear bear down upon a hare.<br>
+When bare of hair he strips the hare, right there I cry, "Forbear!"
+
+29. I saw Susie sitting in a shoe shine shop.  Where she sits, she shines; and where she shines, she sits.
+
+30. I wish to wish the wish you wish to wish,<br>
+but if you wish the wish the witch wishes,<br>
+I won't wish the wish you wish to wish.
+
+31. If a Hottentot taught a Hottentot tot<br>
+to talk 'ere the tot could totter,<br>
+Ought the Hottentot tot be taught "aught" or "naught,"<br>
+Or what ought to be taught to her?<br>
+If to hoot and to toot a Hottentot tot<br>
+Be taught by her Hottentot tutor,<br>
+Ought the tutor get hot if the Hottentot tot<br>
+Hoot and toot at her Hottentot tutor?
+
+32. If you stick a stock of liquor in your locker, it's slick to stick a lock upon your stock.  Or some stickler who is slicker will stick you of your liquor if you fail to lock your liquor with a lock.
+
+33. Mr. See owned a saw and Mr. Soar owned a seesaw. now See's saw sawed Soar's seesaw before Soar saw See, which made Soar sore.  Had Soar seen See's saw before See sawed Soar's seesaw, See's saw would not have sawed Soar's seesaw.  So See's saw sawed Soar's seesaw, but it was sad to see Soar so sore just because See's saw sawed Soar's seesaw.
+
+34. Ned Nott was shot and Sam Shott was not.  So it is better to be Shott than Nott.  Some say Nott was not shot, but Shott says he shot Nott.  Either the shot Shott shot at Nott was not shot or Nott was shot.  If the shot Shott shot shot Nott, Nott was shot.  But if the shot Shott shot shot Shott, then Shott was shot, not Nott.  However, the shot Shott shot shot not Shott, but Nott.
+
+35. Of all the felt I ever felt, I never felt a piece of felt which felt as fine as that felt felt when first I felt that felt that's felt.
+
+36. On mules we find two legs behind and two we find before.<br>
+We stand behind before we find what those behind be for.
+
+37. Once upon a barren moor there dwelt a bear, also a boar.<br>
+The bear could not bear the board.  The boar thought the bear a bore.<br>
+At last the bear could bear no more of that boar that bored him on the moor.<br>
+And so one morn he bored the boar.  That boar will bore the bear no more.
+
+38. Pretty Kitty Creighton had a cotton batten cat.<br>
+The cotton batten cat was bitten by a rat.<br>
+The kitten that was bitten had a button for an eye,<br>
+And biting off the button make the cotten batten fly.
+
+39. Say this sharply, say this sweetly,<br>
+Say this shortly, say this softly.<br>
+Say this sixteen times in succession.
+
+40. Suddenly swerving, seven small swans swim silently southward, seeing six swift sailboats sailing sedately seaward.
+
+41. Swan swam over the sea.<br>
+Swim, swan, swim!<br>
+Swan swam back again.<br>
+Well swum, swan!
+
+42. There was a young fisher named Fischer<br>
+Who fished for a fish in a fissure.<br>
+The fish, with a grin,<br>
+Pulled the fisherman in!<br>
+Now they're fishing the fissure for Fischer.
+
+43. While we were talking, we were watching window washers wash Washington's windows with warm washing water.
+
+44. You've no need to light a night-light<br>
+On a light night like tonight.<br>
+For a night-light's light's a slight light<br>
+And tonight's a night that's light.<br>
+When a night's light, like tonight's light,<br>
+It is really not quite right<br>
+To light night-lights with their slight lights<br>
+On a light night like tonight.
