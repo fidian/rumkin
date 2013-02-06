@@ -190,14 +190,14 @@ $Cleaners = array(
 		'Most of the marks were removed or lightened, but the ink was smeared around and there was this residue; a glossy substance that didn\'t let the whiteboard markers work again.'
 	),
 	array(
-		'Lubricant',
+		'Water Displacer',
 		'WD-40',
 		2,
 		2,
 		'wd_40',
 		'Cleaned well, left residue',
 		'wd40.jpg',
-		'I thought that this would be down there with <a href="#baby_oil">Baby Oil</a> and it basically ended up there.  It did remove some more of the marks, but it didn\'t remove the ink nor really work well on the permanent marker.  This is made as a lubricant, not as a cleaning product.<br><br>I did get a comment that said WD-40 successfully removed a residue that built up on his whiteboard.  Spraying it on and wiping it off with a towel produced a clean board.  So, if your board has a dull sheen, maybe this will work for you too.'
+		'I thought that this would be down there with <a href="#baby_oil">Baby Oil</a> and it basically ended up there.  It did remove some more of the marks, but it didn\'t remove the ink nor really work well on the permanent marker.  This is made as a lubricant, though not that good of one.  It is not a cleaning product but many have found "alternate" uses for this substance.<br><br>I did get a comment that said WD-40 successfully removed a residue that built up on his whiteboard.  Spraying it on and wiping it off with a towel produced a clean board.  So, if your board has a dull sheen, maybe this will work for you too.'
 	),
 	array(
 		'Marker, Dry Erase',
