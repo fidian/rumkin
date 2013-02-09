@@ -1,22 +1,10 @@
-<?php
+---
+title: Freecell
+template: page.jade
+---
 
-include '../../../functions.inc';
-StandardHeader(array(
-		'title' => 'Freecell',
-		'topic' => 'fun'
-	));
-
-?>
-<p align="center">
-<applet code=GameFrame.class width="800" height="650" archive="media/freecell.jar">
+<applet code=GameFrame.class width="800" height="650" archive="freecell.jar" class="center">
 The Freecell applet
 </applet>
-</p>
 
-<p align="center"><font size="-1">
-By <a href="http://www.paassen.tmfweb.nl/">W.P. van Paassen</a>
-and E.C. Brummel</font></p>
-
-<?php
-
-StandardFooter();
+Freecell game is by [W.P. van Paassen](http://www.paassen.tmfweb.nl) and E.C. Brummel.
