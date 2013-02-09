@@ -10,12 +10,12 @@ template: index.jade
 * [SSH Applet](/tools/ssh/) - Need to log into a remote machine but you don't have an SSH client handy?  On a loaner computer or can't install software?  Just need to SCP that one file?  Here you go!
 * [more ...](/tools/)
 
-[Fun](/fun/)
+### [Fun](fun/)
 
-* [Trivia](/fun/trivia/) - An archive of the amazing trivia, facts, and the occasional quotes that I have accumulated over time.
-* [Interactive Games](/fun/games/) - Java applets and other things that I have found elsewhere.  I take no credit for these, but they are provided anyway so you can kill time.
-* [Personality Tests](/fun/tests/) - Fun little multiple-choice questions that are intended to reveal information about yourself that you never thought of before.  It's unsure how accurate or revealing they are.
-* [more ...](/fun/)
+* [Fortune Cookie](fun/fortune_cookie/) - Need a random fortune from a fortune cookie?
+* [Games](fun/games/) - Interactive arcade games
+* [Tongue Twisters](fun/tongue_twisters/) - There's no way you can say them *all*!
+* [more ...](fun/)
 
 [Reference Materials](/reference/)
 
