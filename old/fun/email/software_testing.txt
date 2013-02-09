@@ -6,7 +6,7 @@ NEW YORK -- People for Ethical Treatment of Software (PETS) announced today that
 
 According to PETS, these companies force software to undergo lengthy and arduous tests, often without rest, for hours or days at a time. Employees are assigned to "break" the software by any means necessary, and inside sources report that they often joke about "torturing" the software.
 
-"It's no joke," said Grandola. "Innocent programs, from the day the are compiled, are cooped up in tiny rooms and "crashed" for hours on end. They spend the whole lives on dirty, ill-maintained computers, and are unceremoniously deleted when they're not needed anymore".
+"It's no joke," said Grandola. "Innocent programs, from the day the are compiled, are cooped up in tiny rooms and "crashed" for hours on end. They spend their whole lives on dirty, ill-maintained computers, and are unceremoniously deleted when they're not needed anymore".
 
 Grandola said the software is kept in unsanitary conditions and is infested with bugs.
 
