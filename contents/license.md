@@ -1,3 +1,8 @@
+---
+title: License Information
+template: page.jade
+---
+
 All code on this site, unless otherwise noted, is placed under the following license.  It is a modified MIT licence containing an additional non-advertising clause.
 
 ----

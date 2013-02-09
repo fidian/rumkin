@@ -1,6 +1,8 @@
+---
 title: WCN Config Generator
 template: page.jade
 jsonform: true
+---
 
 Windows Connect Now (WCN), or Windows Rally, is a way to make network setup easier.  This standard was created by Microsoft and it basically is just a set of files that are put onto a USB drive.  You share this jump drive with others so they can quickly get on networks without typing in huge passwords.  It also works for some networked devices, like a printer I own.
 
