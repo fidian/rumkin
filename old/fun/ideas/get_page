@@ -1,2 +1,0 @@
-#!/bin/bash
-wget -H -v -N -nd -E -l 0 -k -nr -p $1
