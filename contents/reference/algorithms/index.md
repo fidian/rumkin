@@ -13,7 +13,7 @@ Interesting idea (backed with code) about how you can save memory by using XOR t
 
 How to determine the degree of similarity for two different strings.  I cover Levenshtein's and Oliver's methods along with soundex.
 
-### [String Escaping](escaping/)
+### [String Escaping and Encoding](escaping_encoding/)
 
 Discussion on the topic of properly escaping strings when converting from one language or system to another.  Some code examples are included.
 
