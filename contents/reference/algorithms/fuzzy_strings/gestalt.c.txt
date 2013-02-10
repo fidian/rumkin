@@ -1,3 +1,10 @@
+/**
+ * Gestalt string comparison algorithm
+ *
+ * Web Site:  http://rumkin.com/reference/algorithms/fuzzy_strings/
+ * License:  http://rumkin.com/license.html
+ */
+
 #include <stdio.h>
 #include <string.h>
 

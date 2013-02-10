@@ -1,3 +1,8 @@
+* Gestalt string comparison function
+*
+* Web site:  http://rumkin.com/reference/algorithms/fuzzy_strings/
+* License:  http://rumkin.com/license.html
+*
 * Takes two strings and returns the similarity between them.  If a percentage
 * parameter is specified, it must be passed by reference.  Percentage is the
 * amount of the strings that match, from 0.0 to 1.0

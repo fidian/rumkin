@@ -1,3 +1,9 @@
+(*
+Gestalt string comparison function
+
+Web site:  http://rumkin.com/reference/algorithms/fuzzy_strings/
+License:  http://rumkin.com/license.html
+*)
 function TfMain.Fuzzy_Simil(padrao, texto: string; tpadrao,ttexto:integer):variant;
 var max, l, pos1, pos2, sum, end1, end2, cont1, cont2 : integer;
     p, q : string;
