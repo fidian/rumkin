@@ -17,7 +17,7 @@ I have modified their algorithm and created [C](levenshtein.c.txt) and [FoxPro](
 
 I stumbled across this algorithm in [PHP's](http://php.net/) documentation about the [similar_text()](http://php.net/manual/en/function.similar-text.php) function.  The best source for the algorithm that I found was in PHP's source code for the [string functions](http://cvs.php.net/co.php/php-src/ext/standard/string.c).  Look for the `php_similar_str`, `php_similar_char`, and `PHP_FUNCTION(similar_text)` functions.
 
-<p>I have created [C](gestalt.c.txt) and [FoxPro](gestalt.prg.txt) versions of the code.  They are both recursive, so be careful with large strings on limited devices.  Also, [Eduardo Curtolo](mailto:ecurtolo@gmail.com) provided a [Pascal](gestalt.pas.txt) version.
+<p>I have created [C](gestalt.c.txt) and [FoxPro](gestalt.prg.txt) versions of the code.  They are both recursive, so be careful with large strings on limited devices.  [Eduardo Curtolo](mailto:ecurtolo@gmail.com) provided a [Pascal](gestalt.pas.txt) version.  Someone (sorry, I don't have this information any longer) contributed a [Ruby](gestalt.rb.txt) implementation.
 
 ### SoundEx:
 
