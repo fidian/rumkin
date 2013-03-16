@@ -13,7 +13,7 @@ $GLOBALS['Database Password'] = 'MiscLogin';
 
 
 // Who to send emails to
-$GLOBALS['Admin Email'] = 'fidian@rumkin.com';
+//$GLOBALS['Admin Email'] = 'fidian@rumkin.com';
 
 
 // Who emails are sent from
