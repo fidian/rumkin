@@ -17,7 +17,60 @@
 (function ($) {
 	'use strict';
 
-	var watched = [];
+
+	function Watchdog($elem) {
+		this.$element = $elem;
+		this.oldVal = $elem.val();
+		this.barks = [];
+	}
+
+	Watchdog.prototype.addBark = function (bark) {
+		this.barks.push(bark);
+	};
+
+	Watchdog.prototype.bark = function () {
+		var i;
+
+		for (i = 0; i < this.barks.length; i += 1) {
+			this.barks[i].call(null, this.oldVal, this.$element);
+		}
+	};
+
+	Watchdog.prototype.prowl = function () {
+		var v = this.$element.val();
+
+		if (v !== this.oldVal) {
+			this.oldVal = v;
+			this.bark();
+		}
+	};
+
+	Watchdog.prototype.refresh = function () {
+		this.oldVal = this.$element.val();
+	};
+
+	function addWatchdogs($elements) {
+		$elements.each(function () {
+			var $elem = $(this),
+				dog = $elem.data('watchdog');
+
+			if (!dog) {
+				dog = new Watchdog($elem);
+				$elem.data('watchdog', dog);
+				setInterval(function () {
+					dog.prowl();
+				}, 100);
+			}
+		});
+	}
+
+	function handlePack($elements, method) {
+		var args = Array.prototype.slice.call(arguments, 2);
+		$elements.each(function () {
+			var dog = $(this).data('watchdog');
+			dog[method].apply(dog, args);
+		});
+	}
 
 	/**
 	 * Watch a set of elements for changes and call the callback when something
@@ -25,38 +78,21 @@
 	 *
 	 * @param Function bark The callback to execute
 	 */
-	$.fn.watchdog = function watchdog(bark) {
+	$.fn.watchdog = function watchdog(command) {
 		var targets = $(this);
 
 		if (!targets.length) {
 			return targets;
 		}
 
-		targets.each(function () {
-			var $elem = $(this),
-				data = $elem.data('watchdog');
+		// Ensure there are watchdogs on all elements
+		addWatchdogs(targets);
 
-			if ($elem.data('watchdog')) {
-				// Already watching the element, so just add to the barks
-				data.barks.push(bark);
-			} else {
-				data = {
-					prowl: window.setInterval(function () {
-						var i, v = $elem.val();
+		// If the command is a function, treat it as a bark (a callback)
+		if (typeof command === 'function') {
+			handlePack(targets, 'addBark', command);
+		}
 
-						if (v !== data.oldVal) {
-							data.oldVal = v;
-
-							for (i = 0; i < data.barks.length; i += 1) {
-								data.barks[i](v, $elem);
-							}
-						}
-					}, 100),
-					oldVal: null,
-					barks: [ bark ]
-				};
-				$elem.data('watchdog', data);
-			}
-		});
+		handlePack(targets, 'refresh');
 	};
 }(jQuery));
