@@ -1,28 +1,21 @@
 !!! 5
-html(lang="en")
+html(lang="en", ng-app)
 	head
 		block head
 			meta(charset="utf-8")
 			title
 				block title
 					= page.metadata.title
-			link(rel="stylesheet", href="/css/bootstrap.min.css")
 			link(rel="stylesheet", href="/css/site.css")
 			if page.metadata.css
 				- var cssfiles = page.metadata.css.split(' ')
 				each cssfile in cssfiles
 					link(rel="stylesheet", href=cssfiles)
-			script(type="text/javascript", src="/js/jquery-1.8.2.min.js")
-			script(type="text/javascript", src="/js/bootstrap.min.js")
-			if page.metadata.jsonform
-				script(type="text/javascript", src="/js/underscore-min.js")
-				script(type="text/javascript", src="/js/jsv.js")
-				script(type="text/javascript", src="/js/jsonform.js")
-				script(type="text/javascript", src="/js/jsonform-auto.js")
 			if page.metadata.js
 				- var jsfiles = page.metadata.js.split(' ')
 				each jsfile in jsfiles
 					script(type="text/javascript", src=jsfile)
+			script(type="text/javascript", src="/js/site.js")
 	body
 		.wrapper
 			nav
