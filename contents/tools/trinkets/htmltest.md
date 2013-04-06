@@ -1,12 +1,11 @@
 ---
 title: HTML Code Tester
 template: page.jade
-js: /js/jquery.autosize.js /js/jquery.watchdog.js htmltest.js
 ---
 
 Type in HTML and see what it produces below.
 
-<textarea class="input wide"></textarea>
+<textarea class="wide" ng-model="htmlData" ui-jq="autosize"></textarea>
 
-<div class="output outline"></div>
+<div class="outline" ng-bind-html-unsafe="htmlData"></div>
 
