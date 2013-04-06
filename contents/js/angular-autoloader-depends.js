@@ -18,6 +18,11 @@
 				"jquery"
 			]
 		},
+		"auto-grow": {
+			"js": "/js/directives/auto-grow.js",
+			"depends": "angular",
+			"detect": "auto-grow"
+		},
 		"jquery": {
 			"js": "/js/jquery-1.9.1.min.js"
 		}

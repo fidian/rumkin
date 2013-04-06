@@ -1,4 +1,4 @@
-/*global document, window*/
+/*global angular, document, window*/
 (function () {
 	'use strict';
 
@@ -112,6 +112,10 @@
 		scan(document, foundTags);
 		needed = detectModules(window.angularAutoload, foundTags);
 		addTags(needed, window.angularAutoload);
+		setTimeout(function () {
+			console.log('bootstrap');
+			angular.bootstrap(document, ['autoGrow']);
+		}, 1000);
 	}
 
 	document.addEventListener("DOMContentLoaded", loaded, false);
