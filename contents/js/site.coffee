@@ -1,2 +1,2 @@
-#= require angular-autoloader-depends
 #= require angular-autoloader
+#= require angular-autoloader-rules
