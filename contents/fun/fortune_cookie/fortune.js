@@ -1,17 +1,21 @@
-/*global $, fortunes*/
-$(function () {
+/*global autoloader, fortunes, angular*/
+(function () {
 	'use strict';
 
-	function showFortune() {
-		// Pick a random one
-		var i;
-		i = Math.floor(fortunes.length * Math.random());
-		$('.fortune_cookie span').text(fortunes[i]);
-	}
+	autoloader.angularModules.push('fortune');
+	autoloader.onload.push(function () {
+		angular.module('fortune', []).controller("FortuneController", ['$scope', function ($scope) {
+			function pickNewFortune(list) {
+				var i;
+				i = Math.floor(list.length * Math.random());
+				return list[i];
+			}
 
-	showFortune();
-	$('a.another_fortune').click(function () {
-		showFortune();
-		return false;
+			$scope.fortunes = fortunes;
+			$scope.current = pickNewFortune($scope.fortunes);
+			$scope.another = function () {
+				$scope.current = pickNewFortune($scope.fortunes);
+			};
+		}]);
 	});
-});
+}());

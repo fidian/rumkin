@@ -7,6 +7,7 @@ css: fortune.css
 
 I collect fortune cookie sayings whenever I find them.  Here's one that has been picked just for you.
 
-<div class="center fortune_cookie"><span></span></div>
-
-<a href="#" class="another_fortune">Want another?</a>
+<div ng-controller="FortuneController">
+	<div class="center fortune_cookie"><span ng-bind="current"></span></div>
+	<button type="button" ng-click="another()">Want another?</button>
+</div>
