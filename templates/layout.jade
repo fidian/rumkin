@@ -11,11 +11,11 @@ html(lang="en")
 				- var cssfiles = page.metadata.css.split(' ')
 				each cssfile in cssfiles
 					link(rel="stylesheet", href=cssfiles)
+			script(type="text/javascript", src="/js/site.js")
 			if page.metadata.js
 				- var jsfiles = page.metadata.js.split(' ')
 				each jsfile in jsfiles
 					script(type="text/javascript", src=jsfile)
-			script(type="text/javascript", src="/js/site.js")
 	body
 		.wrapper
 			nav
