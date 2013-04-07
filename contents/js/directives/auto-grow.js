@@ -16,7 +16,6 @@
 (function () {
 	'use strict';
 	angular.module('autoGrow', []).directive('autoGrow', function () {
-		console.log('autoGrow!  Finally!');
 		return function (scope, element, attr) {
 			var minHeight = element[0].offsetHeight,
 				paddingLeft = element.css('paddingLeft'),
