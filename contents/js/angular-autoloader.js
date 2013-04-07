@@ -11,6 +11,7 @@
 		this.rules = rules;
 		this.numberLoading = 0;
 		this.angularModules = [];
+		this.onload = [];
 	}
 
 	proto = AngularAutoloader.prototype;
@@ -158,7 +159,6 @@
 	proto.addTags = function (moduleName, onload) {
 		var myself;
 		myself = this;
-		console.log(this.rules, moduleName);
 		iterate(this.rules[moduleName].js, function (url) {
 			var node;
 			node = myself.addScriptTag(url);
@@ -188,6 +188,9 @@
 		});
 		iterate(this.rules[moduleName].module, function (angularModule) {
 			myself.angularModules.push(angularModule);
+		});
+		iterate(this.rules[moduleName].onload, function (onload) {
+			myself.onload.push(onload);
 		});
 	};
 
@@ -225,10 +228,9 @@
 	};
 
 	proto.loadingComplete = function () {
-		// All done
-		if (this.loadedModules.angular) {
-			angular.bootstrap(document, this.angularModules);
-		}
+		iterate(this.onload, function (cb) {
+			cb();
+		});
 	};
 
 	/**

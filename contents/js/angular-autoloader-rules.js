@@ -1,4 +1,4 @@
-/*global AngularAutoloader*/
+/*global angular, AngularAutoloader, document, window*/
 (function () {
 	'use strict';
 	var autoloader;
@@ -6,10 +6,18 @@
 		"angular": {
 			"js": "/js/angular/angular.min.js",
 			"detect": [
+				"ng-click",
+				"ng-controller",
 				"ng-bind",
 				"ng-bind-unsafe-html",
-				"ng-model"
-			]
+				"ng-model",
+				"ng-repeat",
+				"ng-submit"
+			],
+			"onload": function () {
+				console.log(autoloader.angularModules);
+				angular.bootstrap(document, autoloader.angularModules);
+			}
 		},
 		"angular-ui": {
 			"js": "/js/angular-ui/build/angular-ui.min.js",
@@ -31,4 +39,5 @@
 		}
 	});
 	autoloader.init();
+	window.autoloader = autoloader;
 }());
