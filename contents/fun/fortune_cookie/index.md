@@ -1,7 +1,7 @@
 ---
 title: Fortune Cookie
 template: page.jade
-js: fortunes.js fortune.js
+js: fortunes.js fortune-controller.js
 css: fortune.css
 ---
 
