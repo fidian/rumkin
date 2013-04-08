@@ -15,7 +15,6 @@
 				"ng-submit"
 			],
 			"onload": function () {
-				console.log(autoloader.angularModules);
 				angular.bootstrap(document, autoloader.angularModules);
 			}
 		},
