@@ -1,14 +1,14 @@
 ---
 title: Scoreboard
 template: page.jade
-js: /js/util.js scoreboard.js
+js: /js/util.js /js/jquery-1.9.1.min.js scoreboard.js
 css: scoreboard.css
 ---
 
 King Boreas' Hall of Fame
 -------------------------
 
-Last Updated: June 1<sup>st</sup>, 2006 with number 194
+Last Updated: April 7<sup>th</sup>, 2013 with number 196
 
 [King Boreas] has a [scoreboard] that lists people who have helped him out with his various [geocaches].  He modeled it after the [9Key Hall of Fame], but he didn't have that cool image thing at the bottom, so I decided to see if I could write something similar without using any images.  If anyone wants to use this, feel free!  ([Licensing info])
 

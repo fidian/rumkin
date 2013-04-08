@@ -344,5 +344,7 @@ jQuery(function () {
 		'CamoCacher',
 		'TeamVE',
 		'PharmTeam',
-		'Sokratz']);
+		'Sokratz',
+		'TheGilby3',
+		'Lady Z']);
 });
