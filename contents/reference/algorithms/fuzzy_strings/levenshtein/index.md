@@ -29,6 +29,8 @@ The Levenshtein distance algorithm has been used in:
 * DNA analysis 
 * Plagiarism detection
 
+<div class="ng-cloak">
+
 Demonstration
 =============
 
@@ -37,7 +39,9 @@ The following simple JavaScript demo allows you to experiment with different str
 Compare two strings:<br>
 1: <input ng-model="a"><br>
 2: <input ng-model="b"><br>
-Distance: <span class="result" ng-bind="result">Sorry, you need JavaScript.</span>
+Distance: <span class="result" ng-bind="result"></span>
+
+</div>
 
 The Algorithm
 =============

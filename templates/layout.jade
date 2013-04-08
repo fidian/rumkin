@@ -57,7 +57,7 @@ html(lang="en")
 						block header
 							h1= page.metadata.title
 				if page.metadata.controller
-					div(ng-controller=page.metadata.controller)
+					div.ng-cloak(ng-controller=page.metadata.controller)
 						block content
 							p Content should have gone here
 				else
