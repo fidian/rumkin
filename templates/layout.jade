@@ -56,8 +56,13 @@ html(lang="en")
 					div.header
 						block header
 							h1= page.metadata.title
-				block content
-					p Content should have gone here
+				if page.metadata.controller
+					div(ng-controller=page.metadata.controller)
+						block content
+							p Content should have gone here
+				else
+					block content
+						p Content should have gone here
 		footer
 			div.inner
 				block footer

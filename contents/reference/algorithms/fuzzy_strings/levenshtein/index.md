@@ -3,6 +3,7 @@ title: Levenshtein Distance, in Three Flavors
 template: index.jade
 js: ../levenshtein.js ../levenshtein-controller.js
 css: index.css
+controller: LevenshteinController
 ---
 
 by Michael Gilleland, Merriam Park Software
@@ -33,12 +34,10 @@ Demonstration
 
 The following simple JavaScript demo allows you to experiment with different strings and compute their Levenshtein distance:
 
-<div ng-controller="LevenshteinController">
 Compare two strings:<br>
 1: <input ng-model="a"><br>
 2: <input ng-model="b"><br>
 Distance: <span class="result" ng-bind="result">Sorry, you need JavaScript.</span>
-</div>
 
 The Algorithm
 =============
