@@ -1,17 +1,18 @@
 ---
 title: Rainbow Text Generator
 template: page.jade
-js: /js/jquery.watchdog.js /js/util.js rainbow.js
+js: /js/util.js rainbow-controller.js
+controller: RainbowController
 ---
 
 Enter in anything that you want converted into a rainbow.  It will gently fade from letter to letter.  Then, you can copy the generated HTML into your web page.
 
-<input type="text" class="input">
+<input type="text" ng-model="input" class="wide">
 
 This is the result:
 
-<p><b class="show outline"></b></p>
+<p class="outline"><b ng-bind-html-unsafe="output"></b></p>
 
 And here's the HTML in case you like what you see:
 
-<div class="showText outline"></div>
+<div class="outline" ng-bind="output"></div>
