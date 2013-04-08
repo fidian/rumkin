@@ -1,4 +1,4 @@
-/*global window */
+/*global document, window */
 (function () {
 	'use strict';
 
@@ -79,6 +79,20 @@
 			high = Math.floor(num / 16);
 
 			return (high.toString(16) + low.toString(16)).toUpperCase();
+		},
+
+
+		/**
+		 * Encode a string to make it HTML-safe
+		 *
+		 * @param String input
+		 * @return String
+		 */
+		htmlencode: function (input) {
+			var div;
+			div = document.createElement('div');
+			div.appendChild(document.createTextNode(input));
+			return div.innerHTML;
 		},
 
 
