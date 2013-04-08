@@ -15,7 +15,6 @@
 
 			$scope.$watch('a', recalc);
 			$scope.$watch('b', recalc);
-			window.asdf = $scope;
 		}]);
 	});
 }());
