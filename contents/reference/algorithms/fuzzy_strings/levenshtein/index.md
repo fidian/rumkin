@@ -1,8 +1,9 @@
 ---
 title: Levenshtein Distance, in Three Flavors
 template: index.jade
-js: ../levenshtein.js ../levenshtein-controller.js
+js: ../levenshtein.js /js/angular/angular.min.js levenshtein-controller.js
 css: index.css
+module: levenshtein
 controller: LevenshteinController
 ---
 

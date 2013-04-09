@@ -1,5 +1,5 @@
 !!! 5
-html(lang="en")
+html(lang="en", ng-app=page.metadata.module)
 	head
 		block head
 			meta(charset="utf-8")
@@ -11,7 +11,6 @@ html(lang="en")
 				- var cssfiles = page.metadata.css.split(' ')
 				each cssfile in cssfiles
 					link(rel="stylesheet", href=cssfiles)
-			script(type="text/javascript", src="/js/site.js")
 			if page.metadata.js
 				- var jsfiles = page.metadata.js.split(' ')
 				each jsfile in jsfiles

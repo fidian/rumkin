@@ -7,32 +7,29 @@
 (function () {
 	'use strict';
 
-	autoloader.angularModules.push('js-chars');
-	autoloader.onload.push(function () {
-		angular.module('js-chars', []).controller("JsCharsController", ['$scope', function ($scope) {
-			function makeOutput() {
-				var c, i, len, o;
+	angular.module('js-chars', ['autoGrow']).controller("JsCharsController", ['$scope', function ($scope) {
+		function makeOutput() {
+			var c, i, len, o;
 
-				o = '';
-				len = $scope.input.length;
+			o = '';
+			len = $scope.input.length;
 
-				for (i = 0; i < len; i += 1) {
-					if (i) {
-						o += ' ';
-					}
-
-					c = $scope.input.charCodeAt(i);
-					o += util.hexByte(c / 256) + util.hexByte(c % 256);
+			for (i = 0; i < len; i += 1) {
+				if (i) {
+					o += ' ';
 				}
 
-				$scope.output = o;
+				c = $scope.input.charCodeAt(i);
+				o += util.hexByte(c / 256) + util.hexByte(c % 256);
 			}
 
-			$scope.input = "";
-			makeOutput();
+			$scope.output = o;
+		}
 
-			$scope.$watch('input', makeOutput);
-		}]);
-	});
+		$scope.input = "";
+		makeOutput();
+
+		$scope.$watch('input', makeOutput);
+	}]);
 }());
 

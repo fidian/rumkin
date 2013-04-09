@@ -1,8 +1,9 @@
 ---
 title: JS Chars
 template: page.jade
-js: /js/util.js js-chars-controller.js
+js: /js/util.js /js/angular/angular.min.js /js/directives/auto-grow.js js-chars-controller.js
 controller: JsCharsController
+module: js-chars
 ---
 
 Want to know the hex codes for unicode characters?  This will do it for you.  Just type and see what I mean.  When you type things in, you will see letters and numbers appear below this paragraph.  These things are the unicode hex codes for every character in the box above, including spaces, tabs, and newlines.

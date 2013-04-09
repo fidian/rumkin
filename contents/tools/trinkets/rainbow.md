@@ -1,8 +1,9 @@
 ---
 title: Rainbow Text Generator
 template: page.jade
-js: /js/util.js rainbow-controller.js
+js: /js/util.js /js/angular/angular.min.js /js/directives/auto-grow.js rainbow-controller.js
 controller: RainbowController
+module: rainbow
 ---
 
 Enter in anything that you want converted into a rainbow.  It will gently fade from letter to letter.  Then, you can copy the generated HTML into your web page.

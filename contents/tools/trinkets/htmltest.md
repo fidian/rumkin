@@ -1,6 +1,8 @@
 ---
 title: HTML Code Tester
 template: page.jade
+js: /js/angular/angular.min.js /js/directives/auto-grow.js
+module: autoGrow
 ---
 
 Type in HTML and see what it produces below.
