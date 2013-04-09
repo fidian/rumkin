@@ -6,12 +6,14 @@
 		"angular": {
 			"js": "/js/angular/angular.min.js",
 			"detect": [
+				"ng-class",
 				"ng-click",
 				"ng-controller",
 				"ng-bind",
 				"ng-bind-unsafe-html",
 				"ng-model",
 				"ng-repeat",
+				"ng-show",
 				"ng-submit"
 			],
 			"onload": function () {

@@ -1,137 +1,12 @@
-/**
- * Create a scoreboard
- *
- * Copyright 2012 Tyler Akins
- * http://rumkin.com/license.html
- *
- * Requires jQuery
- */
-/*global window, module, jQuery, util*/
-jQuery(function () {
+/*global angular, autoloader, util*/
+(function () {
 	'use strict';
 
-	var $ = jQuery;
-
-	function scoreboard(target, tallies) {
-		var i, talliesByName = {}, $menu, $content, $linkTop10, $linkFull, $linkAlpha;
-
-		// Count tallies
-		util.each(tallies, function (val) {
-			if (!talliesByName[val]) {
-				talliesByName[val] = {
-					name: val,
-					count: 1
-				};
-			} else {
-				talliesByName[val].count += 1;
-			}
-		});
-
-		// Convert to array
-		tallies = [];
-		util.each(talliesByName, function (val) {
-			tallies.push(val);
-		});
-
-		function sortByCount(a, b) {
-			if (a.count < b.count) {
-				return 1;
-			}
-
-			if (a.count > b.count) {
-				return -1;
-			}
-
-			return 0;
-		}
-
-		function sortByName(a, b) {
-			if (a.name.toUpperCase() > b.name.toUpperCase()) {
-				return 1;
-			}
-
-			if (a.name.toUpperCase() < b.name.toUpperCase()) {
-				return -1;
-			}
-
-			return 0;
-		}
-
-
-		function switchTo($link) {
-			if ($link.hasClass('scoreboard_active')) {
-				return false;
-			}
-
-			$('.scoreboard_link.scoreboard_active').removeClass('scoreboard_active');
-			$link.addClass('scoreboard_active');
-			return true;
-		}
-
-		function displayList(type, list) {
-			var i, $result;
-			$result = $(type);
-			util.each(list, function (val) {
-				$result.append($('<li/>').text(val.name + ' = ' + val.count));
-			});
-			$content.append($result);
-			$content.empty().append($result);
-			return $result;
-		}
-
-		function top10() {
-			var list, $result;
-
-			if (switchTo($linkTop10)) {
-				list = tallies.sort(sortByCount);
-				list = list.slice(0, 10);
-				$result = displayList('<ol/>', list);
-				$result.addClass('scoreboard_top10');
-			}
-
-			return false;
-		}
-
-		function full() {
-			var list;
-
-			if (switchTo($linkFull)) {
-				list = tallies.sort(sortByCount);
-				displayList('<ol/>', list);
-			}
-
-			return false;
-		}
-
-		function alpha() {
-			var list;
-
-			if (switchTo($linkAlpha)) {
-				list = tallies.sort(sortByName);
-				displayList('<ul/>', list);
-			}
-
-			return false;
-		}
-
-		$linkTop10 = $('<span/>').click(top10).addClass('scoreboard_link').text('Top 10');
-		$linkFull = $('<span/>').click(full).addClass('scoreboard_link').text('Full List');
-		$linkAlpha = $('<span/>').click(alpha).addClass('scoreboard_link').text('By Name');
-		$menu = $('<div/>').addClass('scoreboard_menu');
-		$menu.append($linkTop10).append($linkFull).append($linkAlpha);
-		$content = $('<div/>').addClass('scoreboard_content');
-		$(target).append($menu).append($content);
-
-		top10();
-	}
-
-	if (typeof module === 'object' && module.exports) {
-		module.exports = scoreboard;
-	}
+	var tallies, scores;
 
 	// Add points for everyone in the order that the points were
 	// received.
-	scoreboard('#scoreboard', [
+	tallies = [
 		'15Tango',
 		'Silent Bob',
 		'arcticabn',
@@ -346,5 +221,76 @@ jQuery(function () {
 		'PharmTeam',
 		'Sokratz',
 		'TheGilby3',
-		'Lady Z']);
-});
+		'Lady Z'];
+
+	function countScores(tallies) {
+		var talliesByName = {};
+
+		// Count tallies
+		util.each(tallies, function (val) {
+			if (!talliesByName[val]) {
+				talliesByName[val] = {
+					name: val,
+					count: 1
+				};
+			} else {
+				talliesByName[val].count += 1;
+			}
+		});
+
+		// Convert to array
+		scores = [];
+		util.each(talliesByName, function (val) {
+			scores.push(val);
+		});
+
+		return scores;
+	}
+
+	function sortByCount(a, b) {
+		if (a.count < b.count) {
+			return 1;
+		}
+
+		if (a.count > b.count) {
+			return -1;
+		}
+
+		return 0;
+	}
+
+	function sortByName(a, b) {
+		if (a.name.toUpperCase() > b.name.toUpperCase()) {
+			return 1;
+		}
+
+		if (a.name.toUpperCase() < b.name.toUpperCase()) {
+			return -1;
+		}
+
+		return 0;
+	}
+
+	scores = countScores(tallies);
+
+	autoloader.angularModules.push('scoreboard');
+	autoloader.onload.push(function () {
+		angular.module('scoreboard', []).controller("ScoreboardController", ['$scope', function ($scope) {
+			$scope.pickLink = function (n) {
+				$scope.top10 = false;
+				$scope.full = false;
+				$scope.name = false;
+				$scope[n] = true;
+			};
+
+			$scope.top10 = true;
+			$scope.full = false;
+			$scope.name = false;
+			$scope.tallies = tallies;
+
+			$scope.fullList = scores.sort(sortByCount).slice();
+			$scope.top10List = $scope.fullList.slice(0, 10);
+			$scope.nameList = scores.sort(sortByName).slice();
+		}]);
+	});
+}());
