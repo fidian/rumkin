@@ -1,0 +1,3746 @@
+
+
+###############################################################################
+###############################################################################
+### ACPID                                                                   ###
+###############################################################################
+# Currently available packages:
+# - acpid-20010510
+ACPID_SRC=no
+
+###############################################################################
+# acpid-20010510                                                              #
+# Title:        ACPI Control Daemon
+# Menu:         utilities/powermgmt
+# URL:          http://phobos.fs.tum.de/acpi/index.html
+#
+# acpid-20010510                                                              #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### AUMIX                                                                   ###
+###############################################################################
+# Currently available packages:
+# - aumix-2.7
+AUMIX_SRC=no
+
+###############################################################################
+# aumix-2.7                                                                   #
+# Title:        aumix
+# Description:  Command line audio mixer.
+# Menu:         utilities/sound
+# URL:          http://jpj.net/~trevor/aumix.html
+#
+# aumix-2.7                                                                   #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### MPG123                                                                  ###
+###############################################################################
+# Currently available packages:
+# - mpg123-0.59r
+MPG123_SRC=no
+
+###############################################################################
+# mpg123-0.59r                                                                #
+# Title: The mpg123 mp3 player
+# Menu:  utilities/sound
+# URL:          http://www.mpg123.de/
+#
+# mpg123-0.59r                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### BUSYBOX                                                                 ###
+###############################################################################
+# only one package is available:
+# - busybox-0.61
+BUSYBOX_SRC=yes
+
+###############################################################################
+# busybox-0.61                                                                #
+# Title:        Busybox (Shell Utilities)
+# Description:  Busybox provides a lot of important shell utilities, although
+#               in most cases simplified and smaller ones than the "real" GNU
+#               utilities. The advantage is a smaller footprint.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+# URL:          http://busybox.lineo.com/
+
+# Name:         BUSYBOX_ROOT
+# Description:  List of busybox tools to install in the root partition. The names used must be the ones
+#               defined in Config.h (in the busybox tarball), without the leading CONFIG_. Instead of
+#               a list of utilities you can also set the variable to 'fat' in order to install everything.
+#               Be aware that midori linux packages can also add tools by appending their names to the file
+#               cache/image/busybox.root.
+# Type:         PERL
+#               package BUSYBOX_ROOT_61;
+#               @ISA=qw( PARAMETER );
+#               my @bb=( 
+#                       "FEATURE_VERBOSE_USAGE",
+#                       "LOCALE_SUPPORT",
+#                       "FEATURE_UNCOMPRESS",
+#                       "FEATURE_DEVFS",
+#                       "FEATURE_SUID",
+#                       "AR",
+#                       "BUNZIP2",
+#                       "CPIO",
+#                       "DPKG",
+#                       "DPKG_DEB",
+#                       "GUNZIP",
+#                       "GZIP",
+#                       "RPM2CPIO",
+#                       "TAR",
+#                       "FEATURE_TAR_CREATE",
+#                       "FEATURE_TAR_EXCLUDE",
+#                       "FEATURE_TAR_GZIP",
+#                       "FEATURE_TAR_OLD_FORMAT",
+#                       "FEATURE_GNUTAR_LONG_FILENAME",
+#                       "FEATURE_UNARCHIVE_TAPE",
+#                       "UNZIP",
+#                       "CHVT",
+#                       "CLEAR",
+#                       "DEALLOCVT",
+#                       "DUMPKMAP",
+#                       "LOADACM",
+#                       "LOADFONT",
+#                       "LOADKMAP",
+#                       "OPENVT",
+#                       "RESET",
+#                       "SETKEYCODES",
+#                       "SED",
+#                       "VI",
+#                       "FEATURE_VI_COLON",
+#                       "FEATURE_VI_YANKMARK",
+#                       "FEATURE_VI_SEARCH",
+#                       "FEATURE_VI_USE_SIGNALS",
+#                       "FEATURE_VI_DOT_CMD",
+#                       "FEATURE_VI_READONLY",
+#                       "FEATURE_VI_SETOPTS",
+#                       "FEATURE_VI_SET",
+#                       "FEATURE_VI_WIN_RESIZE",
+#                       "FEATURE_VI_OPTIMIZE_CURSOR",
+#                       "FIND",
+#                       "FEATURE_FIND_MTIME",
+#                       "FEATURE_FIND_PERM",
+#                       "FEATURE_FIND_TYPE",
+#                       "FEATURE_FIND_XDEV",
+#                       "GREP",
+#                       "FEATURE_GREP_EGREP_ALIAS",
+#                       "FEATURE_GREP_CONTEXT",
+#                       "WHICH",
+#                       "XARGS",
+#                       "POWEROFF",
+#                       "RUN_PARTS",
+#                       "MESG",
+#                       "ADJTIMEX",
+#                       "DC",
+#                       "DUTMP",
+#                       "MAKEDEVS",
+#                       "MKTEMP",
+#                       "MT",
+#                       "READLINK",
+#                       "TIME",
+#                       "UPDATE",
+#                       "WATCHDOG",
+#                       "INSMOD",
+#                       "LSMOD",
+#                       "MODPROBE",
+#                       "RMMOD",
+#                       "FEATURE_NEW_MODULE_INTERFACE",
+#                       "FEATURE_INSMOD_VERSION_CHECKING",
+#                       "FEATURE_QUERY_MODULE_INTERFACE",
+#                       "HOSTNAME",
+#                       "IFCONFIG",
+#                       "FEATURE_IFCONFIG_STATUS",
+#                       "FEATURE_IFCONFIG_SLIP",
+#                       "FEATURE_IFCONFIG_MEMSTART_IOADDR_IRQ",
+#                       "FEATURE_IFCONFIG_HW",
+#                       "FEATURE_IFCONFIG_BROADCAST_PLUS",
+#                       "NC",
+#                       "NETSTAT",
+#                       "NSLOOKUP",
+#                       "PING",
+#                       "FEATURE_FANCY_PING",
+#                       "ROUTE",
+#                       "TELNET",
+#                       "FEATURE_TELNET_TTYPE",
+#                       "TFTP",
+#                       "FEATURE_TFTP_GET",
+#                       "FEATURE_TFTP_PUT",
+#                       "FEATURE_TFTP_BLOCKSIZE",
+#                       "FEATURE_TFTP_DEBUG",
+#                       "TRACEROUTE",
+#                       "FEATURE_TRACEROUTE_VERBOSE",
+#                       "FEATURE_TRACEROUTE_SO_DEBUG",
+#                       "UDHCPC",
+#                       "WGET",
+#                       "FEATURE_WGET_STATUSBAR",
+#                       "FEATURE_WGET_AUTHENTICATION",
+#                       "USE_BB_PWD_GRP",
+#                       "ADDGROUP",
+#                       "DELGROUP",
+#                       "ADDUSER",
+#                       "DELUSER",
+#                       "GETTY",
+#                       "LOGIN",
+#                       "FEATURE_SECURETTY",
+#                       "PASSWD",
+#                       "SU",
+#                       "FEATURE_SHADOWPASSWDS",
+#                       "USE_BB_SHADOW",
+#                       "SULOGIN",
+#                       "VLOCK",
+#                       "FREE",
+#                       "KILL",
+#                       "KILLALL",
+#                       "PIDOF",
+#                       "PS",
+#                       "RENICE",
+#                       "TOP",
+#                       "UPTIME",
+#                       "ASH",
+#                       "ASH_JOB_CONTROL",
+#                       "ASH_ALIAS",
+#                       "ASH_MATH_SUPPORT",
+#                       "ASH_GETOPTS",
+#                       "ASH_CMDCMD",
+#                       "ASH_MAIL",
+#                       "ASH_OPTIMIZE_FOR_SIZE",
+#                       "HUSH",
+#                       "LASH",
+#                       "MSH",
+#                       "FEATURE_COMMAND_EDITING",
+#                       "FEATURE_COMMAND_TAB_COMPLETION",
+#                       "FEATURE_COMMAND_USERNAME_COMPLETION",
+#                       "FEATURE_SH_STANDALONE_SHELL",
+#                       "FEATURE_SH_APPLETS_ALWAYS_WIN",
+#                       "FEATURE_SH_FANCY_PROMPT",
+#                       "FEATURE_SH_EXTRA_QUIET",
+#                       "BASENAME",
+#                       "CAL",
+#                       "CHROOT",
+#                       "DATE",
+#                       "FEATURE_DATE_ISOFMT",
+#                       "DIRNAME",
+#                       "ECHO",
+#                       "ENV",
+#                       "EXPR",
+#                       "FALSE",
+#                       "HOSTID",
+#                       "ID",
+#                       "LOGNAME",
+#                       "PRINTF",
+#                       "PWD",
+#                       "SLEEP",
+#                       "STTY",
+#                       "TEE",
+#                       "TEST",
+#                       "TRUE",
+#                       "FALSE",
+#                       "TRUE",
+#                       "TTY",
+#                       "UNAME",
+#                       "USLEEP",
+#                       "WATCH",
+#                       "DATE",
+#                       "WHO",
+#                       "WHOAMI",
+#                       "YES",
+#                       "KLOGD",
+#                       "LOGGER",
+#                       "SYSLOGD",
+#                       "FEATURE_REMOTE_LOG",
+#                       "FEATURE_IPC_SYSLOG",
+#                       "LOGREAD",
+#                       "AWK",
+#                       "CAT",
+#                       "CMP",
+#                       "CUT",
+#                       "DOS2UNIX",
+#                       "HEAD",
+#                       "LENGTH",
+#                       "MD5SUM",
+#                       "OD",
+#                       "SORT",
+#                       "FEATURE_SORT_REVERSE",
+#                       "FEATURE_SORT_UNIQUE",
+#                       "TAIL",
+#                       "FEATURE_FANCY_TAIL",
+#                       "TR",
+#                       "UNIQ",
+#                       "UUDECODE",
+#                       "UUENCODE",
+#                       "WC",
+#                       "DMESG",
+#                       "FBSET",
+#                       "FEATURE_FBSET_FANCY",
+#                       "FEATURE_FBSET_READMODE",
+#                       "FDFLUSH",
+#                       "FREERAMDISK",
+#                       "FSCK_MINIX",
+#                       "MKFS_MINIX",
+#                       "FEATURE_MINIX2",
+#                       "GETOPT",
+#                       "HEXDUMP",
+#                       "HWCLOCK",
+#                       "FEATURE_HWCLOCK_LONGOPTIONS",
+#                       "LOSETUP",
+#                       "MKSWAP",
+#                       "MORE",
+#                       "FEATURE_USE_TERMIOS",
+#                       "FEATURE_AUTOWIDTH",
+#                       "PIVOT_ROOT",
+#                       "RDATE",
+#                       "SWAPONOFF",
+#                       "MOUNT",
+#                       "NFSMOUNT",
+#                       "UMOUNT",
+#                       "FEATURE_MOUNT_FORCE",
+#                       "FEATURE_MOUNT_LOOP",
+#                       "CHMOD",
+#                       "CHOWN",
+#                       "CHGRP",
+#                       "CP",
+#                       "DD",
+#                       "DF",
+#                       "DU",
+#                       "LN",
+#                       "LS",
+#                       "FEATURE_LS_FILETYPES",
+#                       "FEATURE_LS_FOLLOWLINKS",
+#                       "FEATURE_LS_RECURSIVE",
+#                       "FEATURE_LS_SORTFILES",
+#                       "FEATURE_LS_TIMESTAMPS",
+#                       "FEATURE_LS_USERNAME",
+#                       "FEATURE_LS_COLOR",
+#                       "MKDIR",
+#                       "MKFIFO",
+#                       "MKNOD",
+#                       "MV",
+#                       "RM",
+#                       "RMDIR",
+#                       "SYNC",
+#                       "TOUCH",
+#                       "FEATURE_PRESERVE_HARDLINKS",
+#                       "FEATURE_AUTOWIDTH",
+#                       "FEATURE_HUMAN_READABLE",
+#                       "KEYDOWN",
+#                       "SPAWN",
+#                       "ZAP",
+#                       "BACKLIGHT"
+#                       );
+#               my %bb;
+#               sub initialize { my $self=shift; bless $self; 
+#                       foreach my $i (@bb) { $bb{$i}=1; }
+#               }
+#               sub valign { return "valign=top"; }
+#               sub printacceptable {
+#                       my $self=shift; my $file=shift;
+#                       print $file "<tr><td>Acceptable Values:</td><td><small>Either \"fat\" or a list out of: ";
+#                       foreach my $i (@bb) { print $file "$i "; }
+#                       print $file ".</td></tr>\n";
+#               }
+#               sub printhtml {
+#                       my $self=shift; my $file=shift;
+#                       print $file "<table border=0>\n";
+#                       print $file "<tr><td><input type=radio name=".$self->name."r ".($self->edit =~ /fat/ ?"checked":"")." value=fat></td><td>fat</td></tr>\n";
+#                       print $file "<tr><td valign=top><input type=radio name=".$self->name."r ".($self->edit !~ /fat/ ?"checked":"")." value=list></td><td>select: <br><small>\n";
+#                       my $s=" ".$self->edit." ";
+#                       foreach my $i (@bb) { (my $j=$i)=~tr/A-Z/a-z/; print $file "<input type=checkbox ".($s =~ / $i /?"checked":"")." name=".$self->name."_$i>$j\n"; }
+#                       print $file "</small></td></tr></table>\n";
+#               }
+#               sub check {
+#                       my $self=shift;my $ch=shift;
+#                       return 1 if($ch eq "fat");
+#                       foreach my $i (split(/ +/,$ch)) { return 0 if($i ne "" && !defined($bb{$i})); }
+#                       return 1;
+#               }
+#               sub fixfields {
+#                       my $self=shift;my $fields=shift;
+#                       if($$fields{$self->name."r"} eq "fat") {
+#                               $$fields{$self->name}="fat";
+#                       } else {
+#                               $$fields{$self->name}="";
+#                               foreach my $i (@bb) { 
+#                                       $$fields{$self->name}.=" $i" if(defined($$fields{$self->name."_$i"}) && $$fields{$self->name."_$i"} eq "on");
+#                               }
+#                       }
+#               }
+#               1;
+# Default:      "PWD CAT CHMOD CHOWN CHGRP CP MV DATE ECHO LN KILL KILLALL MKDIR MOUNT RM SED SLEEP SU ZAP"
+BUSYBOX_ROOT=" FEATURE_VERBOSE_USAGE FEATURE_UNCOMPRESS FEATURE_DEVFS BUNZIP2 GUNZIP GZIP FEATURE_TAR_CREATE FEATURE_TAR_EXCLUDE FEATURE_TAR_GZIP UNZIP RESET SED FIND GREP FEATURE_GREP_EGREP_ALIAS FEATURE_GREP_CONTEXT WHICH TIME HOSTNAME IFCONFIG FEATURE_IFCONFIG_STATUS NSLOOKUP PING TELNET TFTP FEATURE_TFTP_GET FEATURE_TFTP_PUT FEATURE_TFTP_BLOCKSIZE TRACEROUTE WGET FEATURE_WGET_STATUSBAR SU KILL KILLALL PS TOP FEATURE_COMMAND_EDITING FEATURE_COMMAND_TAB_COMPLETION FEATURE_SH_FANCY_PROMPT BASENAME CAL CHROOT DIRNAME ECHO ENV PWD SLEEP TEE WHOAMI CAT CUT DOS2UNIX HEAD LENGTH MD5SUM SORT FEATURE_SORT_REVERSE FEATURE_SORT_UNIQUE TAIL FEATURE_FANCY_TAIL TR UNIQ UUDECODE UUENCODE WC DMESG HEXDUMP HWCLOCK MORE FEATURE_AUTOWIDTH MOUNT FEATURE_MOUNT_LOOP CHMOD CHOWN CHGRP CP DD DF DU LN LS FEATURE_LS_FILETYPES FEATURE_LS_FOLLOWLINKS FEATURE_LS_RECURSIVE FEATURE_LS_SORTFILES FEATURE_LS_TIMESTAMPS FEATURE_LS_USERNAME FEATURE_LS_COLOR MKDIR MV RM RMDIR SYNC TOUCH FEATURE_PRESERVE_HARDLINKS FEATURE_AUTOWIDTH FEATURE_HUMAN_READABLE KEYDOWN ZAP"
+
+# Name:         BUSYBOX_USR
+# Description:  List of busybox tools to install in the user partition. The names used must be the once
+#               defined in Config.h (in the busybox tarbal), without the leading CONFIG_. Instead of
+#               a list of utilities you can also set the variable to 'fat' in order to install everything.
+#               Note that if you list utilities that are also listed un BUSYBOX_ROOT they will be ignored
+#               here and not installed in the user partition.
+#               Be aware that midori linux packages can also add tools by appending their names to the file
+#               cache/image/busybox.usr.
+# Type:         PERL
+#               package BUSYBOX_USR_61;
+#               @ISA=qw( BUSYBOX_ROOT_61 );
+#               1;
+# Default:      ""
+# BUSYBOX_USR=""
+
+# Name:         BUSYBOX_FORBIDDEN
+# Description:  BUSYBOX_FORBIDDEN contains a few utilities that break the system if they are installed.
+#               They are best left alone.
+# Type:         READONLY
+# Default:      "FEATURE_MTAB_SUPPORT FEATURE_AWK_MATH HALT REBOOT FEATURE_BUFFERS_USE_MALLOC FEATURE_BUFFERS_GO_IN_BSS FEATURE_INSTALLER FEATURE_CLEAN_UP FEATURE_SUID_CONFIG FEATURE_SUID_CONFIG_QUIET INIT FEATURE_USE_INITTAB FEATURE_INITRD FEATURE_INIT_COREDUMPS FEATURE_EXTRA_QUIET FEATURE_OLD_MODULE_INTERFACE FEATURE_INSMOD_LOADINKMEM FEATURE_SH_IS_ASH FEATURE_SH_IS_HUSH FEATURE_SH_IS_LASH FEATURE_SH_IS_MSH"
+# BUSYBOX_FORBIDDEN="FEATURE_MTAB_SUPPORT FEATURE_AWK_MATH HALT REBOOT FEATURE_BUFFERS_USE_MALLOC FEATURE_BUFFERS_GO_IN_BSS FEATURE_INSTALLER FEATURE_CLEAN_UP FEATURE_SUID_CONFIG FEATURE_SUID_CONFIG_QUIET INIT FEATURE_USE_INITTAB FEATURE_INITRD FEATURE_INIT_COREDUMPS FEATURE_EXTRA_QUIET FEATURE_OLD_MODULE_INTERFACE FEATURE_INSMOD_LOADINKMEM FEATURE_SH_IS_ASH FEATURE_SH_IS_HUSH FEATURE_SH_IS_LASH FEATURE_SH_IS_MSH"
+
+
+# Name:         BUSYBOX_REQUIRED
+# Description:  BUSYBOX_REQUIRED contains a few utilities that must be set in order to get a working system
+#               They are best left alone.
+# Type:         READONLY
+# Default:      "FEATURE_BUFFERS_GO_ON_STACK FEATURE_SH_IS_NONE"
+# BUSYBOX_REQUIRED="FEATURE_BUFFERS_GO_ON_STACK FEATURE_SH_IS_NONE"
+
+# Name:         BUSYBOX_MLCONFIG_REBOOT
+# Description:  Set to yes if you want to include the option to reboot the machine
+#               into the mlconfig system
+# Type:         YESNO
+# Default:      yes
+# BUSYBOX_MLCONFIG_REBOOT="yes"
+
+# Name:         BUSYBOX_MLCONFIG_POWER_OFF
+# Description:  Set to yes if you want to include the option to power off the machine
+#               into the mlconfig system
+# Type:         YESNO
+# Default:      yes
+# BUSYBOX_MLCONFIG_POWER_OFF="yes"
+
+# Name:         BUSYBOX_MLCONFIG_SWITCH
+# Description:  Set to yes if you want to allow switching of console in the mlconfig system.
+# Type:         YESNO
+# Default:      yes
+# BUSYBOX_MLCONFIG_SWITCH="yes"
+
+# Name:         BUSYBOX_MLCONFIG_ROOT
+# Description:  Set to yes if you want to allow opening root console.
+# Type:         YESNO
+# Default:      yes
+# BUSYBOX_MLCONFIG_ROOT="yes"
+
+# Name:         BUSYBOX_MLCONFIG_TIME
+# Description:  Set to yes if you want to allow setting the time via the mlconfig interface
+# Type:         YESNO
+# Default:      yes
+# BUSYBOX_MLCONFIG_TIME="yes"
+
+# Name:         BUSYBOX_MLCONFIG_TIMEZONE
+# Description:  Set to yes if you want to allow setting the timezone via the mlconfig interface
+# Type:         YESNO
+# Default:      yes
+# BUSYBOX_MLCONFIG_TIMEZONE="yes"
+#
+# busybox-0.61                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### CRAMFS                                                                  ###
+###############################################################################
+# only one package is available:
+# - cramfs
+CRAMFS_SRC=yes
+
+###############################################################################
+# cramfs                                                                      #
+# Title:        cramfs
+# Description:  set to yes if you want cramfs. Cramfs is required by
+#               several other packages, and needs a kernel with some
+#               special patches applied. All tools will already be part
+#               of that kernel, this package just compiles them.
+# Menu:         utilities/os
+# URL:          http://midori.transmeta.com/
+#
+# cramfs                                                                      #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### CRAMFSBOOT                                                              ###
+###############################################################################
+# Currently available packages:
+# - cramfsboot
+CRAMFSBOOT_SRC=no
+
+###############################################################################
+# cramfsboot                                                                  #
+# Title:        Cramfs bootloader 
+# Description:  Currently the only boot loader supported by Midori linux.
+#               The bootloader depends on the options QUIET_BOOT and
+#               REGRESSION_TEST which are defined in other packages.
+# Menu:         utilities/os
+# URL:          http://midori.transmeta.com/
+
+# Name:         BOOT_SERVER
+# Description:  Support keyboardless servers. If this option is set to yes
+#               the bootloader behaves slightly different, in that it will
+#               now boot the active partition unless the highest bit of the cmos
+#               'alarm second' variable is set to one, in which case it will
+#               reset that bit and boot the first inactive partition.
+# Type:         YESNO
+# Default:      no
+# BOOT_SERVER="no"
+
+# Name:         SUPPORT_LBA
+# Description:  If the bootloader fails try to set  the following variable
+#               to yes, it changes the way the disk geometry is retrieved.
+# Type:         YESNO
+# Default:      yes
+# SUPPORT_LBA="yes"
+
+# Name:         SET_ACTIVE
+# Description:  If the non active partition was booted (either through user
+#               intervention or by setting the cmos bit) it should be marked
+#               as the active one at some point. Select the appropriate
+#               time for this.
+# Type:         ENUM (never:"Never, as there is some other program doing this",
+#                     boot:as soon as the kernel booted,
+#                     ping:as soon as a host can be pinged,
+#                     wget:as soon as a webpage can be loaded )
+# Default:      boot
+# SET_ACTIVE="boot"
+
+# Name:         SET_ACTIVE_ARGUMENT
+# Description:  Some of the options for SET_ACTIVE above require an argument
+#               (name the host to ping or the website to fetch). Enter it here.
+# Type:         STRING
+# Default:      
+# SET_ACTIVE_ARGUMENT=""
+
+# Name:         WATCHDOG_TIMER
+# Description:  If after the given number of seconds the bootet partition has
+#               not been activated, the system will reboot. Set to 0 to disable
+#               this feature.
+# Type:         INTEGER
+# Default:      0
+# WATCHDOG_TIMER="0"
+#
+# cramfsboot                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### E2FSPROGS                                                               ###
+###############################################################################
+# only one package is available:
+# - e2fsprogs-1.32
+E2FSPROGS_SRC=yes
+
+###############################################################################
+# e2fsprogs-1.32                                                              #
+# Title:        e2fprogs
+# Description:  set to yes if you want ext2 and ext3 utilities.
+# Menu:         utilities/os
+# URL:          http://e2fsprogs.sourceforge.net/
+#
+# e2fsprogs-1.32                                                              #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### EXT3FSCONFIG                                                            ###
+###############################################################################
+# Currently available packages:
+# - ext3fsconfig
+EXT3FSCONFIG_SRC=no
+
+###############################################################################
+# ext3fsconfig                                                                #
+# Title:        Manage Small R/W Area
+# Description:  Installs some scripts to use a partition as a means
+#               to save some configuration data.
+# Packager:     Lee Nash
+# Menu:         utilities/os
+# URL:          http://linux.leeandjennifer.com
+
+# Name:         CONFIG_PARTITION
+# Description:  the partition to use for config data (partition number only).
+#               The name of the device is defined in IMAGE_DEVICE
+# Type:         REGEX [1234]
+# Default:      2
+# CONFIG_PARTITION="2"
+
+# Name:         CONFIG_DIR
+# Description:  Where to write config data to in the root directory
+# Type:         STRING
+# Default:      /config
+# CONFIG_DIR="/config"
+
+# Name:         CONFIG_CREATE_SCRIPT
+# Description:  script to create the config image, relative to $BUILD
+# Type:         STRING
+# Default:      ${TARGET}/create_config_image
+# CONFIG_CREATE_SCRIPT="${TARGET}/create_config_image"
+#
+# ext3fsconfig                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### HDPARM                                                                  ###
+###############################################################################
+# Currently available packages:
+# - hdparm-4.1
+HDPARM_SRC=no
+
+###############################################################################
+# hdparm-4.1                                                                  #
+# Title:        hdparm
+# Menu:         utilities/os
+# URL:          http://www.ibiblio.org/pub/Linux/system/hardware/hdparm-4.1.tar.gz
+
+# Name:         HDPARM_FLAGS_HDA
+# Description:  Commands for changing the settings of the IDE drives
+#               on the target. 
+#               One config option for each of the first two master 
+#               and slave drives in the system.
+#               Format is /sbin/hdparm $HDPARM_FLAGS_HDA /dev/hda
+#               Leave null to not run hdparm on the drive
+# Default:      ""
+# HDPARM_FLAGS_HDA=""
+
+# Name:         HDPARM_FLAGS_HDB
+# Description:  Commands for changing the settings of the IDE drives
+#               on the target.
+#               One config option for each of the first two master
+#               and slave drives in the system.
+#               Format is /sbin/hdparm $HDPARM_FLAGS_HDB /dev/hdb
+#               Leave null to not run hdparm on the drive
+# Default:      ""
+# HDPARM_FLAGS_HDB=""
+
+# Name:         HDPARM_FLAGS_HDC
+# Description:  Commands for changing the settings of the IDE drives
+#               on the target.
+#               One config option for each of the first two master
+#               and slave drives in the system.
+#               Format is /sbin/hdparm $HDPARM_FLAGS_HDC /dev/hdc
+#               Leave null to not run hdparm on the drive
+# Default:      ""
+# HDPARM_FLAGS_HDC=""
+
+# Name:         HDPARM_FLAGS_HDD
+# Description:  Commands for changing the settings of the IDE drives
+#               on the target.
+#               One config option for each of the first two master
+#               and slave drives in the system.
+#               Format is /sbin/hdparm $HDPARM_FLAGS_HDD /dev/hdd
+#               Leave null to not run hdparm on the drive
+# Default:      ""
+# HDPARM_FLAGS_HDD=""
+#
+# hdparm-4.1                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### HWCLOCK                                                                 ###
+###############################################################################
+# Currently available packages:
+# - hwclock-2.10n
+HWCLOCK_SRC=no
+
+###############################################################################
+# hwclock-2.10n                                                               #
+# Title:        Read/Write CMOS Date
+# Description:  install program to read/write cmos time
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+# URL:          ftp://ftp.win.tue.nl/pub/linux-local/utils/util-linux/
+
+# Name:         HWCLOCK_COMMAND
+# Description:  Command string (including options) to be added to the
+#               hwclock init script.  If empty, no hwclock command is
+#               run at boot.  Example: "/usr/sbin/hwclock --hctosys"
+# Type:         STRING
+# Default:      ""
+# HWCLOCK_COMMAND=""
+#
+# hwclock-2.10n                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### JFFS2CONFIG                                                             ###
+###############################################################################
+# only one package is available:
+# - jffs2config
+JFFS2CONFIG_SRC=yes
+
+###############################################################################
+# jffs2config                                                                 #
+# Title:        Manage Small R/W Area
+# Description:  Installs some scripts to use a partition as a means
+#               to save some configuration data.
+# Packager:     Lee Nash
+# Menu:         utilities/os
+# URL:          http://linux.leeandjennifer.com
+
+# Name:         CONFIG_PARTITION
+# Description:  the partition to use for config data (partition number only).
+#               The name of the device is defined in IMAGE_DEVICE
+# Type:         REGEX [1234]
+# Default:      2
+# CONFIG_PARTITION="2"
+
+# Name:         CONFIG_DIR
+# Description:  Where to write config data to in the root directory
+# Type:         STRING
+# Default:      /config
+# CONFIG_DIR="/config"
+
+# Name:         CONFIG_CREATE_SCRIPT
+# Description:  script to create the config image, relative to $BUILD
+# Type:         STRING
+# Default:      ${TARGET}/create_config_image
+# CONFIG_CREATE_SCRIPT="${TARGET}/create_config_image"
+#
+# jffs2config                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### LOGD                                                                    ###
+###############################################################################
+# Currently available packages:
+# - logd
+LOGD_SRC=no
+
+###############################################################################
+# logd                                                                        #
+# Title:        logd
+# Description:  simple log daemon
+# Menu:         utilities/os
+# URL:          http://midori.transmeta.com/
+
+# Name:         LOGD_OPTIONS
+# Description:  logd gets run at system boot time.
+#               This option specifies the logd command line arguments.
+# Type:         STRING
+# Default:      "-l 32768 -f /tmp/messages -f /dev/vc/4"
+# LOGD_OPTIONS="-l 32768 -f /tmp/messages -f /dev/vc/4"
+#
+# logd                                                                        #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PACKCRAMFS                                                              ###
+###############################################################################
+# only one package is available:
+# - packcramfs
+PACKCRAMFS_SRC=yes
+
+###############################################################################
+# packcramfs                                                                  #
+# Title:        Manage multiple cramfs images on one partition
+# Description:  Allows the use of packed cramfs images.
+#               Currently you don't have a choice: the install scripts
+#               depend on packcramfs
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+# URL:          http://midori.transmeta.com/
+#
+# packcramfs                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PACKCRAMFSCONFIG                                                        ###
+###############################################################################
+# Currently available packages:
+# - packcramfsconfig
+PACKCRAMFSCONFIG_SRC=no
+
+###############################################################################
+# packcramfsconfig                                                            #
+# Title:        Manage Small R/W Area
+# Description:  Installs some scripts to us a partition as a means
+#               to save some configuration data using packcramfs.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+# URL:          http://midori.transmeta.com/
+
+# Name:         CONFIG_PARTITION
+# Description:  the partition to use for config data (partition number only).
+#               The name of the device is defined in IMAGE_DEVICE
+# Type:         REGEX [1234]
+# Default:      3
+# CONFIG_PARTITION="3"
+
+# Name:         CONFIG_WRITE
+# Description:  the place were to read/write new configuration data to
+# Type:         STRING
+# Default:      /tmp/config
+# CONFIG_WRITE="/tmp/config"
+
+# Name:         CONFIG_DIR
+# Description:  were to write config data to in the root directory
+#               (this happens to be the mountpoint for packcramfs too)
+# Type:         STRING
+# Default:      /config
+# CONFIG_DIR="/config"
+
+# Name:         CONFIG_SAVE
+# Description:  how to permanently store the configuration data
+# Type:         READONLY
+# Default:      freeze
+# CONFIG_SAVE="freeze"
+
+# Name:         CONFIG_INIT
+# Description:  How to initialize the config area
+#               This command is usually called in the init scripts
+# Type:         READONLY
+# Default:      thaw
+# CONFIG_INIT="thaw"
+
+# Name:         CONFIG_CREATE_SCRIPT
+# Description:  script to create the config image, relative to $BUILD
+# Type:         STRING
+# Default:      ${TARGET}/create_config_image
+# CONFIG_CREATE_SCRIPT="${TARGET}/create_config_image"
+
+# Name:         CONFIG_MLCONFIG_FREEZE
+# Description:  Set to yes if you want to offer the capability to store the
+#               the temporary config area on the flash via the mlconfig interface
+# Type:         YESNO
+# Default:      yes
+# CONFIG_MLCONFIG_FREEZE="yes"
+#
+# packcramfsconfig                                                            #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PACKCRAMFSUPGRADE                                                       ###
+###############################################################################
+# Currently available packages:
+# - packcramfsupgrade
+PACKCRAMFSUPGRADE_SRC=no
+
+###############################################################################
+# packcramfsupgrade                                                           #
+# Title:        Upgrade Client using packcramfs
+# Description:  If you want to use the packcramfs upgrade system use this package.
+#               This assumes that you used packcrafms/cramfs for partition 4, and
+#               cramfs for the two root partitions.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+# URL:          http://midori.transmeta.com/
+
+# Name:         UPGRADE_SRC
+# Description:  which upgrade version should be used?
+# Type:         STRING
+# Default:      packcramfsupgrade-0.2
+# UPGRADE_SRC="packcramfsupgrade-0.2"
+
+# Name:         UPGRADE_HOST
+# Description:  Host from which you will usually upgrade
+#               By default it uses the host on which the system is built
+# Type:         STRING
+# Default:      `hostname`
+# UPGRADE_HOST="`hostname`"
+
+# Name:         UPGRADE_PORT
+# Description:  PORT on which the httpd deamon used for upgrading is listening.
+# Type:         INTEGER
+# Default:      9999
+# UPGRADE_PORT="9999"
+
+# Name:         UPGRADE_MLCONFIG
+# Description:  Set to yes if you want to offer the possibility to upgrade via the
+#               mlconfig interface. Note that for this to work you must set 
+#               MLCONFIG_ROOT to yes.
+# Type:         YESNO
+# Default:      yes
+# UPGRADE_MLCONFIG="yes"
+#
+# packcramfsupgrade                                                           #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PDKSH                                                                   ###
+###############################################################################
+# Currently available packages:
+# - pdksh-5.2.14
+PDKSH_SRC=no
+
+###############################################################################
+# pdksh-5.2.14                                                                #
+# Title:        Shell to be used on Midori Linux
+# Description:  Every unix system needs a shell. This package provides a small and simple
+#               one that should work in most cases.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+# URL:          http://web.cs.mun.ca/~michael/pdksh/
+
+# Name:         INSTALL_SHELL
+# Description:  set the shell you want to use. Possible values are
+#               <dl><dt>
+#               INSTALL_SHELL=sh     <dd>reasonable small shell with no gizmos (its a downsized psksh)
+#               <dt>
+#               INSTALL_SHELL=ksh    <dd>medium sized shell with command line editing (pdksh)
+#                                        However, this shell does not allow netscape to call other
+#                                        programs.
+#               </dl>
+# Type:         ENUM (sh,ksh)
+# Default:      sh              
+# INSTALL_SHELL="sh"
+
+# Name:         PROFILE_FILENAME
+# Description:  The file to install as the shell 'profile'.  If this
+#               variable is set to the empty string, a default profile
+#               included with this package is used.
+# Type:         STRING
+# Default:      ""
+# PROFILE_FILENAME=""
+#
+# pdksh-5.2.14                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### QUICKINIT                                                               ###
+###############################################################################
+# Currently available packages:
+# - quickinit
+QUICKINIT_SRC=no
+
+###############################################################################
+# quickinit                                                                   #
+# Title:        Initialization Script (/sbin/init)
+# Description:  This package contains the main initialization scripts and
+#               the code necessary to create the other ones.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         utilities/os
+
+# Name:         MOUNT_USR
+# Description:  If set to yes it will automatically mount the user partition
+#               and execute the init scripts in that partition.
+# Type:         YESNO
+# Default:      yes
+# MOUNT_USR="yes"
+
+# Name:         VERBOSE_SCRIPTS
+# Description:  If set to yes, it will make the boot scripts verbose.
+# Type:         YESNO
+# Default:      yes
+# VERBOSE_SCRIPTS="yes"
+
+# Name:         SPAWN_SHELL
+# Description:  spawn shells on one or more virtual consoles
+# Type:         REGEX [0-9 ]*
+# Default:      "2 3"
+# SPAWN_SHELL="2 3"
+
+# Name:         INIT_PATH
+# Description:  This is the default path for all initialization scripts.
+# Type:         STRING
+# Default:      "/bin:/usr/bin:/sbin:/usr/X11R6/bin"
+# INIT_PATH="/bin:/usr/bin:/sbin:/usr/X11R6/bin"
+
+# Name:         INIT_LDPATH
+# Description:  This is the default library path for all initialization
+#               scripts.
+# Type:         STRING
+# Default:      "/lib:/usr/lib:/usr/X11R6/lib"
+# INIT_LDPATH="/lib:/usr/lib:/usr/X11R6/lib"
+
+# Name:         INIT_HOME
+# Description:  Value of the HOME environment variable for initialization
+#               scripts.
+# Type:         STRING
+# Default:      "/config/home"
+# INIT_HOME="/config/home"
+
+# Name:         INIT_SCRIPT
+# Description:  This script (if defined) will be started as the first process
+#               during bootup. The script is expected to do some
+#               initialization stuff and then <tt>exec /sbin/quickinit</tt>
+#               with the appropriate arguments. An example of a working script
+#               can be found in "initscript" inside this package, and by
+#               setting this variable to "initscript" it can be directly used.
+# Type:         STRING
+# Default:      "${TOPDIR}/etc/initscript"
+# INIT_SCRIPT="${TOPDIR}/etc/initscript"
+#
+# quickinit                                                                   #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### RUBY                                                                    ###
+###############################################################################
+# Currently available packages:
+# - ruby-1.6.4
+RUBY_SRC=no
+
+###############################################################################
+# ruby-1.6.4                                                                  #
+# Title:        Ruby
+# Version:      1.6.4
+# Description:  An object oriented scripting language
+#               by Yukihiro "Matz" Matsumoto.
+#               A minimal install (essentially "miniruby") can be built by
+#               setting RUBY_STATIC_ONLY=yes and specifying none of the
+#               extensions for static linking.  This minimal (and very
+#               portable) configuration weighs in around 1.8MB (or 650kB when
+#               installed into Midori's cramfs).
+# Packager:     Rick Miller (Transmeta)
+# Menu:         utilities/os
+# URL:          http://www.ruby-lang.org/en/
+
+# Name:         RUBY_STATIC_ONLY
+# Description:  Only include statically linked extensions.  Any extensions
+#               not specifically designated as static in the RUBY_STATIC_EXT
+#               option will not be included in the install.
+# Type:         YESNO
+# Default:      "yes"
+# RUBY_STATIC_ONLY="yes"
+
+# Name:         RUBY_STATIC_EXT
+# Description:  Ruby extensions to be statically linked.
+#               The selected extensions will be statically linked into the ruby
+#               executable rather than being loaded dynamically at runtime.
+# Type:         LIST CHECKBOX (etc:"passwd/group functions", fcntl:"C fcntl.h functions", kconv:"Kanji conversion", md5:"MD5 algorithm", pty:"spawn and expect", curses:"screen controls", GD:"GNU DBM (gdbm)", socket:"Socket functions", gtk:"Gimp ToolKit", dbm:"Old DBM", sdbm:"NDBM workalike", tk:"Tk interface", tcltklib:"Tcl/Tk library interface")
+# Default:      "etc fcntl kconv md5 pty curses GD gtk dbm sdbm"
+# RUBY_STATIC_EXT="etc fcntl kconv md5 pty curses GD gtk dbm sdbm"
+#
+# ruby-1.6.4                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### MLSPOOL                                                                 ###
+###############################################################################
+# Currently available packages:
+# - mlspool-0.1
+MLSPOOL_SRC=no
+
+###############################################################################
+# mlspool-0.1                                                                 #
+# Title:        Micro Local Spooler
+# Version:      0.1
+# Description:  Strictly local spooler for printing.
+# Packager:     Rick Miller (Transmeta)
+# Menu:         utilities/printing
+# URL:          http://midori.transmeta.com/
+
+# Name:         MLSPOOL_DIR
+# Description:  <B>Target</B> location of the top-level spool directory.
+#       It will be created at run-time, if necessary.
+# Type:         STRING
+# Default:      "/tmp/mlspool"
+# MLSPOOL_DIR="/tmp/mlspool"
+
+# Name:         MLSPOOL_CFG
+# Description:  <B>Target</B> mlspool configuration file.
+# Type:         STRING
+# Default:      "/config/mlspool.cfg"
+# MLSPOOL_CFG="/config/mlspool.cfg"
+
+# Name:         ML_GSOPTS
+# Description:  Default options to be used for Ghostscript,
+#       regardless of which printer is used.
+# Type:         STRING
+# Default:      "-dBATCH -dNOPAUSE -dQUIET -dSAFER -dDISKFONTS"
+# ML_GSOPTS="-dBATCH -dNOPAUSE -dQUIET -dSAFER -dDISKFONTS"
+
+# Name:         MLSPOOL_DEFAULT
+# Description:  Default printer configuration.
+# Type:         ENUM (HP_DeskJet_600, HP_DeskJet_800, HP_DeskJet_900, Epson_Stylus_orig, Epson_Stylus_500, Epson_Stylus_600, Epson_Stylus_740, Epson_Stylus_800, Cannon_BJC_610, HP_DeskJet_550C, NEC_P2X)
+# Default:      "HP_DeskJet_600"
+# MLSPOOL_DEFAULT="HP_DeskJet_600"
+#
+# mlspool-0.1                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### APACHE                                                                  ###
+###############################################################################
+# Currently available packages:
+# - apache-1.3.23
+# - apache-1.3.26
+APACHE_SRC=no
+
+###############################################################################
+# apache-1.3.23                                                               #
+# Title:        Apache Web Server
+# Description:  A versatile web server useful for servers and resgates
+# Packager:     Claudio Fleiner (Transmeta)
+# URL:          http://httpd.apache.org/
+
+# Name:         APACHE_CONF
+# Description:  Absolute pathname of a configuration file. The configuration
+#               file can use @@ variables (see the one supplied). You should enter
+#               an absolute string as opposed to relative one like the default one.
+# Type:         STRING
+# Default:      "httpd.conf"
+# APACHE_CONF="httpd.conf"
+
+
+# Name:         APACHE_SERVER_ADMIN
+# Description:  Set to the email address of the server admin
+# Type:         STRING
+# Default:      "noone@localhost.com"
+# APACHE_SERVER_ADMIN="noone@localhost.com"
+
+# Name:         APACHE_DOCUMENT_ROOT
+# Description:  Set to the place where you want to serve web pages from
+# Type:         STRING
+# Default:      /tmp/apache/
+# APACHE_DOCUMENT_ROOT="/tmp/apache/"
+
+#
+# apache-1.3.23                                                               #
+###############################################################################
+###############################################################################
+# apache-1.3.26                                                               #
+# Title:        Apache Web Server
+# Description:  A versatile web server useful for servers and resgates
+# Packager:     Claudio Fleiner (Transmeta)
+# URL:          http://httpd.apache.org/
+
+# Name:         APACHE_CONF
+# Description:  Absolute pathname of a configuration file. The configuration
+#               file can use @@ variables (see the one supplied). You should enter
+#               an absolute string as opposed to relative one like the default one.
+# Type:         STRING
+# Default:      "httpd.conf"
+# APACHE_CONF="httpd.conf"
+
+
+# Name:         APACHE_SERVER_ADMIN
+# Description:  Set to the email address of the server admin
+# Type:         STRING
+# Default:      "noone@localhost.com"
+# APACHE_SERVER_ADMIN="noone@localhost.com"
+
+# Name:         APACHE_DOCUMENT_ROOT
+# Description:  Set to the place where you want to serve web pages from
+# Type:         STRING
+# Default:      /tmp/apache/
+# APACHE_DOCUMENT_ROOT="/tmp/apache/"
+
+#
+# apache-1.3.26                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### DISK-CONFIG                                                             ###
+###############################################################################
+# Currently available packages:
+# - disk-config
+DISK_CONFIG_SRC=no
+
+###############################################################################
+# disk-config                                                                 #
+# Title:        Disk Configurator
+# Description:  User-configurable disk support
+#       <p>
+#       Specification of drives is done in a manner similar to the way
+#       network devices are specified -
+#       $TOPDIR/etc cotains the config files for the disks, and must be
+#       named named "disk.&lt;foo&gt;" where foo is any symbolic name.
+#       The name of the partition (e.g. sda1) would make a lot of sense. ;-)
+#       <p>
+#       At build time, the $TOPDIR/etc/disk.* files will be checked and
+#       the support will be added to the system, including the kernel
+#       support, fstab entries and the creation of the block devices in $ROOT.
+#       <p>
+#       If you are configuring some type of removable media (eg compact
+#       flash or a DVD-ROM), you will not want to mount on boot or have
+#       an fstab entry. Instead, the config file will be copied to
+#       $ROOT/config/disk and referenced at runtime.
+#       <p>
+#       The files should contain the following variables:
+#       <dl>
+#       <dt>DEVICE: <dd>device file the disk uses (ex: /dev/hdc)
+#       <dt>FSTYPE: <dd>filesystem type the disk uses. This option is
+#               passed to mount, so it must be something that mount/kernel
+#               recognizes. (ex: ext2)
+#       <dt>MOUNTPT: <dd>The directory location that the disk will be mounted
+#       <dt>DO_FSTAB: <dd>Boolean indicating whether the entry should be
+#               added to the /etc/fstab file
+#       <dt>DO_FSCK: <dd>Boolean indicating whether fsck should be
+#               performed on the drive
+#       <dt>DO_MOUNT: <dd>Boolean indicating whether the drive should
+#               be mounted when discovered.  This is relevant only for
+#               removable drives.
+#       <dt>ONBOOT: <dd>Boolean indicating whether the drive should be
+#               mounted at boot time.  This may relevant for removable
+#               drives that the user may want to try and mount if they
+#               are there. But, it is meant for configuring drives that
+#               will always be present that the user wants mounted always
+#               (like another hard drive).
+#       <dt>MOUNT_OPTS: <dd>Options to pass to the mount command.
+#               Only relevant for partitions configured in fstab or for
+#               those mounted at boot
+#       <dt>KERNEL_OPTS: <dd>These are the kernel config options that
+#               must be compiled into the kernel in order to use the drive.
+#               (e.g. Filesystem support)
+#       </dl>
+# URL:          http://midori.transmeta.com/
+#
+# disk-config                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### LOCAL                                                                   ###
+###############################################################################
+# Currently available packages:
+# - local
+LOCAL_SRC=no
+
+###############################################################################
+# local                                                                       #
+# Title:        Local Stuff
+# Version:      0.1
+# Description:  A tree of stuff to be copied into the target filesystem.
+#       <p>
+#       If you've got a bunch of stuff that you just want to put
+#       onto your target system: MP3s, Flash Macromedia files,
+#       documentation, experimental software...  This package is
+#       a quick way to do it without making your own packages.
+#       <p>
+#       Put all your stuff into one directory on your build system
+#       and point LOCAL_SRC_DIR to it.
+# Packager:     Rick Miller (Transmeta)
+# Menu:         misc
+# URL:          http://midori.transmeta.com/
+
+# Name:         LOCAL_SRC_DIR
+# Description:  Build-time directory which will be copied into the target.
+#       Must be an absolute path.
+# Type:         STRING
+# Default:      ""
+# LOCAL_SRC_DIR=""
+
+# Name:         LOCAL_DEST_DIR
+# Description:  Destination directory in which all files will go
+#       on the target filesystem.  (Must be an absolute path.)
+# Type:         STRING
+# Default:      "/usr/local"
+# LOCAL_DEST_DIR="/usr/local"
+
+# Name:         LOCAL_DEST_CLEAN
+# Description:  Remove all contents of destination directory before installing
+#       the source files.
+# Type:         YESNO
+# Default:      "yes"
+# LOCAL_DEST_CLEAN="yes"
+#
+# local                                                                       #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### AUDIOFILE                                                               ###
+###############################################################################
+# Currently available packages:
+# - audiofile-0.2.3
+AUDIOFILE_SRC=no
+
+###############################################################################
+# audiofile-0.2.3                                                             #
+# Title:        Audio File Library
+# Description:  The Silicon Graphics Audio File Library provides a uniform
+#       programming interface to standard digital audio file formats.
+#       <p>
+#       Currently supported sound file formats include
+#       <ul>
+#       <li>AIF/AIFF-C,
+#       <li>WAVE,
+#       <li>NeXT/Sun .snd/.au, and
+#       <li>Berkeley/IRCAM/CARL.
+#       </ul>
+#       Supported compression formats are currently
+#       <ul>
+#       <li>G.711,
+#       <li>mu-law, and
+#       <li>A-law.
+#       </ul>
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         libraries/sound
+# URL:          http://oss.sgi.com./projects/audiofile/
+
+#
+# audiofile-0.2.3                                                             #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### ZLIB                                                                    ###
+###############################################################################
+# only one package is available:
+# - zlib-1.1.3
+ZLIB_SRC=yes
+
+###############################################################################
+# zlib-1.1.3                                                                  #
+# Title:        zlib compression utility
+# Description:  Many utilities depend on this compression utility, you almost always want it.
+# Menu:         libraries/compression
+# URL:          http://ftp.agh.edu.pl/pub/tex/tools/zip/info-zip/zlib/zlib.html
+#
+# zlib-1.1.3                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### GDBM                                                                    ###
+###############################################################################
+# Currently available packages:
+# - gdbm-1.8.0
+GDBM_SRC=no
+
+###############################################################################
+# gdbm-1.8.0                                                                  #
+# Title:        gdbm
+# Description:  GNU dbm is a set of database routines that use
+#               extendible hashing and works similar to the standard
+#               UNIX dbm routines.
+#               <p>
+#               Midori does not require this package unless Perl is
+#               installed.
+# Menu:         libraries/diagnostics
+# URL:          http://www.gnu.org/software/gdbm/gdbm.html
+#
+# gdbm-1.8.0                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### NCURSES                                                                 ###
+###############################################################################
+# only one package is available:
+# - ncurses-5.0
+NCURSES_SRC=yes
+
+###############################################################################
+# ncurses-5.0                                                                 #
+# Title:        ncurses
+# Description:  a library for non graphical ui programs
+# Menu:         libraries/ui
+# URL:          http://www.gnu.org/software/ncurses/ncurses.html
+#
+# ncurses-5.0                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### POPT                                                                    ###
+###############################################################################
+# Currently available packages:
+# - popt-1.2
+POPT_SRC=no
+
+###############################################################################
+# popt-1.2                                                                    #
+# Title:        POPT library
+# Description:  Command Line Option Parsing (similar to getopt with a 
+#               few enhancements).
+# Menu:         libraries/ui
+# URL:          ftp://ftp.redhat.com/pub/redhat/linux/code/popt/
+#
+# popt-1.2                                                                    #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### OPENSSL                                                                 ###
+###############################################################################
+# only one package is available:
+# - openssl-0.9.6
+OPENSSL_SRC=yes
+
+###############################################################################
+# openssl-0.9.6                                                               #
+# Title:        OpenSSL
+# Version:      0.9.6b
+# Description:  Open Secure Socket Layer:  a library for encrypted connections.
+#       <p>
+#       <b>Use of algorithms in this package may be restricted by
+#       patent, trade regulations and/or local law.</b>
+# Packager:     Chris Chabot <a href="chabotc@reviewboard.com">chabotc@reviewboard.com</a> and Rick Miller (Transmeta)
+# Menutitle:    libraries/network       Network Libraries
+# Menu:         libraries/network
+# URL:          http://www.openssl.org/
+
+# Name:         OPENSSL_CIPHERS
+# Description:  Ciphers to include when building the OpenSSL library.
+#       <p>
+#       Although OpenSSL is Open Source, some of the ciphers implemented
+#       may be restricted by patent, trade regulations, or local law.
+#       <b>YOU</b> are responsible for ensuring that your use of any
+#       algorithms is in accordance with such restrictions.
+#       <p>
+#       Here are some of the patents that are known or rumored
+#       to exist:
+#       <ul>
+#       <li>RSA Security holds software patents on the RC5 algorithm.  If you
+#       intend to use this cipher, you must contact RSA Security for
+#       licensing conditions. Their web page is <a href="http://www.rsasecurity.com/">http://www.rsasecurity.com/</a>.
+#       <li>RC4 is a trademark of RSA Security, so use of this label should perhaps
+#       only be used with RSA Security's permission. 
+#       <li>The IDEA algorithm is patented by Ascom in Austria, France, Germany, Italy,
+#       Japan, Netherlands, Spain, Sweden, Switzerland, UK and the USA.  They should
+#       be contacted if that algorithm is to be used, their web page is
+#       <a href="http://www.ascom.ch/">http://www.ascom.ch/</a>.
+#       </ul>
+# Type:         LIST CHECKBOX (bf, cast, des, dh, dsa, hmac, md2, md5, mdc2, rc2, rc4, rc5, rsa, sha)
+# Default:      "bf cast des dh dsa hmac md2 md5 mdc2 rc2 rc4 rc5 rsa sha"
+# OPENSSL_CIPHERS="bf cast des dh dsa hmac md2 md5 mdc2 rc2 rc4 rc5 rsa sha"
+
+# Name:         OPENSSL_ALL_CIPHERS
+# Description:  All ciphers available in the OpenSSL library.
+#       This must be a comprehensive list of ciphers available
+#       so that those not selected in OPENSSL_CIPHERS will be
+#       properly excluded.
+# Type:         HIDDEN
+# Default:      "bf cast des dh dsa hmac md2 md5 mdc2 rc2 rc4 rc5 rsa sha"
+# OPENSSL_ALL_CIPHERS="bf cast des dh dsa hmac md2 md5 mdc2 rc2 rc4 rc5 rsa sha"
+#
+# openssl-0.9.6                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### BINUTILS                                                                ###
+###############################################################################
+# only one package is available:
+# - binutils-2.11.2
+BINUTILS_SRC=yes
+
+###############################################################################
+# binutils-2.11.2                                                             #
+# Title:        binary utilities
+# Description:  base package necessary to compile code for the target system
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         base
+# URL:          http://www.gnu.org/software/binutils/binutils.html
+
+# Name:         AR
+# Description:  ar command to use to create code for the target system
+# Type:         STRING
+# Default:      ${TARGETARCH}-ar
+# AR="${TARGETARCH}-ar"
+
+# Name:         AS
+# Description:  as command to use to create code for the target system
+# Type:         STRING
+# Default:      ${TARGETARCH}-as
+# AS="${TARGETARCH}-as"
+#
+# binutils-2.11.2                                                             #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### CDBOOT                                                                  ###
+###############################################################################
+# Currently available packages:
+# - cdboot
+CDBOOT_SRC=no
+
+###############################################################################
+# cdboot                                                                      #
+# Title:        Boot Midori from CD
+# Packager:     Claudio Fleiner
+# Menu:         base
+
+
+# Name:         CD_DEVICE
+# Description:  Device where the CDROM will be found. Usually either /dev/hda, /dev/hdb or /dev/hdc
+# Type:         STRING
+# Default:      /dev/hda
+# CD_DEVICE="/dev/hda"
+
+
+#
+# cdboot                                                                      #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### DIETLIBC                                                                ###
+###############################################################################
+# Currently available packages:
+# - dietlibc-0.21
+DIETLIBC_SRC=no
+
+###############################################################################
+# dietlibc-0.21                                                               #
+# Title:        dietlibc to create small, statically linked programs
+# Packager:     Claudio Fleiner
+# Menu:         base
+# URL:          http://www.fefe.de/dietlibc/
+
+#
+# dietlibc-0.21                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### FINDUTILS                                                               ###
+###############################################################################
+# only one package is available:
+# - findutils-4.1
+FINDUTILS_SRC=yes
+
+###############################################################################
+# findutils-4.1                                                               #
+# Title:        findutils
+# Description:  base package that provides a patched version of 'xargs'
+#               which is necessary to compile the kernel for the target
+#               system
+# Packager:     Jeff Uphoff (Transmeta)
+# Menu:         base
+# URL:          http://www.gnu.org/software/findutils/findutils.html
+#
+# findutils-4.1                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### GCC                                                                     ###
+###############################################################################
+# only one package is available:
+# - gcc-2.91.66
+GCC_SRC=yes
+
+###############################################################################
+# gcc-2.91.66                                                                 #
+# Title:        The GNU C Compiler
+# Description:  It is compiled as a cross compiler to make sure that code
+#               compiled for the target system is not contaminated with
+#               host code.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         base
+# URL:          http://www.gnu.org/software/gcc/gcc.html
+
+# Name:         GCC_VERSION
+# Description:  GCC version to be used. If you change this make sure you have the corresponding
+#               *.mlb package in your coreapps direcotry.
+# Type:         HIDDEN
+# Default:      2.91.66
+# GCC_VERSION="2.91.66"
+
+# Name:         GCC
+# Description:  GCC command to use to create code for the target system
+# Type:         STRING
+# Default:      ${TARGETARCH}-gcc
+# GCC="${TARGETARCH}-gcc"
+
+# Name:         CC
+# Description:  CC command to use to create code for the target system
+# Type:         HIDDEN
+# Default:      ${GCC}
+# CC="${GCC}"
+
+# Name:         CXX
+# Description:  C++ command to use to create code for the target system
+# Type:         STRING
+# Default:      ${TARGETARCH}-g++
+# CXX="${TARGETARCH}-g++"
+
+# Name:         CFLAGS
+# Description:  Compiler flags for image software
+# Type:         STRING
+# Default:      "-Os"
+# CFLAGS="-Os"
+
+# Name:         LDFLAGS
+# Description:  Load flags for image software
+# Type:         STRING
+# Default:      "-s"
+# LDFLAGS="-s"
+
+# Name:         CXXFLAGS
+# Description:  C++ Compiler flags for image software
+# Type:         STRING
+# Default:      "-Os"
+# CXXFLAGS="-Os"
+
+# Name:         GCC_CPP_TIME
+# Description:  try to circumvent several annoying cpp predefines
+#               (assumes that a Transmeta patch for cpp is used).
+#               Set the value that should be returned by the TIME and DATE 
+#               preprocessor macro.
+# Type:         STRING
+# Default:      0
+# GCC_CPP_TIME="0"
+
+# Name:         GCC_CPP_BASENAME
+# Description:  Set to true if all FILE macros should return the basename
+#               only instead of the complete path
+#               (assumes that a Transmeta patch for cpp is used).
+# Type:         TRUEFALSE
+# Default:      true
+# GCC_CPP_BASENAME="true"
+
+# Name:         CPPLIB
+# Description:  Some programs need the c++ libraries. If you install such a program
+#               you need to set this variable to yes.
+# Type:         YESNO
+# Default:      no
+# CPPLIB="no"
+#
+# gcc-2.91.66                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### GLIBC                                                                   ###
+###############################################################################
+# only one package is available:
+# - glibc-2.1.3
+GLIBC_SRC=yes
+
+###############################################################################
+# glibc-2.1.3                                                                 #
+# Title:        Gnu C Library
+# Description:  Provides some of the main libraries. Note though that most libraries
+#               that are part of glibc are not installed.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         base
+# URL:          http://www.gnu.org/software/libc/libc.html
+
+# Name:         GLIBC_VERSION
+# Type:         HIDDEN
+# Default:      2.1.3
+# GLIBC_VERSION="2.1.3"
+
+# Name:         GLIBC_CRYPT_SRC
+# Description:  crypto library version 
+# Type:         READONLY
+# Default:      glibc-crypt-2.1
+# GLIBC_CRYPT_SRC="glibc-crypt-2.1"
+
+# Name:         GLIBC_THREADS_SRC
+# Description:  threads library version
+# Type:         READONLY
+# Default:      glibc-linuxthreads-2.1.3
+# GLIBC_THREADS_SRC="glibc-linuxthreads-2.1.3"
+
+# Name:         LD_SRC
+# Description:  dynamic loader version to use
+# Type:         READONLY
+# Default:      ldconfig-1999-07-31
+# LD_SRC="ldconfig-1999-07-31"
+
+# Name:         TIMEZONE
+# Description:  default timezone
+# Type:         STRING
+# Default:      US/Pacific
+TIMEZONE="US/Central"
+
+# Name:         ROOT_LIBS
+# Description:  Libraries to install in the root partition
+# Type:         LIST CHECKBOX (BrokenLocale, SegFault, crypt, db, db1, dl, m,
+#                       ndbm, nsl, nss_compat, nss_db, nss_dns, nss_files,
+#                       nss_hesiod, nss_nis, nss_nisplus, pthread, rlv.so,
+#                       rt, thread_db, util)
+# Default:      "nss_dns nss_files util crypt pthread"
+ROOT_LIBS="crypt nss_dns nss_files pthread util"
+
+# Name:         USR_LIBS
+# Description:  Libraries to install in the usr partition
+# Type:         LIST CHECKBOX (BrokenLocale, SegFault, crypt, db, db1, dl, m,
+#                       ndbm, nsl, nss_compat, nss_db, nss_dns, nss_files,
+#                       nss_hesiod, nss_nis, nss_nisplus, pthread, rlv.so,
+#                       rt, thread_db, util)
+# Default:      "m dl nsl"
+USR_LIBS="dl m nsl"
+#
+# glibc-2.1.3                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### LINUX                                                                   ###
+###############################################################################
+# only one package is available:
+# - linux-2.4.20
+LINUX_SRC=yes
+
+###############################################################################
+# linux-2.4.20                                                                #
+# Title:        The Linux Kernel
+# Version:      2.4.20
+# Description:  This package contains the linux kernel and a series of 
+#               patches created by Transmeta. 
+# Menu:         base
+# Packager:     Transmeta
+# URL:          http://www.kernel.org/
+
+# Name:         KERNEL_CONFIG
+# Description:  Name of the kernel configuration file. If not defined the options
+#               below will be used exclusively. If you define your own config file
+#                you probably want to set KERNEL_CONFIG_FROZEN to yes (see below).
+#               You should use an absolut path for this file.
+# Type:         STRING
+# Default:      ""
+# KERNEL_CONFIG=""
+
+# Name:         KERNEL_CONFIG_FROZEN
+# Description:  If you do not want other packages to set kernel options
+#               (because you already set everything you wanted in your custom
+#               kernel configuration file), set the following to yes.
+# Type:         YESNO
+# Default:      no
+# KERNEL_CONFIG_FROZEN="no"
+
+# Name:         VIDEO_MODE
+# Description:  Determine whether or not the kernel will boot in graphical mode
+#               and which mode to boot in.  The argument is the video mode parameter
+#               taken by the "vidmode" (aka "rdev -v") command.  The following are
+#               suggested values.  "normal" skips the vidmode setting step and
+#               goes with the kernel default.
+#               <DL>
+#               <DT> normal: <DD>boots without VESA framebuffer console
+#               <DT>    769: <DD>640x480 8-bit
+#               <DT>    771: <DD>800x600 8-bit
+#               <DT>    773: <DD>1024x768 8-bit
+#               <DT>    775: <DD>1280x1024 8-bit
+#               </DL>
+# Type:         STRING
+# Default:      normal
+# VIDEO_MODE="normal"
+
+# Name:         KERNEL_PROCESSOR
+# Description:  Define the kernel options that should be set to 'y' for the CPU
+#               you are using. Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      "X86 ISA  UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
+KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
+
+# Name:         KERNEL_OPTIONS
+# Description:  Define the main kernel options that should be set to 'y' for the hardware
+#               you are using. Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      "EXPERIMENTAL MODULES SYSVIPC KCORE_ELF BINFMT_ELF IDE BLK_DEV_IDE BLK_DEV_IDEDISK BLK_DEV_IDE INPUT INPUT_KEYBDEV INPUT_MOUSEDEV VT VT_CONSOLE UNIX98_PTYS MOUSE PSMOUSE RAMFS PROC_FS DEVPTS_FS MSDOS_PARTITION PCI PCI PCI_GOANY PCI_BIOS PCI_DIRECT HOTPLUG SERIAL SERIAL_CONSOLE RTC SYSCTL"
+# KERNEL_OPTIONS="EXPERIMENTAL MODULES SYSVIPC KCORE_ELF BINFMT_ELF IDE BLK_DEV_IDE BLK_DEV_IDEDISK BLK_DEV_IDE INPUT INPUT_KEYBDEV INPUT_MOUSEDEV VT VT_CONSOLE UNIX98_PTYS MOUSE PSMOUSE RAMFS PROC_FS DEVPTS_FS MSDOS_PARTITION PCI PCI PCI_GOANY PCI_BIOS PCI_DIRECT HOTPLUG SERIAL SERIAL_CONSOLE RTC SYSCTL"
+
+# Name:         KERNEL_GRAPHIC
+# Description:  The list of options necessry for the graphics chip / console you are using.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      "VGA_CONSOLE VIDEO_SELECT FB DUMMY_CONSOLE FB_VESA VIDEO_SELECT FBCON_ADVANCED FBCON_MFB FBCON_CFB2 FBCON_CFB4 FBCON_CFB8 FBCON_CFB16 FBCON_CFB24 FBCON_CFB32 FONT_8x8 FONT_8x16 LPP"
+# KERNEL_GRAPHIC="VGA_CONSOLE VIDEO_SELECT FB DUMMY_CONSOLE FB_VESA VIDEO_SELECT FBCON_ADVANCED FBCON_MFB FBCON_CFB2 FBCON_CFB4 FBCON_CFB8 FBCON_CFB16 FBCON_CFB24 FBCON_CFB32 FONT_8x8 FONT_8x16 LPP"
+
+# Name:         KERNEL_MODULES
+# Description:  List the modules you want to build and that don't fit any other category.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      ""
+# KERNEL_MODULES=""
+
+# Name:         KERNEL_NETWORK
+# Description:  Set to yes if you want to include the network options defined in
+#               KERNEL_NETWORK_OPTIONS and KERNEL_NETWORK_MODULES
+# Type:         YESNO
+# Default:      yes
+# KERNEL_NETWORK="yes"
+
+# Name:         KERNEL_NETWORK_OPTIONS
+# Description:  List the options that need to be turned on for the network hardware you 
+#               are using. If KERNEL_NETWORK is set to "no" this option will be ignored.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      "NET PACKET NETLINK UNIX INET NETDEVICES NET_ETHERNET NET_PCI NET_RADIO TULIP EEPRO100 8139TOO AIRONET4500 AIRONET4500_PROC"
+# KERNEL_NETWORK_OPTIONS="NET PACKET NETLINK UNIX INET NETDEVICES NET_ETHERNET NET_PCI NET_RADIO TULIP EEPRO100 8139TOO AIRONET4500 AIRONET4500_PROC"
+
+# Name:         KERNEL_NETWORK_MODULES
+# Description:  List the modules that need to be turned on for the network hardware you 
+#               are using. If KERNEL_NETWORK is set to "no" this option will be ignored.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      ""
+# KERNEL_NETWORK_MODULES=""
+
+# Name:         KERNEL_SOUND
+# Description:  Set to yes if you want to include the sound options defined in
+#               KERNEL_SOUND_OPTIONS and KERNEL_SOUND_MODULES
+# Type:         YESNO
+# Default:      yes
+# KERNEL_SOUND="yes"
+
+# Name:         KERNEL_SOUND_OPTIONS
+# Description:  List the options that need to be turned on for the sound hardware you 
+#               are using. If KERNEL_SOUND is set to "no" this option will be ignored.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      "SOUND SOUND_TRIDENT"
+# KERNEL_SOUND_OPTIONS="SOUND SOUND_TRIDENT"
+
+# Name:         KERNEL_SOUND_MODULES
+# Description:  List the modules that need to be turned on for the sound hardware you 
+#               are using. If KERNEL_SOUND is set to "no" this option will be ignored.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      ""
+# KERNEL_SOUND_MODULES=""
+
+# Name:         KERNEL_USB
+# Description:  Set to yes if you want to include the usb options defined in
+#               KERNEL_USB_OPTIONS and KERNEL_USB_MODULES
+# Type:         YESNO
+# Default:      yes
+# KERNEL_USB="yes"
+
+# Name:         KERNEL_USB_OPTIONS
+# Description:  List the options that need to be turned on for the usb hardware you 
+#               are using. If KERNEL_USB is set to "no" this option will be ignored.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      "USB USB_DEVICEFS USB_OHCI USB_PRINTER USB_HID USB_PEGASUS"
+# KERNEL_USB_OPTIONS="USB USB_DEVICEFS USB_OHCI USB_PRINTER USB_HID USB_PEGASUS"
+
+# Name:         KERNEL_USB_MODULES
+# Description:  List the modules that need to be turned on for the usb hardware you 
+#               are using. If KERNEL_USB is set to "no" this option will be ignored.
+#               Note that the 'CONFIG_' that is part of every option has been
+#               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
+#               options and every option set by some package will be ignored. Besides this
+#               variable build scripts may also add options to the file
+#               cache/image/kernel.config
+# Type:         STRING
+# Default:      ""
+# KERNEL_USB_MODULES=""
+
+# Name:		KERNEL_ACPI
+# Description:	Set to yes if you want ACPI support in the kernel
+# Type:		YESNO
+# Default:	yes
+# KERNEL_ACPI="yes"
+
+# Name:		KERNEL_ACPI_OPTIONS
+# Description:	List of config options for kernel ACPI support. For basic
+#		support, you need "PM ACPI ACPI_BUSMGR". 
+#		Other options include:
+#		ACPI_SYS: Sleep state support (S1 and S5 only)
+#		ACPI_CPU: C? State support
+#		ACPI_BUTTON: Power/Sleep button support
+#		ACPI_AC: AC cord detection/support
+#		ACPI_EC: Embedded Controller support
+#		ACPI_CMBATT: Control Method Battery Support
+#		ACPI_THERMAL: Thermal zone support.
+#		ACPI_DEBUG: Add debugging output to ACPI.
+# Type:		STRING
+# Default:	"PM ACPI ACPI_BUSMGR ACPI_SYS ACPI_CPU ACPI_BUTTON ACPI_AC ACPI_CMBATT"
+# KERNEL_ACPI_OPTIONS="PM ACPI ACPI_BUSMGR ACPI_SYS ACPI_CPU ACPI_BUTTON ACPI_AC ACPI_CMBATT"
+#
+# linux-2.4.20                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### NASM                                                                    ###
+###############################################################################
+# only one package is available:
+# - nasm-0.98.35
+NASM_SRC=yes
+
+###############################################################################
+# nasm-0.98.35                                                                #
+# Title:        The nasm assembler
+# Packager:     Claudio Fleiner
+# Menu:         base
+# URL:          http://nasm.sourceforge.net
+
+#
+# nasm-0.98.35                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### SYSLINUX                                                                ###
+###############################################################################
+# only one package is available:
+# - syslinux-1.66
+SYSLINUX_SRC=yes
+
+###############################################################################
+# syslinux-1.66                                                               #
+# Title:        syslinux boot loader
+# Packager:     Claudio Fleiner
+# Menu:         base
+# URL:          http://www.kernel.org/pub/linux/utils/boot/syslinux/
+
+#
+# syslinux-1.66                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### BISON                                                                   ###
+###############################################################################
+# only one package is available:
+# - bison-1.28
+BISON_SRC=yes
+
+###############################################################################
+# bison-1.28                                                                  #
+# Title:        bison
+# Description:  Bison parser generator
+# Packager:     Jeff Uphoff (Transmeta)
+# Menu:         build
+# URL:          http://www.gnu.org/software/bison/bison.html
+#
+# bison-1.28                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### CONFIGURATOR                                                            ###
+###############################################################################
+# only one package is available:
+# - configurator
+CONFIGURATOR_SRC=yes
+
+###############################################################################
+# configurator                                                                #
+# Title: The Linux Configurator
+# Description:  This configurator is used to manage your config file.
+#               It even has an httpd server that allows you to configure
+#               your system with a browser that supports frame (like
+#               netscape or the text browser w3m.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         build
+# Menutitle:    base                    Base Packages
+# Menutitle:    build                   Midori Build System
+# Menutitle:    drivers                 Drivers
+# Menutitle:    libraries               Libraries
+# Menutitle:    libraries/compression   Compression Libraries
+# Menutitle:    libraries/diagnostics   Libraries for Diagnostic Tools
+# Menutitle:    libraries/sound         Sound Libraries
+# Menutitle:    libraries/ui            User Interface Libraries
+# Menutitle:    utilities               Utilities
+# Menutitle:    utilities/powermgmt     Power Management
+# Menutitle:    utilities/sound         Sound
+# Menutitle:    utilities/os            Operating System Utilities
+# Menutitle:    utilities/printing      Printing Utilities
+# Menutitle:    network                 Network
+# Menutitle:    diagnostics             Debugging and Diagnostic Tools
+# Menutitle:    misc                    Misc. Packages
+# URL:          http://midori.transmeta.com/
+
+# Name:         DEFAULT_INSTALL
+# Description:  This variable defines what is supposed to happen to packages 
+#               that are new and have not yet been enabled or disabled in a config
+#               file. If set to yes those packages will be installed, if set to
+#               no they will be disabled.
+# Type:         YESNO
+# Default:      yes
+# DEFAULT_INSTALL="yes"
+
+# Name:         APPS
+# Description:  List of directories that should be searched for mlz packages.
+#               (note: so far only one entry has been tested, use multiple at your own risk).
+# Type:         STRING
+# Default:      $TOPDIR/packages
+# APPS="$TOPDIR/packages"
+
+# Name:         SOURCES
+# Description:  List of directories that contain source packages (note: so far only
+#               one entry has been tested, use multiple at your own risk).
+# Type:         STRING
+# Default:      $TOPDIR/sources
+# SOURCES="$TOPDIR/sources"
+
+# Name:         CONFIGURATOR_PORT
+# Description:  The port on which the configurator will listen. If you change this 
+#               value inside the configurator you have to restart the configurator to
+#               make it use the new value.
+# Type:         INTEGER
+# Default:      2000
+# CONFIGURATOR_PORT="2000"
+
+# Name:         CONFIGURATOR_MENU_WIDTH
+# Description:  Width in pixels for menu bar. If you change this 
+#               value inside the configurator you have to restart the configurator to
+#               make it use the new value.
+# Type:         INTEGER
+# Default:      300
+# CONFIGURATOR_MENU_WIDTH="300"
+
+# Name:         CONFIGURATOR_HELP_HEIGHT
+# Description:  Height in pixels for help window. If you change this 
+#               value inside the configurator you have to restart the configurator to
+#               make it use the new value.
+# Type:         INTEGER
+# Default:      200
+# CONFIGURATOR_HELP_HEIGHT="200"
+
+# Name:         CONFIGURATOR_CONTROL_HEIGHT
+# Description:  Height in pixels for configuration control window. If you change this 
+#               value inside the configurator you have to restart the configurator to
+#               make it use the new value.
+# Type:         INTEGER
+# Default:      50
+# CONFIGURATOR_CONTROL_HEIGHT="50"
+
+# Name:         CONFIGURATOR_CLIENT
+# Description:  A regular expression that defines which IP numbers are acceptable
+#               for clients that want to use the configurator. By default only connections
+#               from localhost are accepted. If you change this 
+#               value inside the configurator you have to restart the configurator to
+#               make it use the new value.
+# Type:         STRING
+# Default:      127\.0\.0\.1
+CONFIGURATOR_CLIENT="(127\.0\.0\.1|208\.42\.148\.11[34567])"
+#
+# configurator                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### FLEX                                                                    ###
+###############################################################################
+# only one package is available:
+# - flex-2.5.4a
+FLEX_SRC=yes
+
+###############################################################################
+# flex-2.5.4a                                                                 #
+# Title:        flex
+# Description:  fast lexical analyzer generator
+# Packager:     Jeff Uphoff (Transmeta)
+# Menu:         build
+# URL:          http://www.gnu.org/software/flex/flex.html
+#
+# flex-2.5.4a                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### MLBUILD                                                                 ###
+###############################################################################
+# only one package is available:
+# - mlbuild
+MLBUILD_SRC=yes
+
+###############################################################################
+# mlbuild                                                                     #
+# Title:        Midori Linux Build Scripts.
+# Description:  This package contains some of the main build scripts.
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         build
+# URL:          http://midori.transmeta.com/
+
+# Name:         PARALLEL_MAKE
+# Description:  Set to yes if you want parallel make (make will run one more
+#               process than processor, which is usually what you want).
+# Type:         YESNO
+# Default:      yes
+PARALLEL_MAKE="no"
+
+# Name:         DEBUG
+# Description:  Set to yes if you want lots and lots of debug output from
+#               make.  If you want to report a build problem it may make sense
+#               to run a build with this option turned on.
+# Type:         YESNO
+# Default:      no
+# DEBUG="no"
+
+# Name:         TARGETARCH
+# Description:  Target architecture (used to configure many packages)
+#               change only if you know what you are doing.
+# Type:         STRING
+# Default:      i686-ml-linux
+# TARGETARCH="i686-ml-linux"
+
+# Name:         DIRS
+# Description:  directories that are present by default in the $ROOT tree
+# Type:         STRING
+# Default:      "dev bin sbin lib lib/modules tmp cramfs usr var proc config usr/bin usr/lib usr/share usr/local usr/src usr/sbin"
+# DIRS="dev bin sbin lib lib/modules tmp cramfs usr var proc config usr/bin usr/lib usr/share usr/local usr/src usr/sbin"
+
+# Name:         COLLECT_STATS
+# Description:  set to no if you do not want statistics to be collected.
+# Type:         YESNO
+# Default:      yes
+# COLLECT_STATS="yes"
+
+# Name:		ORIG_PACKAGE_REPOSITORY
+# Description:  List of URLs where original packages can be found locally. Make sure the
+#               names of the packages are the same as the ones expected by the build script.
+# Type:		STRING
+# Default:      "http://midori.transmeta.com/pub/original/"
+# ORIG_PACKAGE_REPOSITORY="http://midori.transmeta.com/pub/original/"
+
+# Name:		REPOSITORY
+# Description:  Place to store downloaded, orginial packages.
+# Type:		STRING
+# Default:      "${TOPDIR}/repository"
+# REPOSITORY="${TOPDIR}/repository"
+#
+# mlbuild                                                                     #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### MLCONFIG                                                                ###
+###############################################################################
+# only one package is available:
+# - mlconfig
+MLCONFIG_SRC=yes
+
+###############################################################################
+# mlconfig                                                                    #
+# Title:        Runtime Configuration Utility
+# Description:  Adds a small httpd server that allows the configuration
+#               of some aspects (mostly network, and upgrading the
+#               system). <br>
+#               <b>WARNING</b>: The next version will be more modular
+#               and make it much easier to add more stuff, so please wait :-)
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         build
+# URL:          http://midori.transmeta.com/
+
+# Name:         MLCONFIG_PORT
+# Description:  the port on which the httpd daemon should listen
+# Type:         INTEGER
+# Default:      80
+# MLCONFIG_PORT="80"
+
+# Name:         MLCONFIG_CONFIG_PASSWORD
+# Description:  CONFIG password type. eiher<pre>
+#               MLCONFIG_CONFIG_PASSWORD=NONE    for no password
+#               MLCONFIG_CONFIG_PASSWORD=STRING  for fixed string passwords
+#               MLCONFIG_CONFIG_PASSWORD=HTTP    for http remote control passwords
+#               </pre>
+# Type:         ENUM(NONE,STRING,HTTP)
+# Default:      NONE
+# MLCONFIG_CONFIG_PASSWORD="NONE"
+
+# Name:         MLCONFIG_CONFIG_READONLY_PASSWORD
+# Description:  If PASSWORD=STRING, set the readonly and sysadmin password.
+#               It must be of the form id:password. 
+# Default:      user:user
+# MLCONFIG_CONFIG_READONLY_PASSWORD="user:user"
+
+# Name:         MLCONFIG_CONFIG_SYSADMIN_PASSWORD
+# Description:  If PASSWORD=STRING, set the readonly and sysadmin password.
+#               It must be of the form id:password. 
+# Default:      sysadmin:God
+# MLCONFIG_CONFIG_SYSADMIN_PASSWORD="sysadmin:God"
+
+# Name:         MLCONFIG_CONFIG_PASSWORD_SERVER
+# Description:  if PASSWORD=HTTP set a url below (server, port and path)
+#               The password entered by the user will be sent as the
+#               basic auhentication token while accessing that server.
+#               It must return a "403 Forbidden" if access is denied, otherwise a txt file
+#               with a list of cgi scripts that may be executed in the form:<pre>
+#                       x scriptname.cgi
+#               </pre>x being either r for readonly access, or w for read/write access.
+#               Check src/cgi/Makefile (the line that starts with PRG=)
+#               for the list of scripts available
+# Type:         STRING
+# Default:      localhost
+# MLCONFIG_CONFIG_PASSWORD_SERVER="localhost"
+
+# Name:         MLCONFIG_CONFIG_PASSWORD_PORT
+# Description:  PORT used to authenticate passwords
+# Type:         INTEGER
+# Default:      8888
+# MLCONFIG_CONFIG_PASSWORD_PORT="8888"
+
+# Name:         MLCONFIG_CONFIG_PASSWORD_PATH
+# Description:  Path to cgi script used for password autenthication
+# Type:         STRING
+# Default:      /access.cgi
+# MLCONFIG_CONFIG_PASSWORD_PATH="/access.cgi"
+
+# Name:         MLCONFIG_CONFIG_REMOTE
+# Description:  May remote hosts run the configuration?
+# Type:         YESNO
+# Default:      no
+# MLCONFIG_CONFIG_REMOTE="no"
+
+# Name:         MLCONFIG_ROOT
+# Description:  Set to yes if you want the daemon and the main
+#               support files be installed in the root partition.
+#               Otherwise set it to no
+# Type:         YESNO
+# Default:      yes
+# MLCONFIG_ROOT="yes"
+
+# Name:         MLCONFIG_DEFAULT_HTML
+# Description:  Set to yes if you want to install the default html pages
+#               and the menu.cgi program.
+# Type:         YESNO
+# Default:      yes
+# MLCONFIG_DEFAULT_HTML="yes"
+#
+# mlconfig                                                                    #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### MLINSTALL                                                               ###
+###############################################################################
+# only one package is available:
+# - mlinstall
+MLINSTALL_SRC=yes
+
+###############################################################################
+# mlinstall                                                                   #
+# Title:        Install images onto disks/flashes
+# Description:  Several scripts to generate and write images and flashes
+# Packager:     Claudio Fleiner (Transmeta)
+# Menu:         build
+# URL:          http://midori.transmeta.com/
+
+# Name:         EDITION
+# Description:  set the edition number that will be used for all images that have no
+#               .edition file. If EDITION is not defined or is empty the number of
+#               seconds since the EPOCH is used.
+# Type:         REGEX ^\d*$
+# Default:      ""
+# EDITION=""
+
+# Name:         RWSIZE
+# Description:  Size of the read/write partition in bytes (64K)
+# Type:         INTEGER
+# Default:      2097152
+# RWSIZE="2097152"
+
+# Name:         PACKED_IMAGES
+# Description:  Number of image slots needed in the packed cramfs partition
+# Type:         INTEGER
+# Default:      20
+# PACKED_IMAGES="20"
+
+# Name:         IMAGE_DEVICE
+# Description:  Device that names the harddisk on the client.
+#               Usually its /dev/hda, but for scsi it could be /dev/sda
+# Type:         STRING
+# Default:      /dev/hda
+IMAGE_DEVICE="/dev/hdc"
+
+# Name:         IMAGE_DEVICE_DEVFS
+# Description:  Device that names the devfs harddisk on the client.
+# Type:         STRING
+# Default:      /dev/ide/host0/bus0/target0/lun0
+# IMAGE_DEVICE_DEVFS="/dev/ide/host0/bus0/target0/lun0"
+
+# Name:         ROOT_SIZE
+# Description:  Size of root partition (if set to 0 the size will be set
+#               to the real size + ROOT_FREE)
+# Type:         INTEGER
+# Default:      5000000
+# ROOT_SIZE="5000000"
+
+# Name:         ROOT_FREE
+# Description:  Bytes that must be free on the root partition. The script
+#               will abort if this is not the case, unless ROOT_SIZE is set
+#               to 0
+# Type:         INTEGER
+# Default:      2000000
+# ROOT_FREE="2000000"
+
+# Name:         PACKED
+# Description:  List of top level directories (separated spaces) to be stored in 
+#               the packed cramfs partition. If you want to divide a directory into sub images 
+#               you need to store those in the special file $IMAGE/images (while installing
+#               the files). You should add all directories
+#               that do not have to be part of the root partition. Each directory will be
+#               replaced by a symlink.
+# Type:         STRING
+# Default:      "usr"
+# PACKED="usr"
+
+# Name:         PACKED_PARTITION
+# Description:  The partition number used for the packed partition. By default 4 is used,
+#               change at your own risk, this has not been tested.
+# Type:         REGEX [1234]
+# Default:      3
+# PACKED_PARTITION="3"
+
+# Name:         INSTALL_DEVICE
+# Description:  It defines the default installation harddisk/flash, for example /dev/hdc
+# Type:         STRING
+# Default:      ""
+INSTALL_DEVICE="/dev/sda"
+
+# Name:         DISK_HEADS
+# Description:  If you want to create a binary file that can be written to a HD or Flash
+#               you should define the following variables. The default creates an image
+#               that should work with most 32MB flashes. For flashes use the following numbers:<br>
+#               Cylinders range from 1009 to 1019,<br>
+#               Sectors are always 62<br>
+#               Heads are 1 (for 32MB), 2 (for 64MB), 4 (for 128MB).<br>
+#               The IBM microdrive (340MB) has 12 heads, 58 sectors and 1006 cylinders
+# Type:         INTEGER
+# Default:      1
+DISK_HEADS="16"
+
+# Name:         DISK_SECTORS
+# Description:  See DISK_HEADS
+# Type:         INTEGER
+# Default:      62
+DISK_SECTORS="63"
+
+# Name:         DISK_CYLINDERS
+# Description:  See DISK_HEADS
+# Type:         INTEGER
+# Default:      1009
+DISK_CYLINDERS="1985"
+
+# Name:         DISK_FILENAME
+# Description:  Name of the file to create
+# Type:         STRING
+# Default:      "$IMAGE/disk"
+# DISK_FILENAME="$IMAGE/disk"
+#
+# mlinstall                                                                   #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PCMCIA-CS                                                               ###
+###############################################################################
+# Currently available packages:
+# - pcmcia-cs-3.1.25
+PCMCIA_CS_SRC=no
+
+###############################################################################
+# pcmcia-cs-3.1.25                                                            #
+# Title:        pcmcia functionality
+# Description:  Necessary for all pcmcia cards
+# Menu:         drivers
+# URL:          http://pcmcia-cs.sourceforge.net/
+
+# Name:         PCMCIA_DRIVERS
+# Description:  Set to the driver scheme you want (either kernel or pcmcia-cs)
+#               Note that some drivers only work with one configuration.  For
+#               example the wireless aironet cards currently only work with
+#               pcmcia-cs drivers
+# Type:         ENUM ( kernel, pcmcia-cs )
+# Default:      pcmcia-cs
+# PCMCIA_DRIVERS="pcmcia-cs"
+
+# Name:         PCMCIA_NET
+# Description:  Say yes here if you want to install pcmcia network drivers and configuration
+# Type:         YESNO
+# Default:      yes
+# PCMCIA_NET="yes"
+
+# Name:         PCMCIA_NETWORK_DRIVERS
+# Description:  This describes the pcmcia network drivers to be installed.
+#               If you are using kernel drivers, these are the option to enable
+#               in the kernel.  Otherwise, they are the names of the modules
+#               built with the pcmcia-cs package that you want installed.
+# Type:         STRING
+# Default:      "airo airo_cs"
+# PCMCIA_NETWORK_DRIVERS="airo airo_cs"
+
+# The equivalent option if using kernel drivers:
+# PCMCIA_NETWORK_DRIVERS="NET_PCMCIA AIRONET4500_CS"
+
+# Name:         PCMCIA_DISK
+# Description:  Say yes here if you want to install pcmcia disk drivers and
+#               configuration.
+# Type:         YESNO
+# Default:      no
+# PCMCIA_DISK="no"
+
+# Name:         PCMCIA_DISK_DRIVERS
+# Description:  This describes the pcmcia disk drivers to be installed.
+#               If you are using kernel drivers, this describes the config
+#               options to enable.  If using pcmcia-cs drivers, it is which
+#               modules that are built with pcmcia-cs that you want to install.
+#               The equivalent option if using kernel drivers is
+#               PCMCIA_DISK_DRIVERS="BLK_DEV_IDECS"
+# Type:         STRING
+# Default:      ide_cs
+# PCMCIA_DISK_DRIVERS="ide_cs"
+
+# Name:         PCMCIA_DISK_CONFIG
+# Description:  This indicates the configuration file that describes the disk
+#               that will be loaded at runtime.
+#               The full name of the file is $TOP/etc/disk.$PCMCIA_DISK_CONFIG
+# Type:         STRING
+# Default:      default
+# PCMCIA_DISK_CONFIG="default"
+#
+# pcmcia-cs-3.1.25                                                            #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### HPNA2                                                                   ###
+###############################################################################
+# Currently available packages:
+# - hpna2-2.34.0.2
+HPNA2_SRC=no
+
+###############################################################################
+# hpna2-2.34.0.2                                                              #
+# Title:        HPNA
+# Description:  Linux Hybrid network device driver for the Broadcom BCM4210, BCM4211 and BCM4413 PCI InsideLine Home PhoneLine Networking chips.
+# Menu:         network
+#
+# hpna2-2.34.0.2                                                              #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### NETWORK-CONFIG                                                          ###
+###############################################################################
+# only one package is available:
+# - network-config
+NETWORK_CONFIG_SRC=yes
+
+###############################################################################
+# network-config                                                              #
+# Title:        Network Configuration
+# Description:  Configure networking.  Always necessary unless you have your
+#               complete own set of network utilities.
+# Menu:         network
+# URL:          http://midori.transmeta.com/
+
+# Name:         NETWORK_MLCONFIG_CONNECT
+# Description:  Set to yes if you want to support the connect/disconnect
+#               options in the mlconfig interface
+# Type:         YESNO
+# Default:      yes
+# NETWORK_MLCONFIG_CONNECT="yes"
+
+# Name:         NETWORK_MLCONFIG_CONFIGURE
+# Description:  Set to yes if you want to support the network configuration
+#               options in the mlconfig interface
+# Type:         YESNO
+# Default:      yes
+# NETWORK_MLCONFIG_CONFIGURE="yes"
+
+# Name:         NETWORK_MLCONFIG_SSID
+# Description:  Set to yes if you want to support the network SSID
+#               configuration options in the mlconfig interface
+# Type:         YESNO
+# Default:      "yes"
+# NETWORK_MLCONFIG_SSID="yes"
+
+# Name:         NETWORK_SSID
+# Description:  Initial SSID for wireless LAN, if empty, do not install
+#               wlan.ssid configuration file.  If you are using a
+#               wireless LAN card, "ANY" may be a good default.
+# Type:         STRING
+# Default:      ""
+# NETWORK_SSID=""
+#
+# network-config                                                              #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PPP                                                                     ###
+###############################################################################
+# Currently available packages:
+# - ppp-2.4.1b2
+PPP_SRC=no
+
+###############################################################################
+# ppp-2.4.1b2                                                                 #
+# Title:        PPP Daemon and its config files
+# Description:  Point-to-Point Protocol daemon for networking via
+#       serial lines or over Ethernet.
+# Packager:     Rick Miller (Transmeta)
+# Menu:         network
+# URL:          ftp://linuxcare.com.au/pub/ppp/
+
+# Name:         PPP_ENABLED
+# Description:  Automatically start a PPP dialup connection upon start or resume.
+# Type:         YESNO
+# Default:      "no"
+# PPP_ENABLED="no"
+
+# Name:         PPP_DEVICE
+# Description:  Serial device for pppd to use (like /dev/ttyS0).
+# Type:         STRING
+# Default:      "/dev/modem"
+# PPP_DEVICE="/dev/modem"
+
+# Name:         PPP_SPEED
+# Description:  Serial UART bit rate.
+# Type:         ENUM (default,
+#                     115200,
+#                      57600,
+#                      28800,
+#                      19200,
+#                      14400,
+#                       9600,
+#                       2400,
+#                       1200,
+#                        300 )
+# Default:      "default"
+# PPP_SPEED="default"
+
+# Name:         PPP_MODEMCFG
+# Description:  Additional modem configuration commands.  (Must include leading "AT".)
+# Type:         STRING
+# Default:      ""
+# PPP_MODEMCFG=""
+
+# Name:         PPP_TELEPHONE
+# Description:  Telephone number to dial.  Hyphens are ignored.  Commas cause most modems to pause a second or two.
+# Type:         STRING
+# Default:      ""
+# PPP_TELEPHONE=""
+
+# Name:         PPP_ACCOUNT
+# Description:  System default login name for PPP authentication.
+# Type:         STRING
+# Default:      ""
+# PPP_ACCOUNT=""
+
+# Name:         PPP_PASSWORD
+# Description:  System default password for PPP authentication.
+# Type:         STRING
+# Default:      ""
+# PPP_PASSWORD=""
+
+# Name:         PPP_DOMAIN
+# Description:  Default domain name, for "/etc/resolv.conf".
+# Type:         STRING
+# Default:      ""
+# PPP_DOMAIN=""
+
+# Name:         PPP_DNS
+# Description:  Space-separated list of DNS server IP addresses.
+# Type:         STRING
+# Default:      ""
+# PPP_DNS=""
+
+#
+# ppp-2.4.1b2                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### RP-PPPOE                                                                ###
+###############################################################################
+# Currently available packages:
+# - rp-pppoe-2.2
+RP_PPPOE_SRC=no
+
+###############################################################################
+# rp-pppoe-2.2                                                                #
+# Title:        rp-pppoe
+# Description:  PPPOE (PPP over ethernet) client
+#               (requires PPP)
+# Menu:         network
+# URL:          http://www.roaringpenguin.com/pppoe/
+#
+# rp-pppoe-2.2                                                                #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### GDB                                                                     ###
+###############################################################################
+# Currently available packages:
+# - gdb-5.1.1
+GDB_SRC=no
+
+###############################################################################
+# gdb-5.1.1                                                                   #
+# Title:        gdb
+# Description:  the GNU symbolic debugger
+# Menu:         diagnostics
+# URL:          http://sources.redhat.com/gdb/
+#
+# gdb-5.1.1                                                                   #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### INETUTILS                                                               ###
+###############################################################################
+# Currently available packages:
+# - inetutils-1.3.2
+INETUTILS_SRC=no
+
+###############################################################################
+# inetutils-1.3.2                                                             #
+# Title:        Standard Internet Utilities
+# Menu:         diagnostics
+# URL:          http://www.gnu.org/software/inetutils/inetutils.html
+
+# Name:         FTP_CLIENT
+# Description:  Install a simple ftp client on the target.
+# Type:         YESNO
+# Default:      no
+# FTP_CLIENT="no"
+
+# Name:         INETD
+# Description:  Install the inetd superserver on the target.  If this is
+#               installed, ftpd and telnetd (if enabled) will run slaved
+#               to inetd.
+# Type:         YESNO
+# Default:      no
+# INETD="no"
+
+# Name:         INET_TCP
+# Description:  List trivial tcp services that should be supported (echo, chargen, discard, time and daytime)
+# Type:         LIST CHECKBOX (echo, chargen, discard, time, daytime)
+# Default:      ""
+# INET_TCP=""
+
+# Name:         INET_UDP
+# Description:  List trivial udp services that should be supported (echo, chargen, discard, time and daytime)
+# Type:         LIST CHECKBOX (echo, chargen, discard, time, daytime)
+# Default:      ""
+# INET_UDP=""
+
+# Name:         FTPD
+# Description:  Install a simple ftp server on the target.  Note that
+#               this server is not started unless inetd is also enabled.
+# Type:         YESNO
+# Default:      no
+# FTPD="no"
+
+# Name:         TELNETD
+# Description:  Install a simple telnet server on the target.  This
+#               server is run from inetd if inetd is installed, and it
+#               is started stand-alone if inetd is not installed.
+# Type:         YESNO
+# Default:      no
+# TELNETD="no"
+
+# Name:         TELNET_DAEMON_PORT
+# Description:  Set the port the telnet daemon should use.  This option
+#               only has an effect when telnetd is run in stand-alone
+#               mode (without inetd).  When telnetd is started from
+#               inetd, it always runs on the standard port 23.
+# Type:         INTEGER
+# Default:      5000
+# TELNET_DAEMON_PORT="5000"
+
+# Name:         INET_ROOT
+# Description:  Set to yes if you want all those servers on the root partitiion
+#               instead of the usr partition
+# Type:         YESNO
+# Default:      no
+# INET_ROOT="no"
+#
+# inetutils-1.3.2                                                             #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### LTRACE                                                                  ###
+###############################################################################
+# Currently available packages:
+# - ltrace-0.3.10
+LTRACE_SRC=no
+
+###############################################################################
+# ltrace-0.3.10                                                               #
+# Title:        ltrace
+# Description:  A useful debugging program
+# Menu:         diagnostics
+# URL:          ftp://ftp.debian.org/debian/dists/potato/main/source/utils/
+#
+# ltrace-0.3.10                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PERL                                                                    ###
+###############################################################################
+# Currently available packages:
+# - perl-5.6.0
+PERL_SRC=no
+
+###############################################################################
+# perl-5.6.0                                                                  #
+# Title:	perl
+# Description:	The Perl interpreter.
+# Packager:	Claudio Fleiner (Transmeta) & Jeff Uphoff (Transmeta)
+# Menu:		diagnostics
+# URL:          http://www.perl.com/
+#
+# perl-5.6.0                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### RXVT                                                                    ###
+###############################################################################
+# only one package is available:
+# - rxvt-2.6.4
+RXVT_SRC=yes
+
+###############################################################################
+# rxvt-2.6.4                                                                  #
+# Title:        rxvt 
+# Description:  is a small x-terminal-emulator
+# Menu:         diagnostics
+# URL:          http://www.rxvt.org
+
+# Name:         RXVT_MLCONFIG_RXVT
+# Description:  Set RXVT_MLCONFIG_RXVT to yes if you want to offer
+#               the possibility to open a root rxvt terminal
+# Type:         YESNO
+# Default:      yes
+# RXVT_MLCONFIG_RXVT="yes"
+
+# Name:         RXVT_AUTOSTART
+# Description:  Starts rxvt automatically on boot if set
+# Type:         YESNO
+# Default:      yes
+# RXVT_AUTOSTART="yes"
+#
+# rxvt-2.6.4                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### STRACE                                                                  ###
+###############################################################################
+# Currently available packages:
+# - strace-4.2
+STRACE_SRC=no
+
+###############################################################################
+# strace-4.2                                                                  #
+# Title:        strace
+# Description:  strace is a handy program for debugging
+# Menu:         diagnostics
+# URL:          http://www.wi.leidenuniv.nl/~wichert/strace/
+#
+# strace-4.2                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### SVGALIB                                                                 ###
+###############################################################################
+# Currently available packages:
+# - svgalib-1.4.1
+SVGALIB_SRC=no
+
+###############################################################################
+# svgalib-1.4.1                                                               #
+# Title:        svgalib
+# Description:  This is necessary to run the test suite.
+# Menu:         diagnostics
+# URL:          http://www.svgalib.org/
+#
+# svgalib-1.4.1                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### TESTSUITE                                                               ###
+###############################################################################
+# Currently available packages:
+# - testsuite-0.3
+TESTSUITE_SRC=no
+
+###############################################################################
+# testsuite-0.3                                                               #
+# Title:        Midori Linux Test Suite
+# Version:      0.3
+# Description:  A suite of tests, mainly for webpad-like hardware.
+#       <p>
+#       The original suite of test code was written by:
+#       <dl>
+#       <dt><b>Patrick Mochel</b>
+#       <dd>cpu, disk, graphics, memory, modem, network, and test_suite
+#       <dt><b>Nathan Laredo</b>
+#       <dd>cpu, memory, pci, sound, and test_suite
+#       <dt><b>Dave Taylor</b>
+#       <dd>disk, modem, and test_suite
+#       <dt><b>Dan Quinlan and Eric Warmenhoven</b>
+#       <dd>test_suite
+#       </dl>
+#       The tests were then split out into individually callable routines
+#       by Rick Miller.
+# Packager:     Rick Miller (Transmeta)
+# Menu:         diagnostics
+# URL:          http://midori.transmeta.com/
+
+# Name:         TEST_MODULES
+# Description:  Target directory in which to place "tst.*" executables
+#       and all selected frontends.
+# Type:         LIST CHECKBOX (cpu, disk, input, mem, modem, network, pci, sound, usb, vga)
+# Default:      "cpu disk mem modem network pci sound usb vga"
+# TEST_MODULES="cpu disk mem modem network pci sound usb vga"
+
+# Name:         TEST_DISK_DEVICE
+# Description:  Default disk device.
+# Type:         STRING
+# Default:      "/dev/hda"
+# TEST_DISK_DEVICE="/dev/hda"
+
+# Name:         TEST_MODEM_DEVICE
+# Description:  Default modem device.
+# Type:         STRING
+# Default:      "/dev/modem"
+# TEST_MODEM_DEVICE="/dev/modem"
+
+# Name:         TEST_MOUSE_DEVICE
+# Description:  Default mouse device.
+# Type:         STRING
+# Default:      "/dev/mouse"
+# TEST_MOUSE_DEVICE="/dev/mouse"
+
+# Name:         TEST_NET_DEVICE
+# Description:  Default network device name.
+# Type:         STRING
+# Default:      "eth0"
+# TEST_NET_DEVICE="eth0"
+
+# Name:         TEST_BINDIR
+# Description:  Target directory in which to place "tst.*" executables
+#       and all selected frontends.
+# Type:         READONLY
+# Default:      "/usr/sbin"
+# TEST_BINDIR="/usr/sbin"
+#
+# testsuite-0.3                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### USBUTILS                                                                ###
+###############################################################################
+# Currently available packages:
+# - usbutils-0.11
+USBUTILS_SRC=no
+
+###############################################################################
+# usbutils-0.11                                                               #
+# Title:        usbutils
+# Description:  useful code to debug USB problems
+# Menu:         diagnostics
+# URL:          http://usb.cs.tum.edu/download/usbutils/
+#
+# usbutils-0.11                                                               #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### VIM                                                                     ###
+###############################################################################
+# Currently available packages:
+# - vim-3.0
+VIM_SRC=no
+
+###############################################################################
+# vim-3.0                                                                     #
+# Title:        a vi clone
+# Packager:     Claudio Fleiner
+# Menu:         diagnostics
+# URL:          http://www.vim.org/
+
+# Name:         VIM_DEFAULT_EDITOR
+# Description:  Set to yes if vim should be the default vi editor (disable the busybox
+#               vi editor in this case)
+# Type:         YESNO
+# Default:      no
+# VIM_DEFAULT_EDITOR="no"
+#
+# vim-3.0                                                                     #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### GLIB                                                                    ###
+###############################################################################
+# only one package is available:
+# - glib-1.2.10
+GLIB_SRC=yes
+
+###############################################################################
+# glib-1.2.10                                                                 #
+# Title:        Graphic Library for X
+# Version:      1.2.10
+# Description:  Provides many useful data types, macros, type conversions,
+#       string utilities and a lexical scanner.
+# Packager:     Rick Miller (Transmeta)
+# Menu:         X/libraries
+# URL:          http://www.gtk.org
+#
+# glib-1.2.10                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### GTK+                                                                    ###
+###############################################################################
+# only one package is available:
+# - gtk+-1.2.10
+GTK__SRC=yes
+
+###############################################################################
+# gtk+-1.2.10                                                                 #
+# Title:        GIMP Toolkit Libraries
+# Version:      1.2.10
+# Description:  An advanced widget set.
+# Packager:     Rick Miller (Transmeta)
+# Menu:         X/libraries
+# URL:          http://www.gtk.org
+#
+# gtk+-1.2.10                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### ICEWM                                                                   ###
+###############################################################################
+# only one package is available:
+# - icewm-1.2.0
+ICEWM_SRC=yes
+
+###############################################################################
+# icewm-1.2.0                                                                 #
+# Title:        IceWM
+# Version:      1.2.0
+# Description:  IceWM is a window manager for the <a href="http://www.xfree86.org/">X11 Window System</a>.
+#       It has been coded from scratch in C++ for performance
+#       and size, attempting to achieve the following goals:
+#       <ul>
+#       <li><b>Feel good and fast to use, be simple and don't get in the way</b>
+#       <li>Default configuration should be fully usable without tweaking
+#       <li>Mouse is optional
+#       <li>Combine the best features of other window managers and GUIs
+#       <li>Themes can customize the look, user can customize the feel.
+#       </ul>
+#       <p>
+#       IceWM is released under the terms of the <a href="http://icewm.sourceforge.net/COPYING.LIB">GNU Library General Public License</a>.
+# Packager:     Lee Nash
+# Menu:         X/wm
+# URL:          http://www.icewm.org/
+
+# Name:         ICEWM_LIB_DIR
+# Description:  Build-time directory which contains the system-wide
+#       configuration files including preferences, menu, programs,
+#       winoptions, and themes.  (Hint:  The build generates a "lib"
+#       directory with all the defaults in it.  You can copy that as
+#       a template.)
+#       <p>
+#       Must be an absolute path or empty.
+# Type:         STRING
+# Default:      ""
+# ICEWM_LIB_DIR=""
+#
+# icewm-1.2.0                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### OPERA                                                                   ###
+###############################################################################
+# only one package is available:
+# - opera-6.11
+OPERA_SRC=yes
+
+###############################################################################
+# opera-6.11                                                                  #
+# Title:        Opera Browser
+# Version:      6.11
+# Description:  Web browser.  Need both libpng and jpeg packages to work.
+# Packager:     Lee Nash
+# Menu:         X/ui
+
+# Name:         OPERA_AUTOSTART
+# Description:  Start Opera automatically with X Windows.
+# Type:         YESNO
+# Default:      "yes"
+# OPERA_AUTOSTART="yes"
+
+# Name:         OPERA_INI
+# Description:  Full path to an opera6.ini file.
+# Type:         STRING
+# Default:      "${BUILD}/opera-6.11/opera6.ini"
+# OPERA_INI="${BUILD}/opera-6.11/opera6.ini"
+
+# Name:         OPERA_HOME_PAGE
+# Description:  URL for default home page.
+# Type:         STRING
+# Default:      "http://midori.transmeta.com/"
+# OPERA_HOME_PAGE="http://midori.transmeta.com/"
+
+# Name:         OPERA_BOOKMARKS
+# Description:  Full path to an initail bookmark file.
+#       <p>
+#       Leave blank for Opera's default bookmarks.
+# Type:         STRING
+# Default:      "${BUILD}/opera-6.11/opera6.adr"
+# OPERA_BOOKMARKS="${BUILD}/opera-6.11/opera6.adr"
+
+# Name:         OPERA_REG_FILE
+# Description:  Full path to the opera.reg file (registered)
+# Type:         STRING
+# Default:      "${BUILD}/opera-6.11/opera.reg"
+# OPERA_REG_FILE="${BUILD}/opera-6.11/opera.reg"
+#
+# opera-6.11                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### PHOENIX                                                                 ###
+###############################################################################
+# only one package is available:
+# - phoenix-0.5
+PHOENIX_SRC=yes
+
+###############################################################################
+# phoenix-0.5                                                                 #
+# Title:        Phoenix Browser
+# Version:      0.5
+# Description:  Web browser.
+# Packager:     Lee Nash
+# Menu:         X/ui
+
+# Name:         PHOENIX_AUTOSTART
+# Description:  Start Phoenix automatically with X Windows.
+# Type:         YESNO
+# Default:      "yes"
+# PHOENIX_AUTOSTART="yes"
+
+# Name:         PHOENIX_HOME_PAGE
+# Description:  URL for default home page.
+# Type:         STRING
+# Default:      "http://midori.transmeta.com/"
+# PHOENIX_HOME_PAGE="http://midori.transmeta.com/"
+
+# Name:         PHOENIX_LOGO_URL
+# Description:  URL for throbber click.
+# Type:         STRING
+# Default:      "http://localhost/"
+# PHOENIX_LOGO_URL="http://localhost/"
+
+# Name:         PHOENIX_BOOKMARKS
+# Description:  Full path to an initail bookmark file.
+#       <p>
+#       Leave blank for Phoenix's default bookmarks.
+# Type:         STRING
+# Default:      "${BUILD}/phoenix-0.5/bookmarks.html"
+# PHOENIX_BOOKMARKS="${BUILD}/phoenix-0.5/bookmarks.html"
+#
+# phoenix-0.5                                                                 #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### SYLPHEED                                                                ###
+###############################################################################
+# only one package is available:
+# - sylpheed-0.8.10
+SYLPHEED_SRC=yes
+
+###############################################################################
+# sylpheed-0.8.10                                                             #
+# Title:        Sylpheed 0.8.10 - Email Client
+# Description:	Sylpheed is an e-mail client (& news reader) based on GTK+.
+# Packager:	Lee Nash based on Vittal Udipi sylpheed mlz
+# Menu:		X/ui
+# URL:		http://sylpheed.good-day.net
+#
+# sylpheed-0.8.10                                                             #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### XBUTTON                                                                 ###
+###############################################################################
+# Currently available packages:
+# - xbutton
+XBUTTON_SRC=no
+
+###############################################################################
+# xbutton                                                                     #
+# Title:        The X button driver
+# Version:      0.2
+# Description:  This package contains the X program required to use
+#               the Transmeta button device.  You don't want this
+#               turned on unless you actually have the button device.
+#               If it doesn't exist, loading it it may interfere with other
+#               devices, especially the MK712 touchscreen controller.
+# Menu:         X/ui
+# URL:          http://midori.transmeta.com/
+#
+# xbutton                                                                     #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### XCALIBRATE                                                              ###
+###############################################################################
+# Currently available packages:
+# - xcalibrate
+XCALIBRATE_SRC=no
+
+###############################################################################
+# xcalibrate                                                                  #
+# Title:                touchscreen calibration
+# Description:          Calibrate the mk712 touchscreen driver (by Transmeta).
+#                       You also must enable X4_MK712_DRIVER in the X package.
+# Menu:                 X/ui
+# URL:                  http://midori.transmeta.com/
+#
+# xcalibrate                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### XKEYBOARD                                                               ###
+###############################################################################
+# only one package is available:
+# - xkeyboard
+XKEYBOARD_SRC=yes
+
+###############################################################################
+# xkeyboard                                                                   #
+# Title:        xkeyboard
+# Description:  a virtual keyboard
+# Menu:         X/ui
+# URL:          http://midori.transmeta.com/
+#
+# xkeyboard                                                                   #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### XMMS                                                                    ###
+###############################################################################
+# only one package is available:
+# - xmms-1.2.7
+XMMS_SRC=yes
+
+###############################################################################
+# xmms-1.2.7                                                                  #
+# Title:        The xmms mp3 player
+# Menu:         X/ui
+# URL:          http://www.xmms.org
+#
+# xmms-1.2.7                                                                  #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### XTOUCH                                                                  ###
+###############################################################################
+# only one package is available:
+# - xtouch
+XTOUCH_SRC=yes
+
+###############################################################################
+# xtouch                                                                      #
+# Title:        xtouch
+# Description:  xtouch touch-screen driver
+#               set to yes if you want the xtouch driver
+# Menu:         X/ui
+# URL:          http://midori.transmeta.com/
+
+# Name:         XTOUCH_RECALIBRATE
+# Description:  set to "no" to disable the across-the-top recalibration stroke
+# Type:         YESNO
+# Default:      "yes"
+# XTOUCH_RECALIBRATE="yes"
+
+# Name:         XTOUCH_DRIVER_ONLY
+# Description:  set to "yes" to remove all calibration code from xtouch
+#               at compile-time
+# Type:         YESNO
+# Default:      "no"
+# XTOUCH_DRIVER_ONLY="no"
+
+# Name:         XTOUCH_BESTFIT_PATCH
+# Description:  set to "yes" to apply an experimental patch that updates
+#               the xtouch program with a new calibration method that
+#               tries to do a best fit curve since the screens on
+#               devices like the Gateway/AOL device aren't 100% linear,
+#               the logic comes from the makers of the screen
+# Type:         YESNO
+# Default:      "no"
+# XTOUCH_BESTFIT_PATCH="no"
+#
+# xtouch                                                                      #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### X                                                                       ###
+###############################################################################
+# only one package is available:
+# - X-4.0.3
+X_SRC=yes
+
+###############################################################################
+# X-4.0.3                                                                     #
+# Title:        XFree86 Server 4.0.3
+# Description:  If X is not selected all packages depending on X will 
+#               silently be ignored. It is currently not possible to install
+#               just the X libraries, but not the server
+# Menu:         X/server
+# Menutitle:    X               Software using X
+# Menutitle:    X/server        X Server packages
+# Menutitle:    X/wm            Windows Manager
+# Menutitle:    X/ui            Applications
+# Menutitle:    X/libraries     X Libraries
+# Menutitle:    X/utilities     Utilities/Fonts
+# URL:          http://www.xfree86.org/
+
+# Name:         XCONFIG
+# Description:  Location of a custom XF86Config file to be installed on the target.
+#       (This one has been set up so that you have the choice of just dropping
+#       your own XF86Config file into the midori/etc directory, or point to
+#       something outside the Midori tree altogether.)
+# Type:         STRING
+# Default:      ${TOPDIR}/etc/XF86Config
+# XCONFIG="${TOPDIR}/etc/XF86Config"
+
+# Name:         START_X
+# Description:  set to no if you don't want X to start automatically.
+#               In this case you can start X manually by executing
+#               /usr/X11R6/xinit
+# Type:         YESNO
+# Default:      yes
+# START_X="yes"
+
+# Name:         X_ALLOW_VT_ACCESS
+# Description:  Set to "no" if you do not want to allow the CTL-ALT-F# key-combination
+#               (to switch from X to a virtual) or the CTL-ALT-BS key-combination (to
+#               kill X); this will "lock" the user into X windows.  You must recompile
+#               X for the full effect
+# Type:         YESNO
+# Default:      yes
+# X_ALLOW_VT_ACCESS="yes"
+
+# Name:         X4_BACKGROUND
+# Description:  Set the default background pattern for X.
+# Type:         ENUM (stipple,white,black)
+# Default:      white
+# X4_BACKGROUND="white"
+
+# Name:         X4_NICE_ROOTCURSOR
+# Description:  Set to "yes" if you want X to use an arrow instead of
+#               the default fat X for the X root cursor.
+# Type:         YESNO
+# Default:      yes
+# X4_NICE_ROOTCURSOR="yes"
+
+# Name:         X4_MK712_DRIVER
+# Description:  Set to "no" if you don't want to use the mk712 XInput Driver
+# Type:         YESNO
+# Default:      no
+# X4_MK712_DRIVER="no"
+
+# Name:         XWIDTH
+# Description:  Horizontal resolution for X
+# Type:         INTEGER
+# Default:      800
+# XWIDTH="800"
+
+# Name:         XHEIGHT
+# Description:  Horizontal resolution for X
+# Type:         INTEGER
+# Default:      600
+# XHEIGHT="600"
+
+# Name:         XRES
+# Description:  Useful macro
+# Type:         HIDDEN
+# Default:      ${XWIDTH}x${XHEIGHT}
+# XRES="${XWIDTH}x${XHEIGHT}"
+
+# Name:         XDPI
+# Description:  Desired DPI setting for X (this option may go away in the future)
+# Type:         INTEGER
+# Default:      75
+# XDPI="75"
+
+# Name:         XPM
+# Description:  yes if you want Xpm (needed for netscape for example)
+# Type:         YESNO
+# Default:      no
+XPM="yes"
+
+# Name:         DPMS
+# Description:  Set the timeout after which X should blank the screen using dpms.
+#               The default of 0 disables this feature.
+# Type:         INTEGER
+# Default:      0
+# DPMS="0"
+
+# Name:         XPROGRAMS
+# Description:  list of X programs to install 
+# Type:         LIST CHECKBOX (SuperProbe, XFree86, Xmark, Xnest, Xprt, Xvfb, appres, atobm, bdftopcf,
+#                     beforelight, bitmap, bmtoa, cxpm, dga, editres, fsinfo, fslsfonts, fstobdf,
+#                     gccmakedep, iceauth, ico, lbxproxy, listres, makeg, makepsres, makestrs,
+#                     mergelib, mkcfm, mkdirhier, mkfontdir, mkhtmlindex, oclock, pcitweak,
+#                     proxymngr, revpath, rman, rstart, rstartd, scanpci, sessreg,
+#                     setxkbmap, showfont, showrgb, smproxy, startx, sxpm, twm, viewres, x11perf,
+#                     x11perfcomp, xauth, xbiff, xcalc, xclipboard, xclock, xcmsdb, xconsole,
+#                     xcutsel, xditview, xdm, xdpyinfo, xedit, xev, xeyes, xf86cfg, xf86config, xfd,
+#                     xfindproxy, xfontsel, xfs, xfwp, xgamma, xgc, xhost, xieperf, xinit, xkbbell,
+#                     xkbcomp, xkbevd, xkbprint, xkbvleds, xkbwatch, xkill, xload, xlogo, xlsatoms,
+#                     xlsclients, xlsfonts, xmag, xman, xmessage, xmkmf, xmodmap, xon, xprop, xrdb,
+#                     xrefresh, xset, xsetmode, xsetpointer, xsetroot, xsm, xstdcmap, xvidtune,
+#                     xwd, xwininfo, xwud)
+# Default:      "xmodmap xrdb xset XFree86"
+# XPROGRAMS="xmodmap xrdb xset XFree86"
+
+# Name:		XVIDEO_DRIVER
+# Description:	List of XInput modules to install. 
+# Type:		LIST CHECKBOX ( apm, ark, ati, atimisc, chips, cirrus_alpine, cirrus, cirrus_laguna, cyrix, fbdev, glint, i128, i740, i810, linux/ mga, neomagic, nv, r128, radeon, rendition, s3virge, savage, siliconmotion, sis, tdfx, tga, trident, tseng, vesa, vga, vmware, linux/v4l )
+# Default:	"vga siliconmotion"
+# XVIDEO_DRIVER="vga siliconmotion"
+
+# Name:		XINPUT_MODULES
+# Description:	List of XInput modules to install. 
+# Type:		LIST CHECKBOX (afb, cfb, cfb16, cfb24, cfb32, ddc, fb, i2c, int10, mfb, pcidata, rac, ramdac, scanpci, shadow, shadowfb, vbe, vgahw, xaa, xf1bpp, xf24_32bpp, xf4bpp, xf8_16bpp, xf8_32bpp )
+# Default:	"vgahw pcidata scanpci cfb16 vbe ddc cfb i2c mfb ramdac xaa"
+# XINPUT_MODULES="vgahw pcidata scanpci cfb16 vbe ddc cfb i2c mfb ramdac xaa"
+
+# Name:		XINPUT_DRIVERS
+# Description:	List of XInput drivers to install. 
+# Type:		LIST CHECKBOX (mouse, mk712, citron, dynapro, microtouch, mutouch, summa, wacom, digitaledge, elographics, spaceorb, void )
+# Default:	mouse
+# XINPUT_DRIVERS="mouse"
+
+# Name:		XFONT_MODULES
+# Description:	List of X font modules to install
+# Type:		LIST CHECKBOX (bitmap, freetype, speedo, type1, xtt )
+# Default:	"bitmap freetype speedo type1 xtt"
+# XFONT_MODULES="bitmap freetype speedo type1 xtt"
+
+# Name:         WINDOW_MANAGER
+# Description:  Window Manager that should be started when booting.
+#               You should use one of the programs mentioned in the menu
+#               X/wm (and of course you need to enable it). The perl code below will list 
+#               those programs. Note that you can always enable more than 
+#               one windows manager and offer a way to switch from one to another.
+# Type:         PERL
+#               package WINDOW_MANAGER;
+#               @ISA=qw( PARAMETER );
+#               my %wm;
+#               sub initialize { my $self=shift; bless $self; }
+#               sub findwm { 
+#                       undef %wm; 
+#                       my $menu=MENU::get("X/wm");
+#                       my $ch=$menu->children;
+#                       foreach my $i (@$ch) { $wm{$i->name}=$i->edit eq "no"?"-":"*"; }
+#               }
+#               sub printacceptable {
+#                       my $self=shift; my $file=shift;
+#                       $self->findwm;
+#                       print $file "<tr><td>Acceptable Values:</td><td>\"none\" or any active window manager\n";
+#                       my $f=0;$k=0;
+#                       foreach my $i (keys %wm) {
+#                               if($wm{$i} eq "*") {
+#                                       print $file "<ul>" if($f==0);
+#                                       print $file "<li>$i" if($wm{$i} eq "*");
+#                                       $f++;
+#                               }
+#                               $k++;
+#                       }
+#                       print $file "</ul>" if($f>0);
+#                       if($k==0) { 
+#                               print $file "but there are none at all.";
+#                       } elsif($f!=$k) {
+#                               print $file "but currently none are active." if($f==0);
+#                               print $file " Currently disabled ones:<ul>\n";
+#                               foreach my $i (keys %wm) { print $file "<li>$i" if($wm{$i} eq "-"); }
+#                               print $file "</ul>";
+#                       }
+#                       print $file "</td></tr>\n";
+#               }
+#               sub printhtml {
+#                       my $self=shift; my $file=shift;
+#                       $self->findwm;
+#                       print $file "<select name=WINDOW_MANAGER><option value=none ".($self->edit eq "none"?"selected":"").">none</option>\n";
+#                       foreach my $i (keys %wm) { print $file "<option value=$i ".($self->edit eq $i?"selected":"").">$i: currently enabled</option>\n" if($wm{$i} eq "*"); }
+#                       foreach my $i (keys %wm) { print $file "<option value=$i ".($self->edit eq $i?"selected":"").">$i: currently disabled</option>\n" if($wm{$i} ne "*"); }
+#                       print $file "</select>\n";
+#               }
+#               sub check {
+#                       my $self=shift; my $file=shift;
+#                       $self->findwm;
+#                       return $self->edit eq "none" || $wm{$self->edit} eq "*";
+#               }
+#               1;
+# Default:      none
+# WINDOW_MANAGER="none"
+#
+# X-4.0.3                                                                     #
+###############################################################################
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+###############################################################################
+### OPENSSH                                                                 ###
+###############################################################################
+# only one package is available:
+# - openssh-3.0.2p1
+OPENSSH_SRC=yes
+
+###############################################################################
+# openssh-3.0.2p1                                                             #
+# Title:        ssh client and server
+# Packager:     Claudio Fleiner
+# Menu:         applications
+# URL:          http://www.openssh.org/
+
+# Name:         SSH_SERVER
+# Description:  Set to yes if you want the ssh server to be installed
+# Type:         YESNO
+# Default:      yes
+SSH_SERVER="no"
+
+# Name:         SSH_CLIENT
+# Description:  Set to yes if you want the ssh client to be installed
+# Type:         YESNO
+# Default:      yes
+# SSH_CLIENT="yes"
+
+# Name:         SSH_ROOT
+# Description:  Set to yes if you want the ssh server and client
+#               to be installed on the root partition
+# Type:         YESNO
+# Default:      no
+# SSH_ROOT="no"
+
+# Name:         SSH_CLIENT_KEY_TYPE
+# Description:  List of keys to generate for the client
+# Type:         LIST CHECKBOX (rsa1, rsa, dsa)
+# Default:      dsa
+# SSH_CLIENT_KEY_TYPE="dsa"
+
+# Name:         SSH_CLIENT_KEY_CREATE
+# Description:  Define when the client key should be generated.
+#               If you select 'build' it will be created during the
+#               build of midori (you need ssh installed for this to work),
+#               and all clients will use the same key. 'once' will create
+#               it the first time ssh is used, and 'boot' will create a
+#               new key everytime the ssh program is started after the last boot.
+#               You can also specify a key file by selecting 'file'.
+# Type:         ENUM RADIO (never, build, once, boot, file)
+# Default:      once
+# SSH_CLIENT_KEY_CREATE="once"
+
+# Name:         SSH_CLIENT_KEY_FILE
+# Description:  File(s) to be used as the keys for the ssh client.
+#               Use only full path.
+# Type:         STRING
+# Default:      ""
+# SSH_CLIENT_KEY_FILE=""
+
+# Name:         SSH_SHARE_KEY
+# Description:  Set to yes if the server and client should share their keys.
+# Type:         YESNO
+# Default:      no
+# SSH_SHARE_KEY="no"
+
+# Name:         SSH_SERVER_KEY_TYPE
+# Description:  List of keys to generate for the server
+# Type:         LIST CHECKBOX (rsa1, rsa, dsa)
+# Default:      "rsa1 rsa dsa"
+# SSH_SERVER_KEY_TYPE="rsa1 rsa dsa"
+
+# Name:         SSH_SERVER_KEY_CREATE
+# Description:  Define when the server key should be generated.
+#               If you select 'build' it will be created during the
+#               build of midori (you need ssh installed for this to work),
+#               and all servers will use the same key. 'once' will create
+#               it the first time ssh is used, and 'boot' will create a
+#               new key everytime the ssh program is started after the last boot.
+#               You can also specify a key file by selecting 'file'.
+# Type:         ENUM RADIO (never, build, once, boot, file)
+# Default:      once
+# SSH_SERVER_KEY_CREATE="once"
+
+# Name:         SSH_SERVER_KEY_FILE
+# Description:  File(s) to be used as the keys for the ssh server.
+#               Use only full path.
+# Type:         STRING
+# Default:      ""
+# SSH_SERVER_KEY_FILE=""
+
+# Name:         SSH_AUTHORIZED_KEYS
+# Description:  File(s) that include authorized keys for connecting to the systems.
+#               Use only full path.
+# Type:         STRING
+# Default:      ""
+# SSH_AUTHORIZED_KEYS=""
+
+# Name:         SSH_AUTHORIZED_KEYS_CONFIGURABLE
+# Description:  If set to yes the authorization files will be stored in the configuration
+#               directory as opposed to the readonly file system.
+# Type:         YESNO
+# Default:      "yes"
+# SSH_AUTHORIZED_KEYS_CONFIGURABLE="yes"
+#
+# openssh-3.0.2p1                                                             #
+###############################################################################
+###############################################################################
+###############################################################################
