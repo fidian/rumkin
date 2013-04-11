@@ -1,7 +1,7 @@
 ---
 title: Base Converter
 template: page.jade
-js: /js/angular/angular.min.js base-n-controller.js
+js: /js/angular.min.js base-n-controller.js
 controller: BaseNController
 module: base-n
 ---

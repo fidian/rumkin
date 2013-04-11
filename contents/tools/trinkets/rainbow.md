@@ -1,7 +1,7 @@
 ---
 title: Rainbow Text Generator
 template: page.jade
-js: /js/util.js /js/angular/angular.min.js /js/directives/auto-grow.js rainbow-controller.js
+js: /js/util.js /js/angular.min.js /js/directives/auto-grow.js rainbow-controller.js
 controller: RainbowController
 module: rainbow
 ---
