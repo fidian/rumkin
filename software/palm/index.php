@@ -287,7 +287,7 @@ $SW = array(
 			'Version' => '1.1',
 			'Desc' => 'Shared library that makes IEEE-754 double-precision math ' . 'functions available to developers.  One shared copy of these ' . 'large routines for accurate trig functions means that all of ' . 'your advanced calculators will not be duplicating the code ' . 'and leads to a more efficient and better layout of the ' . 'software.',
 			'Links' => array(
-				'Official Site' => 'http://www.radiks.net/~rhuebner/mathlib.html',
+				'GitHub Project' => 'https://github.com/fidian/MathLib',
 			)
 		),
 		'ZLib' => array(
