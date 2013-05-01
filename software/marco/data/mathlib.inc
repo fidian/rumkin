@@ -25,9 +25,8 @@ be done.  MathLib is available in a package with Marco from the
 <a href="download.php">download page</a>.  Additionally, you can download 
 just the MathLib file from <a href="prc/MathLib.prc">here</a>
 (right-click and pick "Save As"), or you can get everything (including 
-documentation and the source code) from the 
-<a href="http://www.radiks.net/~rhuebner/mathlib.html">MathLib
-website</a>.</p>
+documentation and the source code) from this
+<a href="http://github.com/fidian/MathLib">MathLib project</a> on GitHub.</p>
 
 <p>The reason that MathLib is used is for accuracy.  Internally, Marco uses
 a 'double', which is a 32-bit floating point number.  Palm OS doesn't have
