@@ -1,9 +1,8 @@
 ---
 title: Scoreboard
 template: page.jade
-js: /js/util.js /js/angular.min.js scoreboard-controller.js
+js: /js/util.js /js/angular.min.js scoreboard.js
 css: scoreboard.css
-controller: ScoreboardController
 module: scoreboard
 ---
 
@@ -20,7 +19,7 @@ Last Updated: April 7<sup>th</sup>, 2013 with number 196
 [9Key Hall of Fame]: http://www.9key.com/hall_of_fame.asp
 [Licensing Info]: /license.html
 
-<div id="scoreboard">
+<div id="scoreboard" scoreboard>
 	<div class="scoreboard_menu">
 		<span class="scoreboard_link" ng-class="{scoreboard_active: top10}" ng-click="pickLink('top10')">Top 10</span>
 		<span class="scoreboard_link" ng-class="{scoreboard_active: full}" ng-click="pickLink('full')">Full List</span>

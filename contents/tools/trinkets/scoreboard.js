@@ -273,21 +273,25 @@
 
 	scores = countScores(tallies);
 
-	angular.module('scoreboard', []).controller("ScoreboardController", ['$scope', function ($scope) {
-		$scope.pickLink = function (n) {
-			$scope.top10 = false;
-			$scope.full = false;
-			$scope.name = false;
-			$scope[n] = true;
+	angular.module('scoreboard', []).directive("scoreboard", function () {
+		return {
+			link: function ($scope, element, attrs) {
+				$scope.pickLink = function (n) {
+					$scope.top10 = false;
+					$scope.full = false;
+					$scope.name = false;
+					$scope[n] = true;
+				};
+
+				$scope.top10 = true;
+				$scope.full = false;
+				$scope.name = false;
+				$scope.tallies = tallies;
+
+				$scope.fullList = scores.sort(sortByCount).slice();
+				$scope.top10List = $scope.fullList.slice(0, 10);
+				$scope.nameList = scores.sort(sortByName).slice();
+			}
 		};
-
-		$scope.top10 = true;
-		$scope.full = false;
-		$scope.name = false;
-		$scope.tallies = tallies;
-
-		$scope.fullList = scores.sort(sortByCount).slice();
-		$scope.top10List = $scope.fullList.slice(0, 10);
-		$scope.nameList = scores.sort(sortByName).slice();
-	}]);
+	});
 }());
