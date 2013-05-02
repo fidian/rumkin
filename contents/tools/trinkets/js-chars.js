@@ -7,25 +7,17 @@
 (function () {
 	'use strict';
 
-	function makeOutput(input) {
-		return input.split('').map(function (c) {
-			var code;
-			code = c.charCodeAt(0);
-			return util.hexByte(code / 256) + util.hexByte(code % 256);
-		}).join(' ');
-	}
-
-
-	angular.module('jsChars', ['autoGrow']).directive('jsChars', function () {
-		return {
-			link: function ($scope, element, attrs) {
-				$scope.input = '';
-				$scope.output = '';
-
-				$scope.$watch('input', function (newVal) {
-					$scope.output = makeOutput(newVal);
-				});
+	angular.module('jsChars', ['autoGrow']).filter('jsChars', function () {
+		return function (input) {
+			if (input === undefined || input === '') {
+				return '';
 			}
+
+			return input.split('').map(function (c) {
+				var code;
+				code = c.charCodeAt(0);
+				return util.hexByte(code / 256) + util.hexByte(code % 256);
+			}).join(' ');
 		};
 	});
 }());
