@@ -18,6 +18,7 @@ function setObjectOpacity(obj_name, percent) {
 		// Internet Explorer
 		menuobj = document.all[obj_name];
 		menuobj.filters.alpha.opacity = percent;
+		menuobj.zoom = 1;
 	} else if (document.getElementById) {
 		// The rest
 		menuobj = document.getElementById(obj_name);
