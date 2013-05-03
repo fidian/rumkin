@@ -6,7 +6,6 @@
 		"description": "Arbitrary collection of things"
 	},
 	"plugins": [
-		"wintersmith-less",
-		"wintersmith-snockets"
+		"wintersmith-less"
 	]
 }
