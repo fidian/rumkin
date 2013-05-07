@@ -1,3 +1,6 @@
+Password entropy tester - repeat numbers are less likely to happen and should provide less entropy.  Also check for repeating patterns.
+
+
 Rotate cipher is also called a "tabular transposition" cipher.
 
 
