@@ -1,8 +1,9 @@
-/* Rainbow text generator
- * Copyright 2012 Tyler Akins
+/**
+ * Rainbow text generator
+ * Copyright 2013 Tyler Akins
  * http://rumkin.com/license.html
  */
-/*global angular, autoloader, util*/
+/*global angular, util*/
 (function () {
 	'use strict';
 

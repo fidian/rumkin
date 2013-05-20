@@ -1,4 +1,9 @@
-/*global angular, autoloader*/
+/**
+ * Base-N Conversion
+ * Copyright 2013 Tyler Akins
+ * http://rumkin.com/license.html
+ */
+/*global angular*/
 (function () {
 	'use strict';
 

@@ -1,4 +1,9 @@
-/*global angular, autoloader, util*/
+/**
+ * Scoreboard System
+ * Copyright 2013 Tyler Akins
+ * http://rumkin.com/license.html
+ */
+/*global angular, util*/
 (function () {
 	'use strict';
 
