@@ -1,0 +1,17 @@
+{
+	"name": "Rumkin.com",
+	"version": "0.0.0",
+	"scripts": {
+		"preview": "wintersmith preview"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"wintersmith": "*",
+		"wintersmith-less": "*"
+	},
+	"engines": {
+		"node": ">=0.8",
+		"npm": ">=1"
+	}
+}
