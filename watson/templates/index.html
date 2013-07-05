@@ -1,12 +1,14 @@
+<!doctype html>
 <html>
 	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<title>Watson - Inspect Your Request</title>
 	</head>
 	<body>
 		@foreach ($sections as $name => $html):
 		{{>section.html name=$name html=$html}}
 		@endforeach
-		<hr>
+		<hr/>
 		<p>This page generated using useful tools like Ultralite and Dump in the <a href="https://github.com/chrismcmacken/phptools/">PHP Tools</a> repository.</p>
 	</body>
 </html>
