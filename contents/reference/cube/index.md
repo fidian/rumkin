@@ -83,13 +83,13 @@ To get back to where you were before, perform the above pattern twice more. If y
 
 Each sequence of moves in this notation represents the (x, y) coordinates of the piece we're focusing on, with (1, 1) in the bottom left corner. For those of you not familiar with coordinate geometry that this means is that the bottom left corner is (1, 1), the piece to its right is (2, 1), the piece just above it is (1, 2), the (corner) centre piece beside both of these is (2, 2), etc. Or, put more simply, for coordinates (x, y) means count off x pieces to the right and y pieces up, counting the bottom left piece as 1 in both cases.  If this is confusing the heck out of you, here's a diagram to help you out, using the Professor's/Ultimate/Borg cube.
 
-    5 | (1,5)  (2,5)  (3,5)  (4,5)  (5,5)
-    4 | (1,4)  (2,4)  (3,4)  (4,4)  (5,4)
-    3 | (1,3)  (2,3)  (3,3)  (4,3)  (5,3)
-    2 | (1,2)  (2,2)  (3,2)  (4,2)  (5,2)
-    1 | (1,1)  (2,1)  (3,1)  (4,1)  (5,1)
-	  +----------------------------------
-	y/x   1      2      3      4      5
+ Y  |  X 1  |  X 2  |  X 3  |  X 4  |  X 5
+:-: | :---: | :---: | :---: | :---: | :---:
+ 5  | (1,5) | (2,5) | (3,5) | (4,5) | (5,5)
+ 4  | (1,4) | (2,4) | (3,4) | (4,4) | (5,4)
+ 3  | (1,3) | (2,3) | (3,3) | (4,3) | (5,3)
+ 2  | (1,2) | (2,2) | (3,2) | (4,2) | (5,2)
+ 1  | (1,1) | (2,1) | (3,1) | (4,1) | (5,1)
 
 Along the way, I may refer to coordinates or a pattern with x or y instead of a number. Merely stick the needed number in place of the letter. For example, x L 1 could refer to 1 L 1, 2 L 1, 3 L 1, 4 L 1, or 5 L 1. Similary, 2 R y could refer to 2 R 1, 2 R 2, 2 R 3, 2 R 4, or 2 R 5. It just depends on what piece you need to move. N, as you've probably guessed, is merely the size of your cube, and N-1 is 1 less than the size of your cube. This heavily mathematical representation may seem to overcomplicate things, but trust me...  you'll end up thanking me later.
 
