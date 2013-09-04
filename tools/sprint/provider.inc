@@ -255,6 +255,7 @@ $GLOBALS['Providers'] = array(
 	'@vzw.com',  // Verizon Wireless
 	'@vzwpix.com',  // Verizon Wireless
 	'@pager.irkutsk.ru',  // Vessotel
+	'@pixmbl.com', // Virgin Mobile
 	'@vmobl.ca',  // Virgin Mobile Canada
 	'@vmobl.com',  // Virgin Mobile
 	'@vmobile.ca',  // Virgin Mobile Canada
