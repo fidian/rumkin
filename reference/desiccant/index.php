@@ -51,7 +51,7 @@ paper cup and that may be good enough.</p>
 <p>Silica gel is pretty harmless.  If you try to not breathe the dust and if
 you wash your hands after use, you should basically be safe.  If you start
 caughing, you're probably breathing in too much dust.
-A chemical sheet on silica gel crystals would say the following:</p>
+A chemical sheet on silica gel would say the following:</p>
 
 <?php MakeBoxTop('center'); ?>
 <span style="font-size: 1.2em">
@@ -79,7 +79,7 @@ know when you need to "recharge" your reusable bag.</p>
 <p><b>Silica Gel</b> - You can get this from your local hobby store.  It is
 used for drying flowers.  Make sure to get "indicator crystals" in with the
 silica.  They will turn from blue to pick, telling you when you need to
-recharge your desiccant bag.  Also, silica gel comes as crystals, not as an
+recharge your desiccant bag.  Also, silica gel comes as particles, not as an
 actual gel.</p>
 
 <p><b>Cloth</b> - I have some muslin in the picture, but you may wish to
@@ -87,9 +87,8 @@ have something a little more dense.  Perhaps an old cotton shirt would work.
 You do not want to let the silica out.</p>
 
 <p><b>Vinyl</b> - I have some medium weight vinyl, which will let me see the
-crystals on one side of my bag so I know how much moisture was adsorbed.
-You can use cloth on both sides if you do not intend to look at the
-crystals.</p>
+indicator crystals on one side of my bag so I know how much moisture was adsorbed.
+You can use cloth on both sides if you do not intend to look at the colored bits that indicate how much water was absorbed.</p>
 
 <p><b>Sewing Machine</b> - If you can't operate one, then find someone who
 can.  This is just a basic pocket or bean bag, so you can hand sew it if you
@@ -126,28 +125,30 @@ and that made things very hard when sewing that last side.</p>
 is going into a geocache and I just don't want to have to worry about kids
 eating the thing, so I put the warning messages on both sides.  If you get
 the enlarged version of the vinyl side, you can maybe see these tiny blue
-specks in the white crystals, which will turn pink by the next time I see
+specks in the white particles, which will turn pink by the next time I see
 them.</p>
 
 <?php Section('Other Tips'); ?>
 
 <p>If you want to make a container of sorts, you first need to find one that
-can hold the silica gel crystals without letting too much out.  I used old
-Gladware cheap food storage containers.  Just pour in the crystals and poke
+can hold the silica gel without letting too much leak out.  I used old
+Gladware cheap food storage containers.  Just pour in the silica gel and poke
 several holes in the top to allow for air exchange.  The more air that can
-be exchanged, the better it will be, but you may also start to lose crystals
+be exchanged, the better it will be, but you may also start to lose these particles
 if you shake or tilt your container.</p>
 
-<p>You don't really want a super thick layer of crystals because moisture
+<p>You don't really want a super thick layer of the silica gel because moisture
 will have a hard time getting down to the bottom ones.  It would be better
 to create several thinner bags and stack them on some sort of wire shelf or
 suspend them.</p>
 
-<p>Silica gel crystals are reusable!  Just place your container in your oven
+<p>Silica gel is reusable!  This counts even for those little packets of silica
+gel that you find in new luggage, camping gear, shoes and many other consumer
+goods.  Just place your container in your oven
 at 250&deg; F (120&deg; C) and wait several hours.  I have heard it takes
 from three to five hours, and you will want to have all of the indicator
 crystals turn blue again.  Don't turn it up too hot or you may ruin your
-container, destroy the crystals, or start your house on fire.</p>
+container, destroy the silica gel, or start your house on fire.</p>
 
 <?php
 
