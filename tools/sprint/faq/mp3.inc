@@ -24,11 +24,6 @@ it smaller.  Try to trim it to 30 seconds or less.  Also, since phones don't
 have the best sound quality in the world, maybe decreasing the audio to mono
 and 96 k/s would be a good idea.</p>
 
-<p><a href="http://www.mrbass.org/ringtones/">mrbass</a> has a guide showing
-how to use <a href="http://audacity.sourceforge.net/">Audacity</a> to make
-your own MP3 ringers, <a href="http://ww.mrbass.org/ringtones/">step by
-step</a>.</p>
-
 <p>If you own a Motorola Rokr, you can install software to synchronize
 address books and do things.  Apparently there is a tool that will let you
 take any MP3, crop any part to make a ringer, and then resave it or upload
