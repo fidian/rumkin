@@ -39,9 +39,9 @@ However, I leave the amount up to you.</p>
 name="submit" alt="Donate securely with PayPal"></p>
 </form>
 
-<p align=center>Donations accepted by
-<a href="#" onclick="javascript:window.open('https://www.paypal.com/us/cgi-bin/webscr?cmd=xpt/popup/OLCWhatIsPayPal-outside','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=350');"><img  src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" border="0" alt="Acceptance Mark"></a>
-</p>
+<p>You can also donate anonymously with BitCoin:  1EX7txZ62fddiKRcw7L3QjPNHyN4PxUtaH</p>
+
+<p>I sincerely thank you for anything you provide.</p>
 
 <?php
 
