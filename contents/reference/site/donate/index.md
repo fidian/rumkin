@@ -24,4 +24,6 @@ I would greatly prefer amounts over 2 dollars or maybe just 0.99 because of how 
     <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="Donate securely with PayPal">
 </form>
 
-Donations accepted via [![Acceptance Mark](https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif)](https://www.paypal.com/)
+Anonymous donations can be sent via BitCoin: 1EX7txZ62fddiKRcw7L3QjPNHyN4PxUtaH
+
+I sincerely thank you for any contributions you send my way.
