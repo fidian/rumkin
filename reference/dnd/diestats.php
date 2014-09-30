@@ -31,7 +31,9 @@ My machine bombs out at about 10 dice.</p>
 <a href="#" onclick="return SetRoll('4d4+2')">4d4 + 2</a>,
 <a href="#" onclick="return SetRoll('6d3')">6d3</a>,
 <a href="#" onclick="return SetRoll('4d6D1')">4d6, drop lowest</a>,
-<a href="#" onclick="return SetRoll('4d5D1+3')">4d6, reroll 1s, drop lowest</a>
+<a href="#" onclick="return SetRoll('4d5D1+3')">4d6, reroll 1s, drop lowest</a> (really it rolls 4d5 and adds 1, but that's effectively the same),
+<a href="#" onclick="return SetRoll('3d6D-1')">3d6, drop the highest</a> (penalty of some sort).</p>
+
 <form method="GET" action="#" onSubmit="return false;">
 Dice Roll String:
 <input type="text" name="dice" value="" onKeyUp="roll()" onChange="roll()"
@@ -133,14 +135,18 @@ function rollDice(times, dieMax) {
 	return rolls;
 }
 
-function dropDice(drop, rolls) {
+function dropDice(dropLow, dropHigh, rolls) {
 	for (var i in rolls) {
 		var rollSet = rolls[i];
 		rollSet.sort(sortNumeric);
-		var drops = drop;
+		var drops = dropLow;
 		while (drops --) {
 			rollSet.pop();
 		}
+        drops = dropHigh;
+        while (drops --) {
+            rollSet.shift();
+        }
 		rolls[i] = rollSet;
 	}
 	return rolls;
@@ -203,23 +209,29 @@ function parseStr(rollStr) {
 			var times = thisBit[0] * 1;
 			thisBit = thisBit[1].split('D');
 			var dieMax = thisBit[0] * 1;
-			var drop = thisBit[1] * 1;
+			var dropLow = thisBit[1] * 1;
+            var dropHigh = 0;
 			if (times < 1) {
 				times = 1;
 			}
 			if (dieMax < 1) {
 				dieMax = 1;
 			}
-			if (drop < 1) {
-				drop = 0;
+			if (dropLow < 1) {
+				dropHigh = dropLow;
+                dropLow = 0;
 			}
-			if (times <= drop) {
-				drop = times - 1;
+			if (times <= dropLow + dropHigh) {
+                if (dropLow) {
+                    dropLow = times - 1;
+                } else {
+                    dropHigh = times - 1;
+                }
 			}
 	
 			var rolls = rollDice(times, dieMax);
-			if (drop) {
-				rolls = dropDice(drop, rolls);
+			if (dropLow + dropHigh) {
+				rolls = dropDice(dropLow, dropHigh, rolls);
 			}
 			results = tallyResults(results, rolls, sign);
 		}
