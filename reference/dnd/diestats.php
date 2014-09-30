@@ -110,6 +110,28 @@ function roll() {
    resultsDiv.innerHTML = out;
 }
 
+function splitUpNumbers(str) {
+	var result;
+
+	result = [
+		''
+	];
+
+	while (str.length) {
+		c = str.charAt(0);
+		str = str.substr(1);
+
+		if ((c >= '0' && c <= '9') || c == '-' || c == '+') {
+			result[result.length - 1] += c;
+		} else {
+			result.push(c);
+			result.push('');
+		}
+	}
+
+	return result;
+}
+
 function rollDice(times, dieMax) {
 	var rolls = new Array();
 	while (times --) {
@@ -205,12 +227,22 @@ function parseStr(rollStr) {
 				results = newResults;
 			}
 		} else {
-			thisBit = thisBit.split('d');
-			var times = thisBit[0] * 1;
-			thisBit = thisBit[1].split('D');
-			var dieMax = thisBit[0] * 1;
-			var dropLow = thisBit[1] * 1;
-            var dropHigh = 0;
+			var times = 0, dieMax = 0, dropLow = 0, dropHigh = 0;
+			thisBit = splitUpNumbers(thisBit);
+			times = thisBit.shift();
+			while (thisBit.length) {
+				switch (thisBit.shift()) {
+					case 'd':
+						dieMax = +thisBit.shift();
+						break;
+					case 'D':
+					    dropLow = +thisBit.shift();
+						break;
+					case 'P':
+						dropHigh = +thisBit.shift();
+						break;
+				}
+			}
 			if (times < 1) {
 				times = 1;
 			}
@@ -218,15 +250,18 @@ function parseStr(rollStr) {
 				dieMax = 1;
 			}
 			if (dropLow < 1) {
-				dropHigh = dropLow;
                 dropLow = 0;
 			}
+			if (dropHigh < 1) {
+				dropHigh = 0;
+			}
 			if (times <= dropLow + dropHigh) {
-                if (dropLow) {
-                    dropLow = times - 1;
-                } else {
-                    dropHigh = times - 1;
-                }
+				if (times <= dropLow) {
+					dropLow = times - 1;
+				}
+				if (times - dropLow <= dropHigh) {
+					dropHigh = times - 1 - dropLow;
+				}
 			}
 	
 			var rolls = rollDice(times, dieMax);
