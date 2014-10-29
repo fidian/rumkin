@@ -11,8 +11,6 @@ Notes on Protection
 
 I don't get a link off the [Official Site], and it is probably because I have released the following information.  You can unprotect any bot's `.pdb` file by opening it up in a hex editor and changing just a byte.  If the first byte of a record has the bit flag 0x02 turned on, just flip that one bit.  Done.
 
-I had a tool online that flipped that bit for every record in the database (each bot is one record), but it never got used and I stopped maintaining it.
-
 Bots I Wrote
 ============
 
