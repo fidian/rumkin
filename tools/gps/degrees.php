@@ -85,6 +85,10 @@ function GetDegreeValue(v)
 	{
 	    sign = -1;
 	}
+	// convert commas to periods
+	if (c === ',') {
+		c = '.';
+	}
 	if (good.indexOf(c) < 0)
 	{
 	    c = ' ';
