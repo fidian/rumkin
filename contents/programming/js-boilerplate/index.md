@@ -12,11 +12,11 @@ Example Code
 	/*global define, YUI*/
 	(function (n, r, f) {
 		"use strict";
-		try { module.exports = f(); return; } catch (a) {}
-		try { exports[n] = f(); return; } catch (b) {}
-		try { return define.amd && define(n, [], f); } catch (c) {}
-		try { return YUI.add(n, function (Y) { Y[n] = f(); }); } catch (d) {}
-		try { r[n] = f(); return; } catch (e) {}
+		try { module.exports = f(); return; } catch (ignore) {}
+		try { exports[n] = f(); return; } catch (ignore) {}
+		try { return define.amd && define(n, [], f); } catch (ignore) {}
+		try { return YUI.add(n, function (Y) { Y[n] = f(); }); } catch (ignore) {}
+		try { r[n] = f(); return; } catch (ignore) {}
 		throw new Error("Unable to export " + n);
 	}("TestObject", this, function () {
 		"use strict";
@@ -28,7 +28,7 @@ Example Code
 		 *
 		 * @class TestObject
 		 * @param {string} type The brand new type property
-		 * @param {boolean} [isEnabled] If truthy, this object is enabled.  Default false.
+		 * @param {boolean} [isEnabled=false] If truthy, this object is enabled.
 		 */
 		function TestObject(type, isEnabled) {
 			if (!(this instanceOf TestObject)) {
@@ -47,13 +47,14 @@ Example Code
 		 * @return {Function} A callback that does something
 		 */
 		TestObject.prototype.doStuff = function () {
-			var myself;
+			var self;
 
 			function returnable() {
-				myself.thingsPerformed += 1;
+				self.thingsPerformed += 1;
 			}
 
-			myself = this;
+			self = this;
+
 			return returnable;
 		};
 
@@ -84,11 +85,11 @@ I like my JavaScript to be executable in a variety of places.  A web browser is 
 	/*global define, YUI*/
 	(function (n, r, f) {
 		"use strict";
-		try { module.exports = f(); return; } catch (a) {}
-		try { exports[n] = f(); return; } catch (b) {}
-		try { return define.amd && define(n, [], f); } catch (c) {}
-		try { return YUI.add(n, function (Y) { Y[n] = f(); }); } catch (d) {}
-		try { r[n] = f(); return; } catch (e) {}
+		try { module.exports = f(); return; } catch (ignore) {}
+		try { exports[n] = f(); return; } catch (ignore) {}
+		try { return define.amd && define(n, [], f); } catch (ignore) {}
+		try { return YUI.add(n, function (Y) { Y[n] = f(); }); } catch (ignore) {}
+		try { r[n] = f(); return; } catch (ignore) {}
 		throw new Error("Unable to export " + n);
 	}("TestObject", this, function () {
 		"use strict";
@@ -100,10 +101,12 @@ You will notice the "fid-umd" comments that start and stop the section.  Here's 
 	}));
 	// fid-umd post-end
 
+When I need to include another dependency or change the name of the class, FidUmd makes that trivial.  I simply list the new object that's needed and rerun the program.  The header is rebuilt and the factory function will get the object as a dependency.
+
 Comments
 --------
 
-I strongly urge you to write comments.  They will help you out tremendously in life.  The more effort you put into them, the more you reap.  Also, big comments can be a flag that the function or class is too difficult to understand readily.  Consider breaking the code up or reorganizing things.
+I strongly urge you to write comments.  They will help you out tremendously in life.  The more effort you put into them, the more benefit you reap.  Also, big comments can be a flag that the function or class is too difficult to understand readily.  Consider breaking the code up or reorganizing things.
 
 JavaScript has a format for comments called jsdoc, and I'll happily use standards when they exist.
 
@@ -112,13 +115,13 @@ JavaScript has a format for comments called jsdoc, and I'll happily use standard
 	 *
 	 * @class TestObject
 	 * @param {string} type The brand new type property
-	 * @param {boolean} [isEnabled] If truthy, this object is enabled.  Default false.
+	 * @param {boolean} [isEnabled=false] If truthy, this object is enabled.
 	 */
 
 Constructor Function
 --------------------
 
-I name the constructor function the same name as my module I am exporting.
+I name the constructor function the same name as my module I am exporting.  This is a named function so that stack traces are much more useful.  If I used `var TestObject = function (type isEnabled) {` instead, stack traces say that the problem happened in "[object Object]", which is not very useful.
 
 	function TestObject(type, isEnabled) {
 
@@ -140,11 +143,9 @@ Methods/Functions
 
 JavaScript is a bit loose when it comes to methods and functions.  Really, they are just function objects attached to properties of objects.  Calling them as `className.functionName()` automatically sets the context to be the object itself.  I add `doStuff` to the function's prototype and it magically is now a method on all instances of that class.
 
-This method returns a callback.  I do not have it inline with the `return` keyword.  I do not wrap functions in other function calls.  This way I can name functions easily and see what is going on.  Again, if the function is too large, you should consider reorganizing your code.
+This method returns a callback.  I do not have it inline with the `return` just so I can make things more readable.  I do not embed functions in other function calls because that throws off indentation.  They are as high as possible (just under the `var` line) to better mimic the function hoisting that the JavaScript interpreter will be doing.  This way I can name functions easily and see what is going on.  Again, if the function is too large, you should consider reorganizing your code.
 
-Inside, the function would want to set `this.thingsPerformed ++`, but jslint doesn't like the `++` and the function's scope might not be the object.  So, that's why `+= 1` and `myself` are both used.  I don't like using `self` as that may accidentally refer to `window.self` if `window` is the global object.
-
-I do jslint flags for the function (eg. `/*jslint unparam:true*/`) first, then a `var` line with no assignments, followed by all functions and finally the meat of the code.  If it gets too big, your function is doing too much.
+Inside, the function would want to set `this.thingsPerformed ++`, but jslint doesn't like the `++` and the function's scope might not be the object.  I do jslint flags for the function (eg. `/*jslint unparam:true*/`) first, then a `var` line with no assignments, followed by all functions and finally the meat of the code.  If it gets too big, your function is doing too much.
 
 	/**
 	 * Here's a method that does stuff.
@@ -152,13 +153,14 @@ I do jslint flags for the function (eg. `/*jslint unparam:true*/`) first, then a
 	 * @return {function} A callback that does something
 	 */
 	TestObject.prototype.doStuff = function () {
-		var myself;
+		var self;
 
 		function returnable() {
-			myself.thingsPerformed += 1;
+			self.thingsPerformed += 1;
 		}
 
-		myself = this;
+		self = this;
+
 		return returnable;
 	};
 
@@ -172,6 +174,6 @@ This one last line will export the module.  It will go into the UMD as whatever 
 A Note on Minification
 ======================
 
-Do I minify my code?  Yes.  I just don't do it by hand.  I find it a lot easier to read unminified code and review code from other people if they don't minify their code either.  Yes, there may be times that minification is good, but those cases are extremely rare.  Maintainability and testability should be your first two goals.  Everything else should fall to a very distant third.
+Do I minify my code?  Yes.  I just don't do it by hand.  I don't even do it a tiny bit by hand.  I find it a lot easier to read unminified code and review code from other people if they don't minify their code either.  Debugging a program is significantly easier and I can set breakpoints far more easily when I expand conditional assignments or multiple checks into separate conditions.  Yes, there may be times that minification would trump other concerns, but those cases are extremely rare.  Testability and maintainability should be your first two goals.  Everything else should fall to a very distant third.
 
 Modern day minifiers can inspect the code above and rewrite it so that it looks completely different but will still execute the same, so just incorporate a good minifier in your code.  If you are concerned about the results after minification, that's why you have lots of tests.  You do have tests, right?
