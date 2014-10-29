@@ -9,7 +9,7 @@ module: randomLine
 
 <div class="center"><span random-line="dnd-tips.txt"></span></div>
 
-_Unamused?  Reload for another one!_
+_Unamused?  Reload for another random message!_
 
 
 Local Awesomeness
@@ -17,7 +17,7 @@ Local Awesomeness
 
 These links are more for reference with the group that plays at my house.
 
-* [Character Sheets](char-sheets/) - These are the best ones I could find.
+* [Character Sheets](char-sheet/) - These are the best ones I could find.
 
 * [Guenever's House Rules](house-rules/) - These are the additional modifications that we have made to 3rd Edition D&D.  This also covers odd situational rulings.
 
