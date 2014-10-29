@@ -282,8 +282,8 @@ _Squirrel_ - Excellent climbers and jumpers.  Can gnaw through soft wood, leathe
 _Other Animals_ - Other small, plain animals can be used as familiars.  More exotic or dangerous animals might be familars if you get the Improved Familiar (Tome and Blood) feat.
 
 
-Appendix> - References
-======================
+References
+==========
 
 Thanks to the following sites for their contributions to these house rules:
 
