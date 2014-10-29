@@ -6,7 +6,7 @@ js: geonav.js
 
 <div style="background-color: black; width: 350px; float: right">
 	<div style="text-align: center; padding: 15px">
-		<IMG SRC="na.jpg" NAME="World" WIDTH="320"	ONLOAD="setTimeout('updateMap()', 1)" HEIGHT="320">
+		<IMG SRC="na.jpg" NAME="World" WIDTH="320"	ONLOAD="setTimeout('updateMap()', 20)" HEIGHT="320">
 	</div>
 	<div style="width: 200px; float: left">
 		<IMG SRC="globe.gif" WIDTH="200" HEIGHT="81" USEMAP="#map1" BORDER="0">

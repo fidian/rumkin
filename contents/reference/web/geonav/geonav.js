@@ -30,34 +30,6 @@ function setUpImages(From, To, Number) {
 	}
 }
 
-function updateMap() {
-	'use strict';
-	if (Movement > 0) {
-		clearTimeout(Timeout);
-		CurrentLocation += Step;
-		Movement -= 1;
-
-		if (CurrentLocation >= Filled) {
-			CurrentLocation -= Filled;
-		}
-		if (CurrentLocation < 0) {
-			CurrentLocation += Filled;
-		}
-
-		document.World.src = TransferImages[CurrentLocation].src;
-	} else if (Movement === 0) {
-		Timeout = window.setTimeout("GoGoGadgetMenu()", 100);
-	}
-}
-
-function SpinGlobe() {
-	'use strict';
-	Movement += Filled;
-	if (Movement === Filled) {
-		updateMap();
-	}
-}
-
 function showHideDiv(id, show) {
 	'use strict';
 	var d = document.getElementById('geo_info_' + id);
@@ -80,6 +52,44 @@ function loadNav(divId) {
 	showHideDiv('au', 0);
 	showHideDiv('credits', 0);
 	showHideDiv(divId, 1);
+}
+
+function GoGoGadgetMenu() {
+	'use strict';
+	var i;
+	for (i = 0; i < 5; i += 1) {
+		if (CurrentLocation === KeyImageNumber[i]) {
+			loadNav(CountryNames[i]);
+		}
+	}
+}
+
+function updateMap() {
+	'use strict';
+	if (Movement > 0) {
+		clearTimeout(Timeout);
+		CurrentLocation += Step;
+		Movement -= 1;
+
+		if (CurrentLocation >= Filled) {
+			CurrentLocation -= Filled;
+		}
+		if (CurrentLocation < 0) {
+			CurrentLocation += Filled;
+		}
+
+		document.World.src = TransferImages[CurrentLocation].src;
+	} else if (Movement === 0) {
+		Timeout = window.setTimeout(GoGoGadgetMenu, 100);
+	}
+}
+
+function SpinGlobe() {
+	'use strict';
+	Movement += Filled;
+	if (Movement === Filled) {
+		updateMap();
+	}
 }
 
 function GoTo(Target) {
@@ -109,20 +119,10 @@ function GoTo(Target) {
 	updateMap();
 }
 
-function GoGoGadgetMenu() {
-	'use strict';
-	var i;
-	for (i = 0; i < 5; i += 1) {
-		if (CurrentLocation === KeyImageNumber[i]) {
-			loadNav(CountryNames[i]);
-		}
-	}
-}
-
 function GlobeOnload() {
 	'use strict';
 	loadNav('loading');
-	window.setTimeout('SpinGlobe()', 10);
+	window.setTimeout(SpinGlobe, 10);
 	if (globeOldOnload) {
 		globeOldOnload();
 	}
