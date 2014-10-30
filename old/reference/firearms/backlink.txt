@@ -1,6 +1,0 @@
-Ballistic Gel|ballistic_gel.php
-Alternatives|alternatives.php
-Gel Preparation|preparation.php
-Gel Tips|gel_tips.php
--
-Links|links.php
