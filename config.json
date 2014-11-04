@@ -1,4 +1,5 @@
 {
+    "contents": "./site",
 	"locals": {
 		"url": "http://localhost:8080",
 		"name": "Rumkin.com",

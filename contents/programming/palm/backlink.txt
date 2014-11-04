@@ -1,5 +1,0 @@
-Gotchyas|gotchyas.php
-Advanced UI|advanced.php
-PilRC|pilrc.php
-C Code|c.php
-Events|events.php
