@@ -1,6 +1,6 @@
 ---
 title: The Great JavaScript Marquee Generator
-template: page.jade
+template: index.jade
 js: /js/angular.min.js generator.js depends/random.js depends/range.js depends/repeat.js hide/backspace.js hide/explode.js hide/fly-off.js hide/none.js hide/slide-left.js hide/slide-right.js show/cryptography.js show/implode.js show/none.js show/slam.js show/slide-left.js show/slide-right.js show/typing.js
 css: generator.css
 module: generator

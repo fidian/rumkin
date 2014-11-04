@@ -1,6 +1,6 @@
 ---
 title: Make Your Own Desiccant
-template: page.jade
+template: index.jade
 ---
 
 I have a geocached called the [Watertown Area History Cache](http://www.geocaching.com/seek/cache_details.aspx?wp=GC128DJ).  The container is quite large and had a problem of moisture getting into the box, causing rust and the possibility of mold to start growing on the log book.  I planned this cache for nearly two years, so that was unacceptable.  I wasn't about to have the cache container ruined!  Someone told me about desiccants, which will absorb moisture, and suggested I check out a marine supply shop.

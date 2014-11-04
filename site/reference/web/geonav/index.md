@@ -1,6 +1,6 @@
 ---
 title: Geographic Navigation
-template: page.jade
+template: index.jade
 js: geonav.js
 ---
 

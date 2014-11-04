@@ -1,6 +1,6 @@
 ---
 title: GarBots
-template: page.jade
+template: index.jade
 ---
 
 Program tanks to wipe out the opposition.  This is a great little game for teaching the fundamentals of programming.  Make sure you visit the [Official Site] to download the program and so you can contact Scott and tell him what a good program this is.

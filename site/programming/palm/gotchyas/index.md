@@ -1,6 +1,6 @@
 ----
 title: Palm OS Programming - Gotchyas
-template: page.jade
+template: index.jade
 ----
 
 This is the text, extracted from a presentation for Palm OS Programming Gotchyas and Pitfalls.  I don't use Adobe and I wanted a textual reference instead of printing out slides, so I did this.  View the original information at [PalmSource](http://www.palmsource.com/about/events/expo/2002/postdev_thu.html), number 106.

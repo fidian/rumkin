@@ -1,6 +1,6 @@
 ---
 title: Passing Data To/From Popup Window
-template: page.jade
+template: index.jade
 ---
 
 The time may come when you want to open up some sort of popup window, pass data into it, and pass data out of it back to the window opener.  This task can be accomplished in three easy steps.

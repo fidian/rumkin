@@ -1,6 +1,6 @@
 ---
 title: FIC AquaPad
-template: page.jade
+template: index.jade
 ---
 
 The AquaPad is a light web tablet that can run Windows CE, 2000, ME, and Midori Linux.  I'm not really one for words, so here's some stats.

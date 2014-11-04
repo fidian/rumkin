@@ -1,6 +1,6 @@
 ---
 title: Fuzzy String Matching
-template: page.jade
+template: index.jade
 ---
 
 Fuzzy matching and confidence levels is what this exercise is all about.  It is tough to match two strings and say that they are quite similar, but

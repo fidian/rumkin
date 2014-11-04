@@ -1,6 +1,6 @@
 ---
 title: Mouseover Example
-template: page.jade
+template: index.jade
 js: index.js
 ---
 

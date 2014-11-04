@@ -1,6 +1,6 @@
 ---
 title: Favicon
-template: page.jade
+template: index.jade
 ---
 
 A "favicon" is a type of icon used for shortcuts.  This little image is usually shown in the address bar when you are visiting a website and sometimes in bookmarks or favorites.  It is a good idea to always have a favicon defined so your web server isn't pummeled for hits for a non-existant image.

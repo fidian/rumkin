@@ -1,6 +1,6 @@
 ---
 title: Including JavaScript Dynamically
-template: page.jade
+template: index.jade
 ---
 
 I wanted a way to make individual files for JavaScript classes and have them automatically load their parents without the web page having to know in advance all of the JavaScript includes that needed to be made.

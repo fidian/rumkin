@@ -1,6 +1,6 @@
 ----
 title: Vyse Email
-template: page.jade
+template: index.jade
 ----
 
 The below is an email I received from Vyse.  It seems more like a scare tactic that implies I would be legal trouble.  Needless to say, my response was civil but I didn't change from mentioning Knox.

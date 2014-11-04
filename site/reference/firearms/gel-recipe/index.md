@@ -1,6 +1,6 @@
 ----
 title: Ordnance Ballistics Gel Preparation
-template: page.jade
+template: index.jade
 ----
 
 When making this gel you will likely want to make several batches, so get lots of supplies.  I've been told that you should make two or three a day, assuming that you have the refrigerator space.

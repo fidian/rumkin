@@ -1,6 +1,6 @@
 ---
 title: SSH Applet
-template: page.jade
+template: index.jade
 css: applet.css
 ---
 

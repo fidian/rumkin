@@ -1,6 +1,6 @@
 ---
 title: JavaScript Speed Enhancements
-template: page.jade
+template: index.jade
 ---
 
 Programmers should strive to make their code run fast when possible.

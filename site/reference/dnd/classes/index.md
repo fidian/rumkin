@@ -1,6 +1,6 @@
 ---
 title: Extra Classes
-template: page.jade
+template: index.jade
 ---
 
 Prestige Classes

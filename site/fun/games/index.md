@@ -1,6 +1,6 @@
 ---
 title: Interactive Games
-template: page.jade
+template: index.jade
 ---
 
 Bored at work?  Killing time between classes?  I've got just the thing.  Most of these games require Adobe Flash unless otherwise noted.

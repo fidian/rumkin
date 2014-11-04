@@ -1,6 +1,6 @@
 ---
 title: Solving NxNxN Cubes
-template: page.jade
+template: index.jade
 ---
 
 I have been very interested in the Rubik's cube for quite a while.  Even though I don't really understand how the number of combinations are determined or how some of the larger cubes work, it still fascinates.  Doing a search on Google for [rubik cube](http://www.google.com/search?q=rubik+cube) turns up millions of pages, so I am not the only one out there with a fondness for this puzzle.

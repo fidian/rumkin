@@ -1,6 +1,6 @@
 ---
 title: Lifegenesis
-template: page.jade
+template: index.jade
 js: /js/es5-shim.js /js/jquery-1.9.1.min.js lifegenesis.js
 css: lifegenesis.css
 ---

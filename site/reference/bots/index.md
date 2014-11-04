@@ -1,6 +1,6 @@
 ---
 title: Programming Bots
-template: page.jade
+template: index.jade
 ----
 
 I'm a self-proclaimed computer geek.  As such, I like to have games where
