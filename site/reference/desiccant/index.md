@@ -34,7 +34,7 @@ But really, the stuff is pretty darn safe, otherwise I would certainly not use i
 Materials Needed
 ================
 
-[![](PICT1294b-thumb.jpg)](PICT1294b.JPG)
+[![](pict1294b-thumb.jpg)](pict1294b.jpg)
 
 These instructions tell you how to create a desiccant bag.  Other tips are listed below in case you want a container or something else.  The bag made in this process has a vinyl side so you can see the indicator crystals and know when you need to "recharge" your reusable bag.
 
@@ -49,7 +49,7 @@ These instructions tell you how to create a desiccant bag.  Other tips are liste
 Create a Pocket and Fill It
 ===========================
 
-[![](PICT1295b-thumb.jpg)](PICT1295b.JPG) [![](PICT1296b-thumb.jpg)](PICT1296b.JPG)
+[![](pict1295b-thumb.jpg)](pict1295b.jpg) [![](pict1296b-thumb.jpg)](pict1296b.jpg)
 
 You want to make a pocket.  It's really simple.  Just take two squares, rectangles, circles, or whatever shape you like.  I used squares.  Next, sew it on three sides.  You want a large enough opening to be able to flip the pocket inside out and to fill it with silica.  If you have a pattern on the fabric, or a "finished side" you want to see, make sure that the finished side is on the INSIDE of the pocket.
 
@@ -62,7 +62,7 @@ Fold in your top side and pin it shut.  Sew.
 Finished Product
 ================
 
-[![](PICT1297b-thumb.jpg)](PICT1297b.JPG) [![](PICT1298b-thumb.jpg)](PICT1298b.JPG)
+[![](pict1297b-thumb.jpg)](pict1297b.jpg) [![](pict1298b-thumb.jpg)](pict1298b.jpg)
 
 I made this packet that has cloth on one side and vinyl on the other.  It is going into a geocache and I just don't want to have to worry about kids eating the thing, so I put the warning messages on both sides.  If you get the enlarged version of the vinyl side, you can maybe see these tiny blue specks in the white particles, which will turn pink by the next time I see them.
 
