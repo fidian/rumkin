@@ -5,6 +5,7 @@ template: index.jade
 
 I'm writing JavaScript objects and I keep refining how I am creating objects in order to have cleaner code, stand behind community standards, remove potential problems and attempt to be more maintainable.  Here is my boilerplate code for a new JavaScript object that seems to work well for me so far.
 
+
 Example Code
 ============
 
@@ -66,15 +67,18 @@ Example Code
 	}));
 	// fid-umd post-end
 
+
 Breakdown
 =========
 
 That's a big example.  It's totally worth it and has lots of subtle things embedded that I will expound upon.
 
+
 One Class Per File
 ------------------
 
 Following this guide of having only one class or module per file really forces you to examine problems thoroughly.  Do you need another class?  Do you gain clarity by having two classes in one file?  While it isn't an absolute rule, I will follow this well over 90% of the time.
+
 
 Universal Module Definition
 ---------------------------
@@ -103,6 +107,7 @@ You will notice the "fid-umd" comments that start and stop the section.  Here's 
 
 When I need to include another dependency or change the name of the class, FidUmd makes that trivial.  I simply list the new object that's needed and rerun the program.  The header is rebuilt and the factory function will get the object as a dependency.
 
+
 Comments
 --------
 
@@ -117,6 +122,7 @@ JavaScript has a format for comments called jsdoc, and I'll happily use standard
 	 * @param {string} type The brand new type property
 	 * @param {boolean} [isEnabled=false] If truthy, this object is enabled.
 	 */
+
 
 Constructor Function
 --------------------
@@ -137,6 +143,7 @@ Then we wrap up a couple things.  No work is done in the constructor.  Just some
 		this.isEnabled = !!isEnabled;
 		this.thingsPerformed = 0;
 	}
+
 
 Methods/Functions
 =================
@@ -164,12 +171,14 @@ Inside, the function would want to set `this.thingsPerformed ++`, but jslint doe
 		return returnable;
 	};
 
+
 Exporting the Module
 --------------------
 
 This one last line will export the module.  It will go into the UMD as whatever name you configured.
 
     return TestObject;
+
 
 A Note on Minification
 ======================
