@@ -39,6 +39,16 @@ c:\windows\calc.exe</tt>
 "..\Directory\Path.exe" will work now, so you can use Floater as the menu
 system for your flash drive.</p>
 
+<?php Section('Screen Shots') ?>
+
+<p>Here is how it looks on Windows XP.  The configuration file (Floater.txt) is open you can refer to how I made the four programs appear.</p>
+
+<p><img src="floater-open.png" /></p>
+
+<p>And this is how it looks when you toggle it to the "closed" state.</p>
+
+<p><img src="floater-closed.png" /></p>
+
 <?php Section('Downloads') ?>
 
 <p><b><a href="media/floater1.0.zip">Floater 1.0</a></b> 
