@@ -61,12 +61,12 @@ This archetypal _+3 greatsword_ is completely composed of enchanted ice, but cau
 
 The following table lists specific effects for the various shards.
 
-1d4 | Shard Effect
-:-: | --------------------------------------------------------
- 1  | Shard drain 1hp/ round and transfers it to wielder, healing the wielder first then adding extra-hp.
- 2  | Same as above but 3hp/ round.
- 3  | Shard drains 1 Strength point from foe every two rounds and transfers it to wielder (to a maximum of +8).
- 4  | Shard drains one level or HD from the foe upon first embedding. If still lodged in the wounds after 10 rounds, the victim must make a successful Fort save (DC 14) or lose another level before the ice melts. The wielder gains any and all lost levels, adding them as positive levels.
+|  1d4  | Shard Effect                                                                                                                                                                                                                                                                              |
+|:-----:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   1   | Shard drain 1hp/ round and transfers it to wielder, healing the wielder first then adding extra-hp.                                                                                                                                                                                       |
+|   2   | Same as above but 3hp/ round.                                                                                                                                                                                                                                                             |
+|   3   | Shard drains 1 Strength point from foe every two rounds and transfers it to wielder (to a maximum of +8).                                                                                                                                                                                 |
+|   4   | Shard drains one level or HD from the foe upon first embedding. If still lodged in the wounds after 10 rounds, the victim must make a successful Fort save (DC 14) or lose another level before the ice melts. The wielder gains any and all lost levels, adding them as positive levels. |
 
 This effect allows the wielder to exceed normal hit points, Strength, and level. All stolen benefits fade after thirty minutes, including excess hit points not lost in combat. Victims who survive an encounter with _Frostrazor_ regain drained hit points and Strength points at 1 per every ten rounds; level loss, however, is permanent.
 

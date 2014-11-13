@@ -58,15 +58,15 @@ __Prohibited Metamagic:__ An arcanist cannot use or learn any metamagic feats wi
 
 __Prohibited Spell Research:__ Arcanists cannot research new spells for spellcasting classes improved by their arcanist class.  Arcanists fill their minds by rote learning to prepare the maximum possible number of spells.  This rigid training inhibits the creativity required to research new spells.  This does not prohibit an arcanist with a spellbook from scribing or copying spells, and such a character still gets the two free spells with each level of advancement.
 
-Level | Att | Fort | Ref | Will | Special
-:---: | :-: | :--: | :-: | :--: | -------
-1     | +0  | +0   | +0  | +0   | +1 spellcaster level in 2 existing classes
-2     | +1  | +0   | +0  | +0   | +1 spellcaster level in 2 existing classes
-3     | +1  | +1   | +1  | +1   | +1 spellcaster level in 2 existing classes
-4     | +2  | +1   | +1  | +1   | +1 spellcaster level in 2 existing classes
-5     | +2  | +1   | +1  | +1   | +1 spellcaster level in 2 existing classes
-6     | +3  | +2   | +2  | +2   | +1 spellcaster level in 2 existing classes
-7     | +3  | +2   | +2  | +2   | +1 spellcaster level in 2 existing classes
-8     | +4  | +2   | +2  | +2   | +1 spellcaster level in 2 existing classes
-9     | +4  | +3   | +3  | +3   | +1 spellcaster level in 2 existing classes
-10    | +5  | +3   | +3  | +3   | +1 spellcaster level in 2 existing classes
+| Level |  Att  |  Fort |  Ref  |  Will | Special                                    |
+|:-----:|:-----:|:-----:|:-----:|:-----:|--------------------------------------------|
+|   1   |   +0  |   +0  |   +0  |   +0  | +1 spellcaster level in 2 existing classes |
+|   2   |   +1  |   +0  |   +0  |   +0  | +1 spellcaster level in 2 existing classes |
+|   3   |   +1  |   +1  |   +1  |   +1  | +1 spellcaster level in 2 existing classes |
+|   4   |   +2  |   +1  |   +1  |   +1  | +1 spellcaster level in 2 existing classes |
+|   5   |   +2  |   +1  |   +1  |   +1  | +1 spellcaster level in 2 existing classes |
+|   6   |   +3  |   +2  |   +2  |   +2  | +1 spellcaster level in 2 existing classes |
+|   7   |   +3  |   +2  |   +2  |   +2  | +1 spellcaster level in 2 existing classes |
+|   8   |   +4  |   +2  |   +2  |   +2  | +1 spellcaster level in 2 existing classes |
+|   9   |   +4  |   +3  |   +3  |   +3  | +1 spellcaster level in 2 existing classes |
+|   10  |   +5  |   +3  |   +3  |   +3  | +1 spellcaster level in 2 existing classes |

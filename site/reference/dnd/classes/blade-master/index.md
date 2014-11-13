@@ -21,18 +21,18 @@ following criteria.
 * Feats: Dodge, Expertise, Improved Initiative, Mobility
 * Special Restrictions: New feats must not improve weapons that do not do slashing damage, such as obtaining Weapon Finesse in club.  Must forgo use of armor other than Light Armor.  The Blade Master cannot have Weapon Specialization or Weapon Finesse because the goal is to focus on all blades.  See the Weapons and Armor Proficiency section below for other restrictions.
 
-Level | Att | Fort | Ref | Will | Special
-:---: | :-: | :--: | :-: | :--: | -------
-1     | +1  | +0   | +2  | +0   | Reflexive Defense, Bonus Feat
-2     | +2  | +0   | +3  | +0   | Improved Monkey Grip
-3     | +3  | +1   | +3  | +1   | Sword Blocking (+1), Deflect Arrows
-4     | +4  | +1   | +4  | +1   | Flat Blade, Bonus Feat
-5     | +5  | +1   | +4  | +1   | Evasion, Stunning Attack
-6     | +6  | +2   | +5  | +2   | Sword Blocking (+2), Ki Slash
-7     | +7  | +2   | +5  | +2   | Canny Defense, Bonus Feat
-8     | +8  | +2   | +6  | +2   | Reflex Attack
-9     | +9  | +3   | +6  | +3   | Deadly Strike, Improved Evasion, Sword Blocking (+3)
-10    | +10 | +3   | +7  | +3   | Crippling Strike, Improved Ki Slash, Bonus Feat
+| Level |  Att  |  Fort |  Ref  |  Will | Special                                              |
+|:-----:|:-----:|:-----:|:-----:|:-----:|------------------------------------------------------|
+|   1   |   +1  |   +0  |   +2  |   +0  | Reflexive Defense, Bonus Feat                        |
+|   2   |   +2  |   +0  |   +3  |   +0  | Improved Monkey Grip                                 |
+|   3   |   +3  |   +1  |   +3  |   +1  | Sword Blocking (+1), Deflect Arrows                  |
+|   4   |   +4  |   +1  |   +4  |   +1  | Flat Blade, Bonus Feat                               |
+|   5   |   +5  |   +1  |   +4  |   +1  | Evasion, Stunning Attack                             |
+|   6   |   +6  |   +2  |   +5  |   +2  | Sword Blocking (+2), Ki Slash                        |
+|   7   |   +7  |   +2  |   +5  |   +2  | Canny Defense, Bonus Feat                            |
+|   8   |   +8  |   +2  |   +6  |   +2  | Reflex Attack                                        |
+|   9   |   +9  |   +3  |   +6  |   +3  | Deadly Strike, Improved Evasion, Sword Blocking (+3) |
+|   10  |  +10  |   +3  |   +7  |   +3  | Crippling Strike, Improved Ki Slash, Bonus Feat      |
 
 _Bonus Feat Choices:_  Bonus feats attained must be in this list: Alertness, Ambidexterity, Blind-Fight, Cleave, Combat Reflexes, Death Blow, Dodge, Improved Disarm, Improved Sunder, Improved Two-Weapon Fighting, Lightning Reflexes, Mobility, Prone Attack, Quick Draw, Sunder, Two-Weapon Fighting, Two-Weapon Grace, Whirlwind Attack.
 

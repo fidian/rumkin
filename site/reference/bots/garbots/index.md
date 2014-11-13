@@ -106,24 +106,24 @@ Command Timing Mechanics
 
 Each robot is processed in the game alphabetically.  Therefore, if your robot comes alphabetically before the other robots, you have an advantage.  From there, each robot has five ticks, for a lack of a better term.  A tick is like a second.  It's the smallest unit of measurable time that I found.
 
-What              | Ticks | Notes
------------------ | ----: | -----------------------------------------
-Linefeeds         |     1 | Try to not have blank lines in your code.
-Comments          |     0 | Comments sharing a line are good.  Separate comments with a newline still count against you.
-FIRE              |    10 | Maybe just shoot instead of scanning?
-SCAN              |    10 |
-PRINT             |     0 | The only cost comes from newlines.
-Assignments       |     0 | The "x =" part of an assignment is free.  It's the other side that costs you.
-Calculations      |     1 | "5-7", "2*areax", "3" all cost the same.
-WHILE, IF, FOR    |     1 | "IF x > 0" and "IF x < 1" cost twice.
-ELSE, NEXT, ENDIF |     0 | "IF x > 0 ... ELSE ..." costs only 1 for the IF.
-Errors            |     1 | Test your code thoroughly.
-GOTO, Labels      |     1 | Just having labels costs time.
-GOSUB, RETURN     |     1 | Better structured code costs you time.
-RTOP, PTOR        |     1 | Conversion to/from polar costs time.
-POSX(), POSY()    |     1 |
-DAMAGE()          |     2 | Nearly useless; see below.
-DRIVE             | 5 + x | x is `(distance / drivestep)` rounded up.
+| What              | Ticks | Notes                                                                                        |
+|-------------------|------:|----------------------------------------------------------------------------------------------|
+| Linefeeds         |     1 | Try to not have blank lines in your code.                                                    |
+| Comments          |     0 | Comments sharing a line are good.  Separate comments with a newline still count against you. |
+| FIRE              |    10 | Maybe just shoot instead of scanning?                                                        |
+| SCAN              |    10 |                                                                                              |
+| PRINT             |     0 | The only cost comes from newlines.                                                           |
+| Assignments       |     0 | The `x =` part of an assignment is free.  It's the other side that costs you.                |
+| Calculations      |     1 | `5-7`, `2*areax`, `3` all cost the same.                                                     |
+| WHILE, IF, FOR    |     1 | `IF x > 0` and `IF x < 1` cost twice.                                                        |
+| ELSE, NEXT, ENDIF |     0 | `IF x > 0 ... ELSE ...` costs only 1 for the IF.                                             |
+| Errors            |     1 | Test your code thoroughly.                                                                   |
+| GOTO, Labels      |     1 | Just having labels costs time.                                                               |
+| GOSUB, RETURN     |     1 | Better structured code costs you time.                                                       |
+| RTOP, PTOR        |     1 | Conversion to/from polar costs time.                                                         |
+| POSX(), POSY()    |     1 |                                                                                              |
+| DAMAGE()          |     2 | Nearly useless; see below.                                                                   |
+| DRIVE             | 5 + x | x is `(distance / drivestep)` rounded up.                                                    |
 
 Tips:
 

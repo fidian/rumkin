@@ -21,18 +21,18 @@ To qualify to become an Artificer, a character must fulfill all of the following
 * Craft (Any) or Alchemy:  5 ranks.
 * Feats:  Craft Wonderous Item.
 
-Lvl | Att | Fort | Ref | Will | Spells                     | Special
-:-: | :-: | :--: | :-: | :--: | -------------------------- | -----------------
-1   | +0  | +0   | +0  | +2   | +1 level of existing class | Animate Object
-2   | +1  | +0   | +0  | +3   | +1 level of existing class |
-3   | +1  | +1   | +1  | +3   | +1 level of existing class | Efficient Progress 10%
-4   | +2  | +1   | +1  | +4   | +1 level of existing class | Bonus Feat
-5   | +2  | +1   | +1  | +4   | +1 level of existing class |
-6   | +3  | +2   | +2  | +5   | +1 level of existing class | Efficient Progress 20%
-7   | +3  | +2   | +2  | +5   | +1 level of existing class | Bonus Feat
-8   | +4  | +2   | +2  | +6   | +1 level of existing class | Efficient Progress 30%
-9   | +4  | +3   | +3  | +6   | +1 level of existing class | Imbue with Intelligence
-10  | +5  | +3   | +3  | +7   | +1 level of existing class | Mastery of Creation, Efficient Progress 40%
+|  Lvl  |  Att  |  Fort |  Ref  |  Will | Spells                     | Special                                     |
+|:-----:|:-----:|:-----:|:-----:|:-----:|----------------------------|---------------------------------------------|
+|   1   |   +0  |   +0  |   +0  |   +2  | +1 level of existing class | Animate Object                              |
+|   2   |   +1  |   +0  |   +0  |   +3  | +1 level of existing class |                                             |
+|   3   |   +1  |   +1  |   +1  |   +3  | +1 level of existing class | Efficient Progress 10%                      |
+|   4   |   +2  |   +1  |   +1  |   +4  | +1 level of existing class | Bonus Feat                                  |
+|   5   |   +2  |   +1  |   +1  |   +4  | +1 level of existing class |                                             |
+|   6   |   +3  |   +2  |   +2  |   +5  | +1 level of existing class | Efficient Progress 20%                      |
+|   7   |   +3  |   +2  |   +2  |   +5  | +1 level of existing class | Bonus Feat                                  |
+|   8   |   +4  |   +2  |   +2  |   +6  | +1 level of existing class | Efficient Progress 30%                      |
+|   9   |   +4  |   +3  |   +3  |   +6  | +1 level of existing class | Imbue with Intelligence                     |
+|   10  |   +5  |   +3  |   +3  |   +7  | +1 level of existing class | Mastery of Creation, Efficient Progress 40% |
 
 Bonus Feat Choices:  Bonus feats attained must be either an item creation feat or Construct Familiar (Dragon #280).
 

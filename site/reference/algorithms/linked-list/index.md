@@ -94,11 +94,11 @@ As you can see, only very minor changes in size, the largest is a difference of 
 
 I ran my test program five times on each list, alternating between them, and tallied the amount of user time each one took.  I have two tests.  The insert test just seeds the random number generator with a static value, make a node with a random number, and insert the node into the ordered list with the insert function above.  The delete function just inserts a bunch of numerically descending values (very fast to insert them) and deletes the Nth node, determined "randomly" using the statically seeded random number generator.  I ran each test for both versions with 10,000, 20,000, and 30,000 inserts and deletes.  The average times are listed below.
 
-Iterations | Insert | Delete | Mod Insert | Mod Delete
----------: | -----: | -----: | ---------: | ---------:
-    10,000 |  0.306 |  0.382 |      0.350 |      0.484
-    20,000 |  3.566 |  3.834 |      3.244 |      4.312
-    30,000 | 13.988 | 14.092 |     14.282 |     14.124
+| Iterations | Insert | Delete | Mod Insert | Mod Delete |
+|-----------:|-------:|-------:|-----------:|-----------:|
+|     10,000 |  0.306 |  0.382 |      0.350 |      0.484 |
+|     20,000 |  3.566 |  3.834 |      3.244 |      4.312 |
+|     30,000 | 13.988 | 14.092 |     14.282 |     14.124 |
 
 The normal linked list should be faster than the XOR version, but I never thought it would be such a close race.  I tested the program on my web server (the nicest machine I have available to me for testing), and it could be doing stuff in the background.  To compensate, I alternated the tests and ran them several times to average things out.
 
