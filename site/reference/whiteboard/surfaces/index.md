@@ -1,6 +1,7 @@
 ----
 title:  Make a Whiteboard
 template:  index.jade
+js: /js/jquery-1.9.1.min.js /js/jquery.tablesorter.min.js /js/tablesorter-start.js
 ----
 
 I have tried numerous types of surfaces in order to find one that is cheap and easy for people to use.  My findings may help you decide what you'd like to try.
