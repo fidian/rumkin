@@ -63,7 +63,7 @@ $Links = array(
 	array(
 		'Name' => 'Microsoft Databases',
 		'Desc' => 'Little functions and bits of code for Microsoft ' . 'Access and Microsoft SQL Server.',
-		'URL' => 'ms_db/'
+		'URL' => 'ms-db/'
 	),
 	array(
 		'Name' => 'Palm OS Programming',

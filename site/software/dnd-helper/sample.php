@@ -1,6 +1,6 @@
 <?php
 
-include('db_gen/dblist.inc');
+include('db-gen/dblist.inc');
 include('download/psr.inc');
 
 if (isset($_REQUEST['db']))$db = $_REQUEST['db'];

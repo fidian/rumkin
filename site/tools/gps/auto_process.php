@@ -38,27 +38,27 @@ other standard command-line tools.</p>
 
 <dl>
 
-<dt><a href="auto_process/procmailrc.txt">procmailrc.txt</a></dt>
+<dt><a href="auto-process/procmailrc.txt">procmailrc.txt</a></dt>
 <dD>The procmail rules to process only incoming Pocket Queries.  Rename to
 procmailrc and edit it (if needed) to match your directory structure.</dd>
 
-<dt><a href="auto_process/geocache_shell.txt">geocache_shell.txt</a></dt>
+<dt><a href="auto-process/geocache_shell.txt">geocache_shell.txt</a></dt>
 <dd>The shell script that does the processing.  Rename to geocache_shell.
 Change all references to ~fidian/public_html/geocaching to whatever
 directory you want the processing done in.</dd>
 
-<dt><a href="auto_process/geocache_regen.txt">geocache_regen.txt</a></dt>
+<dt><a href="auto-process/geocache_regen.txt">geocache_regen.txt</a></dt>
 <dd>The regen script will regenerate all of the cache files.  Useful if you
 do not want geocache_shell to regenerate the caches automatically and if you
 would rather use cron to do it every morning or something.  Again, change
 directories as appropriate.</dd>
 
-<dt><a href="auto_process/gpx2html.txt">gpx2html.txt</a></dt>
+<dt><a href="auto-process/gpx2html.txt">gpx2html.txt</a></dt>
 <dd>This PHP script will read in a GPX file and write out an individual HTML
 file for each waypoint.  Rename to gpx2html.php and put into the processing
 directory you set in geocache_shell.</dd>
 
-<dt><a href="auto_process/navicache.txt">navicache.txt</a></dt>
+<dt><a href="auto-process/navicache.txt">navicache.txt</a></dt>
 <dd>Rename this to navicache and edit it to suit your needs.  The script
 retrieves caches from navicache and then re-runs geocache_regen.  You'll
 need to change the paths in this file as well.

@@ -7,7 +7,7 @@ StandardHeader(array(
 		'title' => 'Download',
 		'topic' => 'dnd_helper'
 	));
-include('db_gen/dblist.inc');
+include('db-gen/dblist.inc');
 $db_path = getenv('MEDIABASE') . 'software/dnd_helper/';
 
 ?>
