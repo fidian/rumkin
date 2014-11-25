@@ -1,68 +1,69 @@
 !!! 5
 html(lang="en", ng-app=page.metadata.module)
-	head
-		block head
-			meta(charset="utf-8")
-			title
-				block title
-					= page.metadata.title
-			link(rel="stylesheet", href="/css/site.css")
-			if page.metadata.css
-				- var cssfiles = page.metadata.css.split(' ')
-				each cssfile in cssfiles
-					link(rel="stylesheet", href=cssfiles)
-			if page.metadata.js
-				- var jsfiles = page.metadata.js.split(' ')
-				each jsfile in jsfiles
-					script(type="text/javascript", src=jsfile)
-	body
-		.wrapper
-			nav
-				div.nav
-					block nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-						div Nav nav nav
-			div.content
-				header
-					div.header
-						block header
-							h1= page.metadata.title
-				if page.metadata.controller
-					div.ng-cloak(ng-controller=page.metadata.controller)
-						block content
-							p Content should have gone here
-				else
-					block content
-						p Content should have gone here
-		footer
-			div.inner
-				block footer
-					p &copy; #{ new Date().getFullYear() } #{ locals.owner }
+    head
+        block head
+            meta(charset="utf-8")
+            | !{ livereloadScript }
+            title
+                block title
+                    = page.metadata.title
+            link(rel="stylesheet", href="/css/site.css")
+            if page.metadata.css
+                - var cssfiles = page.metadata.css.split(' ')
+                each cssfile in cssfiles
+                    link(rel="stylesheet", href=cssfiles)
+            if page.metadata.js
+                - var jsfiles = page.metadata.js.split(' ')
+                each jsfile in jsfiles
+                    script(type="text/javascript", src=jsfile)
+    body
+        .wrapper
+            nav
+                div.nav
+                    block nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+                        div Nav nav nav
+            div.content
+                header
+                    div.header
+                        block header
+                            h1= page.metadata.title
+                if page.metadata.controller
+                    div.ng-cloak(ng-controller=page.metadata.controller)
+                        block content
+                            p Content should have gone here
+                else
+                    block content
+                        p Content should have gone here
+        footer
+            div.inner
+                block footer
+                    p &copy; #{ new Date().getFullYear() } #{ locals.owner }

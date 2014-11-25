@@ -9,7 +9,8 @@
     "devDependencies": {
         "normalize.css": "*",
         "wintersmith": "*",
-        "wintersmith-less": "*"
+        "wintersmith-less": "*",
+        "wintersmith-livereload": "*"
     },
     "engines": {
         "node": ">=0.8",
