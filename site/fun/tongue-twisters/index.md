@@ -54,6 +54,10 @@ This section is dedicated to the simplest tongue twisters.  Sometimes simply say
 
 19. He threw three free throws.
 
+20. Knapsack strap.
+
+21. Three free throws.
+
 
 One-Liners
 ==========
