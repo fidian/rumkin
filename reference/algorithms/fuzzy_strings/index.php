@@ -44,10 +44,10 @@ Curtolo &lt;<?php echo HideEmail('ecurtolo', 'gmail.com') ?>&gt; provided a <a h
 <p><b>SoundEx:</b>  This algorithm is used on your driver's licence (in the
 U.S.).  Its goal is to group letters that sound alike, then convert the name
 into a series of numbers that can represent the name.  <a
-href="http://www.creativystlcom/Doc/Articles/SoundEx1/SoundEx1.htm">Understanding
+href="http://www.creativyst.com/Doc/Articles/SoundEx1/SoundEx1.htm">Understanding
 Classic SoundEx Algorithms</a> provides a very nice description of how
 SoundEx is used and generated.  Taking the concept one step further, you
-could read <a href="http://www.lanw.com/java/phonetic/">A Better Phonetic
+could read <a href="http://www.lanw.com/archives/java/phonetic/default.htm">A Better Phonetic
 Lookup</a> and get an algorithm that matches really well, based on how the
 language works.</p>
 
