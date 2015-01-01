@@ -47,7 +47,7 @@ into a series of numbers that can represent the name.  <a
 href="http://www.creativyst.com/Doc/Articles/SoundEx1/SoundEx1.htm">Understanding
 Classic SoundEx Algorithms</a> provides a very nice description of how
 SoundEx is used and generated.  Taking the concept one step further, you
-could read <a href="http://www.lanw.com/archives/java/phonetic/default.htm">A Better Phonetic
+could read <a href="http://www.lanw.com/java-showcase/a-better-phonetic-lookup/">A Better Phonetic
 Lookup</a> and get an algorithm that matches really well, based on how the
 language works.</p>
 
