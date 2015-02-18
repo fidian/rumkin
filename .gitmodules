@@ -4,3 +4,6 @@
 [submodule "api"]
 	path = api
 	url = git@github.com:fidian/rumkin.git
+[submodule "3rd-party/psr-js"]
+	path = 3rd-party/psr-js
+	url = https://github.com/fidian/psr-js.git
