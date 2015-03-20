@@ -1,0 +1,208 @@
+# Critical Hits
+# PSR rules generated from Critical Hit Table for 3E at
+#  http://www.dndadventure.com/
+# Special permission to use the table was granted by Al Sousa for including
+# it into D&D Helper.
+#
+# Comments start with a # at the beginning of a line
+# Blank lines are ignored
+# Initial key should have a * before it and can be followed by spaces
+# Keys should be in [brackets]
+# Key names with a ^ in front are capitalized (see the only line in ELFNAME)
+# Case matters
+# First key is the main rule
+# Spaces at beginning and end are removed
+# Rules can have a number followed by a colon prepended to have a chance
+# associated with it.
+
+* CRITICAL
+30:Standard critical damage.
+10:Standard critical damage.[SHIELD_OR_DEX]
+25:+1 multiple on the critical.
+4:+1 multiple on the critical.[SHIELD_OR_DEX]
+3:[HAND]
+2:[FOOT]
+4:[LEG]
+3:[ARM]
+3:[ABDOMINAL]
+8:[CHEST_NECK]
+8:[HEAD]
+
+* HAND
+[S]  Hand slashed open, -1 to attack roll.\n\
+[B]  Hand smashed, -1 to attack roll.\n\
+[P]  Hand muscle pierced, -1 to attack roll.
+
+[S]  Lose 1 finger.\n\
+[B]  [D4_FINGERS] broken, hand incapacitated.\n\
+[P]  Punctured muscle, -1 to attack roll.
+
+[S]  Lose [D4_FINGERS], hand incapacitated, [SHIELD].\n\
+[B]  Hand broken and incapacitated, [SHIELD].\n\
+[P]  Muscle pierced, hand incapacitated.
+
+* FOOT
+[S]  Foot slashed open, 1/2 move.\n\
+[B]  Toe crushed, 1/2 move.\n\
+[P]  Punctured foot muscle, 1/2 move.
+
+[S]  Lose [D2_TOES], 1/2 move.\n\
+[B]  Foot smashed, 1/4 move.\n\
+[P]  Punctured foot muscle, 1/2 move.
+
+* LEG
+[S]  Leg slashed open, 1/2 move.\n\
+[B]  Crushed thigh, roll Dex check (DC 10) or fall, 1/2 move.\n\
+[P]  Punctured thigh, roll Dex check (DC 10) or fall, 1/2 move.
+
+[S]  Removed at ankle, opponent falls.\n\
+[B]  Broken knee, 1/4 move.\n\
+[P]  Punctured thigh, roll Dex or fall, 1/4 move.
+
+[S]  Removed at knee, opponent falls.\n\
+[B]  Broken hip bone, opponent falls, 1/4 move, [SHIELD].\n\
+[P]  Split knee, fall, 1/2 move.
+
+[S]  Removed just below hip, opponent falls, [SHIELD].\n\
+[B]  Broken shin, opponent falls, 1/4 move.\n\
+[P]  Split knee, fall, 1/4 move.
+
+* ARM
+[S]  Wrist removed.\n\
+[B]  Broken wrist, drop item.\n\
+[P]  Pierced wrist, -1 to attack roll.
+
+[S]  Elbow removed.\n\
+[B]  Broken elbow, drop item, [SHIELD].\n\
+[P]  Torn sholder, -1 to attack roll.
+
+[S]  Arm removed just below shoulder, [SHIELD].\n\
+[B]  Broken arm, shoulder incapacitated, drop item.\n\
+[P]  Torn shoulder, shoulder incapacitated, [SHIELD].
+
+* ABDOMINAL
+[S]  Abdomen ripped open, guts hanging out, roll Str check (DC 12) or fall.\n\
+[B]  Smassed abdomen, roll Str check (DC 12) or fall.\n\
+[P]  Punctured abdomen, roll Str check (DC 12) or fall.
+
+[S]  Abdomen ripped open, guts hanging out, stunned 1 round.\n\
+[B]  Crushed abdomen, stunned 1 round, [SHIELD].\n\
+[P]  Stabbed, death, [SHIELD].
+
+[S]  Abdomen ripped open, death.\n\
+[B]  Pulped guts, death.\n\
+[P]  Stabbed, death.
+
+* CHEST_NECK
+[S]  Lung slashed, -1 to attack roll.\n\
+[B]  Shoulder smashed, -1 to attack roll, [SHIELD].\n\
+[P]  Lung pierced, -1 to attack roll, [SHIELD].
+
+[S]  Rib broken, stunned 1 round.\n\
+[B]  Shoulder crushed, -1 to attack roll.\n\
+[P]  Lung pierced, stunned 1 round, [SHIELD].
+
+[S]  Chest slashed open, death, [SHIELD].\n\
+[B]  Rib broken, stunned 1 round, [SHIELD].\n\
+[P]  Lung pierced, stunned 1 round.
+
+[S]  Throat cut, no speech, [HELM].\n\
+[B]  Rib broken, stunned 1 round.\n\
+[P]  Chest pierced, defender incapacitated, [SHIELD].
+
+[S]  Thoat cut, no speech.\n\
+[B]  Rib cage broken, defender incapacitated, [SHIELD].\n\
+[P]  Heart pierced, death, [SHIELD].
+
+[S]  Chest slashed, opponent -2 to attack roll.\n\
+[B]  Chest crushed, opponent -2 to attack roll.\n\
+[P]  Heart pierced, death.
+
+[S]  Throat cut, death, [HELM].\n\
+[B]  Chest crushed, death, [SHIELD].\n\
+[P]  Thoat pierced, no speech, [HELM].
+
+[S]  Thoat cut, death.\n\
+[B]  Chest crushed, death.\n\
+[P]  Throat pierced, no speech.
+
+* HEAD
+[S]  Eye removed, stunned 1 round, [HELM].\n\
+[B]  Skull hit, stunned 1 hound, lose [D4] Int, [HELM].\n\
+[P]  Throat pierced, death, [HELM].
+
+[S]  Eye removed, stunned 1 round, helm removed.\n\
+[B]  Skull hit, stunned 1 round, lose [D4] Int.\n\
+[P]  Throat pierced, death.
+
+[S]  Ear removed, [HELM].\n\
+[B]  Skull hit, stunned 1 round, lose [2D4] Int, [HELM].\n\
+[P]  Eye removed, [HELM].
+
+[S]  Ear removed, helm removed.\n\
+[B]  Skull hit, stunned 1 round, lose [2D4] Int.\n\
+[P]  Eye removed, helm removed.
+
+[S]  [NOSE_OR_TEETH] shattered, [HELM].\n\
+[B]  [NOSE_OR_TEETH] crushed, [HELM].\n\
+[P]  Skull hit, stunned 1 round, lose [D4] Int, [HELM].
+
+[S]  [NOSE_OR_TEETH] shattered.\n\
+[B]  [NOSE_OR_TEETH] crushed.\n\
+[P]  Skull hit, stunned 1 round, lose [D4] Int, [HELM].
+
+[S]  Decapitated, death, [HELM].\n\
+[B]  Skull crushed, death, [HELM].\n\
+[P]  Skull pierced, death, [HELM].
+
+[S]  Decapitated, death.\n\
+[B]  Skull crushed, death.\n\
+[P]  Skull pierced, death.
+
+* S
+Slashing Weapon:
+
+* B
+Blunt Weapon:
+
+* P
+Piercing Weapon:
+
+* D4_FINGERS
+1 finger
+2 fingers
+3 fingers
+4 fingers
+
+* D2_TOES
+1 toe
+2 toes
+
+* D4
+1
+2
+3
+4
+
+* 2D4
+1:2
+2:3
+3:4
+4:5
+3:6
+2:7
+1:8
+
+* SHIELD_OR_DEX
+\nSlashing & Blunt Weapons:  Chance shield breaks.\n\
+Piercing Weapons:  Roll Dex check (DC 10) or fall.
+
+* NOSE_OR_TEETH
+Nose
+Teeth
+
+* SHIELD
+unless defender has a shield
+
+* HELM
+unless defender is wearing a helm

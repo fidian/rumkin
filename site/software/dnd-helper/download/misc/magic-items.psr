@@ -1,0 +1,2908 @@
+# Magic Items
+# From DMG
+# Made into PSR format by Tyler Akins
+#
+# Comments start with a # at the beginning of a line
+# Blank lines are ignored
+# Initial key should have a * before it and can be followed by spaces
+# Keys should be in [brackets]
+# Key names with a ^ in front are capitalized (see the only line in ELFNAME)
+# Case matters
+# First key is the main rule
+# Spaces at beginning and end are removed
+# Rules can have a number followed by a colon prepended to have a chance
+# associated with it.
+
+* ITEM
+Minor:\n\
+[^MINOR_ITEM]\n\
+\n\
+Medium:\n\
+[^MEDIUM_ITEM]\n\
+\n\
+Major:\n\
+[^MAJOR_ITEM]
+
+* MINOR_ITEM
+4:[MINOR_ARMOR]
+5:[MINOR_WEAPON]
+35:[MINOR_POTION]
+2:[MINOR_RING]
+35:[MINOR_SCROLL]
+10:[MINOR_WAND]
+9:[MINOR_WONDEROUS]
+
+* MEDIUM_ITEM
+10:[MEDIUM_ARMOR]
+10:[MEDIUM_WEAPON]
+10:[MEDIUM_POTION]
+10:[MEDIUM_RING]
+10:[MEDIUM_ROD]
+15:[MEDIUM_SCROLL]
+3:[MEDIUM_STAFF]
+15:[MEDIUM_WAND]
+17:[MEDIUM_WONDEROUS]
+
+* MAJOR_ITEM
+10:[MAJOR_ARMOR]
+10:[MAJOR_WEAPON]
+5:[MAJOR_POTION]
+10:[MAJOR_RING]
+10:[MAJOR_ROD]
+10:[MAJOR_SCROLL]
+20:[MAJOR_STAFF]
+5:[MAJOR_WAND]
+20:[MAJOR_WONDEROUS]
+
+#
+# ARMOR - Minor
+#
+
+* MINOR_ARMOR
+1:[MINOR_ARMOR2][SPECIAL_MATERIAL][INTELLIGENCE]
+99:[MINOR_ARMOR2][SPECIAL_MATERIAL]
+
+* MINOR_ARMOR2
+30:[MINOR_ARMOR3][CLUE]
+70:[MINOR_ARMOR3]
+
+* MINOR_ARMOR3
+60:+1 [MASTERWORK_SHIELD][MINOR_SHIELD_ABILITIES] (+1,000 gp)
+20:+1 [MASTERWORK_ARMOR][MINOR_ARMOR_ABILITIES] (+1,000 gp)
+5:+2 [MASTERWORK_SHIELD][MINOR_SHIELD_ABILITIES] (+4,000 gp)
+2:+2 [MASTERWORK_ARMOR][MINOR_ARMOR_ABILITIES] (+4,000 gp)
+2:[SPECIFIC_MINOR_ARMOR][MINOR_ARMOR_ABILITIES]
+2:[SPECIFIC_MINOR_SHIELD][MINOR_SHIELD_ABILITIES]
+
+* MINOR_ARMOR_ABILITIES
+91:
+9:[MINOR_ARMOR_ABILITY]
+
+* MINOR_ARMOR_ABILITY
+99:[MINOR_ARMOR_ABILITY2]
+1:[MINOR_ARMOR_ABILITY2][MINOR_ARMOR_ABILITY2]
+
+* MINOR_ARMOR_ABILITY2
+25:, glamered (+2,700 gp)
+7: of fortification (light) (+1 bonus)
+20:, slick (+3,750 gp)
+20:, shadow (+3,750 gp)
+20: of silent moves (+3,750 gp)
+4: of spell resistance (13) (+2 bonus)
+1:, slick (improved) (+15,000 gp)
+1:, shadow (improved) (+15,000 gp)
+1: of silent moves (improved) (+15,000 gp)
+
+* MINOR_SHIELD_ABILITIES
+91:
+9:[MINOR_SHIELD_ABILITY]
+
+* MINOR_SHIELD_ABILITY
+99:[MINOR_SHIELD_ABILITY2]
+1:[MINOR_SHIELD_ABILITY2][MINOR_SHIELD_ABILITY2]
+
+* MINOR_SHIELD_ABILITY2
+20: of arrow catching (+1 bonus)
+20: of bashing (+1 bonus)
+10: of blinding (+1 bonus)
+25: of fortification (light) (+1 bonus)
+17: of arrow deflection (+2 bonus)
+5:, animated (+2 bonus)
+2: of spell resistance (13) (+2 bonus)
+
+#
+# ARMOR - Medium
+#
+
+* MEDIUM_ARMOR
+1:[MEDIUM_ARMOR2][SPECIAL_MATERIAL][INTELLIGENCE]
+99:[MEDIUM_ARMOR2][SPECIAL_MATERIAL]
+
+* MEDIUM_ARMOR2
+30:[MEDIUM_ARMOR3][CLUE]
+70:[MEDIUM_ARMOR3]
+
+* MEDIUM_ARMOR3
+5:+1 [MASTERWORK_SHIELD][MEDIUM_SHIELD_ABILITIES] (+1,000 gp)
+5:+1 [MASTERWORK_ARMOR][MEDIUM_ARMOR_ABILITIES] (+1,000 gp)
+10:+2 [MASTERWORK_SHIELD][MEDIUM_SHIELD_ABILITIES] (+4,000 gp)
+10:+2 [MASTERWORK_ARMOR][MEDIUM_ARMOR_ABILITIES] (+4,000 gp)
+10:+3 [MASTERWORK_SHIELD][MEDIUM_SHIELD_ABILITIES] (+9,000 gp)
+10:+3 [MASTERWORK_ARMOR][MEDIUM_ARMOR_ABILITIES] (+9,000 gp)
+5:+4 [MASTERWORK_SHIELD][MEDIUM_SHIELD_ABILITIES] (+16,000 gp)
+2:+4 [MASTERWORK_ARMOR][MEDIUM_ARMOR_ABILITIES] (+16,000 gp)
+3:[SPECIFIC_MEDIUM_ARMOR][MEDIUM_ARMOR_ABILITIES]
+3:[SPECIFIC_MEDIUM_SHIELD][MEDIUM_SHIELD_ABILITIES]
+
+* MEDIUM_ARMOR_ABILITIES
+63:
+37:[MEDIUM_ARMOR_ABILITY]
+
+* MEDIUM_ARMOR_ABILITY
+99:[MEDIUM_ARMOR_ABILITY2]
+1:[MEDIUM_ARMOR_ABILITY2][MEDIUM_ARMOR_ABILITY2]
+
+* MEDIUM_ARMOR_ABILITY2
+5:, glamered (+2,700 gp)
+3: of fortification (light) (+1 bonus)
+3:, slick (+3,750 gp)
+3:, shadow (+3,750 gp)
+3: of silent moves (+3,750 gp)
+2: of spell resistance (13) (+2 bonus)
+10:, slick (improved) (+15,000 gp)
+10:, shadow (improved) (+15,000 gp)
+10: of silent moves (improved) (+15,000 gp)
+25: of [ENERGY_TYPE] resistance (+18,000 gp)
+5: of ghost touch (+3 bonus)
+4: of invulnerability (+3 bonus)
+5: of fortification (moderate) (+3 bonus)
+5: of spell resistance (15) (+3 bonus)
+5:, wild (+3 bonus)
+
+* MEDIUM_SHIELD_ABILITIES
+63:
+37:[MEDIUM_SHIELD_ABILITY]
+
+* MEDIUM_SHIELD_ABILITY
+99:[MEDIUM_SHIELD_ABILITY2]
+1:[MEDIUM_SHIELD_ABILITY2][MEDIUM_SHIELD_ABILITY2]
+
+* MEDIUM_SHIELD_ABILITY2
+10: of arrow catching (+1 bonus)
+10: of bashing (+1 bonus)
+5: of blinding (+1 bonus)
+25: of fortification (light) (+1 bonus)
+10: of arrow deflection (+1 bonus)
+7:, animated (+2 bonus)
+2: of spell resistance (13) (+2 bonus)
+20: of [ENERGY_TYPE] resistance (+18,000 gp)
+5: of ghost touch (+3 bonus)
+10: of fortification (moderate) (+3 bonus)
+3: of spell resistance (15) (+3 bonus)
+1:, wild (+3 bonus)
+
+#
+# ARMOR - Major
+#
+
+* MAJOR_ARMOR
+1:[MAJOR_ARMOR2][SPECIAL_MATERIAL][INTELLIGENCE]
+99:[MAJOR_ARMOR2][SPECIAL_MATERIAL]
+
+* MAJOR_ARMOR2
+30:[MAJOR_ARMOR3][CLUE]
+69:[MAJOR_ARMOR3]
+
+* MAJOR_ARMOR3
+8:+3 [MASTERWORK_SHIELD][MAJOR_SHIELD_ABILITIES] (+9,000 gp)
+8:+3 [MASTERWORK_ARMOR][MAJOR_ARMOR_ABILITIES] (+9,000 gp)
+11:+4 [MASTERWORK_SHIELD][MAJOR_SHIELD_ABILITIES] (+16,000 gp)
+11:+4 [MASTERWORK_ARMOR][MAJOR_ARMOR_ABILITIES] (+16,000 gp)
+11:+5 [MASTERWORK_SHIELD][MAJOR_SHIELD_ABILITIES] (+25,000 gp)
+8:+5 [MASTERWORK_ARMOR][MAJOR_ARMOR_ABILITIES] (+25,000 gp)
+3:[SPECIFIC_MAJOR_ARMOR][MAJOR_ARMOR_ABILITIES]
+3:[SPECIFIC_MAJOR_SHIELD][MAJOR_SHIELD_ABILITIES]
+
+* MAJOR_ARMOR_ABILITIES
+63:
+37:[MAJOR_ARMOR_ABILITY]
+
+* MAJOR_ARMOR_ABILITY
+99:[MAJOR_ARMOR_ABILITY2]
+1:[MAJOR_ARMOR_ABILITY2][MAJOR_ARMOR_ABILITY2]
+
+* MAJOR_ARMOR_ABILITY2
+2:, glamered (+2,700 gp)
+1: of fortification (light) (+1 bonus)
+3:, slick (improved) (+15,000 gp)
+3:, shadow (improved) (+15,000 gp)
+3: of silent moves (improved) (+15,000 gp)
+15: of [ENERGY_TYPE] resistance (+18,000 gp)
+5: of ghost touch (+3 bonus)
+2: of invulnerability (+3 bonus)
+5: of fortification (moderate) (+3 bonus)
+3: of spell resistance (15) (+3 bonus)
+1:, wild (+3 bonus)
+5:, slick (greater) (+33,750 gp)
+5:, shadow (greater) (+33,750 gp)
+5: of silent moves (greater) (+33,750 gp)
+25: of [ENERGY_TYPE] resistance (improved) (+42,000 gp)
+5: of spell resistance (17) (+4 bonus)
+1: of etherealness (+49,000 gp)
+1: of undead controlling (+49,000 gp)
+2: of fortification (heavy) (+5 bonus)
+2: of spell resistance (19) (+5 bonus)
+5: of [ENERGY_TYPE] resistance (greater) (+66,000 gp)
+
+* MAJOR_SHIELD_ABILITIES
+63:
+37:[MAJOR_SHIELD_ABILITY]
+
+* MAJOR_SHIELD_ABILITY
+99:[MAJOR_SHIELD_ABILITY2]
+1:[MAJOR_SHIELD_ABILITY2][MAJOR_SHIELD_ABILITY2]
+
+* MAJOR_SHIELD_ABILITY2
+5: of arrow catching (+1 bonus)
+3: of bashing (+1 bonus)
+2: of blinding (+1 bonus)
+5: of fortification (light) (+1 bonus)
+5: of arrow deflection (+1 bonus)
+5:, animated (+2 bonus)
+15: of [ENERGY_TYPE] resistance (+18,000 gp)
+6: of ghost touch (+3 bonus)
+10: of fortification (moderate) (+3 bonus)
+2: of spell resistance (15) (+3 bonus)
+1:, wild (+3 bonus)
+25: of [ENERGY_TYPE] resistance (improved) (+42,000 gp)
+2: of spell resistance (17) (improved) (+4 bonus)
+1: of undead controlling (+49,000 gp)
+4: of fortification (heavy) (+5 bonus)
+2:, reflecting (+5 bonus)
+1: of spell resistance (19) (+5 bonus)
+5: of [ENERGY_TYPE] resistance (greater) (+66,000 gp)
+
+#
+# ARMOR - Armor Types
+#
+
+* MASTERWORK_SHIELD
+10:buckler (165 gp)
+5:light wooden shield (153 gp)
+5:light steel shield (159 gp)
+10:heavy wooden shield (157 gp)
+65:heavy steel shield (170 gp)
+5:tower shield (180 gp)
+
+* MASTERWORK_ARMOR
+1:padded armor (155 gp)
+1:leather armor (160 gp)
+15:studded leather  (175 gp)
+15:chain shirt (250 gp)
+10:hide armor (165 gp)
+1:scale mail (200 gp)
+1:chainmail (300 gp)
+13:breastplate (350 gp)
+1:splint mail (350 gp)
+1:banded mail (400 gp)
+1:half-plate (750 gp)
+40:full plate (1,650 gp)
+
+#
+# ARMOR - Specifics
+#
+
+* SPECIFIC_MINOR_ARMOR
+50:mithral shirt (1,100 gp)
+30:dragonhide plate (3,300 gp)
+20:elven chain (4,150 gp)
+
+* SPECIFIC_MEDIUM_ARMOR
+25:mithral shirt (1,100 gp)
+20:dragonhide plate (3,300 gp)
+12:elven chain (4,150 gp)
+10:rhino hide (5,165 gp)
+15:adamantine breastplate (10,200 gp)
+15:dwarven plate (16,500 gp)
+3:banded mail of luck (18,900 gp)
+
+* SPECIFIC_MAJOR_ARMOR
+10:adamantine breastplate (10,200 gp)
+10:dwarven plate (16,500 gp)
+12:banded mail of luck (18,900 gp)
+18:celestial armor (22,400 gp)
+10:plate armor of the deep (24,650 gp)
+15:breastplate of command (25,400 gp)
+15:mithral full plate of speed (26,500 gp)
+10:demon armor (52,260 gp)
+
+* SPECIFIC_MINOR_SHIELD
+30:darkwood buckler (205 gp)
+50:darkwood shield (257 gp)
+15:mithral heavy shield (1,020 gp)
+5:casters shield (3,153 gp)
+
+* SPECIFIC_MEDIUM_SHIELD
+20:darkwood buckler (205 gp)
+25:darkwood shield (257 gp)
+25:mithral heavy shield (1,020 gp)
+15:casters shield (3,153 gp)
+5:spined shield (5,580 gp)
+5:lions shield (9,170 gp)
+5:winged shield (17,257 gp)
+
+* SPECIFIC_MAJOR_SHIELD
+20:casters shield (3,153 gp)
+20:spined shield (5,580 gp)
+20:lions shield (9,170 gp)
+30:winged shield (17,257 gp)
+10:absorbing shield (50,170 gp)
+
+#
+# WEAPON - Minor
+#
+
+* MINOR_WEAPON
+1:[MINOR_WEAPON2][SPECIAL_MATERIAL][INTELLIGENCE]
+99:[MINOR_WEAPON2][SPECIAL_MATERIAL]
+
+* MINOR_WEAPON2
+70:[COMMON_MINOR_MELEE_WEAPON]
+10:[UNCOMMON_MINOR_MELEE_WEAPON]
+20:[COMMON_MINOR_RANGED_WEAPON]
+
+* COMMON_MINOR_MELEE_WEAPON
+30:[COMMON_MINOR_MELEE_WEAPON2] (this item sheds light)
+15:[COMMON_MINOR_MELEE_WEAPON2][CLUE]
+55:[COMMON_MINOR_MELEE_WEAPON2]
+
+* UNCOMMON_MINOR_MELEE_WEAPON
+30:[UNCOMMON_MINOR_MELEE_WEAPON2] (this item sheds light)
+15:[UNCOMMON_MINOR_MELEE_WEAPON2][CLUE]
+55:[UNCOMMON_MINOR_MELEE_WEAPON2]
+
+* COMMON_MINOR_RANGED_WEAPON
+15:[COMMON_MINOR_RANGED_WEAPON2][CLUE]
+85:[COMMON_MINOR_RANGED_WEAPON2]
+
+* COMMON_MINOR_MELEE_WEAPON2
+70:+1 [MASTERWORK_COMMON_MELEE][MINOR_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_COMMON_MELEE][MINOR_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MINOR_WEAPON][MINOR_ABILITIES]
+
+* UNCOMMON_MINOR_MELEE_WEAPON2
+70:+1 [MASTERWORK_UNCOMMON_MELEE][MINOR_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_UNCOMMON_MELEE][MINOR_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MINOR_WEAPON][MINOR_ABILITIES]
+
+* COMMON_MINOR_RANGED_WEAPON2
+70:+1 [MASTERWORK_COMMON_RANGED][MINOR_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_COMMON_RANGED][MINOR_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MINOR_WEAPON][MINOR_ABILITIES]
+
+* MINOR_ABILITIES
+90:
+10:[MINOR_ABILITY]
+
+* MINOR_ABILITY
+99:[MINOR_ABILITY2]
+1:[MINOR_ABILITY2][MINOR_ABILITY2]
+
+* MINOR_ABILITY2
+10:, bane ([WEAPON_CREATURE_TYPE]) (+1 bonus)
+7: of defending (+1 bonus)
+10:, flaming (+1 bonus)
+10:, frost (+1 bonus)
+10:, shock (+1 bonus)
+9: of ghost touch (+1 bonus)
+11:, keen (+1 bonus)
+4: of ki focus (+1 bonus)
+4:, merciful (+1 bonus)
+7: of mighty cleaving (+1 bonus)
+5: of spell storing (+1 bonus)
+4: of throwing (+1 bonus)
+4:, thundering (+1 bonus)
+4:, vicious (+1 bonus)
+
+#
+# WEAPON - Medium
+#
+
+* MEDIUM_WEAPON
+1:[MEDIUM_WEAPON2][SPECIAL_MATERIAL][INTELLIGENCE]
+99:[MEDIUM_WEAPON2][SPECIAL_MATERIAL]
+
+* MEDIUM_WEAPON2
+70:[COMMON_MEDIUM_MELEE_WEAPON]
+10:[UNCOMMON_MEDIUM_MELEE_WEAPON]
+20:[COMMON_MEDIUM_RANGED_WEAPON]
+
+* COMMON_MEDIUM_MELEE_WEAPON
+30:[COMMON_MEDIUM_MELEE_WEAPON2] (this item sheds light)
+15:[COMMON_MEDIUM_MELEE_WEAPON2][CLUE]
+55:[COMMON_MEDIUM_MELEE_WEAPON2]
+
+* UNCOMMON_MEDIUM_MELEE_WEAPON
+30:[UNCOMMON_MEDIUM_MELEE_WEAPON2] (this item sheds light)
+15:[UNCOMMON_MEDIUM_MELEE_WEAPON2][CLUE]
+55:[UNCOMMON_MEDIUM_MELEE_WEAPON2]
+
+* COMMON_MEDIUM_RANGED_WEAPON
+15:[COMMON_MEDIUM_RANGED_WEAPON2][CLUE]
+85:[COMMON_MEDIUM_RANGED_WEAPON2]
+
+* COMMON_MEDIUM_MELEE_WEAPON2
+70:+1 [MASTERWORK_COMMON_MELEE][MEDIUM_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_COMMON_MELEE][MEDIUM_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MEDIUM_WEAPON][MEDIUM_ABILITIES]
+
+* UNCOMMON_MEDIUM_MELEE_WEAPON2
+70:+1 [MASTERWORK_UNCOMMON_MELEE][MEDIUM_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_UNCOMMON_MELEE][MEDIUM_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MEDIUM_WEAPON][MEDIUM_ABILITIES]
+
+* COMMON_MEDIUM_RANGED_WEAPON2
+70:+1 [MASTERWORK_COMMON_RANGED][MEDIUM_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_COMMON_RANGED][MEDIUM_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MEDIUM_WEAPON][MEDIUM_ABILITIES]
+
+* MEDIUM_ABILITIES
+90:
+10:[MEDIUM_ABILITY]
+
+* MEDIUM_ABILITY
+99:[MEDIUM_ABILITY2]
+1:[MEDIUM_ABILITY2][MEDIUM_ABILITY2]
+
+* MEDIUM_ABILITY2
+6:, bane ([WEAPON_CREATURE_TYPE]) (+1 bonus)
+6: of defending (+1 bonus)
+7:, flaming (+1 bonus)
+7:, frost (+1 bonus)
+7:, shock (+1 bonus)
+5: of ghost touch (+1 bonus)
+6:, keen (+1 bonus)
+4: of ki focus (+1 bonus)
+2:, merciful (+1 bonus)
+4: of mighty cleaving (+1 bonus)
+5: of spell storing (+1 bonus)
+4: of throwing (+1 bonus)
+2:, thundering (+1 bonus)
+4:, vicious (+1 bonus)
+3:, anarchic (+2 bonus)
+3:, axiomatic (+2 bonus)
+3: of disruption (+2 bonus)
+3: of flaming burst (+2 bonus)
+3: of icy burst (+2 bonus)
+3:, holy (+2 bonus)
+3: of shocking burst (+2 bonus)
+3:, unholy (+2 bonus)
+2: of wounding (+2 bonus)
+
+#
+# WEAPON - Major
+#
+
+* MAJOR_WEAPON
+1:[MAJOR_WEAPON2][SPECIAL_MATERIAL][INTELLIGENCE]
+99:[MAJOR_WEAPON2][SPECIAL_MATERIAL]
+
+* MAJOR_WEAPON2
+70:[COMMON_MAJOR_MELEE_WEAPON]
+10:[UNCOMMON_MAJOR_MELEE_WEAPON]
+20:[COMMON_MAJOR_RANGED_WEAPON]
+
+# WHY WHY WHY
+
+* COMMON_MAJOR_MELEE_WEAPON
+30:[COMMON_MAJOR_MELEE_WEAPON2] (this item sheds light)
+15:[COMMON_MAJOR_MELEE_WEAPON2][CLUE]
+55:[COMMON_MAJOR_MELEE_WEAPON2]
+
+* UNCOMMON_MAJOR_MELEE_WEAPON
+30:[UNCOMMON_MAJOR_MELEE_WEAPON2] (this item sheds light)
+15:[UNCOMMON_MAJOR_MELEE_WEAPON2][CLUE]
+55:[UNCOMMON_MAJOR_MELEE_WEAPON2]
+
+* COMMON_MAJOR_RANGED_WEAPON
+15:[COMMON_MAJOR_RANGED_WEAPON2][CLUE]
+85:[COMMON_MAJOR_RANGED_WEAPON2]
+
+* COMMON_MAJOR_MELEE_WEAPON2
+70:+1 [MASTERWORK_COMMON_MELEE][MAJOR_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_COMMON_MELEE][MAJOR_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MAJOR_WEAPON][MAJOR_ABILITIES]
+
+* UNCOMMON_MAJOR_MELEE_WEAPON2
+70:+1 [MASTERWORK_UNCOMMON_MELEE][MAJOR_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_UNCOMMON_MELEE][MAJOR_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MAJOR_WEAPON][MAJOR_ABILITIES]
+
+* COMMON_MAJOR_RANGED_WEAPON2
+70:+1 [MASTERWORK_COMMON_RANGED][MAJOR_ABILITIES] (+2,000 gp)
+15:+2 [MASTERWORK_COMMON_RANGED][MAJOR_ABILITIES] (+8,000 gp)
+5:[SPECIFIC_MAJOR_WEAPON][MAJOR_ABILITIES]
+
+* MAJOR_ABILITIES
+90:
+10:[MAJOR_ABILITY]
+
+* MAJOR_ABILITY
+99:[MAJOR_ABILITY2]
+1:[MAJOR_ABILITY2][MAJOR_ABILITY2]
+
+* MAJOR_ABILITY2
+3:, bane ([WEAPON_CREATURE_TYPE]) (+1 bonus)
+3:, flaming (+1 bonus)
+3: of frost (+1 bonus)
+3: of shock (+1 bonus)
+3: of ghost touch (+1 bonus)
+4: of ki focus (+1 bonus)
+2: of mighty cleaving (+1 bonus)
+3: of spell storing (+1 bonus)
+4: of throwing (+1 bonus)
+4:, thundering (+1 bonus)
+4:, vicious (+1 bonus)
+5:, anarchic (+2 bonus)
+5:, axiomatic (+2 bonus)
+3: of disruption (+2 bonus)
+5: of flaming burst (+2 bonus)
+5: of icy burst (+2 bonus)
+5:, holy (+2 bonus)
+5: of shocking burst (+2 bonus)
+5:, unholy (+2 bonus)
+4: of wounding (+2 bonus)
+5: of speed (+3 bonus)
+3: of brilliant energy (+4 bonus)
+2:, dancing (+4 bonus)
+2:, vorpal (+5 bonus)
+
+#
+# WEAPON - Types
+#
+
+* MASTERWORK_COMMON_MELEE
+4:dagger (302 gp)
+10:greataxe (320 gp)
+10:greatsword (350 gp)
+4:kama (302 gp)
+13:longsword (315 gp)
+4:mace (light) (305 gp)
+5:mace (heavy) (312 gp)
+4:nunchaku (302 gp)
+3:quarterstaff (600 gp)
+4:rapier (320 gp)
+5:scimitar (315 gp)
+4:shortspear (302 gp)
+4:siangham (303 gp)
+10:sword (bastard) (335 gp)
+5:sword (short) (310 gp)
+11:waraxe (dwarven) (330 gp)
+
+* MASTERWORK_UNCOMMON_MELEE
+3:axe (orc double) (660 gp)
+4:battleaxe (310 gp)
+3:chain (spiked) (325 gp)
+2:club (300 gp)
+4:crossbow (hand) (400 gp)
+3:crossbow (repeating) (550 gp)
+2:dagger (punching) (302 gp)
+2:falchion (375 gp)
+3:flail (dire) (690 gp)
+5:flail (heavy) (315 gp)
+4:flail (308 gp)
+2:gauntlet (302 gp)
+2:gauntlet (spiked) (305 gp)
+2:glaive (308 gp)
+2:greatclub (305 gp)
+2:guisarme (309 gp)
+3:halberd (310 gp)
+3:spear (301 gp)
+3:hammer (gnome hooked) (620 gp)
+2:hammer (light) (301 gp)
+2:handaxe (306 gp)
+3:kukri (308 gp)
+3:lance (310 gp)
+3:longspear (305 gp)
+3:morningstar (308 gp)
+2:net (320 gp)
+2:pick (heavy) (308 gp)
+2:pick (light) (304 gp)
+2:ranseur (310 gp)
+2:sap (301 gp)
+2:scythe (318 gp)
+2:shuriken (50) (310 gp)
+2:sickle (306 gp)
+3:sword (two-bladed) (700 gp)
+2:trident (315 gp)
+3:urgrosh (dwarven) (650 gp)
+3:warhammer (312 gp)
+3:whip (301 gp)
+
+* MASTERWORK_COMMON_RANGED
+10:[MASTERWORK_AMMUNITION]
+5:axe (throwing) (308 gp)
+10:crossbow (heavy) (350 gp)
+10:crossbow (light) (335 gp)
+4:dart (300.5 gp)
+2:javelin (301 gp)
+5:shortbow (330 gp)
+5:shortbow (composite; +0 Str bonus) (375 gp)
+5:shortbow (composite; +1 Str bonus) (450 gp)
+5:shortbow (composite; +2 Str bonus) (525 gp)
+4:sling (300 gp)
+10:longbow (375 gp)
+5:longbow (composite; +0 Str bonus) (400 gp)
+5:longbow (composite; +1 Str bonus) (500 gp)
+5:longbow (composite; +2 Str bonus) (600 gp)
+5:longbow (composite; +3 Str bonus) (700 gp)
+5:longbow (composite; +4 Str bonus) (800 gp)
+
+* MASTERWORK_AMMUNITION
+50:arrows (50) (302.5 gp)
+25:bolts (crossbow; 50) (305 gp)
+5:bolts (repeating crossbow; 50) (310 gp)
+20:bullets (sling; 50) (300.5 gp)
+
+#
+# WEAPONS - Specific Weapons
+#
+
+* SPECIFIC_MINOR_WEAPON
+15:sleep arrow (132 gp)
+10:screaming bolt (267 gp)
+20:silver dagger (masterwork) (322 gp)
+20:cold iron longsword (masterwork) (330 gp)
+10:javelin of lightning (1,500 gp)
+5:slaying arrow ([WEAPON_CREATURE_TYPE]) (2,282 gp)
+10:adamantine dagger (3,002 gp)
+10:adamantine battleaxe (3,010 gp)
+
+* SPECIFIC_MEDIUM_WEAPON
+9:javelin of lightning (1,500 gp)
+6:slaying arrow ([WEAPON_CREATURE_TYPE]) (2,282 gp)
+9:adamantine dagger (3,002 gp)
+9:adamantine battleaxe (3,010 gp)
+4:slaying arrow (greater) (4,057 gp)
+3:shatterspike (4,315 gp)
+6:dagger of venom (8,302 gp)
+5:trident of warning (10,115 gp)
+6:assassins dagger (10,302 gp)
+5:shifters sorrow (12,780 gp)
+4:trident of fish command (18,650 gp)
+8:flame tongue (20,715 gp)
+5:luck blade (0 wishes) (22,060 gp)
+7:sword of subtlety (22,310 gp)
+5:sword of the planes (22,315 gp)
+4:nine lives stealer (23,057 gp)
+3:sword of life stealing (25,715 gp)
+2:oathbow (25,600 gp)
+
+* SPECIFIC_MAJOR_WEAPON
+4:assassins dagger (10,302 gp)
+3:shifters sorrow (12,780 gp)
+2:trident of fish command (18,650 gp)
+4:flame tongue (20,715 gp)
+4:luck blade (0 wishes) (22,060 gp)
+7:sword of subtlety (22,310 gp)
+7:sword of the planes (22,315 gp)
+6:nine lives stealer (23,057 gp)
+5:sword of life stealing (25,715 gp)
+4:oathbow (25,600 gp)
+5:mace of terror (38,552 gp)
+6:life-drinker (40,320 gp)
+5:sylvan scimitar (47,315 gp)
+5:rapier of puncturing (50,320 gp)
+6:sun blade (50,335 gp)
+6:frost brand (54,475 gp)
+5:dwarven thrower (60,312 gp)
+7:luck blade (1 wish) (62,360 gp)
+4:mace of smiting (75,312 gp)
+2:luck blade (2 wishes) (102,660 gp)
+2:holy avenger (120,630 gp)
+1:luck blade (3 wishes) (142,960 gp)
+
+#
+# WEAPONS - Attributes
+#
+
+* WEAPON_CREATURE_TYPE
+5:aberrations
+4:animals
+7:constructs
+6:dragons
+5:elementals
+5:fey
+7:giants
+1:humanoids, aquatic
+2:humanoids, dwarf
+2:humanoids, elf
+1:humanoids, gnoll
+1:humanoids, gnome
+3:humanoids, goblinoid
+1:humanoids, halfling
+4:humanoids, human
+3:humanoids, reptilian
+3:humanoids, orc
+5:magical beasts
+5:monstrous humanoids
+2:oozes
+1:outsiders, air
+3:outsiders, chaotic
+1:outsiders, earth
+3:outsiders, evil
+1:outsiders, fire
+3:outsiders, good
+3:outsiders, lawful
+1:outsiders, water
+2:plants
+8:undead
+2:vermin
+
+#
+# POTION - Minor
+#
+
+* MINOR_POTION
+10:potion of cure light wounds (50 gp)
+3:potion of endure elements (50 gp)
+2:potion of hide from animals (50 gp)
+2:potion of hide from undead (50 gp)
+2:potion of jump (50 gp)
+3:potion of mage armor (50 gp)
+3:potion of magic fang (50 gp)
+1:oil of magic stone (50 gp)
+3:oil of magic weapon (50 gp)
+1:potion of pass without trace (50 gp)
+2:potion of protection from [ALIGNMENT_SINGLE] (50 gp)
+2:potion of remove fear (50 gp)
+1:potion of sanctuary (50 gp)
+3:potion of shield of faith +2 (50 gp)
+1:oil of shillelagh (50 gp)
+2:oil of bless weapon (100 gp)
+3:potion of enlarge person (250 gp)
+1:potion of reduce person (250 gp)
+2:potion of aid (300 gp)
+3:potion of barkskin +2 (300 gp)
+3:potion of bears endurance (300 gp)
+3:potion of blur (300 gp)
+3:potion of bulls strength (300 gp)
+3:potion of cats grace (300 gp)
+5:potion of cure moderate wounds (300 gp)
+1:oil of darkness (300 gp)
+3:potion of darkvision (300 gp)
+3:potion of delay poison (300 gp)
+2:potion of eagles splendor (300 gp)
+2:potion of foxs cunning (300 gp)
+3:[POTION_OR_OIL] of invisibility (300 gp)
+3:potion of lesser restoration (300 gp)
+2:[POTION_OR_OIL] of levitate (300 gp)
+1:potion of misdirection (300 gp)
+2:potion of owls wisdom (300 gp)
+2:potion of protection from arrows 10/magic (300 gp)
+2:potion of remove paralysis (300 gp)
+3:potion of resist energy ([ENERGY_TYPE]) 10 (300 gp)
+1:potion of shield of faith +3 (300 gp)
+2:potion of spider climb (300 gp)
+1:potion of undetectable alignment (300 gp)
+
+#
+# POTION - Medium
+#
+
+* MEDIUM_POTION
+2:oil of bless weapon (100 gp)
+2:potion enlarge person (250 gp)
+1:potion of reduce person (250 gp)
+1:potion of aid (300 gp)
+1:potion of barkskin +2 (300 gp)
+3:potion of bears endurance (300 gp)
+3:potion of blur (300 gp)
+3:potion of bulls strength (300 gp)
+3:potion of cats grace (300 gp)
+8:potion of cure moderate wounds (300 gp)
+1:oil of darkness (300 gp)
+2:potion of darkvision (300 gp)
+1:potion of delay poison (300 gp)
+2:potion of eagles splendor (300 gp)
+2:potion of foxs cunning (300 gp)
+2:[POTION_OR_OIL] of invisibility (300 gp)
+1:potion of lesser restoration (300 gp)
+1:[POTION_OR_OIL] of levitate (300 gp)
+1:potion of misdirection (300 gp)
+2:potion of owls wisdom (300 gp)
+1:potion of protection from arrows 10/magic (300 gp)
+1:potion of remove paralysis (300 gp)
+2:potion of resist energy ([ENERGY_TYPE]) 10 (300 gp)
+2:potion of shield of faith +3 (300 gp)
+1:potion of spider climb (300 gp)
+1:potion of undetectable alignment (300 gp)
+1:potion of barkskin +3 (600 gp)
+1:potion of shield of faith +4 (600 gp)
+3:potion of resist energy ([ENERGY_TYPE]) 20 (700 gp)
+5:potion of cure serious wounds (750 gp)
+1:oil of daylight (750 gp)
+3:potion of displacement (750 gp)
+1:oil of flame arrow (750 gp)
+3:potion of fly (750 gp)
+1:potion of gaseous form (750 gp)
+2:potion of greater magic fang +1 (750 gp)
+2:oil of greater magic weapon +1 (750 gp)
+2:potion of haste (750 gp)
+3:potion of heroism (750 gp)
+2:oil of keen edge (750 gp)
+1:potion of magic circle against [ALIGNMENT_SINGLE] (750 gp)
+2:oil of magic vestment +1 (750 gp)
+3:potion of neutralize poison (750 gp)
+2:potion of nondetection (750 gp)
+3:potion of protection from energy ([ENERGY_TYPE]) (750 gp)
+2:potion of rage (750 gp)
+1:potion of remove blindness/deafness (750 gp)
+1:potion of remove curse (750 gp)
+1:potion of remove disease (750 gp)
+1:potion of tongues (750 gp)
+2:potion of water breathing (750 gp)
+1:potion of water walk (750 gp)
+
+#
+# POTION - Major
+#
+
+* MAJOR_POTION
+2:potion of blur (300 gp)
+5:potion of cure moderate wounds (300 gp)
+2:potion of darkvision (300 gp)
+2:[POTION_OR_OIL] of invisibility (300 gp)
+1:potion of lesser restoration (300 gp)
+1:potion of remove paralysis (300 gp)
+1:potion of shield of faith +3 (300 gp)
+1:potion of undetectable alignment (300 gp)
+1:potion of barkskin +3 (600 gp)
+2:potion of shield of faith +4 (600 gp)
+2:potion of resist energy ([ENERGY_TYPE]) 20 (700 gp)
+8:potion of cure serious wounds (750 gp)
+1:oil of daylight (750 gp)
+3:potion of displacement (750 gp)
+1:oil of flame arrow (750 gp)
+5:potion of fly (750 gp)
+1:potion of gaseous form (750 gp)
+2:potion of haste (750 gp)
+3:potion of heroism (750 gp)
+2:oil of keen edge (750 gp)
+1:potion of magic circle against [ALIGNMENT_SINGLE] (750 gp)
+3:potion of neutralize poison (750 gp)
+2:potion of nondetection (750 gp)
+2:potion of protection from energy ([ENERGY_TYPE]) (750 gp)
+1:potion of rage (750 gp)
+1:potion of remove blindness/deafness (750 gp)
+1:potion of remove curse (750 gp)
+1:potion of remove disease (750 gp)
+1:potion of tongues (750 gp)
+1:potion of water breathing (750 gp)
+1:potion of water walk (750 gp)
+2:potion of barkskin +4 (900 gp)
+1:potion of shield of faith +5 (900 gp)
+1:potion of good hope (1,050 gp)
+3:potion of resist energy ([ENERGY_TYPE]) 30 (1,100 gp)
+1:potion of barkskin +5 (1,200 gp)
+4:potion of greater magic fang +2 (1,200 gp)
+4:oil of greater magic weapon +2 (1,200 gp)
+4:oil of magic vestment +2 (1,200 gp)
+1:potion of protection from arrows 15/magic (1,500 gp)
+3:potion of greater magic fang +3 (1,800 gp)
+3:oil of greater magic weapon +3 (1,800 gp)
+3:oil of magic vestment +3 (1,800 gp)
+2:potion of greater magic fang +4 (2,400 gp)
+2:oil of greater magic weapon +4 (2,400 gp)
+2:oil of magic vestment +4 (2,400 gp)
+1:potion of greater magic fang +5 (3,000 gp)
+1:oil of greater magic weapon +5 (3,000 gp)
+1:oil of magic vestment +5 (3,000 gp)
+
+#
+# RING - Minor
+#
+
+* MINOR_RING
+1:[MINOR_RING2][INTELLIGENCE]
+30:[MINOR_RING2][CLUE]
+69:[MINOR_RING2]
+
+* MINOR_RING2
+ring of [MINOR_RING3]
+
+* MINOR_RING3
+18:protection +1 (2,000 gp)
+10:feather falling (2,200 gp)
+8:sustenance (2,500 gp)
+8:climbing (2,500 gp)
+8:jumping (2,500 gp)
+8:swimming (2,500 gp)
+10:counterspells (4,000 gp)
+5:mind shielding (8,000 gp)
+5:protection +2 (8,000 gp)
+5:force shield (8,500 gp)
+5:the ram (8,600 gp)
+3:animal friendship (10,800 gp)
+3:energy resistance (minor) (12,000 gp)
+2:chameleon power (12,700 gp)
+2:water walking (15,000 gp)
+
+#
+# RING - Medium
+#
+
+* MEDIUM_RING
+1:[MEDIUM_RING2][INTELLIGENCE]
+30:[MEDIUM_RING2][CLUE]
+69:[MEDIUM_RING2]
+
+* MEDIUM_RING2
+ring of [MEDIUM_RING3]
+
+* MEDIUM_RING3
+5:counterspells (4,000 gp)
+3:mind shielding (8,000 gp)
+10:protection +2 (8,000 gp)
+5:force shield (8,500 gp)
+5:the ram (8,600 gp)
+6:climbing (improved) (10,000 gp)
+6:jumping (improved) (10,000 gp)
+6:swimming (improved) (10,000 gp)
+5:animal friendship (10,800 gp)
+5:energy resistance (minor) (12,000 gp)
+5:chameleon power (12,700 gp)
+5:water walking (15,000 gp)
+5:protection +3 (18,000 gp)
+5:spell storing (minor) (18,000 gp)
+5:invisibility (20,000 gp)
+4:wizardry (i) (20,000 gp)
+4:evasion (25,000 gp)
+3:x-ray vision (25,000 gp)
+3:blinking (27,000 gp)
+3:meld into stone (27,000 gp)
+2:energy resistance (major) (28,000 gp)
+
+#
+# RING - MAJOR
+#
+
+* MAJOR_RING
+1:[MAJOR_RING2][INTELLIGENCE]
+30:[MAJOR_RING2][CLUE]
+69:[MAJOR_RING2]
+
+* MAJOR_RING2
+ring of [MAJOR_RING3]
+
+* MAJOR_RING3
+2:energy resistance (minor) (12,000 gp)
+5:protection +3 (18,000 gp)
+3:spell storing (minor) (18,000 gp)
+5:invisibility (20,000 gp)
+4:wizardry (i) (20,000 gp)
+6:evasion (25,000 gp)
+3:x-ray vision (25,000 gp)
+4:blinking (27,000 gp)
+4:meld into stone (27,000 gp)
+7:energy resistance (major) (28,000 gp)
+7:protection +4 (32,000 gp)
+5:wizardry (ii) (40,000 gp)
+5:freedom of movement (40,000 gp)
+3:energy resistance (greater) (44,000 gp)
+2:friend shield (pair) (50,000 gp)
+5:protection +5 (50,000 gp)
+4:shooting stars (50,000 gp)
+5:spell storing (50,000 gp)
+4:wizardry (iii) (70,000 gp)
+3:telekinesis (75,000 gp)
+2:regeneration (90,000 gp)
+1:three wishes (97,950 gp)
+3:spell turning (98,280 gp)
+2:wizardry (iv) (100,000 gp)
+1:djinni calling (125,000 gp)
+1:elemental command (air) (200,000 gp)
+1:elemental command (earth) (200,000 gp)
+1:elemental command (fire) (200,000 gp)
+1:elemental command (water) (200,000 gp)
+1:spell storing (major) (200,000 gp)
+
+#
+# ROD - Medium
+#
+
+* MEDIUM_ROD
+1:[MEDIUM_ROD2][INTELLIGENCE]
+30:[MEDIUM_ROD2][CLUE]
+69:[MEDIUM_ROD2]
+
+* MEDIUM_ROD2
+rod of [MEDIUM_ROD3]
+
+* MEDIUM_ROD3
+7:metamagic (enlarge, lesser) (3,000 gp)
+7:metamagic (extend, lesser) (3,000 gp)
+7:metamagic (silent, lesser) (3,000 gp)
+7:immovability (5,000 gp)
+7:metamagic (empower, lesser) (9,000 gp)
+7:metal and mineral detection (10,500 gp)
+11:cancellation (11,000 gp)
+4:metamagic (enlarge) (11,000 gp)
+4:metamagic (extend) (11,000 gp)
+4:metamagic (silent) (11,000 gp)
+6:wonder (12,000 gp)
+8:the python (13,000 gp)
+4:metamagic (maximize, lesser) (14,000 gp)
+6:flame extinguishing (15,000 gp)
+8:the viper (19,000 gp)
+2:metamagic (empower) (32,500 gp)
+1:metamagic (quicken, lesser) (35,000 gp)
+
+#
+# ROD - Major
+#
+
+* MAJOR_ROD
+1:[MAJOR_ROD2][INTELLIGENCE]
+30:[MAJOR_ROD2][CLUE]
+69:[MAJOR_ROD2]
+
+* MAJOR_ROD2
+rod of [MAJOR_ROD3]
+
+* MAJOR_ROD3
+4:cancellation (11,000 gp)
+2:metamagic (enlarge) (11,000 gp)
+2:metamagic (extend) (11,000 gp)
+2:metamagic (silent) (11,000 gp)
+4:wonder (12,000 gp)
+4:the python (13,000 gp)
+3:flame extinguishing (15,000 gp)
+4:the viper (19,000 gp)
+5:enemy detection (23,500 gp)
+6:metamagic (enlarge, greater) (24,500 gp)
+6:metamagic (extend, greater) (24,500 gp)
+6:metamagic (silent, greater) (24,500 gp)
+5:splendor (25,000 gp)
+5:withering (25,000 gp)
+6:metamagic (empower) (32,500 gp)
+5:thunder and lightning (33,000 gp)
+4:metamagic (quicken, lesser) (35,000 gp)
+4:negation (37,000 gp)
+3:absorption (50,000 gp)
+4:flailing (50,000 gp)
+2:metamagic (maximize) (54,000 gp)
+2:rulership (60,000 gp)
+2:security (61,000 gp)
+2:lordly might (70,000 gp)
+2:metamagic (empower, greater) (73,000 gp)
+2:metamagic (quicken) (75,500 gp)
+2:alertness (85,000 gp)
+1:metamagic (maximize, greater) (121,500 gp)
+1:metamagic (quicken, greater) (170,000 gp)
+
+#
+# SCROLL - Minor
+#
+
+* MINOR_SCROLL
+70:arcane scroll of [MINOR_ARCANE_SCROLL]
+30:divine scroll of [MINOR_DIVINE_SCROLL]
+
+* MINOR_ARCANE_SCROLL
+[MINOR_ARCANE_SPELL]
+[MINOR_ARCANE_SPELL] and [MINOR_ARCANE_SPELL]
+[MINOR_ARCANE_SPELL] and [MINOR_ARCANE_SPELL] and [MINOR_ARCANE_SPELL]
+
+* MINOR_ARCANE_SPELL
+5:[ARCANE_SPELL_LEVEL_0]
+45:[ARCANE_SPELL_LEVEL_1]
+45:[ARCANE_SPELL_LEVEL_2]
+5:[ARCANE_SPELL_LEVEL_3]
+
+* MINOR_DIVINE_SCROLL
+[MINOR_DIVINE_SPELL]
+[MINOR_DIVINE_SPELL] and [MINOR_DIVINE_SPELL]
+[MINOR_DIVINE_SPELL] and [MINOR_DIVINE_SPELL] and [MINOR_DIVINE_SPELL]
+
+* MINOR_DIVINE_SPELL
+5:[DIVINE_SPELL_LEVEL_0]
+45:[DIVINE_SPELL_LEVEL_1]
+45:[DIVINE_SPELL_LEVEL_2]
+5:[DIVINE_SPELL_LEVEL_3]
+
+#
+# SCROLL - Medium
+#
+
+* MEDIUM_SCROLL
+70:arcane scroll of [MEDIUM_ARCANE_SCROLL]
+30:divine scroll of [MEDIUM_DIVINE_SCROLL]
+
+* MEDIUM_ARCANE_SCROLL
+[MEDIUM_ARCANE_SPELL]
+[MEDIUM_ARCANE_SPELL] and [MEDIUM_ARCANE_SPELL]
+[MEDIUM_ARCANE_SPELL] and [MEDIUM_ARCANE_SPELL] and [MEDIUM_ARCANE_SPELL]
+
+* MEDIUM_ARCANE_SPELL
+5:[ARCANE_SPELL_LEVEL_2]
+60:[ARCANE_SPELL_LEVEL_3]
+30:[ARCANE_SPELL_LEVEL_4]
+5:[ARCANE_SPELL_LEVEL_5]
+
+* MEDIUM_DIVINE_SCROLL
+[MEDIUM_DIVINE_SPELL]
+[MEDIUM_DIVINE_SPELL] and [MEDIUM_DIVINE_SPELL]
+[MEDIUM_DIVINE_SPELL] and [MEDIUM_DIVINE_SPELL] and [MEDIUM_DIVINE_SPELL]
+
+* MEDIUM_DIVINE_SPELL
+5:[DIVINE_SPELL_LEVEL_2]
+60:[DIVINE_SPELL_LEVEL_3]
+30:[DIVINE_SPELL_LEVEL_4]
+5:[DIVINE_SPELL_LEVEL_5]
+
+#
+# SCROLL - Major
+#
+
+* MAJOR_SCROLL
+70:arcane scroll of [MAJOR_ARCANE_SCROLL]
+30:divine scroll of [MAJOR_DIVINE_SCROLL]
+
+* MAJOR_ARCANE_SCROLL
+[MAJOR_ARCANE_SPELL]
+[MAJOR_ARCANE_SPELL] and [MAJOR_ARCANE_SPELL]
+[MAJOR_ARCANE_SPELL] and [MAJOR_ARCANE_SPELL] and [MAJOR_ARCANE_SPELL]
+
+* MAJOR_ARCANE_SPELL
+5:[ARCANE_SPELL_LEVEL_4]
+45:[ARCANE_SPELL_LEVEL_5]
+20:[ARCANE_SPELL_LEVEL_6]
+15:[ARCANE_SPELL_LEVEL_7]
+10:[ARCANE_SPELL_LEVEL_8]
+5:[ARCANE_SPELL_LEVEL_9]
+
+* MAJOR_DIVINE_SCROLL
+[MAJOR_DIVINE_SPELL]
+[MAJOR_DIVINE_SPELL] and [MAJOR_DIVINE_SPELL]
+[MAJOR_DIVINE_SPELL] and [MAJOR_DIVINE_SPELL] and [MAJOR_DIVINE_SPELL]
+
+* MAJOR_DIVINE_SPELL
+5:[DIVINE_SPELL_LEVEL_4]
+45:[DIVINE_SPELL_LEVEL_5]
+20:[DIVINE_SPELL_LEVEL_6]
+15:[DIVINE_SPELL_LEVEL_7]
+10:[DIVINE_SPELL_LEVEL_8]
+5:[DIVINE_SPELL_LEVEL_9]
+
+#
+# SCROLLS - Arcane Spells
+#
+
+* ARCANE_SPELL_LEVEL_0
+4:acid splash (12.5 gp)
+4:arcane mark (12.5 gp)
+5:dancing lights (12.5 gp)
+4:daze (12.5 gp)
+7:detect magic (12.5 gp)
+4:detect poison (12.5 gp)
+4:disrupt undead (12.5 gp)
+5:flare (12.5 gp)
+5:ghost sound (12.5 gp)
+2:know direction (12.5 gp)
+6:light (12.5 gp)
+2:lullaby (12.5 gp)
+5:mage hand (12.5 gp)
+5:mending (12.5 gp)
+5:message (12.5 gp)
+5:open/close (12.5 gp)
+5:prestidigitation (12.5 gp)
+4:ray of frost (12.5 gp)
+6:read magic (12.5 gp)
+7:resistance (12.5 gp)
+2:summon instrument (12.5 gp)
+4:touch of fatigue (12.5 gp)
+
+* ARCANE_SPELL_LEVEL_1
+3:alarm (25 gp)
+2:animate rope (25 gp)
+2:burning hands (25 gp)
+2:cause fear (25 gp)
+3:charm person (25 gp)
+2:chill touch (25 gp)
+2:color spray (25 gp)
+3:comprehend languages (25 gp)
+1:confusion (lesser) (50 gp)
+1:cure light wounds (50 gp)
+3:detect secret doors (25 gp)
+2:detect undead (25 gp)
+3:disguise self (25 gp)
+3:endure elements (25 gp)
+3:enlarge person (25 gp)
+2:erase (25 gp)
+3:expeditious retreat (25 gp)
+1:feather fall (25 gp)
+2:grease (25 gp)
+2:hold portal (25 gp)
+2:hypnotism (25 gp)
+2:identify (125 gp)
+2:jump (25 gp)
+3:mage armor (25 gp)
+2:magic missile (25 gp)
+3:magic weapon (25 gp)
+3:mount (25 gp)
+2:magic aura (25 gp)
+2:obscuring mist (25 gp)
+8:protection from chaos/evil/good/law (25 gp)
+2:ray of enfeeblement (25 gp)
+2:reduce person (25 gp)
+2:remove fear (50 gp)
+2:shield (25 gp)
+2:shocking grasp (25 gp)
+2:silent image (25 gp)
+2:sleep (25 gp)
+2:summon monster I (25 gp)
+3:floating disk (25 gp)
+2:true strike (25 gp)
+1:undetectable alignment (50 gp)
+2:unseen servant (25 gp)
+2:ventriloquism (25 gp)
+
+* ARCANE_SPELL_LEVEL_2
+1:animal messenger (200 gp)
+1:animal trance (200 gp)
+1:arcane lock (175 gp)
+3:bears endurance (150 gp)
+2:blindness/deafness (150 gp)
+2:blur (150 gp)
+3:bulls strength (150 gp)
+1:calm emotions (200 gp)
+3:cats grace (150 gp)
+2:command undead (150 gp)
+1:continual flame (200 gp)
+1:cure moderate wounds (200 gp)
+1:darkness (150 gp)
+3:darkvision (150 gp)
+1:daze monster (150 gp)
+1:delay poison (200 gp)
+2:detect thoughts (150 gp)
+2:disguise self (150 gp)
+3:eagles splendor (150 gp)
+1:enthrall (200 gp)
+2:false life (150 gp)
+2:flaming sphere (150 gp)
+1:fog cloud (150 gp)
+3:foxs cunning (150 gp)
+1:ghoul touch (150 gp)
+2:glitterdust (150 gp)
+1:gust of wind (150 gp)
+2:hypnotic pattern (150 gp)
+3:invisibility (150 gp)
+3:knock (150 gp)
+1:phantom trap (200 gp)
+2:levitate (150 gp)
+1:locate object (150 gp)
+1:magic mouth (160 gp)
+2:acid arrow (150 gp)
+1:minor image (150 gp)
+2:mirror image (150 gp)
+1:misdirection (150 gp)
+1:obscure object (150 gp)
+3:owls wisdom (150 gp)
+3:protection from arrows (150 gp)
+2:pyrotechnics (150 gp)
+3:resist energy (150 gp)
+1:rope trick (150 gp)
+1:scare (150 gp)
+2:scorching ray (150 gp)
+3:see invisibility (150 gp)
+1:shatter (150 gp)
+1:silence (200 gp)
+1:sound burst (200 gp)
+1:spectral hand (150 gp)
+2:spider climb (150 gp)
+2:summon monster II (150 gp)
+2:summon swarm (150 gp)
+1:hideous laughter (150 gp)
+1:touch of idiocy (150 gp)
+2:web (150 gp)
+1:whispering wind (150 gp)
+
+* ARCANE_SPELL_LEVEL_3
+2:arcane sight (375 gp)
+2:blink (375 gp)
+2:clairaudience/clairvoyance (375 gp)
+1:cure serious wounds (525 gp)
+3:daylight (375 gp)
+2:deep slumber (375 gp)
+3:dispel magic (375 gp)
+2:displacement (375 gp)
+1:explosive runes (375 gp)
+2:fireball (375 gp)
+2:flame arrow (375 gp)
+3:fly (375 gp)
+2:gaseous form (375 gp)
+2:gentle repose (375 gp)
+1:glibness (525 gp)
+1:good hope (525 gp)
+2:halt undead (375 gp)
+3:haste (375 gp)
+2:heroism (375 gp)
+2:hold person (375 gp)
+1:illusory script (425 gp)
+3:invisibility sphere (375 gp)
+3:keen edge (375 gp)
+2:tiny hut (375 gp)
+2:lightning bolt (375 gp)
+8:magic circle against chaos/evil/good/law (375 gp)
+3:magic weapon (greater) (375 gp)
+2:major image (375 gp)
+2:nondetection (425 gp)
+2:phantom steed (375 gp)
+3:protection from energy (375 gp)
+2:rage (375 gp)
+2:ray of exhaustion (375 gp)
+1:sculpt sound (525 gp)
+1:secret page (375 gp)
+1:sepia snake sigil (875 gp)
+1:shrink item (375 gp)
+2:sleet storm (375 gp)
+2:slow (375 gp)
+1:speak with animals (525 gp)
+2:stinking cloud (375 gp)
+2:suggestion (375 gp)
+2:summon monster III (375 gp)
+3:tongues (375 gp)
+2:vampiric touch (375 gp)
+3:water breathing (375 gp)
+2:wind wall (375 gp)
+
+* ARCANE_SPELL_LEVEL_4
+2:animate dead (1,050 gp)
+3:arcane eye (700 gp)
+2:bestow curse (700 gp)
+3:charm monster (700 gp)
+3:confusion (700 gp)
+2:contagion (700 gp)
+2:crushing despair (700 gp)
+1:cure critical wounds (1,000 gp)
+1:detect scrying (700 gp)
+4:dimension door (700 gp)
+3:dimensional anchor (700 gp)
+2:enervation (700 gp)
+2:enlarge person (mass) (700 gp)
+2:black tentacles (700 gp)
+2:fear (700 gp)
+3:fire shield (700 gp)
+2:fire trap (725 gp)
+3:freedom of movement (1,000 gp)
+1:geas (lesser) (700 gp)
+3:globe of invulnerability (lesser) (700 gp)
+2:hallucinatory terrain (700 gp)
+2:ice storm (700 gp)
+2:illusory wall (700 gp)
+3:invisibility (greater) (700 gp)
+2:secure shelter (700 gp)
+1:locate creature (700 gp)
+2:minor creation (700 gp)
+1:modify memory (1,000 gp)
+1:neutralize poison (1,000 gp)
+2:resilient sphere (700 gp)
+2:phantasmal killer (700 gp)
+2:polymorph (700 gp)
+2:rainbow pattern (700 gp)
+1:mnemonic enhancer (700 gp)
+2:reduce person (mass) (700 gp)
+3:remove curse (700 gp)
+1:repel vermin (1,000 gp)
+2:scrying (700 gp)
+2:shadow conjuration (700 gp)
+2:shout (700 gp)
+2:solid fog (700 gp)
+1:speak with plants (1,000 gp)
+2:stone shape (700 gp)
+3:stoneskin (950 gp)
+2:summon monster IV (700 gp)
+3:wall of fire (700 gp)
+3:wall of ice (700 gp)
+1:zone of silence (1,000 gp)
+
+* ARCANE_SPELL_LEVEL_5
+2:animal growth (1,125 gp)
+3:baleful polymorph (1,125 gp)
+2:interposing hand (1,125 gp)
+2:blight (1,125 gp)
+3:break enchantment (1,125 gp)
+2:cloudkill (1,125 gp)
+3:cone of cold (1,125 gp)
+2:contact other plane (1,125 gp)
+1:cure light wounds (mass) (1,625 gp)
+3:dismissal (1,125 gp)
+3:dispel magic (greater) (1,625 gp)
+2:dominate person (1,125 gp)
+1:dream (1,125 gp)
+2:fabricate (1,125 gp)
+2:false vision (1,375 gp)
+2:feeblemind (1,125 gp)
+4:hold monster (1,125 gp)
+1:secret chest (1,125 gp)
+1:magic jar (1,125 gp)
+2:major creation (1,125 gp)
+2:mind fog (1,125 gp)
+2:mirage arcana (1,125 gp)
+2:mages faithful hound (1,125 gp)
+2:mages private sanctum (1,125 gp)
+2:nightmare (1,125 gp)
+4:overland flight (1,125 gp)
+3:passwall (1,125 gp)
+1:permanency (10,125 gp)
+2:persistent image (1,125 gp)
+2:planar binding (lesser) (1,125 gp)
+2:prying eyes (1,125 gp)
+2:telepathic bond (1,125 gp)
+2:seeming (1,125 gp)
+3:sending (1,125 gp)
+2:shadow evocation (1,125 gp)
+1:song of discord (1,625 gp)
+2:summon monster V (1,125 gp)
+1:symbol of pain (2,125 gp)
+1:symbol of sleep (2,125 gp)
+2:telekinesis (1,125 gp)
+5:teleport (1,125 gp)
+2:transmute mud to rock (1,125 gp)
+2:transmute rock to mud (1,125 gp)
+3:wall of force (1,125 gp)
+3:wall of stone (1,125 gp)
+2:waves of fatigue (1,125 gp)
+
+* ARCANE_SPELL_LEVEL_6
+2:acid fog (1,650 gp)
+3:analyze dweomer (1,650 gp)
+1:animate objects (2,400 gp)
+3:antimagic field (1,650 gp)
+3:bears endurance (mass) (1,650 gp)
+2:forceful hand (1,650 gp)
+3:bulls strength (mass) (1,650 gp)
+3:cats grace (mass) (1,650 gp)
+3:chain lightning (1,650 gp)
+2:circle of death (2,150 gp)
+1:contingency (1,650 gp)
+2:control water (1,650 gp)
+1:create undead (2,350 gp)
+1:cure moderate wounds (mass) (2,400 gp)
+3:disintegrate (1,650 gp)
+4:dispel magic (greater) (1,650 gp)
+3:eagles splendor (mass) (1,650 gp)
+2:eyebite (1,650 gp)
+1:find the path (2,400 gp)
+2:flesh to stone (1,650 gp)
+3:foxs cunning (mass) (1,650 gp)
+1:geas/quest (1,650 gp)
+3:globe of invulnerability (1,650 gp)
+1:guards and wards (1,650 gp)
+1:heroes feast (2,400 gp)
+2:heroism (greater) (1,650 gp)
+1:legend lore (1,900 gp)
+2:mislead (1,650 gp)
+1:mages lucubration (1,650 gp)
+2:move earth (1,650 gp)
+2:freezing sphere (1,650 gp)
+3:owls wisdom (mass) (1,650 gp)
+2:permanent image (1,650 gp)
+2:planar binding (1,650 gp)
+2:programmed image (1,675 gp)
+2:repulsion (1,650 gp)
+3:shadow walk (1,650 gp)
+3:stone to flesh (1,650 gp)
+2:suggestion (mass) (1,650 gp)
+2:summon monster VI (1,650 gp)
+1:symbol of fear (2,650 gp)
+1:symbol of persuasion (6,650 gp)
+1:sympathetic vibration (2,400 gp)
+2:transformation (1,950 gp)
+3:true seeing (1,900 gp)
+2:undeath to death (2,150 gp)
+2:veil (1,650 gp)
+3:wall of iron (1,700 gp)
+
+* ARCANE_SPELL_LEVEL_7
+3:arcane sight (greater) (2,275 gp)
+4:banishment (2,275 gp)
+3:grasping hand (2,275 gp)
+3:control undead (2,275 gp)
+3:control weather (2,275 gp)
+3:delayed blast fireball (2,275 gp)
+2:instant summons (3,275 gp)
+4:ethereal jaunt (2,275 gp)
+3:finger of death (2,275 gp)
+3:forcecage (3,775 gp)
+4:hold person (mass) (2,275 gp)
+3:insanity (2,275 gp)
+4:invisibility (mass) (2,275 gp)
+1:limited wish (3,775 gp)
+2:mages magnificent mansion (2,275 gp)
+3:mages sword (2,275 gp)
+3:phase door (2,275 gp)
+3:plane shift (2,275 gp)
+3:power word blind (2,275 gp)
+4:prismatic spray (2,275 gp)
+3:project image (2,280 gp)
+3:reverse gravity (2,275 gp)
+3:scrying (greater) (2,275 gp)
+3:sequester (2,275 gp)
+3:shadow conjuration (greater) (2,275 gp)
+1:simulacrum (7,275 gp)
+3:spell turning (2,275 gp)
+2:statue (2,275 gp)
+3:summon monster VII (2,275 gp)
+1:symbol of stunning (7,275 gp)
+1:symbol of weakness (7,275 gp)
+3:teleport object (2,275 gp)
+5:teleport (greater) (2,275 gp)
+2:vision (2,775 gp)
+3:waves of exhaustion (2,275 gp)
+
+* ARCANE_SPELL_LEVEL_8
+2:antipathy (3,000 gp)
+3:clenched fist (3,000 gp)
+3:binding (8,500 gp)
+4:charm monster (mass) (3,000 gp)
+1:clone (4,000 gp)
+3:create greater undead (3,000 gp)
+3:demand (3,600 gp)
+3:dimensional lock (3,000 gp)
+4:discern location (3,000 gp)
+3:horrid wilting (3,000 gp)
+3:incendiary cloud (3,000 gp)
+3:iron body (3,000 gp)
+3:maze (3,000 gp)
+3:mind blank (3,000 gp)
+3:moment of prescience (3,000 gp)
+4:telekinetic sphere (3,000 gp)
+3:irresistible dance (3,000 gp)
+3:planar binding (greater) (3,000 gp)
+3:polar ray (3,000 gp)
+3:polymorph any object (3,000 gp)
+3:power word stun (3,000 gp)
+3:prismatic wall (3,000 gp)
+4:protection from spells (3,500 gp)
+3:prying eyes (greater) (3,000 gp)
+3:scintillating pattern (3,000 gp)
+2:screen (3,000 gp)
+3:shadow evocation (greater) (3,000 gp)
+3:shout (greater) (3,000 gp)
+3:summon monster VIII (3,000 gp)
+3:sunburst (3,000 gp)
+1:symbol of death (8,000 gp)
+1:symbol of insanity (8,000 gp)
+2:sympathy (4,500 gp)
+4:temporal stasis (3,500 gp)
+2:trap the soul (13,000 gp)
+
+* ARCANE_SPELL_LEVEL_9
+3:astral projection (4,870 gp)
+4:crushing hand (3,825 gp)
+5:dominate monster (3,825 gp)
+4:energy drain (3,825 gp)
+5:etherealness (3,825 gp)
+4:foresight (3,825 gp)
+6:freedom (3,825 gp)
+5:gate (8,825 gp)
+4:hold monster (mass) (3,825 gp)
+4:imprisonment (3,825 gp)
+5:meteor swarm (3,825 gp)
+4:mages disjunction (3,825 gp)
+5:power word kill (3,825 gp)
+4:prismatic sphere (3,825 gp)
+4:refuge (3,825 gp)
+4:shades (3,825 gp)
+6:shapechange (3,825 gp)
+3:soul bind (3,825 gp)
+4:summon monster IX (3,825 gp)
+3:teleportation circle (4,825 gp)
+5:time stop (3,825 gp)
+4:wail of the banshee (3,825 gp)
+4:weird (3,825 gp)
+1:wish (28,825 gp)
+
+#
+# SCROLLS - Divine Spells
+#
+
+* DIVINE_SPELL_LEVEL_0
+7:create water (12.5 gp)
+7:cure minor wounds (12.5 gp)
+8:detect magic (12.5 gp)
+7:detect poison (12.5 gp)
+7:flare (12.5 gp)
+7:guidance (12.5 gp)
+7:inflict minor wounds (12.5 gp)
+7:know direction (12.5 gp)
+8:light (12.5 gp)
+7:mending (12.5 gp)
+7:purify food and drink (12.5 gp)
+7:read magic (12.5 gp)
+7:resistance (12.5 gp)
+7:virtue (12.5 gp)
+
+* DIVINE_SPELL_LEVEL_1
+1:alarm (100 gp)
+2:bane (25 gp)
+3:bless (25 gp)
+3:bless water (50 gp)
+1:bless weapon (100 gp)
+2:calm animals (25 gp)
+2:cause fear (25 gp)
+2:charm animal (25 gp)
+3:command (25 gp)
+2:comprehend languages (25 gp)
+5:cure light wounds (25 gp)
+2:curse water (50 gp)
+2:deathwatch (25 gp)
+2:detect animals or plants (25 gp)
+3:detect chaos/evil/good/law (25 gp)
+2:detect snares and pits (25 gp)
+2:detect undead (25 gp)
+2:divine favor (25 gp)
+2:doom (25 gp)
+5:endure elements (25 gp)
+2:entangle (25 gp)
+2:entropic shield (25 gp)
+2:faerie fire (25 gp)
+2:goodberry (25 gp)
+2:hide from animals (25 gp)
+2:hide from undead (25 gp)
+2:inflict light wounds (25 gp)
+2:jump (25 gp)
+2:longstrider (25 gp)
+2:magic fang (25 gp)
+4:magic stone (25 gp)
+2:magic weapon (25 gp)
+4:obscuring mist (25 gp)
+2:pass without trace (25 gp)
+2:produce flame (25 gp)
+4:protection from chaos/evil/good/law (25 gp)
+2:remove fear (25 gp)
+2:sanctuary (25 gp)
+2:shield of faith (25 gp)
+2:shillelagh (25 gp)
+2:speak with animals (25 gp)
+2:summon monster I (25 gp)
+2:summon natures ally I (25 gp)
+
+* DIVINE_SPELL_LEVEL_2
+1:animal messenger (150 gp)
+1:animal trance (150 gp)
+2:augury (175 gp)
+2:barkskin (150 gp)
+3:bears endurance (150 gp)
+3:bulls strength (150 gp)
+2:calm emotions (150 gp)
+3:cats grace (150 gp)
+1:chill metal (150 gp)
+2:consecrate (200 gp)
+4:cure moderate wounds (150 gp)
+2:darkness (150 gp)
+1:death knell (150 gp)
+3:delay poison (150 gp)
+2:desecrate (200 gp)
+3:eagles splendor (150 gp)
+2:enthrall (150 gp)
+2:find traps (150 gp)
+1:fire trap (175 gp)
+2:flame blade (150 gp)
+2:flaming sphere (150 gp)
+2:fog cloud (150 gp)
+1:gentle repose (150 gp)
+1:gust of wind (150 gp)
+1:heat metal (150 gp)
+2:hold animal (150 gp)
+3:hold person (150 gp)
+2:inflict moderate wounds (150 gp)
+2:make whole (150 gp)
+3:owls wisdom (150 gp)
+1:reduce animal (150 gp)
+2:remove paralysis (150 gp)
+3:resist energy (150 gp)
+3:restoration (lesser) (150 gp)
+2:shatter (150 gp)
+2:shield other (150 gp)
+2:silence (150 gp)
+1:snare (150 gp)
+1:soften earth and stone (150 gp)
+2:sound burst (150 gp)
+1:speak with plants (150 gp)
+2:spider climb (150 gp)
+2:spiritual weapon (150 gp)
+1:status (150 gp)
+2:summon monster II (150 gp)
+2:summon natures ally II (150 gp)
+2:summon swarm (150 gp)
+1:tree shape (150 gp)
+2:undetectable alignment (150 gp)
+2:warp wood (150 gp)
+1:wood shape (150 gp)
+2:zone of truth (150 gp)
+
+* DIVINE_SPELL_LEVEL_3
+2:animate dead (625 gp)
+2:bestow curse (375 gp)
+2:blindness/deafness (375 gp)
+2:call lightning (375 gp)
+2:contagion (375 gp)
+2:continual flame (425 gp)
+2:create food and water (375 gp)
+4:cure serious wounds (375 gp)
+1:darkvision (375 gp)
+2:daylight (375 gp)
+2:deeper darkness (375 gp)
+2:diminish plants (375 gp)
+2:dispel magic (375 gp)
+2:dominate animal (375 gp)
+2:glyph of warding (575 gp)
+1:heal mount (375 gp)
+2:helping hand (375 gp)
+2:inflict serious wounds (375 gp)
+2:invisibility purge (375 gp)
+2:locate object (375 gp)
+6:magic circle against chaos/evil/good/law (375 gp)
+2:magic fang (greater) (375 gp)
+2:magic vestment (375 gp)
+2:meld into stone (375 gp)
+3:neutralize poison (375 gp)
+2:obscure object (375 gp)
+2:plant growth (375 gp)
+3:prayer (375 gp)
+2:protection from energy (375 gp)
+2:quench (375 gp)
+3:remove blindness/deafness (375 gp)
+2:remove curse (375 gp)
+2:remove disease (375 gp)
+3:searing light (375 gp)
+2:sleet storm (375 gp)
+2:snare (375 gp)
+3:speak with dead (375 gp)
+2:speak with plants (375 gp)
+2:spike growth (375 gp)
+2:stone shape (375 gp)
+2:summon monster III (375 gp)
+2:summon natures ally III (375 gp)
+3:water breathing (375 gp)
+2:water walk (375 gp)
+2:wind wall (375 gp)
+
+* DIVINE_SPELL_LEVEL_4
+5:air walk (700 gp)
+2:antiplant shell (700 gp)
+2:blight (700 gp)
+2:break enchantment (700 gp)
+2:command plants (700 gp)
+2:control water (700 gp)
+6:cure critical wounds (700 gp)
+5:death ward (700 gp)
+5:dimensional anchor (700 gp)
+3:discern lies (700 gp)
+3:dismissal (700 gp)
+2:divination (725 gp)
+3:divine power (700 gp)
+5:freedom of movement (700 gp)
+2:giant vermin (700 gp)
+2:holy sword (700 gp)
+3:imbue with spell ability (700 gp)
+3:inflict critical wounds (700 gp)
+3:magic weapon (greater) (700 gp)
+2:nondetection (750 gp)
+2:planar ally (lesser) (1,200 gp)
+3:poison (700 gp)
+2:reincarnate (1,700 gp)
+2:repel vermin (700 gp)
+5:restoration (800 gp)
+2:rusting grasp (700 gp)
+3:sending (700 gp)
+4:spell immunity (700 gp)
+2:spike stones (700 gp)
+3:summon monster IV (700 gp)
+3:summon natures ally IV (700 gp)
+5:tongues (700 gp)
+2:tree stride (700 gp)
+
+* DIVINE_SPELL_LEVEL_5
+3:animal growth (1,125 gp)
+2:atonement (3,625 gp)
+1:awaken (2,375 gp)
+3:baleful polymorph (1,125 gp)
+4:break enchantment (1,125 gp)
+3:call lightning storm (1,125 gp)
+4:command (greater) (1,125 gp)
+1:commune (1,625 gp)
+1:commune with nature (1,125 gp)
+2:control winds (1,125 gp)
+6:cure light wounds (mass) (1,125 gp)
+4:dispel chaos/evil/good/law (1,125 gp)
+4:disrupting weapon (1,125 gp)
+3:flame strike (1,125 gp)
+2:hallow (6,125 gp)
+3:ice storm (1,125 gp)
+3:inflict light wounds (mass) (1,125 gp)
+3:insect plague (1,125 gp)
+1:mark of justice (1,125 gp)
+3:plane shift (1,125 gp)
+2:raise dead (6,125 gp)
+3:righteous might (1,125 gp)
+2:scrying (1,125 gp)
+3:slay living (1,125 gp)
+3:spell resistance (1,125 gp)
+2:stoneskin (1,375 gp)
+3:summon monster V (1,125 gp)
+3:summon natures ally V (1,125 gp)
+1:symbol of pain (2,125 gp)
+1:symbol of sleep (2,125 gp)
+3:transmute mud to rock (1,125 gp)
+3:transmute rock to mud (1,125 gp)
+4:true seeing (1,375 gp)
+2:unhallow (6,125 gp)
+3:wall of fire (1,125 gp)
+3:wall of stone (1,125 gp)
+3:wall of thorns (1,125 gp)
+
+* DIVINE_SPELL_LEVEL_6
+3:animate objects (1,650 gp)
+3:antilife shell (1,650 gp)
+3:banishment (1,650 gp)
+4:bears endurance (mass) (1,650 gp)
+3:blade barrier (1,650 gp)
+4:bulls strength (mass) (1,650 gp)
+4:cats grace (mass) (1,650 gp)
+1:create undead (1,650 gp)
+4:cure moderate wounds (mass) (1,650 gp)
+4:dispel magic (greater) (1,650 gp)
+4:eagles splendor (mass) (1,650 gp)
+3:find the path (1,650 gp)
+3:fire seeds (1,650 gp)
+1:forbiddance (4,650 gp)
+1:geas/quest (1,650 gp)
+1:glyph of warding (greater) (1,650 gp)
+3:harm (1,650 gp)
+3:heal (1,650 gp)
+3:heroes feast (1,650 gp)
+3:inflict moderate wounds (mass) (1,650 gp)
+3:ironwood (1,650 gp)
+1:liveoak (1,650 gp)
+3:move earth (1,650 gp)
+4:owls wisdom (mass) (1,650 gp)
+2:planar ally (2,400 gp)
+3:repel wood (1,650 gp)
+3:spellstaff (1,650 gp)
+3:stone tell (1,650 gp)
+3:summon monster VI (1,650 gp)
+3:summon natures ally VI (1,650 gp)
+1:symbol of fear (2,650 gp)
+1:symbol of persuasion (6,650 gp)
+3:transport via plants (1,650 gp)
+3:undeath to death (2,150 gp)
+3:wind walk (1,650 gp)
+3:word of recall (1,650 gp)
+
+* DIVINE_SPELL_LEVEL_7
+5:animate plants (2,275 gp)
+4:blasphemy (2,275 gp)
+5:changestaff (2,275 gp)
+2:control weather (2,275 gp)
+5:creeping doom (2,275 gp)
+6:cure serious wounds (mass) (2,275 gp)
+5:destruction (2,275 gp)
+4:dictum (2,275 gp)
+5:ethereal jaunt (2,275 gp)
+4:holy word (2,275 gp)
+5:inflict serious wounds (mass) (2,275 gp)
+5:refuge (3,775 gp)
+5:regenerate (2,275 gp)
+5:repulsion (2,275 gp)
+4:restoration (greater) (4,775 gp)
+2:resurrection (12,275 gp)
+5:scrying (greater) (2,275 gp)
+5:summon monster VII (2,275 gp)
+4:summon natures ally VII (2,275 gp)
+5:sunbeam (2,275 gp)
+1:symbol of stunning (7,275 gp)
+1:symbol of weakness (7,275 gp)
+5:transmute metal to wood (2,275 gp)
+3:word of chaos (2,275 gp)
+
+* DIVINE_SPELL_LEVEL_8
+4:animal shapes (3,000 gp)
+6:antimagic field (3,000 gp)
+3:cloak of chaos (3,000 gp)
+4:control plants (3,000 gp)
+3:create greater undead (3,600 gp)
+7:cure critical wounds (mass) (3,000 gp)
+5:dimensional lock (3,000 gp)
+4:discern location (3,000 gp)
+5:earthquake (3,000 gp)
+4:finger of death (3,000 gp)
+4:fire storm (3,000 gp)
+3:holy aura (3,000 gp)
+4:inflict critical wounds (mass) (3,000 gp)
+4:planar ally (greater) (5,500 gp)
+5:repel metal or stone (3,000 gp)
+4:reverse gravity (3,000 gp)
+3:shield of law (3,000 gp)
+4:spell immunity (greater) (3,000 gp)
+4:summon monster VIII (3,000 gp)
+4:summon natures ally VIII (3,000 gp)
+5:sunburst (3,000 gp)
+2:symbol of death (8,000 gp)
+2:symbol of insanity (8,000 gp)
+3:unholy aura (3,000 gp)
+4:whirlwind (3,000 gp)
+
+* DIVINE_SPELL_LEVEL_9
+4:antipathy (3,825 gp)
+3:astral projection (4,870 gp)
+6:elemental swarm (3,825 gp)
+6:energy drain (3,825 gp)
+6:etherealness (3,825 gp)
+6:foresight (3,825 gp)
+6:gate (8,825 gp)
+9:heal (mass) (3,825 gp)
+7:implosion (3,825 gp)
+2:miracle (28,825 gp)
+6:regenerate (3,825 gp)
+5:shambler (3,825 gp)
+6:shapechange (3,825 gp)
+5:soul bind (3,825 gp)
+6:storm of vengeance (3,825 gp)
+6:summon monster IX (3,825 gp)
+6:summon natures ally IX (3,825 gp)
+4:sympathy (5,325 gp)
+1:true resurrection (28,825 gp)
+
+#
+# STAFF - Medium
+#
+
+* MEDIUM_STAFF
+30:staff of [MEDIUM_STAFF2] with [D50_CHARGES][CLUE]
+70:staff of [MEDIUM_STAFF2] with [D50_CHARGES]
+
+* MEDIUM_STAFF2
+15:charming (16,500 gp)
+15:fire (28,500 gp)
+10:swarming insects (24,750 gp)
+20:healing (27,750 gp)
+15:size alteration (29,000 gp)
+15:illumination (48,250 gp)
+5:frost (56,250 gp)
+5:defense (58,250 gp)
+
+#
+# STAFF - Major
+#
+
+* MAJOR_STAFF
+30:staff of [MAJOR_STAFF2] with [D50_CHARGES][CLUE]
+70:staff of [MAJOR_STAFF2] with [D50_CHARGES]
+
+* MAJOR_STAFF2
+3:charming (16,500 gp)
+6:fire (28,500 gp)
+2:swarming insects (24,750 gp)
+6:healing (27,750 gp)
+2:size alteration (29,000 gp)
+5:illumination (48,250 gp)
+7:frost (56,250 gp)
+7:defense (58,250 gp)
+5:abjuration (65,000 gp)
+5:conjuration (65,000 gp)
+5:enchantment (65,000 gp)
+5:evocation (65,000 gp)
+5:illusion (65,000 gp)
+5:necromancy (65,000 gp)
+5:transmutation (65,000 gp)
+4:divination (73,500 gp)
+5:earth and stone (80,500 gp)
+5:woodlands (101,250 gp)
+5:life (155,750 gp)
+5:passage (170,500 gp)
+3:power (211,000 gp)
+
+#
+# WAND - Minor
+#
+
+* MINOR_WAND
+30:wand of [MINOR_WAND2] with [D50_CHARGES][CLUE]
+70:wand of [MINOR_WAND2] with [D50_CHARGES]
+
+* MINOR_WAND2
+2:detect magic (375 gp)
+2:light (375 gp)
+3:burning hands (750 gp)
+3:charm animal (750 gp)
+3:charm person (750 gp)
+3:color spray (750 gp)
+3:cure light wounds (750 gp)
+3:detect secret doors (750 gp)
+3:enlarge person (750 gp)
+3:magic missile (1st) (750 gp)
+3:shocking grasp (750 gp)
+3:summon monster I (750 gp)
+2:magic missile (3rd) (2,250 gp)
+1:magic missile (5th) (3,750 gp)
+3:bears endurance (4,500 gp)
+3:bulls strength (4,500 gp)
+3:cats grace (4,500 gp)
+3:cure moderate wounds (4,500 gp)
+2:darkness (4,500 gp)
+3:daze monster (4,500 gp)
+3:delay poison (4,500 gp)
+3:eagles splendor (4,500 gp)
+3:false life (4,500 gp)
+3:foxs cunning (4,500 gp)
+2:ghoul touch (4,500 gp)
+3:hold person (4,500 gp)
+3:invisibility (4,500 gp)
+3:knock (4,500 gp)
+3:levitate (4,500 gp)
+3:acid arrow (4,500 gp)
+3:mirror image (4,500 gp)
+3:owls wisdom (4,500 gp)
+2:shatter (4,500 gp)
+3:silence (4,500 gp)
+3:summon monster II (4,500 gp)
+3:web (4,500 gp)
+
+#
+# WAND - Medium
+#
+
+* MEDIUM_WAND
+30:wand of [MEDIUM_WAND2] with [D50_CHARGES][CLUE]
+70:wand of [MEDIUM_WAND2] with [D50_CHARGES]
+
+* MEDIUM_WAND2
+3:magic missile (5th) (3,750 gp)
+4:bears endurance (4,500 gp)
+4:bulls strength (4,500 gp)
+4:cats grace (4,500 gp)
+5:cure moderate wounds (4,500 gp)
+2:darkness (4,500 gp)
+2:daze monster (4,500 gp)
+3:delay poison (4,500 gp)
+4:eagles splendor (4,500 gp)
+2:false life (4,500 gp)
+4:foxs cunning (4,500 gp)
+1:ghoul touch (4,500 gp)
+1:hold person (4,500 gp)
+3:invisibility (4,500 gp)
+2:knock (4,500 gp)
+1:levitate (4,500 gp)
+2:acid arrow (4,500 gp)
+2:mirror image (4,500 gp)
+4:owls wisdom (4,500 gp)
+1:shatter (4,500 gp)
+2:silence (4,500 gp)
+1:summon monster II (4,500 gp)
+2:web (4,500 gp)
+3:magic missile (7th) (5,250 gp)
+2:magic missile (9th) (6,750 gp)
+3:call lightning (5th) (11,250 gp)
+1:charm person (heightened, 3rd-level spell) (11,250 gp)
+2:contagion (11,250 gp)
+4:cure serious wounds (11,250 gp)
+3:dispel magic (11,250 gp)
+4:fireball (5th) (11,250 gp)
+2:keen edge (11,250 gp)
+4:lightning bolt (5th) (11,250 gp)
+2:major image (11,250 gp)
+2:slow (11,250 gp)
+3:suggestion (11,250 gp)
+3:summon monster III (11,250 gp)
+1:fireball (6th) (13,500 gp)
+1:lightning bolt (6th) (13,500 gp)
+1:searing light (6th) (13,500 gp)
+
+#
+# WAND - Major
+#
+
+* MAJOR_WAND
+30:wand of [MAJOR_WAND2] with [D50_CHARGES][CLUE]
+70:wand of [MAJOR_WAND2] with [D50_CHARGES]
+
+* MAJOR_WAND2
+2:magic missile (7th) (5,250 gp)
+3:magic missile (9th) (6,750 gp)
+2:call lightning (5th) (11,250 gp)
+1:charm person (heightened, 3rd-level spell)) (11,250 gp)
+2:contagion (11,250 gp)
+3:cure serious wounds (11,250 gp)
+2:dispel magic (11,250 gp)
+2:fireball (5th) (11,250 gp)
+2:keen edge (11,250 gp)
+2:lightning bolt (5th) (11,250 gp)
+2:major image (11,250 gp)
+2:slow (11,250 gp)
+2:suggestion (11,250 gp)
+2:summon monster III (11,250 gp)
+2:fireball (6th) (13,500 gp)
+2:lightning bolt (6th) (13,500 gp)
+2:searing light (6th) (13,500 gp)
+2:call lightning (8th) (18,000 gp)
+2:fireball (8th) (18,000 gp)
+2:lightning bolt (8th) (18,000 gp)
+4:charm monster (21,000 gp)
+5:cure critical wounds (21,000 gp)
+2:dimensional anchor (21,000 gp)
+3:fear (21,000 gp)
+4:greater invisibility (21,000 gp)
+1:hold person (heightened, 4th level)) (21,000 gp)
+5:ice storm (21,000 gp)
+3:inflict critical wounds (21,000 gp)
+4:neutralize poison (21,000 gp)
+2:poison (21,000 gp)
+3:polymorph (21,000 gp)
+1:ray of enfeeblement (heightened, 4th level)) (21,000 gp)
+1:suggestion (heightened, 4th level)) (21,000 gp)
+3:summon monster IV (21,000 gp)
+4:wall of fire (21,000 gp)
+4:wall of ice (21,000 gp)
+1:dispel magic (10th) (22,500 gp)
+1:fireball (10th) (22,500 gp)
+1:lightning bolt (10th) (22,500 gp)
+1:chaos hammer (8th) (24,000 gp)
+1:holy smite (8th) (24,000 gp)
+1:orders wrath (8th) (24,000 gp)
+1:unholy blight (8th) (24,000 gp)
+2:restoration (26,000 gp)
+1:stoneskin (33,500 gp)
+
+#
+# WONDEROUS - Minor
+#
+
+* MINOR_WONDEROUS
+1:[MINOR_WONDEROUS2][INTELLIGENCE]
+30:[MINOR_WONDEROUS2][CLUE]
+69:[MINOR_WONDEROUS2]
+
+* MINOR_WONDEROUS2
+feather token (anchor) (50 gp)
+universal solvent (50 gp)
+elixir of love (150 gp)
+unguent of timelessness (150 gp)
+feather token (fan) (200 gp)
+dust of tracelessness (250 gp)
+elixir of hiding (250 gp)
+elixir of sneaking (250 gp)
+elixir of swimming (250 gp)
+elixir of vision (250 gp)
+silversheen (250 gp)
+feather token (bird) (300 gp)
+feather token (tree) (400 gp)
+feather token (swan boat) (450 gp)
+elixir of truth (500 gp)
+feather token (whip) (500 gp)
+dust of dryness (850 gp)
+bag of tricks (gray) (900 gp)
+hand of the mage (900 gp)
+bracers of armor +1 (1,000 gp)
+cloak of resistance +1 (1,000 gp)
+pearl of power (1st-level spell) (1,000 gp)
+phylactery of faithfulness (1,000 gp)
+salve of slipperiness (1,000 gp)
+elixir of fire breath (1,100 gp)
+pipes of the sewers (1,150 gp)
+dust of illusion (1,200 gp)
+goggles of minute seeing (1,250 gp)
+brooch of shielding (1,500 gp)
+necklace of fireballs type I (1,650 gp)
+dust of appearance (1,800 gp)
+hat of disguise (1,800 gp)
+pipes of sounding (1,800 gp)
+efficient quiver (1,800 gp)
+amulet of natural armor +1 (2,000 gp)
+handy haversack (2,000 gp)
+horn of fog (2,000 gp)
+elemental gem (2,250 gp)
+robe of bones (2,400 gp)
+sovereign glue (2,400 gp)
+bag of holding type I (2,500 gp)
+boots of elvenkind (2,500 gp)
+boots of the winterlands (2,500 gp)
+candle of truth (2,500 gp)
+cloak of elvenkind (2,500 gp)
+eyes of the eagle (2,500 gp)
+scarab (golembane) (2,500 gp)
+necklace of fireballs type II (2,700 gp)
+stone of alarm (2,700 gp)
+bag of tricks (rust) (3,000 gp)
+bead of force (3,000 gp)
+chime of opening (3,000 gp)
+horseshoes of speed (3,000 gp)
+rope of climbing (3,000 gp)
+dust of disappearance (3,500 gp)
+lens of detection (3,500 gp)
+figurine of wondrous power (silver raven) (3,800 gp)
+amulet of health +2 (4,000 gp)
+bracers of armor +2 (4,000 gp)
+cloak of charisma +2 (4,000 gp)
+cloak of resistance +2 (4,000 gp)
+gauntlets of ogre power (4,000 gp)
+gloves of arrow snaring (4,000 gp)
+gloves of dexterity +2 (4,000 gp)
+headband of intellect +2 (4,000 gp)
+ioun stone (clear spindle) (4,000 gp)
+restorative ointment (4,000 gp)
+marvelous pigments (4,000 gp)
+pearl of power (2nd-level spell) (4,000 gp)
+periapt of wisdom +2 (4,000 gp)
+stone salve (4,000 gp)
+necklace of fireballs type III (4,350 gp)
+circlet of persuasion (4,500 gp)
+slippers of spider climbing (4,800 gp)
+incense of meditation (4,900 gp)
+bag of holding type II (5,000 gp)
+bracers of archery (lesser) (5,000 gp)
+ioun stone (dusty rose prism) (5,000 gp)
+helm of comprehend languages and read magic (5,200 gp)
+vest of escape (5,200 gp)
+eversmoking bottle (5,400 gp)
+sustaining spoon (5,400 gp)
+necklace of fireballs type IV (5,400 gp)
+boots of striding and springing (5,500 gp)
+wind fan (5,500 gp)
+necklace of fireballs type V (5,850 gp)
+amulet of mighty fists +1 (6,000 gp)
+horseshoes of a zephyr (6,000 gp)
+pipes of haunting (6,000 gp)
+gloves of swimming and climbing (6,250 gp)
+bag of tricks (tan) (6,300 gp)
+circlet of blasting (minor) (6,480 gp)
+horn of goodness/evil (6,500 gp)
+shrouds of disintegration (6,600 gp)
+robe of useful items (7,000 gp) [ROBE_OF_USEFUL_ITEMS]
+boat (folding) (7,200 gp)
+cloak of the manta ray (7,200 gp)
+bottle of air (7,250 gp)
+bag of holding type III (7,400 gp)
+periapt of health (7,400 gp)
+
+#
+# WONDEROUS - Medium
+#
+
+* MEDIUM_WONDEROUS
+1:[MEDIUM_WONDEROUS2][INTELLIGENCE]
+30:[MEDIUM_WONDEROUS2][CLUE]
+69:[MEDIUM_WONDEROUS2]
+
+* MEDIUM_WONDEROUS2
+boots of levitation (7,500 gp)
+harp of charming (7,500 gp)
+amulet of natural armor +2 (8,000 gp)
+golem manual (flesh) (8,000 gp)
+hand of glory (8,000 gp)
+ioun stone (deep red sphere) (8,000 gp)
+ioun stone (incandescent blue sphere) (8,000 gp)
+ioun stone (pale blue rhomboid) (8,000 gp)
+ioun stone (pink and green sphere) (8,000 gp)
+ioun stone (pink rhomboid) (8,000 gp)
+ioun stone (scarlet and blue sphere) (8,000 gp)
+deck of illusions (8,100 gp)
+necklace of fireballs type VI (8,100 gp)
+candle of invocation (8,400 gp)
+necklace of fireballs type VII (8,700 gp)
+bracers of armor +3 (9,000 gp)
+cloak of resistance +3 (9,000 gp)
+decanter of endless water (9,000 gp)
+necklace of adaptation (9,000 gp)
+pearl of power (3rd-level spell) (9,000 gp)
+figurine of wondrous power (serpentine owl) (9,100 gp)
+strand of prayer beads (lesser) (9,600 gp) [PRAYER_BEADS_LESSER]
+bag of holding type IV (10,000 gp)
+figurine of wondrous power (bronze griffon) (10,000 gp)
+figurine of wondrous power (ebony fly) (10,000 gp)
+glove of storing (10,000 gp)
+ioun stone (dark blue rhomboid) (10,000 gp)
+stone horse (courser) (10,000 gp)
+vestment (druids) (10,000 gp)
+cape of the mountebank (10,080 gp)
+phylactery of undead turning (11,000 gp)
+gauntlet of rust (11,500 gp)
+boots of speed (12,000 gp)
+goggles of night (12,000 gp)
+golem manual (clay) (12,000 gp)
+medallion of thoughts (12,000 gp)
+pipes of pain (12,000 gp)
+blessed book (12,500 gp)
+belt (monks) (13,000 gp)
+gem of brightness (13,000 gp)
+lyre of building (13,000 gp)
+cloak of arachnida (14,000 gp)
+stone horse (destrier) (14,800 gp)
+belt of dwarvenkind (14,900 gp)
+periapt of wound closure (15,000 gp)
+horn of the tritons (15,100 gp)
+pearl of the sirines (15,300 gp)
+figurine of wondrous power (onyx dog) (15,500 gp)
+amulet of health +4 (16,000 gp)
+belt of giant strength +4 (16,000 gp)
+boots (winged) (16,000 gp)
+bracers of armor +4 (16,000 gp)
+cloak of charisma +4 (16,000 gp)
+cloak of resistance +4 (16,000 gp)
+gloves of dexterity +4 (16,000 gp)
+headband of intellect +4 (16,000 gp)
+pearl of power (4th-level spell) (16,000 gp)
+periapt of wisdom +4 (16,000 gp)
+scabbard of keen edges (16,000 gp)
+figurine of wondrous power (golden lions) (16,500 gp)
+chime of interruption (16,800 gp)
+broom of flying (17,000 gp)
+figurine of wondrous power (marble elephant) (17,000 gp)
+amulet of natural armor +3 (18,000 gp)
+ioun stone (iridescent spindle) (18,000 gp)
+bracelet of friends (19,000 gp)
+carpet of flying (5 ft. by 5 ft.) (20,000 gp)
+horn of blasting (20,000 gp)
+ioun stone (pale lavender ellipsoid) (20,000 gp)
+ioun stone (pearly white spindle) (20,000 gp)
+portable hole (20,000 gp)
+stone of good luck (luckstone) (20,000 gp)
+figurine of wondrous power (ivory goats) (21,000 gp)
+rope of entanglement (21,000 gp)
+golem manual (stone) (22,000 gp)
+mask of the skull (22,000 gp)
+mattock of the titans (23,348 gp)
+circlet of blasting (major) (23,760 gp)
+amulet of mighty fists +2 (24,000 gp)
+cloak of displacement (minor) (24,000 gp)
+helm of underwater action (24,000 gp)
+bracers of archery (greater) (25,000 gp)
+bracers of armor +5 (25,000 gp)
+cloak of resistance +5 (25,000 gp)
+eyes of doom (25,000 gp)
+pearl of power (5th-level spell) (25,000 gp)
+maul of the titans (25,305 gp)
+strand of prayer beads (45,800 gp) [PRAYER_BEADS]
+cloak of the bat (26,000 gp)
+iron bands of binding (26,000 gp)
+cube of frost resistance (27,000 gp)
+helm of telepathy (27,000 gp)
+periapt of proof against poison (27,000 gp)
+robe of scintillating colors (27,000 gp)
+manual of bodily health +1 (27,500 gp)
+manual of gainful exercise +1 (27,500 gp)
+manual of quickness in action +1 (27,500 gp)
+tome of clear thought +1 (27,500 gp)
+tome of leadership and influence +1 (27,500 gp)
+tome of understanding +1 (27,500 gp)
+
+#
+# WONDEROUS - Major
+#
+
+* MAJOR_WONDEROUS
+1:[MAJOR_WONDEROUS2][INTELLIGENCE]
+30:[MAJOR_WONDEROUS2][CLUE]
+69:[MAJOR_WONDEROUS2]
+
+* MAJOR_WONDEROUS2
+dimensional shackles (28,000 gp)
+figurine of wondrous power (obsidian steed) (28,500 gp)
+drums of panic (30,000 gp)
+ioun stone (orange) (30,000 gp)
+ioun stone (pale green prism) (30,000 gp)
+lantern of revealing (30,000 gp)
+robe of blending (30,000 gp)
+amulet of natural armor +4 (32,000 gp)
+amulet of proof against detection and location (35,000 gp)
+carpet of flying (5 ft. by 10 ft.) (35,000 gp)
+golem manual (iron) (35,000 gp)
+amulet of health +6 (36,000 gp)
+belt of giant strength +6 (36,000 gp)
+bracers of armor +6 (36,000 gp)
+cloak of charisma +6 (36,000 gp)
+gloves of dexterity +6 (36,000 gp)
+headband of intellect +6 (36,000 gp)
+ioun stone (vibrant purple prism) (36,000 gp)
+pearl of power (6th-level spell) (36,000 gp)
+periapt of wisdom +6 (36,000 gp)
+scarab of protection (38,000 gp)
+ioun stone (lavender and green ellipsoid) (40,000 gp)
+ring gates (40,000 gp)
+crystal ball (42,000 gp)
+golem manual (greater stone) (44,000 gp)
+orb of storms (48,000 gp)
+boots of teleportation (49,000 gp)
+bracers of armor +7 (49,000 gp)
+pearl of power (7th-level spell) (49,000 gp)
+amulet of natural armor +5 (50,000 gp)
+cloak of displacement (major) (50,000 gp)
+crystal ball with see invisibility (50,000 gp)
+horn of valhalla (50,000 gp) [HORN_OF_VALHALLA]
+crystal ball with detect thoughts (51,000 gp)
+carpet of flying (6 ft. by 9 ft.) (53,000 gp)
+amulet of mighty fists +3 (54,000 gp)
+wings of flying (54,000 gp)
+cloak of etherealness (55,000 gp)
+instant fortress (55,000 gp)
+manual of bodily health +2 (55,000 gp)
+manual of gainful exercise +2 (55,000 gp)
+manual of quickness in action +2 (55,000 gp)
+tome of clear thought +2 (55,000 gp)
+tome of leadership and influence +2 (55,000 gp)
+tome of understanding +2 (55,000 gp)
+eyes of charming (56,000 gp)
+robe of stars (58,000 gp)
+carpet of flying (10 ft. by 10 ft.) (60,000 gp)
+darkskull (60,000 gp)
+cube of force (62,000 gp)
+bracers of armor +8 (64,000 gp)
+pearl of power (8th-level spell) (64,000 gp)
+crystal ball with telepathy (70,000 gp)
+horn of blasting (greater) (70,000 gp)
+pearl of power (two spells) (70,000 gp)
+helm of teleportation (73,500 gp)
+gem of seeing (75,000 gp)
+robe of the archmagi (75,000 gp)
+mantle of faith (76,000 gp)
+crystal ball with true seeing (80,000 gp)
+pearl of power (9th-level spell) (81,000 gp)
+well of many worlds (82,000 gp)
+manual of bodily health +3 (82,500 gp)
+manual of gainful exercise +3 (82,500 gp)
+manual of quickness in action +3 (82,500 gp)
+tome of clear thought +3 (82,500 gp)
+tome of leadership and influence +3 (82,500 gp)
+tome of understanding +3 (82,500 gp)
+apparatus of the crab (90,000 gp)
+mantle of spell resistance (90,000 gp)
+mirror of opposition (92,000 gp)
+strand of prayer beads (greater) (95,800 gp) [PRAYER_BEADS_GREATER]
+amulet of mighty fists +4 (96,000 gp)
+eyes of petrification (98,000 gp)
+bowl of commanding water elementals (100,000 gp)
+brazier of commanding fire elementals (100,000 gp)
+censer of controlling air elementals (100,000 gp)
+stone of controlling earth elementals (100,000 gp)
+manual of bodily health +4 (110,000 gp)
+manual of gainful exercise +4 (110,000 gp)
+manual of quickness in action +4 (110,000 gp)
+tome of clear thought +4 (110,000 gp)
+tome of leadership and influence +4 (110,000 gp)
+tome of understanding +4 (110,000 gp)
+amulet of the planes (120,000 gp)
+robe of eyes (120,000 gp)
+helm of brilliance (125,000 gp)
+manual of bodily health +5 (137,500 gp)
+manual of gainful exercise +5 (137,500 gp)
+manual of quickness in action +5 (137,500 gp)
+tome of clear thought +5 (137,500 gp)
+tome of leadership and influence +5 (137,500 gp)
+tome of understanding +5 (137,500 gp)
+efreeti bottle (145,000 gp)
+amulet of mighty fists +5 (150,000 gp)
+chaos diamond (160,000 gp) [CHAOS_DIAMOND]
+cubic gate (164,000 gp)
+iron flask (170,000 gp) [IRON_FLASK]
+mirror of mental prowess (175,000 gp)
+mirror of life trapping (200,000 gp)
+
+#
+# WONDEROUS - Support Rules
+
+* CHAOS_DIAMOND
+(confusion, lesser, [D4]/day; \
+magic circle against law, [D4]/day; \
+word of chaos, [D4]/day; \
+cloak of chaos, [D4]/day)
+
+* HORN_OF_VALHALLA
+40:silver
+35:brass
+15:bronze
+10:iron
+
+* IRON_FLASK
+100:empty
+8:large air elemental
+8:arrowhawk
+8:large earth elemental
+8:xorn
+8:large fire elemental
+8:salamander
+8:large water elemental
+8:adult tojanida
+4:chaos beast
+4:formian taskmaster
+2:vrock (demon)
+2:hezrou (demon)
+2:glabrezu (demon)
+2:succubus (demon)
+2:osyluth (devil)
+2:barbazu (devil)
+2:erinyes (devil)
+2:cornugon (devil)
+2:avoral (celestial)
+2:ghaele (celestial)
+2:formian myrmarch
+2:arrowhawk, elder
+2:rakshasa
+1:balor (demon)
+1:pit fiend (devil)
+
+* ROBE_OF_USEFUL_ITEMS
+(patches: [ROBE_OF_USEFUL_ITEMS_DAGGER][ROBE_OF_USEFUL_ITEMS_LANTERN]\
+[ROBE_OF_USEFUL_ITEMS_MIRROR][ROBE_OF_USEFUL_ITEMS_POLE]\
+[ROBE_OF_USEFUL_ITEMS_ROPE][ROBE_OF_USEFUL_ITEMS_SACK]\
+[ROBE_OF_USEFUL_ITEMS_EXTRAS])
+
+* ROBE_OF_USEFUL_ITEMS_DAGGER
+1:
+1: dagger,
+
+* ROBE_OF_USEFUL_ITEMS_LANTERN
+1:
+1: bullseye lantern (filled and lit),
+
+* ROBE_OF_USEFUL_ITEMS_MIRROR
+1:
+1: highly polished 2-foot-by-4-foot steel mirror,
+
+* ROBE_OF_USEFUL_ITEMS_POLE
+1:
+1: 10-foot pole,
+
+* ROBE_OF_USEFUL_ITEMS_ROPE
+1:
+1: 50-foot coil of hempen rope,
+
+* ROBE_OF_USEFUL_ITEMS_SACK
+1:
+1: sack,
+
+* ROBE_OF_USEFUL_ITEMS_EXTRAS
+1: [ROBE_OF_USEFUL_ITEMS_EXTRA]
+1: [ROBE_OF_USEFUL_ITEMS_EXTRA], [ROBE_OF_USEFUL_ITEMS_EXTRA]
+1: [ROBE_OF_USEFUL_ITEMS_EXTRA], [ROBE_OF_USEFUL_ITEMS_EXTRA], \
+[ROBE_OF_USEFUL_ITEMS_EXTRA]
+1: [ROBE_OF_USEFUL_ITEMS_EXTRA], [ROBE_OF_USEFUL_ITEMS_EXTRA], \
+[ROBE_OF_USEFUL_ITEMS_EXTRA], [ROBE_OF_USEFUL_ITEMS_EXTRA]
+
+* ROBE_OF_USEFUL_ITEMS_EXTRA
+8:bag of 100 gold pieces
+7:silver coffer (6 in. by 6 in. by 1 ft.) (500 gp value)
+7:door, iron (up to 10 ft. wide and 10 ft. high and barred on one side; \
+must be placed upright, attaches and hinges itself)
+8:10 gems (100 gp value each)
+14:wooden ladder (24 ft. long)
+7:mule (with saddle bags)
+8:open pit (10 ft. by 10 ft. by 10 ft.)
+9:potion of cure serious wounds
+7:rowboat (12 ft. long)
+8:arcane scroll of [MINOR_ARCANE_SCROLL]
+7:pair of war dogs (treat as riding dogs)
+6:window (2 ft. by 4 ft., up to 2 ft. deep)
+4:portable ram
+
+* PRAYER_BEADS_LESSER
+with a bead of blessing
+with a bead of healing
+with a bead of blessing and a bead of healing
+
+* PRAYER_BEADS
+with a bead of healing
+with a bead of karma
+with a bead of smiting
+with a bead of healing and a bead of karma
+with a bead of healing and a bead of smiting
+with a bead of karma and a bead of smiting
+with a bead of healing, a bead of karma, and a bead of smiting
+
+* PRAYER_BEADS_GREATER
+with a bead of healing
+with a bead of karma
+with a bead of summons
+with a bead of wind walking
+with a bead of healing and a bead of karma
+with a bead of healing and a bead of summons
+with a bead of healing and a bead of wind walking
+with a bead of karma and a bead of summons
+with a bead of karma and a bead of wind walking
+with a bead of summons and a bead of wind walking
+with a bead of healing, a bead of karma, and a bead of summons
+with a bead of healing, a bead of karma, and a bead of wind walking
+with a bead of healing, a bead of summons, and a bead of wind walking
+with a bead of karma, a bead of summons, and a bead of wind walking
+with a bead of karma, a bead of karma, a bead of summons, \
+and a bead of wind walking
+
+#
+# INTELLIGENT ITEMS
+#
+
+* INTELLIGENCE
+\nAlignment: [INTELLIGENT_ALIGNMENT]\n[INTELLIGENCE2]
+
+* INTELLIGENCE2
+34:[INTELLIGENCE_SCORES_12]\
+[INTELLIGENT_LESSER]\
+\n30 ft. vision and hearing (+1,000 gp)
+25:[INTELLIGENCE_SCORES_13]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+\n60 ft. vision and hearing (+2,000 gp)
+20:[INTELLIGENCE_SCORES_14]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+\n120 ft. vision and hearing (+4,000 gp)
+12:[INTELLIGENCE_SCORES_15]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+\n60 ft. darkvision and hearing (+5,000 gp)
+6:[INTELLIGENCE_SCORES_16]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+\n60 ft. darkvision and hearing (+6,000 gp)
+1:[INTELLIGENCE_SCORES_17]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+[INTELLIGENT_GREATER]\
+\n120 ft. darkvision and hearing (9,000 gp)
+1:[INTELLIGENCE_SCORES_18]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+[INTELLIGENT_GREATER][INTELLIGENT_GREATER]\
+\n120 ft. darkvision, blindsense, and hearing (+12,000 gp)
+1:[INTELLIGENCE_SCORES_19]\
+[INTELLIGENT_LESSER][INTELLIGENT_LESSER][INTELLIGENT_LESSER]\
+[INTELLIGENT_GREATER][INTELLIGENT_GREATER][INTELLIGENT_GREATER]\
+\n120 ft. darkvision, blindsense, and hearing (+15,000 gp)
+
+* INTELLIGENT_ALIGNMENT
+5:chaotic good
+10:chaotic neutral
+5:chaotic evil
+5:neutral evil
+5:lawful evil
+25:lawful good
+5:lawful neutral
+20:neutral good
+20:neutral
+
+* INTELLIGENCE_SCORES_12
+Int 12, Wis 12, Cha 10\nEmpathy
+Int 12, Wis 10, Cha 12\nEmpathy
+Int 10, Wis 12, Cha 12\nEmpathy
+
+* INTELLIGENCE_SCORES_13
+Int 13, Wis 13, Cha 10\nEmpathy
+Int 13, Wis 10, Cha 13\nEmpathy
+Int 10, Wis 13, Cha 13\nEmpathy
+
+* INTELLIGENCE_SCORES_14
+Int 14, Wis 14, Cha 10\n[INTELLIGENT_SPEECH_2]
+Int 14, Wis 10, Cha 14\n[INTELLIGENT_SPEECH_2]
+Int 10, Wis 14, Cha 14\n[INTELLIGENT_SPEECH]
+
+* INTELLIGENCE_SCORES_15
+Int 15, Wis 15, Cha 10\n[INTELLIGENT_SPEECH_2]
+Int 15, Wis 10, Cha 15\n[INTELLIGENT_SPEECH_2]
+Int 10, Wis 15, Cha 15\n[INTELLIGENT_SPEECH]
+
+* INTELLIGENCE_SCORES_16
+Int 16, Wis 16, Cha 10\n[INTELLIGENT_SPEECH_3][INTELLIGENT_READ]
+Int 16, Wis 10, Cha 16\n[INTELLIGENT_SPEECH_3][INTELLIGENT_READ]
+Int 10, Wis 16, Cha 16\n[INTELLIGENT_SPEECH][INTELLIGENT_READ]
+
+* INTELLIGENCE_SCORES_17
+Int 17, Wis 17, Cha 10\n[INTELLIGENT_SPEECH_3][INTELLIGENT_READ], telepathy
+Int 17, Wis 10, Cha 17\n[INTELLIGENT_SPEECH_3][INTELLIGENT_READ], telepathy
+Int 10, Wis 17, Cha 17\n[INTELLIGENT_SPEECH][INTELLIGENT_READ], telepathy
+
+* INTELLIGENCE_SCORES_18
+Int 18, Wis 18, Cha 10\n[INTELLIGENT_SPEECH_4][INTELLIGENT_READ], telepathy, \
+can read magic as per the spell
+Int 18, Wis 10, Cha 18\n[INTELLIGENT_SPEECH_4][INTELLIGENT_READ], telepathy, \
+can read magic as per the spell
+Int 10, Wis 18, Cha 18\n[INTELLIGENT_SPEECH][INTELLIGENT_READ], telepathy, \
+can read magic as per the spell
+
+* INTELLIGENCE_SCORES_19
+Int 19, Wis 19, Cha 10\n[INTELLIGENT_SPEECH_4][INTELLIGENT_READ], telepathy, \
+can read magic as per the spell
+Int 19, Wis 10, Cha 19\n[INTELLIGENT_SPEECH_4][INTELLIGENT_READ], telepathy, \
+can read magic as per the spell
+Int 10, Wis 19, Cha 19\n[INTELLIGENT_SPEECH][INTELLIGENT_READ], telepathy, \
+can read magic as per the spell
+
+* INTELLIGENT_SPEECH
+Speech (Common)
+
+* INTELLIGENT_SPEECH_2
+Speech (Common + 2 extra languages)
+
+* INTELLIGENT_SPEECH_3
+Speech (Common + 3 extra languages)
+
+* INTELLIGENT_SPEECH_4
+Speech (Common + 4 extra languages)
+
+* INTELLIGENT_READ
+1: and can read any language spoken
+
+* INTELLIGENT_LESSER
+\nItem [INTELLIGENT_LESSER2]
+
+* INTELLIGENT_LESSER2
+5:can bless its allies 3/day (+1,000 gp)
+5:can use faerie fire 3/day (+1,100 gp)
+3:can cast minor image 1/day (+2,200 gp)
+7:has deathwatch continually active (+2,700 gp)
+5:can use detect magic at will (+3,600 gp)
+6:has 10 ranks in intimidate (+5,000 gp)
+2:has 10 ranks in decipher script (+5,000 gp)
+3:has 10 ranks in knowledge (choose category) (+5,000 gp)
+4:has 10 ranks in search (+5,000 gp)
+5:has 10 ranks in spot (+5,000 gp)
+5:has 10 ranks in listen (+5,000 gp)
+4:has 10 ranks in spellcraft (+5,000 gp)
+6:has 10 ranks in sense motive (+5,000 gp)
+6:has 10 ranks in bluff (+5,000 gp)
+6:has 10 ranks in diplomacy (+5,000 gp)
+5:can cast major image 1/day (+5,400 gp)
+3:can cast darkness 3/day (+6,500 gp)
+3:can use hold person on an enemy 3/day (+6,500 gp)
+3:can activate zone of truth 3/day (+6,500 gp)
+3:can use daze monster 3/day (+6,500 gp)
+6:can use locate object 3/day (+6,500 gp)
+5:can use cure moderate wounds (2d8+3) on wielder 3/day (+6,500 gp)
+
+* INTELLIGENT_GREATER
+75:\nItem [INTELLIGENT_GREATER2]
+25:\n[^INTELLIGENT_PURPOSE]\nItem [^INTELLIGENT_SPECIAL]
+
+* INTELLIGENT_GREATER2
+6:can detect opposing alignment at will (+7,200 gp)
+4:can detect undead at will (+7,200 gp)
+3:can cause fear in an enemy at will (+7,200 gp)
+5:can use dimensional anchor on a foe 1/day (+10,000 gp)
+5:can use dismissal on a foe 1/day (+10,000 gp)
+5:can use lesser globe of invulnerability 1/day (+10,000 gp)
+5:can use arcane eye 1/day (+10,000 gp)
+4:has continuous detect scrying effect (+10,000 gp)
+4:creates wall of fire in a ring with the wielder at the center 1/day (+10,000 gp)
+4:can use quench on fires 3/day (+16,000 gp)
+5:has status effect (usable at will) (+11,000 gp)
+4:can use gust of wind 3/day (+11,000 gp)
+5:can use clairvoyance 3/day (+16,000 gp)
+5:can create magic circle against opposing alignment at will (+16,000 gp)
+4:can use haste on its owner 3/day (+16,000 gp)
+5:can create daylight 3/day (+16,000 gp)
+3:can create deeper darkness 3/day (+16,000 gp)
+4:can use invisibility purge (30 ft. range) 3/day (+16,000 gp)
+5:can use slow on its enemies 3/day (+16,000 gp)
+6:can locate creature 3/day (+30,000 gp)
+6:can use fear against foes 3/day (+30,000 gp)
+3:can use detect thoughts at will (+44,000 gp)
+
+* INTELLIGENT_PURPOSE
+20:defeat/slay diametrically opposed alignment
+10:defeat/slay arcane spellcasters (including spellcasting monsters and \
+those that use spell-like abilities)
+10:defeat/slay divine spellcasters (including divine entities and servitors)
+10:defeat/slay nonspellcasters
+5:defeat/slay a particular creature type ([WEAPON_CREATURE_TYPE])
+5:defeat/slay a particular race or kind of creature
+10:defend a particular race or kind of creature
+10:defeat/slay the servants of a specific deity
+10:defend the servants and interests of a specific deity
+5:defeat/slay all (other than the item and the wielder)
+
+* INTELLIGENT_SPECIAL
+6:can use ice storm (+50,000 gp)
+6:can use confusion (+50,000 gp)
+5:can use phantasmal killer (+50,000 gp)
+7:can use crushing despair (+50,000 gp)
+7:can use dimension door on itself and wielder (+50,000 gp)
+5:can use contagion (heightened to 4th level) as touch attack (+56,000 gp)
+7:can use poison (heightened to 4th level) as touch attack (+56,000 gp)
+7:can use rusting grasp as touch attack (+56,000 gp)
+6:can cast 10d6 lightning bolt (+60,000 gp)
+6:can cast 10d6 fireball (+60,000 gp)
+6:grants wielder gets +2 luck bonus to attacks, saves, and checks (+80,000 gp)
+6:can use mass inflict light wounds (+81,000 gp)
+7:can use song of discord (+81,000 gp)
+6:can use prying eyes (+81,000 gp)
+5:can cast 15d6 greater shout 3/day (+130,000 gp)
+6:can use waves of exhaustion (+164,000 gp)
+2:can use true resurrection on wielder (once per month) (+200,000 gp)
+
+#
+# Support rules
+#
+
+* D4
+1
+2
+3
+4
+
+* CHARGE_CHARGES_LEFT
+1: charges left (
+
+* CHARGE_BASE_PRICE
+% base price)
+
+* D50_CHARGES
+1 charge left (2[CHARGE_BASE_PRICE]
+2[CHARGE_CHARGES_LEFT]4[CHARGE_BASE_PRICE]
+3[CHARGE_CHARGES_LEFT]6[CHARGE_BASE_PRICE]
+4[CHARGE_CHARGES_LEFT]8[CHARGE_BASE_PRICE]
+5[CHARGE_CHARGES_LEFT]10[CHARGE_BASE_PRICE]
+6[CHARGE_CHARGES_LEFT]12[CHARGE_BASE_PRICE]
+7[CHARGE_CHARGES_LEFT]14[CHARGE_BASE_PRICE]
+8[CHARGE_CHARGES_LEFT]16[CHARGE_BASE_PRICE]
+9[CHARGE_CHARGES_LEFT]18[CHARGE_BASE_PRICE]
+10[CHARGE_CHARGES_LEFT]20[CHARGE_BASE_PRICE]
+11[CHARGE_CHARGES_LEFT]22[CHARGE_BASE_PRICE]
+12[CHARGE_CHARGES_LEFT]24[CHARGE_BASE_PRICE]
+13[CHARGE_CHARGES_LEFT]26[CHARGE_BASE_PRICE]
+14[CHARGE_CHARGES_LEFT]28[CHARGE_BASE_PRICE]
+15[CHARGE_CHARGES_LEFT]30[CHARGE_BASE_PRICE]
+16[CHARGE_CHARGES_LEFT]32[CHARGE_BASE_PRICE]
+17[CHARGE_CHARGES_LEFT]34[CHARGE_BASE_PRICE]
+18[CHARGE_CHARGES_LEFT]36[CHARGE_BASE_PRICE]
+19[CHARGE_CHARGES_LEFT]38[CHARGE_BASE_PRICE]
+20[CHARGE_CHARGES_LEFT]40[CHARGE_BASE_PRICE]
+21[CHARGE_CHARGES_LEFT]42[CHARGE_BASE_PRICE]
+22[CHARGE_CHARGES_LEFT]44[CHARGE_BASE_PRICE]
+23[CHARGE_CHARGES_LEFT]46[CHARGE_BASE_PRICE]
+24[CHARGE_CHARGES_LEFT]48[CHARGE_BASE_PRICE]
+25[CHARGE_CHARGES_LEFT]50[CHARGE_BASE_PRICE]
+26[CHARGE_CHARGES_LEFT]52[CHARGE_BASE_PRICE]
+27[CHARGE_CHARGES_LEFT]54[CHARGE_BASE_PRICE]
+28[CHARGE_CHARGES_LEFT]56[CHARGE_BASE_PRICE]
+29[CHARGE_CHARGES_LEFT]58[CHARGE_BASE_PRICE]
+30[CHARGE_CHARGES_LEFT]60[CHARGE_BASE_PRICE]
+31[CHARGE_CHARGES_LEFT]62[CHARGE_BASE_PRICE]
+32[CHARGE_CHARGES_LEFT]64[CHARGE_BASE_PRICE]
+33[CHARGE_CHARGES_LEFT]66[CHARGE_BASE_PRICE]
+34[CHARGE_CHARGES_LEFT]68[CHARGE_BASE_PRICE]
+35[CHARGE_CHARGES_LEFT]70[CHARGE_BASE_PRICE]
+36[CHARGE_CHARGES_LEFT]72[CHARGE_BASE_PRICE]
+37[CHARGE_CHARGES_LEFT]74[CHARGE_BASE_PRICE]
+38[CHARGE_CHARGES_LEFT]76[CHARGE_BASE_PRICE]
+39[CHARGE_CHARGES_LEFT]78[CHARGE_BASE_PRICE]
+40[CHARGE_CHARGES_LEFT]80[CHARGE_BASE_PRICE]
+41[CHARGE_CHARGES_LEFT]82[CHARGE_BASE_PRICE]
+42[CHARGE_CHARGES_LEFT]84[CHARGE_BASE_PRICE]
+43[CHARGE_CHARGES_LEFT]86[CHARGE_BASE_PRICE]
+44[CHARGE_CHARGES_LEFT]88[CHARGE_BASE_PRICE]
+45[CHARGE_CHARGES_LEFT]90[CHARGE_BASE_PRICE]
+46[CHARGE_CHARGES_LEFT]92[CHARGE_BASE_PRICE]
+47[CHARGE_CHARGES_LEFT]94[CHARGE_BASE_PRICE]
+48[CHARGE_CHARGES_LEFT]96[CHARGE_BASE_PRICE]
+49[CHARGE_CHARGES_LEFT]98[CHARGE_BASE_PRICE]
+50 charges left
+
+* CLUE
+1: (something provides a clue to its function)
+
+* SPECIAL_MATERIAL
+95:
+5: (this item is made of a special material)
+
+* ALIGNMENT_SINGLE
+# Only one attribute
+good
+evil
+law
+chaos
+
+* POTION_OR_OIL
+potion
+oil
+
+* ENERGY_TYPE
+acid
+cold
+electricity
+fire
+sonic

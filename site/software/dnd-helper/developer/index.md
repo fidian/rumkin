@@ -34,8 +34,7 @@ Using a letter pair algorithm, this will assemble a word for you.  It also knows
 
 This is the same as Gen, except it doesn't keep track of the likelihood that a specific letter follows the first one.  It just keeps track of whether it happened at all.
 
-Small can also produce wilder results because it has less
-restrictions.
+Small can also produce wilder results because it has less restrictions.
 
 *Advantage:*  The database is smaller than Gen.
 
@@ -56,7 +55,7 @@ This takes a tree of rules and expands each branch in order to come up with the 
 PSR Format
 ==========
 
-The most flexible database format that D&D Helper supports is the Phrase Structure Rule grammar style database.  Briefly, it expands a rule into text and other rules.
+This is what I start with when making PSR database entries.  This is the most flexible database format that D&D Helper supports.  Briefly, it expands a rule into text and other rules.
 
 For example, let's try to make a database say "Jack is going to the store."  All examples are real and do work in my parser.  The files are all simple text files.  The source file to generate the sentence is quite simple:
 
@@ -148,9 +147,9 @@ This example illustrates how you can capitalize the first letter in an expanded 
 
 The file format also supports long lines -- just use something like this:
 
-    This is one really big line.  I continue it to \\
-    the next line by having two backslashes at the \\
-    end.
+    This is one really big line.  I continue it to \
+    the next line by having a single backslash at \
+    the end.
 
 Lastly, if you have `[[]`, `[]]`, `[*]`, or `[#]` in your rules, it will convert that into just the `[`, `]`, `*`, or `#` character, respectively.  Newlines can be added by using `\n`.
 
