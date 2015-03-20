@@ -8,6 +8,7 @@ html(lang="en", ng-app=page.metadata.module)
                 block title
                     = page.metadata.title
             link(rel="stylesheet", href="/css/site.css")
+            link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Anonymous+Pro", type="text/css")
             if page.metadata.css
                 - var cssfiles = page.metadata.css.split(' ')
                 each cssfile in cssfiles
