@@ -1,6 +1,10 @@
 @import "mixins.less";
 
+@calloutBackground: #dfd;
+@calloutBorder: #212;
+@calloutForeground: #212;
 @codeBackground: #eee;
+@codeBorder: #222;
 @codeForeground: #222;
 
 code, pre {
@@ -10,8 +14,9 @@ code, pre {
 
 pre {
     .border-radius(3px);
-    border: 1px solid #222;
+    border: 1px solid @codeBorder;
     padding: 2px 4px;
+    margin: 1em 0;
 }
 
 code {
@@ -29,4 +34,13 @@ table {
 td, th {
     border: 1px solid #999;
     padding: 5px;
+}
+
+.callout {
+    background-color: @calloutBackground;
+    color: @calloutForeground;
+    .border-radius(3px);
+    border: 1px solid @calloutBorder;
+    padding: 2px 4px;
+    margin: 1em 0;
 }
