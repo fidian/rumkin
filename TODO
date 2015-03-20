@@ -74,3 +74,6 @@ Send SMS with twilio.com
 
 
 JSON forms, used in tools/wcn, has been removed.  Need to replace it with something.
+
+
+Add something like this to reduce numbers to neat fraction estimations for the die roll stats:  http://www.mindspring.com/~alanh/fracs.html
