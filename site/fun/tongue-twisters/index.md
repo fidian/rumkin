@@ -252,7 +252,7 @@ Were the ones in the last section too easy?  Let's step this up a notch.  Attemp
 
 
 Verse and Story
-======-========
+===============
 
 This last section is dedicated to the tongue twisters that portray a story or are often recited in a sing-song, rhyming style of verse.  There are numerous variations of many of these and each region seems to have it's own unique way of saying it.
 
