@@ -1,7 +1,7 @@
 ----
 title: Download D&D Helper
 template: index.jade
-js: /js/psr.js /js/angular.min.js ngDialog.js psr-sample.js
+js: /js/psr.js ngDialog.js psr-sample.js
 css: ngDialog.css ngDialog-theme-default.css ngDialog-theme-plain.css
 module: psr-sample
 ----

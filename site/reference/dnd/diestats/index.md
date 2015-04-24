@@ -1,7 +1,7 @@
 ---
 title: Die Roll Stats
 template: index.jade
-js: /js/angular.min.js dieroll-module.js
+js: dieroll-module.js
 module: dieroll
 controller: DierollController
 ---

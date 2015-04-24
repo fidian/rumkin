@@ -1,7 +1,7 @@
 ---
 title: JS Chars
 template: page.jade
-js: /js/util.js /js/angular.min.js /js/directives/auto-grow.js js-chars.js
+js: /js/util.js /js/directives/auto-grow.js js-chars.js
 module: jsChars
 ---
 

@@ -13,6 +13,8 @@ html(lang="en", ng-app=page.metadata.module)
                 - var cssfiles = page.metadata.css.split(' ')
                 each cssfile in cssfiles
                     link(rel="stylesheet", href=cssfile)
+            if page.metadata.module
+                script(type="text/javascript", src="/js/angular.min.js")
             if page.metadata.js
                 - var jsfiles = page.metadata.js.split(' ')
                 each jsfile in jsfiles

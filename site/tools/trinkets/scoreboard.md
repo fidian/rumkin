@@ -1,7 +1,7 @@
 ---
 title: Scoreboard
 template: page.jade
-js: /js/util.js /js/angular.min.js scoreboard.js
+js: /js/util.js scoreboard.js
 css: scoreboard.css
 module: scoreboard
 ---

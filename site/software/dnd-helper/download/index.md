@@ -1,7 +1,7 @@
 ----
 title: Download D&D Helper
 template: index.jade
-js: /js/psr.js /js/angular.min.js psr-sample.js
+js: /js/psr.js psr-sample.js
 module: psr-sample
 ----
 
