@@ -11,9 +11,9 @@
 (function (name, root, factory) {
     "use strict";
     function isObject(x) { return typeof x === "object"; }
-    if (isObject(module) && isObject(module.exports)) {
+    if ((typeof module)[0] === 'o' && isObject(module.exports)) {
         module.exports = factory();
-    } else if (isObject(exports)) {
+    } else if ((typeof exports)[0] === 'o') {
         exports[name] = factory();
     } else if (isObject(root.define) && root.define.amd) {
         root.define(name, [], factory);
@@ -201,7 +201,7 @@
     function isValidEmail(email) {
         var atIndex, curr, currCode, domain, prev;
 
-        if (!email.toString) {
+        if (!email || !email.toString) {
             // Not a string and can't convert it
             return false;
         }
