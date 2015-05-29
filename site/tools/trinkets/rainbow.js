@@ -36,16 +36,21 @@
 		return output;
 	}
 
-	angular.module('rainbow', ['autoGrow']).directive("rainbow", function () {
-		return {
-			link: function ($scope, element, attrs) {
-				$scope.input = '';
-				$scope.output = '';
+	angular.module('rainbow', ['autoGrow']).directive("rainbow", [
+        '$sce',
+        function ($sce) {
+            return {
+                link: function ($scope) {
+                    $scope.input = '';
+                    $scope.output = '';
+                    $scope.outputSafe = '';
 
-				$scope.$watch('input', function (newVal) {
-					$scope.output = makeHtml(newVal);
-				});
-			}
-		};
-	});
+                    $scope.$watch('input', function (newVal) {
+                        $scope.output = makeHtml(newVal);
+                        $scope.outputSafe = $sce.trustAsHtml($scope.output);
+                    });
+                }
+            };
+        }
+    ]);
 }());
