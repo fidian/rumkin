@@ -13,10 +13,11 @@ Like a plethora of people before me, I have decided to write my own validators. 
 Try It Yourself
 ===============
 
-<div valid-email>
+Enter an email below and it will validate the email address as you type.
 
-Enter an email: <input ng-model="email" type="text" size="60"/><br/>
-<span ng-show="valid">VALID!</span><span ng-show="!valid">Invalid email address.</span>
+<div valid-email>
+<input ng-model="email" type="text" size="60" class="w-100pct" /><br/>
+<span ng-show="valid">This is valid!</span><span ng-show="!valid">Invalid email address.</span>
 
 </div>
 
