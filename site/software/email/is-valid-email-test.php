@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 require('email-regexp.php.txt');
