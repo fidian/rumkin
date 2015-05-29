@@ -161,7 +161,7 @@ RFC 3696 doesn't appear to agree with RFC 1034.  It appears that one says the ma
 That's a LOT!
 =============
 
->Yep.  The easiest thing I can do is summarize the rules.
+Yep.  The easiest thing I can do is summarize the rules.
 
 * Email addresses are 7-bit ascii; each character has a value from 1 to 127
 * The email has a localpart on the left of an `@`, the domain on the right.  Neither the localpart nor the domain may be empty.
