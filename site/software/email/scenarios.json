@@ -423,5 +423,10 @@
 		"email": "ant@[test\\ example].com",
 		"valid": false,
         "reason": "Escaping not allowed in brackets"
-	}
+	},
+    {
+        "email": "sam@com",
+        "valid": true,
+        "reason": "Strangely, the rules allow for a top-level domain to receive email"
+    }
 ]
