@@ -12,6 +12,12 @@ Marco is a collection of common surveyor calculations intended to assist people 
 Marco will run on any device that runs Palm OS, such as [Palm Pilots](http://palm.3com.com/).  These little devices are ideal platforms for use in the field.  They require absolutely no boot time, are easily transportable, have a long battery life (especially the black & white ones), and are very reliable.  The processor is easily able to handle accurate calculations, and the screen size means that the program can prompt for information in a way that is useful to people that are unfamiliar with the program.  Palm devices are also becoming quite affordable and are being integrated with cell phones and watches.  With all of these reasons, Palm OS devices are perfect for the job.
 
 
+Manual
+======
+
+There is an extensive [manual](manual/) available that explains the options and each of the screens.
+
+
 Download
 ========
 
