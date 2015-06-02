@@ -1,6 +1,0 @@
-Contact Info|contact.php
-Download|download.php
-FAQ (Support)|faq.php
-Manual|manual.php
-Register|register.php
-Upgrades|upgrades.php
