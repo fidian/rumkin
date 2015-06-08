@@ -214,3 +214,67 @@ Marco can use multiple point databases to keep individual points separated into 
 
 If "Manage Databases" is picked, Marco will display a special screen where point files can be created, deleted, and renamed.  If a point file is deleted, it can not be restored, so be careful.
 
+
+Frequently Asked Questions (FAQ)
+================================
+
+This is a list of common questions asked about Marco itself or about topics that relate to Marco.
+
+
+Points
+------
+
+
+### I edited a point and it no longer appears in the list of points.  What happened to it?
+
+![odd sort](odd_sort.png)
+Marco sorts point names alphabetically because that is the only method that Palm OS supplies.  Unfortunately, this means that a list of 1, 2, 10, and 11 would be sorted as 1, 10, 11, 2.  A screen capture, to the right, shows this odd behavior.  It sorts the first letter, then the second letter, then the third.  It doesn't sort the number as an actual number.
+
+If this method of sorting is hard to get used to, just add zeros at the beginning so that all of the numbers are of the same length.  The above set of numbers with zeros at the beginning would sort to 01, 02, 10, 11.
+
+
+Calculators
+-----------
+
+
+### How accurate is Marco?
+
+Marco uses MathLib for number calculations, which provides IEEE-754 double-precision math functions.  It's roughly 13 digits of accuracy.
+
+
+### Why can't I go to the calculator and back to Marco without losing everything I entered?
+
+If you leave Marco and come back, all of the data entered will be cleared away.  I do this to save memory, make upgrades easier, and to avoid several programming hassles.  I agree that it is annoying when you need to look up information in your calculator, and I strongly suggest using a popup calculator to solve the problem.  Popup calculators can appear "on top" of any running program on a Palm, and will let you calculate numbers quickly.
+
+
+### Is there an alternate calculator that I can use instead of the built-in one?
+
+Yes.  There are several, one of which is sure to fit your needs.  See the earlier section on Calculators.
+
+
+### Why doesn't Marco have a built-in calculator?
+
+Having a calculator added to Marco was seriously debated many times.  It was decided to not be added to the program for several reasons:
+
+* It would make Marco bigger (it is quite large enough).
+* If it is an RPN calculator, infix people would be annoyed.  If it was an infix calculator, RPN people would be annoyed.  If it was both, the program would be much bigger.
+* More potential for bugs in the system.
+* It wouldn't integrate easily with the calculator button.
+* There are several great calculators out there already.
+
+
+Miscellaneous
+-------------
+
+### Which handheld should I buy to use Marco?
+
+The only requirement for a handheld is that it runs Palm OS 3.0 or newer.  It might run with Palm OS 2.0, but that hasn't been tested.  Marco has been tested to run on several versions of Palm Pilots, Handspring units, and even a Palm OS based cell phone.  If you are buying a new device, make sure it runs "Palm OS" -- it will not run on Palm-sized computers running Windows CE or other operating systems.
+
+If you are going to buy a device and want to know which one I recommend, here are my suggestions:
+
+* Brand:  One is as good as another.  I'd suggest Handspring, but they just merged back with Palm, so there isn't really any difference there.
+* Memory:  2 megs of memory is enough for hundreds of thousands of points for Marco, a few custom applications, tons of addresses, several memos, and a large todo list.  If you plan on using the Palm a lot, or if you want to have space to spare, I would suggest 8 or 16 megs.
+* Color/Black & White:  Color screens are *very* pretty, and they show up nice in dark areas.  Black & white screens draw much less power, so the handheld can run longer without recharging or replacing the batteries.  If this is for work, get black and white.  If it is for play, home use, or for testing out programs, color is nice.
+* Hi-res/Standard Resolution:  The newer high-res screens are nice and make reading less fatiguing.  I would suggest a high-res screen if possible.  It works well with many games, document readers, and other sorts of programs.  Overall, it will smooth out fonts to make them more appealing and rounds buttons a bit nicer.
+* Price:  If it is going to be used out in the field, don't get a very expensive one.  Dust can quickly scratch up the screen, accidents happen, and Palms can get dropped.  Of course, get whatever you think is needed and would be used.
+* Accessories:  A case.  Get a good case.  A nice, sturdy padded case with Velcro and a zipper around the Palm is a good idea.  A metal case that is able to withstand abuse is a good idea.  I can not suggest this enough -- get a good case for the Palm.  It *will* get dropped.
