@@ -232,7 +232,7 @@ This puzzle (without modifications) is freeware. I will not charge for this vers
 
 I have abandoned this software.  I don't maintain it but I will accept patches if you want to implement something.
 
-Java source to the puzzle *is* <a href="puzzle.java">available</a> under a GPL license. This applet should be simple enough for people who know Java to program, or for semi-talented beginners to start with.
+Java source to the puzzle is <a href="puzzle.java">available</a> under a GPL license. This applet should be simple enough for people who know Java to program, or for semi-talented beginners to start with.
 
 The current version is **Version 4.4 - 2001-02-28**:
 

@@ -1,16 +1,17 @@
-<?php
+---
+title: Java Puzzle Applet - Success
+template: index.jade
+js: /js/modules/search-scope.js
+module: searchScope
+controller: searchScope
+---
 
-include '../../functions.inc';
-StandardHeader(array(
-		'title' => 'Java Puzzle Applet',
-		'header' => 'Java Puzzle Applet - Swap (Sarah)',
-		'topic' => 'puzzle'
-	));
+You solved it in {{search.moves}} moves!
 
-?>
-<P>You solved it in <?php echo $moves ?> moves!</P> 
-<P><A HREF="index.php">Back to the main puzzle page</A>.</P>
-<P ALIGN="CENTER"><IMG SRC="Sarah.jpg" WIDTH="208" HEIGHT="333"></P>
-<?php
+Back to the [main puzzle page](../).
 
-StandardFooter();
+<div class="ta-c">
+
+![Sarah](sarah.jpg)
+
+</div>
