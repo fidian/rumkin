@@ -5,9 +5,9 @@ template: index.jade
 
 These are changes to the Wizards of the Coast 3.0 d20 system.  Modifications are primarily listed according to the chapter in the Player's Guide that was modified.
 
-Specific rulings to special situations are listed on the [rulings](rulings/) page.
+Specific rulings to special situations are listed near the bottom.
 
-__NOTE:__ These may no longer be used.  We are now using [Pathfinder](http://paizo.com/pathfinderRPG) rules for our campaign.
+__NOTE:__ These may no longer be used.  We are now using [Pathfinder] rules for our campaign.
 
 
 Chapter 1 - Abilities
@@ -282,6 +282,39 @@ _Squirrel_ - Excellent climbers and jumpers.  Can gnaw through soft wood, leathe
 _Other Animals_ - Other small, plain animals can be used as familiars.  More exotic or dangerous animals might be familars if you get the Improved Familiar (Tome and Blood) feat.
 
 
+Special Rulings
+===============
+
+These rulings helped to handle odd situations whenever they arose.  These rules are superseded by [Pathfinder] in our next campaign if Pathfinder conflicts with these rulings.
+
+
+Soul Swapping
+-------------
+
+If your mind is placed into another person's body, the following rules will determine the skills available to you:
+
+* Physical attributes (Str, Dex, Con, gender, size, age, etc.) go with the body.
+* Mental attributes (Int, Wis, alignment, level, etc.) go with the mind.
+* Charisma is averaged out (round down).
+* Any racial bonuses for the ability points go with the body.
+* Hit Points and Initiative, functions of Constitution and Dexterity, go with the body, unless a modifier fits under another rule, such as Improved Initiative.
+* Fortitude and Reflex saves stay with the body.  Will saves travel with the mind.
+* Base attack, a function of your level, travels with the mind.
+* Skills, feats, spells, psionic powers, and languages travel with the mind, but if the new body doesn't have the prerequisites to use the ability, then the ability is unusable.  Feats require prerequisite abilities, languages require a way to speak, etc.
+
+
+Spells
+------
+
+Casting *fly* on a creature that already had *fly* cast upon it will act like the two fly spells are overlapping and the time will be extended.  For example, if *fly* lasts for 10 minutes and you get it cast upon yourself twice at the same time, then you get to fly for 10 minutes.  If you get *fly* cast upon you 5 minutes into the spell's duration, then you are allowed to fly for a total of 15 minutes.  By casting this at the end of the spell, you could fly for an indefinite period of time.
+
+This also applies to other spells, like *shrink item*.  Essentially, the spells "stack", and as long as one is active, the spell effect is active.
+
+Using any variant of *teleport* that lets you teleport yourself and optionally your equipment, you decide what goes with you.  If you choose for another person to go with you, that other person decides what objects go with him/her.  For instance, you are in a classroom with your pal and 10 kids, all of which are touching you.  You decide to teleport your pal and yourself out.  All of your clothing and items go with you, and your pal would probably decide to teleport with all of his possessions.
+
+If you are bound, you can teleport to escape the binding.  Same goes for people that teleport with you.  However, since each person decides what goes with them, it is an individual choice.  If you and your pal are tied up with the same rope and you decide to teleport yourself out, you would likely choose to not take the rope with you.  If you teleport out with your pal, and he (for some dumb reason) decided to teleport with the rope, you both would remain tied up but in a new location.
+
+
 References
 ==========
 
@@ -291,72 +324,5 @@ Thanks to the following sites for their contributions to these house rules:
 * [SG's D&D House Rules](http://www.geocities.com/TimesSquare/Cavern/4565/)
 * [woj's page](http://www.magma.ca/~wkozlows/dnd/house-rules.html)
 
-</body>
-</html>
-<html><head><title>Rulings</title>
-</head>
-<body bgcolor="#FFFFFF">
-<h1 align=center>Rulings</h1>
 
-<p>These rulings helped to handle odd situations, whenever they arose.
-These rules are superseded by 
-<a href="http://paizo.com/pathfinderRPG">Pathfinder</a> in our next
-campaign.</p>
-
-<h2>Soul Swapping</h2>
-
-<p>If your mind is placed into another person's body, the following
-rules will determine the skills available to you:</p>
-
-<ul>
-<li>Physical attributes (Str, Dex, Con, gender, size, age, etc.) go with the 
-body.</li>
-<li>Mental attributes (Int, Wis, alignment, level, etc.) go with the
-mind.</li>
-<li>Charisma is averaged out (round down).</li>
-<li>Any racial bonuses for the ability points go with the body.</li>
-<li>Hit Points and Initiative, functions of Constitution and Dexterity, 
-go with the body, unless a modifier fits under another rule, such as Improved
-Initiative.</li>
-<li>Fortitude and Reflex saves stay with the body.  Will saves travel with
-the mind.</li>
-<li>Base attack, a function of your level, travels with the mind.</li>
-<li>Skills, feats, spells, psionic powers, and languages travel with the
-mind, but if the new body doesn't have the prerequisites to use the ability,
-then the ability is unusable.  Feats require prerequisite abilities,
-languages require a way to speak, etc.</li>
-</ul>
-
-<h2>Spells</h2>
-
-<p>Casting <i>fly</i> on a creature that already had <i>fly</i> cast upon it
-will act like the two fly spells are overlapping and the time will be
-extended.  For example, if <i>fly</i> lasts for 10 minutes and you get it
-cast upon yourself twice at the same time, then you get to fly for
-10 minutes.  If you get <i>fly</i> cast upon you 5 minutes into the spell's
-duration, then you are allowed to fly for a total of 15 minutes.  By casting
-this at the end of the spell, you could fly for an indefinate period of
-time.</p>
-
-<p>This also applies to other spells, like <i>shrink item</i>.  Essentially,
-the spells "stack", and as long as one is active, the spell effect is
-active.</p>
-
-<p>Using any variant of <i>teleport</i> that lets you teleport yourself and
-optionally your equipment, you decide what goes with you.  If you choose for
-another person to go with you, that other person decides what objects go
-with him/her.  For instance, you are in a classroom with your pal and 10
-kids, all of which are touching you.  You decide to teleport your pal and
-yourself out.  All of your clothing and items go with you, and your pal
-would probably decide to teleport with all of his possessions.</p>
-
-<p>If you are bound, you can teleport to escape the binding.  Same goes for
-people that teleport with you.  However, since each person decides what goes
-with them, it is an individual choice.  If you and your pal are tied up with
-the same rope and you decide to teleport yourself out, you would likely
-choose to not take the rope with you.  If you teleport out with your pal,
-and he (for some dumb reason) decided to teleport with the rope, you both
-would remain tied up but in a new location.</p>
-
-</body>
-</html>
+[Pathfinder]: http://paizo.com/pathfinderRPG
