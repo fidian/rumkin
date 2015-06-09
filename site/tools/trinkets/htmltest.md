@@ -1,7 +1,7 @@
 ---
 title: HTML Code Tester
 template: page.jade
-js: /js/directives/auto-grow.js
+js: /js/modules/auto-grow.js
 module: autoGrow
 ---
 

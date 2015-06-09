@@ -1,7 +1,7 @@
 ---
 title: Fortune Cookie
 template: index.jade
-js: /js/directives/random-line.js
+js: /js/modules/random-line.js
 css: fortune.css
 module: randomLine
 ---

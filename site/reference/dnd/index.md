@@ -1,7 +1,7 @@
 ---
 title: 3rd Edition D&D
 template: index.jade
-js: /js/directives/random-line.js
+js: /js/modules/random-line.js
 module: randomLine
 ---
 
