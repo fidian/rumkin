@@ -3,48 +3,46 @@ title: SalangMenu
 template: index.jade
 ----
 
-<center>
-    <applet code="SalangMenu.class" width="300" height="30">
-        <!-- Needs to be in here -->
-        <param name="copyright" value="jzs club">
-        <!-- Color setup -->
-        <param name="batangcolor" value="255,255,255">
-        <param name="menubgcolor" value="192,192,192">
-        <param name="menufgcolor" value="0,0,0">
-        <!-- Font setup -->
-        <param name="mainfontheight" value="16">
-        <param name="mainfont" value="Arial">
-        <param name="subfontheight" value="14">
-        <param name="subfont" value="Arial">
-        <!-- Target (for frames) -->
-        <param name="target" value="_top">
-        <!-- Indent from left side -->
-        <param name="pullsx" value="0">
-        <!-- Number of items in main menu -->
-        <param name="pullnum" value="2">
-        <!-- Item number one -->
-        <param name="sbgcolor1" value="166,188,100">
-        <param name="sfgcolor1" value="0,0,0">
-        <param name="popbgcolor1" value="90,194,240">
-        <param name="popfgcolor1" value="0,0,0">
-        <param name="pull1" value="Introduction">
-        <param name="pullurl1" value="index.php#Intro">
-        <param name="popnum1" value="0">
-        <!-- Item number two -->
-        <param name="sbgcolor2" value="241,121,107">
-        <param name="sfgcolor2" value="0,0,0">
-        <param name="popbgcolor2" value="90,194,240">
-        <param name="popfgcolor2" value="0,0,0">
-        <param name="pull2" value="Usage">
-        <param name="pullurl2" value="none">
-        <param name="popnum2" value="2">
-        <!-- Sub menu under item 2 -->
-        <param name="pop21" value="How To Include">
-        <param name="popurl21" value="#HowInclude">
-        <param name="pop22" value="Explanation of Options">
-        <param name="popurl22" value="#Options">
-    </applet>
-</center>
+<applet code="SalangMenu.class" width="300" height="30" class="center">
+    <!-- Needs to be in here -->
+    <param name="copyright" value="jzs club">
+    <!-- Color setup -->
+    <param name="batangcolor" value="255,255,255">
+    <param name="menubgcolor" value="192,192,192">
+    <param name="menufgcolor" value="0,0,0">
+    <!-- Font setup -->
+    <param name="mainfontheight" value="16">
+    <param name="mainfont" value="Arial">
+    <param name="subfontheight" value="14">
+    <param name="subfont" value="Arial">
+    <!-- Target (for frames) -->
+    <param name="target" value="_top">
+    <!-- Indent from left side -->
+    <param name="pullsx" value="0">
+    <!-- Number of items in main menu -->
+    <param name="pullnum" value="2">
+    <!-- Item number one -->
+    <param name="sbgcolor1" value="166,188,100">
+    <param name="sfgcolor1" value="0,0,0">
+    <param name="popbgcolor1" value="90,194,240">
+    <param name="popfgcolor1" value="0,0,0">
+    <param name="pull1" value="Introduction">
+    <param name="pullurl1" value="index.php#Intro">
+    <param name="popnum1" value="0">
+    <!-- Item number two -->
+    <param name="sbgcolor2" value="241,121,107">
+    <param name="sfgcolor2" value="0,0,0">
+    <param name="popbgcolor2" value="90,194,240">
+    <param name="popfgcolor2" value="0,0,0">
+    <param name="pull2" value="Usage">
+    <param name="pullurl2" value="none">
+    <param name="popnum2" value="2">
+    <!-- Sub menu under item 2 -->
+    <param name="pop21" value="How To Include">
+    <param name="popurl21" value="#HowInclude">
+    <param name="pop22" value="Explanation of Options">
+    <param name="popurl22" value="#Options">
+</applet>
 
 
 Introduction

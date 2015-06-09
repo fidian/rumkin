@@ -7,7 +7,7 @@ module: randomLine
 
 **D&D Rule of Thumb:**
 
-<div class="center"><span random-line="dnd-tips.txt"></span></div>
+<div class="ta-c"><span random-line="dnd-tips.txt"></span></div>
 
 _Unamused?  Reload for another random message!_
 

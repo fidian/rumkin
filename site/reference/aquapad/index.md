@@ -256,7 +256,11 @@ Inside the Pad
 
 We dissect an AquaPad, piece by piece, in order to expose the guts to the public.  This is only to prevent others from taking apart their AquaPad to just see what the insides look like.  Higher resolution photos are available by clicking on the thumbnails.
 
-<a href="front.jpg"><img class="center" src="front_small.jpg"></a>
+<div class="ta-c">
+
+[![front small](front_small.jpg)](front.jpg)
+
+</div>
 
 First thing is first -- what does the AquaPad look like on the outside?  This is a nice image of the front of the tablet.
 
@@ -264,7 +268,11 @@ On the left side, near the top, you can see the housing for the speaker.  Moving
 
 At the top you see three LEDs.  From left to right, they are suspend, power, and battery indicator (low battery / charging).  The right-hand side has the power switch and a microphone.
 
-<a href="back_battery_stylus.jpg"><img class="center" src="back_battery_stylus_small.jpg"></a>
+<div class="ta-c">
+
+[![back battery stylus small](back_battery_stylus_small.jpg)](back_battery_stylus.jpg)
+
+</div>
 
 Here, you will see an image of the AquaPad already beginning to be taken apart.  This is the stylish back.  The ridges make it easier to grab, and the rubber feet really make it stick nicely to hard surfaces.
 
@@ -272,11 +280,19 @@ The battery compartment is opened and the battery is exposed right above the tap
 
 In the upper left, you will see two rubber pads (blue) and 8 screws.  That's how many screws hold this together.  Two screws are under the rubber pads by the battery compartment.  Make sure to remove them before prying too hard.  When you get them all off, and remove the stylus, the device will easily come apart.
 
-<a href="lcd.jpg"><img class="center" src="lcd_small.jpg"></a>
+<div class="ta-c">
+
+[![lcd small](lcd_small.jpg)](lcd.jpg)
+
+</div>
 
 The front panel comes off, giving you a nice image of the LCD behind it and my grubby fingerprints.  Disconnect the pink and white wires to the lower right, unscrew the four screws, lift up the LCD, disconnect the two flat cables on the left.  You are now down to a shield.  Take out three more screws and disconnect the red and black wires for the microphone.  We are in business.
 
-<a href="motherboard_front.jpg"><img class="center" src="motherboard_front_small.jpg"></a>
+<div class="ta-c">
+
+[![motherboard front small](motherboard_front_small.jpg)](motherboard_front.jpg)
+
+</div>
 
 Ahh, the motherboard.  Please note the standard SO-DIMM SDRAM in the lower right.  Don't try to upgrade that.  There's notes regarding Upgrades later.  You can also see the battery, processor, and what looks like a potential IDE port.
 
@@ -286,7 +302,11 @@ After undoing a set of orangish wires on the bottom, and the red/black wires tha
 	
 When you put the motherboard back, make sure to be VERY careful with the orangish wires on the bottom.  They can overlap the screw hole right there, so when you put the shield back on, it could crunch the wires and possibly expose them and ground out the wires on the motherboard and break the wire and do other nasty stuff.  That took a long time for me to figure out.  "When I put in this one screw, why does my AquaPad not boot anymore?"  Yeah.  Another hour lost there trying to diagnose the problem, and getting the wrong idea in my head that it was because of the shield shorting something out.
 
-<a href="motherboard_back.jpg"><img class="center" src="motherboard_back_small.jpg"></a>
+<div class="ta-c">
+
+[![motherboard back small](motherboard_back_small.jpg)](motherboard_back.jpg)
+
+</div>
 
 Please note the 32 meg Compact Flash card.  This is what holds Midori.  It is held in with a small piece of foam.  You can also see the PCMCIA slot and the other CF port.  There's also a large heatsink for the processor that transfers heat to the case, and out of the device without a need for a fan.
 
