@@ -14,7 +14,8 @@ html(lang="en", ng-app=page.metadata.module)
                 each cssfile in cssfiles
                     link(rel="stylesheet", href=cssfile)
             if page.metadata.module
-                script(type="text/javascript", src="/js/angular.min.js")
+                script(type="text/javascript", src="/js/es5-shim.js")
+                script(type="text/javascript", src="/js/angular.js")
             if page.metadata.js
                 - var jsfiles = page.metadata.js.split(' ')
                 each jsfile in jsfiles
