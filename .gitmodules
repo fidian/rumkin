@@ -7,3 +7,6 @@
 [submodule "3rd-party/psr-js"]
 	path = 3rd-party/psr-js
 	url = https://github.com/fidian/psr-js.git
+[submodule "site/js/futile"]
+	path = site/js/futile
+	url = https://github.com/fidian/futile.git

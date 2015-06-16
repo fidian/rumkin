@@ -3,7 +3,7 @@
  * Copyright 2013 Tyler Akins
  * http://rumkin.com/license.html
  */
-/*global angular, util*/
+/*global angular, futile*/
 (function () {
 	'use strict';
 
@@ -232,7 +232,7 @@
 		var talliesByName = {};
 
 		// Count tallies
-		util.each(tallies, function (val) {
+		futile.each(tallies, function (val) {
 			if (!talliesByName[val]) {
 				talliesByName[val] = {
 					name: val,
@@ -245,7 +245,7 @@
 
 		// Convert to array
 		scores = [];
-		util.each(talliesByName, function (val) {
+		futile.each(talliesByName, function (val) {
 			scores.push(val);
 		});
 
@@ -280,7 +280,7 @@
 
 	angular.module('scoreboard', []).directive("scoreboard", function () {
 		return {
-			link: function ($scope, element, attrs) {
+			link: function ($scope) {
 				$scope.pickLink = function (n) {
 					$scope.top10 = false;
 					$scope.full = false;
