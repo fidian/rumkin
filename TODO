@@ -1,3 +1,6 @@
+Crypto:  Handle whitespace differently - preserve as-is (do not operate on spaces), use hard spaces, specify a symbol, something.  Columnar transposition, railfence, etc.
+
+
 Crypto:  Add Purple machine
 
 
