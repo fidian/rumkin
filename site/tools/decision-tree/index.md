@@ -1,7 +1,7 @@
 ----
 title: Decision Tree
 template: index.jade
-js: /js/marked.js /js/angular-marked.js decision-tree.js
+js: /js/marked.js /js/modules/angular-marked.js decision-tree.js
 module: decisionTree
 controller: decisionTreeController
 ----
