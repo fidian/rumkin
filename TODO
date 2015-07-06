@@ -1,3 +1,8 @@
+Crypto:  Apply cipher to each line separately (Vigenere)
+
+Crypto:  Add 3301 examples.
+
+
 Passwords:  Incorporate haystack search information - https://www.grc.com/haystack.htm
 
 Passwords:  Telepathwords:  https://telepathwords.research.microsoft.com/
