@@ -8,6 +8,12 @@
 	},
 	"plugins": [
 		"wintersmith-less",
-        "wintersmith-livereload"
-	]
+        "wintersmith-livereload",
+        "wintersmith-redirect"
+	],
+    "redirects": {
+        "tools/phone/index.php": "tools/phone-uploader/",
+        "tools/sprint/index.php": "tools/phone-uploader/",
+        "tools/sprint/": "tools/phone-uploader"
+    }
 }

@@ -10,7 +10,8 @@
         "normalize.css": "*",
         "wintersmith": "*",
         "wintersmith-less": "*",
-        "wintersmith-livereload": "*"
+        "wintersmith-livereload": "*",
+        "wintersmith-redirect": "*"
     },
     "engines": {
         "node": ">=0.8",

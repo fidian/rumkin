@@ -1,6 +1,12 @@
 Add service for monitoring ping time to a web server.  Just like BBY.
 
 
+Redirect plugin:  Map PHP to new URLs
+
+Crypto:  Apply cipher to each line separately (Vigenere)
+
+Crypto:  Add 3301 examples.
+
 Passwords:  Incorporate haystack search information - https://www.grc.com/haystack.htm
 
 Passwords:  Telepathwords:  https://telepathwords.research.microsoft.com/
