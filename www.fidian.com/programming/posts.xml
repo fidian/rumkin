@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:batch="http://schemas.google.com/gdata/batch" xmlns:gs="http://schemas.google.com/spreadsheets/2006" xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:sites="http://schemas.google.com/sites/2008" xmlns:dc="http://purl.org/dc/terms" xmlns:gAcl="http://schemas.google.com/acl/2007"><id>http://sites.google.com/feeds/content/site/minimifidianism</id><updated>2015-07-22T19:10:33.606Z</updated><title>Posts of Programmer Tips</title><link rel="alternate" type="text/html" href="http://sites.google.com/feeds/content/site/minimifidianism" /><link rel="http://schemas.google.com/g/2005#feed" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism" /><link rel="http://schemas.google.com/g/2005#post" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism" /><link rel="http://schemas.google.com/g/2005#batch" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/batch" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism?parent=3682901256327352123&amp;kind=announcement" /><generator version="1" uri="http://sites.google.com">Google Sites</generator><openSearch:startIndex>1</openSearch:startIndex><entry gd:etag="&quot;YD0peyY.&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/3540028468206482615</id><published>2013-09-04T22:35:36.074Z</published><updated>2013-09-04T22:35:36.078Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2013-09-04T22:35:36.071Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>Parameter Order</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">When functions are created, they often start out as little baby functions that don't take parameters or only accept a couple.  Then they grow to include additional functionality or they need to pass additional data to other routines and their signature grows.  When this happens, the parameter order is often overlooked.<div><br /></div><div>Let's take a function in JavaScript that might seem a bit weird.  Imagine it uses an AJAX service to retrieve a web page.  It might send additional data and take a timeout.</div><div><br /></div><div><div class="sites-codeblock sites-codesnippet-block"><code>function getWebPage(method, uri, timeout, additionalData, ajaxService) { ... }</code></div></div><div><br /></div><div>This might seem good, but there are a few problems.</div><h3><a name="TOC-Optional-At-The-End" />Optional At The End</h3><div>The above example might have seemed good because you felt the most important things are listed first.  You can't do a web request without a method or URI, right?  The rest probably just don't matter as much.  Unfortunately, they actually matter more.</div><div><br /></div><div>It is a good practice to place optional parameters at the end.  That way you don't have function calls like this:</div><div><br /></div><div><div class="sites-codeblock sites-codesnippet-block"><code>callMyFunction('some parameter', undefined, 'another needed parameter');</code></div></div><div><br /></div><div>That's just ugly.  Plus the code to do automatic insertion of default values in the middle of a list of arguments often looks terrible.  Don't get me wrong; there are times when that makes sense, but consider those times carefully.  It's not a good habit.</div><div><br /></div><div>Back to our <code>getWebPage</code> function.  Moving the optional additionalData parameter and the timeout value to the end gives us the following:</div><div><br /></div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>function getWebPage(method, uri, ajaxService, timeout, additionalData) { ... }</code></div><div /></div><br /><h3><a name="TOC-Order-Optionals-Parameters" />Order Optionals Parameters</h3><div>Optional parameters should be arranged by the likelihood of them being used.  It is far more likely for a timeout to not be specified than additionalData.  Perhaps you would always want the browser's default timeout, but you do want to POST a lot of information.  Let's reorder those optional parameters one more time.</div><div><br /></div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>function getWebPage(method, uri, ajaxService, additionalData, timeout) { ... }</code></div><div /></div><br /><h3><a name="TOC-Order-Mandatory-Parameters" />Order Mandatory Parameters</h3><div>Mandatory parameters should be ordered by how likely they are to change from invocation to invocation.  Let's say that our ajaxService never changes for the life of our application.  We might only want to change it for tests.  With JavaScript we can bind the default AJAX service, reducing the number of arguments.  Move that ajaxService up front and here's an example of using bind.</div><div><br /></div><div>var getWebPage;</div><div>function getWebPageOriginal(ajaxService, method, uri, additionalData, timeout) { ... }</div><div>getWebPage = getWebPageOriginal.bind(null, myDefaultAjaxService);</div><div>getWebPage.get = getWebPage.bind(null, 'GET');</div><div>getWebPage.post = getWebPage.bind(null, 'GET');</div><div><br /></div><h3><a name="TOC-Summary" />Summary</h3><div>If you pay attention to parameter order and keep it in a sane format, you will make things easier for other developers to use your functions.  There's a lot of other tips, like not having several parameters and using descriptive names for variables, but those are well discussed on other sites.</div></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/parameterorder" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/3540028468206482615" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3540028468206482615" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3540028468206482615" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>parameterorder</sites:pageName><sites:revision>1</sites:revision></entry><entry gd:etag="&quot;WSl7JmA9&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/5132612519044795337</id><published>2011-10-07T16:01:25.709Z</published><updated>2012-08-30T13:07:45.035Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2012-08-30T13:06:38.363Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>Public DNS Pointing To localhost (127.0.0.1)</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">When you are developing and using a local development environment, you typically need to hit your own site.  A lot.  You'd use URLs that look like this:<div><br /></div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>http://localhost/</code></div><div><code>http://127.0.0.1/</code></div></div><div><br /></div><div>When you get slightly more advanced, you would want to run multiple sites off your installation.  You can easily do this with name based virtual hosts (eg. with <code>VirtualHost</code> directives in Apache's config).  Now you want to use urls like this:</div><div><br /></div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>http://client1.local/</code></div><div><code>http://client2.dev/</code></div><div><code>http://client3/</code></div></div><div><br /></div><div>Those URLs don't work, so now we need to find some way to map our domain names to the "localhost" address.</div><div><br /></div><div><i>What if we could map hostnames to 127.0.0.1 and make this work?</i></div><h2><a name="TOC-Hosts-File" />Hosts File</h2><div>The first and easiest method is where one edits their hosts file (<code>/etc/hosts</code> in Linux, <code>C:\Windows\System32\Drivers\etc\hosts</code> for some versions of Windows) and add lines like this:</div><div><br /></div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>127.0.0.1 client1.local</code></div><div><code>127.0.0.1 client2.dev</code></div><div><code>127.0.0.1 client3</code></div></div><div><br /></div><div>At work, we have up to five different hostnames for each of our clients.  Adding yet another client means dozens of developers that now need to edit their hosts file.  Oh, the pain and agony when you have to do this for hundreds of domains!</div><div><br /></div><div><i>What if we could have a single top-level domain that always resolved to localhost?</i></div><h2><a name="TOC-DNS-Entries---Windows" />DNS Entries - Windows</h2><div>If you are using Windows DNS, you can create a new zone:</div><div><br /></div><div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>dnscmd /RecordAdd local * 3600 A 127.0.0.1</code></div><div><code>dnscmd /RecordAdd local @ 3600 A 127.0.0.1</code></div></div></div><h2><a name="TOC-dnsmasq---Linux-MacOS" />dnsmasq - Linux, MacOS</h2><div>On Linux systems, you can install dnsmasq to pretend to be a real DNS server and actually respond with 127.0.0.1 for all subdomains of a top level domain.  So, if you wanted *.local to always resolve to your own domain, then you can use URLs like this:</div><div><br /></div><div /><div class="sites-codeblock sites-codesnippet-block"><div><code>http://client1.local/</code></div><div><code>http://client2.local/</code></div><div><code>http://client3.local/</code></div></div><div><br /></div><div>You only need to install and set up dnsmasq.  There's some well-written instructions at <a href="http://drhevans.com/blog/posts/106-wildcard-subdomains-of-localhost">http://drhevans.com/blog/posts/106-wildcard-subdomains-of-localhost</a> that you can follow; I won't repeat them here.</div><div><br /></div><div>The drawback of this setup is that you now have to install and configure dnsmasq on every machine where you want to use this trick.</div><div><br /></div><div><i>What if someone set up DNS entries and basically did this for you?</i></div><h2><a name="TOC-Available-Wildcarded-DNS-Domains" />Available Wildcarded DNS Domains</h2><div>It turns out that some kind hearted people already set up wildcarded domains for you already.  You can use any top level domain below and any subdomain of these and they will always resolve back to 127.0.0.1 (your local machine).  Here's the list of ones I know about.  Let me know if there are more!</div><div><br /></div><div><ul><li>fuf.me - Managed by me; it will always point to localhost for IPv4 and IPv6</li><li>localtest.me - Also has an SSL cert - see <a href="http://readme.localtest.me">http://readme.localtest.me</a></li><li>ulh.us</li><li>127-0-0-1.org.uk</li><li>ratchetlocal.com</li><li>smackaho.st</li><li>42foo.com</li><li>vcap.me</li><li>beweb.com</li><li>yoogle.com</li><li>ortkut.com</li><li>feacebook.com</li><li>lvh.me</li></ul><div>Now, with these wildcarded domains, you don't need to do any modification of your system for requests to come back to your own server.  For instance, you can go to http://client1.127-0-0-1.co.uk/ and the web page request will always head back to your own server.  You'll still need to configure your web server to answer on this hostname, but at least the DNS portion of the problem is now solved.</div></div></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/public-dns-pointing-to-localhost" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/5132612519044795337" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/5132612519044795337" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/5132612519044795337" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>public-dns-pointing-to-localhost</sites:pageName><sites:revision>10</sites:revision></entry><entry gd:etag="&quot;YD0peyY.&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/7416407566608230844</id><published>2012-07-03T16:12:14.169Z</published><updated>2012-07-03T16:12:14.174Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2012-07-03T16:12:14.164Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>Password Security</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">Sites are compromised all the time and the public, in general, just isn't aware of most of the minor ones. It's just when passwords are leaked from larger sites and it makes the local news, only then do people care.<div><br /></div><div>At the time of this article's writing, LinkedIn was the most recent big hack where 6.5 million password hashes were leaked to the public.  At least they were doing things a little better than many places - they hashed their passwords but unfortunately didn't use salts.  More on that later.</div><div><br /></div><div>In order to understand good password security, I will first give you a breakdown on what hackers will do in order to find your password.  With this knowledge, you can understand why you need to use better passwords and different passwords for each site.  I will also give you real-world examples for password cracking times, password cracking keyspace, and more.  For reference, this is on an HP Pavilion g6 with an Intel Core i3 2350M (2 core with hyperthreading) processor, running at 2.3 gigahertz and using an OCZ Agility3 SSD, which makes loading passwords and hashes faster.</div><h2><a name="TOC-What-is-password-hashing-" />What is password hashing?</h2><div>Thankfully, most places know that storing your plain password in a database is a really bad idea.  For example, a plain password will look like "Testing".  Instead, developers will use a variety of techniques to turn this into a really large set of letters and numbers.  This is typically called hashing.  "Testing" as a hash looks like "fa6a5a3224d7da66d9e0bdec25f62cf0" or "0820b32b206b7352858e8903a838ed14319acdfd".</div><div><br /></div><div>Hashes are computed using a method that doesn't allow you to go backwards.  You might have one of the hashes above, but you can't go backwards and get "Testing" from it.  You can only go forwards.  When you log into a system, it generates a new hash with the password you just typed.  If the two hashes match, you can log in.</div><div><br /></div><div>While it is impossible to go backwards, hackers can certainly take an entire dictionary of words and hash them all really quickly, checking if any of those hashes equal your password.</div><div><br /></div><div>For the LinkedIn breach, I can scan all 6.5 million hashes against various wordlists, each time starting from scratch.  It takes 12 seconds to load an empty wordlist since it takes that long just to read and prepare for the cracking attempt.  Against my list of the top 7184 passwords, I found 3854 hashes in 14 seconds.  Against my list of 97 thousand English words, I recovered 22,572 in a mere 15 seconds.  When I threw my huge wordlist of over 18 million words from various languages and other password breaches and I mixed in the mutation engine to generate more likely passwords from the wordlist, I was able to crack over 390,000 of the hashes in a mere 129 seconds.</div><div><br /></div><div>Hashing methods vary, and newer ones are typically more secure (ie. fewer "collisions"), harder to compute and slower to compute than older ones.  It's good to know that people who take security seriously aren't making the hackers' lives too easy.</div><h2><a name="TOC-Brute-Force-Attacks" />Brute Force Attacks</h2><div>I was using a wordlist to generate possible passwords to try, but another approach is to just use "brute force" and guess every possible password combination.  There are even rules that can be applied to the guesses to make it more likely that a real password gets generated.  It comes from us being humans and how we build our words.  For example, the letter "C" is often followed by "H" and only rarely it is followed by "K" at the beginning of a word.</div><div><br /></div><div>I flipped the password cracker into brute force mode and let it run for almost exactly 48 hours.  On its own and without any help from any wordlists, it provided over 2 million passwords.</div><h2><a name="TOC-Distributed-Cracking" />Distributed Cracking</h2><div>The numbers I have been listing are for me cracking hashes on my own with just my laptop.  Imagine if I had a bunch of computers at a college available to try passwords simultaneously.  What if I spun up 20 Amazon cluster compute instances to crunch numbers for a mere day?  What if a bunch of hackers got serious about cracking a set of passwords and decided to pool all of their resources together?</div><div><h2><a name="TOC-Rainbow-Tables-and-Salts" />Rainbow Tables and Salts</h2><div>There are additional password cracking techniques out there to speed up the cracking.  One of them is called "rainbow tables", which is where some hashes are partially generated ahead of time, saving the up-front cost of starting a hash over and over.  It really speeds up the efforts when used against a susceptible cipher.  By "really speeds up", I am talking about cutting days of cracking down to just minutes.</div></div><div><br /></div><div>System administrators have tried to combat this issue by using "salts" with passwords.  A simple way to think of the salt is to take the hash of your password with "blah blah blah blah blah" at the end of it.  Because it is significantly longer, the salted password takes far longer to compute.  A better salt would add "blah blah blah blah blah" to the hash and then hash that again, but we don't need to go into that here.  I merely wanted to point out that there are techniques that can be applied to slow down the process.</div><div><h2><a name="TOC-Precautions-You-Need-To-Take" />Precautions You Need To Take</h2><h4><a name="TOC-Never-reuse-passwords-" />Never reuse passwords!</h4><div>If Mr. Evil Hacker gets your username and password from one website you visit, would you want Mr. Evil Hacker to also be able to get into your email?  Bank account?  Many people made the mistake of using the same password for LinkedIn as they did for other sites.  Now, one must assume that all of the sites are compromised and your personal information may have been leaked to unsavory characters.</div><h4><a name="TOC-Don-t-write-passwords-down" />Don't write passwords down</h4><div>You're probably thinking "How am I to remember my crazy passwords for each site?"  Writing them down leaves them in plain text.  It could be hiding on your desk or maybe a scrap of paper in your pocket, but it's insecure.  Someone could easily walk over and read your passwords.</div><div><br /></div><div>Use a password manager if that helps.  Depending on your needs, but maybe some software that runs on your phone is ideal.  Others use secure storage of passwords in their web browsers, like Chrome and Firefox; it is best to guard this with a "master password".  There are online password storage solutions like <a href="https://lastpass.com/">LastPass</a> and <a href="http://clipperz.com/">Clipperz</a> that can integrate into your browser.  Just make sure you can back up the storage of the passwords and that you can get the passwords easily whenever you need them.</div><div><br /></div><div>Make up stories and use the third letter of each word for your password.  Or the first.  Or use poems.  Keep a book with you and assign each site a page number, then use the 10th letter from each line down the page.</div><div><br /></div><div>Use <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> or another system to generate truly random passwords.  Diceware uses a large table of English words, so use this method only when you can make passwords of tolerable length.  I would use at least five different words before feeling good about a random website.</div><h4><a name="TOC-Use-randomly-generated-passwords" />Use randomly generated passwords</h4><div>This eliminates the bias that people use when generating passwords.  If an attacker knows you speak English, they will probably generate passwords that look like English words.  "gpdswoir" is far stronger than "homework" even though they are the same length.  That's because Mr. Evil Hacker will first attempt to use a wordlist like I did to get as many passwords as possible.</div><div><br /></div><div>Even the tips of "add a number at the end" and "change i into ! and a into @" are represented in mutation rules that can be applied to wordlists.  Your password really isn't much stronger since it is, in the end, just a dictionary word.</div><h4><a name="TOC-Use-different-types-of-characters" />Use different types of characters</h4><div>Usually, randomly generated passwords usually mix in uppercase, lowercase, numbers, and symbols.  Let's say you only used lowercase letters.  You would have only 26 options available at each position of your password.  This is called your keyspace.  To calculate the number of possibilities for a given password length, you multiply the keyspace by itself.  If you are looking for any single-letter lowercase "password", you have a mere 26 options.  If you want all two-letter passwords, that would be 26 * 26 (26^2) = 676 options.  If a site forces all passwords to lowercase or uppercase and you type in an 8-letter word, that's only 208 billion possibilities, or 2.0x10^11.</div><div><br /></div><div>208 billion!  That's a lot, you may think.  Even with hundreds of billions of possibilities, it looks like it would only take 414 hours to go through them <i>all</i> on my computer.  Yep, if you used 8 or fewer characters in your password, it doesn't really pose a challenge and I would certainly get it if I tried.  With the advanced algorithms out there and wordlists, I'll probably still be able to crack most password hashes in the first 24 hours.</div><div><br /></div><div><div>So, those 208 billion possibilities (or 2.0x10^11 possibilities) is not nearly large enough to thwart a concentrated attack.  We're going to start dealing with really large numbers here and your goal is to make the exponential part (the "11") much larger.  Each time you can get the exponential part even a single digit larger, it takes 10 times the computing power to search all possibilities.</div></div><div><br /></div><div>By using different types of characters, such as uppercase, numbers and symbols, you increase the keyspace dramatically.  Instead of a keyspace of merely 26, now you increase it to 26 (lowercase) + 26 (uppercase) + 10 (numbers) + 32 (symbols) = 94 characters.  A randomly generated 8-character password using a keyspace this large can make about 6.01 quadrillion different passwords, or 6.0x10^15.  Again, we should focus on that "15".  We just made your password 10,000 times harder to guess.</div><div><br /></div><div>According to my computer's statistics, my laptop could crack any 8-character password in about 1,100 days.  Assume hackers coordinate their attack and pool their resources.  Let's say we get a team of merely 100 hackers, each with 10 big machines (potentially a REALLY low estimate).  With this dedicated group of hackers and access to more powerful machines, all 8-character passwords could be cracked in just over a day (about 26-27 hours).  With botnets and hundreds of thousands of drone computers at your disposal, you could crack this in hours or minutes.</div><h4><a name="TOC-Size-really-matters" />Size really matters</h4><div>Each character increases the difficulty of the hack exponentially.  Depending on your keyspace, this could mean significant changes.  Assuming your keyspace of 95 characters and a length of 8, there are 6.6x10^15 possibilities.  By including just one more random character, we can generate 6.3x10^17.  One extra keypress means it is almost 100 times harder to guess.  The cracking time for my laptop went from about 1,100 days to about 105,000 days.  The dedicated group of hackers now would spend 1/3 of a year instead of a day.  A botnet equivalent to 100,000 of my laptops would still get this password in just one day.</div><div><br /></div><div>If a site lets you use 12 characters, that's far better.  If the site doesn't restrict length, you could use 20 or more characters.  With a 95-character keyspace, 12 characters can produce 5.2x10^23 possibilities and 20 characters can make 3.5x10^39 different combinations.  We're going for computationally infeasible, and this certainly qualifies.</div><h4><a name="TOC-Use-spaces-too" />Use spaces too</h4><div>There's a lot of password crackers out there that don't crack multi-word passwords by default.  At least add the 96th character to the keyspace.  With an 8-character password, we increase from 6.6x10^15 to 7.2x10^15, which is only a minor jump, but we've now eliminated the normal use of wordlists and people will have to crack your password using non-default techniques.</div><h4><a name="TOC-Change-your-password" />Change your password</h4><div>The longer that someone has to crack your password, the more likely they will get it.  Why leave that window of opportunity open for so long?  I'm not advocating changing your passwords daily (which can also be a security risk), but perhaps change them yearly, or change the ones you care about with every season.</div><h4><a name="TOC-If-there-is-a-breach-change-your-password-right-away" />If there is a breach, change your password right away</h4><div>It's likely hackers had your password in their hands for quite a while before a company admits it was hacked.  Before I got an email from LinkedIn, I had the 6.5 million password hashes in my hands and already found that a password matching mine was leaked.</div><h4><a name="TOC-Use-two-factor-authentication-when-possible" />Use two-factor authentication when possible</h4><div>Not many places let you do this, but it is difficult for people to guess a password.  It is next to impossible for them to just guess your password and the number from a two-factor authentication method.  There is software for smartphones and key fobs that can be tied to web sites to generate a new number every minute automatically.  Instead of just relying on something you know (your password), they also rely on something you have (the number generator).</div><h4><a name="TOC-Assume-there-is-no-security" />Assume there is no security</h4><div>Often there isn't any.  Lots of sites store your password without any encryption or in a way where they can get the original password back.  Other sites mess up and encrypt the password poorly or rely on obfuscation instead of real security.</div></div><div><br /></div><div>If someone gets into one of your accounts, they may try that username and email address with that password elsewhere.  They might be able to see the password recovery questions and answers, then try to use those on other sites.  If they hacked your email address, they might try getting your password reset on sites and intercept the email so they can now gain access to additional sites.  Be careful.  If your information gets exposed, you may be at a bigger risk than you realize.  Plan carefully and try to make each account as individual and separate as possible.</div><div><br /></div><div>When you assume your password will be compromised and you plan for it, then news of password leaks at LinkedIn (or any other place) won't have you worried at all.</div></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/passwordsecurity" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/7416407566608230844" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/7416407566608230844" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/7416407566608230844" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>passwordsecurity</sites:pageName><sites:revision>1</sites:revision></entry><entry gd:etag="&quot;YDgpeyY.&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/3285020965539265901</id><published>2012-02-25T18:34:31.804Z</published><updated>2012-06-08T17:29:38.852Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2012-06-08T17:29:38.091Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>VMWare Tweaks</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">I use a virtual machine at work.  I've tried using VirtualBox, but I like VMWare Player a little more, especially since I have tweaked some settings to make it work better and changed it to be less obtrusive.<br />
+<h2><a name="TOC-Stopping-Continual-Writes-To-Disk" />Stopping Continual Writes To Disk</h2>
+First and foremost, my largest complaint with VMWare is how it always writes to the hard drive.  At times my Windows laptop would hang or be severely bogged down.  My hard drive light would blink every second or two.  I thought it might be the anti-virus software scanning or noticing changes in the <code>*.vmdk</code> file where the virtual disk image is stored.  It turns out that VMWare is constantly writing out the contents of the virtual machine's memory to disk.  To disable this feature, we need to edit <code>config.ini</code>; on Windows 7 this file is located at "<code>C:\Users\YourUsername\Application Data\VMWare\config.ini</code>".  You will have a difficult time browsing to this location since the <code>Application Data</code> folder is hidden by Windows, but you could open Notepad, use File -&gt; Open, then paste in the filename.<br /><br />
+There might not be a <code>config.ini</code> that exists already.  If that's the case, you will need to make a new file.  Once you have this file open in notepad, add this line anywhere inside.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>mainMem.useNamedFile = FALSE</code></div><div><br /></div>
+Save the file and close Notepad.  If you had VMWare Player open, you will need to close that too before opening another virtual machine.  I've heard that this sort of option works for VMWare Workstation too, but you should reboot or restart all of the VMWare services.  Once you start up the next virtual machine, you shouldn't see the weird hard drive blinking going on any longer.<br />
+<h2><a name="TOC-Hotkey-and-Fullscreen-Preferences" />Hotkey and Fullscreen Preferences</h2>
+There are a bunch of additional settings you can change which are not available in the VMWare Player's GUI, but are still honored by the program.  Your preferences file on Windows 7 is saved in "<code>C:\Users\YourUsername\Application Data\VMWare\preferences.ini</code>", and you can use Notepad (described above) to open this file as well.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><font color="#006000" face="monospace">pref.hotkey.gui = "true"<br />
+</font><span style="color:rgb(0,96,0);font-family:monospace">pref.hotkey.shift = "true"<br />
+</span><span style="color:rgb(0,96,0);font-family:monospace">pref.hotkey.control = "true"<br />
+</span><span style="color:rgb(0,96,0);font-family:monospace">pref.hotkey.alt = "true"</span></div><div><br /></div>
+Setting these properties will change what you hotkey is.  By default it is control + alt, which is also how I switch desktops in my Ubuntu guest OS.  I switched it to use all four keys - the Widows key (gui), shift, control and alt.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><font color="#006000" face="monospace">pref.vmplayer.fullscreen.autohide = "TRUE"<br />
+</font><span style="color:rgb(0,96,0);font-family:monospace">pref.fullscreen.toolbarpixels = "0"</span></div><div><br /></div>
+The above two properties will change the toolbar when you fullscreen the application into one that will automatically hide.  This gets almost all of the VMWare Player UI out of the way so you can focus entirely on the guest OS.  I also shrink the size of the hidden toolbar; I specify 0 pixels, but it still has a couple there on top.  It's hardly noticeable so I don't mind much.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><span style="color:rgb(0,96,0);font-family:monospace">hints.hideAll = "true"<br />
+</span><span style="color:rgb(0,96,0);font-family:monospace">pref.vmplayer.exit.vmAction = "poweroff"</span></div><div><br /></div>
+Lastly, I hide all of the silly hints that VMWare Player likes to keep popping up, plus I like changing the close button's behavior to power off the machine instead of suspend.  Both of these are available in the GUI, but I thought I'd include them here since I use them all the time.<br /></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/vmware-tweaks" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/3285020965539265901" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3285020965539265901" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3285020965539265901" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>vmware-tweaks</sites:pageName><sites:revision>4</sites:revision></entry><entry gd:etag="&quot;YDUpeyY.&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/2018478837188101390</id><published>2012-01-12T23:19:37.679Z</published><updated>2012-06-08T17:28:28.399Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2012-06-08T17:28:27.520Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>Shrinking VM Disk Images</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">I have been asked to compress dynamically-sized virtual disk images more than once.  These instructions can apply to VMDK files (common for VMWare) and VMI files (VirtualBox).  This sort of request seems to come up every year or two for me.  Usually it is because some place is gearing up to distribute these disk images and serving up gigs of data is undesirable.<br /><br />
+I come up with the same sort of steps time and time again.  Instead of recreating this work for the next time I get asked, I'm posting these instructions online to record them publicly.  I've found that they are more thorough than what I find on other sites, so perhaps you could benefit from these instructions too.<br />
+<h2><a name="TOC-First-Step---Backup" />First Step - Backup</h2>
+Make a backup.  The steps below can really destroy images; follow them AT YOUR OWN RISK.<br />
+<h2><a name="TOC-Reconfigure-The-Machine" />Reconfigure The Machine</h2>
+Before you distribute the disk image around, you may need to tweak the configuration so that other virtualization tools will work with your image correctly.<br />
+<h3><a name="TOC-Disable-Network-Configs-Via-MAC-Addresses" />Disable Network Configs Via MAC Addresses</h3>
+If you use kudzu, you should disable it or it may prompt you when you start up the VM and it has a new MAC address.  Kudzu ships with older Red Hat and CentOS.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>chkconfig kudzu off</code></div><div><br /></div>
+Newer systems use udev.  You can disable the persistent network connections with these commands.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>rm /etc/udev/rules.d/70-persistent-net.rules<br />
+cd /lib/udev/rules.d<br />
+rm 75-persistent-net-generator.rules &amp;&amp; touch 75-persistent-net-generator.rules<br />
+</code></div><div><br /></div>
+You will also need to make sure you networking scripts don't have hardcoded HWADDR lines.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>cd /etc/sysconfig/network-scripts</code><br />
+<code>perl -pi -e "s/^HWADDR/#HWADDR/" ifcfg-eth*</code></div>
+<h2><a name="TOC-Free-More-Space" />Free More Space</h2>
+It is a common misconception that deleting files on your dynamically sized disk image will make the disk image shrink.  This is not true - the virtual machine software doesn't peek into the filesystem to determine that sectors aren't needed any longer.  More on this later ...  For now, let's focus on making some room.<br /><br />
+Delete temp files.  They shouldn't be needed.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code># Linux variants<br />
+find /tmp /var/tmp -mindepth 1 -maxdepth 1 -exec rm -rf \{\}</code></div><div><br /></div>
+If you are on Windows, you can usually delete the files in C:\Windows\Temp or use a program like <a href="http://www.piriform.com/ccleaner">CCleaner</a> to thoroughly scrub away temporary files and unused garbage.<br /><br />
+Clean your package manager's cache on Linux:<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code># Red Hat, CentOS</code><br />
+<code>yum clean all<br />
+<br />
+# Debian, Ubuntu<br />
+apt-get clean<br />
+apt-get autoclean<br />
+</code></div><div><br /></div>
+Also, you could clean out logs in /var/log.  This section could be improved - just let me know other things that could be cleaned out.<br /><br />
+<h3><a name="TOC-Defragment-The-Drive" />Defragment The Drive</h3>
+This step really isn't needed, but it could help to squeeze out a few more bytes if you are really concerned.  There's really no defrag for Linux.  For Windows, I suggest using <a href="http://ultradefrag.sourceforge.net/">UltraDefrag</a>.<br />
+<h2><a name="TOC-Wiping-Free-Space" />Wiping Free Space</h2>
+Even after you delete the files, the hard drive image still has the contents of the old file on it.  This is why programs like <a href="http://www.cgsecurity.org/wiki/PhotoRec">photorec</a> can work.  We need to wipe the data clean off the drive by writing NULL (hex 0x00) bytes to all of the free areas on the drive.  This still doesn't make the image any smaller.  More on this later ...<br />
+<h3><a name="TOC-Wiping-Linux-From-CD" />Wiping Linux From CD<br />
+</h3>
+The easiest way to wipe extfs filesystems (ext2, ext3, ext4) is with <a href="/">zerofree</a>.  It's the faster choice.  You can download the iso image of <a href="http://partedmagic.com/">Parted Magic</a> and configure your VM to mount that as a virtual CD-ROM.  Boot from it, then open a terminal by clicking on the black monitor icon at the bottom.  From there, it is a few simple commands:<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code># Wipe a hard drive partition.  Let's say that /dev/sda1 is for /boot and /dev/sda2 is /root</code><br />
+<code>zerofree -v /dev/sda1</code><br />
+<code>zerofree -v /dev/sda2</code><br />
+<br />
+<code># Do you use LVM?  Don't forget that your device name may differ from mine.</code><br />
+<code># If you are unsure which device, look in /dev/mapper</code><br />
+<code>vgchange -a y</code><br />
+<code>zerofree -v /dev/mapper/VolGroup00_LogVol00</code></div><div><br /></div>
+Now we can also wipe the swap.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code># If swap is a normal partition ... make sure you know which partition it is!</code><br />
+<code># You can also use ddrescue or dd_rescue instead</code><br />
+<code>dd if=/dev/zero of=/dev/</code><code>sda3</code><code> bs=1M</code><br />
+<br />
+<code># If you use LVM, the device will be under /dev/mapper instead</code><br />
+<code>dd if</code><code>=/dev/zero of=/dev/mapper/</code><code> bs=1M</code></div><div><br /></div>
+Guarantee we're done and shut down.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>sync</code><br />
+<code>shudown -h now</code></div>
+<h3><a name="TOC-Wiping-Linux-From-Itself" />Wiping Linux From Itself</h3>
+You can also use zerofree on the system if you prevent things from writing to the disk.  This is a bit more risky.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block">
+<code># Shut down to single user mode</code><br />
+<code>init 1</code><br />
+<br />
+<code># Remount the drive read only</code><br />
+<code># If you get errors, use "fuser -m /" to see process IDs that have open files</code><br />
+<code># Once they get killed or handled, then try this command again</code><br />
+<code>mount -o remount,ro /</code><br />
+<br /><br />
+<code># Start wiping, assuming that the drive mounted to / is /dev/sda2</code><br />
+<code>zerofree -v /dev/sda2</code><br />
+<br />
+<code># Wipe the boot partition, assuming you have one and it is /dev/sda1</code><br />
+<code>zerofree -v /dev/sda1</code><br />
+<br />
+<code># Clear the swap space</code><code>, assuming it is /dev/sda4</code><br />
+<code>swapoff</code><br />
+<code>dd if=/dev/zero of=/dev/sda4 bs=1M</code><br />
+<code>mkswap /dev/sda4</code><br />
+<br />
+<code># Guarantee we did things</code><br />
+<code>sync</code><br />
+<br />
+<code># Done.  Shut down the machine now!</code><br />
+<code>shutdown -h now</code><br />
+</div>
+<h3><a name="TOC-Wiping-Windows-From-Itself" />Wiping Windows From Itself</h3>
+There are a couple tools that I'd recommend.  First, <a href="http://www.piriform.com/ccleaner">CCleaner</a> has added a built-in disk wiping utility.  It's easy to use.  Alternately, <a href="http://www.heidi.ie/eraser/">Eraser</a> also is a nice tool with a GUI.  If command-line tools are more your thing, check out  <a href="http://technet.microsoft.com/en-us/sysinternals/bb897443">SDelete</a> from Microsoft's site, then open a command prompt and run it.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>sdelete /c c</code></div>
+<h3><a name="TOC-Wiping-Linux-By-Filling-The-Disk" />Wiping Linux By Filling The Disk</h3>
+As a last resort, you can use "dd" to fill a disk.  I suggest you boot from a bootable CD image, mount your filesystem, then run dd.  That way you can prevent many bad things from happening.  Either way, you'd be executing commands such as this<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>cd /mount_point_I_want_to_fill</code><br />
+<code>dd if=/dev/null of=empty_file</code><br />
+<code>rm empty_file</code></div>
+<h3><a name="TOC-Wiping-Windows-By-Filling-The-Disk" />Wiping Windows By Filling The Disk</h3>
+It is better to not fill your hard drive with a big empty file, but these instructions are provided in case you really don't have a better way.<br /><br />
+You can use nullfile to create this huge, empty file; <a href="http://www.feyrer.de/g4u/">Harddisk Image Cloning for PCs</a> has links to the software.  I'd suggest using Control-F to find "nullfile" instead of scrolling.  All you need to do is double-click to run it.<br /><br />
+There is also a <a href="http://www.chrysocome.net/dd">Windows port of dd</a> that works very similarly to the Unix version.  Open a command prompt and run these commands to fill your disk<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>dd if=/dev/zero of=empty_file bs=1M</code><br />
+<code>del empty_file</code></div>
+<h2><a name="TOC-Resizing-The-Disk-Image" />Resizing The Disk Image</h2>
+Finally, after we freed up lots of space and wiped the space with zeros, we can now shrink the image.  The virtualization software would have too big of a burden to resize the disk image on the fly to get smaller.  Maybe it can be smart and do this in the background someday, but for now we are forced to manually resize the file ourselves.  Here's all of the solutions I know about.  I haven't had any need to start VMs on Linux or MacOS, but the instructions below should be similar to your install.<br />
+<h3><a name="TOC-VMWare-Server-s-Utility---Windows-Host" />VMWare Server's Utility - Windows Host</h3>
+VMWare Server comes with vmware-vdiskmanager, which can shrink .vmdk files.  Open up a command prompt and run vmware-vdiskmanager.<br />
+<br />
+<div class="sites-codeblock sites-codesnippet-block"><code>"C:\Program Files\VMware\VMWare Server\vmware-vdiskmanager" -k my_disk_image.vmdk</code><br /></div><br /><h3><a name="TOC-VMWare-Player---Windows-Host" />
+VMWare Player - Windows Host</h3>
+Open up VMWare Player and edit the virtual machine.  Select the hard disk, then there's a button on the right that says Utilities.  Under that drop-down menu is an option, "Compact".  Presto-chango, you are done.<br />
+<h3><a name="TOC-VirtualBox---Windows-Host" />VirtualBox - Windows Host<br />
+</h3>
+The VBoxManage command can use "modifyhd" to shrink .vdi files but there is no support for shrinking .vmdk files, which VirtualBox can also read and write.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>"C:\Program Files\Oracle\VirtualBox\VBoxManage" modifyhd my_disk_image.vdi --compact</code><br /></div><br />
+Alternately you can copy the disk to a new image, but this changes the UUID.  By changing the format parameter, you can change it to a VMDK file or other types.  When you do this, you'll need to go to VirtualBox and remove the old disk image and attach the new one, then you can finally delete the big disk image.<br /><br />
+<div class="sites-codeblock sites-codesnippet-block"><code>"C:\Program Files\Oracle\VirtualBox\VBoxManage" clonehd my_disk_image.vdi my_shrunken_image.vdi --format VDI</code><br /></div><br />
+<h3><a name="TOC-Vagrant" />Vagrant</h3>
+When Vagrant makes a new package, it will automatically clone the hard drive, which uses the virtualization software's process for copying a hard drive.  This won't copy the blank sections of the disk, making a smaller image automatically.<br />
+<h1><a name="BuildingaVagrantBoxforRedistribution-WipingFreeSpace" /></h1></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/shrinking-vm-disk-images" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/2018478837188101390" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/2018478837188101390" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/2018478837188101390" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>shrinking-vm-disk-images</sites:pageName><sites:revision>9</sites:revision></entry><entry gd:etag="&quot;YDgpeyY.&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/5976853504124573808</id><published>2011-09-12T22:30:38.093Z</published><updated>2012-06-08T17:25:28.375Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2011-09-13T17:45:55.177Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>Escaping Strings</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">There is a lot of confusion out there about the proper way to escape strings in different languages for different purposes.  I recently had a discussion with an acquaintance regarding the correct way to escape a regular expression in PHP.  To that end, I wrote up an email to him in an attempt to explain why I said he didn't have enough backslashes.
+<div><br />
+</div>
+<div>Let's pretend we want to write a regular expression to remove all periods.  I'm using only a couple languages to better illustrate my point, and please don't mention that the JavaScript one doesn't really need a RegExp object.  Remember, this code is designed to show you a tricky part about escaping.</div>
+<div><br />
+</div>
+<div />
+<div class="sites-codeblock sites-codesnippet-block">
+
+<div><code>// Version 1</code></div>
+<div><code><br />
+</code></div>
+<div><code>// PHP</code></div>
+<div><code>$result = preg_replace("/./", "", $input);</code></div>
+<div><br />
+</div>
+<div><code>// JavaScript</code></div>
+<div><font color="#3399ff" face="monospace">var regexp = new RegExp(".");</font></div>
+<div><font color="#3399ff" face="monospace">var result = input.replace(regexp, "");</font></div>
+</div>
+<div><br />
+</div>
+There, done.  Oh wait, I forgot to escape the period in the string!  Regular expressions will match any character on a period, so we need to put a backslash before the period so the engine knows we want to match just periods.
+<div><br />
+</div>
+<div>
+<div class="sites-codeblock sites-codesnippet-block">
+<div><code>// Version 2</code></div>
+<div><code><br />
+</code></div>
+<div><code>// PHP</code></div>
+<div><code>$result = preg_replace("/\./", "", $input);</code></div>
+<div><br />
+</div>
+<div><code>// JavaScript</code></div>
+<div><font color="#3399ff" face="monospace">var regexp = new RegExp("\.");</font></div>
+<div><font color="#3399ff" face="monospace">var result = input.replace(regexp, "");</font></div>
+</div>
+<div><br />
+</div>
+<div>There, done.</div>
+<div><br />
+</div>
+<div>Or am I?  When doing escaping in strings, the backslash character is often the indicator that the next character is treated differently.  For instance, <code>\n</code> translates to a newline character, <code>\t</code> becomes a tab character and <code>\\</code> means to put in a literal backslash character.  The real string that we want passed into the Regular Expression engine is literally, <code>\.</code> (a backslash and a period = an escaped period).  We need to take that string and then escape it <i>again</i> to embed it in our code properly.</div>
+<div><br />
+</div>
+<div>
+<div class="sites-codeblock sites-codesnippet-block">
+<div><code>// Version 3</code></div>
+<div><code><br />
+</code></div>
+<div><code>// PHP</code></div>
+<div><code>$result = preg_replace("/\\./", "", $input);</code></div>
+<div><br />
+</div>
+<div><code>// JavaScript</code></div>
+<div><font color="#3399ff" face="monospace">var regexp = new RegExp("\\.");</font></div>
+<div><font color="#3399ff" face="monospace">var result = input.replace(regexp, "");</font></div>
+</div>
+<div><br />
+</div>
+</div>
+<div>Finally our code is correct.  I've received several questions about the multiple levels of escaping, so let's anticipate some questions and provide useful answers right away!</div>
+<div><br />
+</div>
+<h4><a name="TOC-Why-are-we-escaping-the-period-twice-" />Why are we escaping the period twice?</h4>
+<div>It's because the string goes through two levels of unescaping before being used - first it goes through PHP's string unescaping and then through the regular expression engine's string unescaping.</div>
+<div><br />
+</div>
+<h4><a name="TOC-Why-does-Version-2-still-work-" />Why does Version 2 still work?</h4>
+<div>Great question, and I think this is the source of the confusion about string escaping.  Version 2 still works because <code>\.</code> doesn't "unescape" to anything.  Instead of choking and dying, the software will just let the two characters go through.  Better yet is this list of unescaped strings:</div>
+<div><br />
+</div>
+<div style="text-align:center">
+<table border="1" bordercolor="#888" cellspacing="0" style="text-align:center;margin-left:auto;margin-right:auto">
+<tbody>
+<tr>
+<td style="width:60px">Input</td>
+<td style="width:60px">Output</td>
+</tr>
+<tr>
+<td style="width:60px"><code>\</code><br />
+<code>\\</code><br />
+<code>\"</code><br />
+<code>\\"</code><br />
+<code>\n</code><br />
+<code>\\n</code></td>
+<td style="width:60px"><code>\</code><br />
+<code>\\</code><br />
+<code>\"</code><br />
+invalid<br />
+newline<br />
+<code>\n</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align:left"><br />
+</div>
+<h4><a name="TOC-If-Version-2-works-why-worry-about-proper-escaping-" />If Version 2 works, why worry about proper escaping?</h4>
+<div>It is doubtful that the string processing engine of the different languages will change much in the future.  However, it could help you avoid problems.  Let's pretend you wanted to match a literal backslash and any character.  You'd want the pattern <code>\\.</code> and in both of the example languages it should be escaped as <code>"\\\\."</code> (yeah, four backslashes = 1 literal backslash because it gets unescaped twice).  If you get your escaping messed up or don't know how many levels of unescaping will happen, you would get unexpected results.  If you only used the string <code>"\\."</code> in either language, it would match only periods, not a backslash followed by any character.</div>
+<div><br />
+</div>
+<h4><a name="TOC-In-PHP-there-are-these-single-quoted-strings-where-you-don-t-need-to-escape-..." />In PHP there are these single-quoted strings where you don't need to escape ...</h4>
+<div>Sorry, that's wrong.  You must still escape there.  Try <code>echo '\\'</code> or <code>echo '\''</code> (that's two single-quotes, not a double quote at the end).  Without the escaping in single-quoted strings, you would not be able to embed an apostrophe.  Most of the escape characters are disabled, however, so sequences like <code>\n</code> and <code>\t</code> will not produce a newline nor a tab.</div>
+<div><br />
+</div>
+<h4><a name="TOC-In-conclusion-..." />In conclusion ...</h4>
+<div>So, armed with this knowledge, I could ask you to escape the regular expression that looks for a backslash, a period, a double quote, and a slash.  You'd be able to produce the following:</div>
+<div><br />
+</div>
+<div>
+<div>
+<div class="sites-codeblock sites-codesnippet-block">
+<div><code>// Looking for:  \."/</code></div>
+<div><code>// Escaped for Regular Expression:  \\\."/ </code></div>
+<div><code><br />
+</code></div>
+<div><code>// PHP - Escape backslashes, slash, double quote</code></div>
+<div><code>$result = preg_replace("/\\\\\\.\"\\//", "", $input);</code></div>
+<div><br />
+</div>
+<div><code>// JavaScript - Escape backslashes and double quote</code></div>
+<div><font color="#3399ff" face="monospace">var regexp = new RegExp("\\\\\\.\"/");</font></div>
+<div><font color="#3399ff" face="monospace">var result = input.replace(regexp, "");</font></div>
+</div>
+</div>
+</div>
+</div></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/escaping-strings" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/5976853504124573808" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/5976853504124573808" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/5976853504124573808" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>escaping-strings</sites:pageName><sites:revision>4</sites:revision></entry><entry gd:etag="&quot;YDkpeyY.&quot;"><id>http://sites.google.com/feeds/content/site/minimifidianism/440193415589313487</id><published>2012-01-14T03:47:21.277Z</published><updated>2012-06-08T17:25:22.921Z</updated><app:edited xmlns:app="http://www.w3.org/2007/app">2012-06-08T17:25:21.464Z</app:edited><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/sites/2008#announcement" label="announcement" /><title>Best Programming Language?</title><content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr">Occasionally, people will foolishly ask me for what I believe is the best programming language available. My answer is usually, "What are you trying to do?"  My belief is that some languages are better than others for particular tasks.  For instance, one would want to write graphics drivers in C, C++ or assembly for speed.  Likewise, we write applications on the web using a mix of JavaScript and some sort of scripting language backend such as Ruby or PHP.  To get at the core of the issue, first we must understand our restrictions and our goal.  After we truly understand where we want to go, often a particular language will win over the others.<br /><br />
+Often times it will be a language that is interpreted because they will handle more of the nitty-gritty things for the programmer.  This is a huge benefit since programmers will only pump out X many lines of code per day.  You'll want those lines of code to be in as high of a language as possible; in assembler you can probably write an itty bitty function in 7 lines of code, but in node.js you can write an HTTP proxy.  Higher level languages will let programmers be far more productive.<br />
+<h2><a name="TOC-Hackers-and-Painters" />Hackers and Painters</h2>
+In Hackers and Painters by Paul Graham, there is much talk about Lisp and how this mathematical language is still very powerful.  Graham attributes this to nine aspects that Lisp has that were new to languages of that era.<br />
+<h4><a name="TOC-1---Conditionals" />1 - Conditionals</h4>
+This would be your standard if / else block.  At the time, there were machine-specific comparisons and then you would use a goto.  Today, a language that doesn't support "if" statements is not considered a real language.<br />
+<h4><a name="TOC-2---A-function-type" />2 - A function type</h4>
+In Lisp, a variable can hold a number, string, or a function.  Functions can even be passed as arguments. Some languages today implement this, but certainly not all.<br />
+<h4><a name="TOC-3---Recursion" />3 - Recursion</h4>
+Lisp functions can call themselves.  Other languages perhaps looped, had to manually handle the stack for arguments, or needed to employ tricky tactics to get the job done in a similar method.<br />
+<h4><a name="TOC-4---Dynamic-typing" />4 - Dynamic typing</h4>
+A variable can hold a string, number, function, or other forms of data.  One does not need to declare the datatype ahead of time.  With Lisp, variables are essentially pointers to data and the data is what has a type.  Assigning a value to a variable merely copies the pointer.<br />
+<h4><a name="TOC-5---Garbage-collection" />5 - Garbage collection</h4>
+When you were done using up memory, you would normally have to free it.  With Lisp, the variables would be deallocated eventually and automatically.<br />
+<h4><a name="TOC-6---Programs-composed-of-expressions" />6 - Programs composed of expressions</h4>
+Lisp doesn't distinguish between expressions and statements.  An expression calculates a result (like "4 + 5") and can be viewed like a phrase.  A statement also does something with the result (like "x = 4 + 5") and can be understood like a whole sentence.  In Lisp, when an expression is evaluated it always produces a result, which can be fed into another expression to build another result.<br />
+<h4><a name="TOC-7---A-symbol-type" />7 - A symbol type</h4>
+References to a symbol are really pointers to strings in a hash table.  Ruby has this concept, and it makes comparisons much faster.  If you have a certain string in your code multiple times because you are comparing it here and there and everywhere, symbols would have one copy of the string in memory and every time you used it there would just be a pointer to that one string.  On the other hand, in C you would end up with multiple copies of your string.<br />
+<h4><a name="TOC-8---A-notation-for-code-using-trees-of-symbols-and-constants" />8 - A notation for code using trees of symbols and constants</h4>
+When in memory, programs are written as lists of symbols and constants.  These lists may also contain lists, and those might contain lists, etc.  Thus, all of Lisp is stored in trees internally.<br />
+<h4><a name="TOC-9---The-whole-language-there-all-the-time" />9 - The whole language there all the time</h4>
+This one is aimed at the parser, compiler and runtime being always available.  While reading code it could execute code to reprogram Lisp's syntax.  While executing code it could compile more code to extend Language.  One could run code to parse more data, perhaps as a form of communication with another piece of software.<br /><br />
+
+One problem with the book Hackers and Painters is that they do not go into why this sort of thing would be powerful and why it gives Lisp such an advantage over other languages.  It discusses partly that since programs are just lists and functions can be treated the same as any other variable, one can mutate functions and alter how they run without much fuss.  That sort of flexibility might give huge amounts of power, but unfortunately I have not yet been witness to where that's a good idea and other languages didn't have a solution that would work for them as well.<br />
+<h2><a name="TOC-Today-s-Languages" />Today's Languages</h2>
+Lisp has the above things and was designed in the 1950's, and it appears that other languages have been trying to achieve many of the above items after learning that they do work well.  Here, I shall attempt to compare other languages with some of the above criterion that set Lisp apart from other languages.  I'm going to exclude some that are in every modern language and also remove the "notation for code using trees" since that's how one language works internally, which may or may not actually empower the programmer.<br />
+<h4><a name="TOC-Attributes" />Attributes</h4>
+
+<ol><li><b>[Fn]</b> Functions can be assigned to variables</li>
+<li><b>[Dyn]</b> Dynamic typing</li>
+<li><b>[Gc]</b> Garbage collection</li>
+<li><b>[Sym]</b> Symbol type (natively)</li>
+<li><b>[All]</b> Whole language there (eg. can use "eval")</li>
+<li><b>[R]</b> REPL: Read, eval, print loops</li>
+</ol>
+<h4><a name="TOC-Language-comparison" />Language comparison</h4>
+
+<table border="1" bordercolor="#888" cellspacing="0" style="border-collapse:collapse;border-top-color:rgb(136,136,136);border-right-color:rgb(136,136,136);border-bottom-color:rgb(136,136,136);border-left-color:rgb(136,136,136);border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px">
+<tbody>
+<tr>
+<td style="text-align:center"><b>Language</b></td>
+<td style="text-align:center"><b>[Fn]</b></td>
+<td style="text-align:center"><b>[Dyn]</b></td>
+<td style="text-align:center"><b>[Gc]</b></td>
+<td style="text-align:center"><b>[Sym]</b></td>
+<td style="text-align:center"><b>[All]</b></td>
+<td style="text-align:center"><b>[R]</b></td>
+</tr>
+<tr>
+<td style="text-align:center"><b>C</b></td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center"><b>Java</b></td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center"><b>JavaScript</b></td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:center"><b>Lisp</b></td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:center"><b>PHP</b></td>
+<td style="text-align:center">Partial</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Partial</td>
+</tr>
+<tr>
+<td style="text-align:center"><b>Ruby</b></td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:center"><b>Visual Basic</b></td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table><br /><div>
+PHP can pass closures as functions but doesn't treat all functions this way.  The command-line interface does have an interactive mode, but it won't load library functions by default.</div></div></td></tr></tbody></table></div></content><link rel="http://schemas.google.com/sites/2008#parent" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/3682901256327352123" /><link rel="alternate" type="text/html" href="http://sites.google.com/site/minimifidianism/programming/best-programming-language" /><link rel="http://schemas.google.com/sites/2008#revision" type="application/atom+xml" href="http://sites.google.com/feeds/revision/site/minimifidianism/440193415589313487" /><link rel="self" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/440193415589313487" /><link rel="edit" type="application/atom+xml" href="http://sites.google.com/feeds/content/site/minimifidianism/440193415589313487" /><author><name>Tyler Akins</name><email>minimifidianism@gmail.com</email></author><sites:pageName>best-programming-language</sites:pageName><sites:revision>5</sites:revision></entry></feed>
