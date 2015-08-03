@@ -1,0 +1,6 @@
+Name: Colemak
+Author / Maintained by: MechKB - Roli
+Date last updated: 15/01/14
+Keyboard Model(s): Deck Hassium Pro
+Description: A Colemak layout following http://colemak.com/wiki/images/8/80/Col ... yout_2.png.
+http://colemak.com/wiki/images/8/80/Colemak_layout_2.png

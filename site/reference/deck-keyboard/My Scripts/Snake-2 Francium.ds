@@ -1,0 +1,77 @@
+print all,0
+b=255
+r0=100
+
+start:
+
+if r1 < 4 then
+   pset r1, 0
+   r1 = r1 +1
+   wait r0
+   goto start
+end if
+
+loop1:
+
+r1 = 0
+
+loop2:
+if r1 < 14 then
+   pset r1, r2, 0
+   r3 = r1 +4
+   pset r3, r2
+   r1 = r1 +1
+   wait r0
+   goto loop2
+end if
+   
+   r3 = r2 + 1
+   r4 = 19
+
+loop3:
+if r1 < 19 then   
+   pset r1, r2, 0
+   pset r4, r3,255
+   r4 = r4 - 1
+   r1 = r1 + 1
+   wait 100
+   goto loop3
+end if
+
+   r2 = r2 + 1
+
+loop4:
+if r1 >= 4 then 
+   pset r1, r2, 0
+   r4 = r1 - 4
+   r1 = r1 -1
+   pset r4, r2
+   wait r0
+   goto loop4   
+end if
+
+
+   r3 = r2 + 1
+   r4 = 0
+loop5:
+if r1 >= 0 then
+   pset r1, r2,0
+   pset r4, r3,255
+   r1 = r1 - 1
+   r4 = r4 + 1
+   wait r0
+   goto loop5
+end if
+
+if r5 < 2 then   
+   r2 = r2 + 1
+   r5 = r5 + 1
+   goto loop1
+else
+   r1 = 0
+   r2 = 0
+   r5 = 0 
+   goto start
+end if
+
+end

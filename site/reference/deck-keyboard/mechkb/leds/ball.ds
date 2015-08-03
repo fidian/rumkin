@@ -1,0 +1,78 @@
+' Ball bouncing
+' FIXME: the pattern repeats too quickly
+
+cls
+
+' Head of ball trail
+r0 = 0
+r1 = 1
+r2 = 1
+r3 = 1
+
+' Tail of ball trail
+r4 = r0
+r5 = r1
+r6 = r2
+r7 = r3
+
+' How far back the tail should trail the head
+r8 = 3
+
+' Speed of ball, lower is faster
+r10 = 50
+
+start:
+
+	' Head
+	pset r0, r1, 255
+
+	r0 = r0 + r2
+	r1 = r1 + r3
+	if r0 > 14 then
+		r2 = -r2
+		r0 = r0 + r2
+	end if
+	if r0 < 0 then
+		r2 = -r2
+		r0 = r0 + r2
+	end if
+	if r1 > 4 then
+		r3 = -r3
+		r1 = r1 + r3
+	end if
+	if r1 < 1 then
+		r3 = -r3
+		r1 = r1 + r3
+	end if
+
+	' Tail
+	if r8 > 0 then
+		r8 = r8 - 1
+		goto start
+	end if
+
+	pset r4, r5, 0
+
+	r4 = r4 + r6
+	r5 = r5 + r7
+	if r4 > 14 then
+		r6 = -r6
+		r4 = r4 + r6
+	end if
+	if r4 < 0 then
+		r6 = -r6
+		r4 = r4 + r6
+	end if
+	if r5 > 4 then
+		r7 = -r7
+		r5 = r5 + r7
+	end if
+	if r5 < 1 then
+		r7 = -r7
+		r5 = r5 + r7
+	end if
+
+	wait r10
+
+	goto start
+end

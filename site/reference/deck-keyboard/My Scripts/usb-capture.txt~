@@ -1,0 +1,6 @@
+Lots of bluetooth mouse events between things.  Sorry
+
+Send blank script to slot 0
+Send sample 1 (Francium version) to slot 1
+Fetch keymap from keyboard
+Store same keymap to keyboard

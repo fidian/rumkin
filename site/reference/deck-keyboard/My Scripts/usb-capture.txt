@@ -1,0 +1,8 @@
+Lots of bluetooth mouse events between things.  Sorry.  Device is 27, IIRC
+
+Send blank script to slot 0
+Send sample 1 (Francium version) to slot 1
+Fetch keymap from keyboard (prompted for name, typed in "asdf" before transfer)
+Store same keymap to keyboard
+
+0x04 = A when coming from keyboard, as in "save file as asdf"

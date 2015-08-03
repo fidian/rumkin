@@ -1,0 +1,6 @@
+How to Use:
+Model: Select the keyboard you wish to upload to.
+Script Slot: Select the shortcut for activating your LED script.
+Keymap Upload: Uploads your existing keymap / macro configuration into a .dat file on your computer.
+Keymap download: Downloads a .dat keymap into your keyboard.
+Script download: Downloads a .ds LED script file into your keyboard.

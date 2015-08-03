@@ -1,0 +1,37 @@
+print all,0
+
+' r0:  Delay in ms
+r0 = 2000
+
+' b:  Global brightness level
+b=255
+
+' r1:  Current column
+r1 = 0
+
+' r2:  Previous column
+r2 = -1
+
+cyclotron:
+pset r2, 0, 0
+pset r2, 1, 0
+pset r2, 2, 0
+pset r2, 3,0
+pset	r2	,	4,0
+pset r2,5,0
+
+pset r1, 0
+pset r1, 1
+pset r1, 2
+pset r1, 3
+pset	r1	,	4
+pset r1,5
+wait r0
+r2=r1
+r1 = r1 + 1
+if r1 > 22 then
+	r1 = 0
+end if
+goto cyclotron
+
+end

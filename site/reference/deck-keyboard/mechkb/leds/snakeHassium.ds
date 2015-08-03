@@ -1,0 +1,60 @@
+' Snake lighting mode for Francium Pro
+
+cls
+r0 = 5					' Speed, lower is faster
+r7 = 22					' How far to the right the snake goes, 17 = Francium, 21 = Hassium?
+r8 = 25					' How long to make the snake, lower is longer, but is also slower
+r1 = 0					' Snake head X
+r2 = 0					' Snake head Y
+
+start:
+
+	' Draw from head to tail fading out LEDs as we go
+	r3 = r1
+	r4 = r2
+	r5 = r8 + 255
+	back:
+
+		r5 = r5 - r8
+		if r5 < 0 then
+			r5 = 0
+		end if
+
+		' Left-to-right for even lines, right-to-left for odd lines
+		r6 = r4 and 1
+		if r6 = 1 then
+			r6 = r7 - r3
+			pset r6, r4, r5
+		else
+			pset r3, r4, r5
+		end if
+
+		' Step back along body
+		r3 = r3 - 1
+		if r3 < 0 then
+			r3 = r7
+			r4 = r4 - 1
+			if r4 < 0 then
+				r4 = 5
+			end if
+		end if
+
+		if r5 > 0 then
+			goto back
+		end if
+
+	' Move head
+	r1 = r1 + 1
+	if r1 > r7 then
+		r1 = 0
+		r2 = r2 + 1
+		if r2 > 5 then
+			r2 = 0
+		end if
+	end if
+
+	wait r0
+
+goto start
+
+end

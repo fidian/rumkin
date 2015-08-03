@@ -1,0 +1,7 @@
+Name: 'Cylon'
+Author / Maintained by: fly-hard (reddit: http://www.reddit.com/user/fly-hard)
+Date last updated: 26/02/2014
+Gifs / Pictures:
+Image
+For Keyboard Model(s): Deck Francium and Hassium
+Description: A bar of light oscillating back and forth on the board like the eyes of Cylons of Battlestar Galatictica fame.

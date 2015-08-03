@@ -1,0 +1,24 @@
+r0 = 500
+start:
+print "<esc><f1><f3><f5><f7><f9><prtsc><pause>",255
+print "13579-<bsp><home>",255
+print "<tab>wryip]<del><PGDN>",255
+print "adgjl'",255
+print "<lshift>xvn,/<up>",255
+print "<lwin><space><ralt><left><right>",255
+
+wait r0   
+print all, 0
+
+print "<f2><f4><f6><f8>",255
+print "`24680+<ins><PGUP>",255
+print "qetuo[\<end>",255
+print "<tab>sfhk;<ent>",255
+print "zcbm.<rshift>",255
+print "<lctrl><lalt><rwin><rctrl><down>",255
+
+wait r0   
+print all, 0
+
+goto start
+end

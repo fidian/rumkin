@@ -1,0 +1,24 @@
+r0 = 500
+start:
+print "<esc><f1><f3><f5><f7><f9><f11><prtsc><pause>",255
+print "13579-<bsp><home><k*>",255
+print "<tab>wryip]<del><PGDN><k8><k+>",255
+print "adgjl'<k4><k6>",255
+print "<lshift>xvn,/<up><k2><Kent>",255
+print "<lwin><space><ralt><app><left><right><k.>",255
+
+wait r0   
+print all, 0
+
+print "<f2><f4><f6><f8><f10><f12><scroll>",255
+print "`24680+<ins><PGUP><k/><k->",255
+print "qetuo[\<end><k7><k9>",255
+print "<tab>sfhk;<ent><k5><k+>",255
+print "zcbm.<rshift><k1><k3>",255
+print "<lctrl><lalt><rwin><rctrl><down><k0>",255
+
+wait r0   
+print all, 0
+
+goto start
+end

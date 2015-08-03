@@ -1,0 +1,7 @@
+Name: Example Script
+Author / Maintained by: Deck HK
+Date last updated: Unknown
+Gifs / Pictures:
+Image
+For Keyboard Model(s): Deck Hassium Pro
+Description: LEDs light up line by line from top to bottom then from left to right.

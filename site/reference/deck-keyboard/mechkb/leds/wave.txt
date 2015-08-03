@@ -1,0 +1,7 @@
+Name: Customisable Snake
+Author / Maintained by: fly-hard (reddit: http://www.reddit.com/user/fly-hard), Edits for Hassium by MechKB/Roli
+Date last updated: 26/02/2014
+Gifs / Pictures:
+Image
+For Keyboard Model(s): Deck Francium and Hassium
+Description: A ripple / wave effect over a lightly lit board.

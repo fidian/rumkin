@@ -1,0 +1,32 @@
+Information gathered by the strings contained within DeckUtil.exe
+NOTE:  Keys ("K*") that are not on the Francium do not work and the script will not be allowed to be uploaded.  However, you are freely allowed to pset column 22 on it.
+Turning on and off F10 and F11 works fine, but they are not controlled with the global setting.
+"End" must literally be on the last line of the file.
+
+0x72e0, just partial
+F10 .. F11 .. F12 .. ESC .. TAB .. INS .. NUM .. DEL .. END ..
+APP .. ENT .. BSP
+
+0x480d0
+IF..CLS.END.WAIT.GOTO.ELSE.PSET.PRINT
+Why two dots in a row?  Both are nulls.  Not a 4-byte boundary thing as 4-byte words are padded.  Maybe a removed command?
+
+0x48aa8
+IF .GOTO ... MOD ... AND ... OR .... XOR ...NOT ....END.
+
+0x48ae0
+Command END.....CLS.Command CLR.....Command:%s..
+
+0x48B10
+ALL.F1..F2..F3..F4..F5..F6..F7..F8..F9..FN..PN..
+K/..K*..K-..K+..K...K0..K1..K2..K3..K4..K5..K6..K7..K8..K9..
+UP..NKEY....HOME....PGUP....PGDN....LWIN....LALT....RALT....RWIN....
+LEFT....DOWN....CAPS....KENT....PRTSC...PAUSE...LCTRL...RCTRL...
+RIGHT...SPACE...SCROLL..TOGGLE..LSHIFT..RSHIFT..
+
+0x48c50
+Error:last line of file ends without "END"
+
+0x48c94
+THEN....END IF..=NOT ...Missing label "%s"..Missing "ENF IF"..
+Oh bajeepers.  Missing ENF IF.  Seriously.

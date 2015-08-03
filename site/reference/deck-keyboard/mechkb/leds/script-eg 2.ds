@@ -1,0 +1,53 @@
+print all,0
+r0 = 1000
+
+   
+start:   
+   r1 = 0   
+loop1:
+   if r1 < 23 then
+      pset r1 , r2, 255
+      r1 = r1 + 1
+   goto loop1
+   end if
+   
+   wait r0
+
+   r1 = 0   
+loop2:
+   if r1 < 23 then
+      pset r1 , r2, 0
+      r1 = r1 + 1
+   goto loop2
+   end if  
+
+   if r2 < 6 then
+      r2 = r2 + 1
+	  goto start
+   end if   
+   
+   
+   r1 = 0 
+start2:   
+   r2 = 0
+loop3:
+   if r2 < 6 then
+      pset r1 , r2, 255
+      r2 = r2 + 1
+      goto loop3
+   end if  
+   
+   wait 100
+   
+   if r1 < 23 then
+      r1 = r1 + 1
+	  goto start2
+   end if     
+
+   r2 = 0
+   
+   wait 1000
+   print all , 0
+   wait 500
+   goto start
+end

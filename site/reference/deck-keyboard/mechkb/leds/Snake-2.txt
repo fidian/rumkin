@@ -1,0 +1,7 @@
+Name: Snake
+Author / Maintained by: Deck HK
+Date last updated: Unknown
+Gifs / Pictures: 
+Image
+For Keyboard Model(s): Deck Hassium Pro
+Description: A simple snake script that runs across the keyboard.

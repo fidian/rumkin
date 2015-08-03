@@ -1,0 +1,8 @@
+Confirm expressions against real keyboard
+
+Create test that cycles through expanded keys by code
+Create test that runs rows instead of columns
+Create inverted tests
+Determine if global brightness is a "live" setting
+ - Set keys to various levels and one to global brightness
+ - Cycle global brightness around a bit, conflict with levels intentionally

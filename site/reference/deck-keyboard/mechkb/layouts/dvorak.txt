@@ -1,0 +1,6 @@
+Name: Simplified Dvorak
+Author / Maintained by: MechKB - Roli
+Date last updated: 15/01/14
+Keyboard Model(s): Deck Hassium Pro
+Description: A simplified Dvorak layout following http://en.wikipedia.org/wiki/File:KB_Un ... Dvorak.svg.
+http://en.wikipedia.org/wiki/File:KB_United_States_Dvorak.svg
