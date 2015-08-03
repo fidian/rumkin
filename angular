@@ -1,0 +1,20 @@
+./site/reference/dnd/diestats/index.md
+./site/reference/dnd/index.md
+./site/reference/algorithms/fuzzy-strings/levenshtein/index.md
+./site/tools/decision-tree/index.md
+./site/tools/trinkets/scoreboard.md
+./site/tools/trinkets/js-chars.md
+
+./site/tools/trinkets/htmltest.md
+./site/tools/trinkets/rainbow.md
+./site/tools/trinkets/base-n.md
+./site/tools/marquee/index.md
+./site/software/puzzle/example-slide/index.md
+./site/software/puzzle/example-swap/index.md
+./site/software/dnd-helper/download/index-old.md
+./site/software/dnd-helper/download/index.md
+./site/software/marco/index.md
+./site/software/email/index.md
+./site/fun/fortune-cookie/index.md
+
+* All auto-grow need ng-trim=false
