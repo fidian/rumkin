@@ -30,8 +30,6 @@ The Levenshtein distance algorithm has been used in:
 * DNA analysis 
 * Plagiarism detection
 
-<div class="ng-cloak">
-
 Demonstration
 =============
 
@@ -42,7 +40,6 @@ Compare two strings:<br>
 2: <input ng-model="b"><br>
 Distance: <span class="result" ng-bind="result"></span>
 
-</div>
 
 The Algorithm
 =============
