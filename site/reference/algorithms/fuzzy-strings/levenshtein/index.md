@@ -49,9 +49,9 @@ Steps
 
 1.  Set n to be the length of s.<br>
     Set m to be the length of t.<br>
-	If n = 0, return m and exit.<br>
-	If m = 0, return n and exit.<br>
-	Construct a matrix containing 0..m rows and 0..n columns.
+    If n = 0, return m and exit.<br>
+    If m = 0, return n and exit.<br>
+    Construct a matrix containing 0..m rows and 0..n columns.
 
 2.  Initialize the first row to 0..n.<br>
     Initialize the first column to 0..m.
@@ -64,9 +64,9 @@ Steps
     If s[i] doesn't equal t[j], the cost is 1.
 
 6.  Set cell d[i,j] of the matrix equal to the minimum of:<br>
-	a. The cell immediately above plus 1: d[i-1,j] + 1.<br>
-	b. The cell immediately to the left plus 1: d[i,j-1] + 1.<br>
-	c. The cell diagonally above and to the left plus the cost: d[i-1,j-1] + cost.
+    a. The cell immediately above plus 1: d[i-1,j] + 1.<br>
+    b. The cell immediately to the left plus 1: d[i,j-1] + 1.<br>
+    c. The cell diagonally above and to the left plus the cost: d[i-1,j-1] + cost.
 
 7.  After the iteration steps (3, 4, 5, 6) are complete, the distance is found in cell d[n,m].
 
@@ -78,67 +78,67 @@ This section shows how the Levenshtein distance is computed when the source stri
 
       GUMBO
      012345
-	G1
-	A2
-	M3
-	B4
-	O5
-	L6
+    G1
+    A2
+    M3
+    B4
+    O5
+    L6
 
 ### Steps 3 to 6 When i = 1
 
       GUMBO
      012345
-	G10
-	A21
-	M32
-	B43
-	O54
-	L65
+    G10
+    A21
+    M32
+    B43
+    O54
+    L65
 
 ### Steps 3 to 6 When i = 2
 
       GUMBO
      012345
-	G101
-	A211
-	M322
-	B433
-	O544
-	L655
+    G101
+    A211
+    M322
+    B433
+    O544
+    L655
 
 ### Steps 3 to 6 When i = 3
 
       GUMBO
      012345
-	G1012
-	A2112
-	M3221
-	B4332
-	O5443
-	L6554
+    G1012
+    A2112
+    M3221
+    B4332
+    O5443
+    L6554
 
 ### Steps 3 to 6 When i = 4
 
       GUMBO
      012345
-	G10123
-	A21123
-	M32212
-	B43321
-	O54432
-	L65543
+    G10123
+    A21123
+    M32212
+    B43321
+    O54432
+    L65543
 
 ### Steps 3 to 6 When i = 5
 
       GUMBO
      012345
-	G101234
-	A211234
-	M322123
-	B433212
-	O544321
-	L655432
+    G101234
+    A211234
+    M322123
+    B433212
+    O544321
+    L655432
 
 ### Step 7
 
@@ -160,363 +160,359 @@ As a modest illustration of this principle of neutrality, we present source code
 * C++
 * Visual Basic
 
+
 Java
 ----
 
-	public class Distance {
+    public class Distance {
+      //****************************
+      // Get minimum of three values
+      //****************************
 
-	  //****************************
-	  // Get minimum of three values
-	  //****************************
+      private int Minimum (int a, int b, int c) {
+        int mi;
 
-	  private int Minimum (int a, int b, int c) {
-	  int mi;
+        mi = a;
 
-		mi = a;
-		if (b < mi) {
-		  mi = b;
-		}
-		if (c < mi) {
-		  mi = c;
-		}
-		return mi;
+        if (b < mi) {
+          mi = b;
+        }
 
-	  }
+        if (c < mi) {
+          mi = c;
+        }
 
-	  //*****************************
-	  // Compute Levenshtein distance
-	  //*****************************
+        return mi;
+      }
 
-	  public int LD (String s, String t) {
-	  int d[][]; // matrix
-	  int n; // length of s
-	  int m; // length of t
-	  int i; // iterates through s
-	  int j; // iterates through t
-	  char s_i; // ith character of s
-	  char t_j; // jth character of t
-	  int cost; // cost
+      //*****************************
+      // Compute Levenshtein distance
+      //*****************************
 
-		// Step 1
+      public int LD (String s, String t) {
+        int d[][]; // matrix
+        int n; // length of s
+        int m; // length of t
+        int i; // iterates through s
+        int j; // iterates through t
+        char s_i; // ith character of s
+        char t_j; // jth character of t
+        int cost; // cost
+  
+        // Step 1
+  
+        n = s.length ();
+        m = t.length ();
+  
+        if (n == 0) {
+          return m;
+        }
 
-		n = s.length ();
-		m = t.length ();
-		if (n == 0) {
-		  return m;
-		}
-		if (m == 0) {
-		  return n;
-		}
-		d = new int[n+1][m+1];
+        if (m == 0) {
+          return n;
+        }
+  
+        d = new int[n+1][m+1];
+  
+        // Step 2
+  
+        for (i = 0; i <= n; i++) {
+          d[i][0] = i;
+        }
+  
+        for (j = 0; j <= m; j++) {
+          d[0][j] = j;
+        }
+  
+        // Step 3
+  
+        for (i = 1; i <= n; i++) {
+          s_i = s.charAt (i - 1);
+  
+          // Step 4
+  
+          for (j = 1; j <= m; j++) {
+            t_j = t.charAt (j - 1);
+  
+            // Step 5
+  
+            if (s_i == t_j) {
+              cost = 0;
+            } else {
+              cost = 1;
+            }
+  
+            // Step 6
+  
+            d[i][j] = Minimum (d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1] + cost);
+          }
+        }
+  
+        // Step 7
+  
+        return d[n][m];
+      }
+    }
 
-		// Step 2
-
-		for (i = 0; i <= n; i++) {
-		  d[i][0] = i;
-		}
-
-		for (j = 0; j <= m; j++) {
-		  d[0][j] = j;
-		}
-
-		// Step 3
-
-		for (i = 1; i <= n; i++) {
-
-		  s_i = s.charAt (i - 1);
-
-		  // Step 4
-
-		  for (j = 1; j <= m; j++) {
-
-			t_j = t.charAt (j - 1);
-
-			// Step 5
-
-			if (s_i == t_j) {
-			  cost = 0;
-			}
-			else {
-			  cost = 1;
-			}
-
-			// Step 6
-
-			d[i][j] = Minimum (d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1] + cost);
-
-		  }
-
-		}
-
-		// Step 7
-
-		return d[n][m];
-
-	  }
-
-	}
 
 C++
 ---
 In C++, the size of an array must be a constant, and this code fragment causes an error at compile time:
 
-	int sz = 5;
-	int arr[sz];
+    int sz = 5;
+    int arr[sz];
 
 This limitation makes the following C++ code slightly more complicated than it would be if the matrix could simply be declared as a two-dimensional array, with a size determined at run-time.
 
 Here is the **definition** of the class (distance.h):
 
-	class Distance
-	{
-	  public:
-		int LD (char const *s, char const *t);
-	  private:
-		int Minimum (int a, int b, int c);
-		int *GetCellPointer (int *pOrigin, int col, int row, int nCols);
-		int GetAt (int *pOrigin, int col, int row, int nCols);
-		void PutAt (int *pOrigin, int col, int row, int nCols, int x);
-	}; 
+    class Distance
+    {
+      public:
+        int LD (char const *s, char const *t);
+      private:
+        int Minimum (int a, int b, int c);
+        int *GetCellPointer (int *pOrigin, int col, int row, int nCols);
+        int GetAt (int *pOrigin, int col, int row, int nCols);
+        void PutAt (int *pOrigin, int col, int row, int nCols, int x);
+    }; 
 
 Here is the <B>implementation</B> of the class (distance.cpp):
 
-	#include "distance.h"
-	#include <string.h>
-	#include <malloc.h>
+    #include "distance.h"
+    #include <string.h>
+    #include <malloc.h>
 
-	//****************************
-	// Get minimum of three values
-	//****************************
+    //****************************
+    // Get minimum of three values
+    //****************************
 
-	int Distance::Minimum (int a, int b, int c)
-	{
-	int mi;
+    int Distance::Minimum (int a, int b, int c)
+    {
+      int mi;
 
-	  mi = a;
-	  if (b < mi) {
-		mi = b;
-	  }
-	  if (c < mi) {
-		mi = c;
-	  }
-	  return mi;
+      mi = a;
 
-	}
+      if (b < mi) {
+        mi = b;
+      }
 
-	//**************************************************
-	// Get a pointer to the specified cell of the matrix
-	//************************************************** 
+      if (c < mi) {
+        mi = c;
+      }
 
-	int *Distance::GetCellPointer (int *pOrigin, int col, int row, int nCols)
-	{
-	  return pOrigin + col + (row * (nCols + 1));
-	}
+      return mi;
+    }
 
-	//*****************************************************
-	// Get the contents of the specified cell in the matrix 
-	//*****************************************************
+    //**************************************************
+    // Get a pointer to the specified cell of the matrix
+    //************************************************** 
 
-	int Distance::GetAt (int *pOrigin, int col, int row, int nCols)
-	{
-	int *pCell;
+    int *Distance::GetCellPointer (int *pOrigin, int col, int row, int nCols)
+    {
+      return pOrigin + col + (row * (nCols + 1));
+    }
 
-	  pCell = GetCellPointer (pOrigin, col, row, nCols);
-	  return *pCell;
+    //*****************************************************
+    // Get the contents of the specified cell in the matrix 
+    //*****************************************************
 
-	}
+    int Distance::GetAt (int *pOrigin, int col, int row, int nCols)
+    {
+      int *pCell;
 
-	//*******************************************************
-	// Fill the specified cell in the matrix with the value x
-	//*******************************************************
+      pCell = GetCellPointer (pOrigin, col, row, nCols);
 
-	void Distance::PutAt (int *pOrigin, int col, int row, int nCols, int x)
-	{
-	int *pCell;
+      return *pCell;
+    }
 
-	  pCell = GetCellPointer (pOrigin, col, row, nCols);
-	  *pCell = x;
+    //*******************************************************
+    // Fill the specified cell in the matrix with the value x
+    //*******************************************************
 
-	}
+    void Distance::PutAt (int *pOrigin, int col, int row, int nCols, int x)
+    {
+      int *pCell;
 
-	//*****************************
-	// Compute Levenshtein distance
-	//*****************************
+      pCell = GetCellPointer (pOrigin, col, row, nCols);
+      *pCell = x;
+    }
 
-	int Distance::LD (char const *s, char const *t)
-	{
-	int *d; // pointer to matrix
-	int n; // length of s
-	int m; // length of t
-	int i; // iterates through s
-	int j; // iterates through t
-	char s_i; // ith character of s
-	char t_j; // jth character of t
-	int cost; // cost
-	int result; // result
-	int cell; // contents of target cell
-	int above; // contents of cell immediately above
-	int left; // contents of cell immediately to left
-	int diag; // contents of cell immediately above and to left
-	int sz; // number of cells in matrix
+    //*****************************
+    // Compute Levenshtein distance
+    //*****************************
 
-	  // Step 1	
+    int Distance::LD (char const *s, char const *t)
+    {
+      int *d; // pointer to matrix
+      int n; // length of s
+      int m; // length of t
+      int i; // iterates through s
+      int j; // iterates through t
+      char s_i; // ith character of s
+      char t_j; // jth character of t
+      int cost; // cost
+      int result; // result
+      int cell; // contents of target cell
+      int above; // contents of cell immediately above
+      int left; // contents of cell immediately to left
+      int diag; // contents of cell immediately above and to left
+      int sz; // number of cells in matrix
 
-	  n = strlen (s);
-	  m = strlen (t);
-	  if (n == 0) {
-		return m;
-	  }
-	  if (m == 0) {
-		return n;
-	  }
-	  sz = (n+1) * (m+1) * sizeof (int);
-	  d = (int *) malloc (sz);
+      // Step 1    
 
-	  // Step 2
+      n = strlen (s);
+      m = strlen (t);
 
-	  for (i = 0; i <= n; i++) {
-		PutAt (d, i, 0, n, i);
-	  }
+      if (n == 0) {
+        return m;
+      }
 
-	  for (j = 0; j <= m; j++) {
-		PutAt (d, 0, j, n, j);
-	  }
+      if (m == 0) {
+        return n;
+      }
 
-	  // Step 3
+      sz = (n+1) * (m+1) * sizeof (int);
+      d = (int *) malloc (sz);
 
-	  for (i = 1; i <= n; i++) {
+      // Step 2
 
-		s_i = s[i-1];
+      for (i = 0; i <= n; i++) {
+        PutAt (d, i, 0, n, i);
+      }
 
-		// Step 4
+      for (j = 0; j <= m; j++) {
+        PutAt (d, 0, j, n, j);
+      }
 
-		for (j = 1; j <= m; j++) {
+      // Step 3
 
-		  t_j = t[j-1];
+      for (i = 1; i <= n; i++) {
+        s_i = s[i-1];
 
-		  // Step 5
+        // Step 4
 
-		  if (s_i == t_j) {
-			cost = 0;
-		  }
-		  else {
-			cost = 1;
-		  }
+        for (j = 1; j <= m; j++) {
+          t_j = t[j-1];
 
-		  // Step 6 
+          // Step 5
 
-		  above = GetAt (d,i-1,j, n);
-		  left = GetAt (d,i, j-1, n);
-		  diag = GetAt (d, i-1,j-1, n);
-		  cell = Minimum (above + 1, left + 1, diag + cost);
-		  PutAt (d, i, j, n, cell);
-		}
-	  }
+          if (s_i == t_j) {
+            cost = 0;
+          } else {
+            cost = 1;
+          }
 
-	  // Step 7
+          // Step 6 
 
-	  result = GetAt (d, n, m, n);
-	  free (d);
-	  return result;
-		
-	}
+          above = GetAt (d,i-1,j, n);
+          left = GetAt (d,i, j-1, n);
+          diag = GetAt (d, i-1,j-1, n);
+          cell = Minimum (above + 1, left + 1, diag + cost);
+          PutAt (d, i, j, n, cell);
+        }
+      }
+
+      // Step 7
+
+      result = GetAt (d, n, m, n);
+      free (d);
+      return result;
+    }
+
 
 Visual Basic
 ------------
 
-	'*******************************
-	'*** Get minimum of three values
-	'*******************************
+    '*******************************
+    '*** Get minimum of three values
+    '*******************************
 
-	Private Function Minimum(ByVal a As Integer, _
-							 ByVal b As Integer, _
-							 ByVal c As Integer) As Integer
-	Dim mi As Integer
-							  
-	  mi = a
-	  If b < mi Then
-		mi = b
-	  End If
-	  If c < mi Then
-		mi = c
-	  End If
-	  
-	  Minimum = mi
-							  
-	End Function
+    Private Function Minimum(ByVal a As Integer, _
+                             ByVal b As Integer, _
+                             ByVal c As Integer) As Integer
+      Dim mi As Integer
+                              
+      mi = a
+      If b < mi Then
+        mi = b
+      End If
+      If c < mi Then
+        mi = c
+      End If
+      
+      Minimum = mi
+                              
+    End Function
 
-	'********************************
-	'*** Compute Levenshtein Distance
-	'********************************
+    '********************************
+    '*** Compute Levenshtein Distance
+    '********************************
 
-	Public Function LD(ByVal s As String, ByVal t As String) As Integer
-	Dim d() As Integer ' matrix
-	Dim m As Integer ' length of t
-	Dim n As Integer ' length of s
-	Dim i As Integer ' iterates through s
-	Dim j As Integer ' iterates through t
-	Dim s_i As String ' ith character of s
-	Dim t_j As String ' jth character of t
-	Dim cost As Integer ' cost
-	  
-	  ' Step 1
-	  
-	  n = Len(s)
-	  m = Len(t)
-	  If n = 0 Then
-		LD = m
-		Exit Function
-	  End If 
-	  If m = 0 Then
-		LD = n
-		Exit Function
-	  End If 
-	  ReDim d(0 To n, 0 To m) As Integer
-	  
-	  ' Step 2
-	  
-	  For i = 0 To n
-		d(i, 0) = i
-	  Next i
-	  
-	  For j = 0 To m
-		d(0, j) = j
-	  Next j
+    Public Function LD(ByVal s As String, ByVal t As String) As Integer
+      Dim d() As Integer ' matrix
+      Dim m As Integer ' length of t
+      Dim n As Integer ' length of s
+      Dim i As Integer ' iterates through s
+      Dim j As Integer ' iterates through t
+      Dim s_i As String ' ith character of s
+      Dim t_j As String ' jth character of t
+      Dim cost As Integer ' cost
+      
+      ' Step 1
+      
+      n = Len(s)
+      m = Len(t)
+      If n = 0 Then
+        LD = m
+        Exit Function
+      End If 
+      If m = 0 Then
+        LD = n
+        Exit Function
+      End If 
+      ReDim d(0 To n, 0 To m) As Integer
+      
+      ' Step 2
+      
+      For i = 0 To n
+        d(i, 0) = i
+      Next i
+      
+      For j = 0 To m
+        d(0, j) = j
+      Next j
 
-	  ' Step 3
+      ' Step 3
 
-	  For i = 1 To n
-		
-		s_i = Mid$(s, i, 1)
-		
-		' Step 4
-		
-		For j = 1 To m
-		  
-		  t_j = Mid$(t, j, 1)
-		  
-		  ' Step 5
-		  
-		  If s_i = t_j Then
-			cost = 0
-		  Else
-			cost = 1
-		  End If
-		  
-		  ' Step 6
-		  
-		  d(i, j) = Minimum(d(i - 1, j) + 1, d(i, j - 1) + 1, d(i - 1, j - 1) + cost)
-		
-		Next j
-		
-	  Next i
-	  
-	  ' Step 7
-	  
-	  LD = d(n, m)
-	  Erase d
+      For i = 1 To n
+        s_i = Mid$(s, i, 1)
+        
+        ' Step 4
+        
+        For j = 1 To m
+          t_j = Mid$(t, j, 1)
+          
+          ' Step 5
+          
+          If s_i = t_j Then
+            cost = 0
+          Else
+            cost = 1
+          End If
+          
+          ' Step 6
+          
+          d(i, j) = Minimum(d(i - 1, j) + 1, d(i, j - 1) + 1, d(i - 1, j - 1) + cost)
+        Next j
+      Next i
+      
+      ' Step 7
+      
+      LD = d(n, m)
+      Erase d
+    End Function
 
-	End Function
 
 References
 ==========
@@ -526,6 +522,7 @@ Other discussions of Levenshtein distance may be found at:
 * [http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Dynamic/Edit.html](http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Dynamic/Edit.html) (Lloyd Allison)
 * [http://www.cut-the-knot.com/do_you_know/Strings.html](http://www.cut-the-knot.com/do_you_know/Strings.html) (Alex Bogomolny)
 * [http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node2.html](http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node2.html) (Thierry Lecroq)
+
 
 Other Flavors
 =============
