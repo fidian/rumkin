@@ -18,17 +18,19 @@
 			},
 			{
 				name: 'Max Spaces',
-				description: 'How many spaces between letters at the beginning',
+				description: 'How many spaces between letters at the end.',
 				'default': 100
 			}
 		],
-		method: function (text, writer, whenDone, delay, spaces, repeat) {
+		method: function (text, writer, whenDone, delay, spaces) {
 			var letters, spacesString;
 
 			function animate() {
-				writer(letters.join(spacesString));
+				if (writer(letters.join(spacesString))) {
+                    return;
+                }
 
-				if (spacesString.length) {
+				if (spacesString.length < spaces) {
 					spacesString = spacesString + ' ';
 					setTimeout(animate, delay);
 				} else {

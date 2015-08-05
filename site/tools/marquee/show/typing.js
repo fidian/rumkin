@@ -22,13 +22,16 @@
 				'default': 350
 			}
 		],
-		depends: ['random'],
+		depends: [ 'random' ],
 		method: function (text, writer, whenDone, delay, error, random) {
 			var complete, min, max, range;
 
 			function animate() {
 				complete += text.charAt(complete.length);
-				writer(complete);
+				
+                if (writer(complete)) {
+                    return;
+                }
 
 				if (complete.length === text.length) {
 					whenDone();

@@ -27,7 +27,9 @@
 			var spacesString;
 
 			function animate() {
-				writer(spacesString + text);
+				if (writer(spacesString + text)) {
+                    return;
+                }
 
 				if (spacesString.length) {
 					spacesString = spacesString.substr(1);

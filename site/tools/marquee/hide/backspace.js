@@ -24,11 +24,14 @@
 		],
 		depends: ['random'],
 		method: function (text, writer, whenDone, delay, error, random) {
-			var complete, min, max, range;
+			var min, max, range;
 
 			function animate() {
 				text = text.substr(0, -1);
-				writer(text);
+				
+                if (writer(text)) {
+                    return;
+                }
 
 				if (text.length === 0) {
 					whenDone();

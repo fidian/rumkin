@@ -22,7 +22,7 @@
 				'default': 3000
 			}
 		],
-		depends: [ 'range', 'random'],
+		depends: [ 'range', 'random' ],
 		method: function (text, writer, whenDone, delay, timeLimit, range, random) {
 			var chars, crypted;
 
@@ -40,7 +40,10 @@
 				}
 
 				crypted = newCrypted;
-				writer(crypted);
+
+				if (writer(crypted)) {
+                    return;
+                }
 
 				if (crypted === text) {
 					whenDone();

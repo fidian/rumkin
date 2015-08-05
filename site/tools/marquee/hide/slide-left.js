@@ -22,7 +22,10 @@
 
 			function animate() {
 				chars += 1;
-				writer(text.substr(chars));
+
+                if (writer(text.substr(chars))) {
+                    return;
+                }
 
 				if (chars < text.length) {
 					setTimeout(animate, delay);

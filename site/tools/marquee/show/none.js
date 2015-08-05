@@ -11,8 +11,11 @@
 		title: "None",
 		description: "Just shows the message.  Nothing fancy.",
 		method: function (text, writer, whenDone) {
-			writer(text);
-			whenDone();
+			if (writer(text)) {
+                return;
+            }
+
+            whenDone();
 		}
 	};
 }());

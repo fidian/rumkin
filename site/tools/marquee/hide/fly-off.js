@@ -37,7 +37,10 @@
 					spaces += ' ';
 				}
 
-				writer(text + spaces + spaces + spaces + spaces + current);
+				if (writer(text + spaces + spaces + spaces + spaces + current)) {
+                    return;
+                }
+
 				setTimeout(animate, delay);
 			}
 

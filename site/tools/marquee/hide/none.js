@@ -11,7 +11,10 @@
 		title: "None",
 		description: "Just removes the message.  Nothing fancy.",
 		method: function (text, writer, whenDone) {
-			writer('');
+			if (writer('')) {
+                return;
+            }
+
 			whenDone();
 		}
 	};

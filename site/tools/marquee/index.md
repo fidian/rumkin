@@ -31,12 +31,15 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
 	</div>
 	<div>
 		<h3>
-			Demo of this message
+			Demo of this message (loops continually)
 		</h3>
 		<input type="text" disabled="disabled" class="long" generator-demo="preview" />
 	</div>
 	<div>
-		<button ng-click="addConfig">Add This Step</button>
+        <h3>
+            Build your sequence of messages
+        </h3>
+		<button ng-click="addConfig">Add This Message</button>
 		<label>
 			<input type="checkbox" ng-mode="repeat" />
 			Loop forever?

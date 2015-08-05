@@ -22,11 +22,14 @@
 				'default': 100
 			}
 		],
+		depends: [ 'repeat' ],
 		method: function (text, writer, whenDone, delay, spaces, repeat) {
 			var letters, spacesString;
 
 			function animate() {
-				writer(letters.join(spacesString));
+                if (writer(letters.join(spacesString))) {
+                    return;
+                }
 
 				if (spacesString.length) {
 					spacesString = spacesString.substr(1);

@@ -40,7 +40,10 @@
 					spaces = spaces.substr(1);
 				}
 
-				writer(completed + spaces + spaces + spaces + spaces + current);
+				if (writer(completed + spaces + spaces + spaces + spaces + current)) {
+                    return;
+                }
+
 				setTimeout(animate, delay);
 			}
 

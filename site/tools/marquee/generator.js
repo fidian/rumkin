@@ -36,10 +36,8 @@
 					}
 
 					if (!preview.hide) {
-						preview.hide = scope.showMethodList.none;
+						preview.hide = scope.hideMethodList.none;
 					}
-
-                    console.log(preview);
 
 					scope.preview = [
 						preview
@@ -92,16 +90,99 @@
 	});
 
 	module.directive('generatorDemo', function () {
-		var i;
-		i = 0;
 		return {
 			link: function (scope, element) {
-				element.val(i);
-				i += 1;
-				scope.$watch('animations', function () {
-                    console.log(scope.animations);
-					element.val(i);
-					i += 1;
+                var preview;
+
+                function generatePreview(target) {
+                    var active, animateSteps, obj;
+
+                    active = true;
+                    animateSteps = [];
+                    obj = {
+                        abort: function () {
+                            active = false;
+                        },
+                        addAnimation: function (message, animation) {
+                            var args;
+
+                            if (!message) {
+                                message = "";
+                            }
+
+                            args = [
+                                message,
+                                obj.writer,
+                                undefined
+                            ];
+
+                            if (animation.variables) {
+                                animation.variables.forEach(function (v) {
+                                    args.push(v.currentValue);
+                                });
+                            }
+
+                            if (animation.depends) {
+                                animation.depends.forEach(function (v) {
+                                    args.push(window.generator.depends[v]);
+                                });
+                            }
+
+                            animateSteps.push(function (whenDone) {
+                                args[2] = whenDone;
+                                animation.method.apply(null, args);
+                            });
+                        },
+                        addDelay: function (ms) {
+                            animateSteps.push(function (whenDone) {
+                                setTimeout(whenDone, ms);
+                            });
+                        },
+                        start: function () {
+                            var fn;
+
+                            if (!animateSteps.length) {
+                                return;
+                            }
+
+                            fn = animateSteps.shift();
+                            animateSteps.push(fn);
+                            fn(function () {
+                                setTimeout(obj.start, 0);
+                            });
+                        },
+                        writer: function (message) {
+                            if (!active) {
+                                return 1;
+                            }
+
+                            target.val(message);
+                        }
+                    };
+
+                    return obj;
+                }
+
+				scope.$watchCollection('animations', function (newVal) {
+                    if (! angular.isArray(newVal)) {
+                        element.val('');
+                        return;
+                    }
+
+                    if (preview) {
+                        preview.abort();
+                    }
+
+                    preview = generatePreview(element);
+                    console.log(newVal);
+                    newVal.forEach(function (step) {
+                        console.log(step);
+                        preview.addAnimation(step.message, step.show);
+                        preview.addDelay(step.readDelay);
+                        preview.addAnimation(step.message, step.hide);
+                        preview.addDelay(step.betweenDelay);
+                    });
+                    preview.start();
 				});
 			},
 			scope: {
