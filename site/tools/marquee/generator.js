@@ -19,7 +19,7 @@
 
 	module.directive("generator", function () {
 		return {
-			link: function (scope, element, attrs) {
+			link: function (scope) {
 				function updatePreview() {
 					var preview;
 
@@ -38,6 +38,8 @@
 					if (!preview.hide) {
 						preview.hide = scope.showMethodList.none;
 					}
+
+                    console.log(preview);
 
 					scope.preview = [
 						preview
@@ -66,7 +68,7 @@
 
 	module.directive('generatorMethod', function () {
 		return {
-			link: function (scope, element, attrs) {
+			link: function (scope) {
 				scope.$watch('method', function (newVal) {
 					scope.callback({
 						method: newVal
@@ -93,11 +95,11 @@
 		var i;
 		i = 0;
 		return {
-			link: function (scope, element, attrs) {
+			link: function (scope, element) {
 				element.val(i);
 				i += 1;
 				scope.$watch('animations', function () {
-					console.log(scope.animations);
+                    console.log(scope.animations);
 					element.val(i);
 					i += 1;
 				});
