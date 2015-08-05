@@ -20,6 +20,11 @@ angular.module('autoGrow', []).directive('autoGrow', [
         return function ($scope, element, attr) {
             var css, minHeight, paddingLeft, paddingRight, shadow;
 
+            // Disable trimming of input
+            if (element.attr('type') === 'text' || element[0].nodeName === 'TEXTAREA') {
+                attr.$set('ngTrim', 'false');
+            }
+
             minHeight = element[0].offsetHeight;
             paddingLeft = parseInt(element.css('paddingLeft') || 0, 10);
             paddingRight = parseInt(element.css('paddingRight') || 0, 10);
@@ -64,7 +69,7 @@ angular.module('autoGrow', []).directive('autoGrow', [
                     .replace(/\s{2,}/g, function (space) {
                         return times('&nbsp;', space.length - 1) + ' ';
                     });
-                shadow.html("<br/>" + val);
+                shadow.html(val + "<br/>x");
                 $timeout(function () {
                     element.css('height', Math.max(shadow[0].offsetHeight, minHeight) + 'px');
                 }, 1);
