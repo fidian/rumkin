@@ -1,7 +1,7 @@
 ---
 title: Rainbow Text Generator
 template: page.jade
-js: /js/modules/auto-grow.js rainbow.js
+js: /js/futile.js /js/modules/auto-grow.js rainbow.js
 module: rainbow
 ---
 
