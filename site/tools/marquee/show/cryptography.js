@@ -55,7 +55,7 @@
 
 			chars = '';
 			range(32, 128, function (num) {
-				chars.push(String.fromCharCode(num));
+				chars += String.fromCharCode(num);
 			});
 			crypted = '';
 			writer(text);

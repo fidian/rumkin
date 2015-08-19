@@ -30,7 +30,7 @@
                     return;
                 }
 
-				if (spacesString.length === spaces) {
+				if (spacesString.length <= spaces) {
 					spacesString += ' ';
 					setTimeout(animate, delay);
 				} else {

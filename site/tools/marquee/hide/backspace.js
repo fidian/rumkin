@@ -27,7 +27,7 @@
 			var min, max, range;
 
 			function animate() {
-				text = text.substr(0, -1);
+				text = text.substr(0, text.length - 1);
 				
                 if (writer(text)) {
                     return;

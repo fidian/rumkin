@@ -34,6 +34,10 @@
 					spacesString = spacesString + ' ';
 					setTimeout(animate, delay);
 				} else {
+                    if (writer('')) {
+                        return;
+                    }
+
 					whenDone();
 				}
 			}

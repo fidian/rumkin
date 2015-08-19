@@ -20,6 +20,73 @@
 	module.directive("generator", function () {
 		return {
 			link: function (scope) {
+                function getDepends(animationList) {
+                    var depends;
+
+                    function checkDepends(animation) {
+                        if (animation.depends) {
+                            animation.depends.forEach(function (name) {
+                                depends[name] = window.generator.depends[name];
+                            });
+                        }
+                    }
+
+                    depends = {};
+                    animationList.forEach(function (step) {
+                        checkDepends(step.show);
+                        checkDepends(step.hide);
+                    });
+
+                    return depends;
+                }
+
+                function updateGeneratedCode() {
+                    var c, depends;
+
+                    if (!scope.animationList.length || !scope.repeat || !scope.writeMethod) {
+                        scope.generatedCode = '';
+
+                        return;
+                    }
+
+                    // Header
+                    c = [];
+                    c.push("(function () {");
+                    c.push("\tvar depends, writeMethod;");
+
+                    // Writing method
+                    switch (scope.writeMethod) {
+                        case "window.status":
+                            c.push("\twriteMethod = function (msg) {");
+                            c.push("\t\twindow.status = msg;");
+                            c.push("\t};");
+                            break;
+
+                        case "jQuery.text":
+                            c.push("\twriteMethod = function (msg) {");
+                            c.push("\t\t/*global $*/");
+                            c.push("\t\t$(" + JSON.stringify(scope.writeMethodExtra || "") + ").text(msg);");
+                            c.push("\t};");
+                            break;
+
+                        case "function":
+                            c.push("writeMethod = " + scope.writeMethodExtra + ";");
+                            break;
+                    }
+
+                    // Dependencies
+                    depends = getDepends(scope.animationList);
+                    c.push("\tdepends = {}");
+                    Object.keys(depends).forEach(function (name) {
+                        c.push("\tdepends." + name + " = " + depends[name].toString() + ";");
+                    });
+                    c.push("\t};");
+
+                    // Footer
+                    c.push("}())");
+                    scope.generatedCode = c.join("\n").replace(/\t/g, "    ");
+                }
+
 				function updatePreview() {
 					var preview;
 
@@ -48,9 +115,19 @@
 				scope.depends = window.generator.depends;
 				scope.hideMethodList = window.generator.hide;
 				scope.showMethodList = window.generator.show;
+                scope.readDelay = 1000;
+                scope.betweenDelay = 500;
+                scope.generatedCode = '';
 				scope.$watch('betweenDelay', updatePreview);
 				scope.$watch('readDelay', updatePreview);
 				scope.$watch('message', updatePreview);
+                scope.$watch('writeMethod', function () {
+                    scope.writeMethodExtra = '';
+                    updateGeneratedCode();
+                });
+                scope.$watchCollection('animationList', updateGeneratedCode);
+                scope.$watch('repeat', updateGeneratedCode);
+                scope.$watch('writeMethodExtra', updateGeneratedCode);
 				scope.setHideMethod = function (method) {
 					scope.hideMethod = method;
 					updatePreview();
@@ -59,7 +136,9 @@
 					scope.showMethod = method;
 					updatePreview();
 				};
-
+                scope.addConfig = function (animationStep) {
+                    scope.animationList.push(animationStep);
+                };
 			}
 		};
 	});
@@ -67,23 +146,27 @@
 	module.directive('generatorMethod', function () {
 		return {
 			link: function (scope) {
+                scope.sendUpdate = function () {
+                    scope.callback({
+                        method: scope.method
+                    });
+                };
 				scope.$watch('method', function (newVal) {
-					scope.callback({
-						method: newVal
-					});
-
 					// Reset current values for variables
 					if (newVal && newVal.variables) {
 						newVal.variables.forEach(function (variable) {
 							variable.currentValue = variable['default'];
 						});
 					}
+
+                    scope.sendUpdate();
 				});
+                scope.method = scope.methodList.none;
 			},
 			scope: {
 				callback: '&callback',
 				label: '=label',
-				methodList: '=generatorMethod'
+				methodList: '=generatorMethod',
 			},
 			templateUrl: 'method'
 		};
@@ -174,9 +257,7 @@
                     }
 
                     preview = generatePreview(element);
-                    console.log(newVal);
                     newVal.forEach(function (step) {
-                        console.log(step);
                         preview.addAnimation(step.message, step.show);
                         preview.addDelay(step.readDelay);
                         preview.addAnimation(step.message, step.hide);

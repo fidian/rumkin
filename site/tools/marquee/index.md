@@ -21,12 +21,12 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
 	</div>
 	<div generator-method="showMethodList" callback="setShowMethod(method)" label="'Method for showing:'"></div>
 	<div>
-		Delay for reading:
+		Delay after showing:
 		<input type="text" ng-model="readDelay" value="3000" class="short" />
 	</div>
 	<div generator-method="hideMethodList" callback="setHideMethod(method)" label="'Method for hiding:'"></div>
 	<div>
-		Delay after animation:
+		Delay after hiding:
 		<input type="text" ng-model="betweenDelay" value="1000" class="short" />
 	</div>
 	<div>
@@ -39,36 +39,70 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
         <h3>
             Build your sequence of messages
         </h3>
-		<button ng-click="addConfig">Add This Message</button>
-		<label>
-			<input type="checkbox" ng-mode="repeat" />
-			Loop forever?
-		</label>
+		<button ng-click="addConfig(preview[0])">Add This Message</button>
 	</div>
 	<div ng-show="animationList.length">
 		<h3>
 			Animations
 		</h3>
-		<div ng-repeat="animation in animationList">
-		</div>
+        <ul ng-repeat="animation in animationList">
+            <li>{{animation.message}}</li>
+		</ul>
 		<div>
 			<h2>
 				Demo of the animation:
 			</h2>
 			<input type="text" disabled="disabled" class="long" generator-demo="animationList" />
 		</div>
+		<h3>
+			Generated Code Options
+		</h3>
+        <div>
+            The generated code should
+            <select ng-model="repeat">
+                <option value="">Pick One</option>
+                <option value="yes">loop forever.</option>
+                <option value="no">display only once.</option>
+            </select>
+        </div>
+        <div>
+            Write to
+            <select ng-model="writeMethod">
+                <option value="">Pick One</option>
+                <option value="window.status">window.status</option>
+                <option value="jQuery.text">jQuery.text</option>
+                <option value="function">Call a function</option>
+            </select>
+            <div ng-show="writeMethod == 'window.status'">
+                Warning:  This method is blocked by most browsers.
+            </div>
+            <div ng-show="writeMethod == 'jQuery.text'">
+                Element selector:  <input type=text ng-model="writeMethodExtra" /><br />
+                Result:  <tt><code>$({{writeMethodExtra | json}}).text("message goes here");</code></tt>
+            </div>
+            <div ng-show="writeMethod == 'function'">
+                Name of function to call:  <input type=text ng-model="writeMethodExtra" /><br />
+                Sample call:  <tt><code>{{writeMethodExtra}}("message goes here");</code></tt>
+            </div>
+        </div>
+    </div>
+    <div ng-show="generatedCode">
+            <h3>
+                Result
+            </h3>
+            <pre><code>{{generatedCode}}</code></pre>
+        </div>
 	</div>
 </div>
 <script type="text/ng-template" id="method">
-	<select ng-model="method" ng-options="methodObj.title for (key, methodObj) in methodList">
-		<option value="" ng-bind="label"></option>
+	{{label}} <select ng-model="method" ng-options="methodObj.title for (key, methodObj) in methodList">
 	</select>
 	<div ng-show="method" class="methodDetail">
 		<div ng-bind="method.description" class="description"></div>
 		<div class="variables" ng-show="method.variables">
 			<div class="variable" ng-repeat="variable in method.variables">
 				<span ng-bind="variable.name"></span>:
-				<input type="text" ng-model="variable.currentValue" class="short" />
+				<input type="text" ng-model="variable.currentValue" class="short" ng-change="sendUpdate()" />
 				<span ng-bind="variable.description" class="description"></span>
 			</div>
 		</div>

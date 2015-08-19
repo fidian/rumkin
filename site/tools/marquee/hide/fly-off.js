@@ -26,12 +26,16 @@
 			function animate() {
 				if (spaces.length === 20) {
 					if (text === '') {
-						whenDone();
+                        if (writer('')) {
+                            return;
+                        }
+
+                        whenDone();
 						return;
 					}
 
 					current = text.substr(-1);
-					text = text.substr(0, -1);
+					text = text.substr(0, text.length - 1);
 					spaces = '';
 				} else {
 					spaces += ' ';

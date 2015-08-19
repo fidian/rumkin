@@ -23,19 +23,20 @@
 			completed = '';
 			spaces = '';
 			current = '';
+            queue = text.length;
 
 			function animate() {
 				if (spaces === '') {
 					completed += current;
 
-					if (queue === '') {
+					if (! queue) {
 						whenDone();
 						return;
 					}
 
 					spaces = '                    ';  // 20 spaces
-					current = text.charAt(0);
-					queue = text.substr(1);
+					current = text.charAt(completed.length);
+					queue -= 1;
 				} else {
 					spaces = spaces.substr(1);
 				}
