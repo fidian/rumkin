@@ -20,6 +20,72 @@
 	module.directive("generator", function () {
 		return {
 			link: function (scope) {
+                function getAnimation(message, halfStep, methods) {
+                    var args, fn, fnStr;
+
+                    if (! message) {
+                        message = "";
+                    }
+
+                    args = [
+                        JSON.stringify(message),
+                        "writeMethod",
+                        "whenDone"
+                    ];
+
+                    if (halfStep.variables) {
+                        halfStep.variables.forEach(function (v) {
+                            // All arguments are numeric
+                            args.push(+v.currentValue);
+                        });
+                    }
+
+                    if (halfStep.depends) {
+                        halfStep.depends.forEach(function (v) {
+                            args.push("depends." + v);
+                        });
+                    }
+
+                    fn = null;
+                    fnStr = "fn = function (whenDone) {\n";
+                    fnStr += "\tmethods[" + methods.indexOf(halfStep.method) + "](" + args.join(", ") + ");\n";
+                    fnStr += "}";
+
+                    /*jslint evil:true*/
+                    eval(fnStr);
+                    /*jslint evil:false*/
+               
+                    return fn;
+                }
+
+                function getDelay(delay) {
+                    var fn;
+
+                    fn = "fn = function (whenDone) {\n";
+                    fn += "\tsetTimeout(whenDone, " + delay + ");\n";
+                    fn += "}";
+
+                    /*jslint evil:true*/
+                    eval(fn);
+                    /*jslint evil:false*/
+
+                    return fn;
+                }
+
+                function getAnimations(animationList, methods) {
+                    var animations;
+
+                    animations = [];
+                    animationList.forEach(function (step) {
+                        animations.push(getAnimation(step.message, step.show, methods));
+                        animations.push(getDelay(step.readDelay));
+                        animations.push(getAnimation(step.message, step.hide, methods));
+                        animations.push(getDelay(step.betweenDelay));
+                    });
+
+                    return animations;
+                }
+
                 function getDepends(animationList) {
                     var depends;
 
@@ -40,8 +106,31 @@
                     return depends;
                 }
 
+                function getMethods(animationList) {
+                    var result;
+
+                    function arrange(fn) {
+                        if (result.indexOf(fn) === -1) {
+                            result.push(fn);
+                        }
+                    }
+
+                    result = [];
+
+                    animationList.forEach(function (step) {
+                        arrange(step.show.method);
+                        arrange(step.hide.method);
+                    });
+
+                    return result;
+                }
+
                 function updateGeneratedCode() {
-                    var c, depends;
+                    var animations, c, depends, methods, vars;
+
+                    methods = getMethods(scope.animationList);
+                    depends = getDepends(scope.animationList);
+                    animations = getAnimations(scope.animationList, methods);
 
                     if (!scope.animationList.length || !scope.repeat || !scope.writeMethod) {
                         scope.generatedCode = '';
@@ -52,7 +141,17 @@
                     // Header
                     c = [];
                     c.push("(function () {");
-                    c.push("\tvar depends, writeMethod;");
+                    vars = [
+                        'animations',
+                        'writeMethod'
+                    ];
+
+                    if (Object.keys(depends).length) {
+                        vars.push('depends');
+                    }
+
+                    vars.sort();
+                    c.push("\tvar " + vars.join(", ") + ";");
 
                     // Writing method
                     switch (scope.writeMethod) {
@@ -70,20 +169,36 @@
                             break;
 
                         case "function":
-                            c.push("writeMethod = " + scope.writeMethodExtra + ";");
+                            c.push("\t/*global " + scope.writeMethodExtra + "*/");
+                            c.push("\twriteMethod = " + scope.writeMethodExtra + ";");
                             break;
                     }
 
                     // Dependencies
-                    depends = getDepends(scope.animationList);
-                    c.push("\tdepends = {}");
-                    Object.keys(depends).forEach(function (name) {
-                        c.push("\tdepends." + name + " = " + depends[name].toString() + ";");
-                    });
-                    c.push("\t};");
+                    if (Object.keys(depends).length) {
+                        c.push("\tdepends = {}");
+                        Object.keys(depends).forEach(function (name) {
+                            c.push("\tdepends." + name + " = " + depends[name].toString() + ";");
+                        });
+                        c.push("\t};");
+                    }
+
+                    // Animation methods
+                    methods = methods.map(function (fn) {
+                        return fn.toString();
+                    }).join(",\n");
+                    c.push("\tmethods = [\n\t\t" + methods.replace(/\n/g, "\n\t\t") + "\t\n]");
 
                     // Footer
                     c.push("}())");
+
+                    // Animations
+                    animations = animations.map(function (val) {
+                        return val.toString();
+                    }).join(",\n");
+                    c.push("\tanimations = [\n\t\t" + animations.replace(/\n/g, "\n\t\t") + "\t\n];");
+
+                    // Combine to a single string
                     scope.generatedCode = c.join("\n").replace(/\t/g, "    ");
                 }
 
