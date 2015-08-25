@@ -37,11 +37,11 @@ Medications
 ===========
 
 * Aspirin, 81mg daily
-* Avastin (Bevacizumab), 25mg as needed for macular edema
+* Avastin (Bevacizumab), 25mg as needed (macular edema)
 * Cetirizine HCl, 10 mg daily (generic allergy pill)
-* Lisinopril, 10mg daily
+* Lisinopril, 10mg daily (high blood pressure)
 * Metformin HCl, 850 mg daily (Diabetes)
-* Pravastatin Sodium, 20 mg daily
+* Pravastatin Sodium, 20 mg daily (high cholesterol)
 * Multivitamin, daily
 
 
@@ -50,8 +50,17 @@ Physician Information
 
 General health and diabetes:
 
-    Mark W Depaolis, MD
+    Mark W DePaolis, MD
+    Park Nicollet Clinic - Brookdale
+    6000 Earle Brown Drive
+    Brooklyn Center, MN 55430
+    952-993-4900
 
 Retina specialist:
 
-    Marni Feldman, MD
+    Marni G Feldmann, MD
+    Park Nicollet Clinic - St. Louis Park
+    3900 Park Nicollet Blvd.
+    Suite 290
+    St. Louis Park, MN 55416
+    952-993-3150
