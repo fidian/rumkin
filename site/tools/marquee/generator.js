@@ -187,16 +187,33 @@
                     methods = methods.map(function (fn) {
                         return fn.toString();
                     }).join(",\n");
-                    c.push("\tmethods = [\n\t\t" + methods.replace(/\n/g, "\n\t\t") + "\t\n]");
-
-                    // Footer
-                    c.push("}())");
+                    c.push("\tmethods = [\n\t\t" + methods.replace(/\n/g, "\n\t\t") + "\t\n\t]");
 
                     // Animations
                     animations = animations.map(function (val) {
                         return val.toString();
                     }).join(",\n");
-                    c.push("\tanimations = [\n\t\t" + animations.replace(/\n/g, "\n\t\t") + "\t\n];");
+                    c.push("\tanimations = [\n\t\t" + animations.replace(/\n/g, "\n\t\t") + "\t\n\t];");
+
+                    // Animator
+                    c.push("\tfunction animateIt() {");
+                    c.push("\t\tvar animateFn;");
+                    c.push("\t\tanimateFn = animations.shift();");
+                    c.push("\t\tif (animateFn) {");
+                    c.push("\t\t\tanimateFn(animateIt);");
+                    
+                    if (scope.repeat === "yes") {
+                        c.push("\t\t\tanimations.push(animateFn);");
+                    }
+
+                    c.push("\t\t}");
+                    c.push("\t}");
+
+                    // Start the animator
+                    c.push("\twindow.setTimeout(animateIt, 0);");
+
+                    // Footer
+                    c.push("}());");
 
                     // Combine to a single string
                     scope.generatedCode = c.join("\n").replace(/\t/g, "    ");
