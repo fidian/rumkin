@@ -36,6 +36,7 @@ Medical Summary
 Medications
 ===========
 
+* Aflibercept (Eylea), as needed (macular edema)
 * Aspirin, 81mg daily
 * Avastin (Bevacizumab), 25mg as needed (macular edema)
 * Cetirizine HCl, 10 mg daily (generic allergy pill)
