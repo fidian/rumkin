@@ -176,7 +176,7 @@ function MakeColumnKey(meth, text)
       if (text == '')
       {
          values[0] = 1;
-         return values;
+         return "1";
       }
       while (text.length)
       {
