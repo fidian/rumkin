@@ -71,7 +71,7 @@ function SendEmail() {
 			return 0;
 		}
 		
-		mail('fidian@rumkin.com', '[Rumkin.com] ' . $_POST['subj'], $_POST['body'], 'From: ' . $_POST['from'] . "\r\n" . 'Return-Path: ' . $_POST['from'] . "\r\n");
+		mail('fidian@rumkin.com', '[Rumkin.com] ' . $_POST['subj'], "From: " . $_POST['from'] . "\r\n\r\n" . $_POST['body'], 'From: ' . $_POST['from'] . "\r\n" . 'Return-Path: ' . $_POST['from'] . "\r\n");
 		MakeBoxTop('center');
 		echo 'Mail sent!';
 		MakeBoxBottom();
