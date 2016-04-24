@@ -1,0 +1,155 @@
+   Link: canonical
+
+   fidian.com _____________________                                           
+              Search this site                                                
+
+                                          Problems Only Tyler Has(->) > (->)  
+                                                                              
+                                            dhclient not honoring prepend     
+                                            config                            
+                                                                              
+                                          posted Nov 2, 2015, 5:52 AM by      
+                                          Tyler Akins   [ updated Nov 2,      
+                                          2015, 5:54 AM ]                     
+                                                                              
+                                          I have a CentOS 6.7 image running   
+                                          in AWS.  It reads                   
+                                          /etc/dhcp/dhclinet.conf - here is   
+                                          mine:                               
+                                          timeout 300;                        
+                                          retry 60;                           
+                                          prepend domain-name-servers         
+                                          127.0.0.1;                          
+                                          prepend domain-search               
+                                          "node.consul";                      
+                                          Please note that I fixed the first  
+                                          two lines!  The stock version of    
+                                          this file did not have semicolons   
+                                          at the end of the timeout nor retry 
+                                          lines.                              
+                                          The idea is that I would prefer to  
+                                          use the local dnsmasq before        
+                                          falling back to other domain name   
+                                          servers.  Sounds like a typical use 
+                                          case, right?  I can use "dhclient   
+                                          -r ; dhclient" to release and renew 
+                                          the DHCP lease and I see the entry  
+                                          in my /etc/resolv.conf exactly as I 
+                                          would expect.                       
+                                          nameserver 127.0.0.1                
+                                          # other nameservers listed later in 
+                                          the file.                           
+                                          I believe that this works just fine 
+                                          and so I go ahead and reboot the    
+                                          box.  Just to be sure, I double     
+                                          check the /etc/resolv.conf file and 
+                                          find out, to my horror ... the line 
+     * Home                               is missing!                         
+     * Announcements                      Where did it go?  It totally worked 
+          * Adding Git Documentation      before!  Running "dhclient -r ;     
+          * CSS Beautifier                dhclient" again puts the line back. 
+          * CSS Validation Library Ready   What's the deal?                   
+          * PrettyCSS 0.1.0 and New       It turns out that the version of    
+            Section                       dhclient that's installed (version  
+          * PrettyCSS 0.2.0               4.1.1 49.P1.el6.centos) is not      
+          * PrettyCSS 0.3.0               properly setting                    
+          * PrettyCSS 0.3.3               $new_domain_name_servers for the    
+          * PrettyCSS Works               REBOOT reason.  On reboot, dhclient 
+          * Site Launch!                  will talk DHCP to a server and get  
+          * Writing Tests for PrettyCSS   a new lease.  It fires off          
+     * Contact                            /sbin/dhclient-script with $reason  
+     * Git                                set to REBOOT.  When I use          
+          * Advice (Please Read)          "dhclient -r ; dhclient" it does    
+          * Aliases                       almost the same thing but $reason   
+          * Configuring Git               is set to BOUND.                    
+          * External Resources            The strange thing is that the       
+          * Git Tricks                    environment variables are different 
+          * Quick Reference               for those two calls.  For REBOOT    
+          * Start a Repository            the $new_domain_name_servers does   
+          * Submodules                    not list 127.0.0.1 and for BOUND it 
+          * Terminology                   does list 127.0.0.1.  It should     
+          * Typical Usage                 always have 127.0.0.1 because we    
+     * PHPTools                           have the "prepend                   
+          * DB                            domain-name-servers 127.0.0.1"      
+          * DependencyInjectionContainer  config set.                         
+          * Logger                        I tried taking a peek at the source 
+          * Tokenizer                     code but did not invest enough time 
+          * WebRequest                    to determine the cause for this     
+     * PrettyCSS                          issue.  I mostly gave up for these  
+          * Command Line                  reasons:                            
+          * Download                       1. It wasn't obvious when I        
+          * Error/Warning Codes               browsed the source code.        
+          * Installation                       Investigating would take hours 
+          * Lint Checking                     of work and I would likely have 
+          * Object Methods                    to add many debug lines and     
+     * Problems Only Tyler Has                trace the execution manually.   
+          * Backups and Recovery           2. I would have to update          
+          * Chef Upgrade Issue                dhclient.  This change wouldn't 
+          * dhclient not honoring prepend     really roll out to older        
+            config                            machines, which is exactly      
+          * Diablo 3 on Ubuntu Linux          where I need this fix.          
+          * Disabling Hyperthreading       3. Newer machines are switching    
+          * gpg --recv-keys not working       away from dhclient.  Instead,   
+            with CentOS 6 and hkps            they use NetworkManager or      
+          * IE8 <div> Height Changing         other alternatives.             
+          * Opscode Chef + RabbitMQ        4. There's a quick and easy        
+          * Renaming Windows Network          workaround to make this act as  
+            Adapter for VirtualBox            expected.                       
+          * Using "GRANT ALL" With        Let's talk about that workaround.   
+            Amazon's MySQL RDS             On CentOS, the                     
+          * WCF and gzip compression      /sbin/dhclient-script script is     
+     * Programmer Tips                    made to be extended.  It looks for  
+          * Best Programming Language?    /etc/dhcp/dhclient-enter-hooks and  
+          * Escaping Strings              will execute it if it exists and is 
+          * Parameter Order               flagged as executable.  You can     
+          * Password Security             modify $new_domain_name_servers     
+          * Public DNS Pointing To        directly here.  So, just omit the   
+            localhost (127.0.0.1)         "prepend domain-name-servers        
+          * Shrinking VM Disk Images      127.0.0.1" in                       
+          * VMWare Tweaks                 /etc/dhcp/dhclient.conf and instead 
+     * Sitemap                            you should create                   
+     * Recent site activity               /etc/dhcp/dhclient-enter-hooks with 
+                                          the content here.                   
+                                          #!/bin/sh                           
+                                          # Prepend 127.0.0.1 to the list of  
+                                          name servers if new servers are     
+                                          being set.                          
+                                          if [ -n "$new_domain_name_servers"  
+                                          ]; then                             
+                                                                              
+                                          new_domain_name_servers="127.0.0.1  
+                                          $new_domain_name_servers"           
+                                          fi                                  
+                                          A simple "chmod 0755                
+                                          /etc/dhcp/dhclient-enter-hooks" and 
+                                          you're done.  This will always      
+                                          prepend 127.0.0.1 to your list of   
+                                          domain name servers.  The same      
+                                          method can work for all sorts of    
+                                          properties that dhclient is having  
+                                          difficulty honoring.                
+                                          Problem solved.                     
+                                          It is possible that this isn't a    
+                                          "Problem Only Tyler Has".  Here's a 
+                                          few people that could be the result 
+                                          of the same issue as me or possibly 
+                                          a related issue.  They didn't solve 
+                                          it the same way I did and I didn't  
+                                          investigate their problems further  
+                                          to determine if they were really    
+                                          experiencing the same issue as      
+                                          myself.                             
+                                            * Auto-population of              
+                                              /etc/resolv.conf not working?   
+                                            * Hostname and DNS issues with    
+                                              resolv.conf and Terracotta      
+                                            * resolv.conf after reboot on     
+                                              CentOS 5.5 EC2 instance         
+                                          I hope the workaround works for     
+                                          you.  If you do manage to figure    
+                                          out and fix dhclient, let me know.  
+                                                                              
+                                          Comments                            
+
+   Sign in|Recent Site Activity|Report Abuse|Print Page|Powered By Google
+   Sites

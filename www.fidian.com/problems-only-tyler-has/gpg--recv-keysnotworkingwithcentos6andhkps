@@ -1,0 +1,79 @@
+   Link: canonical
+
+   fidian.com _____________________                                           
+              Search this site                                                
+
+                                      Problems Only Tyler Has(->) > (->)                                        
+                                                                                                                
+                                        gpg --recv-keys not working with CentOS 6 and hkps                      
+  * Home                                                                                                        
+  * Announcements                     posted Feb 26, 2016, 7:32 AM by Tyler Akins                               
+       * Adding Git Documentation                                                                               
+       * CSS Beautifier               I have a need at work to import gpg keys automatically from keyservers.   
+       * CSS Validation Library Ready  To make sure I trust the keys, I fully intended to use hkps keyservers.  
+       * PrettyCSS 0.1.0 and New       To that end I found these:                                               
+         Section                        * hkps://keyserver.ubuntu.com                                           
+       * PrettyCSS 0.2.0                * hkps://hkps.pool.sks-keyservers.net (custom CA cert)                  
+       * PrettyCSS 0.3.0                * hkps://zimmermann.mayfirst.org (custom CA cert)                       
+       * PrettyCSS 0.3.3              So far so good.  I installed the two CA certs and I can use curl to hit   
+       * PrettyCSS Works              https://SERVER/pks/lookup?search=0x8F3B8C432F4393BD in order to make sure 
+       * Site Launch!                 they work.  For those who do not know, hkps is "HTTP Keyserver Protocol"  
+       * Writing Tests for PrettyCSS  as defined in this proposal.  Thus, I can just hit the URLs directly,     
+  * Contact                           thankfully, because it soon became quite necessary.                       
+  * Git                               Time to get the GPG command working.  Here's what works on all of the     
+       * Advice (Please Read)         systems I tried EXCEPT CentOS 6.  Debugging options (--verbose            
+       * Aliases                      --keyserver-options debug) were added to get additional diagnostic        
+       * Configuring Git              information.                                                              
+       * External Resources           gpg --verbose --status-fd 1 --keyserver hkps://keyserver.ubuntu.com       
+       * Git Tricks                   --keyserver-options debug --recv-key 8F3B8C432F4393BD                     
+       * Quick Reference              Typically works like a charm.  CentOS 6 has this error, regardless of     
+       * Start a Repository           which server I use.                                                       
+       * Submodules                   gpg: requesting key 2F4393BD from hkps server keyserver.ubuntu.com        
+       * Terminology                  gpgkeys: curl version = libcurl/7.19.7 NSS/3.19.1 Basic ECC zlib/1.2.3    
+       * Typical Usage                libidn/1.18 libssh2/1.4.2                                                 
+  * PHPTools                          * About to connect() to keyserver.ubuntu.com port 443 (#0)                
+       * DB                           *   Trying 91.189.90.55... * connected                                    
+       * DependencyInjectionContainer * Connected to keyserver.ubuntu.com (91.189.90.55) port 443 (#0)          
+       * Logger                       * Initializing NSS with certpath: sql:/etc/pki/nssdb                      
+       * Tokenizer                    *   CAfile: none                                                          
+       * WebRequest                     CApath: none                                                            
+  * PrettyCSS                         * Certificate is signed by an untrusted issuer: 'CN=DigiCert SHA2 Secure  
+       * Command Line                 Server CA,O=DigiCert Inc,C=US'                                            
+       * Download                     * NSS error -8172                                                         
+       * Error/Warning Codes          * Closing connection #0                                                   
+       * Installation                 * Peer certificate cannot be authenticated with known CA certificates     
+       * Lint Checking                gpgkeys: HTTP fetch error 60: Peer certificate cannot be authenticated    
+       * Object Methods               with known CA certificates                                                
+  * Problems Only Tyler Has           gpg: no valid OpenPGP data found.                                         
+       * Backups and Recovery         [GNUPG:] NODATA 1                                                         
+       * Chef Upgrade Issue           gpg: Total number processed: 0                                            
+       * dhclient not honoring        [GNUPG:] IMPORT_RES 0 0 0 0 0 0 0 0 0 0 0 0 0 0                           
+         prepend config               Wait a sec, that looks like a CA cert problem.  I can curl to the URL     
+       * Diablo 3 on Ubuntu Linux     directly from CentOS 6 and I also used openssl to manually make an HTTP   
+       * Disabling Hyperthreading     request.  Works every time, except from gpg.  I did not dig deep enough   
+       * gpg --recv-keys not working  to see why gpg does not work because I was much more interested in having 
+         with CentOS 6 and hkps       this fixed and CentOS 6 is already quite ancient.  So, here's what I did  
+       * IE8 <div> Height Changing    as a workaround.                                                          
+       * Opscode Chef + RabbitMQ      curl                                                                      
+       * Renaming Windows Network     https://keyserver.ubuntu.com/pks/lookup?search=0x8F3B8C432F4393BD\&op=get 
+         Adapter for VirtualBox       | gpg --import --status-fd 1                                              
+       * Using "GRANT ALL" With       And you can see here that it works perfectly fine:                        
+         Amazon's MySQL RDS             % Total    % Received % Xferd  Average Speed   Time    Time     Time    
+       * WCF and gzip compression      Current                                                                  
+  * Programmer Tips                                                    Dload  Upload   Total   Spent    Left    
+       * Best Programming Language?    Speed                                                                    
+       * Escaping Strings             100  3230  100  3230    0     0  18737      0 --:--:-- --:--:-- --:--:--  
+       * Parameter Order               175k                                                                     
+       * Password Security            gpg: /home/centos/.gnupg/trustdb.gpg: trustdb created                     
+       * Public DNS Pointing To       gpg: key 2F4393BD: public key "Tyler Akins <fidian@rumkin.com>" imported  
+         localhost (127.0.0.1)        [GNUPG:] IMPORTED 8F3B8C432F4393BD Tyler Akins <fidian@rumkin.com>        
+       * Shrinking VM Disk Images     [GNUPG:] IMPORT_OK 1 164090D5B9551478BE7F25588F3B8C432F4393BD             
+       * VMWare Tweaks                gpg: Total number processed: 1                                            
+  * Sitemap                           gpg:               imported: 1  (RSA: 1)                                  
+  * Recent site activity              [GNUPG:] IMPORT_RES 1 0 1 1 0 0 0 0 0 0 0 0 0 0                           
+                                      Problem solved.                                                           
+                                                                                                                
+                                      Comments                                                                  
+
+   Sign in|Recent Site Activity|Report Abuse|Print Page|Powered By Google
+   Sites
