@@ -20,9 +20,9 @@ template: index.jade
 
 ### [Fun](fun/)
 
-* [Fortune Cookie](fun/fortune_cookie/) - Need a random fortune from a fortune cookie?
+* [Fortune Cookie](fun/fortune-cookie/) - Need a random fortune from a fortune cookie?
 * [Games](fun/games/) - Interactive arcade games
-* [Tongue Twisters](fun/tongue_twisters/) - There's no way you can say them *all*!
+* [Tongue Twisters](fun/tongue-twisters/) - There's no way you can say them *all*!
 * [more ...](fun/)
 
 
