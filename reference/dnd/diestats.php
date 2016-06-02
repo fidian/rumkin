@@ -32,7 +32,7 @@ My machine bombs out at about 10 dice.</p>
 <a href="#" onclick="return SetRoll('6d3')">6d3</a>,
 <a href="#" onclick="return SetRoll('4d6D1')">4d6, drop lowest</a>,
 <a href="#" onclick="return SetRoll('4d5D1+3')">4d6, reroll 1s, drop lowest</a> (really it rolls 4d5 and adds 1, but that's effectively the same),
-<a href="#" onclick="return SetRoll('3d6D-1')">3d6, drop the highest</a> (penalty of some sort).</p>
+<a href="#" onclick="return SetRoll('3d6P1')">3d6, drop the highest</a> (penalty of some sort).</p>
 
 <form method="GET" action="#" onSubmit="return false;">
 Dice Roll String:
@@ -41,7 +41,7 @@ id="rollString">
 </form>
 <p>Feel free to try out your own die rolling strings, like "5d4 + 3" or
 "6d8".  The "d" must be lowercase.  To drop the lowest x dice, use an
-uppercase D, like "4d6D1" means to roll 4d6 and drop the lowest 1 die.</p>
+uppercase D, like "4d6D1" means to roll 4d6 and drop the lowest 1 die.  To drop the highest x dice, use an uppercase P, like "4d6P1" means to roll 4d6 and drop the highest 1 die roll.</p>
 <script language="JavaScript">
 document.getElementById('rollString').focus();
 </script>
