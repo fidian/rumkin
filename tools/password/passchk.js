@@ -150,7 +150,7 @@ function Get_Charset_Size(pass)
       }
       if (r == 0 && "`~-_=+[{]}\\|;:'\",<.>/?".indexOf(c) >= 0)
       {
-         chars += 20;
+         chars += 22;
 	 r = 1;
       }
       if (sp == 0 && c == ' ')
