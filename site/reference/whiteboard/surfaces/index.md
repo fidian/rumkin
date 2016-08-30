@@ -8,7 +8,7 @@ I have tried numerous types of surfaces in order to find one that is cheap and e
 
 With each surface comes advantages and disadvantages.  Some of the methods are broken down by use; you have different needs if you want one large whiteboard instead of twenty small whiteboards.  I've attempted to rate how well the surfaces perform and how expensive they are.
 
-I rated the surfaces on eraseability with whiteboard markers only.  Ghosting, residue, and difficulty wiping away the marks all lead to a worse score.  I also try to use new surfaces because the wear on a whiteboard can cause it to become a worse surface.  I had a commercial whiteboard that has seen its share of use and it was worse than using a shower board!
+I rated the surfaces on their ability to be erased with whiteboard markers only.  Ghosting, residue, and difficulty wiping away the marks all lead to a worse score.  I also try to use new surfaces because the wear on a whiteboard can cause it to become a worse surface.  I had a commercial whiteboard that has seen its share of use and it was worse than using a shower board!
 
 The price factor reflects the approximate cost to cover a wall in the material, or essentially the cost for the surface area.  Most commercial whiteboards would get a very poor price rating even though they operate very well.
 
@@ -41,6 +41,7 @@ Here's a quick run-down of uses for whiteboards and some methods that work best.
     * Tatco Whiteboard Sheets
 * Whiteboard resurfacing
     * MB4000w - This is what it was designed to do
+    * Rain-X / Hard Surface Protectant
 
 This is a table with a quick comparison of surfaces.  The higher the score, the better it works with whiteboard markers.  The higher the price, the more economical it is (ie. it costs less).  A "?" means I did not test this product yet.
 
@@ -64,6 +65,7 @@ This is a table with a quick comparison of surfaces.  The higher the score, the 
 | Polycoated Cardboard                          |   3   |   4   | Easy and effective                         |
 | Poly Sheets                                   |   ?   |   ?   | Looks great                                |
 | Polyurethane (Coating)                        |   3   |   4   | Suggestion from visitors                   |
+| Rain-X / Hard Surface Protectant              |   ?   |   ?   | Suggestion from a visitor                  |
 | Tatco Whiteboard Sheets                       |   ?   |   ?   | Suggestion from a visitor                  |
 | Tile board / Melamine / Shower board          |   2   |   5   | Large surface for cheap                    |
 | Troy Dry Erase Sheets                         |   ?   |   ?   | Self-stick poly sheets                     |
@@ -288,6 +290,15 @@ Polyurethane (Coating)
 The Shower Board link (below) suggests that coating something like tile board with a wipe-on polyurethane may make the tile board more like a commercial whiteboard, but it also says that their tests failed when they used a polyurethane varnish.  They say that perhaps Minwax or Varathane Professional may work.
 
 I did try out an inconspicuous area on a Varathane coated floor.  The markers wiped right off, but I was not permitted to do an extended test.
+
+
+Rain-X / Hard Surface Protectant
+--------------------------------
+
+* **Score:** Untested
+* **Price:** Untested
+
+A reader had a whiteboard that no longer wiped away cleanly.  They tried Stanford Expo Whiteboard Cleaner but the board still seemed to cling to the marker.  They applied several layers of Hard Surface Protectant (claimed to be the same formula as Rain-X) to the clean board and waited a few hours.  They tested it and the board now works like it is new again.
 
 
 Tatco Whiteboard Sheets
