@@ -24,8 +24,9 @@ Here's a quick run-down of uses for whiteboards and some methods that work best.
 
 * Coating walls
     * MB4000W - This can also keep the original wall color
+    * Evergreen Dry Erase Film
 * Personal boards
-    * Laminate sheets - Really convenient for schools
+    * Laminated sheets - Really convenient for schools
     * Plastic, page protectors
     * Polycoated cardboard
     * Contact paper
@@ -54,6 +55,7 @@ This is a table with a quick comparison of surfaces.  The higher the score, the 
 | Cellophane / Plastic Wrap                     |   1   |   5   | Good for emergencies, bad durability       |
 | Ceramic Material                              |   5   |   1   | Used in high-end whiteboards               |
 | Contact Paper                                 |   3   |   5   | Usually works well                         |
+| Evergreen Dry Erase Film                      |   ?   |   ?   | Suggestion from a visitor                  |
 | Glass                                         |   5   |   2   | Works great                                |
 | Laminated Sheets                              |   3   |   4   | Fairly good and inexpensive                |
 | Latex Paint (High Gloss)                      |   1   |   1   | Complete failure                           |
@@ -69,6 +71,7 @@ This is a table with a quick comparison of surfaces.  The higher the score, the 
 | Tatco Whiteboard Sheets                       |   ?   |   ?   | Suggestion from a visitor                  |
 | Tile board / Melamine / Shower board          |   2   |   5   | Large surface for cheap                    |
 | Troy Dry Erase Sheets                         |   ?   |   ?   | Self-stick poly sheets                     |
+| Vinyl Floor Tile                              |   ?   |   ?   | Suggestion from a visitor                  |
 | WallTalkers                                   |   ?   |   ?   | Dry-erase wallpaper and contact paper      |
 | Whiteboard Paint                              |   ?   |   ?   | White paint (not a coating)                |
 
@@ -150,7 +153,18 @@ Contact Paper
 
 Just head to your local retailer and pick up a roll for a couple dollars.  Quick and easy.  Test it out before buying to make sure that your type of contact paper will erase cleanly because some textures and materials do not work with dry erase markers.  Typically, the cheaper contact paper works better.  You want ones that are extremely smooth and glossy.
 
+This could also take the form of book cover plastic.  One reader suggested using transparent adhesive book wrap plastic, which is used to protect book covers.
+
 The steps for making a whiteboard are pretty basic but there's a trick you should know to avoid bubbles under the contact paper.  First, cut the contact paper to fit and then peel back a corner.  Apply the corner to the surface, making sure it still lines up properly.  Slowly peel away more and use a flat edge, such as a credit card, to push the contact paper onto the surface.  Make sure to go slow and get rid of any air bubbles right away, since you will not be able to remove them later.
+
+
+Evergreen Dry Erase Film
+------------------------
+
+* **Score:** Untested
+* **Price:** Untested
+
+A reader suggested that people investigate this product.  It comes in large rolls, though information online is sketchy or not really available.
 
 
 Glass
@@ -269,6 +283,8 @@ Polycoated Cardboard
 
 The backs of political yard signs or scrap from screen printing jobs may be used as a whiteboard.  The marker may be difficult or impossible to remove if it stays too long on the cardboard.
 
+One visitor mentioned that this could be called "Twin Wall Plastic Sheeting".  It looks like corrugated cardboard that is made out of plastic instead of paper.
+
 If you intend to make a whiteboard out of this material, make sure to test first.  Some of these boards do not erase at all.  After that minor inconvenience, making a whiteboard is trivial.  Cut to size.  Done.  Super easy.
 
 
@@ -326,6 +342,15 @@ Troy Dry Erase Sheets
 * **Price:** Untested
 
 You can get a 48" x 60" roll of self-stick poly that works as a whiteboard.  Check out [Troy's website](http://www.troydryerase.com).
+
+
+Vinyl Floor Tile
+----------------
+
+* **Score:** Untested
+* **Price:** Untested
+
+This suggestion came from a frustrated visitor.  They understand that it is nearly impossible to get a perfectly smooth finish when applying a paint-on whiteboard coating, not to mention the other hassles.  You can get rolls of vinyl floor tile from hardware stores.
 
 
 WallTalkers

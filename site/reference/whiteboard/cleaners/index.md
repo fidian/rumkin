@@ -82,6 +82,21 @@ Click a heading to sort.  Scores range from 1 to 5, with 5 being the best.  Each
 | Whiteboard Cleaner         | Soytek                |    ?    |    1    | Smears and pushes markers around         |
 
 
+Untested Ideas
+==============
+
+The readers of this site often suggest alternative ways to clean whiteboards.  Here's a collection of things that were not tested.
+
+* Barbasol shaving cream
+* Hydrogen Peroxide
+* Quick N' Brite
+* SPF 30+ sunblock or sunscreen, especially aerosol spray versions
+* Scrubbing Bubbles bathroom cleaner
+* Tilex Mold and Mildew Cleaner
+* WD40 to remove the offending marks and Awesome cleaner to remove WD40 residue
+* Windex window cleaner
+
+
 Individual Cleaner Write-Ups
 ============================
 
