@@ -89,6 +89,7 @@ The readers of this site often suggest alternative ways to clean whiteboards.  H
 
 * Barbasol shaving cream
 * Hydrogen Peroxide
+* Magic Eraser - I've used this but I don't recommend it because it is slightly abrasive and that will slowly ruin the finish.
 * Quick N' Brite
 * SPF 30+ sunblock or sunscreen, especially aerosol spray versions
 * Scrubbing Bubbles bathroom cleaner
