@@ -420,6 +420,12 @@ function JavascriptEncode()
 	{
 	    p = LetterList.indexOf(From.slice(loc, loc+1));
 	    p += 48;
+
+        // Handle backslashes properly
+        if (p === 92) {
+            To += "\\";
+        }
+
 	    To += String.fromCharCode(p);
 	    loc ++;
 	}

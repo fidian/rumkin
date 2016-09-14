@@ -40,7 +40,7 @@ It also means that a .50 cal Desert Eagle is probably too much gun if you are on
 Penetration Testing
 ===================
 
-The typical method that agencies around the world employ is to use ballistic gel.  The FBI has typically set the standard for this information and they like to use this gel a lot.  The gel is made by [Gelita] (once known as Kind & Knox).  They call it Pharmagel or "250 Type A Ordinance Gelatin".  Apparently you can also purchase Vyse gelatin (see their [email to me](vyse_email/)).
+The typical method that agencies around the world employ is to use ballistic gel.  The FBI has typically set the standard for this information and they like to use this gel a lot.  The gel is made by [Gelita], once known as Kind & Knox.  They call it Pharmagel or "250 Type A Ordinance Gelatin".  Apparently you can also purchase Vyse gelatin (see their [email to me](vyse-email/) though I would never do so).  One kind reader notified me that the Massachusetts State Forensics Laboratory uses Knox 250 A and told me about some of the problems with Vyse gelatin.
 
 Unfortunately, the authentic stuff is quite expensive for hobbyists.  The FBI uses 6x6x16 or 8x6x16 inch blocks.  Each block is composed from 1 kilogram of powder and that's roughly $22-$30 to make a single block.  I could not find any source that sold any less than 25 pounds of powder, which would make about 3.6 cubic feet of gel.
 
