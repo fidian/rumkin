@@ -37,12 +37,12 @@ Medications
 ===========
 
 * Aflibercept (Eylea), as needed (macular edema)
-* Aspirin, 81mg daily
+* Aspirin, 81 mg daily
+* Atorvastatin, 40 mg daily (high cholesterol)
 * Avastin (Bevacizumab), 25mg as needed (macular edema)
 * Cetirizine HCl, 10 mg daily (generic allergy pill)
 * Lisinopril, 10mg daily (high blood pressure)
 * Metformin HCl, 850 mg daily (Diabetes)
-* Pravastatin Sodium, 20 mg daily (high cholesterol)
 * Multivitamin, daily
 
 
