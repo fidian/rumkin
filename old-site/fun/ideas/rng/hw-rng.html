@@ -183,16 +183,16 @@ Theodore Ts'o, one of the original authors of the /dev/random code,
 and he explained how to do that:
 
 <pre>
-From: "Theodore Y. Ts'o" <tytso@MIT.EDU>
-To: Will Ware <wware@world.std.com>
+From: "Theodore Y. Ts'o" &lt;tytso@MIT.EDU&gt;
+To: Will Ware &lt;wware@world.std.com&gt;
 CC: gnu@toad.com, whgiii@openpgp.net, jsandin@chimera.acm.jhu.edu,
         wware@world.std.com
 In-reply-to: Will Ware's message of Wed, 3 May 2000 11:48:38 -0400 (EDT),
-	<200005031548.LAA05662@world.std.com>
+	&lt;200005031548.LAA05662@world.std.com&gt;
 Subject: Re: /dev/random questions
 
    Date: Wed, 3 May 2000 11:48:38 -0400 (EDT)
-   From: Will Ware <wware@world.std.com>
+   From: Will Ware &lt;wware@world.std.com&gt;
 
    Hi, a few years back I posted a web page describing an inexpensive
    hardware random bit generator using PN junction noise. I have recently
@@ -203,7 +203,7 @@ Subject: Re: /dev/random questions
    bytes to the entropy pool. I assume this gets invoked when somebody
    with root access does something like:
 
-       cat bunch_o_bytes > /dev/random
+       cat bunch_o_bytes &gt; /dev/random
 
    My question (beyond "is my understanding correct so far?") is, how do
    you tell /dev/random how many bits of entropy to expect for each bit
@@ -221,7 +221,7 @@ struct rand_pool_info {
 	__u32	buf[MAX_ENT_BUF_SIZE];
 };
 
-This ioctl requires root access.  
+This ioctl requires root access.
 
 The basic idea is that you have a user-mode daemon that receives the
 input from the hwrand device driver, does whatever whitening, entropy
