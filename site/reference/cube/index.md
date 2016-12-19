@@ -99,11 +99,11 @@ Solution Preface
 During this solution process, you will undoubtedly come across several sections which simply don't apply to your cube, unless, of course, you've decided to take the plunge and engage the Borg. Simply skip over those sections until you come to something relevant. Here's a rundown of the various pieces and the minimal cube size which uses them, as well as the name of the sections dealing with them. Note that not all pieces are on all cubes above its minimal size.  All pieces with an odd minimum are *only* on odd sized cubes, while those with even minimums are on ALL cubes at least as big as the minimum size. For example, the corners are on all cubes, but the middle edges aren't on the Revenge, even though its minimal size is 3.  Note also that we skip the 6x6x6 and 7x7x7 in this diagram.
 
     Minimal Sizes      Glossary
-	  2 4 3 4 2        1 2 3 2 1
-	  4 4 5 4 4        2 4 5 4 2
-	  3 5 3 5 3        3 5 6 5 3
-	  4 4 5 4 4        2 4 5 4 2
-	  2 4 3 4 2        1 2 3 2 1
+      2 4 3 4 2        1 2 3 2 1
+      4 4 5 4 4        2 4 5 4 2
+      3 5 3 5 3        3 5 6 5 3
+      4 4 5 4 4        2 4 5 4 2
+      2 4 3 4 2        1 2 3 2 1
 
 Glossary Key:
 

@@ -116,20 +116,20 @@ Wiring Diagram
 ![Wiring Diagram](wiring.png)
 
     USB Pinout            Camera Pinout
-	
-	Pin  Color  Purpose   Pin  Signal
-	-------------------   -----------
-	 1   Red    +5 v       1   R57, not stuffed
-	 2   White  Data -     2   Ground (battery -)
-	 3   Green  Data +     3   R18-via-r68-r47
-	 4   Key    Unused     4   R25, not stuffed
-	 5   Black  Ground     5   R5 (1k ohm)
-	                       6   5v in from USB (red wire)
-						   7   Ground
-						   8   USB Data + (green wire)
-						   9   USB Data - (white wire)
-						  10   USB Ground (black wire)
-	
+    
+    Pin  Color  Purpose   Pin  Signal
+    -------------------   -----------
+     1   Red    +5 v       1   R57, not stuffed
+     2   White  Data -     2   Ground (battery -)
+     3   Green  Data +     3   R18-via-r68-r47
+     4   Key    Unused     4   R25, not stuffed
+     5   Black  Ground     5   R5 (1k ohm)
+                           6   5v in from USB (red wire)
+                           7   Ground
+                           8   USB Data + (green wire)
+                           9   USB Data - (white wire)
+                          10   USB Ground (black wire)
+    
 Some people report that sending the ground to pin 7 instead of pin 10 works better for them.
 
 Links

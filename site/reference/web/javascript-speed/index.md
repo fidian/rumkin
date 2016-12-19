@@ -16,20 +16,20 @@ will be best to store the value to a local variable.  A visitor to my site
 pointed out that my code would be sped up by a factor of 10 if I used this
 particular change.  He was absolutely right.
 
-	// Avoid
-	for (var i = 0; i < 100; i ++) {
-		a = document.testform.testtext.value;
-		b = document.testform.testtext.value.length;
-		c = document.testform.testtext.value.substr(2, 1);
-	}
+    // Avoid
+    for (var i = 0; i < 100; i ++) {
+        a = document.testform.testtext.value;
+        b = document.testform.testtext.value.length;
+        c = document.testform.testtext.value.substr(2, 1);
+    }
 
-	// Faster
-	v = document.testform.testtext.value;
-	for (var i = 0; i < 100; i ++) {
-		a = v;
-		b = v.length;
-		c = v.substr(2, 1);
-	}
+    // Faster
+    v = document.testform.testtext.value;
+    for (var i = 0; i < 100; i ++) {
+        a = v;
+        b = v.length;
+        c = v.substr(2, 1);
+    }
 
 Internet Explorer usually provided me with a 20-25x speed increase, but
 sometimes it plummetted down to a mere 4 or 5x speed increase.  No matter
@@ -45,26 +45,26 @@ with the size of the string being concatenated.  Instead, the little
 substrings should be placed into an array and then joined together to make
 one big string in the end.
 
-	// Normal concatenation
-	a = '';
-	b = 'abcdefghijklmnopqrstuvwxyz';
-	b += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	for (var i = 0; i < 500; i ++) {
-		a += b + b + b + b + b;
-	}
+    // Normal concatenation
+    a = '';
+    b = 'abcdefghijklmnopqrstuvwxyz';
+    b += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    for (var i = 0; i < 500; i ++) {
+        a += b + b + b + b + b;
+    }
 
-	// Using an Array
-	a = [];
-	b = 'abcdefghijklmnopqrstuvwxyz';
-	b += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	for (var i = 0; i < 500; i ++) {
-		a.push(b);
-		a.push(b);
-		a.push(b);
-		a.push(b);
-		a.push(b);
-	}
-	a = a.join('');
+    // Using an Array
+    a = [];
+    b = 'abcdefghijklmnopqrstuvwxyz';
+    b += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    for (var i = 0; i < 500; i ++) {
+        a.push(b);
+        a.push(b);
+        a.push(b);
+        a.push(b);
+        a.push(b);
+    }
+    a = a.join('');
 
 Internet Explorer gets another huge boost with this one.  Other browsers run these both equally and Firefox actually may run it slower as an array.  Chrome is faster when you deal with strings directly.  The size of the strings matter greatly and longer strings typically make the speed boost worth something.
 

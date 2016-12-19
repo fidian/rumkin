@@ -13,4 +13,4 @@ Use just one of these, whichever one looks like what you want.
     <link rel="SHORTCUT ICON" href="http://your.site.com/the_icon.ico">
 
     <!-- Example #2 -->
-	<link rel="shortcut icon" href="/my_icon.ico">
+    <link rel="shortcut icon" href="/my_icon.ico">

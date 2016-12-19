@@ -8,7 +8,7 @@ Over the years, I have been asked why I selected "rumkin.com" as my site's name.
 
 The Hunt
 ========
-	
+    
 Before I registered my own domain name, I had a few rules in mind.  I wanted it short, pronounceable, a word, non-offensive, and hard to screw up.  I did not want anything with a number, symbol, nor anything that could be spelled multiple ways if I were to say the site name to someone.  Things like "4ever.com" and "be-good.com" were instantly removed from consideration.  I also wanted it to be 6 letters or less and I wanted a "dot com" ending because that's the fad at that time.
 
 I wrote a program that took a wordlist and checked with DNS servers and various WHOIS servers in order to see if that domain was currently registered.  This generated a list of possible domain names.

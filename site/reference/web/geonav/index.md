@@ -5,81 +5,81 @@ js: geonav.js
 ---
 
 <div style="background-color: black; width: 350px; float: right">
-	<div style="text-align: center; padding: 15px">
-		<IMG SRC="na.jpg" NAME="World" WIDTH="320"	ONLOAD="setTimeout('updateMap()', 20)" HEIGHT="320">
-	</div>
-	<div style="width: 200px; float: left">
-		<IMG SRC="globe.gif" WIDTH="200" HEIGHT="81" USEMAP="#map1" BORDER="0">
-		<MAP NAME="map1">
-			<AREA SHAPE="POLY" COORDS="174,35,163,44,151,46,162,72,196,76,198,47" HREF="javascript:GoTo(4)">
-			<AREA SHAPE="POLY" COORDS="126,0,141,45,163,40,183,18,196,15,196,2"	HREF="javascript:GoTo(3)">
-			<AREA SHAPE="POLY" COORDS="136,35,124,4,105,3,93,13,87,30,93,47,103,53,110,74,124,67,136,53" HREF="javascript:GoTo(2)">
-			<AREA SHAPE="POLY" COORDS="67,38,48,44,53,78,70,79,88,50,77,39" HREF="javascript:GoTo(1)">
-			<AREA SHAPE="POLY" COORDS="92,1,88,12,65,34,45,44,23,24,4,19,1,1,92,1" HREF="javascript:GoTo(0)"> 
-		</MAP>
-	</div>
-	<div style="width: 130px; float: right; text-align: center; font-size: 0.7em; font-weight: bold">
-		<a href="javascript:GoTo(0)" style="color: yellow; text-decoration: none">North America</a><br>
-		<a href="javascript:GoTo(1)" style="color: yellow; text-decoration: none">South America</a><br>
-		<a href="javascript:GoTo(2)" style="color: yellow; text-decoration: none">Africa &amp; Europe</a><br>
-		<a href="javascript:GoTo(3)" style="color: yellow; text-decoration: none">Asia and Russia</a><br>
-		<a href="javascript:GoTo(4)" style="color: yellow; text-decoration: none">Australia</a><br>
-		<a href="javascript:SpinGlobe()" style="color: yellow; text-decoration: none">-- Spin Globe --</a>
-	</div>
-	<div style="clear: both">
-	</div>
+    <div style="text-align: center; padding: 15px">
+        <IMG SRC="na.jpg" NAME="World" WIDTH="320"    ONLOAD="setTimeout('updateMap()', 20)" HEIGHT="320">
+    </div>
+    <div style="width: 200px; float: left">
+        <IMG SRC="globe.gif" WIDTH="200" HEIGHT="81" USEMAP="#map1" BORDER="0">
+        <MAP NAME="map1">
+            <AREA SHAPE="POLY" COORDS="174,35,163,44,151,46,162,72,196,76,198,47" HREF="javascript:GoTo(4)">
+            <AREA SHAPE="POLY" COORDS="126,0,141,45,163,40,183,18,196,15,196,2"    HREF="javascript:GoTo(3)">
+            <AREA SHAPE="POLY" COORDS="136,35,124,4,105,3,93,13,87,30,93,47,103,53,110,74,124,67,136,53" HREF="javascript:GoTo(2)">
+            <AREA SHAPE="POLY" COORDS="67,38,48,44,53,78,70,79,88,50,77,39" HREF="javascript:GoTo(1)">
+            <AREA SHAPE="POLY" COORDS="92,1,88,12,65,34,45,44,23,24,4,19,1,1,92,1" HREF="javascript:GoTo(0)"> 
+        </MAP>
+    </div>
+    <div style="width: 130px; float: right; text-align: center; font-size: 0.7em; font-weight: bold">
+        <a href="javascript:GoTo(0)" style="color: yellow; text-decoration: none">North America</a><br>
+        <a href="javascript:GoTo(1)" style="color: yellow; text-decoration: none">South America</a><br>
+        <a href="javascript:GoTo(2)" style="color: yellow; text-decoration: none">Africa &amp; Europe</a><br>
+        <a href="javascript:GoTo(3)" style="color: yellow; text-decoration: none">Asia and Russia</a><br>
+        <a href="javascript:GoTo(4)" style="color: yellow; text-decoration: none">Australia</a><br>
+        <a href="javascript:SpinGlobe()" style="color: yellow; text-decoration: none">-- Spin Globe --</a>
+    </div>
+    <div style="clear: both">
+    </div>
 </div>
 <div id="geo_info_loading" style="display: none">
-	<h1 align=center>Loading ...</h1>
-	<p>Please wait for the world to revolve once so the world gets loaded.</p>
+    <h1 align=center>Loading ...</h1>
+    <p>Please wait for the world to revolve once so the world gets loaded.</p>
 </div>
 <div id="geo_info_na" style="display: none">
-	<h1 align=center>North America</h1>
-	<h2>Navigation</h2>
-	<p>Just click on the globe to the left or the stretched out globe in the
-	lower left.  The globe will rotate and this frame will refresh.</p>
-	<h2>Download</h2>
-	<p>If you use this code, I'd appreciate credit in your JavaScript.
-	You can either save this page and all of the images that it uses, or I
-	have a <a href="geonav.zip">slightly older version</a> as a zip file.</p>
-	<p><a href="#" onclick="LoadNav('credits'); return false">Credits</a></p>
+    <h1 align=center>North America</h1>
+    <h2>Navigation</h2>
+    <p>Just click on the globe to the left or the stretched out globe in the
+    lower left.  The globe will rotate and this frame will refresh.</p>
+    <h2>Download</h2>
+    <p>If you use this code, I'd appreciate credit in your JavaScript.
+    You can either save this page and all of the images that it uses, or I
+    have a <a href="geonav.zip">slightly older version</a> as a zip file.</p>
+    <p><a href="#" onclick="LoadNav('credits'); return false">Credits</a></p>
 </div>
 <div id="geo_info_sa" style="display: none">
-	<h1 align=center>South America</h1>
-	<p>Insert links for South America here</p>
-	<p>If you get creative, you can use this type of thing to showcase links
-	about a single city, country, or other geographic region.</p>
+    <h1 align=center>South America</h1>
+    <p>Insert links for South America here</p>
+    <p>If you get creative, you can use this type of thing to showcase links
+    about a single city, country, or other geographic region.</p>
 </div>
 <div id="geo_info_af" style="display: none">
-	<h1 align=center>Africa and Europe</h1>
-	<p>Insert links relative to these areas here.</p>
-	<p>If you get extremely creative, you could write a program that does a
-	bubble-zoom effect on a network of nodes, and use the images that were
-	created in here instead of using pictures of a globe.</p>
+    <h1 align=center>Africa and Europe</h1>
+    <p>Insert links relative to these areas here.</p>
+    <p>If you get extremely creative, you could write a program that does a
+    bubble-zoom effect on a network of nodes, and use the images that were
+    created in here instead of using pictures of a globe.</p>
 </div>
 <div id="geo_info_as" style="display: none">
-	<h1 align=center>Asia</h1>
-	<p>Insert links relative to Asia here.</p>
-	<p>I tried using higher quality pictures, but they slowed down the browser
-	too much.  I also tried having a path from where you were directly to where
-	you were going, but that was a huge amount of images.</p>
+    <h1 align=center>Asia</h1>
+    <p>Insert links relative to Asia here.</p>
+    <p>I tried using higher quality pictures, but they slowed down the browser
+    too much.  I also tried having a path from where you were directly to where
+    you were going, but that was a huge amount of images.</p>
 </div>
 <div id="geo_info_au" style="display: none">
-	<h1 align=center>Australia</h1>
-	<p>Insert links relative to Australia here.</p>
-	<p>For added flashiness, you could rewrite this type of idea in Flash.  I
-	bet it would be easier if you could make a sphere, put a globe texture on
-	it, and then just spin the ball wherever you like.  Zooming, bouncing, and
-	some warping effects would make the globe seem nicely animated.</p>
+    <h1 align=center>Australia</h1>
+    <p>Insert links relative to Australia here.</p>
+    <p>For added flashiness, you could rewrite this type of idea in Flash.  I
+    bet it would be easier if you could make a sphere, put a globe texture on
+    it, and then just spin the ball wherever you like.  Zooming, bouncing, and
+    some warping effects would make the globe seem nicely animated.</p>
 </div>
 <div id="geo_info_credits" style="display: none">
-	<h1 align=center>Credits</h1>
-	<UL>
-	<LI>Images are generated by the <A
-	HREF="http://www.fourmilab.ch/earthview/">Earth Viewer</A> by
-	<A HREF="http://www.fourmilab.ch/">John Walker</A></LI>
-	<LI>Satellite data that Earth Viewer uses is from
-	<A HREF="http://livingearth.com/">The Living Earth</A></LI>
-	<LI>Positioning on the globe was done with a shareware Windows program,
-	<A HREF="http://www.amiglobe.com/">Amiglobe 99</A> </LI>
+    <h1 align=center>Credits</h1>
+    <UL>
+    <LI>Images are generated by the <A
+    HREF="http://www.fourmilab.ch/earthview/">Earth Viewer</A> by
+    <A HREF="http://www.fourmilab.ch/">John Walker</A></LI>
+    <LI>Satellite data that Earth Viewer uses is from
+    <A HREF="http://livingearth.com/">The Living Earth</A></LI>
+    <LI>Positioning on the globe was done with a shareware Windows program,
+    <A HREF="http://www.amiglobe.com/">Amiglobe 99</A> </LI>
 </div>

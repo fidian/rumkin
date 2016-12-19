@@ -21,21 +21,21 @@
  * @return string Escaped and probably quoted string for JavaScript
  */
 function php_to_js($str, $skipQuotes = false) {
-	$replacements = array(
-		"/(<scr)(ipt)/i" => "$1\"+\"$2",  // Break up "<script" tags
-		'/\\\\/' => '\\\\',               // Escape backslashes
-		'/"/' => '\\"',                   // Escape quotes
-		"/'/" => "\\'",                   // Escape apostrophes
-		"/\r\n/" => "\n",                 // Convert DOS newlines into Unix
-		"/\r/" => "\n",                   // Convert Mac newlines into Unix
-		"/\n/" => "\\n\"+\n\"",           // Convert Unix newlines
-	);
+    $replacements = array(
+        "/(<scr)(ipt)/i" => "$1\"+\"$2",  // Break up "<script" tags
+        '/\\\\/' => '\\\\',               // Escape backslashes
+        '/"/' => '\\"',                   // Escape quotes
+        "/'/" => "\\'",                   // Escape apostrophes
+        "/\r\n/" => "\n",                 // Convert DOS newlines into Unix
+        "/\r/" => "\n",                   // Convert Mac newlines into Unix
+        "/\n/" => "\\n\"+\n\"",           // Convert Unix newlines
+    );
 
-	$str = preg_replace(array_keys($replacements), array_values($replacements), $str);
+    $str = preg_replace(array_keys($replacements), array_values($replacements), $str);
 
-	if ($skipQuotes) {
-		return $str;
-	}
+    if ($skipQuotes) {
+        return $str;
+    }
 
-	return '"' . $str . '"';
+    return '"' . $str . '"';
 }

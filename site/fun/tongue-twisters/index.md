@@ -17,9 +17,9 @@ This section is dedicated to the simplest tongue twisters.  Sometimes simply say
 2. Rush the washing, Russel.
 
 3. One smart fellow, he felt smart.<br />
-	Two smart fellows, they felt smart.<br />
-	Three smart fellows, they felt smart.<br />
-	(Continue counting ...)
+    Two smart fellows, they felt smart.<br />
+    Three smart fellows, they felt smart.<br />
+    (Continue counting ...)
 
 4. Toy boat.
 

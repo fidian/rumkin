@@ -88,7 +88,7 @@ BUSYBOX_SRC=yes
 # Type:         PERL
 #               package BUSYBOX_ROOT_61;
 #               @ISA=qw( PARAMETER );
-#               my @bb=( 
+#               my @bb=(
 #                       "FEATURE_VERBOSE_USAGE",
 #                       "LOCALE_SUPPORT",
 #                       "FEATURE_UNCOMPRESS",
@@ -343,7 +343,7 @@ BUSYBOX_SRC=yes
 #                       "BACKLIGHT"
 #                       );
 #               my %bb;
-#               sub initialize { my $self=shift; bless $self; 
+#               sub initialize { my $self=shift; bless $self;
 #                       foreach my $i (@bb) { $bb{$i}=1; }
 #               }
 #               sub valign { return "valign=top"; }
@@ -374,7 +374,7 @@ BUSYBOX_SRC=yes
 #                               $$fields{$self->name}="fat";
 #                       } else {
 #                               $$fields{$self->name}="";
-#                               foreach my $i (@bb) { 
+#                               foreach my $i (@bb) {
 #                                       $$fields{$self->name}.=" $i" if(defined($$fields{$self->name."_$i"}) && $$fields{$self->name."_$i"} eq "on");
 #                               }
 #                       }
@@ -491,7 +491,7 @@ CRAMFSBOOT_SRC=no
 
 ###############################################################################
 # cramfsboot                                                                  #
-# Title:        Cramfs bootloader 
+# Title:        Cramfs bootloader
 # Description:  Currently the only boot loader supported by Midori linux.
 #               The bootloader depends on the options QUIET_BOOT and
 #               REGRESSION_TEST which are defined in other packages.
@@ -531,7 +531,7 @@ CRAMFSBOOT_SRC=no
 # Description:  Some of the options for SET_ACTIVE above require an argument
 #               (name the host to ping or the website to fetch). Enter it here.
 # Type:         STRING
-# Default:      
+# Default:
 # SET_ACTIVE_ARGUMENT=""
 
 # Name:         WATCHDOG_TIMER
@@ -627,8 +627,8 @@ HDPARM_SRC=no
 
 # Name:         HDPARM_FLAGS_HDA
 # Description:  Commands for changing the settings of the IDE drives
-#               on the target. 
-#               One config option for each of the first two master 
+#               on the target.
+#               One config option for each of the first two master
 #               and slave drives in the system.
 #               Format is /sbin/hdparm $HDPARM_FLAGS_HDA /dev/hda
 #               Leave null to not run hdparm on the drive
@@ -903,7 +903,7 @@ PACKCRAMFSUPGRADE_SRC=no
 
 # Name:         UPGRADE_MLCONFIG
 # Description:  Set to yes if you want to offer the possibility to upgrade via the
-#               mlconfig interface. Note that for this to work you must set 
+#               mlconfig interface. Note that for this to work you must set
 #               MLCONFIG_ROOT to yes.
 # Type:         YESNO
 # Default:      yes
@@ -942,7 +942,7 @@ PDKSH_SRC=no
 #                                        programs.
 #               </dl>
 # Type:         ENUM (sh,ksh)
-# Default:      sh              
+# Default:      sh
 # INSTALL_SHELL="sh"
 
 # Name:         PROFILE_FILENAME
@@ -1432,7 +1432,7 @@ POPT_SRC=no
 ###############################################################################
 # popt-1.2                                                                    #
 # Title:        POPT library
-# Description:  Command Line Option Parsing (similar to getopt with a 
+# Description:  Command Line Option Parsing (similar to getopt with a
 #               few enhancements).
 # Menu:         libraries/ui
 # URL:          ftp://ftp.redhat.com/pub/redhat/linux/code/popt/
@@ -1479,7 +1479,7 @@ OPENSSL_SRC=yes
 #       intend to use this cipher, you must contact RSA Security for
 #       licensing conditions. Their web page is <a href="http://www.rsasecurity.com/">http://www.rsasecurity.com/</a>.
 #       <li>RC4 is a trademark of RSA Security, so use of this label should perhaps
-#       only be used with RSA Security's permission. 
+#       only be used with RSA Security's permission.
 #       <li>The IDEA algorithm is patented by Ascom in Austria, France, Germany, Italy,
 #       Japan, Netherlands, Spain, Sweden, Switzerland, UK and the USA.  They should
 #       be contacted if that algorithm is to be used, their web page is
@@ -1677,7 +1677,7 @@ GCC_SRC=yes
 # Name:         GCC_CPP_TIME
 # Description:  try to circumvent several annoying cpp predefines
 #               (assumes that a Transmeta patch for cpp is used).
-#               Set the value that should be returned by the TIME and DATE 
+#               Set the value that should be returned by the TIME and DATE
 #               preprocessor macro.
 # Type:         STRING
 # Default:      0
@@ -1727,7 +1727,7 @@ GLIBC_SRC=yes
 # GLIBC_VERSION="2.1.3"
 
 # Name:         GLIBC_CRYPT_SRC
-# Description:  crypto library version 
+# Description:  crypto library version
 # Type:         READONLY
 # Default:      glibc-crypt-2.1
 # GLIBC_CRYPT_SRC="glibc-crypt-2.1"
@@ -1786,8 +1786,8 @@ LINUX_SRC=yes
 # linux-2.4.20                                                                #
 # Title:        The Linux Kernel
 # Version:      2.4.20
-# Description:  This package contains the linux kernel and a series of 
-#               patches created by Transmeta. 
+# Description:  This package contains the linux kernel and a series of
+#               patches created by Transmeta.
 # Menu:         base
 # Packager:     Transmeta
 # URL:          http://www.kernel.org/
@@ -1878,7 +1878,7 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # KERNEL_NETWORK="yes"
 
 # Name:         KERNEL_NETWORK_OPTIONS
-# Description:  List the options that need to be turned on for the network hardware you 
+# Description:  List the options that need to be turned on for the network hardware you
 #               are using. If KERNEL_NETWORK is set to "no" this option will be ignored.
 #               Note that the 'CONFIG_' that is part of every option has been
 #               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
@@ -1890,7 +1890,7 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # KERNEL_NETWORK_OPTIONS="NET PACKET NETLINK UNIX INET NETDEVICES NET_ETHERNET NET_PCI NET_RADIO TULIP EEPRO100 8139TOO AIRONET4500 AIRONET4500_PROC"
 
 # Name:         KERNEL_NETWORK_MODULES
-# Description:  List the modules that need to be turned on for the network hardware you 
+# Description:  List the modules that need to be turned on for the network hardware you
 #               are using. If KERNEL_NETWORK is set to "no" this option will be ignored.
 #               Note that the 'CONFIG_' that is part of every option has been
 #               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
@@ -1909,7 +1909,7 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # KERNEL_SOUND="yes"
 
 # Name:         KERNEL_SOUND_OPTIONS
-# Description:  List the options that need to be turned on for the sound hardware you 
+# Description:  List the options that need to be turned on for the sound hardware you
 #               are using. If KERNEL_SOUND is set to "no" this option will be ignored.
 #               Note that the 'CONFIG_' that is part of every option has been
 #               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
@@ -1921,7 +1921,7 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # KERNEL_SOUND_OPTIONS="SOUND SOUND_TRIDENT"
 
 # Name:         KERNEL_SOUND_MODULES
-# Description:  List the modules that need to be turned on for the sound hardware you 
+# Description:  List the modules that need to be turned on for the sound hardware you
 #               are using. If KERNEL_SOUND is set to "no" this option will be ignored.
 #               Note that the 'CONFIG_' that is part of every option has been
 #               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
@@ -1940,7 +1940,7 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # KERNEL_USB="yes"
 
 # Name:         KERNEL_USB_OPTIONS
-# Description:  List the options that need to be turned on for the usb hardware you 
+# Description:  List the options that need to be turned on for the usb hardware you
 #               are using. If KERNEL_USB is set to "no" this option will be ignored.
 #               Note that the 'CONFIG_' that is part of every option has been
 #               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
@@ -1952,7 +1952,7 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # KERNEL_USB_OPTIONS="USB USB_DEVICEFS USB_OHCI USB_PRINTER USB_HID USB_PEGASUS"
 
 # Name:         KERNEL_USB_MODULES
-# Description:  List the modules that need to be turned on for the usb hardware you 
+# Description:  List the modules that need to be turned on for the usb hardware you
 #               are using. If KERNEL_USB is set to "no" this option will be ignored.
 #               Note that the 'CONFIG_' that is part of every option has been
 #               removed. If KERNEL_CONFIG_FROZEN is set to yes (see above) all the following
@@ -1963,26 +1963,26 @@ KERNEL_PROCESSOR="X86 ISA UID16 MCRUSOE X86_MSR X86_CPUID NOHIGHMEM"
 # Default:      ""
 # KERNEL_USB_MODULES=""
 
-# Name:		KERNEL_ACPI
-# Description:	Set to yes if you want ACPI support in the kernel
-# Type:		YESNO
-# Default:	yes
+# Name:    KERNEL_ACPI
+# Description:  Set to yes if you want ACPI support in the kernel
+# Type:    YESNO
+# Default:  yes
 # KERNEL_ACPI="yes"
 
-# Name:		KERNEL_ACPI_OPTIONS
-# Description:	List of config options for kernel ACPI support. For basic
-#		support, you need "PM ACPI ACPI_BUSMGR". 
-#		Other options include:
-#		ACPI_SYS: Sleep state support (S1 and S5 only)
-#		ACPI_CPU: C? State support
-#		ACPI_BUTTON: Power/Sleep button support
-#		ACPI_AC: AC cord detection/support
-#		ACPI_EC: Embedded Controller support
-#		ACPI_CMBATT: Control Method Battery Support
-#		ACPI_THERMAL: Thermal zone support.
-#		ACPI_DEBUG: Add debugging output to ACPI.
-# Type:		STRING
-# Default:	"PM ACPI ACPI_BUSMGR ACPI_SYS ACPI_CPU ACPI_BUTTON ACPI_AC ACPI_CMBATT"
+# Name:    KERNEL_ACPI_OPTIONS
+# Description:  List of config options for kernel ACPI support. For basic
+#    support, you need "PM ACPI ACPI_BUSMGR".
+#    Other options include:
+#    ACPI_SYS: Sleep state support (S1 and S5 only)
+#    ACPI_CPU: C? State support
+#    ACPI_BUTTON: Power/Sleep button support
+#    ACPI_AC: AC cord detection/support
+#    ACPI_EC: Embedded Controller support
+#    ACPI_CMBATT: Control Method Battery Support
+#    ACPI_THERMAL: Thermal zone support.
+#    ACPI_DEBUG: Add debugging output to ACPI.
+# Type:    STRING
+# Default:  "PM ACPI ACPI_BUSMGR ACPI_SYS ACPI_CPU ACPI_BUTTON ACPI_AC ACPI_CMBATT"
 # KERNEL_ACPI_OPTIONS="PM ACPI ACPI_BUSMGR ACPI_SYS ACPI_CPU ACPI_BUTTON ACPI_AC ACPI_CMBATT"
 #
 # linux-2.4.20                                                                #
@@ -2093,7 +2093,7 @@ CONFIGURATOR_SRC=yes
 # URL:          http://midori.transmeta.com/
 
 # Name:         DEFAULT_INSTALL
-# Description:  This variable defines what is supposed to happen to packages 
+# Description:  This variable defines what is supposed to happen to packages
 #               that are new and have not yet been enabled or disabled in a config
 #               file. If set to yes those packages will be installed, if set to
 #               no they will be disabled.
@@ -2116,7 +2116,7 @@ CONFIGURATOR_SRC=yes
 # SOURCES="$TOPDIR/sources"
 
 # Name:         CONFIGURATOR_PORT
-# Description:  The port on which the configurator will listen. If you change this 
+# Description:  The port on which the configurator will listen. If you change this
 #               value inside the configurator you have to restart the configurator to
 #               make it use the new value.
 # Type:         INTEGER
@@ -2124,7 +2124,7 @@ CONFIGURATOR_SRC=yes
 # CONFIGURATOR_PORT="2000"
 
 # Name:         CONFIGURATOR_MENU_WIDTH
-# Description:  Width in pixels for menu bar. If you change this 
+# Description:  Width in pixels for menu bar. If you change this
 #               value inside the configurator you have to restart the configurator to
 #               make it use the new value.
 # Type:         INTEGER
@@ -2132,7 +2132,7 @@ CONFIGURATOR_SRC=yes
 # CONFIGURATOR_MENU_WIDTH="300"
 
 # Name:         CONFIGURATOR_HELP_HEIGHT
-# Description:  Height in pixels for help window. If you change this 
+# Description:  Height in pixels for help window. If you change this
 #               value inside the configurator you have to restart the configurator to
 #               make it use the new value.
 # Type:         INTEGER
@@ -2140,7 +2140,7 @@ CONFIGURATOR_SRC=yes
 # CONFIGURATOR_HELP_HEIGHT="200"
 
 # Name:         CONFIGURATOR_CONTROL_HEIGHT
-# Description:  Height in pixels for configuration control window. If you change this 
+# Description:  Height in pixels for configuration control window. If you change this
 #               value inside the configurator you have to restart the configurator to
 #               make it use the new value.
 # Type:         INTEGER
@@ -2150,7 +2150,7 @@ CONFIGURATOR_SRC=yes
 # Name:         CONFIGURATOR_CLIENT
 # Description:  A regular expression that defines which IP numbers are acceptable
 #               for clients that want to use the configurator. By default only connections
-#               from localhost are accepted. If you change this 
+#               from localhost are accepted. If you change this
 #               value inside the configurator you have to restart the configurator to
 #               make it use the new value.
 # Type:         STRING
@@ -2235,16 +2235,16 @@ PARALLEL_MAKE="no"
 # Default:      yes
 # COLLECT_STATS="yes"
 
-# Name:		ORIG_PACKAGE_REPOSITORY
+# Name:    ORIG_PACKAGE_REPOSITORY
 # Description:  List of URLs where original packages can be found locally. Make sure the
 #               names of the packages are the same as the ones expected by the build script.
-# Type:		STRING
+# Type:    STRING
 # Default:      "http://midori.transmeta.com/pub/original/"
 # ORIG_PACKAGE_REPOSITORY="http://midori.transmeta.com/pub/original/"
 
-# Name:		REPOSITORY
+# Name:    REPOSITORY
 # Description:  Place to store downloaded, orginial packages.
-# Type:		STRING
+# Type:    STRING
 # Default:      "${TOPDIR}/repository"
 # REPOSITORY="${TOPDIR}/repository"
 #
@@ -2292,13 +2292,13 @@ MLCONFIG_SRC=yes
 
 # Name:         MLCONFIG_CONFIG_READONLY_PASSWORD
 # Description:  If PASSWORD=STRING, set the readonly and sysadmin password.
-#               It must be of the form id:password. 
+#               It must be of the form id:password.
 # Default:      user:user
 # MLCONFIG_CONFIG_READONLY_PASSWORD="user:user"
 
 # Name:         MLCONFIG_CONFIG_SYSADMIN_PASSWORD
 # Description:  If PASSWORD=STRING, set the readonly and sysadmin password.
-#               It must be of the form id:password. 
+#               It must be of the form id:password.
 # Default:      sysadmin:God
 # MLCONFIG_CONFIG_SYSADMIN_PASSWORD="sysadmin:God"
 
@@ -2420,8 +2420,8 @@ IMAGE_DEVICE="/dev/hdc"
 # ROOT_FREE="2000000"
 
 # Name:         PACKED
-# Description:  List of top level directories (separated spaces) to be stored in 
-#               the packed cramfs partition. If you want to divide a directory into sub images 
+# Description:  List of top level directories (separated spaces) to be stored in
+#               the packed cramfs partition. If you want to divide a directory into sub images
 #               you need to store those in the special file $IMAGE/images (while installing
 #               the files). You should add all directories
 #               that do not have to be part of the root partition. Each directory will be
@@ -2862,10 +2862,10 @@ PERL_SRC=no
 
 ###############################################################################
 # perl-5.6.0                                                                  #
-# Title:	perl
-# Description:	The Perl interpreter.
-# Packager:	Claudio Fleiner (Transmeta) & Jeff Uphoff (Transmeta)
-# Menu:		diagnostics
+# Title:  perl
+# Description:  The Perl interpreter.
+# Packager:  Claudio Fleiner (Transmeta) & Jeff Uphoff (Transmeta)
+# Menu:    diagnostics
 # URL:          http://www.perl.com/
 #
 # perl-5.6.0                                                                  #
@@ -2884,7 +2884,7 @@ RXVT_SRC=yes
 
 ###############################################################################
 # rxvt-2.6.4                                                                  #
-# Title:        rxvt 
+# Title:        rxvt
 # Description:  is a small x-terminal-emulator
 # Menu:         diagnostics
 # URL:          http://www.rxvt.org
@@ -3280,10 +3280,10 @@ SYLPHEED_SRC=yes
 ###############################################################################
 # sylpheed-0.8.10                                                             #
 # Title:        Sylpheed 0.8.10 - Email Client
-# Description:	Sylpheed is an e-mail client (& news reader) based on GTK+.
-# Packager:	Lee Nash based on Vittal Udipi sylpheed mlz
-# Menu:		X/ui
-# URL:		http://sylpheed.good-day.net
+# Description:  Sylpheed is an e-mail client (& news reader) based on GTK+.
+# Packager:  Lee Nash based on Vittal Udipi sylpheed mlz
+# Menu:    X/ui
+# URL:    http://sylpheed.good-day.net
 #
 # sylpheed-0.8.10                                                             #
 ###############################################################################
@@ -3436,7 +3436,7 @@ X_SRC=yes
 ###############################################################################
 # X-4.0.3                                                                     #
 # Title:        XFree86 Server 4.0.3
-# Description:  If X is not selected all packages depending on X will 
+# Description:  If X is not selected all packages depending on X will
 #               silently be ignored. It is currently not possible to install
 #               just the X libraries, but not the server
 # Menu:         X/server
@@ -3531,7 +3531,7 @@ XPM="yes"
 # DPMS="0"
 
 # Name:         XPROGRAMS
-# Description:  list of X programs to install 
+# Description:  list of X programs to install
 # Type:         LIST CHECKBOX (SuperProbe, XFree86, Xmark, Xnest, Xprt, Xvfb, appres, atobm, bdftopcf,
 #                     beforelight, bitmap, bmtoa, cxpm, dga, editres, fsinfo, fslsfonts, fstobdf,
 #                     gccmakedep, iceauth, ico, lbxproxy, listres, makeg, makepsres, makestrs,
@@ -3548,43 +3548,43 @@ XPM="yes"
 # Default:      "xmodmap xrdb xset XFree86"
 # XPROGRAMS="xmodmap xrdb xset XFree86"
 
-# Name:		XVIDEO_DRIVER
-# Description:	List of XInput modules to install. 
-# Type:		LIST CHECKBOX ( apm, ark, ati, atimisc, chips, cirrus_alpine, cirrus, cirrus_laguna, cyrix, fbdev, glint, i128, i740, i810, linux/ mga, neomagic, nv, r128, radeon, rendition, s3virge, savage, siliconmotion, sis, tdfx, tga, trident, tseng, vesa, vga, vmware, linux/v4l )
-# Default:	"vga siliconmotion"
+# Name:    XVIDEO_DRIVER
+# Description:  List of XInput modules to install.
+# Type:    LIST CHECKBOX ( apm, ark, ati, atimisc, chips, cirrus_alpine, cirrus, cirrus_laguna, cyrix, fbdev, glint, i128, i740, i810, linux/ mga, neomagic, nv, r128, radeon, rendition, s3virge, savage, siliconmotion, sis, tdfx, tga, trident, tseng, vesa, vga, vmware, linux/v4l )
+# Default:  "vga siliconmotion"
 # XVIDEO_DRIVER="vga siliconmotion"
 
-# Name:		XINPUT_MODULES
-# Description:	List of XInput modules to install. 
-# Type:		LIST CHECKBOX (afb, cfb, cfb16, cfb24, cfb32, ddc, fb, i2c, int10, mfb, pcidata, rac, ramdac, scanpci, shadow, shadowfb, vbe, vgahw, xaa, xf1bpp, xf24_32bpp, xf4bpp, xf8_16bpp, xf8_32bpp )
-# Default:	"vgahw pcidata scanpci cfb16 vbe ddc cfb i2c mfb ramdac xaa"
+# Name:    XINPUT_MODULES
+# Description:  List of XInput modules to install.
+# Type:    LIST CHECKBOX (afb, cfb, cfb16, cfb24, cfb32, ddc, fb, i2c, int10, mfb, pcidata, rac, ramdac, scanpci, shadow, shadowfb, vbe, vgahw, xaa, xf1bpp, xf24_32bpp, xf4bpp, xf8_16bpp, xf8_32bpp )
+# Default:  "vgahw pcidata scanpci cfb16 vbe ddc cfb i2c mfb ramdac xaa"
 # XINPUT_MODULES="vgahw pcidata scanpci cfb16 vbe ddc cfb i2c mfb ramdac xaa"
 
-# Name:		XINPUT_DRIVERS
-# Description:	List of XInput drivers to install. 
-# Type:		LIST CHECKBOX (mouse, mk712, citron, dynapro, microtouch, mutouch, summa, wacom, digitaledge, elographics, spaceorb, void )
-# Default:	mouse
+# Name:    XINPUT_DRIVERS
+# Description:  List of XInput drivers to install.
+# Type:    LIST CHECKBOX (mouse, mk712, citron, dynapro, microtouch, mutouch, summa, wacom, digitaledge, elographics, spaceorb, void )
+# Default:  mouse
 # XINPUT_DRIVERS="mouse"
 
-# Name:		XFONT_MODULES
-# Description:	List of X font modules to install
-# Type:		LIST CHECKBOX (bitmap, freetype, speedo, type1, xtt )
-# Default:	"bitmap freetype speedo type1 xtt"
+# Name:    XFONT_MODULES
+# Description:  List of X font modules to install
+# Type:    LIST CHECKBOX (bitmap, freetype, speedo, type1, xtt )
+# Default:  "bitmap freetype speedo type1 xtt"
 # XFONT_MODULES="bitmap freetype speedo type1 xtt"
 
 # Name:         WINDOW_MANAGER
 # Description:  Window Manager that should be started when booting.
 #               You should use one of the programs mentioned in the menu
-#               X/wm (and of course you need to enable it). The perl code below will list 
-#               those programs. Note that you can always enable more than 
+#               X/wm (and of course you need to enable it). The perl code below will list
+#               those programs. Note that you can always enable more than
 #               one windows manager and offer a way to switch from one to another.
 # Type:         PERL
 #               package WINDOW_MANAGER;
 #               @ISA=qw( PARAMETER );
 #               my %wm;
 #               sub initialize { my $self=shift; bless $self; }
-#               sub findwm { 
-#                       undef %wm; 
+#               sub findwm {
+#                       undef %wm;
 #                       my $menu=MENU::get("X/wm");
 #                       my $ch=$menu->children;
 #                       foreach my $i (@$ch) { $wm{$i->name}=$i->edit eq "no"?"-":"*"; }
@@ -3603,7 +3603,7 @@ XPM="yes"
 #                               $k++;
 #                       }
 #                       print $file "</ul>" if($f>0);
-#                       if($k==0) { 
+#                       if($k==0) {
 #                               print $file "but there are none at all.";
 #                       } elsif($f!=$k) {
 #                               print $file "but currently none are active." if($f==0);

@@ -155,40 +155,40 @@ A list of things that I have learned (via trial and error) is provided here for 
 Code Snippets
 =============
 
-	' Code snippets -- Feel free to use
+    ' Code snippets -- Feel free to use
 
-	' Get a random 1 or 0 -- counters the RAND issue mentioned above
-	r = (rand 100) / 50
+    ' Get a random 1 or 0 -- counters the RAND issue mentioned above
+    r = (rand 100) / 50
 
-	' Due to integer math, this is the closest you can fire
-	' at an arbitrary angle and not get damaged at all.
-	' I usually add one to this number, just in case.
-	' See Minimum Radius bot below for proof
-	d = sqrt (2 * damagerad * damagerad))
+    ' Due to integer math, this is the closest you can fire
+    ' at an arbitrary angle and not get damaged at all.
+    ' I usually add one to this number, just in case.
+    ' See Minimum Radius bot below for proof
+    d = sqrt (2 * damagerad * damagerad))
 
-	' To use it, you can do something like this
-	s = scan (a - 10) (a + 10)
-	if s > 0 then
-		f = fire a (max s d)
-		while f > 0
-			f = fire a (max s d)
-		next
-	endif
+    ' To use it, you can do something like this
+    s = scan (a - 10) (a + 10)
+    if s > 0 then
+        f = fire a (max s d)
+        while f > 0
+            f = fire a (max s d)
+        next
+    endif
 
-	' How to fire at robots.  A comparison.  The good way is
-	' just a little faster and a little safer.  Remember to
-	' remove comments in your program for the sake of speed.
-	' Bad way                ' Good way
-	a = rand 360             a = rand 360
-	b = a - 10               s = scan (a - 10) (a + 10)
-	c = a + 10               if s > 0 then
-	s = scan b c                 f = fire a (max damagerad s)
-	if s > 0 then                while f > 0
-	   f = s                        f = fire a (max damagerad s)
-	   while f > 0               next
-		  fire a s           endif
-	   next                  ' You can replace damagerad with d
-	endif                    ' if you use the snippet above
+    ' How to fire at robots.  A comparison.  The good way is
+    ' just a little faster and a little safer.  Remember to
+    ' remove comments in your program for the sake of speed.
+    ' Bad way                ' Good way
+    a = rand 360             a = rand 360
+    b = a - 10               s = scan (a - 10) (a + 10)
+    c = a + 10               if s > 0 then
+    s = scan b c                 f = fire a (max damagerad s)
+    if s > 0 then                while f > 0
+       f = s                        f = fire a (max damagerad s)
+       while f > 0               next
+          fire a s           endif
+       next                  ' You can replace damagerad with d
+    endif                    ' if you use the snippet above
 
 [Official Site]: http://www.hares.net/bot.htm
 [Rudi's Site]: http://dl3rud.gmxhome.de/garbots.htm
