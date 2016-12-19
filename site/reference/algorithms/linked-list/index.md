@@ -38,7 +38,7 @@ The best way to judge how much time an algorithm takes is to do an analysis of t
 
 These special `#define` macros will help me out.  On my system, the size of the pointer is the same as the `int` data type.  You may need to use `unsigned long`, `long long`, `short`, or something else.  The `XOR()` and `XOR3()` macros just save me tons of typing.  I could have made an actual function for that, but it would have been silly to do that because the lines are so darn small.  Setting up the call to the function, passing the parameters, and passing back the return value would have chewed up more CPU cycles than I would have liked ... unless you inline the function, but I digress.
 
-Basically the `XOR()` macro just does a bitwise XOR of two pointers.  If you recall from your binary math class, 01010000 xor 11000011 results in 10010011.  Xor just flips bits in the first value as specified in the second.  So, if you start with 000 and xor it by 010, you get 010 as your result.  If you xor it again by 010, the result is the original 000 value.  Enough of that; let's see some code and compare differences!
+Basically the `XOR()` macro just does a bitwise XOR of two pointers.  If you recall from your binary math class, 01010000 XOR 11000011 results in 10010011.  XOR just flips bits in the first value as specified in the second.  So, if you start with 000 and XOR it by 010, you get 010 as your result.  If you XOR it again by 010, the result is the original 000 value.  Enough of that; let's see some code and compare differences!
 
     // Normal way to count the number of nodes in the list
     unsigned long countNodes(node *head) {
@@ -67,7 +67,7 @@ Basically the `XOR()` macro just does a bitwise XOR of two pointers.  If you rec
         return nodes;
     }
 
-This simple function just shows you how to count the number of nodes in a doubly linked list.  The modified version is a bit longer.  There are two extra variables and an extra assignment before the while loop.  Negligible performance hit.  Inside the while loop, there are two more assignments and one xor.
+This simple function just shows you how to count the number of nodes in a doubly linked list.  The modified version is a bit longer.  There are two extra variables and an extra assignment before the while loop.  Negligible performance hit.  Inside the while loop, there are two more assignments and one XOR.
 
 You can download the [source] and take a look at how you can insert values, delete nodes, and finally peek into my testing program.  There's a little more overhead because we need to track the node we were just at and the current node, then update pointers in more than one node, but the changes are pretty minimal.  There are optimizations that you can use to even get rid of temporary pointers at times, if that's more of a concern to you.
 
