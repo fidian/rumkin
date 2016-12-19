@@ -1,83 +1,138 @@
 "use strict";
 
-var atomizer, babel, cleanCss, codeHighlight, concat, htmlMinifier, layouts, less, markdown, metadata, metalsmith, moveRemove, smith, uglify, writemetadata;
+var handlebars, metadata, Metalsmith, smith, timer;
 
-atomizer = require("metalsmith-atomizer");
-babel = require("metalsmith-babel");
-cleanCss = require("metalsmith-clean-css");
-codeHighlight = require("metalsmith-code-highlight");
-concat = require("metalsmith-concat");
-htmlMinifier = require("metalsmith-html-minifier");
-layouts = require("metalsmith-layouts");
-less = require("metalsmith-less");
-markdown = require("metalsmith-markdown");
+
+/**
+ * Adds a middleware to Metalsmith.
+ *
+ * @param {string} moduleName
+ * @param {*} args...
+ */
+function use(moduleName) {
+    var args, middleware;
+
+    args = [].slice.call(arguments, 1);
+    middleware = require(moduleName);
+    smith.use(middleware.apply(null, args));
+    smith.use(timer(moduleName));
+}
+
+handlebars = require("handlebars");
 metadata = require("./metadata.json");
-metalsmith = require("metalsmith");
-moveRemove = require("metalsmith-move-remove");
-uglify = require("metalsmith-uglify");
-writemetadata = require("metalsmith-writemetadata");
+Metalsmith = require("metalsmith");
+timer = require("metalsmith-timer");
 
 // Progmatic metadata
 metadata.buildYear = new Date().getFullYear();
 
-smith = metalsmith(__dirname)
+if (process.env.SERVE) {
+    metadata.liveReload = true;
+}
+
+// Make the metalsmith object and start to configure it
+smith = new Metalsmith(__dirname)
 .metadata(metadata)
 .source("./site")
 .destination("./build")
 .clean(true)
+.use(timer("startup"));
+
+// Global
+// use("metalsmith-models", {})
 
 // Markdown -> HTML
-.use(markdown())
-.use(codeHighlight())
-.use(layouts({
+// Must happen before CSS for Atomizer plugin
+use("metalsmith-hbt-md", handlebars);
+use("metalsmith-markdown");
+use("metalsmith-code-highlight");
+use("metalsmith-rootpath");
+use("metalsmith-mustache-metadata");
+use("metalsmith-layouts", {
     default: "page.html",
     directory: "layouts",
     engine: "handlebars",
     partials: "layouts/partials",
     pattern: "**/*.html"
-}))
-.use(htmlMinifier())
+});
+
+if (!process.env.UNMINIFIED) {
+    use("metalsmith-html-minifier");
+}
 
 // Less and CSS
-.use(less())
-.use(moveRemove({
+use("metalsmith-less");
+use("metalsmith-move-remove", {
     remove: [
         ".*\\.less$"
     ]
-}))
-.use(atomizer({
+});
+use("metalsmith-atomizer", {
     destination: "css/atomic.css",
     setOptions: {
         namespace: "body"
     }
-}))
-.use(concat({
+});
+use("metalsmith-concat", {
     files: "css/**/*.css",
     output: "css/site.css"
-}))
-.use(cleanCss({
-    files: "**/*.css"
-}))
+});
+
+if (!process.env.UNMINIFIED) {
+    use("metalsmith-clean-css", {
+        cleanCSS: {
+            rebase: false
+        },
+        files: "**/*.css"
+    });
+}
 
 // JS
-.use(babel({
+use("metalsmith-babel", {
     presets: [
         "latest"
     ]
-}))
-.use(uglify({
-    nameTemplate: "[name].[ext]"
-}));
+});
 
-if (process.env.DEBUG) {
-    smith.use(writemetadata({
+if (!process.env.UNMINIFIED) {
+    use("metalsmith-uglify", {
+        nameTemplate: "[name].[ext]"
+    });
+}
+
+// Debugging on the fly
+if (process.env.JSON) {
+    use("metalsmith-writemetadata", {
         bufferencoding: "utf8",
         ignorekeys: [
             "next",
             "previous"
         ],
-        pattern: process.env.DEBUG.split(" ")
-    }));
+        pattern: process.env.JSON.split(" ")
+    });
+}
+
+// Server and testing
+if (process.env.SERVE) {
+    use("metalsmith-serve", {
+        http_error_files: {
+            404: "/404.html"
+        },
+        verbose: true
+    });
+    use("metalsmith-watch", {
+        livereload: metadata.liveReload,
+        paths: {
+            // Must load all HTML when any changes to build Atomizer CSS
+            "${source}/**/*.{html,md}": "**/*.{html,md,less,css}",
+            "${source}/**/*.{jpg,js,txt}": true,
+            "layouts/**/*": "**/*.{html,md}"
+        }
+    });
+} else {
+    use("metalsmith-broken-link-checker", {
+        warn: true
+    });
 }
 
 smith.build((err) => {

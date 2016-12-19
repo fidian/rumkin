@@ -223,7 +223,7 @@ Were the ones in the last section too easy?  Let's step this up a notch.  Attemp
 
 80. Singing Sammy sang songs on sinking sand.
 
-81. Six slippery, slimy snails siled silently, slowly seaward.
+81. Six slippery, slimy snails slid silently, slowly seaward.
 
 82. The blue bluebird blinks.
 
@@ -256,209 +256,204 @@ Verse and Story
 This last section is dedicated to the tongue twisters that portray a story or are often recited in a sing-song, rhyming style of verse.  There are numerous variations of many of these and each region seems to have it's own unique way of saying it.
 
 1. A tutor who tooted the flute<br />
-Tried to tutor two tutors to toot.<br />
-Said the two to the tutor,<br />
-"Is it harder to toot,<br />
-Or to tutor two tutors to toot?"
+    Tried to tutor two tutors to toot.<br />
+    Said the two to the tutor,<br />
+    "Is it harder to toot,<br />
+    Or to tutor two tutors to toot?"
 
 2. "Lift the ladder later," lisped Lester.<br />
-Lester lisped, "Lift the latter later."
+    Lester lisped, "Lift the latter later."
 
 3. Peter Piper picked a peck of pickled peppers.<br />
-A peck of pickled peppers Peter Piper picked.<br />
-If Peter Piper picked a peck of pickled peppers,<br />
-Where's the peck of pickled peppers Peter Piper picked?
+    A peck of pickled peppers Peter Piper picked.<br />
+    If Peter Piper picked a peck of pickled peppers,<br />
+    Where's the peck of pickled peppers Peter Piper picked?
 
 4. I stood on the steps of Burgesses fish sauce shop<br />
-Mimicking him hiccuping and welcoming him in.
+    Mimicking him hiccuping and welcoming him in.
 
 5. Moses supposes his toses are roses,<br />
-But Moses supposes erroneously,<br />
-For nobody's toesies are posies of roses<br />
-As Moses supposes his toses to be.
+    But Moses supposes erroneously,<br />
+    For nobody's toesies are posies of roses<br />
+    As Moses supposes his toses to be.
 
 6. Tom threw Tim three thumbtacks.<br />
-Three thumbtacks were thrown to Tim by Tom.<br />
-Why did Tom throw Tim three thumbtacks?
+    Three thumbtacks were thrown to Tim by Tom.<br />
+    Why did Tom throw Tim three thumbtacks?
 
 7. Three gray geese in the green grass grazing.<br />
-Gray were the geese and green was the grass<br />
-In which the geese were grazing.
+    Gray were the geese and green was the grass<br />
+    In which the geese were grazing.
 
 8. A skunk sat on a stump.<br />
-The stump thunk the skunk stunk.<br />
-The skunk thunk the stump stunk.
+    The stump thunk the skunk stunk.<br />
+    The skunk thunk the stump stunk.
 
 9. Theophilus, the thistle sifter, while sifting a sifter full of thistles, thrust three thousand thistles through the thick of his thumb.
 
 10. Betty Bottter bought some butter,<br />
-"But," she said, "the butter's bitter.<br />
-If I put it in my batter,<br />
-It will make my batter better."<br />
-So, she bought a bit of butter<br />
-And she put it in her batter<br />
-And it made her batter better.<br />
-(Shouldn't bitter butter make Betty Botter's batter bitter?<br />
-Or is bitter batter from bitter butter better?)
+    "But," she said, "the butter's bitter.<br />
+    If I put it in my batter,<br />
+    It will make my batter better."<br />
+    So, she bought a bit of butter<br />
+    And she put it in her batter<br />
+    And it made her batter better.<br />
+    (Shouldn't bitter butter make Betty Botter's batter bitter?<br />
+    Or is bitter batter from bitter butter better?)
 
 11. Betty Botter had some butter,<br />
-"But," she said, "the butter's bitter.<br />
-If I bake this bitter butter,<br />
-It would make my batter bitter.<br />
-But a bit of better butter,<br />
-That would make my batter better."<br />
-So she bought a bit of butter,<br />
-Better than her bitter butter,<br />
-And she baked it in her batter;<br />
-And the batter was not bitter<br />
-So 'twas better Betty Botter<br />
-Bought a bit of better butter.
+    "But," she said, "the butter's bitter.<br />
+    If I bake this bitter butter,<br />
+    It would make my batter bitter.<br />
+    But a bit of better butter,<br />
+    That would make my batter better."<br />
+    So she bought a bit of butter,<br />
+    Better than her bitter butter,<br />
+    And she baked it in her batter;<br />
+    And the batter was not bitter<br />
+    So 'twas better Betty Botter<br />
+    Bought a bit of better butter.
 
 12. How much wood would a woodchuck chuck if a woodchuck could chuck wood?<br />
-A woodchuck would chuck as much wood as a woodchuck could if a woodchuck could chuck wood.
+    A woodchuck would chuck as much wood as a woodchuck could if a woodchuck could chuck wood.
 
 13. If one doctor doctors another doctor, does the doctor who doctors the doctor doctor the doctor the way the doctor he is doctoring doctors? Or does he doctor the doctor the way the doctor who doctors doctors?<br />
-(The doctoring doctor doctors the doctor the way the doctoring doctor wants to doctor the doctor; not the way the doctored doctor wants to be doctored.)
+    (The doctoring doctor doctors the doctor the way the doctoring doctor wants to doctor the doctor; not the way the doctored doctor wants to be doctored.)
 
 14. A tree toad loved a she-toad who lived up in a tree.<br />
-He was a two-toed tree toad but a three-toed was she.<br />
-The two-toed tree toad tried to win the three-toed she-toad's heart,<br />
-For the two-toed tree toad loved the ground that the three-toed tree toad trod.<br />
-But the two-toed tree toad tried in vain.  He couldn't please her whim.<br />
-From her tree toad bower with her three-toed power the she-toad vetoed him.
+    He was a two-toed tree toad but a three-toed was she.<br />
+    The two-toed tree toad tried to win the three-toed she-toad's heart,<br />
+    For the two-toed tree toad loved the ground that the three-toed tree toad trod.<br />
+    But the two-toed tree toad tried in vain.  He couldn't please her whim.<br />
+    From her tree toad bower with her three-toed power the she-toad vetoed him.
 
-15. A flea and a fly in a flue<br />
-Said the fly, "Oh what should we do?"<br />
-Said the flea, "Let us fly."<br />
-Said the fly, "Let us flee."<br />
-So they flew through a flaw in the flue.
+15. A flea and a fly flew in a flue<br />
+    Said the fly, "Oh what should we do?"<br />
+    Said the flea, "Let us fly."<br />
+    Said the fly, "Let us flee."<br />
+    So they flew through a flaw in the flue.
 
 16. Mr. See owned a saw and Mr. Soar owned a seesaw.<br />
-Now, See's saw sawed Soar's seesaw before Soar saw See, which made Soar sore.<br />
-Had Soar seen See's saw before See sawed Soar's seesaw,<br />
-See's saw would not have sawed Soar's seesaw.<br />
-So See's saw sawed Soar's seesaw.<br />
-But it was sad to see Soar so sore just because See's saw sawed Soar's seesaw.
+    Now, See's saw sawed Soar's seesaw before Soar saw See, which made Soar sore.<br />
+    Had Soar seen See's saw before See sawed Soar's seesaw,<br />
+    See's saw would not have sawed Soar's seesaw.<br />
+    So See's saw sawed Soar's seesaw.<br />
+    But it was sad to see Soar so sore just because See's saw sawed Soar's seesaw.
 
 17. Once a fellow met a fellow in a field of beans.<br />
-Said a fellow to a fellow, "If a fellow asks a fellow,<br />
-Can a fellow tell a fellow what a fellow means?"
+    Said a fellow to a fellow, "If a fellow asks a fellow,<br />
+    Can a fellow tell a fellow what a fellow means?"
 
 18. I slit a sheet, a sheet I slit.<br />
-And on a slitted sheet I sit.<br />
-I slit a sheet, a sheet I slit.<br />
-The sheet I slit, that sheet was it.
+    And on a slitted sheet I sit.<br />
+    I slit a sheet, a sheet I slit.<br />
+    The sheet I slit, that sheet was it.
 
 19. Swan swam over the sea,<br />
-Swim, swan, swim!<br />
-Swan swam back again,<br />
-Well swum, swan!
+    Swim, swan, swim!<br />
+    Swan swam back again,<br />
+    Well swum, swan!
 
 20. Silly Sally swiftly shooed seven silly sheep.<br />
-The seven silly sheep Silly Sally shooed shilly-shallied south.<br />
-These sheep shouldn't sleep in a shack;<br />
-Sheep should sleep in a shed.
+    The seven silly sheep Silly Sally shooed shilly-shallied south.<br />
+    These sheep shouldn't sleep in a shack;<br />
+    Sheep should sleep in a shed.
 
 21. You've no need to light a night-light<br />
-On a light night like tonight,<br />
-For a night-light's light's a slight light,<br />
-And tonight's a night that's light.<br />
-When a night's light, like tonight's light,<br />
-It is really not quite right<br />
-To light night-lights with their slight lights<br />
-On a light night like tonight.
+    On a light night like tonight,<br />
+    For a night-light's light's a slight light,<br />
+    And tonight's a night that's light.<br />
+    When a night's light, like tonight's light,<br />
+    It is really not quite right<br />
+    To light night-lights with their slight lights<br />
+    On a light night like tonight.
 
 22. One-One was a racehorse.<br />
-Two-Two was one too.<br />
-When One-One won one race,<br />
-Two-two won one too.
+    Two-Two was one too.<br />
+    When One-One won one race,<br />
+    Two-two won one too.
 
-23. A flea and a fly flew up in a flue.<br />
-Said the flea, "Let us fly!"<br />
-Said the fly, "Let us flee!"<br />
-So they flew through a flaw in the flue.
+23. A tree toad loved a she-toad who lived up in a tree.<br />
+    He was a two-toed tree toad, but a three-toed tree toad was she.<br />
+    The two-toed tree toad tried to win the three-toed she-toad's heart,<br />
+    For the two-toed tree toad loved the ground that the three-toed tree toad trod.<br />
+    But the two-toed tree toad tried in vain.  He couldn't please her whim.<br />
+    From her tree-toad bower with her three-toed power, the she-toad vetoed him.
 
-24. A tree toad loved a she-toad who lived up in a tree.<br />
-He was a two-toed tree toad, but a three-toed tree toad was she.<br />
-The two-toed tree toad tried to win the three-toed she-toad's heart,<br />
-For the two-toed tree toad loved the ground that the three-toed tree toad trod.<br />
-But the two-toed tree toad tried in vain.  He couldn't please her whim.<br />
-From her tree-toad bower with her three-toed power, the she-toad vetoed him.
+24. Denise sees the fleece.<br />
+    Denise sees the fleas.<br />
+    At least Denise could sneeze<br />
+    And feed and freeze the fleas.
 
-25. Denise sees the fleece.<br />
-Denise sees the fleas.<br />
-At least Denise could sneeze<br />
-And feed and freeze the fleas.
+25. I'm not the pheasant plucker, I'm the pheasant plucker's son<br />
+    And I'll pluck those pheasants until the pheasant plucking's done.
 
-26. I'm not the pheasant plucker, I'm the pheasant plucker's son<br />
-And I'll pluck those pheasants until the pheasant plucking's done.
+26. I am not the pheasant plucker, I'm the pheasant plucker's mate.<br />
+    I am only plucking pheasants `cause the pheasant plucker's late.
 
-27. I am not the pheasant plucker, I'm the pheasant plucker's mate.<br />
-I am only plucking pheasants `cause the pheasant plucker's late.
+27. I cannot bear to see a bear bear down upon a hare.<br />
+    When bare of hair he strips the hare, right there I cry, "Forbear!"
 
-28. I cannot bear to see a bear bear down upon a hare.<br />
-When bare of hair he strips the hare, right there I cry, "Forbear!"
+28. I saw Susie sitting in a shoe shine shop.  Where she sits, she shines; and where she shines, she sits.
 
-29. I saw Susie sitting in a shoe shine shop.  Where she sits, she shines; and where she shines, she sits.
+29. I wish to wish the wish you wish to wish,<br />
+    but if you wish the wish the witch wishes,<br />
+    I won't wish the wish you wish to wish.
 
-30. I wish to wish the wish you wish to wish,<br />
-but if you wish the wish the witch wishes,<br />
-I won't wish the wish you wish to wish.
+30. If a Hottentot taught a Hottentot tot<br />
+    to talk 'ere the tot could totter,<br />
+    Ought the Hottentot tot be taught "aught" or "naught,"<br />
+    Or what ought to be taught to her?<br />
+    If to hoot and to toot a Hottentot tot<br />
+    Be taught by her Hottentot tutor,<br />
+    Ought the tutor get hot if the Hottentot tot<br />
+    Hoot and toot at her Hottentot tutor?
 
-31. If a Hottentot taught a Hottentot tot<br />
-to talk 'ere the tot could totter,<br />
-Ought the Hottentot tot be taught "aught" or "naught,"<br />
-Or what ought to be taught to her?<br />
-If to hoot and to toot a Hottentot tot<br />
-Be taught by her Hottentot tutor,<br />
-Ought the tutor get hot if the Hottentot tot<br />
-Hoot and toot at her Hottentot tutor?
+31. If you stick a stock of liquor in your locker, it's slick to stick a lock upon your stock.  Or some stickler who is slicker will stick you of your liquor if you fail to lock your liquor with a lock.
 
-32. If you stick a stock of liquor in your locker, it's slick to stick a lock upon your stock.  Or some stickler who is slicker will stick you of your liquor if you fail to lock your liquor with a lock.
+32. Mr. See owned a saw and Mr. Soar owned a seesaw. now See's saw sawed Soar's seesaw before Soar saw See, which made Soar sore.  Had Soar seen See's saw before See sawed Soar's seesaw, See's saw would not have sawed Soar's seesaw.  So See's saw sawed Soar's seesaw, but it was sad to see Soar so sore just because See's saw sawed Soar's seesaw.
 
-33. Mr. See owned a saw and Mr. Soar owned a seesaw. now See's saw sawed Soar's seesaw before Soar saw See, which made Soar sore.  Had Soar seen See's saw before See sawed Soar's seesaw, See's saw would not have sawed Soar's seesaw.  So See's saw sawed Soar's seesaw, but it was sad to see Soar so sore just because See's saw sawed Soar's seesaw.
+33. Ned Nott was shot and Sam Shott was not.  So it is better to be Shott than Nott.  Some say Nott was not shot, but Shott says he shot Nott.  Either the shot Shott shot at Nott was not shot or Nott was shot.  If the shot Shott shot shot Nott, Nott was shot.  But if the shot Shott shot shot Shott, then Shott was shot, not Nott.  However, the shot Shott shot shot not Shott, but Nott.
 
-34. Ned Nott was shot and Sam Shott was not.  So it is better to be Shott than Nott.  Some say Nott was not shot, but Shott says he shot Nott.  Either the shot Shott shot at Nott was not shot or Nott was shot.  If the shot Shott shot shot Nott, Nott was shot.  But if the shot Shott shot shot Shott, then Shott was shot, not Nott.  However, the shot Shott shot shot not Shott, but Nott.
+34. Of all the felt I ever felt, I never felt a piece of felt which felt as fine as that felt felt when first I felt that felt that's felt.
 
-35. Of all the felt I ever felt, I never felt a piece of felt which felt as fine as that felt felt when first I felt that felt that's felt.
+35. On mules we find two legs behind and two we find before.<br />
+    We stand behind before we find what those behind be for.
 
-36. On mules we find two legs behind and two we find before.<br />
-We stand behind before we find what those behind be for.
+36. Once upon a barren moor there dwelt a bear, also a boar.<br />
+    The bear could not bear the board.  The boar thought the bear a bore.<br />
+    At last the bear could bear no more of that boar that bored him on the moor.<br />
+    And so one morn he bored the boar.  That boar will bore the bear no more.
 
-37. Once upon a barren moor there dwelt a bear, also a boar.<br />
-The bear could not bear the board.  The boar thought the bear a bore.<br />
-At last the bear could bear no more of that boar that bored him on the moor.<br />
-And so one morn he bored the boar.  That boar will bore the bear no more.
+37. Pretty Kitty Creighton had a cotton batten cat.<br />
+    The cotton batten cat was bitten by a rat.<br />
+    The kitten that was bitten had a button for an eye,<br />
+    And biting off the button make the cotten batten fly.
 
-38. Pretty Kitty Creighton had a cotton batten cat.<br />
-The cotton batten cat was bitten by a rat.<br />
-The kitten that was bitten had a button for an eye,<br />
-And biting off the button make the cotten batten fly.
+38. Say this sharply, say this sweetly,<br />
+    Say this shortly, say this softly.<br />
+    Say this sixteen times in succession.
 
-39. Say this sharply, say this sweetly,<br />
-Say this shortly, say this softly.<br />
-Say this sixteen times in succession.
+39. Suddenly swerving, seven small swans swim silently southward, seeing six swift sailboats sailing sedately seaward.
 
-40. Suddenly swerving, seven small swans swim silently southward, seeing six swift sailboats sailing sedately seaward.
+40. Swan swam over the sea.<br />
+    Swim, swan, swim!<br />
+    Swan swam back again.<br />
+    Well swum, swan!
 
-41. Swan swam over the sea.<br />
-Swim, swan, swim!<br />
-Swan swam back again.<br />
-Well swum, swan!
+41. There was a young fisher named Fischer<br />
+    Who fished for a fish in a fissure.<br />
+    The fish, with a grin,<br />
+    Pulled the fisherman in!<br />
+    Now they're fishing the fissure for Fischer.
 
-42. There was a young fisher named Fischer<br />
-Who fished for a fish in a fissure.<br />
-The fish, with a grin,<br />
-Pulled the fisherman in!<br />
-Now they're fishing the fissure for Fischer.
+42. While we were talking, we were watching window washers wash Washington's windows with warm washing water.
 
-43. While we were talking, we were watching window washers wash Washington's windows with warm washing water.
-
-44. You've no need to light a night-light<br />
-On a light night like tonight.<br />
-For a night-light's light's a slight light<br />
-And tonight's a night that's light.<br />
-When a night's light, like tonight's light,<br />
-It is really not quite right<br />
-To light night-lights with their slight lights<br />
-On a light night like tonight.
+43. You've no need to light a night-light<br />
+    On a light night like tonight.<br />
+    For a night-light's light's a slight light<br />
+    And tonight's a night that's light.<br />
+    When a night's light, like tonight's light,<br />
+    It is really not quite right<br />
+    To light night-lights with their slight lights<br />
+    On a light night like tonight.

@@ -3,14 +3,17 @@
     <head>
         <meta charset="utf-8" />
         <title>{{title}}</title>
-        <link rel="stylesheet" href="/css/site.css" />
-        <script type="text/javascript" src="/js/es5-shim.min.js"></script>
+        <link rel="stylesheet" href="{{rootPath}}css/site.css" />
+        <script type="text/javascript" src="{{rootPath}}js/es5-shim.min.js"></script>
+        {{#liveReload}}
+        <script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
+        {{/liveReload}}
         {{#css}}
         <link rel="stylesheet" href="{{.}}" />
         {{/css}}
-        {{#module}}
-        <script type="text/javascript" src="/js/angular.min.js"></script>
-        {{/module}}
+        {{#module?}}
+        <script type="text/javascript" src="{{rootPath}}js/angular.min.js"></script>
+        {{/module?}}
         {{#js}}
         <script type="text/javascript" src="{{.}}"></script>
         {{/js}}
