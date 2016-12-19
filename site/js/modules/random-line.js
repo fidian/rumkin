@@ -6,6 +6,7 @@
  * <span random-line="text-file.txt"></span>
  *
  * @license MIT with additional non-advertising clause
+ * @see https://rumkin.com/license/
  */
 /* global angular */
 angular.module("randomLine", []).directive("randomLine", [

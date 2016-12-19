@@ -1,0 +1,73 @@
+* Gestalt string comparison function
+*
+* Web site:  http://rumkin.com/reference/algorithms/fuzzy_strings/
+* License:  http://rumkin.com/license.html
+*
+* Takes two strings and returns the similarity between them.  If a percentage
+* parameter is specified, it must be passed by reference.  Percentage is the
+* amount of the strings that match, from 0.0 to 1.0
+*
+* Trim the strings before calling this function to ensure accurate results.
+*
+* Example:
+*    similarity = Similar_Text(alltrim(string_one), alltrim(string_two))
+*    similarity = Similar_Text(alltrim(a), alltrim(b), @percent)
+function Similar_Text
+parameters m.str1, m.str2, m.percent
+    local m.sim
+
+    if len(m.str1) + len(m.str2) == 0
+        if pcount() > 2
+            m.percent = 100
+        endif
+        return 0
+    endif
+
+    m.sim = Similar_Chars(str1, len(str1), str2, len(str2))
+
+    if pcount() > 2
+        m.percent = m.sim * 2.0 / (len(str1) + len(str2))
+    endif
+
+    return m.sim
+endfunc
+
+
+* Helper function for Similar_Text()
+function Similar_Chars
+parameters str1, len1, str2, len2
+    local max, p, q, l, pos1, pos2, sum
+
+    m.max = 0
+
+    for m.p = 1 to len1
+        for m.q = 1 to len2
+            m.l = 0
+            do while (m.p + m.l <= len1) and (m.q + m.l <= len2) and ;
+                (substr(m.str1, m.p + m.l, 1) == substr(m.str2, m.q + m.l, 1))
+                m.l = m.l + 1
+            enddo
+            if m.l > m.max
+                m.max = m.l
+                m.pos1 = p
+                m.pos2 = q
+            endif
+        next
+    next
+
+    if m.max == 0
+        return m.max
+    endif
+
+    m.sum = m.max
+    if m.pos1 > 1 and m.pos2 > 1
+        m.sum = m.sum + Similar_Chars(str1, m.pos1 - 1, str2, m.pos2 - 1)
+    endif
+    if (m.pos1 + m.max < m.len1) and (m.pos2 + m.max < m.len2)
+        m.sum = m.sum + Similar_Chars(substr(str1, m.pos1 + m.max), ;
+            m.len1 - m.pos1 - m.max, substr(str2, m.pos2 + m.max), ;
+            m.len2 - m.pos2 - m.max)
+    endif
+
+    return m.sum
+endfunc
