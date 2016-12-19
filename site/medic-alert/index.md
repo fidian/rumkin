@@ -1,10 +1,35 @@
 ---
 title: Medic Alert - Tyler Akins
-template: index.jade
 ---
 
+Medical Summary
+---------------
+
+* Diabetes, Type 2 (controlled with medication)
+* High blood pressure
+* High cholesterol
+* No allergies
+* Blood type: A+
+* Macular edema
+
+*Possible allergy note:* metal taste with influenza virus vaccines.
+
+
+Medications
+-----------
+
+* Aflibercept (Eylea), as needed (macular edema)
+* Aspirin, 81 mg daily
+* Atorvastatin, 40 mg daily (high cholesterol)
+* Avastin (Bevacizumab), 25mg as needed (macular edema)
+* Cetirizine HCl, 10 mg daily (generic allergy pill)
+* Lisinopril, 10mg daily (high blood pressure)
+* Metformin HCl, 850 mg daily (Diabetes)
+* Multivitamin, daily
+
+
 Contact Information
-===================
+-------------------
 
     Tyler Akins
     3706 Commodore Dr.
@@ -20,32 +45,6 @@ In case of emergency, contact
     952-955-1133
 
 
-Medical Summary
-===============
-
-* Diabetes, Type 2 (controlled with medication)
-* High blood pressure
-* High cholesterol
-* No allergies
-* Blood type: A+
-* Macular edema
-
-*Possible allergy note:* metal taste with influenza virus vaccines.
-
-
-Medications
-===========
-
-* Aflibercept (Eylea), as needed (macular edema)
-* Aspirin, 81 mg daily
-* Atorvastatin, 40 mg daily (high cholesterol)
-* Avastin (Bevacizumab), 25mg as needed (macular edema)
-* Cetirizine HCl, 10 mg daily (generic allergy pill)
-* Lisinopril, 10mg daily (high blood pressure)
-* Metformin HCl, 850 mg daily (Diabetes)
-* Multivitamin, daily
-
-
 Physician Information
 =====================
 
@@ -59,7 +58,6 @@ General health and diabetes:
 
 Retina specialist:
 
-    Marni G Feldmann, MD
     Park Nicollet Clinic - St. Louis Park
     3900 Park Nicollet Blvd.
     Suite 290
