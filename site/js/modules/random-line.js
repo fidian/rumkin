@@ -4,6 +4,8 @@
  * Select a random line from a text file and display it in the element.
  *
  * <span random-line="text-file.txt"></span>
+ *
+ * @license MIT with additional non-advertising clause
  */
 /* global angular */
 angular.module("randomLine", []).directive("randomLine", [

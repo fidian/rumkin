@@ -96,7 +96,8 @@ use("metalsmith-babel", {
 
 if (!process.env.UNMINIFIED) {
     use("metalsmith-uglify", {
-        nameTemplate: "[name].[ext]"
+        nameTemplate: "[name].[ext]",
+        preserveComments: "some"
     });
 }
 
