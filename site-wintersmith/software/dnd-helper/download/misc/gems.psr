@@ -1,0 +1,153 @@
+# Gems
+# From Table 3-6 (DMG 55).
+# Made into PSR format by Tyler Akins
+#
+# Comments start with a # at the beginning of a line
+# Blank lines are ignored
+# Initial key should have a * before it and can be followed by spaces
+# Keys should be in [brackets]
+# Key names with a ^ in front are capitalized (see the only line in ELFNAME)
+# Case matters
+# First key is the main rule
+# Spaces at beginning and end are removed
+# Rules can have a number followed by a colon prepended to have a chance
+# associated with it.
+
+* GEMS
+[4D4] gp [GEM1]\n\
+[2D4]0 gp [GEM2]\n\
+[4D4]0 gp [GEM3]\n\
+[2D4]00 gp [GEM4]\n\
+[4D4]00 gp [GEM5]\n\
+[2D4],000 gp [GEM6]
+
+* 2D4
+1:2
+2:3
+3:4
+4:5
+3:6
+2:7
+1:8
+
+* 4D4
+1:4
+4:5
+10:6
+20:7
+31:8
+40:9
+44:10
+40:11
+31:12
+20:13
+10:14
+4:15
+1:16
+
+* GEM1
+[GEM1_AGATE] agate
+azurite
+blue quartz
+hematite
+lapis lazuli
+malachite
+obsidian
+rhodochrosite
+tiger eye turquoise
+freshwater (irregular) perl
+
+* GEM1_AGATE
+banded
+eye
+moss
+
+* GEM2
+bloodstone
+carnelian
+chalcedony
+chrysoprase
+citrine
+iolite
+jasper
+moonstone
+onyx
+peridot
+rock crystal (clear quartz)
+sard
+sardonyx
+[GEM2_QUARTZ] quartz
+zircon
+
+* GEM2_QUARTZ
+rose
+smoky
+star rose
+
+* GEM3
+amber
+amethyst
+chrysoberyl
+coral
+[GEM3_GARNET] garnet
+jade
+jet
+[GEM3_PEARL] pearl
+[GEM3_SPINEL] spinel
+tourmaline
+
+* GEM3_GARNET
+red
+brown-green
+
+* GEM3_PEARL
+white
+golden
+pink
+silver
+
+* GEM3_SPINEL
+red
+red-brown
+deep green
+
+* GEM4
+alexandrite
+aquamarine
+violet garnet
+black pearl
+deep blue spinel
+golen yellow topaz
+
+* GEM5
+emerald
+[GEM5_OPAL] opal
+blue sapphire
+[GEM5_CORUNDUM] corundum
+[GEM5_SAPPHIRE] star sapphire
+star ruby
+
+* GEM5_OPAL
+white
+black
+fire
+
+* GEM5_CORUNDUM
+fiery yellow
+rich purple
+
+* GEM5_SAPPHIRE
+blue
+black
+
+* GEM6
+clearest bright green emerald
+[GEM6_DIAMOND] diamond
+jacinth
+
+* GEM6_DIAMOND
+blue-white
+canary
+pink
+brown
+blue

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"{{#module}} ng-app="{{.}}"{{/module}}>
+    <head>
+        <meta charset="utf-8" />
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="/css/site.css" />
+        <script type="text/javascript" src="/js/es5-shim.min.js"></script>
+        {{#css}}
+        <link rel="stylesheet" href="{{.}}" />
+        {{/css}}
+        {{#module}}
+        <script type="text/javascript" src="/js/angular.min.js"></script>
+        {{/module}}
+        {{#js}}
+        <script type="text/javascript" src="{{.}}"></script>
+        {{/js}}
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- DISABLE THE NAV FOR NOW
+            <nav class="nav">
+                <div>Nav nav nav</div>
+            </nav>
+            -->
+            <div class="contentPane">
+                <header>
+                    <h1>{{title}}</h2>
+                </header>
+                <div class="content{{#controller}} ng-cloak" ng-controller={{controller}}{{/controller}}/">
+                    {{{contents}}}
+                </div>
+            </div>
+        </div>
+        <footer class="inner">
+            <p>
+                &copy; {{buildYear}} {{owner}}
+            </p>
+        </footer>
+    </body>
+</html>

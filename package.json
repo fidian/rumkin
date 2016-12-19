@@ -1,0 +1,26 @@
+{
+    "name": "Rumkin.com",
+    "private": true,
+    "scripts": {
+        "build": "node metalsmith.js"
+    },
+    "dependencies": {
+        "angular": "^1.6.0",
+        "babel-preset-latest": "^6.16.0",
+        "es5-shim": "^4.5.9",
+        "handlebars": "^4.0.6",
+        "metalsmith": "^2.3.0",
+        "metalsmith-atomizer": "^1.0.0",
+        "metalsmith-babel": "^4.1.0",
+        "metalsmith-clean-css": "^5.0.0",
+        "metalsmith-code-highlight": "^0.0.3",
+        "metalsmith-concat": "^6.0.0",
+        "metalsmith-html-minifier": "^2.2.0",
+        "metalsmith-layouts": "^1.7.0",
+        "metalsmith-less": "^2.0.0",
+        "metalsmith-markdown": "^0.2.1",
+        "metalsmith-move-remove": "^0.0.1",
+        "metalsmith-uglify": "^1.5.1",
+        "metalsmith-writemetadata": "^0.4.5"
+    }
+}

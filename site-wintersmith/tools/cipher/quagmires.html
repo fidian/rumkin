@@ -1,0 +1,209 @@
+<html><head><title>Quagmire Ciphers</title>
+
+<script language="JavaScript" src="js/util.js"></script>
+<script language="JavaScript" src="js/quagmire.js"></script>
+<script language="JavaScript" src="js/keymaker.js"></script>
+<script language="JavaScript"><!--
+// This code was written by Tyler Akins and placed in the public domain.
+// It would be nice if you left this header intact.  http://rumkin.com
+
+
+function start_update()
+{
+   if (! document.getElementById)
+   {
+      alert('Sorry, you need a newer browser.');
+      return;
+   }
+
+   if ((! document.Quagmire_Loaded) || (! document.Util_Loaded) ||
+       (! document.Keymaker_Loaded) ||
+       (! document.getElementById('output')))
+   {
+      window.setTimeout('start_update()', 100);
+      return;
+   }
+   Keymaker_Start();
+   upd();
+}
+
+
+function upd()
+{
+   var e, plainkeyunchanged;
+   
+   plainkeyunchanged = IsUnchanged(document.encoder.plainKey);
+   cipherkeyunchanged = IsUnchanged(document.encoder.cipherKey);
+   biasunchanged = IsUnchanged(document.encoder.biasTableau);
+   passunchanged = IsUnchanged(document.encoder.pass);
+   alignunchanged = IsUnchanged(document.encoder.passAlign);
+   
+   if (plainkeyunchanged * cipherkeyunchanged * 
+       IsUnchanged(document.encoder.text) *
+       IsUnchanged(document.encoder.encdec) *
+       passunchanged * biasunchanged * alignunchanged)
+   {
+      window.setTimeout('upd()', 200);
+      return;
+   }
+	
+   ResizeTextArea(document.encoder.text);
+   
+   if (! plainkeyunchanged)
+   {
+      e = document.getElementById('plainAlphabet');
+      e.innerHTML = MakeKeyedAlphabet(document.encoder.plainKey.value);
+   }
+
+   if (! cipherkeyunchanged)
+   {
+      e = document.getElementById('cipherAlphabet');
+      e.innerHTML = MakeKeyedAlphabet(document.encoder.cipherKey.value);
+   }
+
+   if (! plainkeyunchanged || ! cipherkeyunchanged || ! biasunchanged || ! passunchanged || ! alignunchanged)
+   {
+      e = document.getElementById('tableau');
+      e.innerHTML = (document.encoder.biasTableau.checked ?
+         BuildTableau(document.encoder.plainKey.value, document.encoder.cipherKey.value, document.encoder.passAlign.value, document.encoder.pass.value) :
+         BuildTableau(document.encoder.plainKey.value, document.encoder.cipherKey.value, document.encoder.passAlign.value) );
+   }
+
+   e = document.getElementById('output');
+   
+   if (document.encoder.text.value == '')
+   {
+      e.innerHTML = 'Type in a message and see the results here!';
+   }
+   else
+   {
+      e.innerHTML = SwapSpaces(HTMLEscape(Quagmire(document.encoder.encdec.value * 1, 
+         document.encoder.text.value, document.encoder.pass.value, document.encoder.passAlign.value, 
+	 document.encoder.plainKey.value, document.encoder.cipherKey.value)));
+   }
+   window.setTimeout('upd()', 200);
+}
+
+
+toggle = 0;
+function ToggleTableau()
+{
+   var Link, Vis;
+   
+   if (toggle == 0)
+   {
+      toggle = 1;
+      Link = "Hide Tableau";
+      Vis = "block";
+   }
+   else
+   {
+      toggle = 0;
+      Link = "Show Tableau";
+      Vis = "none";
+   }
+   
+   e = document.getElementById('tableau_link');
+   e.innerHTML = Link;
+   
+   e = document.getElementById('tableau');
+   e.style.display = Vis;
+}
+
+function fill_q1()
+{
+   document.encoder.encdec.value = -1;
+   document.encoder.plainKey.value = "SPRINGFEVER";
+   document.encoder.cipherKey.value = "";
+   document.encoder.pass.value = "FLOWER";
+   document.encoder.passAlign.value = "A";
+   document.encoder.text.value = "QPMGQRBUJUYIFDMPYAIFQYYJJJHJYCJLUUTPIDVWYMFSGAESDWHIZRBLIRVCFCZPELBPZYYJJJHWLJJLPUP";
+}
+
+function fill_q2()
+{
+   document.encoder.encdec.value = -1;
+   document.encoder.plainKey.value = "";
+   document.encoder.cipherKey.value = "SPRINGFEVER";
+   document.encoder.pass.value = "FLOWER";
+   document.encoder.passAlign.value = "A";
+   document.encoder.text.value = "JICICOSLYKILFVCHEBDXCCORJIOEWAFMWKKTXBGWHRJIBKEDBJWZABUXWHEHUXOXCU";
+}
+
+function fill_q3()
+{
+   document.encoder.encdec.value = -1;
+   document.encoder.plainKey.value = "AUTOMOBILE";
+   document.encoder.cipherKey.value = "AUTOMOBILE";
+   document.encoder.pass.value = "HIGHWAY";
+   document.encoder.passAlign.value = "A";
+   document.encoder.text.value = "KRSLWMITJDVIABMRGQMTMLLIVIFUIXRHTNYONVRHHIIIRMCAOVEI.";
+}
+
+function fill_q4()
+{
+   document.encoder.encdec.value = -1;
+   document.encoder.plainKey.value = "SENSORY";
+   document.encoder.cipherKey.value = "PERCEPTION";
+   document.encoder.pass.value = "EXTRA";
+   document.encoder.passAlign.value = "S";
+   document.encoder.text.value = "VBMRFCYISPMPBRRHEICXRREIGDX.";
+}
+
+window.setTimeout('start_update()', 100);
+
+// --></script>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="css/normal.css">
+</head><body>
+<div class="r_main">
+
+<p>The Quagmires, as the American Cryptogram Association would have them, may use either a keyed or normal plaintext or ciphertext. A passphrase is then used to select columns in the tableau like a Vigenere cipher. Letters are enciphered/deciphered according to each letter in the passphrase in sequence.<br />
+If both a normal plaintext alphabet and a normal ciphertext alphabet are used, this cipher is a normal Vigenere cipher.<br />
+<b>Quagmire I</b> has a keyed plaintext alphabet and a normal ciphertext alphabet. (<a href="#" onClick="fill_q1(); return false">Example</a>)<br />
+<b>Quagmire II</b> has a normal plaintext alphabet and a keyed ciphertext alphabet. (<a href="#" onClick="fill_q2(); return false">Example</a>)<br />
+<b>Quagmire III</b> has a keyed plaintext alphabet and the same keyed ciphertext alphabet. It is equivalent to a Keyed Vigenere cipher. (<a href="#" onClick="fill_q3(); return false">Example</a>)<br />
+<b>Quagmire IV</b> has a keyed plaintext alphabet and a different keyed ciphertext alphabet. (<a href="#" onClick="fill_q4(); return false">Example</a>)<br />
+ </p>
+	
+<form name="encoder" method="post" action="#" onsubmit="return false;">
+<p><select _oldvalue="1" name="encdec">
+   <option value="1">Encrypt
+   </option><option value="-1">Decrypt
+</option></select>
+</p>
+
+<table>
+ <tr>
+  <td><p>Plain Alphabet Key:  <input _oldvalue="" name="plainKey" value="" size="30" type="text"></p></td>
+  <td><p>Cipher Alphabet Key:  <input _oldvalue="" name="cipherKey" value="" size="30" type="text"></p></td>
+ </tr>
+ <tr>
+  <td><p><span _showkeymaker="hide" id="Keymaker0" target="document.encoder.plainKey.value"><a href="#" onclick="return KeymakerToggle(0)">Show Keymaker</a></span></p></td>
+  <td><p><span _showkeymaker="hide" id="Keymaker1" target="document.encoder.cipherKey.value"><a href="#" onclick="return KeymakerToggle(1)">Show Keymaker</a></span></p></td>
+ </tr>
+ <tr>
+  <td><p>Plain Alphabet Used:  <b><tt><span id="plainAlphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></tt></b></p></td>
+  <td><p>Cipher Alphabet Used:  <b><tt><span id="cipherAlphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></tt></b></p></td>
+ </tr>
+</table>
+
+<p><a id="tableau_link" href="#" onclick="ToggleTableau(); return false">Show 
+Tableau</a></p>
+
+<div id="tableau" style="display: none;"><tt><b><u>&nbsp;&nbsp;|&nbsp;ABCD&nbsp;EFGH&nbsp;IJKL&nbsp;MNOP&nbsp;QRST&nbsp;UVWX&nbsp;YZ</u></b><br><b>A</b>&nbsp;|&nbsp;ABCD&nbsp;EFGH&nbsp;IJKL&nbsp;MNOP&nbsp;QRST&nbsp;UVWX&nbsp;YZ<br><b>B</b>&nbsp;|&nbsp;BCDE&nbsp;FGHI&nbsp;JKLM&nbsp;NOPQ&nbsp;RSTU&nbsp;VWXY&nbsp;ZA<br><b>C</b>&nbsp;|&nbsp;CDEF&nbsp;GHIJ&nbsp;KLMN&nbsp;OPQR&nbsp;STUV&nbsp;WXYZ&nbsp;AB<br><b>D</b>&nbsp;|&nbsp;DEFG&nbsp;HIJK&nbsp;LMNO&nbsp;PQRS&nbsp;TUVW&nbsp;XYZA&nbsp;BC<br><b>E</b>&nbsp;|&nbsp;EFGH&nbsp;IJKL&nbsp;MNOP&nbsp;QRST&nbsp;UVWX&nbsp;YZAB&nbsp;CD<br><b>F</b>&nbsp;|&nbsp;FGHI&nbsp;JKLM&nbsp;NOPQ&nbsp;RSTU&nbsp;VWXY&nbsp;ZABC&nbsp;DE<br><b>G</b>&nbsp;|&nbsp;GHIJ&nbsp;KLMN&nbsp;OPQR&nbsp;STUV&nbsp;WXYZ&nbsp;ABCD&nbsp;EF<br><b>H</b>&nbsp;|&nbsp;HIJK&nbsp;LMNO&nbsp;PQRS&nbsp;TUVW&nbsp;XYZA&nbsp;BCDE&nbsp;FG<br><b>I</b>&nbsp;|&nbsp;IJKL&nbsp;MNOP&nbsp;QRST&nbsp;UVWX&nbsp;YZAB&nbsp;CDEF&nbsp;GH<br><b>J</b>&nbsp;|&nbsp;JKLM&nbsp;NOPQ&nbsp;RSTU&nbsp;VWXY&nbsp;ZABC&nbsp;DEFG&nbsp;HI<br><b>K</b>&nbsp;|&nbsp;KLMN&nbsp;OPQR&nbsp;STUV&nbsp;WXYZ&nbsp;ABCD&nbsp;EFGH&nbsp;IJ<br><b>L</b>&nbsp;|&nbsp;LMNO&nbsp;PQRS&nbsp;TUVW&nbsp;XYZA&nbsp;BCDE&nbsp;FGHI&nbsp;JK<br><b>M</b>&nbsp;|&nbsp;MNOP&nbsp;QRST&nbsp;UVWX&nbsp;YZAB&nbsp;CDEF&nbsp;GHIJ&nbsp;KL<br><b>N</b>&nbsp;|&nbsp;NOPQ&nbsp;RSTU&nbsp;VWXY&nbsp;ZABC&nbsp;DEFG&nbsp;HIJK&nbsp;LM<br><b>O</b>&nbsp;|&nbsp;OPQR&nbsp;STUV&nbsp;WXYZ&nbsp;ABCD&nbsp;EFGH&nbsp;IJKL&nbsp;MN<br><b>P</b>&nbsp;|&nbsp;PQRS&nbsp;TUVW&nbsp;XYZA&nbsp;BCDE&nbsp;FGHI&nbsp;JKLM&nbsp;NO<br><b>Q</b>&nbsp;|&nbsp;QRST&nbsp;UVWX&nbsp;YZAB&nbsp;CDEF&nbsp;GHIJ&nbsp;KLMN&nbsp;OP<br><b>R</b>&nbsp;|&nbsp;RSTU&nbsp;VWXY&nbsp;ZABC&nbsp;DEFG&nbsp;HIJK&nbsp;LMNO&nbsp;PQ<br><b>S</b>&nbsp;|&nbsp;STUV&nbsp;WXYZ&nbsp;ABCD&nbsp;EFGH&nbsp;IJKL&nbsp;MNOP&nbsp;QR<br><b>T</b>&nbsp;|&nbsp;TUVW&nbsp;XYZA&nbsp;BCDE&nbsp;FGHI&nbsp;JKLM&nbsp;NOPQ&nbsp;RS<br><b>U</b>&nbsp;|&nbsp;UVWX&nbsp;YZAB&nbsp;CDEF&nbsp;GHIJ&nbsp;KLMN&nbsp;OPQR&nbsp;ST<br><b>V</b>&nbsp;|&nbsp;VWXY&nbsp;ZABC&nbsp;DEFG&nbsp;HIJK&nbsp;LMNO&nbsp;PQRS&nbsp;TU<br><b>W</b>&nbsp;|&nbsp;WXYZ&nbsp;ABCD&nbsp;EFGH&nbsp;IJKL&nbsp;MNOP&nbsp;QRST&nbsp;UV<br><b>X</b>&nbsp;|&nbsp;XYZA&nbsp;BCDE&nbsp;FGHI&nbsp;JKLM&nbsp;NOPQ&nbsp;RSTU&nbsp;VW<br><b>Y</b>&nbsp;|&nbsp;YZAB&nbsp;CDEF&nbsp;GHIJ&nbsp;KLMN&nbsp;OPQR&nbsp;STUV&nbsp;WX<br><b>Z</b>&nbsp;|&nbsp;ZABC&nbsp;DEFG&nbsp;HIJK&nbsp;LMNO&nbsp;PQRS&nbsp;TUVW&nbsp;XY</tt></div>
+
+<p>Passphrase: <input _oldvalue="" type="text" name="pass" value=""><br />
+Align passphrase under plaintext letter: <input _oldvalue="" type="text" name="passAlign" value="" size="3" maxlength="1"><br />
+Show only passphrase in tableau: <input type="checkbox" name="biasTableau" checked="checked"></p>
+
+<p>Your message:<br><textarea _oldvalue="" name="text" rows="5" cols="40"></textarea></p>
+
+</form>
+
+<p>This is your encoded or decoded text:</p>
+
+<table class="r_box" style="margin-top: 8px; margin-bottom: 8px;" align="center" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="r_box">
+<p><b><tt><span id="output">Type in a message and see the results here!</span></tt></b></p>
+</td></tr></tbody></table></div>
+</body></html>

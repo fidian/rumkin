@@ -1,0 +1,41 @@
+PHP Whois to reverse an IP and get the owner's address
+http://sourceforge.net/projects/phpwhois/
+
+IP address to google map
+http://www.blueforge.org/map/
+
+Make sure to keep only one instance of the map open, then add/remove points
+dynamically without reloading the map.
+
+GPS point marker with NMEA or TAIP data
+http://net.deyaboo.com/mapa/
+
+Zip code to coordinate changer
+
+Enter coords and get dots
+
+Upload GPX, LOC files and get dots
+
+Click on map and get coordinates in various formats
+
+Calculate acerage and distance
+http://www.arenafan.com/teams/gmap2.php
+
+Better version of the distance
+http://www.gmap-pedometer.com/
+
+Yahoo's geocoder ajax interface
+http://mapbuilder.net/demo/yahoo.geocode.php
+
+Add/remove caches as you zoom in and out. Clumpify and eliminate.
+
+See if you can shade an area for clumps of points.
+
+Airplane demo
+http://kharkoma.homelinux.com/gmaps/planemap.html
+Add keys, zoom?
+
+Virtual tour (all at same zoom level, but glide from point to point)
+
+Show routes that only touch points in the current zoom level.  If the route
+is too complex, omit.

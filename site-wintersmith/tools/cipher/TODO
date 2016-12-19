@@ -1,0 +1,249 @@
+Add:
+ * Pigpen variations
+   http://educ.queensu.ca/~fmc/may2004/diagram.html
+ * Beaufort
+ * Progressive key for both vigenere (Autoclave) and beaufort
+ * Progressive key with varying steps (for example, different caesar shifts
+   or progressing by means of a cipher alphabet)
+ * 2 square Playfair
+ * 4 square Playfair
+ * Playfair with 6x6 grid (26 leters + 10 numbers)
+ * Trifid cipher (3x3x3, so 27 letters.  Maybe #27 = space)
+ * All of the above at
+   http://www.angelfire.com/clone2/darkcorner/cipherscodes.html
+ * Double Playfair (2 square Playfair) is also at
+   http://www.pbs.org/wgbh/nova/decoding/doubplayfair.html
+ * RSA encoding
+   http://en.wikipedia.org/wiki/RSA
+ * VIC cipher
+ * Base-N encoding, like this numerical encoder:
+   http://www.swhistlesoft.com/demo/NumericalCoding/
+
+Make a sort of a command-line encoder/decoder.
+ * have a box for plaintext
+ * Have a box for encoding/decoding methods
+ * Have a box for the result
+ * Accept syntax like
+   - easy: V(password);Caesar(shift#);V-1(decryptpassword)
+   - advanced: V(1, text, Caesar(1, 'password', 12))  (just a thought)
+
+* Playfair/Bifid/etc advanced alphabet keying
+* Or have a pop-up that lets you create a "key" to look like what you want.
+  - horizontally (already done)
+  - vertically
+  - spirals (clockwise and counter, inwards and outwards)
+  
+* Add a digraph cipher
+* Info at http://www.pbs.org/wgbh/nova/decoding/doubplayfair.html
+* Allow the alphabets to be keyed and possibly shifted.
+
+Lots of good cipher info at
+http://www.vectorsite.net/ttcode.html
+
+Look for CipherClerk and see if I can add a few of those options to my
+encoder/decoder pages.
+
+Add Quagmire variations to vigenere:
+http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#QUAGM1
+
+Redfence
+
+Route ciphers.  "To be or not to be that is the
+question" is -- start at top left, read successive diagonals.
+  tornha
+  boottt
+  eteisi
+  tbseos
+  otunep
+  hqskee
+  ehaarx
+Other fun routes would be diagonals from different directions, spirals.
+
+Javascript version of the enigma machine
+
+http://www.cryptogram.org/cipher_types.html
+
+Other languages / character sets
+  English a-z = \x0061-\x007a, A-Z = \x0041-\x005A
+  Greek a-z = \x03B1-\x03C9 (not \x03C2), A-Z = \x0391-\x03A9 (not \x03A2)
+  Etc - http://en.wikipedia.org/wiki/Cyrillic_alphabet
+
+Hex, binary (both 7-bit and 8-bit) with and without spaces.  Elonka wants
+the ciphers to work with more types of characters instead of just A-Z.
+
+The ciphers on Wikipedia, such as straddling checkerboard.
+
+Resort the frequency counter by alpha or by frequency with sorttable
+
+Make a url encoder and link that in as well
+Number converter (base N)
+hex/octal/binary/ascii converter
+
+Code systems from http://members.aol.com/scirealm/CodeSystems.html
+especially ROT-47
+
+
+
+http://www.wiki.elonka.com
+wiki // wikiwiki
+
+
+Vigenere Guesser - vigenere-guess.html
+Vigenere Guesser - http://www.dtek.chalmers.se/~d97roli/project/krypto/
+ - From "Kender" - http://forums.unfiction.com/forums/viewtopic.php?
+                   t=7674&sid=e5011302579ff623b5ab18d96b1d6c83
+
+
+Given two frequency distributions P and Q, chi is defined as the sum of p_i
+* q_i.  For each character i, multiply the observed frequency of i in the
+first text with the observed frequency in the second text.
+Chi(text, other_text) will be close to the expected IC for a language if the
+two texts could be from the same language, otherwise it is closer to the
+expected IC for a flat distribution.  This is a simplified Pearson chi square
+test that is better suited for cryptographic situations.  IC = index of
+coincidence.
+
+IC is computed as IC_R = p_A * p_A * p_B + p_B + ... + p_Z * p_Z.  p_A is the
+probability of the letter A appearing, etc.  A flat frequency distribution
+is 1/26 * 1/26 + ... + 1/26 * 1/26 =~ 3.8%  The IC of English (IC_S)
+typically is between 6.6% to 6.8%.  Typically, IC_S / IC_R is roughly 2.
+See more:  http://www.umich.edu/~umich/fm-34-40-2/ch2.pdf
+
+
+Add Kasiski test for breaking Vigenere ciphers.
+
+
+Add Friedman test for breaking Vigenere ciphers.
+http://www.algebra.com/~pavlovd/wiki/Vigen%C3%A8re_cipher#Friedman_test
+
+
+Hebrew ATBASH substitution, similar to ROT13 (top folds to bottom, vice versa)
+A B C D E F G H I J K L M
+Z Y X W V U T S R Q P O N
+
+
+Vigenere cracker:
+http://www.simonsingh.net/The_Black_Chamber/cracking_tool.html
+
+
+Vowel to consonant ratio in manipulator
+
+
+Baudot Code
+http://home.austin.rr.com/kinghome/signpage/baudot.html
+http://en.wikipedia.org/wiki/Baudot_code
+http://www.jimprice.com/jim-asc.shtml has a couple links to good info
+Kind of like a morse code with fixed lengths
+
+American Morse Code
+http://en.wikipedia.org/wiki/American_Morse_Code
+
+
+Enigma coder in Flash
+http://enigmaco.de/enigma/enigma.swf
+
+
+Morse solver - take in a stream of morse code without breaks between letters
+and words, then output all possibilities
+
+
+Jefferson Wheel Cipher
+http://monticello.org/jefferson/wheelcipher/
+
+
+Check out http://cs.colgate.edu/faculty/nevison/Core139Web/tools/
+
+
+Alter skip to have a checkbox that enables any number to be used.  Then, if
+it hits a value that was already used, it would use the next.  E.G.
+12345678 skip 2 = 1 3 5 7 2 4 6 8.  Probably can be done by removing the
+letters the first time through, then subtracting 1 from skip and running
+through the numbers again.  Decoding would be annoying, since you would need
+to construct a part of the string, then loop and insert letters where
+appropriate.  Also, bypassing the first N characters could be done by just
+moving the N characters to the end.  This method could only work with even
+divisors.  Jason A Davis <jdavis@tmllp.com> wanted this feature.
+
+
+Playfair decoder/guesser.  Make it so you can enter in letter quads (PROD =
+LIME, IDEM = REDO, CRUX = SEWS, AVES = NARC, AVER = NAIN; Key phrase =
+PLAYFIRNDETSBX = PLAYFAIR AND LETTERS LATENT BY RADIX)  Sometimes info is
+incomplete, so entering in CRU*=SEWS or AVES=NA*C would be helpful.  Perhaps
+a hill-climbing algorithm would be helpful.
+http://www.quinapalus.com/cgi-bin/playfair?plt=enmala&cpt=prpcyl&dict=0&ent=Search
+
+
+This guy has a few javascript implementations of ciphers:
+http://ruffnekk.stormloader.com/
+
+
+Cipher decoder:  http://www.blisstonia.com/software/WebDecrypto/
+
+
+Unabomber cipher:  http://cbs5.com/topstories/local_story_363002905.html
+
+
+Ciphers in JavaScript:  http://www.woodmann.com/fravia/railfe.htm
+
+
+CSP-488 (aka M-94):  http://www.maritime.org/csp488.htm
+
+
+Rot5, rot18, rot47
+http://netzreport.googlepages.com/online_converter_for_rot_5_13_18_47.html
+
+
+The Black Chamber
+http://www.simonsingh.net/The_Black_Chamber/contents.html
+
+
+Cryptogram solver
+http://www.blisstonia.com/software/WebDecrypto/
+
+
+Hand ciphers (Pencil and paper ciphers)
+http://users.telenet.be/d.rijmenants/en/handciphers.htm
+
+
+VIC Cipher
+http://en.wikipedia.org/wiki/VIC_cipher
+
+
+Solitare cipher - from the cryptonomicon
+
+
+JavaScript + AJAX version of the cryptogram solver?  Lets people type in words too?
+
+
+The Shadow's circles cipher from Chain of Death
+
+
+Homophonic Cipher
+
+
+The numeric ciphers could convert to/from Roman numerals
+
+
+http://online.wsj.com/article/SB124648494429082661.html?mod=yhoofront
+Robert Patterson's letter to Thomas Jefferson
+
+
+http://en.wikipedia.org/wiki/Nihilist_cipher
+Nihilist Cipher
+msgibbs@capitol.net 2012-02-23
+The request is to do the straddling checkerboard instead of polybius square.  Why not do both?
+http://en.wikipedia.org/wiki/Nihilist_cipher
+http://en.wikipedia.org/wiki/Straddling_checkerboard
+http://en.wikipedia.org/wiki/Polybius_square
+
+
+Custom string swapping to let A => "5b" and B => "AA" or something.  Detect non-reversible strings.
+
+
+Can you create a nihilist cipher on your webpage that converts letters to numerals. But do the more complex version with the straddling checkerboard instead of the polybius square.
+
+http://en.wikipedia.org/wiki/Nihilist_cipher
+http://en.wikipedia.org/wiki/Straddling_checkerboard
+http://en.wikipedia.org/wiki/Polybius_square
+
+Vernam cipher method === one time pad

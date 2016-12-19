@@ -1,0 +1,18 @@
+The first character appears to not provide any bits of entropy.
+
+Use the letter frequency tables at
+http://www.data-compression.com/english.shtml
+or make my own
+
+http://www.data-compression.com/stat3_out.gz
+
+Maybe other languages?
+
+Check for repeated patterns of letters 3 characters long and more.
+
+Make a new corpus from wikipedia?  Gutenberg?  Everything?
+When done, email websmith@eeep.com - they wanted an updated frequency.js file.
+
+Flag passwords as bad with the Twitter list and the password breach.
+
+Incorporate numbers, stats, links, writeups from https://www.grc.com/haystack.htm

@@ -1,0 +1,72 @@
+packcramfs -c|--create [-i|--images n] [-b|--blocksize blocksize]
+                       [-l|--loop n] (blocckdevice|file) blocks
+           create new multi cramfs partition with n partitions (default 16),
+           and the given number of blocks of the given size (default block
+           size is 1024). The loopoffset defines the first loopdevice that
+           is used to mount images
+packcramfs -p|--print [-a|--all] [-t|--terse] (blockdevice|file)
+           print information about the active images or all images [-a]
+packcramfs -D|--deactivate (blockdevice|file) n
+           Deactivate image n (it is not deleted). It will also unmount all
+           partitions before deactivating the partition.
+packcramfs -D|--deactivate (blockdevice|file) mountpoint
+           Deactivate image using the given mountpoint. It will also unmount
+           all partitions before deactive the partition.
+packcramfs -s|--store [-f|--force] [--append] (blockdevice|file)
+                                        mountpoint file [mountpoint file ...]
+           store new cramfs file image without disturbing the others unless
+           -f is given. -f will also unmount all partitions. --append will
+           append the partitions to the end of the file/device.
+packcramfs -x|--extract (blockdevice|file) (mountpoint|imagenumber) [filename]
+           Extract a given mountpoint (if there is more than one the active
+           one is used, if none is active the first one) to the fil or stdout.
+packcramfs -A|--activate (blockdevice|file) mountpoint [mountpoint ...]
+           activate mountpoints after unmounting all partitions.
+packcramfs -r|--restore (blockdevice|file)
+           restore a partition by reactivating all deactivated images which
+           where either deleted with -d or replaced with -s. Only one or more
+           -d or one -s can be restored and it -r cannot be used if --force
+           was used. It will unmount all partitions before restoring.
+packcramfs -m|--mount (blockdevice|file) root
+           Mount all images starting with /
+packcramfs -u|--umount (blockdevice|file)
+           unmount everything
+packcramfs -C|--check [-a|--all] [-w|--write] [--resize] [-I|--image] [--fast]
+                                                           (blockdevice|file)
+           Check active (or all) partitions for CRC errors. Works even if the
+           partitions are mounted. In the case of an error one should
+           unmount everything and use -w|--write to fix the error or restore
+           the previous version using --restore. If --resize is used with a
+           block device the size of the filesystem will be changed to use the
+           complete device, if it is used with a file it will truncate the file
+           to make it as small as possible (without moving partitions). Using 
+           -I means that a single cramfs image instead of a complete packed 
+           partitions must be checked. --fast does not check the images but
+           only the partition table
+packcramfs -z|--compress (blockdevice|file)
+           compress the archive, remove all non active partitions. Will first
+           unmount all partitions.
+
+OPTIONS:   -q|--quiet         print less information
+           -a|--all           print all partitions/images
+           -f|--force         force changes
+           -P|--progress-bar  print progress bar
+
+EXIT CODES:  0 on success
+             errors below 128 are non fatal error messages, above 128 are fatal
+
+             1 if one superblock is corrupt and should be fixed. However, the
+               program could still finish successfully.
+
+           129 if the option --force should be used
+           130 if there are not enough partitions left
+           131 if the cramfs files passed as argument are corrupt
+           132 if the superblock is corrupt
+           133 if there was a write error
+           134 if there is not enough space on the device
+           135 if the arguments are wrong
+           136 if there was a problem mounting/unmounting due to a busy file
+               or device
+           137 if check removed some partitions (or recommends to remove them)
+               because of errors
+           138 if there was an internal error (out of memory, ...)

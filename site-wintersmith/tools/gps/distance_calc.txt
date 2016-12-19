@@ -1,0 +1,101 @@
+http://www.meridianworlddata.com/Distance-Calculation.asp
+
+ Because of the near-spherical shape of the Earth (technically an oblate
+spheroid) , calculating an accurate distance between two points requires the
+use of spherical geometry and trigonometric math functions. However, you can
+calculate an approximate distance using much simpler math functions. For
+many applications the approximate distance calculation provides sufficient
+accuracy with much less complexity.
+
+The following approximate distance calculations are relatively simple, but
+can produce distance errors of 10 percent of more. These approximate
+calculations are performed using latitude and longitude values in degrees.
+The first approximation requires only simple math functions:
+
+Approximate distance in miles:
+
+    sqrt(x * x + y * y)
+    
+    where x = 69.1 * (lat2 - lat1)
+    and y = 53.0 * (lon2 - lon1)
+    
+    You can improve the accuracy of this approximate distance calculation by
+adding the cosine math function:
+
+Improved approximate distance in miles:
+
+    sqrt(x * x + y * y)
+    
+    where x = 69.1 * (lat2 - lat1)
+    and y = 69.1 * (lon2 - lon1) * cos(lat1/57.3)
+    
+    If you need greater accuracy, you can use the Great Circle Distance
+Formula. This formula requires use of spherical geometry and a high level of
+floating point mathematical accuracy - about 15 digits of accuracy
+(sometimes called "double-precision"). In order to use this formula properly
+make sure your software application or programming language is capable of
+double-precision floating point calculations. In addition, the trig math
+functions used in this formula require conversion of the latitude and
+longitude values from decimal degrees to radians. To convert latitude or
+longitude from decimal degrees to radians, divide the latitude and longitude
+values in this database by 180/pi, or approximately 57.29577951. The radius
+of the Earth is assumed to be 6,378.8 kilometers, or 3,963.0 miles.
+
+If you convert all latitude and longitude values in the database to radians
+before the calculation, use this equation:
+
+Great Circle Distance Formula using radians:
+
+    3963.0 * arccos[sin(lat1) *  sin(lat2) + cos(lat1) * cos(lat2) *
+cos(lon2 - lon1)]
+
+If you do NOT first convert the latitude and longitude values in the
+database to radians, you must include the degrees-to-radians conversion in
+the calculation. Substituting degrees for radians, the formula becomes:
+
+Great Circle Distance Formula using decimal degrees:
+
+    3963.0 * arccos[sin(lat1/57.2958) * sin(lat2/57.2958) +
+cos(lat1/57.2958) * cos(lat2/57.2958) *  cos(lon2/57.2958 -lon1/57.2958)]
+
+OR
+
+    r * acos[sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon2 - lon1)]
+    
+    Where r is the radius of the earth in whatever units you desire.
+    r=3437.74677 (nautical miles)
+    r=6378.7 (kilometers)
+    r=3963.0 (statute miles)
+    
+    If the software application or programming language you are using has no
+arccosine function, you can calculate the same result using the arctangent
+function, which most applications and languages do support. Use the
+following equation:
+
+    3963.0 * arctan[sqrt(1-x^2))/x]
+    
+    where
+    
+        x = [sin(lat1/57.2958) * sin(lat2/57.2958)] + [cos(lat1/57.2958) *
+cos(lat2/57.2958) * cos(lon2/57.2958 - lon1/57.2958)]
+
+If your distance calculations produce wildly incorrect results, check for
+these possible problems:
+
+1. Did you convert the latitude and longitude values from degrees to
+radians? Trigonometric math functions such as sine and cosine normally
+require conversion of degrees to radians, as described above.
+
+2. Are the equations implemented correctly with necessary parentheses?
+Remember the old math precedence rule: MDAS - multiply, divide, add, subtract.
+
+3. Does your software application or programming language provide sufficient
+mathematical accuracy? For best results, you need about 15 digits of
+accuracy. 
+
+4. When you imported the data from the text files your latitude/longitude
+values may have been truncated. Make sure you did not lose any of the digits
+to the right of the decimal point during import.
+
+5. Have you lost any precision of your decimal values due to rounding during
+importing or calling custom math functions?

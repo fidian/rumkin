@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd "`dirname "$0"`"
+zip -9 ../../../rumkin-media/tools/password/passchk.zip \
+	passchk.html \
+	passchk.js \
+	frequency.js \
+	COPYING \
+	common.js

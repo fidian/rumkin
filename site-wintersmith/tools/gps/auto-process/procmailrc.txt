@@ -1,0 +1,13 @@
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/lib:/usr/sbin
+VERBOSE=no
+MAILDIR=$HOME/Maildir
+DEFAULT="$HOME/Maildir/"
+PMDIR=$HOME/procmail
+LOGFILE=$PMDIR/log.txt
+LOGABSTRACT=yes
+
+:0 w: geocache.lck
+* ^Subject: .GEO. Pocket Query: \/.*
+* !^FROM_DAEMON
+| $HOME/geocache_shell "$MATCH"
+

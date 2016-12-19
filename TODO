@@ -1,3 +1,63 @@
+http://www.callofdutyzombies.com/topic/154218-adfgx-cipher/ ADFGX and ADFGVX ciphers
+
+./site/tools/marquee/index.md - needs finishing
+
+Die roller - 8d6D2+5 seems to freeze
+
+JS QR code: http://jeromeetienne.github.io/jquery-qrcode/
+
+binary file transfer through terminal - write article
+
+Add service for monitoring ping time to a web server.  Just like BBY.
+
+More conversion tools, like http://tomeko.net/online_tools/cpp_text_escape.php?lang=en
+
+Redirect plugin:  Map PHP to new URLs
+
+Crypto:  Apply cipher to each line separately (Vigenere)
+
+Crypto:  Add 3301 examples.
+
+Passwords:  Incorporate haystack search information - https://www.grc.com/haystack.htm
+
+Passwords:  Telepathwords:  https://telepathwords.research.microsoft.com/
+
+Crypto:  Caesar cipher - add options for entire ASCII range or visible chars only
+
+Template:  Responsive sidebar?  http://nikolay.rocks/2015-06-19-responsive-sidebar?utm_medium=email&utm_source=jsfiddle
+
+Crypto:  Handle whitespace differently - preserve as-is (do not operate on spaces), use hard spaces, specify a symbol, something.  Columnar transposition, railfence, etc.
+
+
+Crypto:  Add Purple machine
+
+
+Crypto:  Is it "skytail" or "scrytail" or what?
+
+
+Password strength tester - see zxcvbn.zip
+
+
+Simple site layout.  I like http://haacked.com/archive/2012/05/30/using-github-for-windows-with-non-github-repositories.aspx/
+
+Tables, like those for prestige classes, should look good.
+
+
+Password entropy tester - repeat numbers are less likely to happen and should provide less entropy.  Also check for repeating patterns.
+
+
+Rotate cipher is also called a "tabular transposition" cipher.
+
+
+Tools/trinkets could use a little auto-detect change love and maybe textarea resize love too.
+
+
+Update links to phone uploader in index, robots.txt
+
+
+Update debian/watch files that reference pearredir.php and change them to api.rumkin.com/pearredir/
+
+
 Go through tools/perl
 
 
@@ -34,3 +94,21 @@ Add a search button for searching just the trivia.
 
 
 Add OpenID to allow people to log into my site easier.
+
+
+cipher solver
+	Bfp pbo mznn wloa pbo hovqo zvc swx qzv pzdo swxa pfko
+	This times out - make it go FASTER AND FASTER
+
+
+Send SMS with twilio.com
+
+
+JSON forms, used in tools/wcn, has been removed.  Need to replace it with something.
+
+
+Add something like this to reduce numbers to neat fraction estimations for the die roll stats:  http://www.mindspring.com/~alanh/fracs.html
+
+
+Gentoo's CGA Web look was wonderful.
+https://web.archive.org/web/20150401025937/https://www.gentoo.org/news/2015/03/31/website-update.html

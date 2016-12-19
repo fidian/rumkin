@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "# This file is generated every 30 minutes by /etc/hosts_make"
+echo "# If you run this manually, pipe the results to /etc/hosts"
+echo ""
+echo "# Standard names"
+echo "127.0.0.1	`hostname`	localhost"
+echo ""
+echo "# Static IP Servers"
+echo "#192.168.1.1     someserver"
+echo ""
+echo "# Windows computers"
+# Our workgroup is named WORKGROUP.
+# Change it if it doesn't match yours.
+ADDRS=`nmblookup WORKGROUP | sort | grep -E "^[0-9]+(\.[0-9]+){3}" | \
+    cut -d ' ' -f 1`
+for IP in $ADDRS; do {
+	NAME=`nmblookup -A $IP | grep "<00>" | grep -v "<GROUP>" | \
+		grep -v "~" | cut -f 2 | cut -d ' ' -f 1`;
+	echo "$IP	$NAME"
+}; done
