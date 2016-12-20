@@ -41,33 +41,33 @@ As far as wireless networking goes, Midori on the AquaPad only comes with driver
 Locally Hosted Files
 --------------------
 
-* [Audio Drivers](drivers_audio.zip) - Windows audio drivers.
+* [Audio Drivers](drivers-audio.zip) - Windows audio drivers.
 
-* [VGA Drivers](drivers_vga.zip) - Windows VGA drivers.
+* [VGA Drivers](drivers-vga.zip) - Windows VGA drivers.
 
-* [Touch Screen Drivers](drivers_touch-screen.zip) - Windows touch screen drivers.
+* [Touch Screen Drivers](drivers-touch-screen.zip) - Windows touch screen drivers.
 
-* [BIOS Flash Hard Drive Image](bios_flash.img.gz) - A hard drive image that you can stick on your CompactFlash card and boot to in order to flash your BIOS.  Contains DOS USB drivers in case your BIOS does not supprot USB Legacy Mode and comes equipped with all the BIOS ROMs that I can find.
+* [BIOS Flash Hard Drive Image](bios-flash.img.gz) - A hard drive image that you can stick on your CompactFlash card and boot to in order to flash your BIOS.  Contains DOS USB drivers in case your BIOS does not supprot USB Legacy Mode and comes equipped with all the BIOS ROMs that I can find.
 
 * [MS-DOS Hard Drive Image](blank.hd0.gz) - A blank, bootable FAT12 hard drive image that you can stick on a CompactFlash card in order to upgrade the BIOS with your own files.
 
-* [FreeDOS Hard Drive Image](freedos.img.bz2) - Similar to above, but it is based off of FreeDOS and includes many tools.  You won't be able to use them without adding the USB keyboard driver (ohci from the bios flash image) or turning on USB Legacy support.
+* [FreeDOS Hard Drive Image](freedos.img.gz) - Similar to above, but it is based off of FreeDOS and includes many tools.  You won't be able to use them without adding the USB keyboard driver (ohci from the bios flash image) or turning on USB Legacy support.
 
 * [packcramfs.txt](packcramfs.txt) - Instructions for using `packcramfs`.  Provided here just in case you just grabbed the binary from the AquaPad instead of compiling it yourself.
 
-* [Midori Linux Manual](AquaPAD_Midori_Manual.pdf) - My AquaPad didn't come with a manual, so I am very glad that I found this.
+* [Midori Linux Manual](aquapad-midori-manual.pdf) - My AquaPad didn't come with a manual, so I am very glad that I found this.
 
 * [Midori Config File](midori.config.txt) - My last attempt at a Midori configuration.  Was not working, but was not too far away from working either.
 
 * [Lilo Configuration](lilo-conf.zip) - Directory structure and sample lilo.conf to get you started when installing a Knoppix boot CD to a CF card.
 
-* [Midori Linux BIOS](taa51w.zip) - The original BIOS that came with the Midori Linux AquaPad.  It's also available on the BIOS Flash Hard Drive Image.
+* [Midori Linux BIOS](taa61w.zip) - The original BIOS that came with the Midori Linux AquaPad.  It's also available on the BIOS Flash Hard Drive Image.
 
-* [CF to IDE Adaptor](ADA-COMPACTFLASH-ATA-IDE40.pdf) - Spec file for the ADA-COMPACTFLASH-ATA-IDE40 adaptor, which will let you hook up an IDE hard drive to a CompactFlash slot.
+* [CF to IDE Adaptor](ada-compactflash-ata-ide40.pdf) - Spec file for the ADA-COMPACTFLASH-ATA-IDE40 adaptor, which will let you hook up an IDE hard drive to a CompactFlash slot.
 
-* [CF Spec 3.0](cfspc3_0.pdf) - The official spec, which lists the pinouts and exact characteristics of CompactFlash stadard.
+* [CF Spec 3.0](cfspc3-0.pdf) - The official spec, which lists the pinouts and exact characteristics of CompactFlash stadard.
 
-* [CF to IDE Schematic](CFtoIDE.pdf) - Are you good with a soldering iron?  You can build your own CF to IDE adaptor.
+* [CF to IDE Schematic](cftoide.pdf) - Are you good with a soldering iron?  You can build your own CF to IDE adaptor.
 
 
 Hacking
@@ -224,7 +224,7 @@ Want to make an exact copy of the Compact Flash card?  Need the original images 
         dd if=/dev/sda4 of=/dev/sda4
 
 * Compress and copy the images elsewhere so that you always have a nice, clean install just in case something gets messed up.  They really won't compress too well, but a k here and there add up.
-* The images are separated in the above instructions because it is easier to work with them individually than all together.  If you want an exact copy of the card you can just use `dd if=/dev/sda of=CF_Copy.img`
+* The images are separated in the above instructions because it is easier to work with them individually than all together.  If you want an exact copy of the card you can just use `dd if=/dev/sda of=cf-copy.img`
 
 
 Making Your Own Image Under Linux
@@ -260,7 +260,7 @@ We dissect an AquaPad, piece by piece, in order to expose the guts to the public
 
 <div class="Ta(c)">
 
-[![front small](front_small.jpg)](front.jpg)
+[![Front of AquaPad](front-small.jpg)](front.jpg)
 
 </div>
 
@@ -272,7 +272,7 @@ At the top you see three LEDs.  From left to right, they are suspend, power, and
 
 <div class="Ta(c)">
 
-[![back battery stylus small](back_battery_stylus_small.jpg)](back_battery_stylus.jpg)
+[![Back of Aquapad with Battery and Stylus](back-battery-stylus-small.jpg)](back-battery-stylus.jpg)
 
 </div>
 
@@ -284,7 +284,7 @@ In the upper left, you will see two rubber pads (blue) and 8 screws.  That's how
 
 <div class="Ta(c)">
 
-[![lcd small](lcd_small.jpg)](lcd.jpg)
+[![LCD Panel](lcd-small.jpg)](lcd.jpg)
 
 </div>
 
@@ -292,7 +292,7 @@ The front panel comes off, giving you a nice image of the LCD behind it and my g
 
 <div class="Ta(c)">
 
-[![motherboard front small](motherboard_front_small.jpg)](motherboard_front.jpg)
+[![Front of Motherboard](motherboard-front-small.jpg)](motherboard-front.jpg)
 
 </div>
 
@@ -306,7 +306,7 @@ When you put the motherboard back, make sure to be VERY careful with the orangis
 
 <div class="Ta(c) M(x)">
 
-[![motherboard back small](motherboard_back_small.jpg)](motherboard_back.jpg)
+[![Back of Motherboard](motherboard-back-small.jpg)](motherboard-back.jpg)
 
 </div>
 
@@ -504,10 +504,10 @@ CompactFlash can be accessed in two different ways.  Most little devices do it o
 
 The interesting thing is that if you have an embedded application and it accesses the CF slot as though it is an IDE drive, you can hook up one of these adaptors, an IDE cable, and then two IDE to CF adaptors and you'll get to use two CF cards.  Omit the second set of adaptors and you can hook up two hard drives to the one CF slot.
 
-You can search online for links to these and I've found a spec sheet (see the Links secton) that explains it a bit.  For those of you who work wonders with a soldering iron, I have a diagram of the [circuit](CFtoIDE.pdf) you can build in order to fabricate your own IDE to CF device.  Some things are not labeled.  JP1 is a power connector.  If your CF has 5v power, you can connect J2 and get power that way.  On JP1, pin 1 is +5v, pin 2 and 3 are Gnd.  There are two connectors (a 44-pin for laptop and a 40-pin for desktop hard drives), but only use one at a time.  The capacitor is a .1uF ceramic decoupling capacitor.  The resistor and the capacitor can both be omitted and it will
+You can search online for links to these and I've found a spec sheet (see the Links secton) that explains it a bit.  For those of you who work wonders with a soldering iron, I have a diagram of the [circuit](cftoide.pdf) you can build in order to fabricate your own IDE to CF device.  Some things are not labeled.  JP1 is a power connector.  If your CF has 5v power, you can connect J2 and get power that way.  On JP1, pin 1 is +5v, pin 2 and 3 are Gnd.  There are two connectors (a 44-pin for laptop and a 40-pin for desktop hard drives), but only use one at a time.  The capacitor is a .1uF ceramic decoupling capacitor.  The resistor and the capacitor can both be omitted and it will
 still work.
 
-Also, if you like pin mappings and whatnot, take a look at page 40 of the [CompactFlash Specification](cfspc3_0.pdf).
+Also, if you like pin mappings and whatnot, take a look at page 40 of the [CompactFlash Specification](cfspc3-0.pdf).
 
 
 My Progress
