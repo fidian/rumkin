@@ -141,7 +141,7 @@ if (process.env.SERVE) {
 use("metalsmith-each", (file, filename) => {
     var contents;
 
-    if (!filename.match(/\.(css|gz|html|ico|jar|jpg|js|pdb|pdf|swf|ttf|txt|zip)$/)) {
+    if (!filename.match(/\.(css|gif|gz|html|ico|jar|jpg|js|pdb|pdf|swf|ttf|txt|zip)$/)) {
         console.log(`Invalid extension: ${filename}`);
     }
 
