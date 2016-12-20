@@ -39,7 +39,9 @@ smith = new Metalsmith(__dirname)
 .use(timer("startup"));
 
 // Global
-// use("metalsmith-models", {})
+use("metalsmith-data-loader", {
+    removeSource: true
+});
 
 // Markdown -> HTML
 // Must happen before CSS for Atomizer plugin
