@@ -39,8 +39,8 @@ packcramfs -C|--check [-a|--all] [-w|--write] [--resize] [-I|--image] [--fast]
            the previous version using --restore. If --resize is used with a
            block device the size of the filesystem will be changed to use the
            complete device, if it is used with a file it will truncate the file
-           to make it as small as possible (without moving partitions). Using 
-           -I means that a single cramfs image instead of a complete packed 
+           to make it as small as possible (without moving partitions). Using
+           -I means that a single cramfs image instead of a complete packed
            partitions must be checked. --fast does not check the images but
            only the partition table
 packcramfs -z|--compress (blockdevice|file)
