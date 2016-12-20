@@ -1,0 +1,64 @@
+-
+    what: Linefeeds
+    ticks: 1
+    notes: Try to avoid blank lines in your code.
+-
+    what: Comments
+    ticks: 0
+    notes: Comments on the same line as code is good.  Separating comments with a newline still count against you.
+-
+    what: "`FIRE`"
+    ticks: 10
+    notes: Maybe just shoot instead of scanning?
+-
+    what: "`SCAN`"
+    ticks: 10
+    notes:
+-
+    what: "`PRINT`"
+    ticks: 0
+    notes: The only cost comes from a newline.
+-
+    what: Assignments
+    ticks: 0
+    notes: The `x =` part of an assignment is free.  It's the other side that can cost you.
+-
+    what: Calculations
+    ticks: 1
+    notes: "`5-7`, `2*areax`, `3` all cost the same."
+-
+    what: "`WHILE`, `IF`, `FOR`"
+    ticks: 1
+    notes: "`IF x > 0` and `IF x < 1` cost twice."
+-
+    what: "`ELSE`, `NEXT`, `ENDIF`"
+    ticks: 0
+    notes: "`IF x > 0 ... ELSE ...` costs only 1 for the IF."
+-
+    what: Errors
+    ticks: 1
+    notes: Test your code thoroughly.
+-
+    what: "`GOTO`, Labels"
+    ticks: 1
+    notes: Just having labels costs time.
+-
+    what: "`GOSUB`, `RETURN`"
+    ticks: 1
+    notes: Better structured code costs you time.
+-
+    what: "`RTOP`, `PTOR`"
+    ticks: 1
+    notes: Conversion to/from polar costs time.
+-
+    what: "`POSX()`, `POSY()`"
+    ticks: 1
+    notes:
+-
+    what: "`DAMAGE()`"
+    ticks: 2
+    notes: Nearly useless; see below.
+-
+    what: "`DRIVE`"
+    ticks: 5 + x
+    notes: x is `(distance / drivestep)` rounded up.
