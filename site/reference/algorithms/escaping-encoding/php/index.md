@@ -30,7 +30,7 @@ The standard way is to use the built-in function `urlencode()`.  It works well.
 PHP to JavaScript
 -----------------
 
-[php_to_js.php](php_to_js.php.txt) contains a function that will let you write out a string that is safe to embed into JavaScript.  It handles all sorts of escaping as well as worrying about splitting `<script>` tags.
+[php-to-js.php](php-to-js.php.txt) contains a function that will let you write out a string that is safe to embed into JavaScript.  It handles all sorts of escaping as well as worrying about splitting `<script>` tags.
 
 To use this glorious function, you need to merely pass it a string and optionally use the `$SkipQuotes` parameter.  Here are a few examples of PHP writing some JavaScript inside of your HTML markup.  By default, this will add quotes surrounding the string.  If you plan on doing that yourself you can pass `true` as a second parameter.
 
