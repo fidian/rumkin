@@ -136,6 +136,30 @@ if (process.env.SERVE) {
     });
 }
 
+use("metalsmith-each", (file, filename) => {
+    var contents;
+
+    if (!filename.match(/\.(css|gz|html|ico|jar|jpg|js|pdf|swf|ttf|txt|zip)$/)) {
+        console.log(`Invalid extension: ${filename}`);
+    }
+
+    if (filename.match(/[^-a-z0-9.\/]/)) {
+        console.log(`Invalid characters in filename: ${filename}`);
+    }
+
+    if (filename.match(/\.(css|htm|html|txt)$/)) {
+        contents = file.contents.toString("utf8");
+
+        if (contents.match(/[\t]/)) {
+            console.log(`File contains tabs: ${filename}`);
+        }
+
+        if (contents.match(/ $/m)) {
+            console.log(`Trailing whitespace in file: ${filename}`);
+        }
+    }
+});
+
 smith.build((err) => {
     if (err) {
         throw err;

@@ -17,6 +17,7 @@
         "metalsmith-clean-css": "^5.0.0",
         "metalsmith-code-highlight": "^0.0.3",
         "metalsmith-concat": "^6.0.0",
+        "metalsmith-each": "^0.1.1",
         "metalsmith-hbt-md": "^1.0.0",
         "metalsmith-html-minifier": "^2.2.0",
         "metalsmith-layouts": "^1.7.0",
