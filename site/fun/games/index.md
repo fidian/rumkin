@@ -11,7 +11,7 @@ Bored at work?  Killing time between classes?  I've got just the thing.  Most of
 Ride your motorcycle to collect the green dots and make it to the exit.
 
 
-[Asteroids](neave_asteroids.swf)
+[Asteroids](neave-asteroids.swf)
 --------------------------------
 
 One of the first arcade games.  Who needs color?  We only need three lines to display an entire starship!
@@ -29,7 +29,7 @@ You use your paddle to bounce a ball in order to break bricks.  The game goes by
 Protect your fort by shooting the invaders.
 
 
-[Flashzooids](flashiness_fz.swf)
+[Flashzooids](flashiness-fz.swf)
 --------------------------------
 
 This is a much prettier version of asteroids.
@@ -47,13 +47,13 @@ Fun solitare-style card game.
 Fly your helicopter through a tunnel and avoid the obstacles.
 
 
-[Hexxagon](neave_hexxagon.swf)
+[Hexxagon](neave-hexxagon.swf)
 ------------------------------
 
 Othello-like game where you can choose to either clone a piece to another cell or jump to a more distant cell.  Nearby opponent pieces are then changed into your pieces ... then the computer gets to go.  Great strategy board game.
 
 
-[Kitten Cannon](kitten_cannon.swf)
+[Kitten Cannon](kitten-cannon.swf)
 ----------------------------------
 
 If you really don't like cats, then this game is for you.  If you don't want to see helpless kittens become mangled in a cartoon style, then avoid this game.
@@ -65,13 +65,13 @@ If you really don't like cats, then this game is for you.  If you don't want to 
 A Flash version of the original arcade game.
 
 
-[Penguin Baseball](penguin_baseball.swf)
+[Penguin Baseball](penguin-baseball.swf)
 ----------------------------------------
 
 A fun game of timing.  How far can you whack the penguin?
 
 
-[Raiden X](raiden_x.swf)
+[Raiden X](raiden-x.swf)
 ------------------------
 
 Fly your ship around and blow up the bad guys.
@@ -88,13 +88,13 @@ You play Sam, a stick man action hero.  Run around, jump, and use your mouse to 
 * [Stick Man Sam 4](stickmansam4.swf)
 
 
-[Territory War](territory_war.swf)
+[Territory War](territory-war.swf)
 ----------------------------------
 
 Play against another person or the computer and see who can conquer the enemy first.
 
 
-[Tetris](neave_tetris.swf)
+[Tetris](neave-tetris.swf)
 --------------------------
 
 This game is provided for all of you die-hard Tetris fans out there.
