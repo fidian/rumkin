@@ -1,9 +1,51 @@
 #!/usr/bin/env node
 
+"use strict";
+
+/**
+ * @typedef {Object} dieRollAccumulator
+ * @property {number} count Minimum of 1
+ * @property {number} dropHigh Number of high dice that should be dropped
+ * @property {Array.<number>} dropHighRolls High dice that were dropped
+ * @property {number} dropLow Number of low dice that should be dropped
+ * @property {Array.<number>} dropLowRolls Low dice that were dropped
+ * @property {number} sum Sum of the dice that are counted.
+ */
+
+
+/**
+ * This is a group of die rolls, each one representing a different
+ * result/scenario that happens.
+ *
+ * @typedef {Array.<dieRollAccumulator>} dieRollSet
+ */
+
+
+/**
+ * @typedef {Object} groupOptions
+ * @property {integer} dropHigh
+ * @property {integer} dropLow
+ */
+
+
+/**
+ * Pass this to the sort function to sort values numerically.
+ *
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ */
 function sortNumeric(a, b) {
     return a - b;
 }
 
+
+/**
+ * Generate a die roll accumulator object.
+ *
+ * @param {integer} sides
+ * @return {dieRollAccumulator}
+ */
 function d(sides) {
     var n, result;
 
@@ -23,7 +65,15 @@ function d(sides) {
     return result;
 }
 
-// two distinct dice
+/**
+ * Add another die roll (or another die roll set) into the mix.  If you are
+ * rolling 2d6, firstRoll would be the first 1d6 and secondRoll would be the
+ * other die.
+ *
+ * @param {dieRollAccumulator} firstRoll
+ * @param {dieRollAccumulator} secondRoll
+ * @return {dieRollAccumulator}
+ */
 function combineRolls(firstRoll, secondRoll) {
     var combined, dieRollValue;
 
@@ -67,7 +117,16 @@ function combineRolls(firstRoll, secondRoll) {
     return combined;
 }
 
-// Same die's results merged
+
+/**
+ * Merge together rolls that are equivalent (eg 2+3 and 3+2).  This is done
+ * to deduplicate results and greatly improve speed.  Duplicate detection is
+ * done elsewhere.
+ *
+ * @param {dieRollAccumulator} firstRoll
+ * @param {dieRollAccumulator} secondRoll
+ * @return {dieRollAccumulator}
+ */
 function mergeRolls(firstRoll, secondRoll) {
     if (!secondRoll) {
         return firstRoll;
@@ -83,19 +142,47 @@ function mergeRolls(firstRoll, secondRoll) {
     };
 }
 
-// Builds a key out of this roll's distinct parts, not including
-// things that could change when merged with another roll.
+
+/**
+ * Builds a key out of this roll's distinct parts, not including
+ * things that could change when merged with another roll.  This is used to
+ * detect duplicate states and determine when to merge rolls together.
+ *
+ * @param {dieRollAccumulator} roll
+ * @return {string}
+ */
 function buildRollKey(roll) {
-    return roll.sum + " " + roll.dropLowRolls.join(",") + " " + roll.dropHighRolls.join(",");
+    var str;
+
+    str = roll.sum;
+
+    if (roll.dropLowRolls.length) {
+        str += " D";
+        str += roll.dropLowRolls.join(",");
+    }
+
+    if (roll.dropHighRolls.length) {
+        str += " P";
+        str += roll.dropHighRolls.join(",");
+    }
+
+    return str;
 }
 
+
+/**
+ * Performs the set multiplication of firstRollSet against secondRollSet and
+ * deduplicates the results to keep the result as small as possible.
+ *
+ * @param {dieRollSet} firstRollSet
+ * @param {dieRollSet} secondRollSet
+ * @return {dieRollSet}
+ */
 function combineRollSets(firstRollSet, secondRollSet) {
     var firstIndex, result, roll, rollKey, rollMap, secondIndex;
-    
+
     result = [];
     rollMap = {};
-
-    console.log(firstRollSet.length, secondRollSet.length, firstRollSet.length * secondRollSet.length);
 
     for (firstIndex = 0; firstIndex < firstRollSet.length; firstIndex += 1) {
         for (secondIndex = 0; secondIndex < secondRollSet.length; secondIndex += 1) {
@@ -114,13 +201,21 @@ function combineRollSets(firstRollSet, secondRollSet) {
     return result;
 }
 
+
+/**
+ * Used to kick off the building of die roll sets.
+ *
+ * @param {dieRollSet} rollSet
+ * @param {groupOptions} options
+ * @return {dieRollSet}
+ */
 function group(rollSet, options) {
     var i, result;
 
     if (!options) {
         options = {};
     }
-    
+
     result = [
         {
             count: 1,
@@ -133,12 +228,19 @@ function group(rollSet, options) {
     ];
 
     for (i = 0; i < rollSet.length; i += 1) {
-        result = combineRollSets(result, rollSet[0]);
+        result = combineRollSets(result, rollSet[i]);
     }
 
     return result;
 }
 
+
+/**
+ * Display a roll set to console.
+ *
+ * @param {string} message Some sort of header
+ * @param {dieRollSet} rollSet
+ */
 function write(message, rollSet) {
     var i, roll, sums, totalCount;
 
