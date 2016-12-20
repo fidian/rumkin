@@ -10,7 +10,7 @@ Program tanks to wipe out the opposition.  This is a great little game for teach
 Notes on Protection
 -------------------
 
-I don't get a link off the [Official Site], and it is probably because I have released the following information.  You can unprotect any bot's `.pdb` file by opening it up in a hex editor and changing just a byte.  If the first byte of a record has the bit flag 0x02 turned on, just flip that one bit to unprotect the record.
+I don't get a link off the [Official Site], and it is probably because I have released the following information.  You can unprotect bot `.pdb` files by opening it up in a hex editor and changing just a byte.  If the first byte of a record has the bit flag 0x02 turned on, just flip that one bit to unprotect the record.
 
 
 Bots I Wrote
@@ -19,7 +19,7 @@ Bots I Wrote
 I left all of these unprotected as there's no point in trying to hide the code.
 
 * [Wal-Mart](wal-mart.pdb) - Just shoots the walls.  When I first started playing GarBots, too many bots hung out around the walls.
-* [Maz](maz.pdb) - Drives around and shoots randomly around the arena.  Also tends to pick on things hanging out near walls.
+* [Maz](maz.pdb) - Drives around and shoots randomly around the arena.  Also, tends to pick on things hanging out near walls.
 * [Path](path.pdb) A pool vacuum gave me the idea to create a robot that just drove in straight lines, killing things in front of it.  It turns when it hits a wall.  Sometimes it gets hung up near corners, but it usually gets out before dying.
 
 
@@ -50,7 +50,7 @@ These are bots that I modified to run faster and be more aggressive.  Some I als
 * [Cruiser2](cruiser2.pdb) - Originally from [Rudi's Site].  I combined multiple assignments and moved some math into the scan line.
 * [Death Tank 4](death-tank-4.pdb) - Originally from the [Official Site].  I removed `GOSUB` functions, and made the scan randomly pick the direction to get some robots that would have been missed.
 * [Fleeter 2](fleeter-2.pdb) - Originally from [Rudi's Site].  Very hard to improve on this little guy.  I made it so that it couldn't hurt itself, and I made the first shot come off a little faster.
-* [Lord of the Rings 2](lord-of-the-rings-2.pdb) - Originally from [Rudi's Site].  A very nice robot.  I made it avoid damaging itself, removed `GOSUB` functions, had it initially drive to its starting spot without starting in the center, and sped it up a bit.  Excellent concept!
+* [Lord of the Rings 2](lord-of-the-rings-2.pdb) - Originally from [Rudi's Site].  A very nice robot.  I made it avoid damaging itself, removed `GOSUB` functions, had it initially driven to its starting spot without starting in the center, and sped it up a bit.  Excellent concept!
 * [Smack Down 2](smack-down-2.pdb) - Originally from the [Official Site].  I removed the `GOSUB` functions, unnecessary assignments, and made the first shot fire faster.
 * [Sniper 2](sniper-2.pdb) - Originally from [Rudi's Site].  I made it pick a random direction, removed the `WHILE` loop around the program, combined assignments, removed `GOTO`s (which were used like `GOSUB`s), and corrected the program to think that the target is on the other side if a sub-scan missed its mark.  Works great against non-moving drones.
 
@@ -86,7 +86,7 @@ The `RAND` function doesn't work as expected.  To counter the problem, I have a 
 
 ### Damage Radius
 
-This works fine when you shoot in a N/S/E/W direction.  If you do any other angle, you're going to get hurt.  To counter this problem, I have another snippet of code that will work for you.  This is due to integer math.  This should maybe get fixed in the code, so that bots that are 6.00001 away don't get hurt.  That just relies upon a better distance function, which I submitted.
+This works fine when you shoot in a cardinal direction (N/S/E/W).  If you do any other angle, you're going to get hurt.  To counter this problem, I have another snippet of code that will work for you.  This is due to integer math.  This should maybe get fixed in the code, so that bots that are 6.00001 away don't get hurt.  That just relies upon a better distance function, which I submitted.
 
 
 ### Logic
@@ -159,7 +159,7 @@ Code Snippets
     ' at an arbitrary angle and not get damaged at all.
     ' I usually add one to this number, just in case.
     ' See Minimum Radius bot below for proof
-    d = sqrt (2 * damagerad * damagerad))
+    d = sqrt (2 * damagerad * damagerad)
 
     ' To use it, you can do something like this
     s = scan (a - 10) (a + 10)
