@@ -149,6 +149,10 @@ use("metalsmith-each", (file, filename) => {
         console.log(`Invalid characters in filename: ${filename}`);
     }
 
+    if (file.template) {
+        console.log(`File defines "template" metadata: ${filename}`);
+    }
+
     if (filename.match(/\.(css|htm|html|txt)$/)) {
         contents = file.contents.toString("utf8");
 
