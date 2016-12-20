@@ -1,19 +1,18 @@
 ---
 title: 3rd Edition D&D
-template: index.jade
-js: /js/modules/random-line.js
+js: ../../js/modules/random-line.js
 module: randomLine
 ---
 
 **D&D Rule of Thumb:**
 
-<div class="ta-c"><span random-line="dnd-tips.txt"></span></div>
+<div class="Ta(c)"><span random-line="dnd-tips.txt"></span></div>
 
 _Unamused?  Reload for another random message!_
 
 
 Local Awesomeness
-=================
+-----------------
 
 These links are more for reference with the group that plays at my house.
 
@@ -23,15 +22,16 @@ These links are more for reference with the group that plays at my house.
 
 * [Extra Classes](classes/) - Prestige classes that your characters can use.
 
-* [Make a Whiteboard](/reference/whiteboard/) - Somewhat of a journal of my attempts to make a large whiteboard for the DM and also coating a table for players to use a whiteboard as well.
 
 * [Die Roller Stats](diestats/) - Visually see the difference between 3d6 and 4d4+2.  Plus get some good math stats too.
 
 * [Items](items/) - Magic items we came across in our adventures.  Just a tiny amount of the unique ones.  This online reference is more for remembering the adventures than as a good collection of things.
 
+Also, maybe you would be interested in what I've tried to [make a large whiteboard](../whiteboard/) as a table coating so we simply draw maps and play on a huge grid.
+
 
 Rules
-=====
+-----
 
 * [Pathfinder](http://paizo.com/pathfinderRPG) - An open gaming system based on WotC's d20 open gaming system.  You can layer this on top of your existing 3.5 edition campaign.  Think of it as a more refined and freer version, where thousands of people helped to make the system better.
 
@@ -47,13 +47,13 @@ Rules
 
 
 Software
-========
+--------
 
 * [D&D Helper](/software/dnd-helper/) - Similar to D&D Tools (also on this page), but it does a few more things.  Experience calculator, movement, turning undead, die roller, reference tables.  All for your Palm.
 
-* [Class Construction Kit](classconstruction.pdf) - Make sure new classes and prestige classes seem somewhat balanced.  This is version 1.1a.
+* [Class Construction Kit](classes/classconstruction.pdf) - Make sure new classes and prestige classes seem somewhat balanced.  This is version 1.1a.
 
-* [D&D Tools](http://bellsouthpwp.net/s/c/scraw68/) - Freeware Palm OS program to assist the DM.  Experience calculator, time/distance, and turning tables made easy.  I have a local copy of [version 1.00](DnDTools100.zip) and also here's a sneak preview of [version 1.02](DungeonHelper.prc) that doesn't require a separate database.
+* [D&D Tools](http://bellsouthpwp.net/s/c/scraw68/) - Freeware Palm OS program to assist the DM.  Experience calculator, time/distance, and turning tables made easy.  I have a local copy of [version 1.00](dndtools100.zip) and also here's a sneak preview of [version 1.02](dungeonhelper.prc) that doesn't require a separate database.
 
 * [AutoREALM](http://autorealm.sourceforge.net/) - Open-source fantasy role-playing mapper software.
 
@@ -65,7 +65,7 @@ Software
 
 
 Amusements
-==========
+----------
 
 * [Rules of Adventuring](rules/) - Follow these rules and you will likely stay alive.
 

@@ -1,9 +1,8 @@
 ---
 title: Arcanist
-template: index.jade
 ---
 
-The arcanist trades all other abilities in his pursuit of more magic and power.  Always a multiclass spellcaster of more than one spell-casting class, the arcanist oversteps borders and taboos to practice his magic as powerfully as possible.  He uses both arcane and divine magic, ignoring the dtrictures of gods, to cast more spells of the highest levels possible.  As such, he is willing to trade all other statitics.
+The arcanist trades all other abilities in his pursuit of more magic and power.  Always a multiclass spellcaster of more than one spell-casting class, the arcanist oversteps borders and taboos to practice his magic as powerfully as possible.  He uses both arcane and divine magic, ignoring the strictures of gods, to cast more spells of the highest levels possible.  As such, he is willing to trade all other statistics.
 
 The classic arcanist usually has levels of cleric or druid combined with levels of sorcerer or wizard.  The class is less appealing to bards, rangers and paladins, as they have more class related abilities to lose.
 
@@ -15,8 +14,9 @@ Only religions that respect self-sacrifice or magic are likely to encourage thei
 
 __Hit Die:__ d4.
 
+
 Requirements
-============
+------------
 
 To qualify to become an arcanist, the character must fulfil all the following criteria.
 
@@ -24,20 +24,23 @@ __Skills:__ Concentration 7 ranks, Knowledge (arcana) 5 ranks, Knowledge (nature
 
 __Spellcasting:__ Ability to cast first level divine spells and first level arcane spells.
 
+
 Classic Play
-============
+------------
 
 'Sacrifice' is the right word for describing what this class does, which is, in short, the melding of divine and arcane magic.  The cost, however, is everything else.  As the character advances his spellcasting ability in two classes, he has a poor progression in all the other characteristics:  the lowest base attack, the worst saves, the lowest hit die, the fewest skill points per level, a pathetic number of class skills and no other special ability or bonus feat.  Characters wishing to become arcanists should also make sure that they comply with both the Intelligence or Charisma and Wisdom scores necessary to cast the spells from the levels they have access to, or the benefit is wasted.
 
+
 Class Skills
-============
+------------
 
 The arcanist's class skills (and the key ability for each skill) are Concentration (Con), Knowledge (any) (Int), Scry (Int, exclusive skill), and Spellcraft (Int).  See Chapter 4: Skills in _Core Rulebook I_ for skill descriptions.
 
 __Skill Points at Each Level:__  2 + Int modifier.
 
+
 Class Features
-==============
+--------------
 
 All of the following are class features of the arcanist prestige class.
 
@@ -47,8 +50,9 @@ __Spells per Day:__ An arcanist continues training in magic as well as his field
 
 This combined spell ability is very powerful, but has several drawbacks, as outlined under special limitations.
 
+
 Special Limitations
-===================
+-------------------
 
 The arcanist must accept limitations to his ability to use spells.  Power on this level requires sacrifice.
 

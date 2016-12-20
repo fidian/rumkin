@@ -1,6 +1,5 @@
 ---
 title: Blade Master
-template: index.jade
 ---
 
 Having used the various weapons of war throughout his/her career, the Blade Master has come to realize that a slashing blade offers the most versatility.  With that knowledge came the desire to master the Blade and the various fighting forms that exist through the different kingdoms with the goal of becoming one with the Blade.
@@ -9,8 +8,9 @@ A Blade Master is a traveling warrior, searching for different techniques in usi
 
 Hit Die: d8
 
+
 Requirements
-============
+------------
 
 To qualify to become a Blade Master, a character must fulfill all of the
 following criteria.
@@ -36,8 +36,9 @@ following criteria.
 
 _Bonus Feat Choices:_  Bonus feats attained must be in this list: Alertness, Ambidexterity, Blind-Fight, Cleave, Combat Reflexes, Death Blow, Dodge, Improved Disarm, Improved Sunder, Improved Two-Weapon Fighting, Lightning Reflexes, Mobility, Prone Attack, Quick Draw, Sunder, Two-Weapon Fighting, Two-Weapon Grace, Whirlwind Attack.
 
+
 Class Skills
-============
+------------
 
 The blademaster's class skills (and the key ability for each skill) are Balance (Dex*), Climb (Str*), Craft [Bladed Weapons Only] (Int), Gather Information (Cha), Jump (Str*), Knowledge [Hearth Wisdom] (Int), Knowledge [Streetwise] (Int), Knowledge [War] (Int), Listen (Wis), Profession (Wis), Sense Motive [Combat Prediction and Decipher Strategy] (Wis), Spot (Wis), Swim (Str), Tumble (Dex*).
 
@@ -45,14 +46,15 @@ _* Your armor check penalty, if any, also applies._
 
 Skill points at Each Level: 3 + Int modifier.
 
+
 Class Features
-==============
+--------------
 
 All of the following are features of the Blade Master prestige class.
 
 __Weapon and Armor Proficiency:__ Blade Masters are proficient with all slashing weapons.  Note that exotic weapons that do slashing damage should be considered martial weapons in regards to the character being able to use them (character will not require the exotic weapons feat for such slashing exotic weapons).  Due to the dexterous movements, Blade Masters are restricted to Light Armor only.
 
-As a downside to the extensive study with blades and the extreme preference with bladed weapons, any weapon that does not solely do slashing damage has restrictions.  The Blade Master gives up any proficiencies in non-slashing weapons such as crossbows, daggers, and clubs.  Future feats can not provide proficiency in non-slashing weapons.  Proficiency in other types of armor other than Light Armor is also given up and may not be taken.  If a Blade Master uses a non-slashing weapon, he gets an additional -2 attack penalty in addition to the regular penalty for using a weapoon that the character is not proficient in.
+As a downside to the extensive study with blades and the extreme preference with bladed weapons, any weapon that does not solely do slashing damage has restrictions.  The Blade Master gives up any proficiencies in non-slashing weapons such as crossbows, daggers, and clubs.  Future feats can not provide proficiency in non-slashing weapons.  Proficiency in other types of armor other than Light Armor is also given up and may not be taken.  If a Blade Master uses a non-slashing weapon, he gets an additional -2 attack penalty in addition to the regular penalty for using a weapon that the character is not proficient in.
 
 __Reflexive Defense:__ The Blade Master gains the extra-ordinary ability to react to danger before his senses would normally allow him to even is aware of it. This enables the Blade Master to retain his Dexterity bonus to AC (if any) regardless of being caught flat-footed or struck by an invisible attacker.  (He still loses any Dexterity bonus to AC if immobilized.)  This ability does not require for the Blade Master to have his/her weapon of choice.
 
@@ -84,10 +86,10 @@ __Improved Ki Slash:__ Same as Ki Slash except the Blade Master is now able to m
 
 
 New Feats:  (Only available to the Blade Master)
-================================================
+------------------------------------------------
 
-Two-Weapon Grace
-----------------
+
+### Two-Weapon Grace
 
 You fight exceptionally well with two weapons.
 
