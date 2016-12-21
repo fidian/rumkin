@@ -1,40 +1,42 @@
 ---
 title: Title Goes Here
-template: page.jade
 ---
 
-In lieu of Symptoms / Causes, one can use "Problem" instead.  That is more of a walkthrough or a guide for how to solve a particular thing that really isn't a problem that requires diagnosis.
+Background text goes here.
 
 
 Symptoms
-========
+--------
 
-Symptoms go here
+* Symptoms go here
+* This is a list of all things
 
 
 Causes
-======
+------
 
-Causes go here
+* Causes go here
+* Just a quick list
 
 
 Solution
-========
+--------
 
-Solutions go here.
+Solutions go here.  This can be paragraphs or bulleted list.
 
-Pick one:
+The closing remark should be one of these two as a single sentence:
+
 * Problem solved.
 * With luck, problem solved.
 
 
 Shortcomings
-============
+------------
 
 Any shortcomings.  Optional.
 
 
 References
-==========
+----------
 
 * Links go here.  Optional.

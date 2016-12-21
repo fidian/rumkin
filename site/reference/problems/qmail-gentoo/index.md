@@ -1,18 +1,21 @@
 ---
 title: Setting up Qmail on Gentoo
-template: page.jade
+summary: Brief list of instructions necessary to get qmail up and running on an older version of Gentoo.
 ---
 
-Problem
-=======
+I ran a mail server for a long time.  I also really liked qmail, but setting it up in the past was a pain.
 
-You want to use qmail or netqmail on Gentoo.  (You rock.)  Unfortunately, the guides out there all seem complex, inaccurate, or just not what you want.
+
+Problem
+-------
+
+You want to use qmail or netqmail on Gentoo.  Unfortunately, the guides out there all seem complex, inaccurate, or just not what you want.
 
 
 Solution
-========
+--------
 
-The solution presented will be brief.  I won't go into how you set up use flags nor dependencies too much.  Feel free to alter my instructions to fit your needs.
+The solution presented will be succinct.  I won't go into how you set up use flags nor dependencies too much.  Feel free to alter my instructions to fit your needs.
 
 * Remove other MTAs - `emerge -C ssmtp sendmail postfix`
 
@@ -87,6 +90,8 @@ The solution presented will be brief.  I won't go into how you set up use flags 
     * Edit `/etc/tcprules.d/tcp.qmail-*` and change the allow line
             :allow,QMAILQUEUE="/var/qmail/bin/qmail-scanner-queue"
     * Rebuild tcpfules as per "Install relay-ctrl" section
+
+With luck, problem solved.
 
 
 Shortcomings

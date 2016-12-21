@@ -6,6 +6,11 @@ template: index.jade
 Ever have a weird problem that you couldn't figure out how to get rid of it?  I have.  Sometimes the information isn't even on the web when I search for the answer, or else the answer is split up and scattered across numerous web pages.  Because of that, I have collected my goofy problems here on this page in the hopes that it will save another person some time.
 
 
+{{#ancestry.children}}
+* {{title}} - {{summary}}
+
+{{/ancestry.children}}
+
 * [Linux on Averatec 6200](averatec_6200.html) - Tips on getting Linux running smoothly on this model of laptop.
 
 * [CSNW](csnw.html) - Open a DOS shell and get `Cannot load VDM IPX/SPX support`?  Let's solve this Novell-related problem.
