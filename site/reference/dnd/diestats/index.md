@@ -1,34 +1,43 @@
 ---
 title: Die Roll Stats
-template: index.jade
 js: dieroll-module.js
 module: dieroll
 controller: DierollController
 ---
 
-I have often wondered the statistical differences between <a ng-click="setRoll(2, 6)">2d6</a> and <a ng-click="setRoll(3, 4)">3d4</a>.  They both have a maximum of 12, but both the minimums and the averages are higher with 3d4.  This is especially applicable for character generation.  As a DM/GM/super-powerful narrator, I decide how the characters get to roll up their attributes.  Do they use <a ng-click="setRoll(3, 6)">3d6</a> like 2nd edition, or perhaps <a ng-click="setRoll(4, 6, 1)">4d6, dropping the lowest</a>?
+I have often wondered about the statistical differences between the ways people roll the statistics for their characters.  For instance, should one use 3d6 (roll 3 six-sided dice), 4d6 and drop the lowest (four six-sided dice), 4d4+2 (4 four-sided dice and then add two) or any of the other techniques.  The minimum and maximums are pretty easy to manually calculate, but I wanted a way to visually see the distribution of rolls.  As a DM / GM / super-powerful narrator, I decide how the characters get to roll up their attributes and I want to be informed in this decision.
 
-I used to even use a method that let you <a ng-click="setRoll(4, 5, 1, 0, 3)">reroll ones</a> and that left you with an even higher average with more of a tendency of higher numbers.  (The format for the die rolling string is wacky, see an explanation below.)
+This analyzer will run through all possibilities fairly quickly and tally the results.  Because it has to track so many scenarios, this tool will break when you do something too complex, such as 20d20.  The die roll format is probably best explained through examples.
 
-I wrote this analyzer so you can see the differences between whatever type of rolling method you pick.  I don't suggest you use a high number of dice, otherwise it will take significantly longer to generate statistics.  My machine bombs out at about 10 dice.
+* <button ng-click="roll='3d6'">3d6</button> - The standard way of rolling attributes.
+* <button ng-click="roll='4d4+2'">4d4+2</button> - A little more "average".
+* <button ng-click="roll='6d3'">6d3</button> - Much more consistent and slightly higher than average.
+* <button ng-click="roll='4d6D1'">4d6D1</button> - Roll 4d6 and drop the lowest.
+* <button ng-click="roll='4d5D1+1'">(4d5+1)D1</button> - Roll 4d6 and reroll ones (statistically identical to 4d5 + 1), then drop the lowest.
+* <button ng-click="roll='4d8P1'">4d8P1</button> - 4d8 and drop the highest.  Unusual and generates a much wider range of numbers.
 
-Sample rolls for character generation:
 
-* <a ng-click="setRoll(3, 6)">3d6</a> - The standard
-* <a ng-click="setRoll(4, 4, 0, 0, 2)">4d4 + 2</a> - A little lower than the standard
-* <a ng-click="setRoll(6, 3)">6d3</a> - Much more consistent and slightly higher than average
-* <a ng-click="setRoll(4, 6, 1)">4d6, drop lowest</a> - Slightly more epic
-* <a ng-click="setRoll(4, 5, 1, 0, 3)">4d6, reroll 1s, drop lowest</a> - Much more epic
-* <a ng-click="setRoll(4, 8, 0, 1)">4d8, drop the highest</a> - Unusual and generates a much wider range of numbers
+Syntax
+------
 
-The format to calculate 4d6 reroll 1s, drop the lowest is weird.  It says to roll 4d5, drop 1, add 3.  If you reroll 1's, you are really saying you want to get the numbers from 2 through 6.  That's the exact same distribution as 1 through 5, but you just need to add one.  Because we still want to drop one die, we will want to get the distribution for 1-5 three times and add three.  So, start with 4d5, drop the lowest, add 3.
+If you are familiar with [ABNF Form](https://tools.ietf.org/html/rfc5234), here is the syntax.  There's an explanation below.  Spaces are ignored.
+
+    ROLL     =  GROUP *("," GROUP)
+    GROUP    =  (DIE / "(" ROLL ")") [DROP] [PENALTY] [BONUS]
+    DIE      =  1*DIGIT "d" 1*DIGIT
+    DROP     =  "D" 1*DIGIT
+    PENALTY  =  "P" 1*DIGIT
+    BONUS    =  ("+" / "-") 1*DIGIT
+
+A roll is made up of one or more dice groups.  Each group is separated by commas.  A group can be a single die roll or another roll that's wrapped in parentheses.  A group may also have an optional number of dice to drop, a number of high dice removed as a penalty, and a bonus that's added or subtracted from the result of the group.
+
 
 Statistics Generator
-===================
+--------------------
 
-This will not use formulas, but does a "brute force" method of merely rolling every possible roll and then calculating the distribution.
+What do you want to roll?
 
-Roll <input type="number" class="w-3em" ng-model="dice" min=1 /> dice with <input type="number" class="w-3em" ng-model="sides" min=1 /> sides.  Drop the lowest <input type="number" class="w-3em" ng-model="dropLowest" min=0 /> and remove the highest <input type="number" class="w-3em" ng-model="dropHighest" min=0 />.  Finally, add (or subtract) <input type="number" class="w-3em" ng-model="modifier" />.
+<input type="text" ng-model="roll" />
 
 <div ng-switch="genStatus">
     <div ng-switch-when="delay">Waiting a bit...</div>
@@ -37,10 +46,10 @@ Roll <input type="number" class="w-3em" ng-model="dice" min=1 /> dice with <inpu
     <div ng-switch-when="stats">Generating statistics...</div>
     <div ng-switch-when="done">
         <div>
-            Min: {{statistics.minRoll}}<br>
-            Max: {{statistics.maxRoll}}<br>
-            Average: {{statistics.average.toFixed(2)}}<br>
-            Std. Dev.: {{statistics.stdDev.toFixed(3)}}
+            Min: <span ng-bind="statistics.minRoll"></span><br>
+            Max: <span ng-bind="statistics.maxRoll"></span><br>
+            Average: <span ng-bind="statistics.average.toFixed(2)"></span><br>
+            Std. Dev.: <span ng-bind="statistics.stdDev.toFixed(3"></span>)
         </div>
         <table>
             <thead>
@@ -53,11 +62,11 @@ Roll <input type="number" class="w-3em" ng-model="dice" min=1 /> dice with <inpu
             </thead>
             <tbody>
                 <tr ng-repeat="roll in statistics.bySum">
-                    <td width="1%" align="right">{{roll.sum}}</td>
-                    <td width="1%" align="right">{{roll.count}}</td>
-                    <td width="1%" align="right">{{roll.probabilityPercent.toFixed(1)}}%</td>
+                    <td width="1%" align="right" ng-bind="roll.sum"></td>
+                    <td width="1%" align="right" ng-bind="roll.count"></td>
+                    <td width="1%" align="right" ng-bind="roll.probabilityPercent.toFixed(1)+'%'"></td>
                     <td valign="center">
-                        <div style="background-color: blue; width: {{roll.percentOfMax.toFixed(0)}}%; height: 0.8em">&nbsp;</div>
+                        <div style="Bgc(blue) H(0.8em)" ng-style="{width:roll.percentOfMax.toFixed(0)+'%'}"">&nbsp;</div>
                     </td>
                 </tr>
             </tbody>
@@ -67,27 +76,14 @@ Roll <input type="number" class="w-3em" ng-model="dice" min=1 /> dice with <inpu
 
 
 Additional Reading
-==================
+------------------
 
-Besides the examples above, I have also seen these ideas:
+Besides the examples above, I have also seen the following ideas.  Only some of these can be modeled with this tool.
 
-* 4d6, drop lowest, reroll if max is less than 14 or reroll if the sum of the modifiers is less than 1
-* 5d6, drop the two lowest rolls
+* 4d6, drop lowest, reroll if max is less than 14 or reroll if the sum of the modifiers is less than 1.
+* <button ng-click="roll='5d6'">5d6P2</button> - 5d6, drop the two lowest rolls
 * Roll up 12 characters using the 3d6 method, then pick the best character
-* Roll 3d6 six times, then pick the best result.  Roll each attribute in order; do not assign numbers to stats as you see fit.
+* <button ng-click="roll='(3d6,3d6,3d6,3d6,3d6,3d6)D5'"></button> - Roll 3d6 six times, then pick the best result.  Roll each attribute in order; do not assign numbers to stats as you see fit.
 * Roll a pool of 12 scores using 3d6, pick the best 6 scores.
 
-I have also been contacted about making some stats that would be useful for Legend of the Five Rings (L5R).  In there, you have a stat and a skill.  when you roll against that, you keep a number of 10-sided dice equal to your stat.  You can also "roll up" by rolling again when you roll a ten and adding the new roll to the ten.  You can continue rolling up as long as you keep rolling tens.
-
-I wrote up a small [program (C source)](l5r.zip) to only do the rolling of 1-10 10 sided dice and keeping just the highest digit, then averaging the rolls.  Let me know if you would like alternate die roll stats and I will see what I can do to help out.
-
-* Rolling 1d10, keeping the highest:  average roll of 5.5
-* Rolling 2d10, keeping the highest:  average roll of 7.15
-* Rolling 3d10, keeping the highest:  average roll of 7.975
-* Rolling 4d10, keeping the highest:  average roll of 8.4667
-* Rolling 5d10, keeping the highest:  average roll of 8.79175
-* Rolling 6d10, keeping the highest:  average roll of 9.021595
-* Rolling 7d10, keeping the highest:  average roll of 9.1919575
-* Rolling 8d10, keeping the highest:  average roll of 9.32268667
-* Rolling 9d10, keeping the highest:  average roll of 9.425695015
-* Rolling 10d10, keeping the highest:  average roll of 9.5085658075
+I have also been contacted about making some stats that would be useful for Legend of the Five Rings (L5R).  In there, you have a stat and a skill.  When you roll, you keep a number of 10-sided dice equal to your stat.  You can also "roll up" by rolling again when you roll a ten and adding the new roll to the ten.  You can continue rolling up as long as you keep rolling tens.  I can get close by picking the highest roll out of a set of d10 dice: <button ng-click="roll='1d10'">1d10</button>, <button ng-click="roll='2d10D1'">2d10D1</button>, <button ng-click="roll='3d10D2'">3d10D2</button>, <button ng-click="roll='4d10D3'">4d10D3</button>, <button ng-click="roll='5d10D4'">5d10D4</button>, <button ng-click="roll='6d10D5'">6d10D5</button>, <button ng-click="roll='7d10D6'">7d10D6</button>, <button ng-click="roll='8d10D7'">8d10D7</button>, <button ng-click="roll='9d10D8'">9d10D8</button>, <button ng-click="roll='10d10D9'">10d10D9</button>.

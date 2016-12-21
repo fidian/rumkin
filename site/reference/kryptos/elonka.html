@@ -10,293 +10,214 @@ var c_key, p_key, a_key, passphrase;
 var Letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 
-function upd()
-{
-   var unchanged = 1;
-   
-   if (! IsUnchanged(document.encoder.c_key))
-   {
-      unchanged = 0;
-      c_key = MakeKeyedAlphabet(document.encoder.c_key.value);
-      document.getElementById('c_key_show').innerHTML = c_key;
-   }
-   
-   if (! IsUnchanged(document.encoder.a_key))
-   {
-      unchanged = 0;
-      a_key = MakeKeyedAlphabet(document.encoder.a_key.value);
-      document.getElementById('a_key_show').innerHTML = a_key;
-   }
-   
-   if (! IsUnchanged(document.encoder.p_key))
-   {
-      unchanged = 0;
-      p_key = MakeKeyedAlphabet(document.encoder.p_key.value);
-      document.getElementById('p_key_show').innerHTML = p_key;
-   }
-   
-   if (! unchanged)
-   {
-      MakeTableau();
-   }
-   
-   if (unchanged * IsUnchanged(document.encoder.text) *
-       IsUnchanged(document.encoder.pass) * 
-       IsUnchanged(document.encoder.encdec))
-   {
-      setTimeout('upd()', 100);
-      return;
-   }
+function upd() {
+    var unchanged = 1;
 
-   if (document.encoder.text.value == '')
-   {
-      document.getElementById('output').innerHTML = 'Type away!';
-   }
-   else
-   {
-      document.getElementById('output').innerHTML = 
-         Encode(document.encoder.encdec.value * 1, 
-                document.encoder.text.value,
-                document.encoder.pass.value);
-   }
-   
-   setTimeout('upd()', 100);
+    if (! IsUnchanged(document.encoder.c_key)) {
+        unchanged = 0;
+        c_key = MakeKeyedAlphabet(document.encoder.c_key.value);
+        document.getElementById('c_key_show').innerHTML = c_key;
+    }
+
+    if (! IsUnchanged(document.encoder.a_key)) {
+        unchanged = 0;
+        a_key = MakeKeyedAlphabet(document.encoder.a_key.value);
+        document.getElementById('a_key_show').innerHTML = a_key;
+    }
+
+    if (! IsUnchanged(document.encoder.p_key)) {
+        unchanged = 0;
+        p_key = MakeKeyedAlphabet(document.encoder.p_key.value);
+        document.getElementById('p_key_show').innerHTML = p_key;
+    }
+
+    if (! unchanged) {
+        MakeTableau();
+    }
+
+    if (unchanged * IsUnchanged(document.encoder.text) * IsUnchanged(document.encoder.pass) * IsUnchanged(document.encoder.encdec)) {
+        setTimeout('upd()', 100);
+        return;
+    }
+
+    if (document.encoder.text.value == '') {
+        document.getElementById('output').innerHTML = 'Type away!';
+    } else {
+        document.getElementById('output').innerHTML = Encode(document.encoder.encdec.value * 1, document.encoder.text.value, document.encoder.pass.value);
+    }
+
+    setTimeout('upd()', 100);
 }
 
 
-function MakeKeyedAlphabet(key)
-{
-   var out = '';
-      
-   if (typeof(key) != 'string')
-      return Letters;
-      
-   key = key.toUpperCase() + Letters;
-   for (var i = 0; i < key.length; i ++)
-   {
-      if (out.indexOf(key.charAt(i)) < 0 && 
-          Letters.indexOf(key.charAt(i)) >= 0)
-      {
-         out += key.charAt(i);
-      }
-   }
-   
-   return out;
+function MakeKeyedAlphabet(key) {
+    var out = '';
+
+    if (typeof(key) != 'string')
+        return Letters;
+
+    key = key.toUpperCase() + Letters;
+
+    for (var i = 0; i < key.length; i ++) {
+        if (out.indexOf(key.charAt(i)) < 0 && Letters.indexOf(key.charAt(i)) >= 0) {
+            out += key.charAt(i);
+        }
+    }
+
+    return out;
 }
 
 
-function IsUnchanged(e)
-{
-   var v = e.value;
-   
-   if (v != e.getAttribute('_oldValue'))
-   {
-      e.setAttribute('_oldValue', v);
-      return 0;
-   }
-   
-   return 1;
+function IsUnchanged(e) {
+    var v = e.value;
+
+    if (v != e.getAttribute('_oldValue')) {
+        e.setAttribute('_oldValue', v);
+        return 0;
+    }
+
+    return 1;
 }
 
 
-function MakeTableau()
-{
-   var o = '<table border=1><tr><Td><tt class=tableau><b>&nbsp;';
-      
-   // Headings
-   for (var i = 0; i < 26; i ++)
-   {
-      if (i % 4 == 3)
-      {
-         o += '<span class="hi">' + c_key.charAt(i) + '</span>';
-      }
-      else
-      {
-         o += c_key.charAt(i);
-      }
-   }
-   o += '</b>';
-   
-   for (var row = 0; row < 26; row ++)
-   {
-      o += '<br>';
-      if (row % 4 == 3)
-      {
-         o += '<span class="hi">';
-      }
-      o += '<b>' + p_key.charAt(row) + '</b>';
-      for (var col = 0; col < 26; col ++)
-      {
-	 if (col % 4 == 3)
-	 {
-	    o += '<span class="hi">';
-	 }
-	 o += a_key.charAt((col + row) % 26);
-	 if (col % 4 == 3)
-	 {
-	    o += '</span>';
-	 }
-      }
-      if (row % 4 == 3)
-      {
-         o += '</span>';
-      }
-   }
-   
-   o += '</tt></td></tr></table>';
-   
-   document.getElementById('tableau').innerHTML = o;
+function MakeTableau() {
+    var o = '<table border=1><tr><Td><tt class=tableau><b>&nbsp;';
+
+    // Headings
+    for (var i = 0; i < 26; i ++) {
+        if (i % 4 == 3) {
+            o += '<span class="hi">' + c_key.charAt(i) + '</span>';
+        } else {
+            o += c_key.charAt(i);
+        }
+    }
+
+    o += '</b>';
+
+    for (var row = 0; row < 26; row ++) {
+        o += '<br>';
+
+        if (row % 4 == 3) {
+            o += '<span class="hi">';
+        }
+
+        o += '<b>' + p_key.charAt(row) + '</b>';
+
+        for (var col = 0; col < 26; col ++) {
+            if (col % 4 == 3) {
+                o += '<span class="hi">';
+            }
+
+            o += a_key.charAt((col + row) % 26);
+
+            if (col % 4 == 3) {
+                o += '</span>';
+            }
+        }
+        if (row % 4 == 3) {
+            o += '</span>';
+        }
+    }
+
+    o += '</tt></td></tr></table>';
+    document.getElementById('tableau').innerHTML = o;
 }
 
 
-function Encode(encdec, text, pass)
-{
-   var o = '';
-   var enc_lett = 0;
+function Encode(encdec, text, pass) {
+    var o = '';
+    var enc_lett = 0;
 
-   pass = pass.toUpperCase();
-   for (var i = 0; i < pass.length; i ++)
-   {
-      if (Letters.indexOf(pass.charAt(i)) >= 0)
-      {
-         o += pass.charAt(i);
-      }
-   }
-   
-   pass = o;
-   o = '';
-   
-   for (var i = 0; i < text.length; i ++)
-   {
-      var c = text.charAt(i).toUpperCase();
-      
-      if (c.charAt(0) >= 'A' && c.charAt(0) <= 'Z')
-      {
-         var idx = c_key.indexOf(pass.charAt(enc_lett % pass.length));
-	 if (encdec > 0)
-	 {
-	    idx = (idx + p_key.indexOf(c)) % 26;
-	    c = a_key.charAt(idx % 26);
-	 }
-	 else
-	 {
-	    idx = (a_key.indexOf(c) - idx + 26) % 26;
-	    c = p_key.charAt(idx);
-	 }
-	 enc_lett ++;
-      }
-      if (text.charAt(i) != text.charAt(i).toUpperCase())
-      {
-         c = c.toLowerCase();
-      }
-      
-      if (c == "\n")
-      {
-         o += "<br>";
-      }
-      
-      o += c;
-   }
-   
-   return o;
+    pass = pass.toUpperCase();
+
+    for (var i = 0; i < pass.length; i ++) {
+        if (Letters.indexOf(pass.charAt(i)) >= 0) {
+            o += pass.charAt(i);
+        }
+    }
+
+    pass = o;
+    o = '';
+
+    for (var i = 0; i < text.length; i ++) {
+        var c = text.charAt(i).toUpperCase();
+
+        if (c.charAt(0) >= 'A' && c.charAt(0) <= 'Z') {
+            var idx = c_key.indexOf(pass.charAt(enc_lett % pass.length));
+            if (encdec > 0) {
+                idx = (idx + p_key.indexOf(c)) % 26;
+                c = a_key.charAt(idx % 26);
+            } else {
+                idx = (a_key.indexOf(c) - idx + 26) % 26;
+                c = p_key.charAt(idx);
+            }
+            enc_lett ++;
+        }
+
+        if (text.charAt(i) != text.charAt(i).toUpperCase()) {
+            c = c.toLowerCase();
+        }
+
+        if (c == "\n") {
+            o += "<br>";
+        }
+
+        o += c;
+    }
+
+    return o;
 }
 
 
-function fill_k1()
-{
-   document.encoder.encdec.value = -1;
-   document.encoder.c_key.value = "KRYPTOS";
-   document.encoder.a_key.value = "KRYPTOS";
-   document.encoder.p_key.value = "KRYPTOS";
-   document.encoder.pass.value = "PALIMPSEST";
-   document.encoder.text.value = "EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJ\n" +
-      "YQTQUXQBQVYUVLLTREVJYQTMKYRDMFD";
+function fill_k1() {
+    document.encoder.encdec.value = -1;
+    document.encoder.c_key.value = "KRYPTOS";
+    document.encoder.a_key.value = "KRYPTOS";
+    document.encoder.p_key.value = "KRYPTOS";
+    document.encoder.pass.value = "PALIMPSEST";
+    document.encoder.text.value = "EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJ\nYQTQUXQBQVYUVLLTREVJYQTMKYRDMFD";
 }
 
-function fill_k2()
-{
-   document.encoder.encdec.value = -1;
-   document.encoder.c_key.value = "KRYPTOS";
-   document.encoder.a_key.value = "KRYPTOS";
-   document.encoder.p_key.value = "KRYPTOS";
-   document.encoder.pass.value = "ABSCISSA";
-   document.encoder.text.value = "VFPJUDEEHZWETZYVGWHKKQETGFQJNCE\n" +
-      "GGWHKK?DQMCPFQZDQMMIAGPFXHQRLG\n" +
-      "TIMVMZJANQLVKQEDAGDVFRPJUNGEUNA\n" +
-      "QZGZLECGYUXUEENJTBJLBQCRTBJDFHRR\n" +
-      "YIZETKZEMVDUFKSJHKFWHKUWQLSZFTI\n" +
-      "HHDDDUVH?DWKBFUFPWNTDFIYCUQZERE\n" +
-      "EVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX\n" +
-      "FLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKF\n" +
-      "FHQNTGPUAECNUVPDJMQCLQUMUNEDFQ\n" +
-      "ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE\n" +
-      "DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP\n" +
-      "DQUMEBEDMHDAFMJGZNUPLGEWJLLAETG"
+function fill_k2() {
+    document.encoder.encdec.value = -1;
+    document.encoder.c_key.value = "KRYPTOS";
+    document.encoder.a_key.value = "KRYPTOS";
+    document.encoder.p_key.value = "KRYPTOS";
+    document.encoder.pass.value = "ABSCISSA";
+    document.encoder.text.value = "VFPJUDEEHZWETZYVGWHKKQETGFQJNCE\nGGWHKK?DQMCPFQZDQMMIAGPFXHQRLG\nTIMVMZJANQLVKQEDAGDVFRPJUNGEUNA\nQZGZLECGYUXUEENJTBJLBQCRTBJDFHRR\nYIZETKZEMVDUFKSJHKFWHKUWQLSZFTI\nHHDDDUVH?DWKBFUFPWNTDFIYCUQZERE\nEVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX\nFLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKF\nFHQNTGPUAECNUVPDJMQCLQUMUNEDFQ\nELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE\nDNQFMPNZGLFLPMRJQYALMGNUVPDXVKP\nDQUMEBEDMHDAFMJGZNUPLGEWJLLAETG"
 }
 
-function fill_k2b()
-{
-   document.encoder.encdec.value = -1;
-   document.encoder.c_key.value = "KRYPTOS";
-   document.encoder.a_key.value = "KRYPTOS";
-   document.encoder.p_key.value = "KRYPTOS";
-   document.encoder.pass.value = "ABSCISSA";
-   document.encoder.text.value = "VFPJUDEEHZWETZYVGWHKKQETGFQJNCE\n" +
-      "GGWHKK?DQMCPFQZDQMMIAGPFXHQRLG\n" +
-      "TIMVMZJANQLVKQEDAGDVFRPJUNGEUNA\n" +
-      "QZGZLECGYUXUEENJTBJLBQCRTBJDFHRR\n" +
-      "YIZETKZEMVDUFKSJHKFWHKUWQLSZFTI\n" +
-      "HHDDDUVH?DWKBFUFPWNTDFIYCUQZERE\n" +
-      "EVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX\n" +
-      "FLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKF\n" +
-      "FHQNTGPUAECNUVPDJMQCLQUMUNEDFQ\n" +
-      "ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE\n" +
-      "DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP\n" +
-      "DQUMEBEDMHDAFMJGZNUPLGEsWJLLAETG"
+function fill_k2b() {
+    document.encoder.encdec.value = -1;
+    document.encoder.c_key.value = "KRYPTOS";
+    document.encoder.a_key.value = "KRYPTOS";
+    document.encoder.p_key.value = "KRYPTOS";
+    document.encoder.pass.value = "ABSCISSA";
+    document.encoder.text.value = "VFPJUDEEHZWETZYVGWHKKQETGFQJNCE\nGGWHKK?DQMCPFQZDQMMIAGPFXHQRLG\nTIMVMZJANQLVKQEDAGDVFRPJUNGEUNA\nQZGZLECGYUXUEENJTBJLBQCRTBJDFHRR\nYIZETKZEMVDUFKSJHKFWHKUWQLSZFTI\nHHDDDUVH?DWKBFUFPWNTDFIYCUQZERE\nEVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX\nFLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKF\nFHQNTGPUAECNUVPDJMQCLQUMUNEDFQ\nELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE\nDNQFMPNZGLFLPMRJQYALMGNUVPDXVKP\nDQUMEBEDMHDAFMJGZNUPLGEsWJLLAETG"
 }
 
 
-function fill_k3()
-{
-   document.encoder.text.value = "ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA\n" +
-   "CHTNREYULDSLLSLLNOHSNOSMRWXMNE\n" +
-   "TPRNGATIHNRARPESLNNELEBLPIIACAE\n" +
-   "WMTWNDITEENRAHCTENEUDRETNHAEOE\n" +
-   "TFOLSEDTIWENHAEIOYTEYQHEENCTAYCR\n" +
-   "EIFTBRSPAMHHEWENATAMATEGYEERLB\n" +
-   "TEEFOASFIOTUETUAEOTOARMAEERTNRTI\n" +
-   "BSEDDNIAAHTTMSTEWPIEROAGRIEWFEB\n" +
-   "AECTDDHILCEIHSITEGOEAOSDDRYDLORIT\n" +
-   "RKLMLEHAGTDHARDPNEOHMGFMFEUHE\n" +
-   "ECDMRIPFEIMEHNLSSTTRTVDOHW";
+function fill_k3() {
+    document.encoder.text.value = "ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA\nCHTNREYULDSLLSLLNOHSNOSMRWXMNE\nTPRNGATIHNRARPESLNNELEBLPIIACAE\nWMTWNDITEENRAHCTENEUDRETNHAEOE\nTFOLSEDTIWENHAEIOYTEYQHEENCTAYCR\nEIFTBRSPAMHHEWENATAMATEGYEERLB\nTEEFOASFIOTUETUAEOTOARMAEERTNRTI\nBSEDDNIAAHTTMSTEWPIEROAGRIEWFEB\nAECTDDHILCEIHSITEGOEAOSDDRYDLORIT\nRKLMLEHAGTDHARDPNEOHMGFMFEUHE\nECDMRIPFEIMEHNLSSTTRTVDOHW";
 }
 
 
-function fill_k4()
-{
-   document.encoder.text.value = "OBKR\n" +
-      "UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO\n" +
-      "TWTQSJQSSEKZZWATJKLUDIAWINFBNYP\n" +
-      "VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR";
+function fill_k4() {
+    document.encoder.text.value = "OBKR\nUOXOGHULBSOLIFBBWFLRVQQPRNGKSSO\nTWTQSJQSSEKZZWATJKLUDIAWINFBNYP\nVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR";
 }
 
 
-function fill_k4b()
-{
-   document.encoder.text.value = "?OBKR\n" +
-      "UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO\n" +
-      "TWTQSJQSSEKZZWATJKLUDIAWINFBNYP\n" +
-      "VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR";
+function fill_k4b() {
+    document.encoder.text.value = "?OBKR\nUOXOGHULBSOLIFBBWFLRVQQPRNGKSSO\nTWTQSJQSSEKZZWATJKLUDIAWINFBNYP\nVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR";
 }
 
-function fill_wikipedia()
-{
-   document.encoder.encdec = 1;
-   document.encoder.c_key.value = '';
-   document.encoder.a_key.value = '';
-   document.encoder.p_key.value = '';
-   document.encoder.pass.value = 'LEMON';
-   document.encoder.text.value = 'ATTACKATDAWN';
+function fill_wikipedia() {
+    document.encoder.encdec = 1;
+    document.encoder.c_key.value = '';
+    document.encoder.a_key.value = '';
+    document.encoder.p_key.value = '';
+    document.encoder.pass.value = 'LEMON';
+    document.encoder.text.value = 'ATTACKATDAWN';
 }
 
 

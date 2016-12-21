@@ -1,0 +1,64 @@
+-
+    name: Black Sword
+    card: King of Diamonds
+    description: Character gains one level.
+-
+    name: Crow
+    card: Queen of Spades
+    description: Characters grows a pair of black, feathered, wings that bestow the benefits of a _cloak of flying_. The wings are permanent additions to the characters body.
+-
+    name: Djinni
+    card: Jack of Spades
+    description: Character gains one _wish_ as the spell, which must be used within 24 hours.
+-
+    name: Druid
+    card: Ace of Diamonds
+    description: Character gains the enmity of nature. At least once every two months, a natural disaster (DM's choice) affects the character and everything within a 10-mile radius of them.
+-
+    name: Gauntlet
+    card: Jack of Diamonds
+    description: Character's off-hand and forearm grow a layer of slimy fungus, which returns in 1d12 hours if removed. The character's touch upon the earth or any other fertile surface causes a 1ft.-diameter ring of mushrooms to form within ten minutes.
+-
+    name: Giant Crab
+    card: Jack of Clubs
+    description: Character permanently grows 60% larger. The giant character gains an additional +5 Constitution and +5 Strength, but loses 3 points of Dexterity. Lost Dexterity returns at a rate of 1 point per month as the character adjust to the new size. Items do not grow to match the character's new size, however.
+-
+    name: Hammer
+    card: King of Clubs
+    description: Character inflicts 5 points of damage over and above normal with an unarmed attack.
+-
+    name: Hand of Youth
+    card: Ace of Hearts
+    description: Characters lifespan increases by 1d10x100 years.
+-
+    name: Ice Sword
+    card: King of Hearts
+    description: Character can cast _chill touch_ as a 12th level sorcerer once per day.
+-
+    name: Magma
+    card: Ace of Clubs
+    description: Character sinks into the earth over the course of 4 rounds. The tunnel so created closes up 10 rounds after the descent begins, expelling any other being within it to the surface and inflicting 1d6 points of heat damage in the process. The user reaches magma at the beginning of the 5th round unless a _dispel magic_ (DC 20) or similar magic is used to negate the effect before that time. (Rate of descent and distance traveled vary with the depth of the magma.) Immersion in magma inflicts 20d6 points of heat damage per round and negates the victim's ability to breathe.
+-
+    name: Ogre
+    card: Queen of Hearts
+    description: Characters Strength increases by +4, but Intelligence drops by 6 (to a minimum of 5).
+-
+    name: Sea
+    card: Jack of Hearts
+    description: Character gains the enmity of the sea. Every time a character journeys on a large body of water, roll for twice as many encounters.
+-
+    name: Skull
+    card: Queen of Diamonds
+    description: Character's forehead visibly swells as his/ her Intelligence increases by 5 points.
+-
+    name: Trident
+    card: King of Spades
+    description: Character gains the at-will abilities to breathe water, swim at a Speed of 45, and use _charm monster_ on all natural marine creatures as a 12th-level sorcerer.
+-
+    name: Vampire
+    card: Queen of Clubs
+    description: Character loses two levels as if drained by a vampire's touch.
+-
+    name: Withered Hand
+    card: Ace of Spades
+    description: Character ages to a point only minutes away from a natural death and must make a successful Fort save (DC 15) each day to avoid dying of old age until anti-aging magic can be applied.

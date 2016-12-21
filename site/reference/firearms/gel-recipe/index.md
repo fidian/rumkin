@@ -1,15 +1,14 @@
 ---
 title: Ordnance Ballistics Gel Preparation
-template: index.jade
 ---
 
 When making this gel you will likely want to make several batches, so get lots of supplies.  I've been told that you should make two or three a day, assuming that you have the refrigerator space.
 
 
 Materials
-=========
+---------
 
-* Gelatin Powder - 1 kg of ordnance gelatin powder or 2 boxes (32 packets each) of Knox or Kroger gelatin powder.
+* Gelatin Powder - 1 kg of ordnance gelatin powder or 2 large boxes (32 packets each) of Knox or Kroger gelatin powder.
 
 * Distilled Water - 6 liters of water for ordnance or 1 gallon for the packets.
 
@@ -29,15 +28,15 @@ Materials
 
 * Silicone spray
 
-* Hearing and eye protection - if you don't automatically pack this when dealing with testing weapons, stop now.
+* Hearing and eye protection - if you don't automatically pack this when testing weapons, *stop now*!
 
 
 Preparation
-===========
+-----------
 
-1. Take a couple cups of water and use your mixing tool to mix in the gelatin as well as possible.
+1. Take a couple cups of water and use your mixing tool to mix in the gelatin as well as possible.  You're looking to make a sludge so it mixes better later.
 
-2. Heat water to 130°; F ± 10° F (54.4° C ± 5.6° C) in the very large pot.  There's going to be foam, so make sure that you have plenty of room to spare.
+2. Heat the rest of the water to 130°; F ± 10° F (54.4° C ± 5.6° C) in the very large pot.  There's going to be foam, so make sure that you have plenty of room to spare.
 
 3. Add in the gelatin goo.  Add it in slowly and mix it well.
 
@@ -65,8 +64,8 @@ Preparation
 
 
 Usage
-=====
+-----
 
 Use a cooler to transport the gelatin.  Do not add ice otherwise it may skew the results.  Shoot a steel BB into it at a velocity of 590 fps ± 30 fps (180 m/s ± 9 m/s).  It should penetrate 3.35 inches (8.5 cm).  If you don't shoot at the right speed, it will penetrate just a bit more or less, so a tiny amount of variation may be noticed.
 
-Only use the block for one shot.  Fissures from the first shot will skew results of all subsequent shots.
+When doing testing professionally, one would only use the block for a single shot.  Fissures from the first shot will skew results of all subsequent shots.

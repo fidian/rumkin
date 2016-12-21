@@ -1,6 +1,6 @@
 "use strict";
 
-var handlebars, metadata, Metalsmith, smith, timer;
+var debug, handlebars, metadata, Metalsmith, smith, timer;
 
 
 /**
@@ -18,38 +18,65 @@ function use(moduleName) {
     smith.use(timer(moduleName));
 }
 
+debug = require("debug");
 handlebars = require("handlebars");
-metadata = require("./metadata.json");
 Metalsmith = require("metalsmith");
 timer = require("metalsmith-timer");
 
-// Progmatic metadata
+
+/* ********************************************************************
+ * Build metadata
+ ******************************************************************* */
+metadata = require("./metadata.json");
 metadata.buildYear = new Date().getFullYear();
 
 if (process.env.SERVE) {
     metadata.liveReload = true;
 }
 
-// Make the metalsmith object and start to configure it
+/* ********************************************************************
+ * Make the new Metalsmith object
+ ******************************************************************* */
 smith = new Metalsmith(__dirname)
 .metadata(metadata)
 .source("./site")
 .destination("./build")
 .clean(true)
+// Add the timer here manually.  The use() function adds it again after
+// each middleware added.
 .use(timer("startup"));
 
-// Global
+
+/* ********************************************************************
+ * Make the new Metalsmith object
+ ******************************************************************* */
+// Load files referenced in `data` metadata property.
 use("metalsmith-data-loader", {
     removeSource: true
 });
 
-// Markdown -> HTML
-// Must happen before CSS for Atomizer plugin
+
+/* ********************************************************************
+ * Markdown -> HTML
+ *
+ * Must happen before CSS for Atomizer plugin.
+ ******************************************************************* */
+// Parse Markdown using Handlebars to be able to build tables and generate
+// content from metadata.  Unfortunately, in order to report parse errors,
+// this debug setting needs to be set.
+debug.enable("metalsmith-hbt-md");
 use("metalsmith-hbt-md", handlebars);
+// Convert Markdown to HTML.
 use("metalsmith-markdown");
+// Highlight code in HTML.
 use("metalsmith-code-highlight");
+// Add a `rootPath` metadata property to all files.  It's relative, allowing
+// the site to be hosted under any path.  "" = at root, or could be ".." or
+// "../.." etc.
 use("metalsmith-rootpath");
+// Add `propName?` and `_parent` properties throughout the metadata.
 use("metalsmith-mustache-metadata");
+// Embed HTML within the templates.
 use("metalsmith-layouts", {
     default: "page.html",
     directory: "layouts",
@@ -59,37 +86,52 @@ use("metalsmith-layouts", {
 });
 
 if (!process.env.UNMINIFIED) {
+    // Minify
     use("metalsmith-html-minifier");
 }
 
-// Less and CSS
+
+/* ********************************************************************
+ * LESS + HTML(Atomic) + CSS -> CSS
+ ******************************************************************* */
+// Convert LESS to CSS
 use("metalsmith-less");
+// metalsmith-less does not remove source files.  This does.
 use("metalsmith-move-remove", {
     remove: [
         ".*\\.less$"
     ]
 });
+// Generate CSS from HTML using Atomizer.
 use("metalsmith-atomizer", {
     destination: "css/atomic.css",
     setOptions: {
         namespace: "body"
     }
 });
+// Merge all CSS together except special per-page CSS.
 use("metalsmith-concat", {
     files: "css/**/*.css",
     output: "css/site.css"
 });
 
 if (!process.env.UNMINIFIED) {
+    // Minify.
     use("metalsmith-clean-css", {
         cleanCSS: {
+            // Rebasing breaks links because it doesn't understand the
+            // real CSS location.
             rebase: false
         },
         files: "**/*.css"
     });
 }
 
-// JS
+
+/* ********************************************************************
+ * JS -> JS
+ ******************************************************************* */
+// Make ES6 more friendly to browsers.
 use("metalsmith-babel", {
     presets: [
         "latest"
@@ -97,14 +139,18 @@ use("metalsmith-babel", {
 });
 
 if (!process.env.UNMINIFIED) {
+    // Minify
     use("metalsmith-uglify", {
         nameTemplate: "[name].[ext]",
         preserveComments: "some"
     });
 }
 
-// Debugging on the fly
+/* ********************************************************************
+ * Server, testing, debugging, etc.
+ ******************************************************************* */
 if (process.env.JSON) {
+    // Debugging on the fly
     use("metalsmith-writemetadata", {
         bufferencoding: "utf8",
         ignorekeys: [
@@ -115,14 +161,15 @@ if (process.env.JSON) {
     });
 }
 
-// Server and testing
 if (process.env.SERVE) {
+    // Serve files with livereload enabled.
     use("metalsmith-serve", {
         http_error_files: {
             404: "/404.html"
         },
         verbose: true
     });
+    // When files change, build them again.
     use("metalsmith-watch", {
         livereload: metadata.liveReload,
         paths: {
@@ -133,33 +180,42 @@ if (process.env.SERVE) {
         }
     });
 } else {
+    // Can only check for broken links if we are NOT using watch.
     use("metalsmith-broken-link-checker", {
         warn: true
     });
 }
 
+// My custom linting rules.  Simply emits warnings to console.
 use("metalsmith-each", (file, filename) => {
     var contents;
 
+    // Only valid extensions allowed.
     if (!filename.match(/\.(css|gif|gz|html|ico|jar|jpg|js|pdb|pdf|png|prc|swf|ttf|txt|zip)$/)) {
         console.log(`Invalid extension: ${filename}`);
     }
 
+    // Only lowercase and hyphens plus an extension for the filename.
     if (filename.match(/[^-a-z0-9.\/]/)) {
         console.log(`Invalid characters in filename: ${filename}`);
     }
 
+    // Check for legacy "template" property.  This can be removed once
+    // all Wintersmith pages are converted to Metalsmith.
     if (file.template) {
         console.log(`File defines "template" metadata: ${filename}`);
     }
 
-    if (filename.match(/\.(css|htm|html|txt)$/)) {
+    // For text files ...
+    if (filename.match(/\.(css|html|js|txt)$/)) {
         contents = file.contents.toString("utf8");
 
+        // No tabs allowed.
         if (contents.match(/[\t]/)) {
             console.log(`File contains tabs: ${filename}`);
         }
 
+        // No trailing whitespace.
         if (contents.match(/ $/m)) {
             console.log(`Trailing whitespace in file: ${filename}`);
         }

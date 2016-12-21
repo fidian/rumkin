@@ -1,45 +1,45 @@
 ---
 title: Guenever's House Rules - Feats
-template: index.jade
 ---
 
-The feats listing was extracted from the [House Rules](..).
+The feats listing was extracted from the [House Rules](../).
+
 
 Chapter 5 - Feats (Modified Feats)
-==================================
+----------------------------------
 
-Arcane Spell (Tome and Blood)
------------------------------
+
+### Arcane Spell (Tome and Blood)
 
 This feat can only apply to a spell that the character knows.
 
-Skill Focus
------------
+
+### Skill Focus
 
 The modifier to skill checks related to this skill is +4.
 
-Spell Focus
------------
+
+### Spell Focus
 
 In addition to +2 to DC for saving throws, you gain +2 to all concentration checks in the school you pick with this feat.
 
-Spring Attack
--------------
+
+### Spring Attack
 
 You may use one of your two moves to perform any move-equivalent action, including a second attack (if you are normally allowed multiple attacks).
 
-Toughness
----------
 
-You gain 5 hit points.
+### Toughness
 
-Weapon Focus
-------------
+You gain 5 hit points.  You can take this feat multiple times and its effects stack.
 
-The effects of Weapon Focus stack.  The number of Weapon Focus feats for any one particular weapon that you take cannot be lower than the number of Weapon Specialization feats for the same weapon, and cannot exceed the number of Weapon Specialization feats by more than one.
 
-Weapon Specialization
----------------------
+### Weapon Focus
+
+The effects of Weapon Focus stack.  The number of Weapon Focus feats for any single particular weapon that you take cannot be lower than the number of Weapon Specialization feats for the same weapon, and cannot exceed the number of Weapon Specialization feats by more than one.
+
+
+### Weapon Specialization
 
 All classes may take the Weapon Specialization feat, but are restricted by minimum levels that are class dependent.  This feat may be taken multiple times and the effects stack.  Prerequisites for taking this feat the first time are identical to those for fighters (PH, p. 37).  Thereafter, you may gain this feat each time you gain an additional attack according to your class as summarized below:
 
@@ -49,10 +49,10 @@ All classes may take the Weapon Specialization feat, but are restricted by minim
 
 
 Chapter 5 - Feats (Additional Feats)
-====================================
+------------------------------------
 
-Add Domain [General]
---------------------
+
+### Add Domain [General]
 
 You gain access to one additional domain.
 
@@ -60,16 +60,17 @@ _Prerequisite:_  Cleric
 
 _Benefit:_  Choose a new domain that you are allowed access.  You gain the granted power(s) and access to the spells of that domain.
 
-Armored Casting [General]
--------------------------
+
+### Armored Casting [General]
+
 You are trained at spell casting while in Armor.
 
 _Prerequisite:_  Dex 13+, Armor Proficiency.
 
 _Benefit:_  Arcane failure chances from wearing armor are halved.
 
-Armored Fencer (Medium) [General]
----------------------------------
+
+### Armored Fencer (Medium) [General]
 
 You may parry when wearing medium armor.
 
@@ -79,8 +80,8 @@ _Benefit:_  You can make parry attempts while wearing medium armor.
 
 _Normal:_  You must be wearing light or no armor to parry a blow.
 
-Armored Fencer (Heavy) [General]
---------------------------------
+
+### Armored Fencer (Heavy) [General]
 
 You may parry when wearing heavy armor.
 
@@ -90,8 +91,8 @@ _Benefit:_  You can make parry attempts while wearing heavy armor.
 
 _Normal:_  You must be wearing light or no armor to parry a blow.
 
-Construct Familiar [General]
-----------------------------
+
+### Construct Familiar [General]
 
 Your familiar is constructed rather than a living being.
 
@@ -99,8 +100,8 @@ _Prerequisite:_  The ability to have a familiar.
 
 _Benefit:_  Rather than a living creature, your familiar is a magical construct, a mechanical creature animated by magic.  The arcane spellcaster must still specify a specific animal to call as a familiar.  The familiar that appears, however, is a construct version of that creature.  See page 5 in the Monster Manual for construct special qualities.  You cannot convert an existing non-construct familiar to a construct familiar by taking this feat.  Rules for a construct and any special abilities can also be taken from the Encyclopaedia Arcane: Constructs.  The DM decides what special abilities the construct has.
 
-Crushing Defense [General]
---------------------------
+
+### Crushing Defense [General]
 
 You may parry with great force
 
@@ -108,8 +109,8 @@ _Prerequisite:_  Str 13+, Dex 13+, Int 13+, Expertise, Parry, Power Attack, Sund
 
 _Benefit:_  When you succeed at a parry attempt, you may attempt to sunder your opponent's weapon.  Your weapon must be no more than one size category smaller than your opponent's weapon to sunder.  If you succeed in parrying the blow, you deal damage to your opponent's weapon.  If you succeed in destroying your opponent's weapon, he does not get a free opportunity to disarm you.  You cannot sunder (and therefore damage) a natural attack or an unarmed strike when you parry.
 
-Defensive Fighting [General]
-----------------------------
+
+### Defensive Fighting [General]
 
 You are able to use your multiple attack capability for defense.
 
@@ -121,8 +122,7 @@ _Normal:_  A character not capable of this feat can fight defensively while usin
 
 _Special:_  The Weapon Finesse feat increases your armor class bonus by an additional +2.  You must allocate an attack using the weapon chosen for the Weapon Finesse feat to gain this bonus.  You can take this feat multiple times.  Each time allows you to reduce the number of attacks you make using the Expertise penalty by one.  Regardless of the number of times you take this feat, one attack is always made with the Expertise penalty.
 
-Enspell Familiar [General]
---------------------------
+### Enspell Familiar [General]
 
 You can cast spells on your familiar over a distance.
 
@@ -132,8 +132,8 @@ _Benefit:_  You are always considered to be in contact with your familiar for th
 
 _Normal:_  The familiar must be within 5 feet of the caster at the time such a spell is cast.
 
-Expert Parry [General]
-----------------------
+
+### Expert Parry [General]
 
 You may parry multiple attacks by the same creature.
 
@@ -143,8 +143,8 @@ _Benefit:_  Your parry attempts can be divided among multiple creature's attacks
 
 _Normal:_  A player with the Parry feat can only attempt to parry one blow from a single creature which may have multiple attacks per round.
 
-Guarded Defense [General]
--------------------------
+
+### Guarded Defense [General]
 
 You parry with surprising deftness
 
@@ -154,8 +154,8 @@ _Benefit:_ You may make a number of additional parry attempts in a round equal t
 
 _Normal:_ A character with the Parry feat can only parry one attack per round.
 
-Improved Weapon Hurling [General]
----------------------------------
+
+### Improved Weapon Hurling [General]
 
 You can throw weapons at your enemies with great skill.
 
@@ -165,8 +165,8 @@ _Benefit:_  As Weapon Hurling, except you can throw melee weapons of one step la
 
 _Normal:_  See normal improvised thrown weapons rule in PH, p.  97.
 
-Increased Spell Knowledge [General]
------------------------------------
+
+### Increased Spell Knowledge [General]
 
 You increase the amount of spells you know.
 
@@ -176,8 +176,8 @@ _Benefit:_  Choose any spell or spells of combined levels equal to your ability 
 
 _Special:_  You can gain this feat more than once and effects stack.
 
-Parry [General]
----------------
+
+### Parry [General]
 
 You are skilled at deflecting the attacks of your enemies.
 
@@ -185,12 +185,12 @@ _Prerequisite:_  Dex 13+, Int 13+, Expertise.
 
 _Benefit:_  After a melee attack roll to hit your character has been made, but before damage is assigned, you may attempt to parry the blow.  You may only attempt to parry an attack against a weapon up to two size categories larger than the one you wield.  Natural attacks are considered to be weapons two size categories smaller than the creature's size.  You cannot parry an attack when unarmed, when wearing medium or heavy armor, or when you are denied your Dexterity bonus to AC.  Attempting to parry uses up an attack of opportunity for that round.  You may only make one parry attempt a round.
 
-To parry, you must make a melee attack roll in an attempt to surpass the attack roll that you are trying to parry.  When wielding a light weapon you gain a +4 bonus to your parry roll.  If you succeed, the attack fails and deals no damage.  If you fail, the attack deals damage normally.  In either case making a parry attempt gives your opponent the opportunity to make a disarm attempt against the weapon you are parrying with.  Attempting to disarm you is a free action that does not provoke an attack of opportunity, and failure does not allow you to make a disarm attempt in return.
+To parry, you must make a melee attack roll in an attempt to surpass the attack roll that you are trying to parry.  When wielding a light weapon, you gain a +4 bonus to your parry roll.  If you succeed, the attack fails and deals no damage.  If you fail, the attack deals damage normally.  In either case making a parry attempt gives your opponent the opportunity to make the disarm attempt against the weapon you are parrying with.  Attempts to disarm are free actions that do not provoke an attack of opportunity, and failure does not allow the other party to make a disarm attempt in return.
 
 _Normal:_  Characters are not able to avoid damage once a hit has been determined.
 
-Shield Specialization [General]
--------------------------------
+
+### Shield Specialization [General]
 
 You are especially good with shields.
 
@@ -200,8 +200,8 @@ _Benefit:_  You gain an additional +1 AC bonus (armor) when using a shield.  You
 
 _Normal:_  See shield bash attacks in PH, p. 106.
 
-Spontaneous Cantrip/Orison Spell Casting [Special]
---------------------------------------------------
+
+### Spontaneous Cantrip/Orison Spell Casting [Special]
 
 You are able to cast all 0-level spells spontaneously.
 
@@ -211,8 +211,8 @@ _Benefit:_  You no longer choose which 0-level spells you prepare.  Any 0-level 
 
 _Normal:_  Clerics, Druids, Wizards need to memorize spells in advance.  Cantrips/Orisons have a casting time.
 
-Undead Familiar [General]
--------------------------
+
+### Undead Familiar [General]
 
 Your familiar is an undead creature.
 
@@ -222,8 +222,8 @@ _Benefit:_  Rather than a living creature, the familiar is an undead version of 
 
 Undead familiars can be turned or rebuked.  Use the familiar's effective hit dice (treat as the master's character level -- use the familiar's normal total if it is higher) for the purposes of turning or rebuking.  A familiar fleeing or cowering as a result of a successful turn can't obey commands from the master (any more than it could while fearstruck or paralyzed).  Raising a destroyed undead familiar brings it back as a living creature.  You cannot convert an existing non-undead familiar to an undead familiar by taking this feat.  However, if your familiar is slain and you have this feat, you can reanimate your dead familiar with a _raise dead_ spell.
 
-Weapon Hurling [General]
-------------------------
+
+### Weapon Hurling [General]
 
 You can throw weapons at your enemies.
 
@@ -233,8 +233,8 @@ _Benefit:_  You can throw all melee weapons of your size category or smaller wit
 
 _Normal:_  See normal improvised thrown weapons rule in PG, p. 97.
 
-Wizard Spell [General]
-----------------------
+
+### Wizard Spell [General]
 
 You can prepare a single wizard spell from a spellbook.
 
@@ -246,6 +246,6 @@ The prepared spell remains in your mind and occupies one of your spell slots unt
 
 Only one spell can be prepared at a time with this feat.  In order to memorize a different spell, the first one must be cast or discharged.
 
-_Normal:_  A sorcerer or bard gets a very finite amount of spells known, and must stick with them until they learn Wish or Limited Wish to cast different spells or change their spells known.
+_Normal:_  A sorcerer or bard gets a very finite amount of spells known, and must stick with them until they learn *Wish* or *Limited Wish* to cast different spells or change their spells known.
 
 _Special:_  You can gain this feat multiple times.  Each time you do, you can prepare one additional spell.

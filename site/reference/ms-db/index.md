@@ -1,13 +1,12 @@
 ---
 title: Access and MSSQL
-template: index.jade
 ---
 
 While working in Microsoft Access and Microsoft SQL Server, I needed a few things to make my work day a little easier.  I've got them listed here to help you out too.
 
 
 Access Module: List Connections
-===============================
+-------------------------------
 
 I was trying to set up a proper DSN to a FoxPro table and was having a difficult time about it.  If you can not find any help at [ConnectionStrings.com](http://www.connectionstrings.com), which would be rare, then this module will help you out.  First, make a connection to the desired target in an Access database (not a project).  Then, make a new module with this code in it.
 
@@ -25,19 +24,19 @@ Move your cursor to be in the function and hit the play button.  All of the conn
 
 
 Access Module:  Strip Everything Except Numbers
-===============================================
+-----------------------------------------------
 
 There were some fields that contained both numbers and letters, but all I wanted were the numbers.  I created a module and added this function to it.
 
     Public Function StripValues(selection)
       Dim sValue
       Dim rValue As Object
-     
+
       If (IsNull(selection)) Then
         StripValues = "0"
         Exit Function
       End If
-      
+
       Set rValue = CreateObject("VBScript.RegExp")
       rValue.Global = True
       rValue.IgnoreCase = True
@@ -51,11 +50,11 @@ There were some fields that contained both numbers and letters, but all I wanted
       StripValues = sValue
     End Function
 
-Now, you can use StripValues() in your SQL statements, as in `select id, StripValues(itemcode) from items` and get the numbers you are seeking.
+Now, you can use `StripValues()` in your SQL statements, as in `select id, StripValues(itemcode) from items` and get the numbers you are seeking.
 
 
 SQL Server:  CPU Usage
-======================
+----------------------
 
 One day our SQL server was acting up.  We needed to see what was going on and what was chewing up all of the time.  The below code will get a snapshot of what was going on, wait 10 seconds, then compare the current activity to what was happening in order to determine how much CPU time was spent for the various tasks.
 
@@ -77,7 +76,7 @@ This code will not work well if the server is being chewed away by lots of littl
 
 
 SQL Server:  Find Table
-=======================
+-----------------------
 
 This slightly longer snippet will iterate through all of the databases in the system and will look for a database name that contains "asdf" (I expect you to change that part in the code).  This was written because we had access to a large system with thousands of tables in the various different databases, and we were looking for a table.  We didn't know the full name, so that made our search even more difficult.
 
@@ -125,7 +124,7 @@ You might need special permissions on the server in order for this code to work,
 
 
 SQL Server:  Shrink All Databases
-=================================
+---------------------------------
 
 If your SQL server is running out of space and you need to delete some files to just get some more available hard drive real estate, you might run through all of the databases on your SQL server and shrink them and truncate the logs.  This code does that for you on all databases.
 
