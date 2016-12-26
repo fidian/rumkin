@@ -1,7 +1,7 @@
 ---
 title: Mouseover Example
-template: index.jade
 js: index.js
+summary: Swapping images with a mouseover.  This also displays textual descriptions and can put a message in the status bar.
 ---
 
 Move your mouse over an image to see the description.  Works on IE 4+, Netscape 3+ and newer, Firefox, Mozilla, and Opera.

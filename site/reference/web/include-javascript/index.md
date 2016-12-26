@@ -1,6 +1,6 @@
 ---
 title: Including JavaScript Dynamically
-template: index.jade
+summary: If you have the desire to load JavaScript files dynamically and even know when they have loaded, this page is for you!
 ---
 
 I wanted a way to make individual files for JavaScript classes and have them automatically load their parents without the web page having to know in advance all of the JavaScript includes that needed to be made.
@@ -72,4 +72,4 @@ I used a lot of information from [Stoyan's blog](http://www.phpied.com/javascrip
         return false;
     }
 
-This code is freely made available to everyone in case they can use it.  I release it to the public domain.
+This code is freely made available to everyone in case they can use it.  It's under the [MIT License](../../../license/).

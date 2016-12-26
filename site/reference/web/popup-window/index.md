@@ -1,6 +1,6 @@
 ---
 title: Passing Data To/From Popup Window
-template: index.jade
+summary: How to open a popup window and pass data back and forth with JavaScript.
 ---
 
 The time may come when you want to open up some sort of popup window, pass data into it, and pass data out of it back to the window opener.  This task can be accomplished in three easy steps.
@@ -24,4 +24,3 @@ Now you can use `window.opener` to get back to the parent.  Set whatever data yo
     window.opener.document.other_form.text_area.value = "altered state";
     window.opener.focus();
     window.close();
-

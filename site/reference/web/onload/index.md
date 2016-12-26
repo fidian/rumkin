@@ -1,25 +1,29 @@
 ---
 title: Onloads and Alternatives
-template: index.jade
+summary: When you have multiple JavaScript programs that both want to start with `window.onload`?  Alter them both accordingly so that they will never conflict again.  Code this way for all of your `window.onload` needs and remove potential sources of trouble.
 ---
+
 Let's just say that you have a script that you want to distribute or that could be loaded with other scripts and you really don't want them to conflict with each other.  If you need an `onload` event, things can get a bit weird.  You'll maybe wonder why your pull-down menus don't work and your background changing does work.  These snippets of code will help you out.
 
+
 Overloading `window.onload`
-===========================
-In order to use this, you will need to slightly edit your JavaScript.  You'll likely add these lines at the bottom of your code.  Make sure to change the XXXX to something unique for your program.
+---------------------------
+
+In order to use this, you will need to slightly edit your JavaScript.  You'll likely add these lines at the bottom of your code.
 
     (function () {
         var old_onload = window.onload;
-        
-        function new_onload() {
+
+        window.onload = function () {
             // Insert your code here to initialize your program
-            // Then, this little bit calls the old onload function
-    
+            doMyThing();
+
+            // Then, this little bit calls the previous onload function
             if (old_onload) {
                old_onload();
             }
         }
-    
+
         window.onload = new_onload;
     }());
 
@@ -30,7 +34,7 @@ As a general rule, you should never code JavaScript that sets `window.onload` un
 
 
 jQuery
-======
+------
 
 jQuery has a great way to run code when you load the page.  Pass a function to `$` and it will be called when `window.onload` would fire.
 
@@ -40,7 +44,7 @@ jQuery has a great way to run code when you load the page.  Pass a function to `
 
 
 `window.setTimeout()`
-=====================
+---------------------
 
 Are you living in a world without jQuery?  You can also use `window.setTimeout` but be warned that your code might run before things are fully loaded.
 
@@ -49,7 +53,7 @@ Are you living in a world without jQuery?  You can also use `window.setTimeout` 
            // This is your startup function.
            // You'd do stuff in here.
         }
-        
+
         // Set the startup function to run.
         window.setTimeout(startup, 100);
     }());
@@ -58,10 +62,11 @@ Are you living in a world without jQuery?  You can also use `window.setTimeout` 
 If you have external JavaScript files that you need to load before your
 function runs, you just add a couple lines.
 
-Polling
-=======
 
-You can periodically check to see if an element has been loaded in the dom.  Here's a method that uses `document.getElementById`.
+Polling
+-------
+
+You can periodically check to see if an element has been loaded in the DOM.  Here's a method that uses `document.getElementById`.
 
     // Polling for an element with a specific ID
     (function () {
@@ -89,27 +94,27 @@ You can also see when a script has loaded by checking for a function to be defin
 
 
 How About A Library?
-====================
+--------------------
 
 This little bit of code will take over the `window.onload`, and then all you need to do is call `onloadAdd()` with your function to add more and more behaviors that should be executed when the page loads.
 
     (function () {
-        var queue = [], oldOnload = window.onload;
-                
+        var queue = [];
+
+        if (window.onload) {
+            queue.push(window.onload);
+        }
+
         function runQueue() {
             var i;
-            
+
             for (i = 0; i < queue.length; i += 1) {
                 queue[i]();
             }
-            
-            if (oldOnload) {
-               oldOnload();
-            }
         }
-    
+
         window.onload = runQueue;
-        
+
         window.onloadAdd = function (callback) {
             queue.push(callback);
         };
@@ -117,12 +122,13 @@ This little bit of code will take over the `window.onload`, and then all you nee
 
 With this, all you need to do is keep calling onloadAdd() and hundreds of things can run without them stepping on each other's toes.
 
+
 Yet Another Way
-===============
+---------------
 
 Sometimes the above code will not work for you or you prefer to use newer techniques to register your onload behavior.  The below code is what I came up with.  It uses the browser-specific extensions to automatically work with Firefox 2+, IE 7+, or fall back and work with the `window.onload` that most of the older versions and other browsers support.
 
-Personally, I like the easier window.onload methods as detailed above.  They work splendidly for me, and I only put this up here because people asked nicely.  Keep in mind that newer frameworks like jQuery do something a lot more concise and suited for those newer browsers.
+Personally, I like the easier `window.onload` methods as detailed above.  They work splendidly for me, and I only put this up here because people asked nicely.  Keep in mind that newer frameworks like jQuery do something a lot more concise and suited for those newer browsers.
 
     // We use these variables to see if the onload code ran,
     // to possibly store the old window.onload function, and to see
@@ -131,25 +137,25 @@ Personally, I like the easier window.onload methods as detailed above.  They wor
     var onload_ran = 0;
     var onload_old = null;
     var onload_init = 0;
-    
+
     // Here is our onload function.  Note:  We can call it multiple times,
     // and that's why there is that 'if' statement right away
     function my_onload() {
         if (onload_ran) return;
         onload_ran = 1;
-        
+
         // Do your other onload stuff here
         // ...
         // Now we may need to handle other onloads
-        
+
         if (onload_old && onload_old != null) {
             onload_old();
         }
     }
-    
+
     // This line is required for the code to work with IE
     document.write('&lt;script id="__init_script" defer="true" src="//[]"&gt;&lt;\/script&gt;');
-    
+
     if (document.addEventListener) {
         // Mozilla
         document.addEventListener("DOMContentLoaded", my_onload, false);
@@ -166,13 +172,13 @@ Personally, I like the easier window.onload methods as detailed above.  They wor
             this.onreadystatechange = '';
             }
         };
-        
+
         // Check if the script has already been completed
         deferScript.onreadystatechange();
-        
+
         // Clear reference to prevent IE memory leaks
         deferScript = null;
-        
+
         onload_init = 1;
         }
     }

@@ -1,7 +1,7 @@
 ---
 title: Geographic Navigation
-template: index.jade
 js: geonav.js
+summary: By using a spinning globe, you can separate the information you have about the world into groups by continent.  Spinning globe is provided by JavaScript and a series of images.
 ---
 
 <div style="background-color: black; width: 350px; float: right">
@@ -15,7 +15,7 @@ js: geonav.js
             <AREA SHAPE="POLY" COORDS="126,0,141,45,163,40,183,18,196,15,196,2"    HREF="javascript:GoTo(3)">
             <AREA SHAPE="POLY" COORDS="136,35,124,4,105,3,93,13,87,30,93,47,103,53,110,74,124,67,136,53" HREF="javascript:GoTo(2)">
             <AREA SHAPE="POLY" COORDS="67,38,48,44,53,78,70,79,88,50,77,39" HREF="javascript:GoTo(1)">
-            <AREA SHAPE="POLY" COORDS="92,1,88,12,65,34,45,44,23,24,4,19,1,1,92,1" HREF="javascript:GoTo(0)"> 
+            <AREA SHAPE="POLY" COORDS="92,1,88,12,65,34,45,44,23,24,4,19,1,1,92,1" HREF="javascript:GoTo(0)">
         </MAP>
     </div>
     <div style="width: 130px; float: right; text-align: center; font-size: 0.7em; font-weight: bold">
