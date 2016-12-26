@@ -1,0 +1,464 @@
+[
+    {
+        "name": "Acetone",
+        "brand": "Klean-Strip",
+        "extreme": 4,
+        "typical": 5,
+        "notes": "Smeared the ink, fumes",
+        "imageList": [
+            {
+                "thumbnail": "acetone.jpg"
+            }
+        ],
+        "details": [
+            "This is in the hardware section of your favorite store.  When I purchased it from Walmart, I was not only carded, but I also apparently had a buying limit.  That minor hassle aside, this was one of the better cleaners out there.  It didn't really do much to the ink, but the rest of the marks came off with only a little work.",
+            "If you intend to use this as a cleaner indoors, make sure that you do your cleaning away from flame and turn on the fans!  The major drawback of this cleaner is that you get a nasty chemical smell.  Acetone is also the primary ingredient in nail polish remover."
+        ]
+    },
+    {
+        "name": "Alcohol, Isopropyl",
+        "brand": "Generic",
+        "extreme": 4,
+        "typical": 5,
+        "notes": "Easy to get, good results, fumes",
+        "imageList": [
+            {
+                "thumbnail": "isopropyl.jpg"
+            }
+        ],
+        "details": [
+            "Rubbing alcohol is cheaper and produces a bit less fumes than acetone, but its cleaning power is nearly the same.  It worked marvelously on the whiteboard marker and even removed the dull sheen that a whiteboard may accumulate.  I have heard that some brands of marker don't clean as easily with alcohol and leaving marker on the board for a very long time can make it harder to erase, but the Expo brand of markers apparently use something very similar as a solvent in their markers because it works very well for me."
+        ]
+    },
+    {
+        "name": "Baby Oil",
+        "brand": "Johnson & Johnson",
+        "extreme": 1,
+        "typical": 1,
+        "notes": "Worse than water, oily residue",
+        "imageList": [
+            {
+                "thumbnail": "baby-oil.jpg"
+            }
+        ],
+        "details": [
+            "I got this suggestion from a reader to my website.  This was about the worst thing in the world that you can do to your whiteboard.  It removed about as much as water, but it also left an oily film that needed to be cleaned before the board could be used.",
+            "I do want to note that I did not want to actually try something like this because I saw no merit in the cleaner.  However, I wanted to be very thorough, and that's the *only* reason it is included in the test."
+        ]
+    },
+    {
+        "name": "Cloth, Dry",
+        "brand": "Generic",
+        "extreme": 1,
+        "typical": 3,
+        "notes": "Took away only the dry erase",
+        "imageList": [
+            {
+                "thumbnail": "cloth-dry.jpg"
+            }
+        ],
+        "details": [
+            "Worked as well as expected.  Mostly wiped away the markers that were designed to be wiped away."
+        ]
+    },
+    {
+        "name": "Cloth, Wet (Water)",
+        "brand": "Generic",
+        "extreme": 1,
+        "typical": 3,
+        "notes": "Removed wet and dry erase marker",
+        "imageList": [],
+        "details": [
+            "One should not hope that just water will remove ink, crayon, and the other things with which I coated my board.  Worked as well as we thought it would.",
+            "Sorry about the lack of a picture.  Just look at the one for vinegar instead; they both have the exact same cleaning power."
+        ]
+    },
+    {
+        "name": "Dish Soap",
+        "brand": "Dawn",
+        "extreme": 1,
+        "typical": 3,
+        "notes": "Removed wet and dry erase",
+        "imageList": [
+            {
+                "thumbnail": "soapy-water.jpg"
+            }
+        ],
+        "details": [
+            "It worked about the same as plain water.  Well, just a tiny bit better, but the difference was minimal."
+        ]
+    },
+    {
+        "name": "Eraser Pad",
+        "brand": "Mr. Clean",
+        "extreme": 1,
+        "typical": 3,
+        "notes": "Same as soapy water",
+        "imageList": [
+            {
+                "thumbnail": "eraser.jpg"
+            }
+        ],
+        "details": [
+            "It was advertised to remove crayon, marker, and a slew of other things.  We had to throw it away because it smeared the ink and it got into the sponge.  Don't waste your money on this product if your goal is to clean whiteboards.  It does actually remove crayon from kitchen tables, but that's a different test."
+        ]
+    },
+    {
+        "name": "Hair Spray",
+        "brand": "Suave Naturals",
+        "extreme": 3,
+        "typical": 2,
+        "notes": "Cleaned well, left residue",
+        "imageList": [
+            {
+                "thumbnail": "hair-spray.jpg"
+            }
+        ],
+        "details": [
+            "This did pull up some permanent marks, but also was very ineffective on other marks.  The sticky residue brought the score down for whiteboard markers, plus you can find many better ways to remove the marks.  I would not suggest this one."
+        ]
+    },
+    {
+        "name": "Household Cleaner",
+        "brand": "Lift Off 2",
+        "extreme": 2,
+        "typical": 3,
+        "notes": "Removed some marks",
+        "imageList": [
+            {
+                "thumbnail": "lift-off.jpg"
+            }
+        ],
+        "details": [
+            "This cleaner removed crayon and a couple of the marker streaks, but I feel that it is very ineffective.  It is no better than soapy water when it comes to whiteboard marker marks and several other cleaners outperform it when compared on how well it cleaned the other types of marks."
+        ]
+    },
+    {
+        "name": "Household Cleaner",
+        "brand": "Lysol Kitchen Cleaner",
+        "extreme": 2,
+        "typical": 3,
+        "notes": "Removed some marks",
+        "imageList": [
+            {
+                "thumbnail": "lysol.jpg"
+            }
+        ],
+        "details": [
+            "Though it is not designed for whiteboards nor for the types of marks we were trying, this cleaner still performed adequately.  I was disappointed that the whiteboard didn't glisten when we were done cleaning it, and it left a thin film of cleaner on the surface."
+        ]
+    },
+    {
+        "name": "Household Cleaner",
+        "brand": "Oil Eater",
+        "extreme": 4,
+        "typical": 4,
+        "notes": "Removed most marks",
+        "imageList": [
+            {
+                "thumbnail": "oil-eater.jpg"
+            }
+        ],
+        "details": [
+            "My mother swears by this cleaner ... well, at least at the time we did the test.  She likes to try new cleaners and only the most powerful and effective ones stay.",
+            "Of course, her \"champion\" of cleaners did quite well.  It did not seem to really take away whiteboard markers entirely, but it made up for that with the permanent marker, ink, and other things."
+        ]
+    },
+    {
+        "name": "Household Cleaner, Citrus",
+        "brand": "Fantastik",
+        "extreme": 3,
+        "typical": 4,
+        "notes": "Removed most marks, smeared ink",
+        "imageList": [
+            {
+                "thumbnail": "fantastik.jpg"
+            }
+        ],
+        "details": [
+            "This orange cleaner did do its best when it came to cleaning, but my test was more stubborn and the marks persisted.  You can see the streaks left by the globs of ink that was on the board.  Out of the three orange cleaners I tested, this one performed the best."
+        ]
+    },
+    {
+        "name": "Household Cleaner, Citrus",
+        "brand": "Goo Gone",
+        "extreme": 2,
+        "typical": 4,
+        "notes": "Did not perform well",
+        "imageList": [
+            {
+                "thumbnail": "goo-gone.jpg"
+            }
+        ],
+        "details": [
+            "When I added this to my list of cleaners, I initially had very high hopes for it.  I have had some amazing results with Goo Gone, but today it failed me.  It did smear the ink the least of the three orange cleaners, but that was the end of its powers."
+        ]
+    },
+    {
+        "name": "Household Cleaner, Citrus",
+        "brand": "Orange Glow",
+        "extreme": 2,
+        "typical": 4,
+        "notes": "Slightly better than soapy water",
+        "imageList": [
+            {
+                "thumbnail": "glow.jpg"
+            }
+        ],
+        "details": [
+            "I am not sure if rubbing an orange on the table would have been better, but it certainly would not have been worse.  As far as cleaners go, this one was pleasant to work with and very average in results."
+        ]
+    },
+    {
+        "name": "Household Cleaner, Mixture",
+        "brand": "Vinegar & Fantastic",
+        "extreme": 2,
+        "typical": 3,
+        "notes": "Worse than Fantastic",
+        "imageList": [
+            {
+                "thumbnail": "vinegar-fantastik.jpg"
+            }
+        ],
+        "details": [
+            "This acted just like a slightly stronger vinegar.  The amount removed was minimal."
+        ]
+    },
+    {
+        "name": "Household Cleaner, Mixture",
+        "brand": "Vinegar & Orange Glow",
+        "extreme": 2,
+        "typical": 3,
+        "notes": "Worse than Orange Glow",
+        "imageList": [
+            {
+                "thumbnail": "vinegar-glow.jpg"
+            }
+        ],
+        "details": [
+            "After scrubbing on the marks, they were barely lightened.  I am not even sure that the wet-erase marks were removed properly."
+        ]
+    },
+    {
+        "name": "Lacquer Thinner",
+        "brand": "Kleen-Strip",
+        "extreme": 3,
+        "typical": 2,
+        "notes": "Cleaned well, left residue",
+        "imageList": [
+            {
+                "thumbnail": "lacquer-thinner.jpg"
+            }
+        ],
+        "details": [
+            "Most of the marks were removed or lightened, but the ink was smeared around and there was this residue; a glossy substance that didn't let the whiteboard markers work again."
+        ]
+    },
+    {
+        "name": "Marker, Dry Erase",
+        "brand": "Expo 2",
+        "extreme": 2,
+        "typical": 3,
+        "notes": "Removed some marks, not worth the hassle",
+        "imageList": [
+            {
+                "thumbnail": "marker-dry.jpg"
+            }
+        ],
+        "details": [
+            "The marker did almost nothing to the marks that were on the board, and I would suggest you try any cleaner instead of a marker.  It did pick up most of the dry erase marker that was difficult to remove, but it also is not something that I would use to clean an entire board.  If you need to get rid of small whiteboard marks from a whiteboard surface, this may be a good option for you."
+        ]
+    },
+    {
+        "name": "Marker, Wet Erase",
+        "brand": "Vis-A-Vis",
+        "extreme": 1,
+        "typical": 1,
+        "notes": "Did not add any cleaning power",
+        "imageList": [
+            {
+                "thumbnail": "marker-wet.jpg"
+            }
+        ],
+        "details": [
+            "I ruined a marker in order to show everyone that it worked just as well as a wet cloth.  You don't need to replicate this particular cleaning experiment."
+        ]
+    },
+    {
+        "name": "Mineral Spirits",
+        "brand": "Kleen-Strip",
+        "extreme": 3,
+        "typical": 4,
+        "notes": "Cleaned well",
+        "imageList": [
+            {
+                "thumbnail": "mineral-spirits.jpg"
+            }
+        ],
+        "details": [
+            "The permanent marker was lightened, the ink was removed instead of being smeared, and a few of the marks came up.  Although this was not the best option for cleaning off the non-whiteboard tests, it did do a pretty good job with whiteboard markers."
+        ]
+    },
+    {
+        "name": "Nail Polish Remover",
+        "brand": "Generic",
+        "extreme": 4,
+        "typical": 5,
+        "notes": "Smeared ink, fumes",
+        "imageList": [
+            {
+                "thumbnail": "nail-polish-remover.jpg"
+            }
+        ],
+        "details": [
+            "When I say \"acetone,\" people think it is a nasty chemical.  When I say \"nail polish remover,\" people get a different impression and they think it is totally safe.  Well, nail polish remover is basically acetone, and the two performed similarly.  Nail polish remover is a bit easier to find, and they both removed most of the marks and slightly smeared the ink.  They also both evaporated away, leaving a clean whiteboard surface.  It did completely remove the dull sheen that whiteboard markers can leave on the surface."
+        ]
+    },
+    {
+        "name": "Paint Stripper",
+        "brand": "Kleen-Strip",
+        "extreme": 1,
+        "typical": 1,
+        "notes": "Removed board surface, fumes",
+        "imageList": [
+            {
+                "thumbnail": "stripper.jpg"
+            }
+        ],
+        "details": [
+            "If you are looking at the picture and you see a white board, you might ask yourself why I ranked this cleaner so poorly.  If you are ranking this product solely on the ability to remove ink, marker, and the rest of the substances, then this one is one of the best.  The ink smeared a little, but it is probable that further applications would make the rest of the ink come right off the board.",
+            "What you do not see is that this damaged the board.  If left on, even for a minute, the board surface started to bubble up and could have been wiped away with the cloth I was using.  In fact, under the frame I was unable to wipe it all away and that was bubbled up and ruined before the experiment was complete.  I'm sure that it dissolved the top layer of the board in my brief test and that makes me wonder how many times I could \"clean\" the board with paint stripper before the board could no longer be cleaned.  As if that is not enough, this stuff is not nice to your hands.  Avoid use if at all possible.  Be very careful if you have no other option besides paint stripper."
+        ]
+    },
+    {
+        "name": "Stain Remover",
+        "brand": "Greased Lightning",
+        "extreme": 4,
+        "typical": 5,
+        "notes": "Removed most marks",
+        "imageList": [
+            {
+                "thumbnail": "lightning.jpg"
+            }
+        ],
+        "details": [
+            "Nearly everything was removed by this stain remover.  My mom uses it to get stains (oil, pizza, tar, etc.) off of clothing.  It looks like you can use it nicely on the board as well.  It did not have instant results like the paint stripper or MB10W, but we didn't need to work too hard to make most of the marks come off the board."
+        ]
+    },
+    {
+        "name": "Stain Remover",
+        "brand": "Tech",
+        "extreme": 3,
+        "typical": 4,
+        "notes": "Did not remove permanent markers",
+        "imageList": [
+            {
+                "thumbnail": "tech.jpg"
+            }
+        ],
+        "details": [
+            "This worked for whiteboard marker and dry erase marker, but merely lightened the rest of the stuff.  It did work better than soapy water, and it may do what you need if this cleaner is available in your house."
+        ]
+    },
+    {
+        "name": "Tape, Clear",
+        "brand": "3M (Scotch)",
+        "extreme": 1,
+        "typical": 2,
+        "notes": "Only removed dry erase",
+        "imageList": [
+            {
+                "thumbnail": "tape.jpg"
+            }
+        ],
+        "details": [
+            "It was suggested that clear tape could remove stubborn marks.  That may be true, but it only works for dry erase marker, and the stubborn ones may not be removed unless you keep the tape on the board for a week or more.  Plus, pulling off the tape could damage the board."
+        ]
+    },
+    {
+        "name": "Vinegar",
+        "brand": "Heinz",
+        "extreme": 1,
+        "typical": 3,
+        "notes": "The same as water",
+        "imageList": [
+            {
+                "thumbnail": "vinegar.jpg"
+            }
+        ],
+        "details": [
+            "As you can see, it only lightened the marks and really didn't remove anything except the dry and wet erase marker.  Unless you really like the smell of vinegar, use soapy water instead."
+        ]
+    },
+    {
+        "name": "Water Displacer",
+        "brand": "WD-40",
+        "extreme": 2,
+        "typical": 2,
+        "notes": "Cleaned well, left residue",
+        "imageList": [
+            {
+                "thumbnail": "wd40.jpg"
+            }
+        ],
+        "details": [
+            "I thought that this would be down there with the baby oil and it basically ended up there.  It did remove some more of the marks, but it didn't remove the ink nor really work well on the permanent marker.  This is made as a lubricant, though not that good of one.  It is not a cleaning product but many have found \"alternate\" uses for this substance.",
+            "I did get a comment that said WD-40 successfully removed a residue that built up on his whiteboard.  Spraying it on and wiping it off with a towel produced a clean board.  So, if your board has a dull sheen, maybe this will work for you too."
+        ]
+    },
+    {
+        "name": "Whiteboard Cleaner",
+        "brand": "Expo",
+        "extreme": 2,
+        "typical": 4,
+        "notes": "Lightened most marks, removed few",
+        "imageList": [
+            {
+                "thumbnail": "whiteboard-cleaner.jpg"
+            }
+        ],
+        "details": [
+            "I was hoping for more.  Here is a cleaner that is designed for whiteboards by a company that made some markers that I was using.  While it did actually work better than water, it did not remove the dull sheen, nor did it remove all stubborn whiteboard marks.  It really didn't touch the rest of the marks I had on the board.  Use it if you have it, but I threw my bottle of this stuff away after testing."
+        ]
+    },
+    {
+        "name": "Whiteboard Cleaner",
+        "brand": "Solutions MB (MB10W)",
+        "extreme": 5,
+        "typical": 5,
+        "notes": "The best cleaner tested",
+        "imageList": [
+            {
+                "thumbnail": "mb10.jpg"
+            }
+        ],
+        "details": [
+            "I am unable to say enough good things about this product.  The older version caused a lot of irritation if you breathed it in, but now it is completely transformed.  If you need a serious whiteboard cleaner, you need to go check this out.",
+            "[Solutions MB](http://solutionsmb.com) contacted me and let me know about a whiteboard paint that they produce, and they told me about this cleaner.  After sending me a sample, I thought it would fail because it smelled only like soapy water.  When it came time to do the test, we sprayed the whiteboard, waited the full amount of time, and I didn't see much change in the marks.  I was still skeptical before I started wiping, but after the very first wipe, a good portion of the square was already clean.  Three or four more wipes, and I was done.",
+            "My testing partner let out a \"Wow\" and I wanted to test it again.  A couple spritez over on another section of the board, wait five seconds, then wiped.  Again, almost everything came off immediately.",
+            "If you are going to buy a product to clean your board, I strongly suggest this one!  After the test, we cleaned the whole 4' x 8' board with just a few tablespoons of the cleaner and it removed the residue left from the baby oil, Lysol Kitchen Cleaner and other substances left over from the things we were testing.",
+            "Since the testing, they have worked furiously to improve the product.  It now doesn't have any downsides!  The new version of the cleaner no longer causes any inhalation irritation and it seems to work exactly the same as the old formula.  This cleaner is able to make the whiteboards at work sparkle.  My testing whiteboards had some marks I believed were actually staining the board and would be impossible to remove.  I simply sprayed this stuff on, grabbed a paper towel and wiped gently.  Presto, those spots were gone too.  Simply remarkable and worth using."
+        ]
+    },
+    {
+        "name": "Whiteboard Cleaner",
+        "brand": "Soytek",
+        "extreme": "?",
+        "typical": 1,
+        "notes": "Smears and pushes markers around",
+        "imageList": [
+            {
+                "full": "soytek-paper-towel.jpg",
+                "thumbnail": "soytek-paper-towel-tn.jpg"
+            },
+            {
+                "full": "soytek-smearing.jpg",
+                "thumbnail": "soytek-smearing-tn.jpg"
+            }
+        ],
+        "details": [
+            "This is the first manufacturer to step up and provide a sample of their cleaner for my testing.  With the fair warning that I would always publish the results, good or bad, they still followed through on their promise and delivered their product to me.",
+            "I tested this on a couple whiteboards with the same result.  Instead of picking up the marks from the whiteboard and transferring them to the paper towel I was using, they seemed to be pushed to other areas of the board.  Check out the photos for a better explanation.  The one of the \"cleaned\" whiteboard really shows the problem just to the left of center.  That darkish line was created by the cleaner and a minimum of the marks are being pulled up to the paper towels."
+        ]
+    }
+]

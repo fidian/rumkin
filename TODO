@@ -2,6 +2,9 @@ DURING REVAMP
 * Skipped the JS in reference/dnd/diestats/
 * Rewrite metalsmith-hbt-md to use marked (same as metalsmith-layout) so I can register a directory of partials to use in the markdown.
     * Make a subpage listing partial.  reference/problems
+* Pull images out of Google Plus for whiteboard testing photo album.  Include in site.
+* Table sorter could be made into Angular instead of jQuery.
+* Table sorter doesn't have visual indication that the table can be sorted.
 
 
 http://www.callofdutyzombies.com/topic/154218-adfgx-cipher/ ADFGX and ADFGVX ciphers

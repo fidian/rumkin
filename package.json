@@ -12,7 +12,7 @@
         "handlebars": "^4.0.6",
         "metalsmith": "^2.3.0",
         "metalsmith-ancestry": "tests-always-included/metalsmith-ancestry",
-        "metalsmith-atomizer": "^1.0.0",
+        "metalsmith-atomizer": "^1.0.2",
         "metalsmith-babel": "^4.1.0",
         "metalsmith-broken-link-checker": "^0.1.11",
         "metalsmith-clean-css": "^5.0.0",

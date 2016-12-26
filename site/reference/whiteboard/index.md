@@ -1,6 +1,5 @@
 ---
 title:  Homemade Whiteboards
-template: index.jade
 ---
 
 Whiteboards are very useful devices for many reasons.  I have used them for fleshing out ideas, planning crafts, keeping track of lists, and using them as maps for D&D (the land, encounters, etc).  Downstairs, in my "general purpose" room, I have a large 4' x 8' sheet of plywood that was turned into a crude craft table.  I wanted a whiteboard on top.  I also used to do a lot of sketching on my bedroom wall and my wife thinks that a whiteboard used to be very useful there.
@@ -9,7 +8,7 @@ This page is a chronicle of what we researched and tried in order to make and ma
 
 
 Making the Board
-================
+----------------
 
 Basically, you need to pick out the best surface for your particular application.  The [surfaces](surfaces/) page has suggestions for different surfaces ranging from do-it-yourself to specialized materials.  Take some time and research possibilities.  What you need may not be the same as what I wanted.
 
@@ -19,17 +18,17 @@ I have tried to rate as many types of surfaces as what I could get my hands on i
 
 
 Cleaning the Board
-==================
+------------------
 
-I have found numerous methods that people have used for cleaning a whiteboard, and then web site visitors have submitted others.  I have tested them all on a commercial whiteboard with numerous non-whiteboard things added in, such as crayons and ink.  Check out the results on the [cleaners page](cleaners/).
+I have found numerous methods that people have used for cleaning a whiteboard, and then website visitors have submitted others.  I have tested them all on a commercial whiteboard with numerous non-whiteboard things added in, such as crayons and ink.  Check out the results on the [cleaners page](cleaners/).
 
 Once you find a nice cleaner, you can stick it in a spray bottle to have it convenient for when you need to wipe off the board.
 
 
 Tips
-====
+----
 
-My readers have submitted many different ideas and tips to me that relate to whiteboards.  This is a list of the most useful ones.
+My readers have submitted many ideas and tips to me that relate to whiteboards.  This is a list of the most useful ones.
 
 One can just use a sock to erase stuff because it tends to scratch less than paper towels or miscellaneous things you find.  I just use small hand towels that were sold as "work rags" that were quite cheap and very fluffy, plus you can wash and reuse them.
 
@@ -43,7 +42,7 @@ Because dry erase markers act as a solvent, you are able to remove stubborn dry 
 
 
 Links
-=====
+-----
 
 Here is a hand-selected list of web sites that have something to do with whiteboards.  Let me know if I should include a link that you know about, but there is no guarantee that I will add it here.  I'm extremely selective when it comes to linking to other sites.
 

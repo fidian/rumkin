@@ -66,10 +66,13 @@ use("metalsmith-data-loader", {
 use("metalsmith-ancestry");
 // Allow Mustache templates to build sub-links
 use("metalsmith-relative-links");
+// Add `propName?` and `_parent` properties throughout the metadata.  This
+// is added early for mustache parsing in markdown before templating.
+use("metalsmith-mustache-metadata");
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
 // this debug setting needs to be set.
-debug.enable("metalsmith-hbt-md");
+debug.enable(`${debug.load()} metalsmith-hbt-md`);
 use("metalsmith-hbt-md", handlebars);
 // Convert Markdown to HTML.
 use("metalsmith-markdown");
@@ -79,8 +82,6 @@ use("metalsmith-code-highlight");
 // the site to be hosted under any path.  "" = at root, or could be ".." or
 // "../.." etc.
 use("metalsmith-rootpath");
-// Add `propName?` and `_parent` properties throughout the metadata.
-use("metalsmith-mustache-metadata");
 // Embed HTML within the templates.
 use("metalsmith-layouts", {
     default: "page.html",
@@ -89,11 +90,6 @@ use("metalsmith-layouts", {
     partials: "layouts/partials",
     pattern: "**/*.html"
 });
-
-if (!process.env.UNMINIFIED) {
-    // Minify
-    use("metalsmith-html-minifier");
-}
 
 
 /* ********************************************************************
@@ -120,18 +116,6 @@ use("metalsmith-concat", {
     output: "css/site.css"
 });
 
-if (!process.env.UNMINIFIED) {
-    // Minify.
-    use("metalsmith-clean-css", {
-        cleanCSS: {
-            // Rebasing breaks links because it doesn't understand the
-            // real CSS location.
-            rebase: false
-        },
-        files: "**/*.css"
-    });
-}
-
 
 /* ********************************************************************
  * JS -> JS
@@ -143,13 +127,32 @@ use("metalsmith-babel", {
     ]
 });
 
+
+/* ********************************************************************
+ * Minification
+ ******************************************************************* */
 if (!process.env.UNMINIFIED) {
-    // Minify
+    // Minify HTML
+    // This must happen after atomizer parses the HTML.
+    use("metalsmith-html-minifier");
+
+    // Minify CSS
+    use("metalsmith-clean-css", {
+        cleanCSS: {
+            // Rebasing breaks links because it doesn't understand the
+            // real CSS location.
+            rebase: false
+        },
+        files: "**/*.css"
+    });
+
+    // Minify JS
     use("metalsmith-uglify", {
         nameTemplate: "[name].[ext]",
         preserveComments: "some"
     });
 }
+
 
 /* ********************************************************************
  * Server, testing, debugging, etc.
