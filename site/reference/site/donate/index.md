@@ -1,6 +1,5 @@
 ---
 title: Donations
-template: index.jade
 ---
 
 I am really glad that you found something on my web site worthy enough for you to donate some of your funds my way!  I have set up a PayPal account so you can use a credit card to send me whatever amount you'd like.  Just press the button below to get started.
