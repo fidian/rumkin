@@ -64,6 +64,8 @@ use("metalsmith-data-loader", {
 // Set up links so indices and automatic subpage listings can be generated
 // within a document.
 use("metalsmith-ancestry");
+// Allow Mustache templates to build sub-links
+use("metalsmith-relative-links");
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
 // this debug setting needs to be set.

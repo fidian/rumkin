@@ -1,5 +1,7 @@
 DURING REVAMP
 * Skipped the JS in reference/dnd/diestats/
+* Rewrite metalsmith-hbt-md to use marked (same as metalsmith-layout) so I can register a directory of partials to use in the markdown.
+    * Make a subpage listing partial.  reference/problems
 
 
 http://www.callofdutyzombies.com/topic/154218-adfgx-cipher/ ADFGX and ADFGVX ciphers
