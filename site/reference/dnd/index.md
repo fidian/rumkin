@@ -41,7 +41,7 @@ Rules
 
 * [Pathfinder D20 System Reference Document](http://d20pfsrd.com) - Like the one above, but includes all of the Pathfinder rules and has tons of additional content.
 
-* [Open Gaming Foundation](http://www.opengamingfoundation.org/) - Lots of new d20 books are now inter-operateable.  This foundation is spearheading the movement, and is also backed/created by Wizards of the Coast.
+* [Open Gaming Foundation](http://www.opengamingfoundation.org/) - Lots of new d20 books are now able to work interchangeably.  This foundation is spearheading the movement, and is also backed/created by Wizards of the Coast.
 
 * [Wu Jen](http://www.geocities.com/winspir/) - Wonderful Excel spreadsheets covering items, spells, characters, and a very large one that will help generate random monster encounters.
 
@@ -49,7 +49,7 @@ Rules
 Software
 --------
 
-* [D&D Helper](/software/dnd-helper/) - Similar to D&D Tools (also on this page), but it does a few more things.  Experience calculator, movement, turning undead, die roller, reference tables.  All for your Palm.
+* [D&D Helper](../../software/dnd-helper/) - Similar to D&D Tools (also on this page), but it does a few more things.  Experience calculator, movement, turning undead, die roller, reference tables.  All for your Palm.
 
 * [Class Construction Kit](classes/classconstruction.pdf) - Make sure new classes and prestige classes seem somewhat balanced.  This is version 1.1a.
 

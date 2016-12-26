@@ -1,9 +1,9 @@
 ---
 title: Cleaning Whiteboards
 js:
-    - /js/jquery-1.9.1.min.js
-    - /js/jquery.tablesorter.min.js
-    - /js/tablesorter-start.js
+    - ../../../js/jquery-1.9.1.min.js
+    - ../../../js/jquery.tablesorter.min.js
+    - ../../../js/tablesorter-start.js
 data: cleaners.json
 ---
 

@@ -39,8 +39,8 @@ Demonstration
 The following simple JavaScript demo allows you to experiment with different strings and compute their Levenshtein distance:
 
 Compare two strings:<br />
-1: <input ng-model="a" /><br />
-2: <input ng-model="b" /><br />
+1: <input ng-model="a" class="W(80pct)"/><br />
+2: <input ng-model="b" class="W(80pct)"/><br />
 Distance: <span class="result" ng-bind="result"></span>
 
 

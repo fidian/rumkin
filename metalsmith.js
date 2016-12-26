@@ -227,6 +227,11 @@ use("metalsmith-each", (file, filename) => {
         if (contents.match(/ $/m)) {
             console.log(`Trailing whitespace in file: ${filename}`);
         }
+
+        // No absolute links.
+        if (contents.match(/ (src|href)="?\/[^\/]/)) {
+            console.log(`Absolute link in file: ${filename}`);
+        }
     }
 });
 
