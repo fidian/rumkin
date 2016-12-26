@@ -1,0 +1,201 @@
+* WILD_SURGE
+Target slowed for 1 turn.
+Caster deluded (as per potion of delusion) for 1 round into believing the spell functions as indicated by a second die roll.
+Caster is base of a double-force Gust of Wind.
+Stinking Cloud at 18' range.
+Heavy rain falls for 1 round in 36' range of the caster.
+Caster summons a rhino, elephant, or large mouse.
+Lightning Bolt as per wand of lightening.
+A stream of 600 large butterflies pour forth and flutter around for 2 rounds, blinding everyone; they disappear.
+The target, if within 36' of the caster, is enlarged.
+Darkness is cast in a 18'-diameter hemisphere at 18' distance from the caster.
+Grass grows in an area of 96' square before the caster, or grass existing there grows to 10 times its normal size.
+Vanish any non-living object of up to 1,000 lbs. mass and up to 30 cubic feet in size (the object becomes ethereal).
+Caster diminished to 1/12 normal size, as per potion of diminution.
+Fireball as per wand of fireballs.
+Invisibility covers the caster.
+Leaves grow from target if within 36' of the caster.
+10-40 gems of 1-gp base value shoot forth in an 18'-long stream, causing 1 hp damage each to any creature in their path.  Roll 5d4 for the number of hits on the target.  Gems that miss go on to strike the being immediately behind the target, with hits determined as above, until all gems hit or the spell's range is reached.
+Shimmering colors dance and play over a 12'x9' area in front of the caster; creatures therein are blinded for 1-6 rounds.
+Flesh to stone (or the reverse, if the target is stone) is cast on the target, if within 18' of the caster.
+Caster shoots forth a web and acts as one anchor point.
+Caster shocked as per shocking grasp.
+Reverse gravity affects the target and all within an 18' radius (including the caster, if close enough) for 2-5 rounds.
+Tasha's uncontrollable hideous laughter affects the target.
+800 small rubber balls (each 1 inch in diameter) rain down for 1-4 rounds within an 18' radius of the caster, causing all in the area to make a dexterity check or trip and fall.  The balls remain in the area, causing further checks at the start of each round of combat, until they are carried or swept away.
+Caster summons a large dove, a large rabbit, or a large iguana.
+Chain lightening centered on target.
+Target and caster are covered in liquid chocolate.
+Target hasted.
+Hold monster centered on target.
+Suds flow from the ground in a 54' radius around the wielder for 2-5 rounds, at 3 cubic feet per round.  The suds are either from soap (25%) or beer (75%).
+The target is polymorphed as per wand of polymorphing into a random creature (01-75: DM select any random-monster table and rolls thereon) or non living item (76-00: DM selects any table from Appendix 1 in the DMG and rolls thereon).
+The caster spins for 1-4 rounds and must make a dexterity check in order to move or act each round thereafter for 1-4 rounds.
+Caster healed for 1-8 hp if wounded.
+Caster fires magic missiles as per wand of magic missiles.
+Target inflates like a balloon for 1-4 rounds and deflates for another 1-4 rounds.  Only living material of up to 1,000 lbs. is affected (the object will not float in the air).
+Caster's arm stretches out as a snake and bites the target for 2-12 hp damage (treat as 6+4 HD monster; maximum range 54').
+Caster breaths fire as per a randomly determined potion of fire breathing (only one breath is allowed).
+Target is disintegrated as per the spell.
+Scare cast on target.
+Caster affected by an irritating rash for 1-4 rounds, reducing his dexterity to 3.
+Darkness affects the target every other round for 3-10 rounds.
+Fumble affects the target at twice normal duration.
+A randomly-chosen possession of the caster's begins to gripe about the caster's treatment of it, loudly complaining about the bad working conditions, the lousy pay, the long working hours, etc.
+Caster summons a buzzard, giraffe, or large kitten.
+A delayed blast fireball takes effect from the point of casting with a delay time of 5-50 counts.
+Caster and target exchange places, clothing, possessions, etc.
+Target confused.
+Mirror Image affects the target.
+The target begins to recite very bad poetry for 2-8 rounds, taking no other action unless attacked, as if requested to do so under a charm spell.
+A dust devil is summoned and attacks the target.
+Caster jumps in a random direction 1d3x60'.  The caster can only jump 60' backwards.
+A force cage affects the target.
+The caster is affected by a strength spell.
+Target's weapon or other possession becomes a teddy bear, leg of mutton, ladle, or herring.  If the target has no possessions, roll again.
+Caster's hands spew colorless slime in a cone 18' wide and 36' long, affecting the area as a grease spell.
+Fear or faerie fire affects the target.
+An incendiary cloud affects the target area.
+A chromatic orb affects the target.
+Caster is affected as if by a philter of stammering & stuttering.
+A ray of enfeeblement affects the target.
+A pillow (25%), small table (50%), or anvil (25%) appear over the target's head.  The pillow causes no damage; the table causes 1-6 hp damage; and the anvil causes 3-30 hp damage, plus the target must make a constitution check at -4 or be knocked unconscious for 2-12 turns.
+The caster summons an ugly painting (25%), bellows (25%), or storm giant's boot (50%).
+Target affected as per ring of the ram.
+2-6 cream puffs fly from caster's hands toward target.
+Target imbued with improved invisibility.
+Fascinate affects the target, who focuses on the caster.
+Target's nose grows 10 times its normal size for 2-6 rounds.
+Target is affected as per potion of gaseous form.
+Caster levitates uncontrollably, always heading upward until the spell duration is reached, then falls.
+Evard's black tentacles take effect around the target.
+Caster is affected by stoneskin.
+Caster summons a leprechaun.
+A randomly chosen item on the target's person sprouts wings attacks another enemy target for 2-3 rounds as a 6_4 HD creature.  Only small hand-held objects are so affected.  See animate object.
+Caster jerks uncontrollably for 2-4 rounds, then a hypnotic pattern appears, affecting all within range who gaze upon it.
+A cone of cold affects the target area at double damage.
+All magical weapons within 30' of caster loose their magic powers for 2 rounds.
+The first four notes of Beethoven's Fifth Symphony echo through the air.  All creatures within hearing range hostile to the caster must make a morale check.
+Firefinger shoots from each of the caster's fingers.
+All moving creatures within 60' of the caster must save vs. spell or trip and fall.
+All glass or crystal within 30' of the caster shatters.  Magic items or glass containers holding magic items get a saving throw.
+No one (except the caster) can hear the caster for 1d6 rounds.  Spells with verbal components may still be cast.  Caster can hear normally.
+Sudden, drastic change in local weather conditions for 1d10 hours.  Can include snow falling in the desert, etc.
+Spell works normally but is not wiped from the caster's mind.  Material components are consumed.
+Monster Summoning III.
+Blinding light emanates from the caster.  All creatures looking in that direction are blinded for 1d6 rounds.
+A watermelon appears in the caster's hands.
+Personal Magnetism centered on caster.
+All creatures in a 60' radius hostile to the caster are duplicated, including possessions, etc.
+All creatures in a 60' radius hostile to the caster are paralyzed for 1d8 rounds (saving throw negates).
+Spell works as normal, but area of effect is doubled.  Caster may choose to retarget the spell before it goes off.
+1d6 chickens appear at the caster's feet and run away at top speed.
+Caster can automatically Identify one item in the next 24 hours with a 100% chance of success.  The spell need not be memorized, and does not count against the caster's spells for that day.
+All weapons within 60' of the caster sing a shrill note for one round.
+Spell functions;  all saves made at +2.
+Spell appears to fail when cast, but will go off when the caster uses another spell.
+All magic items within 60' of the caster wiggle when touched for 1d8 days.
+Caster forgets all memorized spells.  After 1d6 rounds, the spells return.
+Haste spell centered on caster.
+Feign Death centered on target.
+All weapons within 60' of the caster receive Enchant Weapon.
+Caster permanently loses one spell chosen randomly (Can relearn at next level).
+The caster's tongue grows long enough to touch the tip of his/her nose. If the caster's tongue is already that long, the  surge affects some other part of his/her body.
+An enormous cyclone picks up the target and his/her/its friends and takes them to Kansas (or some other boring, flat, wheat-filled spot in the Prime material plane).
+Caster and target must re-roll their highest stat that is not a prime requisite (roll 4d6 taking the highest 3 dice)
+Caster and target must re-roll their hit points.
+Green Slime rains over the target for 1d4 rounds (creatures within 5' of target save versus breath weapon or be hit).
+Advanced Illusion of a Fireball centered on caster.
+Caster's next spell cast at 0th level.
+Caster bursts into flames, taking 2d6 in damage.
+Hostile creatures within 60' of the caster are restore to full hit points.
+Caster is automatically memorizes his next wild surge (as per Weldon's Remembrance), but forgets all others so memorized.
+The caster's weapons flee from him/her as per the Frisky Chest spell.
+Caster gains Bat Sense as per the spell (Great Net Prayer book level 1), but loses all forms of visual perception for 1 day.
+The next living creature touched by the caster permanently gains 1d6 hit points. The caster permanently loses the same number of hit points (to a minimum of 10 hit points).
+Caster must save versus breath weapon or find his/her lungs filled with water.  If the saving throw is failed, the caster can do nothing but cough and sputter for 1d4 rounds.
+Caster bursts into flames for 1d4 rounds. Any creature within 10' of caster take 2d6 in fire damage, creatures touching the caster take 3d6 fire damage. The caster is unharmed, but his belongings must save versus magical fire or burn.
+Caster encased in a block of lime jello 10' on a side. Creatures so encased must make a dexterity check to escape (keep rolling every round until the check is made, or pass out in 3 rounds for lack of oxygen).
+Target bursts into flames, taking 2d6 in damage.
+All creatures slain by the caster during the last day rise up as free willed undead and attempt to destroy him/her. The undead have all their original abilities and skills, and need no food or sleep. If the caster is slain, the undead created by the surge turn to ash.
+Caster and target must re-roll their constitution (roll 4d6 taking the highest 3 dice).
+Confusion centered on caster.
+Target chained to the ground (tensile strength of the chains 3000 pounds).
+The ground between the caster and target becomes molten lava. All creatures touching the 5' wide strip of lava must make a dexterity check  to get away (keep rolling until you make the check and take 3d6 in fire damage every round the check is failed).
+An enormous cyclone picks up the caster and his/her friends and takes them to Kansas (or some other boring, flat, wheat-filled spot in the Prime material plane).
+Target encased in a block of cherry jello 10' on a side. Creatures so encased must make a dexterity check to escape (keep rolling every round until the check is made, or pass out in 3 rounds for lack of oxygen).
+The ground opens up and swallows the caster to the neck.
+All creatures within 60' of caster save versus spell or Forget.
+The ground opens up and swallows the target to the neck.
+All gold in the caster's possession turns to water.
+The caster's feet are changed to two left feet, or two right feet for 1 day. The caster's movement rate is cut in half for the duration.
+The target, if able to cast spells, casts them all (targeted randomly).
+Target must save versus breath weapon or find his/her lungs filled with water.  If the saving throw is failed, the target can do nothing but cough and sputter for 1d4 rounds.
+Caster chained to the ground (tensile strength of chains 3000 pounds).
+Caster's next spell is cast at 1d4 levels lower.
+Some part of the caster becomes permanently invisible (hand, ear, toes, etc.) Dispel Magic to reverse.
+The target's weapons flee from him/her as per the Frisky Chest spell.
+All creatures in a 20 yard sphere centered on caster become Invisible.
+Target sprouts wings and can fly at 24".
+The ground beneath the target becomes slippery as if Greased.
+The wild surge triggers the casting of another memorized spell (chosen randomly).
+1d100 pieces of gold rain down in an area 60' in diameter centered on caster. Creatures within the area make a dexterity check to escape, or take 1d6 points in damage from the falling coins.
+All water within 60' of the caster turns to wine. Drink up.
+A free willed Simulacrum of the caster appears 3' in front of the caster; the simulacrum has 65% of the caster's knowledge and abilities, and 50% of the caster's level.
+All creatures within 120 yards of the caster are randomly teleported without error to a position not more than 120 yards form the caster.
+Caster gains a familiar if he/she doesn't already have one. It will appear within 1d4 hours.
+Continual Cold spell. (Let the caster name the area of effect).
+A geyser erupts midway between caster and target. Anyone within 10 feet take 2d6 in damage from boiling water.
+Continual Darkness spell. (Let the caster name the area of effect).
+A hemisphere 120 yards in diameter centered between target and caster is filled with dense fog, cutting visibility to 1 foot within the region.
+An enormous glitter covered ball appears in midair, the words and music from Staying Alive are heard loudly, and the caster and target dance disco for the next 2 rounds.
+Continual Heat spell. (Let the caster name the area of effect).
+Target is affected by the Statue Spell.
+The caster's eyes become vertically slitted like a cat's. The caster gains 120' infravision, but loses 1 point of charisma. If the caster has cat-eyes already, they revert to normal, and all infravision is permanently lost (Toggle).
+Caster grows fangs like a vampire. The fangs enable him to bite to attack for 1d3, but reduce the caster's charisma by 1. The fangs can be removed by a cure disease spell. If the caster has fangs already, rolling this surge again will remove them (Toggle).
+Target is affected by the Wraithform Spell.
+Caster and friends teleported without error to the next place named (No weight limit).
+Caster is affected by the Statue Spell.
+The caster's finger-nails grow to 12 inches in length.
+The next time that the caster utters the word "Blind," "Kill," or "Stun" it acts as a Power Word spell. (Let the caster name the area of effect).
+Advanced Illusion of a Wall of Fire surrounding caster.
+Caster must save versus spell or suffer lycanthropy (type of lycanthropy is chosen to match caster's alignment as closely as possible). If the caster is already a lycanthrope, this surge removes the disease (Toggle).
+The caster's teeth turn into a white, unbreakable stone. He/she can chew through just about anything (including soft metals), can bite to attack for 1d3, and never gets a cavity again.
+All creatures within 120 yards of the caster are turned to face the West.
+Caster permanently gains infravision 60'. If the caster already has infravision, it is permanently lost (Toggle).
+All creatures in a 15' radius receive a Heal spell. (Let the caster name the area of effect).
+Target sealed in an extra dimensional pocket (as per Rope Trick) for the duration of the spell (to a minimum of 2d4 rounds).
+All spells cast by the caster during the next 24 hours will generate a wild surge.
+Target is replicated if possible (artifacts, relics, and unique creatures are not replicated).
+Caster gains a +1 to all saving throws for the next 24 hours
+Target's next attack results in a crit.
+Caster and target must re-roll their lowest stat (roll 4d6 taking the highest 3 dice).
+Caster's clothes change color to match their surroundings for the next turn, making him/her harder to hit. Melee attacks are at -2, missile attacks at -4.
+All gold in the caster's possession turns to platinum.
+Caster and target must re-roll a stat of their choice (roll 4d6 taking the highest 3 dice).
+A Simulacrum of the caster appears in the caster's place, and the caster is teleported randomly out of sight (no further away than necessary); the simulacrum is under the caster's control.
+All lead in the caster's possession turns to gold.
+Caster is affected by the Wraithform Spell.
+Caster's next spell is cast at 1d4 levels higher.
+The target gains an aura which causes Fear in all opponents (save versus paralyzation applicable) which lasts for 1 turn. (If the target is an object, all those gazing at the object are so affected).
+Caster's skin turns to steel, giving him/her a base armor class of 0 (cumulative with other armor) for 1d6 rounds.
+Target's skin turns to steel, giving him/her a base armor class of 0 (cumulative with other armor) for 1d6 rounds.
+Caster's eyes continuously change color, acting as a Hypnotic Pattern to all those within 5' who can see the caster's face. The caster retains the color shifting eyes for 1 day.
+An stream of beer shoots forth from the caster's finger-tips for 1d3 rounds.
+Caster gains 1000 experience points, and generates another wild surge. Roll again.
+Caster summons a griffon, unicorn, pegasus, or other fantastical animal to serve as a steed. The steed will appear in 1d8 days. Roll again.
+Target's hit points are raised to maximum for his/her hit dice. Roll again.
+The caster's clothes are changed into the uniform of a star fleet captain. None of the characters understand, but the caster's charisma is increased 1 point while in the uniform. (The uniform may not be duplicated, as the material is unknown). Roll again.
+Caster gains the Midas touch. Anything smaller than the caster that the caster lays hands on in the next 1d3 rounds turns permanently to gold (melee attack required to touch an unwilling opponent, and saving throw versus spell applicable). Roll again.
+Caster's hit points are raised to maximum for his/her hit dice. Roll again.
+Caster's next attack results in a crit.
+The next living creature touched by the caster permanently loses 1d6 hit points. The caster permanently gains the same number of hit points. Roll again.
+Hostile creatures within 60' of caster must save versus death or explode violently.
+Target is protected by Spell Turning for the next turn.
+All of the caster's stats raised to 18 for 1 hour.
+Caster's next spell cast at 30th level.
+All slain creatures within 60 feet of the caster receive a Raise Dead spell. Roll again.
+Nearest dead body within 60 yards of caster rises as a juju zombie under caster's control.
+Caster is protected by Spell Turning for the next turn.
+Caster permanently gains an additional one spell (choose level randomly). Roll again.
+Caster casts a magic user spell of his choice from the 8th level or less, no components necessary, casting time 1. (Give the player 10 seconds to decide on the spell.) Roll again.

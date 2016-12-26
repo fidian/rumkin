@@ -199,7 +199,7 @@ use("metalsmith-each", (file, filename) => {
     var contents;
 
     // Only valid extensions allowed.
-    if (!filename.match(/\.(css|gif|gz|html|ico|jar|jpg|js|pdb|pdf|png|prc|swf|ttf|txt|zip)$/)) {
+    if (!filename.match(/\.(css|gif|gz|html|ico|jar|jpg|js|json|pdb|pdf|png|prc|swf|ttf|txt|zip)$/) && filename.match(/\.[^.]*$/)) {
         console.log(`Invalid extension: ${filename}`);
     }
 
@@ -215,7 +215,7 @@ use("metalsmith-each", (file, filename) => {
     }
 
     // For text files ...
-    if (filename.match(/\.(css|html|js|txt)$/)) {
+    if (filename.match(/\.(css|html|js|json|txt)$/)) {
         contents = file.contents.toString("utf8");
 
         // No tabs allowed.
