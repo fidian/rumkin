@@ -7,7 +7,7 @@ js:
 data: surfaces.json
 ---
 
-I have tried numerous types of surfaces in order to find one that is cheap and easy for people to use.  My findings may help you decide what you'd like to try.  This is a section of my [whiteboards](../) reference.  You can also find interesting ways to [clean your whiteboard](../cleaners) to a bright and beautiful blank slate.
+I have tried numerous types of surfaces in order to find one that is cheap and easy for people to use.  My findings may help you decide what you'd like to try.  This is a section of my [whiteboards](../) reference.  You can also find interesting ways to [clean your whiteboard](../cleaners/) to a bright and beautiful blank slate.
 
 With each surface comes advantages and disadvantages.  Some methods are broken down by use; you have different needs if you want one large whiteboard instead of twenty small whiteboards.  I've attempted to rate how well the surfaces perform and how expensive they are.
 

@@ -52,4 +52,4 @@ Here is a hand-selected list of web sites that have something to do with whitebo
 
 * [Shower Board Whiteboards](http://xtronics.com/reference/whiteboard.htm) - Some problems and possible solutions when using tileboard as a whiteboard.
 
-* [Solutions MB](http://solutionsmb.com/) - They sell a very nice whiteboard coating that can turn a wall or other painted/smooth surfaces into a whiteboard.  I've reviewed their products in the [make a whiteboard](make/) section.
+* [Solutions MB](http://solutionsmb.com/) - They sell a very nice whiteboard coating that can turn a wall or other painted/smooth surfaces into a whiteboard.  I've reviewed their products in the [make a whiteboard](surfaces/) section.
