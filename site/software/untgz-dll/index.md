@@ -1,7 +1,6 @@
-----
+---
 title: untgz dll
-template: index.jade
-----
+---
 
 I needed a DLL file that would decompress `.tar.gz` files.  I found the [UnTGZ](http://nsis.sourceforge.net/UnTGZ_plug-in) plug-in for [NSIS](http://nsis.sourceforge.net/) and it fit my needs perfectly ... well, perfectly except for the fact that it needed NSIS.
 
@@ -17,5 +16,5 @@ To run it, you just use the `untgz()` function.
 Download
 ========
 
-* [untgz-dll.zip](untgz-dll.zip) - Source code for the DLL
-* [untgz.dll](untgz.dll) - Just the DLL file, UPX compressed for the absolute minimum size.
+* [untgz-dll.zip](untgz-dll.zip) - Source code for the DLL.
+* [untgz-dll-upx.zip](untgz-dll-upx.zip) - A compiled DLL that has also been UPX compressed for the tiniest version available.

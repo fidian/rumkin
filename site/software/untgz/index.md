@@ -1,14 +1,12 @@
-----
+---
 title: UNTGZ
-template: index.jade
-----
+---
 
-Tillmann Steinbrecher made a wonderful command-line tool for extracting
-.tar.gz, .tar, and some .zip files.  It is called [untgz](http://www.t-st.org/untgz/) and version 0.95 is the most recent, with that one being released February 17, 1997.  One very great thing he did was to release the source code with the tool and put everything under the GPL, version 2.
+Tillmann Steinbrecher made a wonderful command-line tool for extracting `.tar.gz`, `.tar`, and most `.zip` files.  It is called [untgz](http://www.t-st.org/untgz/) and version 0.95 is the most recent, with that one being released February 17, 1997.  One very great thing he did was to release the source code with the tool and put everything under the GPL, version 2.
 
 
 Features
-========
+--------
 
 * Command-line tool (no GUI, much smaller).
 * Executables for various Intel x86 flavors:  DOS (really old machines), DOS on 386+ machines (still really old), Win32 for 32-bit Windows (95/98/NT/2000/ME/XP), and a native OS/2 binary.
@@ -18,7 +16,7 @@ I was looking for a tiny tool that I would put on my boot disk to extract an arc
 
 
 SMALLER!
-========
+--------
 
 Since I had the source at my disposal, I felt an overwhelming urge to see how much extra I could strip from this 57k program, especially since I would be using this as a decompression tool only on my boot floppy, where space is at a premium.  So, with a "just extract the file" type of mindset, I made the following changes to reduce the size of the program:
 
@@ -41,7 +39,7 @@ I certainly don't think that this is a useful all-around tool anymore.  However,
 
 
 Tips
-====
+----
 
 Use the original version first!  If you have any errors with your `.tgz` file, you will see more detailed explanations of problems there.  If you have no problems, you can then move on to the stripped version.
 
@@ -56,14 +54,14 @@ disk.
 
 
 Download
-========
+--------
 
 * [original version](untgz095.zip) - 57k binaries for DOS, Win32, OS/2.  Includes source.
-* [smaller version](untgzs095.zip) - 9k binary for DOS, 15k binary for Win32.  Includes source, but large chunks of it were removed.
+* [smaller version](untgzs095.zip) - 9k binary for DOS, 15k binary for Win32.  Includes source, but large chunks of it were deleted to make the program smaller.
 
 
 Links
-=====
+-----
 
 * [Bart's MODBOOT](http://www.nu2.nu/bootdisk/modboot/) - Modular boot disk that uses a ramdisk and extracts `.cab` files when booting
 * [UNTGZ](http://www.t-st.org/untgz/) - Official Site

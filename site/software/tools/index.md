@@ -1,38 +1,34 @@
-----
+---
 title: Miscellaneous Tools
 template: index.jade
-----
+---
 
 When I come across problems and I write something useful, I like to share
 with the world, just in case someone else has this problem.
 
 
-relay.c
-=======
+`relay.c`
+---------
 
 The DSL router for my computer needs to be reset every now and then.  It is a pain to do that manually, so I soldered a little circuit and connected it to the parallel port on my computer.  This is the program that I wrote that just trips the circuit and turns off the router when it can not connect to my upstream provider.  It also logs information with syslog so you can see how often the router needs to be rebooted.  Information on the circuit is in the file.
 
-Download: [relay.c](relay.c)
+Download: [relay.c.txt](relay.c.txt)
 
 
 hosts_make
-==========
+----------
 
-On my network, I like to run Linux.  Many other people favor Windows.  I
-run samba and can share files with them easily.  However, it is not as easy
-to find their computers, since they are given different IP addresses often
-with DHCP.  I could manually use `nmblookup` to find the IP addresses, but
-that gets old fast.
+On my network, I like to run Linux.  Many other people favor Windows.  I run samba and can share files with them easily.  However, it is not as easy to find their computers, since they are given different IP addresses often with DHCP.  I could manually use `nmblookup` to find the IP addresses, but that gets old fast.
 
 I wrote this script to automatically generate the `/etc/hosts` file every half hour or so.  Just add a line in your `crontab` file (or `/etc/cron.d` or wherever your system has it) and have root run this script.  Pipe the results to `/etc/hosts` and your worries should basically be over.
 
 I understand that there are going to be modules for resolving names in the future, and there will be a samba module.  However, until Debian ships with that in 'stable,' I will just use this simple script.
 
-Download: [hosts_make](hosts_make)
+Download: [hosts_make.txt](hosts_make.txt)
 
 
 Automated Client Backups
-========================
+------------------------
 
 Windows (we used 2000, but others will work fine) batch file and program to copy files from a remote computer to the local one.
 
@@ -48,7 +44,7 @@ Download: [backups.zip](backups.zip)
 
 
 Patcher
-=======
+-------
 
 Need to distribute very small changes in binary files?  This set of DOS/Linux tools will help you out.  One program makes a special file describing the changes to make, and the other applies the changes.
 
@@ -58,7 +54,7 @@ Download: [patcher.zip](patcher.zip)
 
 
 Creates Itself?
-===============
+---------------
 
 The challenge:  Create a program that will generate its own source code.  Difficult, but certainly not impossible.  I wrote this one in C.
 
