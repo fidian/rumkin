@@ -30,6 +30,7 @@
         "metalsmith-relative-links": "^1.0.0",
         "metalsmith-rootpath": "^1.0.4",
         "metalsmith-serve": "^0.0.7",
+        "metalsmith-timer": "^0.0.2",
         "metalsmith-uglify": "^1.5.1",
         "metalsmith-watch": "^1.0.3",
         "metalsmith-writemetadata": "^0.4.5"
