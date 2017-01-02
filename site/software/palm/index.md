@@ -1,12 +1,13 @@
 ---
 title: Palm OS Software
+summary: A local copy of several Palm programs, all of which are free to use.
 ---
 
 When finding software for my handhelds (Palm IIIx, Palm m100, and a Visor Prism), I usually spend a good deal of time searching the net for exactly what I want.  These programs and links have been found to be the most helpful for me. Beside each link is a description of the software or of the site that I am linking to.
 
 For software, I primarily look for freeware.  I don't like being burdened by shareware or demo versions.
 
-You might also want to check out my [Project Gutenberg](../../reference/gutenberg/) page where I have converted some selected books into Plucker format for the Palm.  Additionally, I am starting a [Palm programming](../../reference/palm/) page to show various tidbits and silly things that I have learned over the years.
+You might also want to check out my [Project Gutenberg](../../reference/gutenberg/) page where I have converted some selected books into Plucker format for the Palm.  I have a few bits for [Palm programming](../../reference/palm/) as well, showing various tidbits and silly things that I have learned over the years.
 
 
 Launchers

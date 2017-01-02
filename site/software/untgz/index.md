@@ -1,5 +1,6 @@
 ---
 title: UNTGZ
+summary: Extract .tar and .tgz (.tar.gz) files.  Automatic long filename conversion.  DOS, DOS 386+, Win32 for Windows 95/98/2000/NT/ME/XP, native OS/2.  Freeware, open source under GPL v2, with source code.  Also a VERY tiny version.
 ---
 
 Tillmann Steinbrecher made a wonderful command-line tool for extracting `.tar.gz`, `.tar`, and most `.zip` files.  It is called [untgz](http://www.t-st.org/untgz/) and version 0.95 is the most recent, with that one being released February 17, 1997.  One very great thing he did was to release the source code with the tool and put everything under the GPL, version 2.

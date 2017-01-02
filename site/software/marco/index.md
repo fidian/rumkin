@@ -1,5 +1,6 @@
 ---
 title: Marco
+summary: Surveyor software for the Palm Pilot and other Palm OS devices.  Designed to be a tool for quick calculations and small amounts of number crunching.  Not a complete solution for surveying, but a fast and quick reference and calculator.
 js: register.js
 module: register
 ---

@@ -1,6 +1,6 @@
 ---
 title: Miscellaneous Tools
-template: index.jade
+summary: Little things that I don't know where else to put.
 ---
 
 When I come across problems and I write something useful, I like to share

@@ -1,5 +1,6 @@
 ---
 title: USBStart
+summary: A nice program that will help you automatically run another program on your USB drive.  When that program exits, the drive will be automatically dismounted.  Great for use with Floater.
 ---
 
 USBStart is designed to run with Windows XP SP2's autorun.  It also works well with [APO USB Autorun](http://www.archidune.com/apo/), which is a free program that will add the autorun functionality to any earlier version of Windows that supports flash drives (Windows 98 and up).

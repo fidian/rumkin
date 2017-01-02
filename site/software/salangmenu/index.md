@@ -1,5 +1,6 @@
 ---
 title: SalangMenu
+summary: Tiny little menu system that is completely configurable through parameter tags.
 ---
 
 <applet code="SalangMenu.class" archive="salang-menu.jar" width="300" height="30" class="center">
