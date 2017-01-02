@@ -52,7 +52,7 @@ Calculators
 * FreeForm (freeware)
     * A calculator with a clean, simple interface.  It features all standard math functions, 10 memories and braces up to a depth of 25.  Repetitive calculations can be executed as a script, even allowing loops and conditional branches.  The official site is down, so a local copy is available.
     * [FreewarePalm](http://www.freewarepalm.com/calculator/freeform.shtml)
-    * [Local Copy](FreeForm.zip)
+    * [Local Copy](free-form.zip)
 
 
 Applications

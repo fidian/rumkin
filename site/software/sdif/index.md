@@ -17,11 +17,11 @@ If the stream appears to be corrupt, the file will not be written.
 
 Good files have the full file path in the header and will be written to the appropriate directory structure.  For instance, if the file says it was backed up from `SYS:PATH/TO/FILE.BIN` it will be saved as `SYS/PATH/TO/FILE.BIN`.  Case is preserved, and colons (`:`) are translated into slashes (`/`).
 
-Download the C source here:  [extract_sdif_data.c.txt](extract_sdif_data.c.txt)
+Download the C source here:  [extract-sdif-data.c.txt](extract-sdif-data.c.txt)
 
-First compile the program.  I use `gcc -o extract_sdif_data extract_sdif_data.c` but that may be different based on your compiler.  To run it, just specify the SDIF file.
+First compile the program.  I use `gcc -o extract-sdif-data extract-sdif-data.c` but that may be different based on your compiler.  To run it, just specify the SDIF file.
 
-    ./extract_sdif_data file.sdif
+    ./extract-sdif-data file.sdif
 
 
 Links

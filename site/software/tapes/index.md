@@ -42,7 +42,7 @@ Fermi Tape Tools Library has many good features.  It is a C library (fast) that 
 Writing Software
 ----------------
 
-I found out that the library does not work with EBCDIC labels, so I had to [patch](ftt_patch.txt) the source.  Please note that the patch works with my version: v2.18 Linux+2.  I also had to write software to dump the header, show a structure of the tape, and do other things.  My [old version](tape_tools.tar.gz) has separate programs for each task, and the archive includes the source as well as the statically compiled binaries.  The [new version](tapetool.tar.gz) is all combined into just one program, and you use different command-line options.
+I found out that the library does not work with EBCDIC labels, so I had to [patch](ftt-patch.zip) the source.  Please note that the patch works with my version: v2.18 Linux+2.  I also had to write software to dump the header, show a structure of the tape, and do other things.  My [old version](tape-tools.tar.gz) has separate programs for each task, and the archive includes the source as well as the statically compiled binaries.  The [new version](tapetool.tar.gz) is all combined into just one program, and you use different command-line options.
 
 
 Labels

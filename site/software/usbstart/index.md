@@ -9,7 +9,7 @@ USBStart is designed to run with Windows XP SP2's autorun.  It also works well w
 Description
 -----------
 
-USBStart will run a program when it starts, then unmount the flash drive when that program finishes.  I use it to run [Floater](/software/floater/), which is a menu for the programs I keep on my flash drive.  When I close Floater, USBStart will copy an unmounting program and a little copy of itself to a temp directory on the host computer.  USBStart will close and the little copy will run, which will attempt to dismount the drive and then all temporary files are deleted.
+USBStart will run a program when it starts, then unmount the flash drive when that program finishes.  I use it to run [Floater](../floater/), which is a menu for the programs I keep on my flash drive.  When I close Floater, USBStart will copy an unmounting program and a little copy of itself to a temp directory on the host computer.  USBStart will close and the little copy will run, which will attempt to dismount the drive and then all temporary files are deleted.
 
 Basically, once you have autorun enabled (or APO USB Autorun) and your flash drive set up properly, you need to just stick in your jump drive and the menu will start.  Run programs and do your thing, and finally close the menu to dismount the flash drive.  It couldn't be much simpler.
 

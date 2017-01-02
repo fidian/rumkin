@@ -208,7 +208,7 @@ This is a list of common questions asked about Marco itself or about topics that
 
 ### I edited a point and it no longer appears in the list of points.  What happened to it?
 
-![odd sort](odd_sort.png)
+![odd sort](odd-sort.png)
 
 Marco sorts point names alphabetically because that is the only method that Palm OS supplies.  Unfortunately, this means that a list of 1, 2, 10, and 11 would be sorted as 1, 10, 11, 2.  A screen capture, to the right, shows this odd behavior.  It sorts the first letter, then the second letter, then the third.  It doesn't sort the number as an actual number.
 

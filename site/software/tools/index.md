@@ -15,8 +15,8 @@ The DSL router for my computer needs to be reset every now and then.  It is a pa
 Download: [relay.c.txt](relay.c.txt)
 
 
-hosts_make
-----------
+`hosts-make`
+------------
 
 On my network, I like to run Linux.  Many other people favor Windows.  I run samba and can share files with them easily.  However, it is not as easy to find their computers, since they are given different IP addresses often with DHCP.  I could manually use `nmblookup` to find the IP addresses, but that gets old fast.
 
@@ -24,7 +24,7 @@ I wrote this script to automatically generate the `/etc/hosts` file every half h
 
 I understand that there are going to be modules for resolving names in the future, and there will be a samba module.  However, until Debian ships with that in 'stable,' I will just use this simple script.
 
-Download: [hosts_make.txt](hosts_make.txt)
+Download: [hosts-make.txt](hosts-make.txt)
 
 
 Automated Client Backups
@@ -58,4 +58,4 @@ Creates Itself?
 
 The challenge:  Create a program that will generate its own source code.  Difficult, but certainly not impossible.  I wrote this one in C.
 
-Download: [creates_own_code.tgz](creates_own_code.tgz)
+Download: [creates-own-code.zip](creates-own-code.zip)

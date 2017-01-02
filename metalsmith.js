@@ -199,7 +199,7 @@ use("metalsmith-each", (file, filename) => {
     var contents;
 
     // Only valid extensions allowed.
-    if (!filename.match(/\.(css|gif|gz|html|ico|jar|jpg|js|json|pdb|pdf|png|prc|swf|ttf|txt|zip)$/) && filename.match(/\.[^.]*$/)) {
+    if (!filename.match(/\.(au|class|css|gif|gz|html|ico|jar|jpg|js|json|pdb|pdf|png|prc|swf|ttf|txt|zip)$/) && filename.match(/\.[^.]*$/)) {
         console.log(`Invalid extension: ${filename}`);
     }
 
