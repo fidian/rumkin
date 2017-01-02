@@ -1,17 +1,16 @@
-----
+---
 title: Palm OS Software
-template: index.jade
-----
+---
 
 When finding software for my handhelds (Palm IIIx, Palm m100, and a Visor Prism), I usually spend a good deal of time searching the net for exactly what I want.  These programs and links have been found to be the most helpful for me. Beside each link is a description of the software or of the site that I am linking to.
 
 For software, I primarily look for freeware.  I don't like being burdened by shareware or demo versions.
-	
-You might also want to check out my [Project Gutenberg](/reference/gutenberg/) page where I have converted some selected books into Plucker format for the Palm.  Additionally, I am starting a [Palm programming](/reference/palm/) page to show various tidbits and silly things that I have learned over the years.
+
+You might also want to check out my [Project Gutenberg](../../reference/gutenberg/) page where I have converted some selected books into Plucker format for the Palm.  Additionally, I am starting a [Palm programming](../../reference/palm/) page to show various tidbits and silly things that I have learned over the years.
 
 
 Launchers
-=========
+---------
 
 * Launcher III (freeware)
     * A superior replacement for the built-in launcher (the applications screen).  The only negative thing is that it is only black & white.  Version 2.2 is the last freeware stable release of the software.  Version 2.3 beta 3 is the last version before people had to start paying for it.  Since then, Launcher III has been discontinued and replaced by Launcher X.
@@ -21,7 +20,7 @@ Launchers
 
 
 Games
-=====
+-----
 
 * Cribbage (freeware)
     * Great color game for your Palm.  Also works for those that do not have color screens.  The official site was taken down.
@@ -35,7 +34,7 @@ Games
 
 
 Calculators
-===========
+-----------
 
 * Calcul-8! (freeware)
     * A scientific calculator that I replaced the standard calculator with.  It supports base and unit conversion, hexadecimal, trig functions, and more.  Requires MathLib (see the Libraries section below).
@@ -56,7 +55,7 @@ Calculators
 
 
 Applications
-============
+------------
 
 * Astro Info (freeware, open source)
     * Astronomy program for stargazers.  Kinda rough right now, but it looks like it has more potential than similar shareware programs.  Requires MathLib (see the Libraries section below).
@@ -78,7 +77,7 @@ Applications
 * Plucker (freeware, open source)
     * Free document reader that supports bold, italics, centering, images, and other select pieces of HTML.  Lets you take entire books and web sites with you.  Can use ZLib (see the Libraries section below) for excellent compression of documents.  I am also linking to my page where I have converted some Project Gutenberg books to Plucker format for you.
     * [Official Site](http://www.plkr.org/)
-    * [Gutenberg Books](/reference/gutenberg/)
+    * [Gutenberg Books](../../reference/gutenberg/)
 
 * Weasel Reader (freeware, open source)
     * Lets you read DOC and zTXT documents on your Palm.  These are specially compressed texts that are converted especially for your Palm.  You can find some pre-formatted documents at MemoWare.
@@ -87,7 +86,7 @@ Applications
 
 
 Hacks (System Extensions)
-=========================
+-------------------------
 
 * X-Master (freeware)
     * Lets you improve your Palm by letting you alter how the operating system runs.  Lets you add popup calculators, better random number generation, and other assorted goodies.
@@ -121,7 +120,7 @@ Hacks (System Extensions)
 
 
 Networking / Internet
-=====================
+---------------------
 
 * EudoraWeb (freeware)
     * Part of the Eudora Internet Suite, this text-only web browser is fast and supports SSL (if you install the included SSL library).  It does not support images and it can not install files from the web.  It connects to the web server directly, which means you don't need a proxy server, and it displays text in color, where appropriate.
@@ -134,7 +133,7 @@ Networking / Internet
 * PortScanner (freeware)
     * If you have a Palm that is connected to the Internet, you can run a port scan on a machine by its IP address.  This can tell you what services are running on the target machine.
     * [PalmGear](http://palmgear.com/index.cfm?fuseaction=software.showsoftware&prodID=56631)
-    * [Local Copy](portscanner.prc)
+    * [Local Copy](portscanner.zip)
 
 * Vagabond (freeware, open-source)
     * Web browser for Palm.Net and web clipping devices.  Has a color and B&W version.
@@ -143,7 +142,7 @@ Networking / Internet
 
 
 Utilities
-=========
+---------
 
 * Backup All (freeware, open source)
     * Helps make sure that all of your programs and databases will be backed up with the next HotSync.
@@ -165,7 +164,7 @@ Utilities
 
 
 Libraries
-=========
+---------
 
 * MathLib (freeware, open source)
     * Shared library that makes IEEE-754 double-precision math functions available to developers.  One shared copy of these large routines for accurate trig functions means that all of your advanced calculators will not be duplicating the code and leads to a more efficient and better layout of the software.
@@ -178,12 +177,12 @@ Libraries
 
 
 Related Links
-=============
+-------------
 
 * [FreewarePalm](http://www.freewarepalm.com/) - Great listing of freeware programs.
 * [Freeware Palm](http://www.freeware-palm.com/) - What?  Two sites with nearly identical names?  You bet!
 * [PalmOpenSource.com](http://www.palmopensource.com/) - Software that is not only free, but also lets you download and modify the source code in order to make improvements.  Unfortunately, this site is a bit on the small size and doesn't have loads of software.
 * [PalmGear](http://www.palmgear.com/) - Large listing of software for the Palm.  It's so huge that it has a small problem sorting software into proper categories.  However, the search engine can help find what you were looking for.
-* [Handango](http://www.handango.com) - My last resort before using Google when I am trying to find some software.  Once, it was better than PalmGear.  Since then, it has been commercialized a bit too much and  slowed down a lot.
-* [Gutenberg Books](/reference/gutenberg/) - The books from Project Gutenberg that I have converted into Plucker format.
-* [Palm Programming](/reference/palm/) - Tips and reference code that can be used to help you write Palm software.
+* [Handango](http://www.handango.com/) - My last resort before using Google when I am trying to find some software.  Once, it was better than PalmGear.  Since then, it has been commercialized a bit too much and slowed down a lot.
+* [Gutenberg Books](../../reference/gutenberg/) - The books from Project Gutenberg that I have converted into Plucker format.
+* [Palm Programming](../../reference/palm/) - Tips and reference code that can be used to help you write Palm software.

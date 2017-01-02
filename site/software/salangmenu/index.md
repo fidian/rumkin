@@ -1,9 +1,8 @@
-----
+---
 title: SalangMenu
-template: index.jade
-----
+---
 
-<applet code="SalangMenu.class" width="300" height="30" class="center">
+<applet code="SalangMenu.class" archive="salang-menu.jar" width="300" height="30" class="center">
     <!-- Needs to be in here -->
     <param name="copyright" value="jzs club">
     <!-- Color setup -->
@@ -46,24 +45,23 @@ template: index.jade
 
 
 Introduction
-============
+------------
 
-Since I am unable to locate the actual author(s) of this neat little applet, I decided to write up some documentation myself.  If you do find the actual author(s) of this applet, please let me know.  Until the real webpage can be found, this might be an adequate replacement.  If you want to download it, you can get a [zip archive](salangmenu.zip) of the .class files.  I would suggest saving this web page file to disk so that you have the documentation with the .class files when you need it.
+Since I am unable to locate the actual author(s) of this neat little applet, I decided to write up some documentation myself.  If you do find the actual author(s) of this applet, please let me know.  Until the real webpage can be found, this might be an adequate replacement.  If you want to download it, you can get a [jar archive](salang-menu.jar) of the `.class` files.  I would suggest saving this web page file to disk so that you have the documentation with the `.class` files when you need it.
 
-From what I have been able to tell, this applet is freeware (all the sites that list it only list it as freeware).  It is one of the smallest Java menu applets I have found, totaling only about 10k.
+From what I have been able to tell, this applet is freeware (all the sites that list it only list it as freeware).  It is one of the smallest Java menu applets I have found, totaling only about 10k uncompressed or a mere 5.6k as a Jar.
 
 
 How To Include
-==============
+--------------
 
-First off, please be familiar with inserting Java applets into your web
-pages.  There are tons of tutorials out there, so go check them out.  View the page source to see how I add my own `<applet>` tag.
+First off, please be familiar with inserting Java applets into your web pages.  There are tons of tutorials out there, so go check them out.  View the page source to see how I add my own `<applet>` tag.
 
 
 Explanation Of Options
-======================
+----------------------
 
-* `applet codebase="media/" code="SalangMenu.class" width="300" height="30"` - Make sure that it is wide enough and tall enough for your use.  The class files are case sensitive, so make sure you have them named correctly and refer to the appropriately.  Popup.class, Pulldown.class, SalangMenu.class.  I once put mine into a "media" directory, which explains the "codebase" attribute.  Since then I have moved them back and my current `<applet>` tag doesn't have the `codebase=` bit.
+* `applet archive="salang-menu.jar" code="SalangMenu.class" width="300" height="30"` - Make sure that it is wide enough and tall enough for your use.
 
 * `param name="copyright" value="jzs club"` - Must be in here.  Sad, really, since searching for "jzs club" on the web results in nothing.  It would be better if the jzs club had a web page.
 

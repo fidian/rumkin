@@ -1,6 +1,5 @@
 ---
 title: Java Puzzle Applet
-template: index.jade
 ---
 
 Did you ever want to play a puzzle on your web page, or put one on to entertain others? This applet is probably just what you want. It was inspired by a CGI script which essentially did the same thing, but not nearly as fast (especially on a 14.4 modem). Right now, people who play the puzzle only have to download the applet (only about 14k), download the image, and download any optional sound to play when you solve the puzzle.
@@ -9,7 +8,7 @@ If you think these two puzzles don't work, please try to make sure that you have
 
 
 Examples
-========
+--------
 
 Just for your amusement, you can test out the applet here. This is proof that Mickey frightens young children! Keep him away, that mean, evil villain!  This example has no sound, and uses the swap style of puzzle. The *website* parameter is also set on this example to `Rumkin Puzzle <email@example.com>` in order to demonstrate how that will appear.
 
@@ -45,7 +44,7 @@ The slide type of puzzle is also known as a 15-puzzle, where there's a 4x4 grid 
 
 
 Usage
-=====
+-----
 
 To begin, you will need to download [puzzle-full.zip] and have the `puzzle.class` file located on a web server.  To include the applet in your web page, you must include some special tags.  Several are optional and others are difficult to explain but should be simple to use once understood.
 
@@ -67,76 +66,75 @@ To begin, you will need to download [puzzle-full.zip] and have the `puzzle.class
     </applet>
 
 
-Explanation of Attributes and Parameters
-----------------------------------------
+### Explanation of Attributes and Parameters
 
 If there is any issue or configuration problem, the applet will generate an error code (explained later).  **All error codes are shown on the Java Console** along with some debugging information.
 
 
-### code
+#### code
 
-This is the relative URL where the `puzzle.class` file is placed.  The file `puzzle.class` must not be renamed. It's a weird Java thing. 
+This is the relative URL where the `puzzle.class` file is placed.  The file `puzzle.class` must not be renamed. It's a weird Java thing.
 
 
-### num, numx, numy
+#### num, numx, numy
 
 These refer to the number of pieces in the puzzle.  numx is the amount across (horizontally) and numy is the amount up and down (vertically).  num is the total number of pieces.
 
-Only two of these can specified. I'd suggest numx and numy.  If all three are specified, and numx times numy doesn't equal num, an error will be generated and the puzzle won't work.  If two are specified, and num is one of them, and if num isn't evenly divisible by numx or numy (whichever one was specified), an error will be generate and the puzzle won't work. 
+Only two of these can specified. I'd suggest numx and numy.  If all three are specified, and numx times numy doesn't equal num, an error will be generated and the puzzle won't work.  If two are specified, and num is one of them, and if num isn't evenly divisible by numx or numy (whichever one was specified), an error will be generate and the puzzle won't work.
 
 
-### width, height
+#### width, height
 
 The width and height of the applet in pixels, respectively.
 
-It is recommended, for less image distortion, to multiply the image's width and height by some number to make the applet's width and height.  If you have the bar on the applet (enabled by default), add 20 to the height to avoid distortion of the image. 
+It is recommended, for less image distortion, to multiply the image's width and height by some number to make the applet's width and height.  If you have the bar on the applet (enabled by default), add 20 to the height to avoid distortion of the image.
 
 
-### src
+#### src
 
-Relative URL of the image to load. This must be on the same site as the `puzzle.class` file. It's a weird Java thing. 
-
-
-### soundsrc
-
-Relative URL of a sound file (in `.au` format) to play when the puzzle has been completed. If not specified, no sound will be played. Must be on the same site as `puzzle.class`. 
+Relative URL of the image to load. This must be on the same site as the `puzzle.class` file. It's a weird Java thing.
 
 
-### type
+#### soundsrc
 
-Type of puzzle. If not specified, it defaults to 0. 
+Relative URL of a sound file (in `.au` format) to play when the puzzle has been completed. If not specified, no sound will be played. Must be on the same site as `puzzle.class`.
+
+
+#### type
+
+Type of puzzle. If not specified, it defaults to 0.
 
 * 0 = Swap
 * 1 = Slide type, with the 'empty' square starting in a random position
 * 2 = Slide type, with the 'empty' square starting in the lower right-hand corner
 
 
-### url, prefixurl, postfixurl
+#### url, prefixurl, postfixurl
 
-Relative URL of the web page to display when the puzzle has been completed. Convenient if you want to allow the user to be able to download the whole picture or if you want to do something special with the number of moves it took. 
+Relative URL of the web page to display when the puzzle has been completed. Convenient if you want to allow the user to be able to download the whole picture or if you want to do something special with the number of moves it took.
 
-If url is specified, the page will be shown (and some extra information will be appended to the URL). If not, no page will be shown. 
+If url is specified, the page will be shown (and some extra information will be appended to the URL). If not, no page will be shown.
 
-The URL that is generated looks like this: `url?prefixurlMOVESpostfixurl`. You can safely omit prefixurl and postfixurl if you so desire. MOVES will be replaced with an integer, being the number of moves it took to solve the puzzle. 
+The URL that is generated looks like this: `url?prefixurlMOVESpostfixurl`. You can safely omit prefixurl and postfixurl if you so desire. MOVES will be replaced with an integer, being the number of moves it took to solve the puzzle.
 
 For simple entry to a CGI script, an example would have url set to "my_results.cgi", prefixurl set to "moves=", and postfixurl left unset. If I solved the puzzle in 12 moves, the resulting URL generated would be "my_results.cgi?moves=12".
 
-The sample CGI script in [puzzle-full.zip] should give a bit more detail.  Also, there's scripts in there that will deter cheating, or at least make it a bit more difficult to do. 
+The sample CGI script in [puzzle-full.zip] should give a bit more detail.  Also, there's scripts in there that will deter cheating, or at least make it a bit more difficult to do.
 
 
-### xstyle
+#### xstyle
 
-When someone presses the Reveal button, this will determine how the incorrect pieces get marked. If not specified, the default is 0. 
+When someone presses the Reveal button, this will determine how the incorrect pieces get marked. If not specified, the default is 0.
 
 * 0 = Thin blue lines making an X over the incorrect pieces
-* 1 = Big, bold, red X over the incorrect pieces 
+* 1 = Big, bold, red X over the incorrect pieces
 
 
-### bar
+#### bar
 
-This tells the applet where to draw select portions of the bar. By default, it is set to 1357. If you set it to 0, you will not have a bar displayed on top of the puzzle. Whether or not you have this bar affects the height setting. 
+This tells the applet where to draw select portions of the bar. By default, it is set to 1357. If you set it to 0, you will not have a bar displayed on top of the puzzle. Whether or not you have this bar affects the height setting.
 
-The first number is the position of the "Moves" field, then comes the number correct, the Reveal button and lastly the Mix button. Each field uses the following numbers for placement. They can easily overlap or cover each other, so be careful when deciding where things go. 
+The first number is the position of the "Moves" field, then comes the number correct, the Reveal button and lastly the Mix button. Each field uses the following numbers for placement. They can easily overlap or cover each other, so be careful when deciding where things go.
 
 * 0 = Not displayed
 * 1 = Left aligned
@@ -147,11 +145,11 @@ The first number is the position of the "Moves" field, then comes the number cor
 * 6 = Centered 1/4 from right side
 * 7 = Right aligned
 
-### resize
+#### resize
 
-If the image specified doesn't fit into the applet's displayable area (the width and height - the size of the status bar, if any), then the image is resized to fit. This will mess up the proportions of the image, so make sure that you specify the width and height of the applet properly! If not specified, this defaults to 0. 
+If the image specified doesn't fit into the applet's displayable area (the width and height - the size of the status bar, if any), then the image is resized to fit. This will mess up the proportions of the image, so make sure that you specify the width and height of the applet properly! If not specified, this defaults to 0.
 
-Since resizing is based on the implementation of Java (I have no control over it), and all I get are these silly names for how resizing is done, that's all I can provide to you. If you use this option, test out the different resize methods until you find one that you like. 
+Since resizing is based on the implementation of Java (I have no control over it), and all I get are these silly names for how resizing is done, that's all I can provide to you. If you use this option, test out the different resize methods until you find one that you like.
 
 * 0 = Do not resize (whew!)
 * 1 = Use the 'default' resize method
@@ -160,20 +158,20 @@ Since resizing is based on the implementation of Java (I have no control over it
 * 4 = Use the 'area averaging' resize method
 
 
-### website
+#### website
 
 Due to the number of messages I have received over the years pertaining to a messed up puzzle installation on a web site, I have realized that adding a contact at the web site to my puzzle display would be a good idea. If you set this, the entire value will be displayed on the puzzle screen while it is loading and if there is an error.
 
-Since this message comes after a line saying "Direct comments about this website to:", I would suggest you put `Your Name <your email address>` as the value of this applet parameter. 
+Since this message comes after a line saying "Direct comments about this website to:", I would suggest you put `Your Name <your email address>` as the value of this applet parameter.
 
 
 Errors
-======
+------
 
 Make sure you are at the Java Console in order to view these messages.  If you aren't there, you can't debug why the software is messing up.
 
 
-## Number of pieces not correctly specified
+### Number of pieces not correctly specified
 
 You didn't specify only two of the three values needed for number of pieces (num>, numx, numy).
 
@@ -193,7 +191,7 @@ Something interrupted the applet. I don't know what it could be, otherwise I wou
 
 
 Known Bugs
-==========
+----------
 
 I hate to say this, but there are known bugs. However, I can't do anything more about them, so I consider them resolved.
 
@@ -205,7 +203,7 @@ I hate to say this, but there are known bugs. However, I can't do anything more 
 
 
 Stopping Cheating
-=================
+-----------------
 
 So, you want to have a "high score list", but people figure out that the
 number of moves is immediately after the `?` in the URL. Well, there were a lot
@@ -222,162 +220,162 @@ that can be done to stop those annoying cheaters.
 
 * You can get an HTML encoder, which would really make people think twice. This is trivially implemented with the above solution, but I didn't do it so you could still read the HTML. With the HTML encoded, it takes a newer browser to decode it, but it is quite secure.
 
-* You can alter the source of the applet to do the actions you specify, 
+* You can alter the source of the applet to do the actions you specify,
 
 
 Download
-========
+--------
 
 This puzzle (without modifications) is freeware. I will not charge for this version, and I will not charge for future versions. With any version of the puzzle I write, it is free to be used by anyone. I do not require a link from your puzzle page. You can generate money using the puzzle and you are not obliged to pay me. I accept donations, if you feel the need to pay someone.  You do not need my permission to use this program -- I have already given it.
 
 I have abandoned this software.  I don't maintain it but I will accept patches if you want to implement something.
 
-Java source to the puzzle is <a href="puzzle.java">available</a> under a GPL license. This applet should be simple enough for people who know Java to program, or for semi-talented beginners to start with.
+Java source to the puzzle is [available][puzzle-full] under a GPL license. This applet should be simple enough for people who know Java to program, or for semi-talented beginners to start with.
 
 The current version is **Version 4.4 - 2001-02-28**:
 
-* [puzzle-full.zip] - The full puzzle package with the documentation and examples
+* [puzzle-full.zip][puzzle-full] - The full puzzle package with the documentation and examples
 * [puzzle.class](puzzle.class) - Just the one class file
 
 
 History
-=======
+-------
 
 
 ### 4.4 (current release)
 
 * Finally released the source to the program.
-* Added xstyle, bar, website, and resize parameters. 
-* Even cleaned some code to try to make it more efficient. 
-* Added about 4k to the size, unfortunately. 
-* Updated web page and email addresses to my new home. 
-* Changed name to 'puzzle.class' instead of 'Puzzle.class' 
+* Added xstyle, bar, website, and resize parameters.
+* Even cleaned some code to try to make it more efficient.
+* Added about 4k to the size, unfortunately.
+* Updated web page and email addresses to my new home.
+* Changed name to 'puzzle.class' instead of 'Puzzle.class'
 
 
-### 4.3 
+### 4.3
 
-* Fixed the email addresses. 
-* Fixed web page URL. 
-
-
-### 4.2 
-
-* Took the feature added in version 4.1 and made a separate button for it. 
+* Fixed the email addresses.
+* Fixed web page URL.
 
 
-### 4.1 
+### 4.2
 
-* When you click on "Correct", you toggle the ShowX mode on and off for helping you to determine which pieces are out of place. 
-
-
-### 4.0 
-
-* Uses "implements runnable". 
-* Fixed annoying update bug finally! 
-* Attempts to resize applet to size of picture 
+* Took the feature added in version 4.1 and made a separate button for it.
 
 
-### 3.8 
+### 4.1
 
-* Netscape doesn't work with this. 
-* My applet tester from Sun does work. 
-
-
-### 3.7 
-
-* Redownloads image if it is messed up. 
-* Better memory management. 
-* Mixing routine sped up a little. 
+* When you click on "Correct", you toggle the ShowX mode on and off for helping you to determine which pieces are out of place.
 
 
-### 3.6 
+### 4.0
 
-* The "Mix" button now paints the applet black before drawing the pieces on the screen. 
-
-
-### 3.5 
-
-* Rewrote the mixing routine for sliding type puzzles so that they are always able to be solved. 
-* Fixed a bug with "null" showing up in the url for the second page. 
+* Uses "implements runnable".
+* Fixed annoying update bug finally!
+* Attempts to resize applet to size of picture
 
 
-### 3.4 
+### 3.8
 
-* Added the prefixurl and postfixurl parameters. 
-* Correctly made url be a relative URL, which means that you can not put "http://server.name.com/path" in url, but you can still put in "/path/to/page.html". 
-
-
-### 3.3 
-
-* There was a problem with the sound file downloading and playing when there was no sound file specified. 
+* Netscape doesn't work with this.
+* My applet tester from Sun does work.
 
 
-### 3.2 
+### 3.7
 
-* Optimized one routine 
-* Hopefully eliminated a delay bug when the puzzle was finished. 
-
-
-### 3.1 
-
-* Made the Mix button green with blue background 
-* Now, when you have lots of pieces and you swap two pieces (or slide one), only the two pieces which changed are updated instead of the entire puzzle. 
-* Added warning if the image is too big for the applet. 
+* Redownloads image if it is messed up.
+* Better memory management.
+* Mixing routine sped up a little.
 
 
-### 3.0 
+### 3.6
 
-* I finally killed a pesky bug where the image cropping was hanging the system. 
-* Made the Mix button blue. 
-* I think I solved a problem with the URL loading incorrectly. 
-* Did a lot of small internal changes. 
-* Added a second swap puzzle type. 
-* Display a lot more information to the status bar (the thing at the bottom of the screen) and to the Java Console. 
+* The "Mix" button now paints the applet black before drawing the pieces on the screen.
 
 
-### 2.4 
+### 3.5
+
+* Rewrote the mixing routine for sliding type puzzles so that they are always able to be solved.
+* Fixed a bug with "null" showing up in the url for the second page.
+
+
+### 3.4
+
+* Added the prefixurl and postfixurl parameters.
+* Correctly made url be a relative URL, which means that you can not put "http://server.name.com/path" in url, but you can still put in "/path/to/page.html".
+
+
+### 3.3
+
+* There was a problem with the sound file downloading and playing when there was no sound file specified.
+
+
+### 3.2
+
+* Optimized one routine
+* Hopefully eliminated a delay bug when the puzzle was finished.
+
+
+### 3.1
+
+* Made the Mix button green with blue background
+* Now, when you have lots of pieces and you swap two pieces (or slide one), only the two pieces which changed are updated instead of the entire puzzle.
+* Added warning if the image is too big for the applet.
+
+
+### 3.0
+
+* I finally killed a pesky bug where the image cropping was hanging the system.
+* Made the Mix button blue.
+* I think I solved a problem with the URL loading incorrectly.
+* Did a lot of small internal changes.
+* Added a second swap puzzle type.
+* Display a lot more information to the status bar (the thing at the bottom of the screen) and to the Java Console.
+
+
+### 2.4
 
 * Restructured some code to hopefully get rid of a problem (I failed)
-* Squished another minor bug. 
-* Now, if you go "back" after the puzzle moved you to a new URL, the puzzle won't move you again. 
+* Squished another minor bug.
+* Now, if you go "back" after the puzzle moved you to a new URL, the puzzle won't move you again.
 
 
-### 2.3 
+### 2.3
 
-* Fixed a bug where you click before it is loaded and it crashes. 
-* Sped up graphic displays a little. 
-* Sped up cropping a little. 
-* Uses less memory. 
-* Faster routines. 
-* Added a status display to the status bar (the bottom thing) 
-* Now counts the columns it has to count instead of each individual picture. 
-
-
-### 2.2 
-
-* Sped up cropping of images. 
-* Now uses much less memory when chopping pieces. 
-* Taken out a couple of minor bugs. 
+* Fixed a bug where you click before it is loaded and it crashes.
+* Sped up graphic displays a little.
+* Sped up cropping a little.
+* Uses less memory.
+* Faster routines.
+* Added a status display to the status bar (the bottom thing)
+* Now counts the columns it has to count instead of each individual picture.
 
 
-### 2.1 
+### 2.2
 
-* Allow usage of another type of puzzle -- the slide puzzle! 
-
-
-### 2.0 
-
-* Only uses one image file. 
-* Specify where image is. 
-* Specify where sound is. 
-* Display is much faster (no flickering anymore). 
+* Sped up cropping of images.
+* Now uses much less memory when chopping pieces.
+* Taken out a couple of minor bugs.
 
 
-### 1.0 
+### 2.1
 
-* Doesn't display images until all pieces are loaded. 
-* Display is faster. 
-* Does not load sound until images have been loaded. 
+* Allow usage of another type of puzzle -- the slide puzzle!
 
 
-[puzzle-full.zip]: puzzle-full.zip
+### 2.0
+
+* Only uses one image file.
+* Specify where image is.
+* Specify where sound is.
+* Display is much faster (no flickering anymore).
+
+
+### 1.0
+
+* Doesn't display images until all pieces are loaded.
+* Display is faster.
+* Does not load sound until images have been loaded.
+
+
+[puzzle-full]: puzzle-full.zip

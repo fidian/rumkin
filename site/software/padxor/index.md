@@ -1,17 +1,16 @@
-----
+---
 title: One Time Pad XOR
-template: index.jade
-----
+---
 
 Need a secure method to encrypt files?  Want it to be quick, easy, and unbreakable as long as you take care with it?  This is the tool for you!  For information on the technique and the tools, I suggest you go to [Unbreakable Encryption Using One Time Pads][Unbreakable].
 
-The tools I have here are modeled after the ones designed there, but mine work in DOS and don't require .NET.  If you have .NET, I suggest *not* using my tools and using Unbreakable's instead.  At least use Unbreakable's padgen program because I'm pretty sure it generates better random numbers than mine does.
+The tools I have here are modeled after the ones designed there, but mine work in DOS and don't require .NET.  If you have .NET, I suggest *not* using my tools and using Unbreakable's instead.  At least use Unbreakable's `padgen` program because I'm pretty sure it generates better random numbers than mine does.
 
 These tools also work on Linux, for people like me.
 
 
 Generating a One Time Pad
-=========================
+-------------------------
 
 Just like on the Unbreakable site, you use the following syntax:
 
@@ -27,7 +26,7 @@ You don't need to specify more than one input file, but you are allowed to (do n
 
 
 Encrypting and Decrypting
-=========================
+-------------------------
 
 This tool is similar to the one on the [Unbreakable site][Unbreakable], but I decided to make a few parameters for it.
 
@@ -49,7 +48,7 @@ Options:
 
 
 Examples
-========
+--------
 
 This example is designed to be just like the one on [Unbreakable][Unbreakable], but for my tools.  First we generate a pad file.  Next we use it to encode a file and finally decode the encoded file.
 
@@ -64,21 +63,21 @@ Or, if you wanted to use a large pre-generated key, start in the middle of the f
 
 
 Secure Deletion of the One Time Pad
-===================================
+-----------------------------------
 
-The "wipe" tool just writes random-ish data over and over and over and over on the file.  This may not work, depending on the file system.  Some file systems are journaled, so the old data is not actually overwritten on the disk.  However, for DOS, this would work fine.
+The `wipe` tool just writes random-ish data over and over and over and over on the file.  This may not work, depending on the file system.  Some file systems are journaled, so the old data is not actually overwritten on the disk.  However, for DOS, this would work fine.
 
     wipe some_file.bin
 
 
 Alternate Pad Generation
-========================
+------------------------
 
-Since `padgen` uses the `rand()` function, and that has been proved to be a bad source for random data, you might want to edit the program and use a different random number generator.  If you use .NET, I would suggest the `padgen` program from [Unbreakable's site][Unbreakable].  If you don't, there are many other ways to get a random one time pad, such as the program that is on the One Time Pad site (see the Links section).
+Since `padgen` uses the `rand()` function, and that has been proven to be a bad source for random data, you might want to edit the program and use a different random number generator.  If you use .NET, I would suggest the `padgen` program from [Unbreakable's site][Unbreakable].  If you don't, there are many other ways to get a random one time pad, such as the program that is on the One Time Pad site (see the Links section).
 
-If using Linux, you can just use `dd` to create a 1 MB file (1024 bytes per read * 1024 reads) like the next example.  It reads from `/dev/random`, which is as secure of a random number generator as one will easily find.
+If using Linux, you can just use `dd` to create a 1 MB file (1024 bytes per read * 1024 reads) like the next example.  It reads from `/dev/urandom`, which is as secure of a random number generator as one will easily find.
 
-    dd if=/dev/random of=mypad.bin bs=1024 count=1024
+    dd if=/dev/urandom of=mypad.bin bs=1024 count=1024
 
 There are other tools and web sites that will give you statistically random data.  To make sure that you feel safe using your key file, you can use the `padtest` program to see how random the data is.  The guts of this program are actually from the One Time Pad program (see the Links section).  It only includes the statistical testing that the `otp.c` program contains and not the rest of the stuff.
 
@@ -92,9 +91,9 @@ If you don't decide to change the random number generation function from `rand()
 
 
 Funky Ideas
-===========
+-----------
 
-This is NOT good security.  These things were implemented to make retrieval of the data by a random visitor impossible, but the NSA would laugh at what we do here.
+First, a disclaimer: this is **not** good security.  These things were implemented to make retrieval of the data by a random visitor impossible, but the NSA would laugh at what we do here.
 
 There is a situation where we need a zip file encoded with a key.  The key is unable to be changed, and will be smaller than the zip file, thus we need to use `-l` to loop through the key file.  This works just fine to keep it out of casual view and would give any hacker problems due to the size of the key file and that we are trying to decode a zip file.
 
@@ -106,14 +105,14 @@ Because security through obscurity is not real security, we decided that the `-x
 
 
 Download
-========
+--------
 
 [padxor.zip](padxor.zip) - Source code that compiles on several platforms.  Also includes DOS executables.
 [findpad.zip](findpad.zip) - Tool to try to decode files when a `rand()` generator was used.
 
 
 Links
-=====
+-----
 
 * [Unbreakable Encryption Using One Time Pads][Unbreakable] - What these tools were based on.
 * One Time Pad Encryption (http://www.vidwest.com/otp/index.htm - link is dead) - The source for `padtest`'s random number tests.
