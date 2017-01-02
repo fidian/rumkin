@@ -1,9 +1,8 @@
-----
+---
 title: Marco
-template: index.jade
 js: register.js
 module: register
-----
+---
 
 **Notice:** Marco is considered "End of Life" software and will no longer be supported.  It is still available for download and this site will now generate registration codes for free.
 
@@ -13,13 +12,13 @@ Marco will run on any device that runs Palm OS, such as [Palm Pilots](http://pal
 
 
 Manual
-======
+------
 
 There is an extensive [manual](manual/) available that explains the options and each of the screens.
 
 
 Download
-========
+--------
 
 The links below are for the unregistered version of Marco.  There's a section later that will generate registration codes for you for free.
 
@@ -29,7 +28,7 @@ Download Mardo as a [zip fie](marco.zip) with MathLib and documentation or as a 
 
 
 MathLib
-=======
+-------
 
 In order to be very accurate, Marco uses MathLib for all of the complex math functions.  MathLib provides IEEE-754 double precision math functions to Palm OS programs.  MathLib is a shared library, which means that most calculators and other math-related programs will share its instructions instead of adding bulk to each program's size. This makes everything smaller in the long run.
 
@@ -37,7 +36,7 @@ Try installing Marco and running it.  If you need to install MathLib then Marco 
 
 
 Registration
-============
+------------
 
 Marco used to be shareware, but now it is not supported.  I have opened up the registration process to immediately generate you a working code.
 
@@ -57,13 +56,13 @@ Enter your registration code here:
 <span ng-show="errorCode == 'SHORT'">Enter more characters.</span>
 <span ng-show="errorCode == 'LONG'">The code is too long.  Something is wrong.</span>
 <span ng-show="errorCode == 'CHECKSUM'">The code has a problem.  Double check all of the letters and numbers.</span>
-<span ng-show="errorCode == ''">Your unlock code is {{unlockCode}}</span>
+<span ng-show="errorCode == ''">Your unlock code is <span ng-bind="unlockCode"></span></span>
 
 </div>
 
 
 Other Calculators
-=================
+-----------------
 
 Marco was designed to not have a built-in calculator because others would do a better job.  If you don't like the built-in calculator, there are different ones that may work better.  If desired, a different calculator can be mapped to the calculator button on the Palm, taking the place of the built-in calculator.
 
@@ -75,10 +74,7 @@ Hacks (a.k.a. system extensions) require a hack manager such as [X-Master](http:
 
 Many calculators also use MathLib for their math functions.  Marco also requires MathLib, so we share this library and both benefit.
 
-
-* [Bez Calculator](http://home.a-city.de/franco.bez/palm/bezcalc.html) - Scientific calculator program.  Great if base conversions are not needed
-and Calcul-8! has buttons that are just too small.  [Infix, Freeware, Open
-Source]
+* [Bez Calculator](http://home.a-city.de/franco.bez/palm/bezcalc.html) - Scientific calculator program.  Great if base conversions are not needed and Calcul-8! has buttons that are just too small.  [Infix, Freeware, Open Source]
 
 * [C4](http://www.c4calc.com/) - Advanced color calculator.  Different versions are available.  C4Me is freeware, but the others are shareware.  (Infix, Shareware/Freeware)
 

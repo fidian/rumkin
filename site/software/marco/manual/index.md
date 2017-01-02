@@ -1,13 +1,12 @@
 ---
 title: Marco User Manual
-template: page.jade
 ---
 
-[Main Site](../)
+This is the manual for [Marco](../), PalmOS based surveyor software.  [Find out more ...](../)
 
 
 Introduction
-============
+------------
 
 Marco acts like a specialty calculator that is geared towards surveyor's work.  The software speeds up the planning process involved with field work, and can produce quick, accurate numbers in a pinch.  It is much faster to turn on and smaller than a laptop, making it more convenient in odd situations.  When the motors are running and contractors are standing around waiting for an answer to a problem, this program can get them back to work quickly.
 
@@ -19,20 +18,19 @@ For almost every screen, Marco uses formulas that do not require a unit of measu
 
 
 Getting Started
-===============
+---------------
 
 First [download](../) the zip file, which includes MathLib and documentation.  Extract this and double-click on `marco.prc` to schedule it to be HotSync'd to the Palm.  Do the same for MathLib.  Next, just HotSync the Palm and it shall be installed.
 
 Marco also supports beaming the application.  To beam Marco, tap on the Applications button, and then on the Menu button.  Select Beam under the App menu.  Now select Marco and tap the Beam button.  Make sure both Palms are within range, and the other person has "Beam Receive" (in the preferences) turned on.
 
-MathLib can also be beamed to another Palm with the same method, or it
-can be beamed from within Marco by looking in the menu for the option "Beam MathLib".
+MathLib can also be beamed to another Palm with the same method, or it can be beamed from within Marco by looking in the menu for the option "Beam MathLib".
 
 To start the software, tap on the Applications button to bring up the list of programs on your Palm.  Look for the "M" icon of Marco and tap it.
 
 
 Screen Layout
-=============
+-------------
 
 Marco tries to use a similar, familiar interface on all of the screens it has.  It will start out on the Main Menu, where you can press a button to do a specific function.  From all pages except the Main Menu, there is a "Main" button in the upper right-hand corner that will jump you back to the starting screen.
 
@@ -48,7 +46,7 @@ Marco can use multiple point files.  A single point file is a collection of poin
 
 
 Entering Information
-====================
+--------------------
 
 When you need to enter information into Marco, there will be an appropriate form that will pop up and ask for a value.  The forms change with what type of data is being entered.  Also, there is an optional keypad on the screen (set up in the preferences section) that can assist when entering numbers.  Additionally, the style that angles are entered in (degrees, radians, DMS, gradians) is set in the preferences.
 
@@ -58,7 +56,7 @@ When the form is up, tapping on the buttons on the keypad will enter numbers, an
 
 
 Context-Specific Help
-=====================
+---------------------
 
 ![menu button](menu-button.png)
 
@@ -69,31 +67,27 @@ always easily available and is built-in to every copy of Marco.
 
 
 Individual Screens
-==================
+------------------
 
 Each of the screens are detailed below.
 
 
-Horizontal Curves
------------------
+### Horizontal Curves
 
 ![data](hcurve-data.png) ![diag](hcurve-diag.png) ![loc](hcurve-loc.png) ![table](hcurve-table.png)
 
-
-Horizontal curves are used when making a left or a right turn on a road, and could also be applied to borders in landscaping, making a curved sidewalk, or dozens of other applications.  The program is divided into four screens.  The "Data" screen is where the information describing the curve is entered.  "Diag" is a diagram illustrating the lengths and locations of points that are involved in the curve.  "Loc" contains information about the location of the curve.  "Table" will show a series of points along the curve with their cord length and angle of 
+Horizontal curves are used when making a left or a right turn on a road, and could also be applied to borders in landscaping, making a curved sidewalk, or dozens of other applications.  The program is divided into four screens.  The "Data" screen is where the information describing the curve is entered.  "Diag" is a diagram illustrating the lengths and locations of points that are involved in the curve.  "Loc" contains information about the location of the curve.  "Table" will show a series of points along the curve with their cord length and angle of
 deflection.
 
 
-Vertical Curves
----------------
+### Vertical Curves
 
 ![data](vcurve-data.png) ![diag](vcurve-diag.png) ![query](vcurve-query.png) ![table](vcurve-table.png)
 
 Vertical curves are necessary when changing inclines due to going over a hill, down into a valley, or from a flat area to a different elevation.  Like Horizontal Curves, this has four screens as well.  The "Data" screen shows the variables that need to be defined in order to create a curve.  "Diag" shows an illustration of two vertical curves, which labels the points and lengths that are needed.  "Query" finds specific elevations or stations on or outside the curve.  "Table" lists the elevations of a series of points that are on the curve.
 
 
-Center Line for Curves
-----------------------
+### Center Line for Curves
 
 ![Data 1](ctrlinec-data-1.png) ![Data 2](ctrlinec-data-2.png) ![Data 3](ctrlinec-data-3.png) ![Data 4](ctrlinec-data-4.png)
 
@@ -108,8 +102,7 @@ The fourth data page is special and sets up the information required for the "Ta
 The "Diag" tab shows diagram of a sample center line and where all of the lengths, points, and angles are located.  "Query" allows the user to find the location of an offset at a specific station, and calculates the station and offset of an entered coordinate pair.  "Table" lists a series of points that are a given offset away from the center line.  By tapping on the "L" and "R" buttons, the offset will be to the left or right of the curve.  By tapping on a point, the selected point's coordinates can be saved to the current point file.
 
 
-Intersection
-------------
+### Intersection
 
 ![line](intersect-line.png) ![circle](intersect-circle.png) ![result](intersect-result.png)
 
@@ -117,72 +110,63 @@ Intersection acts like three programs in one.  It can find the intersection of t
 coordinates that were entered.
 
 
-Proportion
-----------
+### Proportion
 
 ![data](proportion-data.png) ![table](proportion-table.png)
 
 This program calculates a proportional increase or decrease.  It is used when expanding a road to accommodate another lane, a turn lane, or to shrink a road right before a bridge.  The "Data" form defines the starting and ending values along with the starting and ending stationing.  It also sets the increment for the Table screen.  "Table" shows a list of stations and the proportional value at each location.
 
 
-Inverse
--------
+### Inverse
 
 ![inverse](inverse.png)
 
 Inverse can take two points and calculate the azimuth and distance between them.  It can also determine a second point's coordinates when given a starting point, an azimuth, and a distance.  Pressing the "Traverse" button will put the second point's coordinates in as the starting point, so another point can be calculated.
 
 
-Center Line for Lines
----------------------
+### Center Line for Lines
 
 ![data start](ctrlinel-data-start.png) ![data-direction](ctrlinel-data-direction.png) ![query](ctrlinel-query.png) ![table](ctrlinel-table.png)
 
 To find a series of points that are a given offset from a line, or to find information about how far a particular point is away from a line, use Center Line for Lines.  MnDOT uses this for marking lanes, shoulders, and sidewalks that are a given distance away from the center of the road.  Enter information on the two "Data" screens.  The "Starting Point" form asks for where the line starts and further information needed for the "Table" page.  "Direction" records where the line travels to.  Once the line is defined, use the "Query" screen to find the station and offset of any point, or find the coordinates for a given station and offset.  "Table" will generate a list of coordinates at specific stations.  The "L" and "R" buttons change the offset to be left and right, accordingly.
 
 
-Grading PI
-----------
+### Grading PI
 
 ![grad](gradpi-grad.png) ![final](gradpi-final.png) ![edge](gradpi-edge.png) ![diag](gradpi-diag.png)
 
 Finding the elevations and widths of the lanes, shoulder, and embankment of a road involves many calculations.  This section of Marco makes that process easier.  The "Grad" screen contains all of the information about the grading for the road.  "Final" is the finished road for the shoulder and lanes.  The embankment's measurements are covered with the "Edge" form.  To help locate reference points, a cut-away side view of a road is on the "Diag" page.
 
 
-Area of a Polygon
------------------
+### Area of a Polygon
 
 ![area](area.png) ![results](area-results.png)
 
 Squares, triangles, and anything else with a border made of straight line segments can have their areas calculated.  Press "Add" to add a point, or "Pick" to select a saved point from a point list.  When done defining the border, the "Calc" button will display the area of the object, the perimeter around the outside, and the centroid.  "Del" will erase the selected point from this screen and "Clear" will start the process over.
 
 
-Triangles
----------
+### Triangles
 
 ![tabular](triangles-tabular.png) ![spatial](triangles-spatial.png)
 
 Triangles can be calculated by entering any side and two other values (sides or angles).  This unique tool has two different ways of displaying the same information.  By going into Preferences, it is possible to change between the tabular view (on the left) and the spatial view (on the right).
 
 
-Angle Converter
----------------
+### Angle Converter
 
 ![angle converter](anglecon.png)
 
 This simple utility converts angles from one type to another.  To enter an angle, just tap on the buttons in the middle.  The "+" and "-" buttons allow you to add and subtract an angle from the one currently displayed.  Angles are always positive, and are from 0 to just under 360°.
 
 
-Quadratic Formula Solver
-------------------------
+### Quadratic Formula Solver
 
 ![quad](quad.png)
 
 A quick calculator that will find the X intercepts for a given quadratic equation.
 
 
-Edit Points
------------
+### Edit Points
 
 ![edit](edit.png) ![view](edit-view.png) ![edit point](edit-edit.png)
 
@@ -191,8 +175,7 @@ This interface allows easy manipulation of saved points.  It will list all of th
 On the Edit screen, the Description field does not have an "X" button to clear it.  To rename a point, just tap on the Description button and it will allow a new name to be entered.
 
 
-Preferences
------------
+### Preferences
 
 ![prefs](prefs.png) ![units](prefs-units.png) ![numbers](prefs-numbers.png) ![forms](prefs-forms.png)
 
@@ -205,8 +188,7 @@ On the "Entering Information" page, you can turn off confirmation of deletions i
 When changing the settings, make sure to hit "Save" when done, or "Cancel" to go back without saving the new settings.
 
 
-Manage Databases
-----------------
+### Manage Databases
 
 ![manage databases](manage-databases.png) ![db](db.png)
 
@@ -216,13 +198,12 @@ If "Manage Databases" is picked, Marco will display a special screen where point
 
 
 Frequently Asked Questions (FAQ)
-================================
+--------------------------------
 
 This is a list of common questions asked about Marco itself or about topics that relate to Marco.
 
 
-Points
-------
+### Points
 
 
 ### I edited a point and it no longer appears in the list of points.  What happened to it?
@@ -234,26 +215,25 @@ Marco sorts point names alphabetically because that is the only method that Palm
 If this method of sorting is hard to get used to, just add zeros at the beginning so that all of the numbers are of the same length.  The above set of numbers with zeros at the beginning would sort to 01, 02, 10, 11.
 
 
-Calculators
------------
+### Calculators
 
 
-### How accurate is Marco?
+#### How accurate is Marco?
 
 Marco uses MathLib for number calculations, which provides IEEE-754 double-precision math functions.  It's roughly 13 digits of accuracy.
 
 
-### Why can't I go to the calculator and back to Marco without losing everything I entered?
+#### Why can't I go to the calculator and back to Marco without losing everything I entered?
 
 If you leave Marco and come back, all of the data entered will be cleared away.  I do this to save memory, make upgrades easier, and to avoid several programming hassles.  I agree that it is annoying when you need to look up information in your calculator, and I strongly suggest using a popup calculator to solve the problem.  Popup calculators can appear "on top" of any running program on a Palm, and will let you calculate numbers quickly.
 
 
-### Is there an alternate calculator that I can use instead of the built-in one?
+#### Is there an alternate calculator that I can use instead of the built-in one?
 
 Yes.  There are several, one of which is sure to fit your needs.  See the earlier section on Calculators.
 
 
-### Why doesn't Marco have a built-in calculator?
+#### Why doesn't Marco have a built-in calculator?
 
 Having a calculator added to Marco was seriously debated many times.  It was decided to not be added to the program for several reasons:
 
@@ -264,10 +244,9 @@ Having a calculator added to Marco was seriously debated many times.  It was dec
 * There are several great calculators out there already.
 
 
-Miscellaneous
--------------
+### Miscellaneous
 
-### Which handheld should I buy to use Marco?
+#### Which handheld should I buy to use Marco?
 
 The only requirement for a handheld is that it runs Palm OS 3.0 or newer.  It might run with Palm OS 2.0, but that hasn't been tested.  Marco has been tested to run on several versions of Palm Pilots, Handspring units, and even a Palm OS based cell phone.  If you are buying a new device, make sure it runs "Palm OS" -- it will not run on Palm-sized computers running Windows CE or other operating systems.
 
