@@ -1,6 +1,6 @@
 ---
 title: Best JavaScript Boilerplate
-template: index.jade
+summary: The ES5 starting template for a JavaScript object that I am personally fond of.  It allows for use in `node.js` as well as in a browser, plus works with a wide variety of module loading systems.
 ---
 
 I'm writing JavaScript objects and I keep refining how I am creating objects in order to have cleaner code, stand behind community standards, remove potential problems and attempt to be more maintainable.  Here is my boilerplate code for a new JavaScript object that seems to work well for me so far.
@@ -61,15 +61,12 @@ Example Code
 
 
 		return TestObject;
-		
+
 
 		// fid-umd post
 	}));
 	// fid-umd post-end
 
-
-Breakdown
-=========
 
 That's a big example.  It's totally worth it and has lots of subtle things embedded that I will expound upon.
 
@@ -146,7 +143,7 @@ Then we wrap up a couple things.  No work is done in the constructor.  Just some
 
 
 Methods/Functions
-=================
+-----------------
 
 JavaScript is a bit loose when it comes to methods and functions.  Really, they are just function objects attached to properties of objects.  Calling them as `className.functionName()` automatically sets the context to be the object itself.  I add `doStuff` to the function's prototype and it magically is now a method on all instances of that class.
 
@@ -181,7 +178,7 @@ This one last line will export the module.  It will go into the UMD as whatever 
 
 
 A Note on Minification
-======================
+----------------------
 
 Do I minify my code?  Yes.  I just don't do it by hand.  I don't even do it a tiny bit by hand.  I find it a lot easier to read unminified code and review code from other people if they don't minify their code either.  Debugging a program is significantly easier and I can set breakpoints far more easily when I expand conditional assignments or multiple checks into separate conditions.  Yes, there may be times that minification would trump other concerns, but those cases are extremely rare.  Testability and maintainability should be your first two goals.  Everything else should fall to a very distant third.
 

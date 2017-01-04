@@ -7,6 +7,7 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * Table sorter could be made into Angular instead of jQuery.
 * Table sorter doesn't have visual indication that the table can be sorted, though I believe that is due to some missing CSS.  reference/whiteboard/surfaces/
 * Email rules may have changed since RFC 2822 is now obsolete.
+* programming/atomic-css needs expansion
 
 
 http://www.callofdutyzombies.com/topic/154218-adfgx-cipher/ ADFGX and ADFGVX ciphers

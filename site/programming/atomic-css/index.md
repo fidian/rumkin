@@ -1,6 +1,6 @@
 ---
-title: Lean CSS
-template: index.jade
+title: Atomic CSS
+summary: A CSS technique to make modular CSS.  Blends together many other ideas in a controversial way to put simplicity and maintainability as its primary goals.  Works on a wide variety of site sizes from a landing page to an enterprise's online shopping site, from a single page application to static pages.
 ---
 
 Every web developer's dream is to have CSS that is all of the following.
