@@ -1,7 +1,6 @@
 ---
 title: SSH Applet
 template: index.jade
-css: applet.css
 ---
 
 Here is a quick and easy SSH client that only requires that your browser supports Java.  There is no archive file to download nor software to install.  Enjoy!  It may prompt you for a signature for "3SP LTD" who are the creators of this nifty program.  I'd suggest accepting the certificate if you want to use SSH.

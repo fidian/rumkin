@@ -26,7 +26,7 @@ angular.module('decisionTree').controller('decisionTreeController', [
             deferred = $q.defer();
 
             // Sanitize
-            name = name.replace(/[^\-a-z0-9]/g, '');
+            name = name.replace(/[^-a-z0-9]/g, '');
 
             if (previous && previous.name === name) {
                 deferred.resolve(previous);
@@ -37,7 +37,7 @@ angular.module('decisionTree').controller('decisionTreeController', [
                     title: ''
                 };
 
-                $http.get(name + '.js').then(function (response) {
+                $http.get(name + '.json').then(function (response) {
                     tree.isLoading = false;
                     tree.isLoaded = true;
                     tree.data = response.data;
