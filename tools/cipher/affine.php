@@ -89,6 +89,9 @@ function upd()
    {
       e.innerHTML = 'Type in a message and see the results here!';
    }
+   else if (! IsCoprime(document.encoder.a.value * 1, 26)) {
+      e.innerHTML = 'The value for "a" is not coprime to 26.  Pick another.';
+   }
    else
    {
       e.innerHTML = SwapSpaces(HTMLEscape(Affine(document.encoder.encdec.value * 1,
