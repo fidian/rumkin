@@ -62,7 +62,7 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
 			Animations
 		</h3>
         <ul ng-repeat="animation in animationList">
-            <li>{{animation.message}}</li>
+            <li ng-bind="animation.message"></li>
 		</ul>
 		<div>
 			<h2>
@@ -106,7 +106,7 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
             <h3>
                 Result
             </h3>
-            <pre><code>{{generatedCode}}</code></pre>
+            <pre><code ng-bind="generatedCode"></code></pre>
         </div>
 	</div>
 </div>

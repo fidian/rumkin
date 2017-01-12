@@ -1,4 +1,6 @@
 THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
+* Test the marquee generator and its angular changes
+* Test the decision tree - it now loads JSON
 * Update the JS in reference/dnd/diestats/
 * Should rewrite metalsmith-hbt-md to use marked (same as metalsmith-layout) so I can register a directory of partials to use in the markdown.
     * Make a subpage listing partial.  reference/problems software
