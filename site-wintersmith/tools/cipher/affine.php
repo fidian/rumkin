@@ -48,7 +48,7 @@ StandardFooter();
 
 
 function insert_js() {
-	
+
 	?><script language="JavaScript" src="js/affine.js"></script>
 <script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript"><!--
@@ -82,12 +82,16 @@ function upd()
       window.setTimeout('upd()', 100);
       return;
    }
-   
+
    var e = document.getElementById('affine');
 
    if (document.encoder.text.value == '')
    {
       e.innerHTML = 'Type in a message and see the results here!';
+   }
+   else if (! IsCoprime(document.encoder.a.value * 1, 26))
+   {
+      e.innerHTML = 'The value for "a" is not coprime to 26.  Try another value.';
    }
    else
    {
@@ -95,7 +99,7 @@ function upd()
 	 document.encoder.text.value,
          document.encoder.a.value * 1, document.encoder.b.value * 1)));
    }
-   
+
    window.setTimeout('upd()', 100);
 }
 
