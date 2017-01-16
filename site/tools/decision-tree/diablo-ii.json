@@ -16,7 +16,7 @@
             }
         },
         "UsingHacks": {
-		    "text": "Are you experiencing a specific error message that appears outside of the Diablo II game?  Some sort of pop-up error box?  This only refers to errors that pop up when you intend to play Diablo II; not when you run external hacks (like the CD Key Changer).",
+            "text": "Are you experiencing a specific error message that appears outside of the Diablo II game?  Some sort of pop-up error box?  This only refers to errors that pop up when you intend to play Diablo II; not when you run external hacks (like the CD Key Changer).",
             "answers": {
                 "SeeErrorMessage": "Yes",
                 "NoErrorMessage": "No"
@@ -35,7 +35,7 @@
             "text": "So, you use hacks and you don't have a specific pop-up error message.  Sorry, but I can not help you diagnose this problem."
         },
         "MissingStormDll": {
-		    "text": "The \"Missing Storm.DLL\" error only appears when you are trying to run D2Loader and it isn't installed correctly.\n\nAre you certain that you installed D2Loader to your main Diablo II directory?  (If you installed it with the Hack Pack, it was installed to the correct location.)",
+            "text": "The \"Missing Storm.DLL\" error only appears when you are trying to run D2Loader and it isn't installed correctly.\n\nAre you certain that you installed D2Loader to your main Diablo II directory?  (If you installed it with the Hack Pack, it was installed to the correct location.)",
             "answers": {
                 "InstalleldD2LoaderCorrectly": "Yes, I am certain",
                 "TryInstallinlgD2LoaderInRightSpot": "No, I am not completely positive"

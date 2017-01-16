@@ -1,8 +1,8 @@
 ---
 title: Decision Tree
 js:
-    - /js/marked.js
-    - /js/modules/angular-marked.js
+    - ../../js/marked.js
+    - ../../js/modules/angular-marked.js
     - decision-tree.js
 module: decisionTree
 controller: decisionTreeController
