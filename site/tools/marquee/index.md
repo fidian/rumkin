@@ -94,11 +94,11 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
             </div>
             <div ng-show="writeMethod == 'jQuery.text'">
                 Element selector:  <input type=text ng-model="writeMethodExtra" /><br />
-                Result:  <tt><code>$({{writeMethodExtra | json}}).text("message goes here");</code></tt>
+                Result:  <tt><code>$(<span ng-bind="writeMethodExtra | json"></span>).text("message goes here");</code></tt>
             </div>
             <div ng-show="writeMethod == 'function'">
                 Name of function to call:  <input type=text ng-model="writeMethodExtra" /><br />
-                Sample call:  <tt><code>{{writeMethodExtra}}("message goes here");</code></tt>
+                Sample call:  <tt><code><span ng-bind="writeMethodExtra"></span>("message goes here");</code></tt>
             </div>
         </div>
     </div>
@@ -111,7 +111,7 @@ Delays are in milliseconds.  There are 1000 in a single second.  A value of 10 i
 	</div>
 </div>
 <script type="text/ng-template" id="method">
-	{{label}} <select ng-model="method" ng-options="methodObj.title for (key, methodObj) in methodList">
+	<span ng-model="label"></span> <select ng-model="method" ng-options="methodObj.title for (key, methodObj) in methodList">
 	</select>
 	<div ng-show="method" class="methodDetail">
 		<div ng-bind="method.description" class="description"></div>
