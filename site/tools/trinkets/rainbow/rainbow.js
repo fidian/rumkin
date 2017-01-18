@@ -3,7 +3,7 @@
  * Copyright 2013 Tyler Akins
  * http://rumkin.com/license.html
  */
-/*global angular, document, futile*/
+/*global angular, document*/
 (function () {
 	'use strict';
 
@@ -11,12 +11,15 @@
 		var output;
 
 		function colorHex(i, mult) {
-			var pi, sv, dec;
+			var pi, sv, dec, num, hex;
 			pi = 3.141592653;
 			sv = i / (input.length / pi);
 			sv += mult * (pi / 3);
 			dec = Math.sin(sv);
-			return futile.hexByte(dec * dec * 255);
+            num = Math.floor(dec * dec * 255);
+            hex = '00' + num.toString(16);
+
+            return hex.substr(hex.length - 2);
 		}
 
         function htmlencode(str) {

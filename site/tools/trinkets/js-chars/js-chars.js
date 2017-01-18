@@ -3,7 +3,7 @@
  * Copyright 2013 Tyler Akins
  * http://rumkin.com/license.html
  */
-/*global angular, futile*/
+/*global angular*/
 (function () {
 	'use strict';
 
@@ -14,9 +14,12 @@
 			}
 
 			return input.split('').map(function (c) {
-				var code;
+				var code, str;
+
 				code = c.charCodeAt(0);
-                return futile.hexByte(code / 256) + futile.hexByte(code % 256);
+                str = '0000' + code.toString(16).toUpperCase();
+
+                return str.substr(str.length - 4);
 			}).join(' ');
 		};
 	});

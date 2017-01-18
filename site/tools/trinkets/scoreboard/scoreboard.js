@@ -3,7 +3,7 @@
  * Copyright 2013 Tyler Akins
  * http://rumkin.com/license.html
  */
-/*global angular, futile*/
+/*global angular*/
 (function () {
 	'use strict';
 
@@ -232,7 +232,7 @@
 		var talliesByName = {};
 
 		// Count tallies
-		futile.each(tallies, function (val) {
+        tallies.forEach(function (val) {
 			if (!talliesByName[val]) {
 				talliesByName[val] = {
 					name: val,
@@ -245,9 +245,9 @@
 
 		// Convert to array
 		scores = [];
-		futile.each(talliesByName, function (val) {
-			scores.push(val);
-		});
+        Object.keys(talliesByName).forEach(function (val) {
+            scores.push(val);
+        });
 
 		return scores;
 	}

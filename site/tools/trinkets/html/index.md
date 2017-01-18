@@ -1,8 +1,11 @@
 ---
 title: HTML Code Tester
-template: page.jade
-js: /js/modules/auto-grow.js /js/modules/trusted-html.js htmltest.js
+js:
+    - ../../../js/modules/auto-grow.js
+    - ../../../js/modules/trusted-html.js
+    - html.js
 module: htmltest
+summary: Try a snippet of HTMl live in your browser.
 ---
 
 Type in HTML and see what it produces below.

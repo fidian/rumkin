@@ -1,7 +1,6 @@
 ---
 title: Scoreboard
-template: page.jade
-js: /js/futile.js scoreboard.js
+js: scoreboard.js
 css: scoreboard.css
 module: scoreboard
 ---
