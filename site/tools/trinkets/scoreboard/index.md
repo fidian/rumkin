@@ -16,7 +16,7 @@ Last Updated: April 7<sup>th</sup>, 2013 with number 196
 [Scoreboard]: http://websports.8m.com/HTML/hall_of_fame-maintenance.html
 [Geocaches]: http://www.geocaching.com/
 [9Key Hall of Fame]: http://www.9key.com/hall_of_fame.asp
-[Licensing Info]: /license.html
+[Licensing Info]: ../../../license/
 
 <div id="scoreboard" scoreboard>
 	<div class="scoreboard_menu">
