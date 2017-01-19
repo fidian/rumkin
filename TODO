@@ -12,6 +12,11 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * programming/atomic-css needs expansion
 
 
+Make a markdown editor.  Support shared storage, dropbox, github, google drive, one drive, file on disk.  Support different markdown engines.  Run entirely in browser.  Similar to
+* http://dillinger.io/
+* https://stackedit.io/
+* https://node-markdown.herokuapp.com/
+
 http://www.callofdutyzombies.com/topic/154218-adfgx-cipher/ ADFGX and ADFGVX ciphers
 
 ./site/tools/marquee/index.md - needs finishing
