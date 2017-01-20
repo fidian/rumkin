@@ -44,7 +44,7 @@ smith = new Metalsmith(__dirname)
 .clean(true)
 // Add the timer here manually.  The use() function adds it again after
 // each middleware added.
-.use(timer("startup"));
+.use(timer("files loaded"));
 
 
 /* ********************************************************************
@@ -76,8 +76,12 @@ debug.enable(`${debug.load()} metalsmith-hbt-md`);
 use("metalsmith-hbt-md", handlebars);
 // Convert Markdown to HTML.
 use("metalsmith-markdown");
-// Highlight code in HTML.
-use("metalsmith-code-highlight");
+
+if (!process.env.FASTBUILD) {
+    // Highlight code in HTML.
+    use("metalsmith-code-highlight");
+}
+
 // Add a `rootPath` metadata property to all files.  It's relative, allowing
 // the site to be hosted under any path.  "" = at root, or could be ".." or
 // "../.." etc.
@@ -120,13 +124,59 @@ use("metalsmith-concat", {
 /* ********************************************************************
  * JS -> JS
  ******************************************************************* */
-// Make ES6 more friendly to browsers.
-use("metalsmith-babel", {
-    presets: [
-        "latest"
-    ]
-});
+if (!process.env.FASTBUILD) {
+    // Make ES6 more friendly to browsers.
+    use("metalsmith-babel", {
+        presets: [
+            "latest"
+        ]
+    });
+}
 
+
+/* ********************************************************************
+ * My custom linting rules. Simply emits warnings to console.
+ * Must happen before minification.
+ ******************************************************************* */
+use("metalsmith-each", (file, filename) => {
+    var contents;
+
+    // Only valid extensions allowed.
+    if (!filename.match(/\.(au|class|css|gif|gz|html|ico|jar|jpg|js|json|pdb|pdf|png|prc|swf|ttf|txt|zip)$/) && filename.match(/\.[^.]*$/)) {
+        console.log(`Invalid extension: ${filename}`);
+    }
+
+    // Only lowercase and hyphens plus an extension for the filename.
+    if (filename.match(/[^-a-z0-9.\/]/)) {
+        console.log(`Invalid characters in filename: ${filename}`);
+    }
+
+    // Check for legacy "template" property.  This can be removed once
+    // all Wintersmith pages are converted to Metalsmith.
+    if (file.template) {
+        console.log(`File defines "template" metadata: ${filename}`);
+    }
+
+    // For text files ...
+    if (filename.match(/\.(css|html|js|json|txt)$/)) {
+        contents = file.contents.toString("utf8");
+
+        // No tabs allowed.
+        if (contents.match(/[\t]/)) {
+            console.log(`File contains tabs: ${filename}`);
+        }
+
+        // No trailing whitespace.
+        if (contents.match(/ $/m)) {
+            console.log(`Trailing whitespace in file: ${filename}`);
+        }
+
+        // No absolute links.
+        if (contents.match(/ (src|href)="?\/[^\/]/)) {
+            console.log(`Absolute link in file: ${filename}`);
+        }
+    }
+});
 
 /* ********************************************************************
  * Minification
@@ -146,11 +196,13 @@ if (!process.env.UNMINIFIED) {
         files: "**/*.css"
     });
 
-    // Minify JS
-    use("metalsmith-uglify", {
-        nameTemplate: "[name].[ext]",
-        preserveComments: "some"
-    });
+    if (!process.env.FASTBUILD) {
+        // Minify JS
+        use("metalsmith-uglify", {
+            nameTemplate: "[name].[ext]",
+            preserveComments: "some"
+        });
+    }
 }
 
 
@@ -193,47 +245,6 @@ if (process.env.SERVE) {
         warn: true
     });
 }
-
-// My custom linting rules.  Simply emits warnings to console.
-use("metalsmith-each", (file, filename) => {
-    var contents;
-
-    // Only valid extensions allowed.
-    if (!filename.match(/\.(au|class|css|gif|gz|html|ico|jar|jpg|js|json|pdb|pdf|png|prc|swf|ttf|txt|zip)$/) && filename.match(/\.[^.]*$/)) {
-        console.log(`Invalid extension: ${filename}`);
-    }
-
-    // Only lowercase and hyphens plus an extension for the filename.
-    if (filename.match(/[^-a-z0-9.\/]/)) {
-        console.log(`Invalid characters in filename: ${filename}`);
-    }
-
-    // Check for legacy "template" property.  This can be removed once
-    // all Wintersmith pages are converted to Metalsmith.
-    if (file.template) {
-        console.log(`File defines "template" metadata: ${filename}`);
-    }
-
-    // For text files ...
-    if (filename.match(/\.(css|html|js|json|txt)$/)) {
-        contents = file.contents.toString("utf8");
-
-        // No tabs allowed.
-        if (contents.match(/[\t]/)) {
-            console.log(`File contains tabs: ${filename}`);
-        }
-
-        // No trailing whitespace.
-        if (contents.match(/ $/m)) {
-            console.log(`Trailing whitespace in file: ${filename}`);
-        }
-
-        // No absolute links.
-        if (contents.match(/ (src|href)="?\/[^\/]/)) {
-            console.log(`Absolute link in file: ${filename}`);
-        }
-    }
-});
 
 smith.build((err) => {
     if (err) {

@@ -2,6 +2,7 @@
     "name": "Rumkin.com",
     "private": true,
     "scripts": {
+        "fastbuild": "FASTBUILD=true node metalsmith.js",
         "build": "node metalsmith.js",
         "serve": "SERVE=true node metalsmith.js"
     },
