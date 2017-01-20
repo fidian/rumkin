@@ -3,11 +3,11 @@
  *
  * Works nicely with the following styles:
  * textarea {
- *	resize: none;
- *	transition: 0.05s;
- *	-moz-transition: 0.05s;
- *	-webkit-transition: 0.05s;
- *	-o-transition: 0.05s;
+ *    resize: none;
+ *    transition: 0.05s;
+ *    -moz-transition: 0.05s;
+ *    -webkit-transition: 0.05s;
+ *    -o-transition: 0.05s;
  * }
  *
  * Usage: <textarea auto-grow></textarea>
