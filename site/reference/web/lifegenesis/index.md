@@ -1,8 +1,7 @@
 ---
 title: Lifegenesis
 js:
-    - ../../../js/es5-shim.js
-    - ../../../js/jquery-1.9.1.min.js
+    - ../../../js/jquery.min.js
     - lifegenesis.js
 css: lifegenesis.css
 summary: Conway's game of cellular automata, animated by using JavaScript to swap CSS classes.  Random splatters assist in keeping things interesting.
