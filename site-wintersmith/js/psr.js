@@ -1,1 +1,0 @@
-../../3rd-party/psr-js/lib/psr.js
