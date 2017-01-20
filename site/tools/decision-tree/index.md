@@ -13,7 +13,7 @@ controller: decisionTreeController
         Decision trees are useful ways to categorize items, solve problems, and classify data.  With a series of questions, you can narrow down possibilities very quickly.
     </p>
     <p>
-        This is a quick implementation of decision trees in JavaScript so that I could write a problem solving tree for people having issues playing <a ng-click="showTree('diablo-ii')">Diablo II</a> or having problems with my <a ng-click="showTree('uploader')">phone uploader</a>.
+        This is a quick implementation of decision trees in JavaScript so that I could write a problem solving tree for people having issues playing <a ng-click="showTree('diablo-ii')" href="#">Diablo II</a> or having problems with my <a ng-click="showTree('uploader')" href="#">phone uploader</a>.
     </p>
     <p>
         Go ahead, give one of those problem solvers a try!
@@ -35,7 +35,7 @@ controller: decisionTreeController
     <div marked="question.text">
     </div>
     <div ng-repeat="(key, answer) in question.answers">
-        <a ng-href="'?tree=' + tree.name + '&q=' + key" ng-click="selectAnswer(key)" marked="answer"></a>
+        <a ng-href="'?tree=' + tree.name + '&q=' + key" ng-click="selectAnswer(key)" marked="answer" href="#"></a>
     </div>
 </div>
 

@@ -5,7 +5,7 @@ summary: Retrieves SDIF-wrapped files from a Novell backup.
 
 Novell systems are pretty cool.  They compress data in the background, and when you run a backup on a Novell server, it just sends the data off the disk to the backup software.  This means that you don't need to compress the data - it is already compressed.
 
-The downside is when you try to restore the information.  You will get a lot of files that do not contain the information you thought they contained.  The description of the problem is better explained in my [solved problems](../../reference/problems/sdif/) section.
+The downside is when you try to restore the information.  You will get a lot of files that do not contain the information you thought they contained.  The description of the problem is better explained in my [solved problems](../../problems/novell-sdif-restore/) section.
 
 I wrote a small tool to grab the uncompressed data from a SDIF-encoded stream.  It is not verbose, does not double-check data, nor is it really immune to errors in the stream.  It is a quick and dirty solution to pull out whatever information you can without actually going to a Novell server.
 

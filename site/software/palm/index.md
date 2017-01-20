@@ -7,7 +7,7 @@ When finding software for my handhelds (Palm IIIx, Palm m100, and a Visor Prism)
 
 For software, I primarily look for freeware.  I don't like being burdened by shareware or demo versions.
 
-You might also want to check out my [Project Gutenberg](../../reference/gutenberg/) page where I have converted some selected books into Plucker format for the Palm.  I have a few bits for [Palm programming](../../reference/palm/) as well, showing various tidbits and silly things that I have learned over the years.
+I have a few bits for [Palm programming](../../programming/palm/) as well, showing various tidbits and silly things that I have learned over the years.
 
 
 Launchers
@@ -76,9 +76,8 @@ Applications
     * [Official Site](http://www.copera.com/deflater/index.html)
 
 * Plucker (freeware, open source)
-    * Free document reader that supports bold, italics, centering, images, and other select pieces of HTML.  Lets you take entire books and web sites with you.  Can use ZLib (see the Libraries section below) for excellent compression of documents.  I am also linking to my page where I have converted some Project Gutenberg books to Plucker format for you.
+    * Free document reader that supports bold, italics, centering, images, and other select pieces of HTML.  Lets you take entire books and web sites with you.  Can use ZLib (see the Libraries section below) for excellent compression of documents.
     * [Official Site](http://www.plkr.org/)
-    * [Gutenberg Books](../../reference/gutenberg/)
 
 * Weasel Reader (freeware, open source)
     * Lets you read DOC and zTXT documents on your Palm.  These are specially compressed texts that are converted especially for your Palm.  You can find some pre-formatted documents at MemoWare.
@@ -185,5 +184,4 @@ Related Links
 * [PalmOpenSource.com](http://www.palmopensource.com/) - Software that is not only free, but also lets you download and modify the source code in order to make improvements.  Unfortunately, this site is a bit on the small size and doesn't have loads of software.
 * [PalmGear](http://www.palmgear.com/) - Large listing of software for the Palm.  It's so huge that it has a small problem sorting software into proper categories.  However, the search engine can help find what you were looking for.
 * [Handango](http://www.handango.com/) - My last resort before using Google when I am trying to find some software.  Once, it was better than PalmGear.  Since then, it has been commercialized a bit too much and slowed down a lot.
-* [Gutenberg Books](../../reference/gutenberg/) - The books from Project Gutenberg that I have converted into Plucker format.
-* [Palm Programming](../../reference/palm/) - Tips and reference code that can be used to help you write Palm software.
+* [Palm Programming](../../programming/palm/) - Tips and reference code that can be used to help you write Palm software.
