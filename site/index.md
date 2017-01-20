@@ -1,6 +1,5 @@
 ---
 title: Rumkin.com
-template: index.jade
 ---
 
 ### [Web-Based Tools](tools/)
