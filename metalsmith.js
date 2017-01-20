@@ -233,8 +233,8 @@ if (process.env.SERVE) {
     use("metalsmith-watch", {
         livereload: metadata.liveReload,
         paths: {
-            // Must load all HTML when any changes to build Atomizer CSS
-            "${source}/**/*.{html,md}": "**/*.{html,md,less,css}",
+            "${source}/**/*.{css,less}": "**/*.{css,less}",
+            "${source}/**/*.{html,md}": true,
             "${source}/**/*.{jpg,js,txt}": true,
             "layouts/**/*": "**/*.{html,md}"
         }
