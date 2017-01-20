@@ -44,7 +44,7 @@ smith = new Metalsmith(__dirname)
 .clean(true)
 // Add the timer here manually.  The use() function adds it again after
 // each middleware added.
-.use(timer("files loaded"));
+.use(timer("source files loaded"));
 
 
 /* ********************************************************************
@@ -142,7 +142,7 @@ use("metalsmith-each", (file, filename) => {
     var contents;
 
     // Only valid extensions allowed.
-    if (!filename.match(/\.(au|class|css|gif|gz|html|ico|jar|jpg|js|json|pdb|pdf|png|prc|swf|ttf|txt|zip)$/) && filename.match(/\.[^.]*$/)) {
+    if (!filename.match(/\.(css|html|js|json|txt)$/) && filename.match(/\.[^.]*$/)) {
         console.log(`Invalid extension: ${filename}`);
     }
 
@@ -207,6 +207,15 @@ if (!process.env.UNMINIFIED) {
 
 
 /* ********************************************************************
+ * Static assets outside of the source folder.
+ ******************************************************************* */
+use("metalsmith-assets", {
+    destination: ".",
+    source: "./assets"
+});
+
+
+/* ********************************************************************
  * Server, testing, debugging, etc.
  ******************************************************************* */
 if (process.env.JSON) {
@@ -235,7 +244,8 @@ if (process.env.SERVE) {
         paths: {
             "${source}/**/*.{css,less}": "**/*.{css,less}",
             "${source}/**/*.{html,md}": true,
-            "${source}/**/*.{jpg,js,txt}": true,
+            "${source}/**/*.txt": true,
+            "${source}/**/*.{yaml,json}": "**/*.{html,md}",
             "layouts/**/*": "**/*.{html,md}"
         }
     });
@@ -246,6 +256,7 @@ if (process.env.SERVE) {
     });
 }
 
+debug("metalsmith-timer")("javascript modules loaded");
 smith.build((err) => {
     if (err) {
         throw err;
