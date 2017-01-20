@@ -5,9 +5,9 @@
  */
 /*global window*/
 (function () {
-	'use strict';
+    'use strict';
 
-	window.generator.depends.random = function (max) {
-		return Math.floor(Math.random() * max);
-	};
+    window.generator.depends.random = function (max) {
+        return Math.floor(Math.random() * max);
+    };
 }());

@@ -5,18 +5,18 @@
  */
 /*global window*/
 (function () {
-	'use strict';
-	window.generator.depends.range = function (min, max, callback) {
-		var result;
+    'use strict';
+    window.generator.depends.range = function (min, max, callback) {
+        var result;
 
-		result = [];
+        result = [];
 
-		while (min <= max) {
-			callback(min);
-			result.push(min);
-			min += 1;
-		}
+        while (min <= max) {
+            callback(min);
+            result.push(min);
+            min += 1;
+        }
 
-		return result;
-	};
+        return result;
+    };
 }());

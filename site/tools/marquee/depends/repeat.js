@@ -5,19 +5,19 @@
  */
 /*global window*/
 (function () {
-	'use strict';
+    'use strict';
 
-	window.generator.depends.repeat = function (what, howMany) {
-		var i, result;
+    window.generator.depends.repeat = function (what, howMany) {
+        var i, result;
 
-		i = 0;
-		result = '';
+        i = 0;
+        result = '';
 
-		while (i < howMany) {
-			result += what;
+        while (i < howMany) {
+            result += what;
             i += 1;
-		}
+        }
 
-		return result;
-	};
+        return result;
+    };
 }());

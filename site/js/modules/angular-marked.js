@@ -8,7 +8,7 @@
 /* global angular:true */
 
 (function () {
-	'use strict';
+    'use strict';
 
   /**
    * @ngdoc overview
@@ -100,40 +100,40 @@
    * @description
    * Use `markedProvider` to change the default behavior of the {@link hc.marked.service:marked marked} service.
    *
-	 * @example
+     * @example
 
-		## Example using [google-code-prettify syntax highlighter](https://code.google.com/p/google-code-prettify/) (must include google-code-prettify.js script).  Also works with [highlight.js Javascript syntax highlighter](http://highlightjs.org/).
+        ## Example using [google-code-prettify syntax highlighter](https://code.google.com/p/google-code-prettify/) (must include google-code-prettify.js script).  Also works with [highlight.js Javascript syntax highlighter](http://highlightjs.org/).
 
-		<example module="myApp">
-		<file name=".js">
-		angular.module('myApp', ['hc.marked'])
-			.config(['markedProvider', function(markedProvider) {
-				markedProvider.setOptions({
-					gfm: true,
-					tables: true,
-					highlight: function (code) {
-						return prettyPrintOne(code);
-					}
-				});
-			}]);
-		</file>
-		<file name=".html">
-			<marked>
-			```js
-			angular.module('myApp', ['hc.marked'])
-				.config(['markedProvider', function(markedProvider) {
-					markedProvider.setOptions({
-						gfm: true,
-						tables: true,
-						highlight: function (code) {
-							return prettyPrintOne(code);
-						}
-					});
-				}]);
-			```
-			</marked>
-		</file>
-		</example>
+        <example module="myApp">
+        <file name=".js">
+        angular.module('myApp', ['hc.marked'])
+            .config(['markedProvider', function(markedProvider) {
+                markedProvider.setOptions({
+                    gfm: true,
+                    tables: true,
+                    highlight: function (code) {
+                        return prettyPrintOne(code);
+                    }
+                });
+            }]);
+        </file>
+        <file name=".html">
+            <marked>
+            ```js
+            angular.module('myApp', ['hc.marked'])
+                .config(['markedProvider', function(markedProvider) {
+                    markedProvider.setOptions({
+                        gfm: true,
+                        tables: true,
+                        highlight: function (code) {
+                            return prettyPrintOne(code);
+                        }
+                    });
+                }]);
+            ```
+            </marked>
+        </file>
+        </example>
   **/
 
   .provider('marked', function () {
@@ -165,8 +165,8 @@
 
   // TODO: filter tests */
   //app.filter('marked', ['marked', function(marked) {
-	//  return marked;
-	//}]);
+    //  return marked;
+    //}]);
 
   /**
    * @ngdoc directive
@@ -210,7 +210,7 @@
         <file  name="exampleB.js">
           * function MainController($scope) {
           *   $scope.my_markdown = '*This* **is** [markdown](https://daringfireball.net/projects/markdown/)';
-					*   $scope.my_markdown += ' in a scope variable';
+          *   $scope.my_markdown += ' in a scope variable';
           * }
         </file>
       </example>
@@ -221,9 +221,9 @@
          <file name="exampleC.html">
            <div marked ng-include="'include.html'" />
          </file>
-				 * <file name="include.html">
-				 * *This* **is** [markdown](https://daringfireball.net/projects/markdown/) in a include file.
-				 * </file>
+                 * <file name="include.html">
+                 * *This* **is** [markdown](https://daringfireball.net/projects/markdown/) in a include file.
+                 * </file>
        </example>
    */
 

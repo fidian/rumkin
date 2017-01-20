@@ -27,7 +27,7 @@
 }("isValidEmail", this, function () {
     "use strict";
     // fid-umd end
-   
+
     /**
      * Checks for illegal domains
      */
@@ -81,7 +81,7 @@
         return domain.match(/^[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}::[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}$/);
     }
 
-   
+
     /**
      * Makes sure the TLD is made of only valid characters
      */
@@ -131,7 +131,7 @@
         }
 
         allowedLocal = "!#$%&'*+-/0123456789=?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_`abcdefghijklmnopqrstuvwxyz{|}~";
-        
+
         /**
          * Parsing mode:
          *   0 = start of a label
@@ -143,7 +143,7 @@
         mode = 0;
         for (i = 0; i < localPart.length; i ++) {
             c = localPart.charAt(i);
-            
+
             if (mode === 0) {
                 // Start of a label
                 if (c === '"') {
@@ -208,7 +208,7 @@
 
         // Convert to a string and trim it
         email = email.toString().replace(/^\s*|\s*$/g, '');
-        
+
         // Some quick checks
         if (email.match(/[\t\r\n]/)) {
             // While it could be possible, this validator does
@@ -220,7 +220,7 @@
             // No amount of trickery allows emails outside these bounds
             return false;
         }
-       
+
         // Test for normal cases here.
         //   Exactly 1 "@" symbol
         //   Only a-z, A-Z, 0-9, . and - to either side
@@ -232,7 +232,7 @@
         if (email.match(/^[a-zA-Z0-9]+([.\-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\-.][a-zA-Z0-9]+)+\.[a-zA-Z]+$/) && email.match(/^.{1,64}@.{1,64}$/)) {
             return true;
         }
-        
+
         /**
          * The rules for parsing a domain are easier to grok than the rules
          * for parsing the localpart of an email address.  Thus, we will
@@ -324,7 +324,7 @@
                 return false;
             }
         }
-        
+
         /**
          * Whew!  We made it through that mess and we determined that the domain
          * portion seems valid.  Now for the rules with the local part:

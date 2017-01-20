@@ -5,17 +5,17 @@
  */
 /*global window*/
 (function () {
-	'use strict';
+    'use strict';
 
-	window.generator.show.none = {
-		title: "None",
-		description: "Just shows the message.  Nothing fancy.",
-		method: function (text, writer, whenDone) {
-			if (writer(text)) {
+    window.generator.show.none = {
+        title: "None",
+        description: "Just shows the message.  Nothing fancy.",
+        method: function (text, writer, whenDone) {
+            if (writer(text)) {
                 return;
             }
 
             whenDone();
-		}
-	};
+        }
+    };
 }());

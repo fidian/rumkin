@@ -53,7 +53,7 @@
 
     function sumRolls(rollSets, modifier) {
         var die, resultHash, resultArray, rolls, setIndex, sum;
-        
+
         resultHash = {};
         resultArray = [];
 
@@ -211,7 +211,7 @@
                     $timeout.cancel(timerPromise);
                     timerPromise = null;
                 }
-              
+
                 allRollSets = [];
                 rollsPerformed = 0;
                 $scope.genStatus = 'delay';

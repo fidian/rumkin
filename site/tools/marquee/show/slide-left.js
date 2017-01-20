@@ -5,42 +5,42 @@
  */
 /*global window*/
 (function () {
-	'use strict';
+    'use strict';
 
-	window.generator.show.slideLeft = {
-		title: "Slide Left",
-		description: "Scrolls your text in from the right side.",
-		variables: [
-			{
-				name: 'Delay',
-				description: 'How long to wait between animations.',
-				'default': 10
-			},
-			{
-				name: 'Max Spaces',
-				description: 'How many spaces should we start with.',
-				'default': 100
-			}
-		],
-		depends: [ 'repeat' ],
-		method: function (text, writer, whenDone, delay, spaces, repeat) {
-			var spacesString;
+    window.generator.show.slideLeft = {
+        title: "Slide Left",
+        description: "Scrolls your text in from the right side.",
+        variables: [
+            {
+                name: 'Delay',
+                description: 'How long to wait between animations.',
+                'default': 10
+            },
+            {
+                name: 'Max Spaces',
+                description: 'How many spaces should we start with.',
+                'default': 100
+            }
+        ],
+        depends: [ 'repeat' ],
+        method: function (text, writer, whenDone, delay, spaces, repeat) {
+            var spacesString;
 
-			function animate() {
-				if (writer(spacesString + text)) {
+            function animate() {
+                if (writer(spacesString + text)) {
                     return;
                 }
 
-				if (spacesString.length) {
-					spacesString = spacesString.substr(1);
-					setTimeout(animate, delay);
-				} else {
-					whenDone();
-				}
-			}
+                if (spacesString.length) {
+                    spacesString = spacesString.substr(1);
+                    setTimeout(animate, delay);
+                } else {
+                    whenDone();
+                }
+            }
 
-			spacesString = repeat(' ', spaces);
-			animate();
-		}
-	};
+            spacesString = repeat(' ', spaces);
+            animate();
+        }
+    };
 }());

@@ -5,21 +5,21 @@
  */
 /*global angular, util, window*/
 (function () {
-	'use strict';
+    'use strict';
 
-	var module;
+    var module;
 
-	window.generator = {
-		depends: {},
-		show: {},
-		hide: {}
-	};
+    window.generator = {
+        depends: {},
+        show: {},
+        hide: {}
+    };
 
-	module = angular.module('generator', []);
+    module = angular.module('generator', []);
 
-	module.directive("generator", function () {
-		return {
-			link: function (scope) {
+    module.directive("generator", function () {
+        return {
+            link: function (scope) {
                 function getAnimation(message, halfStep, methods) {
                     var args, fn, fnStr;
 
@@ -54,7 +54,7 @@
                     /*jslint evil:true*/
                     eval(fnStr);
                     /*jslint evil:false*/
-               
+
                     return fn;
                 }
 
@@ -201,7 +201,7 @@
                     c.push("\t\tanimateFn = animations.shift();");
                     c.push("\t\tif (animateFn) {");
                     c.push("\t\t\tanimateFn(animateIt);");
-                    
+
                     if (scope.repeat === "yes") {
                         c.push("\t\t\tanimations.push(animateFn);");
                     }
@@ -219,40 +219,40 @@
                     scope.generatedCode = c.join("\n").replace(/\t/g, "    ");
                 }
 
-				function updatePreview() {
-					var preview;
+                function updatePreview() {
+                    var preview;
 
-					preview = {
-						message: scope.message,
-						show: scope.showMethod,
-						readDelay: scope.readDelay,
-						hide: scope.hideMethod,
-						betweenDelay: scope.betweenDelay
-					};
+                    preview = {
+                        message: scope.message,
+                        show: scope.showMethod,
+                        readDelay: scope.readDelay,
+                        hide: scope.hideMethod,
+                        betweenDelay: scope.betweenDelay
+                    };
 
-					if (!preview.show) {
-						preview.show = scope.showMethodList.none;
-					}
+                    if (!preview.show) {
+                        preview.show = scope.showMethodList.none;
+                    }
 
-					if (!preview.hide) {
-						preview.hide = scope.hideMethodList.none;
-					}
+                    if (!preview.hide) {
+                        preview.hide = scope.hideMethodList.none;
+                    }
 
-					scope.preview = [
-						preview
-					];
-				}
+                    scope.preview = [
+                        preview
+                    ];
+                }
 
-				scope.animationList = [];
-				scope.depends = window.generator.depends;
-				scope.hideMethodList = window.generator.hide;
-				scope.showMethodList = window.generator.show;
+                scope.animationList = [];
+                scope.depends = window.generator.depends;
+                scope.hideMethodList = window.generator.hide;
+                scope.showMethodList = window.generator.show;
                 scope.readDelay = 1000;
                 scope.betweenDelay = 500;
                 scope.generatedCode = '';
-				scope.$watch('betweenDelay', updatePreview);
-				scope.$watch('readDelay', updatePreview);
-				scope.$watch('message', updatePreview);
+                scope.$watch('betweenDelay', updatePreview);
+                scope.$watch('readDelay', updatePreview);
+                scope.$watch('message', updatePreview);
                 scope.$watch('writeMethod', function () {
                     scope.writeMethodExtra = '';
                     updateGeneratedCode();
@@ -260,53 +260,53 @@
                 scope.$watchCollection('animationList', updateGeneratedCode);
                 scope.$watch('repeat', updateGeneratedCode);
                 scope.$watch('writeMethodExtra', updateGeneratedCode);
-				scope.setHideMethod = function (method) {
-					scope.hideMethod = method;
-					updatePreview();
-				};
-				scope.setShowMethod = function (method) {
-					scope.showMethod = method;
-					updatePreview();
-				};
+                scope.setHideMethod = function (method) {
+                    scope.hideMethod = method;
+                    updatePreview();
+                };
+                scope.setShowMethod = function (method) {
+                    scope.showMethod = method;
+                    updatePreview();
+                };
                 scope.addConfig = function (animationStep) {
                     scope.animationList.push(animationStep);
                 };
-			}
-		};
-	});
+            }
+        };
+    });
 
-	module.directive('generatorMethod', function () {
-		return {
-			link: function (scope) {
+    module.directive('generatorMethod', function () {
+        return {
+            link: function (scope) {
                 scope.sendUpdate = function () {
                     scope.callback({
                         method: scope.method
                     });
                 };
-				scope.$watch('method', function (newVal) {
-					// Reset current values for variables
-					if (newVal && newVal.variables) {
-						newVal.variables.forEach(function (variable) {
-							variable.currentValue = variable['default'];
-						});
-					}
+                scope.$watch('method', function (newVal) {
+                    // Reset current values for variables
+                    if (newVal && newVal.variables) {
+                        newVal.variables.forEach(function (variable) {
+                            variable.currentValue = variable['default'];
+                        });
+                    }
 
                     scope.sendUpdate();
-				});
+                });
                 scope.method = scope.methodList.none;
-			},
-			scope: {
-				callback: '&callback',
-				label: '=label',
-				methodList: '=generatorMethod',
-			},
-			templateUrl: 'method'
-		};
-	});
+            },
+            scope: {
+                callback: '&callback',
+                label: '=label',
+                methodList: '=generatorMethod',
+            },
+            templateUrl: 'method'
+        };
+    });
 
-	module.directive('generatorDemo', function () {
-		return {
-			link: function (scope, element) {
+    module.directive('generatorDemo', function () {
+        return {
+            link: function (scope, element) {
                 var preview;
 
                 function generatePreview(target) {
@@ -378,7 +378,7 @@
                     return obj;
                 }
 
-				scope.$watchCollection('animations', function (newVal) {
+                scope.$watchCollection('animations', function (newVal) {
                     if (! angular.isArray(newVal)) {
                         element.val('');
                         return;
@@ -396,11 +396,11 @@
                         preview.addDelay(step.betweenDelay);
                     });
                     preview.start();
-				});
-			},
-			scope: {
-				animations: '=generatorDemo'
-			}
-		};
-	});
+                });
+            },
+            scope: {
+                animations: '=generatorDemo'
+            }
+        };
+    });
 }());
