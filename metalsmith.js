@@ -68,7 +68,9 @@ use("metalsmith-ancestry");
 use("metalsmith-relative-links");
 // Add `propName?` and `_parent` properties throughout the metadata.  This
 // is added early for mustache parsing in markdown before templating.
-use("metalsmith-mustache-metadata");
+use("metalsmith-mustache-metadata", {
+    match: '**/*.{htm,html,md}'
+});
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
 // this debug setting needs to be set.
@@ -244,7 +246,7 @@ if (process.env.SERVE) {
         paths: {
             "${source}/**/*.{css,less}": "**/*.{css,less}",
             "${source}/**/*.{html,md}": true,
-            "${source}/**/*.txt": true,
+            "${source}/**/*.{js,txt}": true,
             "${source}/**/*.{yaml,json}": "**/*.{html,md}",
             "layouts/**/*": "**/*.{html,md}"
         }
