@@ -1,6 +1,6 @@
 "use strict";
 
-/* global alert, angular, JSZip, JSZipUtils, location, MouseEvent, Mustache, saveAs */
+/* global alert, angular, JSZip, JSZipUtils, Mustache, saveAs */
 /* eslint no-alert:off, no-new:off */
 angular.module("wcn", []);
 
@@ -58,23 +58,7 @@ angular.module("wcn").controller("wcnController", [
                         type: "binarystring"
                     });
                 }).then((finalContent) => {
-                    try {
-                        // saveAs uses the MouseEvent constructor, but that
-                        // may not be a constructor.  Try it here.  If it
-                        // works, use the function.
-                        new MouseEvent("click");
-                        saveAs(finalContent, "wireless-settings.zip", true);
-
-                        return null;
-                    } catch (e) {
-                        // On error, fallback to a data uri
-                        return zip.generateAsync({
-                            compression: "DEFLATE",
-                            type: "base64"
-                        }).then((base64Content) => {
-                            location.href = `data:application/zip;base64,${base64Content}`;
-                        });
-                    }
+                    saveAs(finalContent, "wireless-settings.zip", true);
                 }).then(null, (err) => {
                     console.log(err);
                     console.log(err.toString());
