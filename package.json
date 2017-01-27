@@ -23,7 +23,6 @@
         "metalsmith-babel": "~4.1.0",
         "metalsmith-broken-link-checker": "~0.1.11",
         "metalsmith-clean-css": "~5.0.0",
-        "metalsmith-code-highlight": "~0.0.3",
         "metalsmith-concat": "~6.0.0",
         "metalsmith-data-loader": "~1.0.0",
         "metalsmith-each": "~0.1.1",

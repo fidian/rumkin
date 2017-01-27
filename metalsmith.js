@@ -69,7 +69,7 @@ use("metalsmith-relative-links");
 // Add `propName?` and `_parent` properties throughout the metadata.  This
 // is added early for mustache parsing in markdown before templating.
 use("metalsmith-mustache-metadata", {
-    match: '**/*.{htm,html,md}'
+    match: "**/*.{htm,html,md}"
 });
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
@@ -78,11 +78,6 @@ debug.enable(`${debug.load()} metalsmith-hbt-md`);
 use("metalsmith-hbt-md", handlebars);
 // Convert Markdown to HTML.
 use("metalsmith-markdown");
-
-if (!process.env.FASTBUILD) {
-    // Highlight code in HTML.
-    use("metalsmith-code-highlight");
-}
 
 // Add a `rootPath` metadata property to all files.  It's relative, allowing
 // the site to be hosted under any path.  "" = at root, or could be ".." or
