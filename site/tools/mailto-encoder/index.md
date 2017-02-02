@@ -1,8 +1,9 @@
 ---
 title: Email Address (Mailto:) Encoder
-template: index.jade
 module: emailEncoder
-js: email-encoder.js email-encoder-simple.js
+js:
+    - ../../js/email-encoder.js
+    - email-encoder.js
 ---
 
 Junk email (a.k.a. spam) is a part of everyone's life if they ever put their email address on the web.  For HTML authors, site admins, and for people who want a little credit on the page that they put online, it is a constant problem.  You want to include your email address on the page, but you don't want your email address to be harvested by spambots.
@@ -17,11 +18,11 @@ The best thing you can do is encode your email address so that browsers can see 
 
 <div class="tabpane" ng-show="type != 'custom' && type != 'raw'" email-encoder-simple>
     <p>
-        Email Address:  <input ng-bind="email" placeholder="user@example.com" type="email" /><br />
+        Email Address:  <input ng-model="email" placeholder="user@example.com" type="email" /><br />
         Do not worry; your email won't leave your computer.
     </p>
     <p>
-        Link text:  <input type="text" ng-bind="text" /><br />
+        Link text:  <input type="text" ng-model="text" /><br />
         If you leave this blank, the link will show your email address.
     </p>
     <div ng-show="!result">
@@ -42,7 +43,7 @@ The best thing you can do is encode your email address so that browsers can see 
 
 
 About The Encoder
-=================
+-----------------
 
 These tools do not steal your email addresses.  Nothing is sent back to my server, and everything runs in JavaScript in your browser.  If you don't believe me, check out this [independent review](http://www.dslreports.com/forum/remark,7309390~root=spam~mode=flat) of a mirror the tools provided here.
 
@@ -62,12 +63,12 @@ If there is much demand, this program can be further enhanced to do the followin
 * Work with imagemaps and links better (you can use it now with imagemaps -- see [these instructions](imagemaps/).
 * Make the JavaScript put up a link that, when clicked, will pop open a window and automatically roll-over to the right email address.  This doesn't appear to have more security than the JavaScript code already in place.
 * Generate the code necessary for a form button that will take appropriate action when clicked.  This also doesn't appear to be better and browsers can have difficulty showing or submitting the form.
-* Generate code for a Java applet to display your email address.  Unfortunately, Java appears to be on its way out.
+* Generate code for a Java applet or Flash to display your email address, but Java and Flash are on the way out.
 * Use some server-side software (like this [PHP code](example.txt)) to make any email addresses on your site encrypted.
 
 
 Links
-=====
+-----
 
 * [French version](http://www.pascalirma.org/masquage_email.php) - Thanks to Pascal for translating a previous version of this email address encoder!
 * [Email Encoder](http://www.metaprog.com/samples/encoder.htm) - A lot more on using links to call JavaScript functions that take your browser to the email link.
