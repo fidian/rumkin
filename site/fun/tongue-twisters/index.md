@@ -249,6 +249,8 @@ Were the ones in the last section too easy?  Let's step this up a notch.  Attemp
 
 93. Wow, race winners really want red wine right away!
 
+94. Swan swam over the sea. Swim, swan, swim. Swan swam back again. Well swum, swan!
+
 
 Verse and Story
 ===============
