@@ -12,11 +12,13 @@ A close friend will help you find a hidden talent.
 A confidential tip will clue you in to a great financial deal.
 Act as if it were impossible to fail.
 Actions speak louder than words.
+Actions speak louder than words.
 A cynic is a person who looks down at those above.
 A dark haired woman will soon be giving you a gift.
 A distance romance could begin to look more promising.
 Adjust finances - make budgets to improve your financial standing.
 A dream is just a dream. A goal is a dream with a plan and a deadline.
+A dream will always triumph over reality, once it is given a chance.
 A dream you have today will come true tomorrow.
 Adventure can be a real happiness.
 Advice given to you will be well worth following.
@@ -27,6 +29,8 @@ A friend will be important to you and your forthcoming success.
 A gambler not only will lose what he has, but also will lose what he doesn't have.
 Age can never hope to win you while your heart is young.
 A good beginning is half the task.
+A good beginning is half the task.
+A good evening is one spent in good company.
 A good evening is one spent in good company.
 A good time to start something new.
 A great man never ignores the simplicity of a child.
@@ -36,7 +40,9 @@ Aim high in hope and work.
 A letter of great importance may reach you any day now.
 A liar is not believed even when telling the truth.
 A lifestyle is what you pay for; a life is what pays you.
+A lifestyle is what you pay for; a life is what pays you.
 All decisions you make today will be most fortunate.
+All generalities are false.
 All generalities are false.
 All the world may not love a lover but they will be watching him.
 All your hard work will pay off soon.
@@ -74,6 +80,7 @@ A quiet evening with friends is the best tonic for a long day.
 Arriving at one goal is the starting point to another.
 Ask advice from everyone, but act with your own mind.
 Ask not what your fortune cookie can do for you but what you can do for your fortune cookie.
+A smile increases your face value.
 A smile is a universal communication between two people.
 A smile is nearly always inspired by another smile.
 A smile is the shortest distance between two people.
@@ -91,6 +98,7 @@ Avoid misunderstanding by keeping your ears open.
 Avoid remembering negative aspects of the past.
 Avoid scattering your energies.
 Awaken your divine nature within.
+A way out of a financial mess is discovered as if by magic!
 A way out of a financial mess is discovered as if by magic!
 A wish will be granted after a long delay.
 Be a first rate version of yourself, not a second rate version of someone else.
@@ -111,6 +119,7 @@ Be kind, for everyone you meet is fighting their battle too.
 Be merry and wise.
 Be patient - think, listen and heed signs for personal gain.
 Be prepared to modify your plan.
+Be prepared to modify your plan. It'll be good for you!
 Be prepared to receive something special.
 Be prepared to receive something special with no strings attached.
 Be smart, but never show it.
@@ -149,6 +158,7 @@ Do not let others take advantage of you.
 Don't be afraid to take that big step.
 Don't be hasty, prosperity will knock on your door soon.
 Don't behave with cold manners.
+Don't behave with cold manners.
 Don't ignore your needs in the area of new challenges.
 Don't let unexpected situations throw you.
 Don't pursue happiness - create it.
@@ -173,8 +183,8 @@ Enjoy life! It is better to be happy than wise.
 Enjoy the lighter things in life and deeper joys will follow.
 Enthusiastic leadership gets you a promotion when you least expect it.
 Even the smallest candle burns brighter in the dark.
-Every adversity carries with it the seed of an equal or greater benefit.
 Every action has a counter action. Just if you can see it or not.
+Every adversity carries with it the seed of an equal or greater benefit.
 Every artist was first an amateur.
 Everyone agrees you are the best.
 Everyone has ambitions.
@@ -190,6 +200,7 @@ Explore an unpaved road with a new friend.
 Explore your own world by working together with your friends.
 Failure is the mother of success.
 Fame and fortune are coming your way.
+Fate will find a way.
 Fate will find a way.
 Fear is just excitement in need of an attitude adjustment.
 Fear is the root of all evil.
@@ -209,6 +220,8 @@ Genius is more work than genius.
 Get ready for a daring adventure.
 Get your mind set... Confidence will lead you on.
 Give yourself some peace and quiet for at least a few hours.
+Give yourself some peace and quiet for at least a few hours.
+Go after what you want; there's no time like the present.
 God gave man limited ability, but unlimited ambition and desire.
 Golden invenstment opportunities are arising.
 Good beginning is half done.
@@ -242,11 +255,13 @@ Health and happiness are in your destiny.
 He deserves paradise who makes his companions laugh.
 He that gives should not remember, he that receives should never forget.
 He who knows the most says the least.
+He who seeks will find.
 Hold yourself well in control; you will hear comforting news.
 Honor is your greatest reward.
 Hope is the most precious treasure to a person.
 How dark is dark? How wise is wise?
 Hugs are life's rainbows.
+If I bring forth what is inside me, what I bring forth will save me.
 If it is meant to be, who are you to change that? It's time to believe it.
 If strength were all, tiger would not fear scorpion.
 If the idea you had three days ago still looks good, do it!
@@ -254,6 +269,7 @@ If there are only 3 colors, 10 digits, and 7 notes; it's what we do with them th
 If we are all worms, try to be a glow worm.
 If you can shape it in your mind, you will find it in your life.
 If you carry your childhood with you, you never become older.
+If you don't stand for something, you'll fall for anything.
 If you feel you are right, stand firmly by your convictions.
 If you keep silent, no one can misquote you.
 If you look in the right places, you can find some good offerings.
@@ -347,6 +363,7 @@ Never forget a friend, especially if he owes you.
 Never hesitate to tackle the most difficult problems.
 Never say never.
 New people will bring you new realizations, especially big issues.
+Next week, your lucky color will be green!
 No one ever went out of business because of low overhead.
 No one is happy who does not think himself so.
 Not every soil can bear all things. Be practical.
@@ -391,6 +408,7 @@ Prosperity makes friends; adversity tries them.
 Pure pleasure is found in useful work.
 Rare experiences will enrich your life.
 Rarely do great beauty and great virtue dwell together as they do in you.
+Reach for the high apples first; you can get the low ones any time.
 Reality is for people who lack imagination.
 Relax and enjoy yourself.
 Remember three months from this date. Good things are in store for you.
@@ -494,6 +512,7 @@ The secret that leads to many goals is tenacity.
 The skills you have gathered will one day come in handy.
 The smart thing is to prepare for the unexpected.
 The star of riches is shining upon you.
+The strengths in your character will bring you serenity.
 The surest way to have nothing to give is to give nothing.
 The thought that leads to no action is not thought - it is dreaming.
 The time is always right to do what is right.
@@ -623,6 +642,7 @@ You are talented in many ways.
 You are the center of every group's attention.
 You are the flexible person in your present situation.
 You are the guiding star of his existence.
+You are the life of any party.
 You are the master of every situation.
 You are very persistent in pursuing your goals in life.
 You are very wealthy, but you don't know it.
@@ -711,6 +731,7 @@ You possess natural tact and good taste.
 Your air of confidence naturally draws others to you.
 Your best three doctors are faith, time and patience.
 Your career plans look bright.
+Your careful nature will bring you financial success.
 Your charm is quite irresistible.
 Your cheerful outlook is one of your assets.
 Your confidence and assurance attracts others.
@@ -799,6 +820,7 @@ You will be successful in your career.
 You will be successful in your work.
 You will be traveling and coming into a fortune.
 You will be traveling to distant lands for business purposes.
+You will be traveling to distant lands for business purposes.
 You will be unusually successful in business.
 You will brighten someone's day.
 You will broaden your horizons this month.
@@ -809,6 +831,7 @@ You will enjoy good health; that is your form of wealth.
 You will find good fortune in love.
 You will find your solution where you least expect it.
 You will get an offer that will be hard to turn down.
+You will have a chance soon to make a profitable transaction.
 You will have a chance soon to make a profitable transaction.
 You will have good luck and overcome many hardships.
 You will have good luck in business affairs.
