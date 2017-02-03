@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Levenshtein string comparison function
  *
@@ -5,8 +6,9 @@
  * License:  http://rumkin.com/license.html
  */
 function levenshtein(str1, str2) {
-    'use strict';
-    var i, j, diagonal, letter, cost, arr;
+    "use strict";
+
+    var i, j, diagonal, letter, cost, arr, newValue;
 
     if (str1.length * str2.length === 0) {
         return str1.length + str2.length;
@@ -14,35 +16,45 @@ function levenshtein(str1, str2) {
 
     arr = [];
 
-    for (i = 0; i <= str1.length; i += 1) {
-        // length + 1 array elements
-        arr.push(i + 1);
+    // Force the shorter string to be str2
+    if (str1.length > str2.length) {
+        i = str2;
+        str2 = str1;
+        str1 = i;
     }
 
-    for (i = 0; i < str2.length; i += 1) {
-        diagonal = arr[0] - 1;
+    // Initialize an array that's one larger than the short string
+    for (i = 0; i <= str2.length; i += 1) {
+        arr[i] = i;
+    }
+
+    // Iterate through the first string.
+    for (i = 0; i < str1.length; i += 1) {
+        // Initial cost is equal to the character position
+        diagonal = i;
+
+        // First array position is a convenience thing representing
+        // the situation "if we have to delete all characters"...
         arr[0] = i + 1;
-        letter = str2.charAt(i);
+        letter = str1.charAt(i);
 
-        for (j = 0; j < str1.length; j += 1) {
-            cost = diagonal;
-
-            if (str1.charAt(j) !== letter) {
-                cost += 1;
+        // Letter index j manipulates arr[j + 1]
+        for (j = 0; j < str2.length; j += 1) {
+            if (letter === str2.charAt(j)) {
+                cost = 0;
+            } else {
+                cost = 1;
             }
 
-            if (cost > arr[j]) {
-                cost = arr[j];
-            }
-
-            if (cost > arr[j + 1]) {
-                cost = arr[j + 1];
-            }
-
-            diagonal = arr[j + 1] - 1;
-            arr[j + 1] = cost + 1;
+            newValue = Math.min(arr[j] + 1, arr[j + 1] + 1, diagonal + cost);
+            diagonal = arr[j + 1];
+            arr[j + 1] = newValue;
         }
     }
 
-    return arr.pop() - 1;
+    return arr.pop();
+}
+
+if (module && module.exports) {
+    module.exports = levenshtein;
 }
