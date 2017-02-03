@@ -4,6 +4,7 @@
     "scripts": {
         "build": "node metalsmith.js",
         "fastbuild": "FASTBUILD=true node metalsmith.js",
+        "test": "JASMINE_CONFIG_PATH=jasmine.json jasmine",
         "watch": "SERVE=true node metalsmith.js"
     },
     "dependencies": {
@@ -12,6 +13,7 @@
         "es5-shim": "~4.5.9",
         "file-saver": "~1.3.3",
         "handlebars": "~4.0.6",
+        "jasmine": "~2.5.3",
         "jquery": "~3.1.1",
         "jszip": "~3.1.3",
         "jszip-utils": "~0.0.2",
