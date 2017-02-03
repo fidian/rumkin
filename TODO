@@ -1,14 +1,14 @@
 THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
-* Jasmine tests for software/ and tools/
-* Test the marquee generator and its angular changes
-* Test the decision tree - it now loads JSON
+* Jasmine tests for tools/mailto-encoder/
+* manually test the marquee generator and its angular changes
+* manually test the decision tree - it now loads JSON
 * Update the JS in reference/dnd/diestats/ and include tests
 * Should rewrite metalsmith-hbt-md to use marked (same as metalsmith-layout) so I can register a directory of partials to use in the markdown.
     * Make a subpage listing partial.  reference/problems software tools/trinkets
 * Pull images out of Google Plus for whiteboard testing photo album.  Include in site.
     * Should use some sort of gallery plugin or renderer.
 * Table sorter could be made into Angular instead of jQuery.
-* Table sorter doesn't have visual indication that the table can be sorted, though I believe that is due to some missing CSS.  reference/whiteboard/surfaces/
+* Make table sorter CSS more atomic.
 * Email rules may have changed since RFC 2822 is now obsolete.
 * programming/atomic-css needs expansion
 
