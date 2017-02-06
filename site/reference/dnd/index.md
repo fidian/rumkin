@@ -45,6 +45,8 @@ Rules
 
 * [Wu Jen](http://www.geocities.com/winspir/) - Wonderful Excel spreadsheets covering items, spells, characters, and a very large one that will help generate random monster encounters.
 
+* [The Alignment System](http://easydamus.com/alignment.html) - Thorough site explaining the various aspects of each of the alignments. Includes an alignment test to help you pick the alignment that represents your beliefs.
+
 
 Software
 --------
@@ -68,8 +70,6 @@ Amusements
 ----------
 
 * [Rules of Adventuring](rules/) - Follow these rules and you will likely stay alive.
-
-* [Alignment Test](http://www.wizards.com/default.asp?x=dnd/dnd/20001222b) - Take this test while you are thinking of your character's personality.  It will help you find your alignment.
 
 * [D&D Race Test](http://www.okcupid.com/tests/take?testid=4428779146069160628) - Ever know what race you should be?  Now you can take a test and have that information just handed to you.
 
