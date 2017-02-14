@@ -13,6 +13,8 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * programming/atomic-css needs expansion
 
 
+T9 encoding / decoding
+
 Make a markdown editor.  Support shared storage, dropbox, github, google drive, one drive, file on disk.  Support different markdown engines.  Run entirely in browser.  Similar to
 * http://dillinger.io/
 * https://stackedit.io/
