@@ -80,8 +80,8 @@ use("metalsmith-hbt-md", handlebars);
 use("metalsmith-markdown");
 
 // Add a `rootPath` metadata property to all files.  It's relative, allowing
-// the site to be hosted under any path.  "" = at root, or could be ".." or
-// "../.." etc.
+// the site to be hosted under any path.  "" = at root, or could be "../" or
+// "../../" etc.
 use("metalsmith-rootpath");
 // Embed HTML within the templates.
 use("metalsmith-layouts", {
