@@ -13,6 +13,10 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * programming/atomic-css needs expansion
 
 
+Incorporate additional tools. http://www.simonsingh.net/The_Black_Chamber/vigenere_cracking_tool.html and other things at his site.
+
+Vigenere cracking tool. https://www.guballa.de/vigenere-solver
+
 T9 encoding / decoding
 
 Make a markdown editor.  Support shared storage, dropbox, github, google drive, one drive, file on disk.  Support different markdown engines.  Run entirely in browser.  Similar to
