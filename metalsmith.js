@@ -1,27 +1,10 @@
 "use strict";
 
-var debug, handlebars, metadata, Metalsmith, smith, timer;
+var debug, handlebars, metadata, sugar;
 
-
-/**
- * Adds a middleware to Metalsmith.
- *
- * @param {string} moduleName
- * @param {*} args...
- */
-function use(moduleName) {
-    var args, middleware;
-
-    args = [].slice.call(arguments, 1);
-    middleware = require(moduleName);
-    smith.use(middleware.apply(null, args));
-    smith.use(timer(moduleName));
-}
 
 debug = require("debug");
 handlebars = require("handlebars");
-Metalsmith = require("metalsmith");
-timer = require("metalsmith-timer");
 
 
 /* ********************************************************************
@@ -37,21 +20,19 @@ if (process.env.SERVE) {
 /* ********************************************************************
  * Make the new Metalsmith object
  ******************************************************************* */
-smith = new Metalsmith(__dirname)
-.metadata(metadata)
-.source("./site")
-.destination("./build")
-.clean(true)
-// Add the timer here manually.  The use() function adds it again after
-// each middleware added.
-.use(timer("source files loaded"));
+sugar = require("metalsmith-sugar")({
+    clean: true,
+    destination: "./build",
+    metadata,
+    source: "./site"
+});
 
 
 /* ********************************************************************
  * Make the new Metalsmith object
  ******************************************************************* */
 // Load files referenced in `data` metadata property.
-use("metalsmith-data-loader", {
+sugar.use("metalsmith-data-loader", {
     removeSource: true
 });
 
@@ -63,28 +44,28 @@ use("metalsmith-data-loader", {
  ******************************************************************* */
 // Set up links so indices and automatic subpage listings can be generated
 // within a document.
-use("metalsmith-ancestry");
+sugar.use("metalsmith-ancestry");
 // Allow Mustache templates to build sub-links
-use("metalsmith-relative-links");
+sugar.use("metalsmith-relative-links");
 // Add `propName?` and `_parent` properties throughout the metadata.  This
 // is added early for mustache parsing in markdown before templating.
-use("metalsmith-mustache-metadata", {
+sugar.use("metalsmith-mustache-metadata", {
     match: "**/*.{htm,html,md}"
 });
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
 // this debug setting needs to be set.
 debug.enable(`${debug.load()} metalsmith-hbt-md`);
-use("metalsmith-hbt-md", handlebars);
+sugar.use("metalsmith-hbt-md", handlebars);
 // Convert Markdown to HTML.
-use("metalsmith-markdown");
+sugar.use("metalsmith-markdown");
 
 // Add a `rootPath` metadata property to all files.  It's relative, allowing
 // the site to be hosted under any path.  "" = at root, or could be "../" or
 // "../../" etc.
-use("metalsmith-rootpath");
+sugar.use("metalsmith-rootpath");
 // Embed HTML within the templates.
-use("metalsmith-layouts", {
+sugar.use("metalsmith-layouts", {
     default: "page.html",
     directory: "layouts",
     engine: "handlebars",
@@ -97,22 +78,22 @@ use("metalsmith-layouts", {
  * LESS + HTML(Atomic) + CSS -> CSS
  ******************************************************************* */
 // Convert LESS to CSS
-use("metalsmith-less");
+sugar.use("metalsmith-less");
 // metalsmith-less does not remove source files.  This does.
-use("metalsmith-move-remove", {
+sugar.use("metalsmith-move-remove", {
     remove: [
         ".*\\.less$"
     ]
 });
 // Generate CSS from HTML using Atomizer.
-use("metalsmith-atomizer", {
+sugar.use("metalsmith-atomizer", {
     destination: "css/atomic.css",
     setOptions: {
         namespace: "body"
     }
 });
 // Merge all CSS together except special per-page CSS.
-use("metalsmith-concat", {
+sugar.use("metalsmith-concat", {
     files: "css/**/*.css",
     output: "css/site.css"
 });
@@ -123,7 +104,7 @@ use("metalsmith-concat", {
  ******************************************************************* */
 if (!process.env.FASTBUILD) {
     // Make ES6 more friendly to browsers.
-    use("metalsmith-babel", {
+    sugar.use("metalsmith-babel", {
         presets: [
             "latest"
         ]
@@ -135,7 +116,7 @@ if (!process.env.FASTBUILD) {
  * My custom linting rules. Simply emits warnings to console.
  * Must happen before minification.
  ******************************************************************* */
-use("metalsmith-each", (file, filename) => {
+sugar.use("metalsmith-each", (file, filename) => {
     var contents;
 
     // Only valid extensions allowed.
@@ -181,10 +162,10 @@ use("metalsmith-each", (file, filename) => {
 if (!process.env.UNMINIFIED) {
     // Minify HTML
     // This must happen after atomizer parses the HTML.
-    use("metalsmith-html-minifier");
+    sugar.use("metalsmith-html-minifier");
 
     // Minify CSS
-    use("metalsmith-clean-css", {
+    sugar.use("metalsmith-clean-css", {
         cleanCSS: {
             // Rebasing breaks links because it doesn't understand the
             // real CSS location.
@@ -195,7 +176,7 @@ if (!process.env.UNMINIFIED) {
 
     if (!process.env.FASTBUILD) {
         // Minify JS
-        use("metalsmith-uglify", {
+        sugar.use("metalsmith-uglify", {
             nameTemplate: "[name].[ext]",
             preserveComments: "some"
         });
@@ -206,7 +187,7 @@ if (!process.env.UNMINIFIED) {
 /* ********************************************************************
  * Static assets outside of the source folder.
  ******************************************************************* */
-use("metalsmith-assets", {
+sugar.use("metalsmith-assets", {
     destination: ".",
     source: "./assets"
 });
@@ -217,7 +198,7 @@ use("metalsmith-assets", {
  ******************************************************************* */
 if (process.env.JSON) {
     // Debugging on the fly
-    use("metalsmith-writemetadata", {
+    sugar.use("metalsmith-writemetadata", {
         bufferencoding: "utf8",
         ignorekeys: [
             "ancestry",
@@ -229,14 +210,14 @@ if (process.env.JSON) {
 
 if (process.env.SERVE) {
     // Serve files with livereload enabled.
-    use("metalsmith-serve", {
+    sugar.use("metalsmith-serve", {
         http_error_files: {
             404: "/404.html"
         },
         verbose: true
     });
     // When files change, build them again.
-    use("metalsmith-watch", {
+    sugar.use("metalsmith-watch", {
         livereload: metadata.liveReload,
         paths: {
             "${source}/**/*.{css,less}": "**/*.{css,less}",
@@ -248,14 +229,9 @@ if (process.env.SERVE) {
     });
 } else {
     // Can only check for broken links if we are NOT using watch.
-    use("metalsmith-broken-link-checker", {
+    sugar.use("metalsmith-broken-link-checker", {
         warn: true
     });
 }
 
-debug("metalsmith-timer")("javascript modules loaded");
-smith.build((err) => {
-    if (err) {
-        throw err;
-    }
-});
+sugar.build();
