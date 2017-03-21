@@ -1,3 +1,3 @@
 "use strict";
 
-global.lz77 = require("../../../lib/compression/lz77");
+global.lz77 = require("../../../../rumkin-compression/").lz77;

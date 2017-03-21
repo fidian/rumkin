@@ -1,9 +1,8 @@
 "use strict";
 
-var debug, handlebars, metadata, sugar;
+var handlebars, metadata, sugar;
 
 
-debug = require("debug");
 handlebars = require("handlebars");
 
 
@@ -55,7 +54,6 @@ sugar.use("metalsmith-mustache-metadata", {
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
 // this debug setting needs to be set.
-debug.enable(`${debug.load()} metalsmith-hbt-md`);
 sugar.use("metalsmith-hbt-md", handlebars);
 // Convert Markdown to HTML.
 sugar.use("metalsmith-markdown");
@@ -102,7 +100,7 @@ sugar.use("metalsmith-concat", {
 /* ********************************************************************
  * JS -> JS
  ******************************************************************* */
-use("metalsmith-browserify-alt", {});
+sugar.use("metalsmith-browserify-alt", {});
 
 if (!process.env.FASTBUILD) {
     // Make ES6 more friendly to browsers.

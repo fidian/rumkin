@@ -29,7 +29,7 @@
         "metalsmith-concat": "~6.0.0",
         "metalsmith-data-loader": "~1.0.3",
         "metalsmith-each": "~0.1.1",
-        "metalsmith-hbt-md": "~1.0.0",
+        "metalsmith-hbt-md": "~1.0.1",
         "metalsmith-html-minifier": "~2.2.0",
         "metalsmith-layouts": "~1.8.0",
         "metalsmith-less": "~2.0.0",
