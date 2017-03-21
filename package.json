@@ -10,6 +10,7 @@
     "dependencies": {
         "angular": "~1.6.3",
         "babel-preset-latest": "~6.24.0",
+        "browserify": "~14.0.0",
         "es5-shim": "~4.5.9",
         "file-saver": "~1.3.3",
         "handlebars": "~4.0.6",
@@ -23,6 +24,7 @@
         "metalsmith-atomizer": "~1.0.3",
         "metalsmith-babel": "~4.1.0",
         "metalsmith-broken-link-checker": "~0.1.11",
+        "metalsmith-browserify-alt": "~1.0.1",
         "metalsmith-clean-css": "~5.0.1",
         "metalsmith-concat": "~6.0.0",
         "metalsmith-data-loader": "~1.0.3",

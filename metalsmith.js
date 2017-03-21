@@ -102,6 +102,8 @@ sugar.use("metalsmith-concat", {
 /* ********************************************************************
  * JS -> JS
  ******************************************************************* */
+use("metalsmith-browserify-alt", {});
+
 if (!process.env.FASTBUILD) {
     // Make ES6 more friendly to browsers.
     sugar.use("metalsmith-babel", {
