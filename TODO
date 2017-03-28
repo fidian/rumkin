@@ -13,6 +13,11 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * programming/atomic-css needs expansion
 
 
+Diceware alternate wordlists.
+* https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt
+* Diceware has a few as well.
+* Any wordlist should work, regardless of the length.
+
 Incorporate additional tools. http://www.simonsingh.net/The_Black_Chamber/vigenere_cracking_tool.html and other things at his site.
 
 Vigenere cracking tool. https://www.guballa.de/vigenere-solver
