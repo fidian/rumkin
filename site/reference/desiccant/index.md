@@ -40,7 +40,7 @@ Materials Needed
 
 These instructions tell you how to create a desiccant bag.  Other tips are listed below in case you want a container or something else.  The bag made in this process has a vinyl side so you can see the indicator crystals and know when you need to "recharge" your reusable bag.
 
-* Silica Gel - You can get this from your local hobby store.  It is used for drying flowers.  Make sure to get "indicator crystals" in with the silica.  They will turn from blue to pick, telling you when you need to recharge your desiccant bag.  Also, silica gel comes as particles, not as an actual gel.
+* Silica Gel - You can get this from your local hobby store.  It is used for drying flowers.  Make sure to get "indicator crystals" in with the silica.  They will turn from blue to pink, telling you when you need to recharge your desiccant bag.  Also, silica gel comes as particles, not as an actual gel.
 
 * Cloth - I have some muslin in the picture, but you may wish to have something a little more dense.  Perhaps an old cotton shirt would work.  You do not want to let the silica out.
 
