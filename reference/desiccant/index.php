@@ -78,7 +78,7 @@ know when you need to "recharge" your reusable bag.</p>
 
 <p><b>Silica Gel</b> - You can get this from your local hobby store.  It is
 used for drying flowers.  Make sure to get "indicator crystals" in with the
-silica.  They will turn from blue to pick, telling you when you need to
+silica.  They will turn from blue to pink, telling you when you need to
 recharge your desiccant bag.  Also, silica gel comes as particles, not as an
 actual gel.</p>
 
