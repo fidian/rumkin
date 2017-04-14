@@ -189,7 +189,11 @@ if (!process.env.UNMINIFIED) {
  ******************************************************************* */
 sugar.use("metalsmith-assets", {
     destination: ".",
-    source: "./assets"
+    source: "./asset"
+});
+sugar.use("metalsmith-assets", {
+    destination: ".",
+    source: "./redirect"
 });
 
 
