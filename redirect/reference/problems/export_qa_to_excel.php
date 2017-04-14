@@ -1,3 +1,3 @@
 <?php
 
-header("Location: ./", true, 301);
+header("Location: ../../problems/export-qa-to-excel/", true, 301);

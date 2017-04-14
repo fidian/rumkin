@@ -1,3 +1,3 @@
 <?php
 
-header("Location: ./", true, 301);
+header("Location: ../../problems/windows-domain-time-diff/", true, 301);

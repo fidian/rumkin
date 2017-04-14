@@ -1,9 +1,0 @@
-GeoNav|geonav/
-Include|include.php
-JavaScript Speed|js_speed.php
-LifeGenesis|lg.php
-Mouseover|desc.php
-Onload|onload.php
-Popup Data Passing|popup_window.php
-Shortcut Icon|shortcut.php
-Transparency|transparency.php

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-rm -f bots.zip
-zip bots.zip *.pdb
