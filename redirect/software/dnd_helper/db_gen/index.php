@@ -1,3 +1,3 @@
 <?php
 
-header("Location: ./", true, 301);
+header("Location: ../../dnd-helper/", true, 301);
