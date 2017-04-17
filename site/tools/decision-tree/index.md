@@ -1,7 +1,7 @@
 ---
 title: Decision Tree
 js:
-    - ../../js/marked.js
+    - ../../js/marked.min.js
     - ../../js/modules/angular-marked.js
     - decision-tree.js
 module: decisionTree
@@ -28,14 +28,14 @@ controller: decisionTreeController
     Error with tree:  <span ng-bind="tree.error"></span>
 </div>
 
-<div ng-if="tree" marked="'# ' + tree.title">
-</div>
-
-<div ng-if="question">
-    <div marked="question.text">
+<div ng-if="tree && tree.isLoaded">
+    <div marked="'# ' + tree.title">
     </div>
-    <div ng-repeat="(key, answer) in question.answers">
-        <a ng-href="'?tree=' + tree.name + '&q=' + key" ng-click="selectAnswer(key)" marked="answer" href="#"></a>
+    <div ng-if="question">
+        <div marked="question.text">
+        </div>
+        <div ng-repeat="(key, answer) in question.answers">
+            <a ng-click="selectAnswer(key)" marked="answer" href="#"></a>
+        </div>
     </div>
 </div>
-
