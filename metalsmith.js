@@ -102,14 +102,17 @@ sugar.use("metalsmith-concat", {
  ******************************************************************* */
 sugar.use("metalsmith-browserify-alt", {});
 
-if (!process.env.FASTBUILD) {
-    // Make ES6 more friendly to browsers.
-    sugar.use("metalsmith-babel", {
-        presets: [
-            "latest"
-        ]
-    });
-}
+// Make ES6 more friendly to browsers.
+sugar.use("metalsmith-babel", {
+    presets: [
+        "latest"
+    ]
+});
+
+sugar.use("metalsmith-ng-annotate", {
+    add: true,
+    pattern: "**/!(*spec).js"
+});
 
 
 /* ********************************************************************
