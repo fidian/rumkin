@@ -28,7 +28,7 @@ angular.module("randomLine", []).directive("randomLine", ($http) => {
             $scope.line = "";
         },
         scope: {
-            uri: "=randomLine"
+            uri: "@randomLine"
         },
         template: "{{line}}"
     };
