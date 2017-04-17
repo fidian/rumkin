@@ -2,7 +2,6 @@
 title: Email Address (Mailto:) Encoder
 module: emailEncoder
 js:
-    - ../../js/email-encoder.js
     - email-encoder.js
 ---
 
@@ -10,19 +9,17 @@ Junk email (a.k.a. spam) is a part of everyone's life if they ever put their ema
 
 The best thing you can do is encode your email address so that browsers can see it and spambots can not.  This is what this tool attempts to do. I have created two different versions of the address encoder.  Please pick the one that is appropriate:
 
-<div class="tabset">
-    <span ng-click="type = 'simple'" ng-class="{selected:type != 'custom' && type != 'raw'}">Simple</span>
-    <span ng-click="type = 'custom'" ng-class="{selected:type == 'custom'}">Advanced</span>
-    <span ng-click="type = 'raw'" ng-class="{selected:type == 'raw'}">Text / HTML Encoder</span>
-</div>
 
-<div class="tabpane" ng-show="type != 'custom' && type != 'raw'" email-encoder-simple>
+Simple Email Encoder
+--------------------
+
+<div email-encoder-simple>
     <p>
-        Email Address:  <input ng-model="email" placeholder="user@example.com" type="email" /><br />
+        Email Address:  <input ng-model="email" placeholder="user@example.com" type="email"><br>
         Do not worry; your email won't leave your computer.
     </p>
     <p>
-        Link text:  <input type="text" ng-model="text" /><br />
+        Link text:  <input type="text" ng-model="text"><br>
         If you leave this blank, the link will show your email address.
     </p>
     <div ng-show="!result">
@@ -34,11 +31,45 @@ The best thing you can do is encode your email address so that browsers can see 
         To use this, copy and paste the above into your HTML web page.  When viewed in a browser it will show a link that will send you an email.
     </div>
 </div>
-<div class="tabpane" ng-show="type == 'custom'">
-    Simple yo custom
-</div>
-<div class="tabpane" ng-show="type == 'raw'">
-    Simple yo raw
+
+
+Custom Email Encoder
+--------------------
+
+Did you need a bit more control? This one is far fancier, but that means it is also more complex and could generate something invalid. Make sure to test the generated code.
+
+Not all fields work well with all combinations of browsers and email clients. It is best if you only use the "To" field, but the others are available.
+
+<div email-encoder-custom>
+    <p>
+        To: <input ng-model="email" placeholder="user@example.com, user2@example.com" type="text" required><br>
+        CC: <input ng-model="cc" type="text"><br>
+        BCC: <input ng-model="bcc" type="text"><br>
+        Subject: <input ng-model="subject" type="text"><br>
+        Body: <input ng-model="body" type="text">
+    </p>
+    <p>
+        <label><input type="radio" ng-model="encoding" value="none"> - Skip encoding the link.</label><br>
+        <label><input type="radio" ng-model="encoding" value="html"> - Create a normal HTML link.</label><br>
+    </p>
+    <p>
+        HTML Label: <input ng-model="linkText" type="text"><br>
+        Only works when creating an HTML link.
+    </p>
+    <p>
+        <label><input type="radio" ng-model="obfuscation" value="none"> - Skip JavaScript-based obfuscation.</label><br>
+        <label><input type="radio" ng-model="obfuscation" value="break"> - Break up strings.</label><br>
+        <label><input type="radio" ng-model="obfuscation" value="shuffled"> - Shuffled encoding.</label><br>
+        <label><input type="radio" ng-model="obfuscation" value="double"> - Double encoded.</label><br>
+    </p>
+    <div ng-show="!result">
+        As you change values, the result shall be seen here.
+    </div>
+    <div ng-show="result">
+        Result:
+        <pre ng-bind="result"></pre>
+        To use this, copy and paste the above into your HTML web page.  When viewed in a browser it will show a link that will send you an email.
+    </div>
 </div>
 
 
@@ -47,8 +78,7 @@ About The Encoder
 
 These tools do not steal your email addresses.  Nothing is sent back to my server, and everything runs in JavaScript in your browser.  If you don't believe me, check out this [independent review](http://www.dslreports.com/forum/remark,7309390~root=spam~mode=flat) of a mirror the tools provided here.
 
-Keep in mind that this is not the end-all.  There are other solutions out
-there, such as:
+Keep in mind that this is not the end-all.  There are other solutions out there, such as:
 
 * Java applet that shows the address and lets you click on it, but will foil spambots because they don't have a Java interpreter.
 * CGI scripts to send you mail directly without ever giving your address out.  Make sure you don't specify the target email address in the feedback form itself!

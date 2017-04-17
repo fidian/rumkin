@@ -1,116 +1,222 @@
-/* global angular, emailEncoder */
+/* global angular */
 
 "use strict";
 
-angular.module("emailEncoder", [
-    "emailEncoderSimple"
-]);
+angular.module("emailEncoder", []);
 
-angular.module("emailEncoderSimple", []).directive("emailEncoderSimple", [
-    function () {
-        return {
-            link: ($scope) => {
-                /**
-                 * Encodes an email address and optionally a link text
-                 */
-                function recode() {
-                    if ($scope.email) {
-                        $scope.result = emailEncoder($scope.email, $scope.text || $scope.email);
-                    } else {
-                        $scope.result = null;
-                    }
+angular.module("emailEncoder").factory("emailEncoder", () => {
+    /**
+     * Encode something so it is safe in a URI.
+     *
+     * @param {string} input
+     * @return {string}
+     */
+    function urlencode(input) {
+        return encodeURI(input);
+    }
+
+
+    /**
+     * Encode something so it is safe to display as HTML.
+     *
+     * @param {string} input
+     * @return {string}
+     */
+    function htmlencode(input) {
+        return angular.element("<pre/>").text(input).html();
+    }
+
+
+    /**
+     * Shuffles and deduplicates the characters in the supplied string.
+     *
+     * Avoid PHP and ASP problems by putting the "<" character at the end.
+     *
+     * @param {string} input
+     * @return {string}
+     */
+    function shuffleAndUnique(input) {
+        var letters, lt;
+
+        letters = "";
+        lt = false;
+        input.split("").forEach((letter) => {
+            var index;
+
+            if (letters.indexOf(letter) === -1) {
+                if (letter === "<") {
+                    lt = true;
+                } else {
+                    index = Math.floor(Math.random() * letters.length);
+                    letters = letters.slice(0, index) + letter + letters.slice(index, letters.length);
                 }
-
-                $scope.$watch("email", recode);
-                $scope.$watch("text", recode);
             }
-        };
-    }
-]);
+        });
 
-/*
-// Functions for just the simple.php page
+        if (lt) {
+            letters += "<";
+        }
 
-
-// Do the encode
-function RunEncode()
-{
-    Error = Check_InvalidEmail(document.MailtoForm.Email.value);
-    if (Error != "")
-    {
-        alert("You didn't fill in a proper email address!\n" + Error);
-        return;
+        return letters;
     }
 
-    LinkText = document.MailtoForm.Email.value;
-    if (document.MailtoForm.TheLink.value != null &&
-        document.MailtoForm.TheLink.value != "")
-    {
-        LinkText = document.MailtoForm.TheLink.value;
+
+    /**
+     * Encodes text as a bunch of indexes into a shuffled list of characters.
+     *
+     * @param {string} input
+     * @return {string} output JavaScript
+     */
+    function shuffledEncode(input) {
+        var indexes, shuffledLetters;
+
+        shuffledLetters = shuffleAndUnique(input);
+        indexes = "";
+        input.split("").forEach((letter) => {
+            indexes += String.fromCharCode(48 + shuffledLetters.indexOf(letter));
+        });
+
+        return `<script>ML=${angular.toJson(shuffledLetters)};
+MI=${angular.toJson(indexes)};
+OT="";for(j=0;j<MI.length;j++){
+OT+=ML.charAt(MI.charCodeAt(j)-48);
+}document.write(OT);</script>`;
     }
 
-    document.MailtoForm.CodeText.value =
-        EncodeEmail(document.MailtoForm.Email.value, LinkText);
-}
 
-function EncodeEmail(str, ltstr)
-{
-    doneStr = "<a href=\"mailto:" + str + "\">" + ltstr + "</a>";
+    /**
+     * Generate link text. Supports "none" (to address only) and "html".
+     *
+     * @param {Object} encoderOpts
+     * @return {string}
+     */
+    function makeLink(encoderOpts) {
+        var query, url;
 
-    loc = 0;
-    LetterList = "";
-    while (loc < doneStr.length)
-    {
-    l = doneStr.slice(loc, loc+1);
-    if (LetterList.indexOf(l) == -1)
-    {
-        p = Rand(LetterList.length + 1);
-        LetterList = LetterList.slice(0, p) + l +
-        LetterList.slice(p, LetterList.length + 1);
-    }
-    loc ++;
-    }
+        if (encoderOpts.encoding === "none") {
+            return encoderOpts.to;
+        }
 
-    LetterListEscaped = LetterList;
+        url = urlencode(encoderOpts.to);
+        query = [];
 
-    // At this point there should only be at most one \ and "
-    // in LetterList and LetterListEscaped
-    p = LetterListEscaped.indexOf("\\");
-    if (p != -1)
-    {
-    LetterListEscaped = LetterListEscaped.slice(0, p) + "\\" +
-        LetterListEscaped.slice(p, LetterListEscaped.length);
-    }
-    p = LetterListEscaped.indexOf("\"");
-    if (p != -1)
-    {
-    LetterListEscaped = LetterListEscaped.slice(0, p) + "\\" +
-        LetterListEscaped.slice(p, LetterListEscaped.length);
-    }
+        if (encoderOpts.subject) {
+            query.push(`subject=${urlencode(encoderOpts.subject)}`);
+        }
 
-    doneStr2 = "<script type=\"text/javascript\" language=\"javascript\">\n";
-    doneStr2 += "<!-- // Generated by http://rumkin.com/tools/mailto_encoder\n";
-    doneStr2 += "ML=\"" + LetterListEscaped + "\";\n";
-    doneStr2 += "MI=\"";
+        if (encoderOpts.cc) {
+            query.push(`cc=${urlencode(encoderOpts.cc)}`);
+        }
 
-    loc = 0;
-    while (loc < doneStr.length)
-    {
-    p = LetterList.indexOf(doneStr.slice(loc, loc+1));
-    p += 48;
-    doneStr2 += String.fromCharCode(p);
-    loc ++;
+        if (encoderOpts.bcc) {
+            query.push(`bcc=${urlencode(encoderOpts.bcc)}`);
+        }
+
+        if (encoderOpts.body) {
+            query.push(`body=${urlencode(encoderOpts.body)}`);
+        }
+
+        if (query.length) {
+            url += `?${query.join("&")}`;
+        }
+
+        return `<a href="mailto:${url}">${htmlencode(encoderOpts.linkText || "")}</a>`;
     }
 
-    doneStr2 += "\";\n";
-    doneStr2 += "OT=\"\";\n";
-    doneStr2 += "for(j=0;j<MI.length;j++){\n";
-    doneStr2 += "OT+=ML.charAt(MI.charCodeAt(j)-48);\n";
-    doneStr2 += "}document.write(OT);\n";
-    doneStr2 += "// --></scr" + "ipt>\n";
-    doneStr2 += "<nosc" +
-        "ript>You need JavaScript to see my email address</nosc" + "ript>";
 
-    return doneStr2;
-}
-*/
+    /**
+     * Obfuscates the text using the given mechanism.
+     *
+     * @param {string} text
+     * @param {Object} encoderOpts
+     * @return {string}
+     */
+    function obfuscate(text, encoderOpts) {
+        switch (encoderOpts.obfuscation) {
+        case "break":
+            return "TODO";
+
+        case "double":
+            return "TODO";
+
+        case "shuffled":
+            return shuffledEncode(text);
+
+        default:
+            return text;
+        }
+    }
+
+
+    return (encoderOpts) => {
+        return obfuscate(makeLink(encoderOpts), encoderOpts);
+    };
+});
+
+angular.module("emailEncoder").directive("emailEncoderSimple", (emailEncoder) => {
+    return {
+        link: ($scope) => {
+            /**
+             * Encodes an email address and optionally a link text
+             */
+            function recode() {
+                if ($scope.email) {
+                    $scope.result = emailEncoder({
+                        to: $scope.email,
+                        encoding: "html",
+                        linkText: $scope.text || $scope.email,
+                        obfuscation: "shuffled"
+                    });
+                } else {
+                    $scope.result = null;
+                }
+            }
+
+            $scope.$watch("email", recode);
+            $scope.$watch("text", recode);
+        },
+        scope: true
+    };
+});
+
+angular.module("emailEncoder").directive("emailEncoderCustom", (emailEncoder) => {
+    return {
+        link: ($scope) => {
+            /**
+             * Encodes an email address and optionally a link text
+             */
+            function recode() {
+                if ($scope.email) {
+                    $scope.result = emailEncoder({
+                        to: $scope.email,
+                        cc: $scope.cc,
+                        bcc: $scope.bcc,
+                        subject: $scope.subject,
+                        body: $scope.body,
+                        encoding: $scope.encoding,
+                        linkText: $scope.linkText,
+                        obfuscation: $scope.obfuscation
+                    });
+                } else {
+                    $scope.result = null;
+                }
+            }
+
+            $scope.encoding = "html";
+            $scope.obfuscation = "shuffled";
+            [
+                "email",
+                "cc",
+                "bcc",
+                "subject",
+                "body",
+                "encoding",
+                "linkText",
+                "obfuscation"
+            ].forEach((field) => {
+                $scope.$watch(field, recode);
+            });
+        },
+        scope: true
+    };
+});
