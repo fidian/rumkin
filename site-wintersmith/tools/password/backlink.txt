@@ -1,4 +1,0 @@
-Diceware|diceware.php
-Generate Pass|pass_gen.php
-MD5|md5.php
-Strength Test|passchk.php
