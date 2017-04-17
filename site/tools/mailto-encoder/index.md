@@ -60,7 +60,6 @@ Not all fields work well with all combinations of browsers and email clients. It
         <label><input type="radio" ng-model="obfuscation" value="none"> - Skip JavaScript-based obfuscation.</label><br>
         <label><input type="radio" ng-model="obfuscation" value="break"> - Break up strings.</label><br>
         <label><input type="radio" ng-model="obfuscation" value="shuffled"> - Shuffled encoding.</label><br>
-        <label><input type="radio" ng-model="obfuscation" value="double"> - Double encoded.</label><br>
     </p>
     <div ng-show="!result">
         As you change values, the result shall be seen here.
@@ -94,7 +93,7 @@ If there is much demand, this program can be further enhanced to do the followin
 * Make the JavaScript put up a link that, when clicked, will pop open a window and automatically roll-over to the right email address.  This doesn't appear to have more security than the JavaScript code already in place.
 * Generate the code necessary for a form button that will take appropriate action when clicked.  This also doesn't appear to be better and browsers can have difficulty showing or submitting the form.
 * Generate code for a Java applet or Flash to display your email address, but Java and Flash are on the way out.
-* Use some server-side software (like this [PHP code](example.txt)) to make any email addresses on your site encrypted.
+* Use some server-side software (like this [PHP code](example-php.txt)) to make any email addresses on your site encrypted.
 
 
 Links

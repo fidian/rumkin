@@ -67,7 +67,7 @@ angular.module("emailEncoder").factory("emailEncoder", () => {
      * @param {string} input
      * @return {string} output JavaScript
      */
-    function shuffledEncode(input) {
+    function shuffledObfuscate(input) {
         var indexes, shuffledLetters;
 
         shuffledLetters = shuffleAndUnique(input);
@@ -81,6 +81,27 @@ MI=${angular.toJson(indexes)};
 OT="";for(j=0;j<MI.length;j++){
 OT+=ML.charAt(MI.charCodeAt(j)-48);
 }document.write(OT);</script>`;
+    }
+
+
+    /**
+     * Break the text up and write it with document.write.
+     *
+     * @param {string} input
+     * @return {string}
+     */
+    function breakObfuscate(input) {
+        var arr, count;
+
+        arr = [];
+
+        while (input.length) {
+            count = Math.floor(Math.random() * 6) + 1;
+            arr.push(input.slice(0, count));
+            input = input.slice(count, input.length);
+        }
+
+        return `<script>document.write(${angular.toJson(arr)}.join())</script>`;
     }
 
 
@@ -134,13 +155,10 @@ OT+=ML.charAt(MI.charCodeAt(j)-48);
     function obfuscate(text, encoderOpts) {
         switch (encoderOpts.obfuscation) {
         case "break":
-            return "TODO";
-
-        case "double":
-            return "TODO";
+            return breakObfuscate(text);
 
         case "shuffled":
-            return shuffledEncode(text);
+            return shuffledObfuscate(text);
 
         default:
             return text;
