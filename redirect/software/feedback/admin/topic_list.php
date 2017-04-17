@@ -1,1 +1,3 @@
-../../../restricted/topic_list.php
+<?php
+
+header("Location: ../../", true, 301);

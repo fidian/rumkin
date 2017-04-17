@@ -1,1 +1,3 @@
-../../inc/topic.php
+<?php
+
+header("Location: ./", true, 301);
