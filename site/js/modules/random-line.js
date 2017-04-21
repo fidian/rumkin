@@ -12,7 +12,6 @@
 angular.module("randomLine", []).directive("randomLine", ($http) => {
     return {
         link($scope) {
-            console.log($scope);
             $scope.line = "Error with URI.";
             $http.get($scope.uri, {
                 cache: true
