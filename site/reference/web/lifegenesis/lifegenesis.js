@@ -1,13 +1,22 @@
-/*global $, document, window*/
-$(function () {
-    'use strict';
-
+/* global $, document, window */
+"use strict";
+$(() => {
     var cells;
 
+    /**
+     * Returns an integer within [0, max).
+     *
+     * @param {number} max
+     * @return {number}
+     */
     function rand(max) {
         return Math.floor(Math.random() * max);
     }
 
+
+    /**
+     * A Cell object
+     */
     function Cell() {
         this.$element = null;
         this.neighbors = [];
@@ -16,9 +25,9 @@ $(function () {
     }
 
     Cell.prototype.addNeighbor = function (otherCell) {
-        if (this.neighbors.some(function (neighbor) {
-                return neighbor === otherCell;
-            })) {
+        if (this.neighbors.some((neighbor) => {
+            return neighbor === otherCell;
+        })) {
             return;
         }
 
@@ -27,8 +36,9 @@ $(function () {
 
     Cell.prototype.getNextState = function () {
         var livingNeighbors;
+
         livingNeighbors = 0;
-        this.neighbors.forEach(function (neighbor) {
+        this.neighbors.forEach((neighbor) => {
             if (neighbor.isAlive()) {
                 livingNeighbors += 1;
             }
@@ -36,17 +46,21 @@ $(function () {
 
         if (this.isAlive()) {
             if (livingNeighbors === 2 || livingNeighbors === 3) {
-                return 2;  // Lasting
+                // Living
+                return 2;
             }
 
-            return 3;  // Dying
+            // Dying
+            return 3;
         }
 
         if (livingNeighbors === 3) {
-            return 1;  // New
+            // New
+            return 1;
         }
 
-        return 0;  // Empty
+        // Empty
+        return 0;
     };
 
     Cell.prototype.isAlive = function () {
@@ -74,32 +88,47 @@ $(function () {
         }
 
         if (this.previousState !== null) {
-            this.$element.removeClass('state' + this.previousState);
+            this.$element.removeClass(`state${this.previousState}`);
         }
 
-        this.$element.addClass('state' + this.state);
-        console.log(this.$element[0].className);
+        this.$element.addClass(`state${this.state}`);
         this.previousState = this.state;
     };
 
-    function makeCells(rows, cols) {
-        var row, col, result, cell, neighborOffsets;
 
-        function addNeighbors(cell, row, col, offset) {
+    /**
+     * Creates the Cell objects to fill a table.
+     *
+     * @param {number} rows
+     * @param {number} cols
+     * @return {Array.<Array.<Cell>>}
+     */
+    function makeCells(rows, cols) {
+        var cell, col, neighborOffsets, result, row;
+
+        /**
+         * Finds nearby neighbors and links both cells together.
+         *
+         * @param {Cell} cellTarget
+         * @param {number} rowTarget
+         * @param {number} colTarget
+         * @param {number} offset
+         */
+        function addNeighbors(cellTarget, rowTarget, colTarget, offset) {
             var otherCell;
 
-            if (result[row + offset[0]] === undefined) {
+            if (typeof result[rowTarget + offset[0]] === "undefined") {
                 return;
             }
 
-            otherCell = result[row + offset[0]][col + offset[1]];
+            otherCell = result[rowTarget + offset[0]][colTarget + offset[1]];
 
-            if (otherCell === undefined) {
+            if (typeof otherCell === "undefined") {
                 return;
             }
 
-            cell.addNeighbor(otherCell);
-            otherCell.addNeighbor(cell);
+            cellTarget.addNeighbor(otherCell);
+            otherCell.addNeighbor(cellTarget);
         }
 
         result = [];
@@ -125,20 +154,26 @@ $(function () {
     }
 
 
-    function makeCellHtml(cells) {
+    /**
+     * Creates the HTML for the cells
+     *
+     * @param {Array.<Array.<Cell>>} cellList
+     * @return {string} HTML
+     */
+    function makeCellHtml(cellList) {
         var fragment;
 
         fragment = document.createDocumentFragment();
 
-        cells.forEach(function (row, rowNumber) {
-            row.forEach(function (cell, column) {
+        cellList.forEach((row, rowNumber) => {
+            row.forEach((cell, column) => {
                 var $child;
 
                 if (column === 0 && rowNumber) {
-                    fragment.appendChild($('<br>')[0]);
+                    fragment.appendChild($("<br>")[0]);
                 }
 
-                $child = $('<div class="cell"></div>');
+                $child = $("<div class=\"cell\"></div>");
                 fragment.appendChild($child[0]);
                 cell.setElement($child);
             });
@@ -147,6 +182,12 @@ $(function () {
         return fragment;
     }
 
+
+    /**
+     * Adds a smiling face to the table
+     *
+     * @param {Array.<Array.<Cell>>} cellList
+     */
     function smile(cellList) {
         var pairs;
 
@@ -176,13 +217,19 @@ $(function () {
             [8, 7]
         ];
 
-        pairs.forEach(function (coords) {
+        pairs.forEach((coords) => {
             cellList[coords[0]][coords[1]].setState(1);
         });
     }
 
+
+    /**
+     * Simulate a random blob spontaneously coming into existence.
+     *
+     * @param {Array.<Array.<Cell>>} cellList
+     */
     function randomSplat(cellList) {
-        var row, col, loops, offsetX, offsetY, cell;
+        var cell, col, loops, offsetX, offsetY, row;
 
         row = rand(cellList.length);
         col = rand(cellList[row].length);
@@ -200,6 +247,12 @@ $(function () {
         }
     }
 
+
+    /**
+     * Determines the cell's next state.
+     *
+     * @param {Array.<Array.<Cell>>} cellList
+     */
     function updateCells(cellList) {
         var nextStates;
 
@@ -208,23 +261,23 @@ $(function () {
         }
 
         nextStates = [];
-        cellList.forEach(function (rows) {
-            rows.forEach(function (cell) {
+        cellList.forEach((rows) => {
+            rows.forEach((cell) => {
                 // First, calculate new states
                 nextStates.push({
-                    cell: cell,
+                    cell,
                     nextState: cell.getNextState()
                 });
             });
         });
 
-        nextStates.forEach(function (dataForUpdate) {
+        nextStates.forEach((dataForUpdate) => {
             dataForUpdate.cell.setState(dataForUpdate.nextState);
         });
     }
 
     cells = makeCells(10, 10);
     smile(cells);
-    $('.lifegenesis').append(makeCellHtml(cells));
+    $(".lifegenesis").append(makeCellHtml(cells));
     window.setInterval(updateCells.bind(null, cells), 2000);
 });

@@ -1,10 +1,11 @@
-/*global angular, isValidEmail*/
-angular.module('valid-email', []).directive('validEmail', function () {
+/* global angular, isValidEmail */
+"use strict";
+
+angular.module("valid-email", []).directive("validEmail", () => {
     return {
-        link: function ($scope) {
-            $scope.email = 'test-me@example.com';
-            $scope.$watch('email', function (newVal) {
-                console.log(newVal, $scope.valid);
+        link: ($scope) => {
+            $scope.email = "test-me@example.com";
+            $scope.$watch("email", (newVal) => {
                 $scope.valid = isValidEmail(newVal);
             });
         }
