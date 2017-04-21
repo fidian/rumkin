@@ -44,7 +44,6 @@ angular.module("decisionTree").controller("decisionTreeController", ($scope, $lo
             tree.data = response.data;
             tree.title = tree.data.title;
             onLoad();
-            console.log(tree);
         }, (err) => {
             tree.isLoading = false;
             tree.isError = true;
