@@ -228,10 +228,10 @@ if (process.env.SERVE) {
         livereload: metadata.liveReload,
         paths: {
             "${source}/**/*.{css,less}": "**/*.{css,less}",
-            "${source}/**/*.{html,md}": true,
-            "${source}/**/*.{js,txt}": true,
-            "${source}/**/*.{yaml,json}": "**/*.{html,md}",
-            "layouts/**/*": "**/*.{html,md}"
+            "${source}/**/*.{html,md}": "**/*.{html,md,css,less}",
+            "${source}/**/*.{js,txt}": "**/*.{css,less,js,txt}",
+            "${source}/**/*.{yaml,json}": "**/*.{css,less,html,md}",
+            "layouts/**/*": "**/*.{css,less,html,md}"
         }
     });
 } else {

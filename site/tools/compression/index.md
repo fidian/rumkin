@@ -4,7 +4,6 @@ summary: Use JavaScript to truly compress web pages, not just minify them.
 module: compression
 js:
     - ../../js/auto-grow.js
-    - ../../js/angular-base64.min.js
     - compression.js
     - compression-module.js
     - huffman-ascii-tiny.js
@@ -38,10 +37,12 @@ The technique was published by Abraham Lempel and Jacob Ziv in 1977 is a "slidin
     <div ng-if="result">
         <span ng-bind="originalLength"></span> → <span ng-bind="compressedLength"></span>, using <span ng-bind="percentOfOriginal * 100 | number"></span>% of the uncompressed size by <span ng-if="savings > 1">removing</span><span ng-if="savings <= 1">adding</span> <span ng-bind="savingsAbs"></span> bytes.
     </div>
-    <div ng-if="working">Compressing …</div>
-    <div ng-if="!working">
-        <div ng-if="result" ng-bind="result" class="Wow(bw) Whs(pw)"></div>
-        <div ng-if="!result">Enter some text and see it compressed.</div>
+    <div class="result">
+        <div ng-if="working">Compressing …</div>
+        <div ng-if="!working">
+            <div ng-if="result" ng-bind="result" class="Wow(bw) Whs(pw)"></div>
+            <div ng-if="!result">Enter some text and see it compressed.</div>
+        </div>
     </div>
 </div>
 
@@ -59,10 +60,12 @@ This recodes letters with shorter codes for frequently used letters. For instanc
         <label><input type="checkbox" ng-model="includeJs"> Include JavaScript to decompress</label>
     </div>
     <textarea auto-grow placeholder="Enter text here" ng-model="text" class="W(100%)"></textarea>
-    <div ng-if="working">Compressing …</div>
-    <div ng-if="!working">
-        <div ng-if="result" ng-bind="result" class="Wow(bw) Whs(pw)"></div>
-        <div ng-if="!result">Enter some text and see it compressed.</div>
+    <div class="result">
+        <div ng-if="working">Compressing …</div>
+        <div ng-if="!working">
+            <div ng-if="result" ng-bind="result" class="Wow(bw) Whs(pw)"></div>
+            <div ng-if="!result">Enter some text and see it compressed.</div>
+        </div>
     </div>
 </div>
 
@@ -74,6 +77,8 @@ Technically this is not compression. Instead, it is a way of taking binary data 
 
 <div>
     <textarea auto-grow placeholder="Enter text here" ng-model="base64Text" class="W(100%)"></textarea>
-    <div ng-if="base64Text" base64="base64Text" class="Wow(bw) Whs(pw)"></div>
-    <div ng-if="!base64Text">Enter some text and see it encoded.</div>
+    <div class="result">
+        <div ng-if="base64Text" base64="base64Text" class="Wow(bw) Whs(pw)"></div>
+        <div ng-if="!base64Text">Enter some text and see it encoded.</div>
+    </div>
 </div>
