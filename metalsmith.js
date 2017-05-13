@@ -105,7 +105,7 @@ sugar.use("metalsmith-browserify-alt", {});
 // Make ES6 more friendly to browsers.
 sugar.use("metalsmith-babel", {
     presets: [
-        "latest"
+        "es2015-script"
     ]
 });
 
