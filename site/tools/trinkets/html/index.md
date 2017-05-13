@@ -1,8 +1,8 @@
 ---
 title: HTML Code Tester
 js:
-    - ../../../js/modules/auto-grow.js
-    - ../../../js/modules/trusted-html.js
+    - ../../../js/auto-grow.js
+    - ../../../js/trusted-html.js
     - html.js
 module: htmltest
 summary: Try a snippet of HTMl live in your browser.

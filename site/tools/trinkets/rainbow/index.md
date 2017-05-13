@@ -1,7 +1,7 @@
 ---
 title: Rainbow Text Generator
 js:
-    - ../../../js/modules/auto-grow.js
+    - ../../../js/auto-grow.js
     - rainbow.js
 module: rainbow
 ---

@@ -2,6 +2,6 @@
 
 module.exports = {
     entries: [
-        __dirname + "/lz77.js"
+        require.resolve("./compression.js")
     ]
 };

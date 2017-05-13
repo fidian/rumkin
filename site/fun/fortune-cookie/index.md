@@ -1,6 +1,6 @@
 ---
 title: Fortune Cookie
-js: ../../js/modules/random-line.js
+js: ../../js/random-line.js
 css: style.css
 module: randomLine
 ---

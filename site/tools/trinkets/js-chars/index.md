@@ -1,7 +1,7 @@
 ---
 title: JS Chars
 js:
-    - ../../../js/modules/auto-grow.js
+    - ../../../js/auto-grow.js
     - js-chars.js
 module: jsChars
 summary: Display the JavaScript character codes for anything entered.

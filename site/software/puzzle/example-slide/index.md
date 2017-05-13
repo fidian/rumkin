@@ -1,6 +1,6 @@
 ---
 title: Java Puzzle Applet - Success
-js: ../../../js/modules/search-scope.js
+js: ../../../js/search-scope.js
 module: searchScope
 controller: searchScope
 ---

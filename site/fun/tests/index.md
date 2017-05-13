@@ -2,7 +2,7 @@
 title: Personality Tests
 js:
     - ../../js/marked.min.js
-    - ../../js/modules/angular-marked.js
+    - ../../js/angular-marked.min.js
     - personality-tests.js
 module: personalityTests
 controller: personalityTestsController
