@@ -13,6 +13,14 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * programming/atomic-css needs expansion
 
 
+Make fonts:
+- http://snapsvg.io/docs/#Paper.line
+- http://svgjs.com/
+- https://github.com/dodo/node-raphael
+- https://github.com/fontello/svg2ttf
+- https://github.com/moven/webfont-generator
+- http://www.pluminjs.com/
+
 http://kenta.blogspot.com/2004/07/invented-cursive-alphabet.html?m=1
 
 All sorts of great stuff from the GC Codebook, currently v3.1.
