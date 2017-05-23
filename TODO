@@ -15,6 +15,9 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 
 Use fonts?
 - http://www.tsbvi.edu/math/1087-download-braille-and-asl-specialty-fonts
+- Unicode? ⠓
+
+Sidebar char: ▶ (but make sure it's in the font being used)
 
 Make fonts:
 - http://snapsvg.io/docs/#Paper.line
