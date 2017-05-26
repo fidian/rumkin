@@ -19,6 +19,8 @@ Use fonts?
 
 Sidebar char: ▶ (but make sure it's in the font being used)
 
+Decode mangled morse code into anything that's valid.
+
 Make fonts:
 - http://snapsvg.io/docs/#Paper.line
 - http://svgjs.com/
