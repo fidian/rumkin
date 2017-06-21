@@ -3,8 +3,9 @@
 "use strict";
 
 angular.module("password", [
-    "autoGrow"
-]).controller("password", ($http, $q, $scope) => {
+    "autoGrow",
+    "random"
+]).controller("password", ($http, $q, $scope, random) => {
     var promises;
 
 
@@ -28,6 +29,7 @@ angular.module("password", [
         loadFile("commonPasswords", "common-passwords.json"),
         loadFile("trigraphs", "trigraphs.json")
     ];
+    $scope.generatedPasswords = [];
 
     $q.all(promises).then(() => {
         $scope.dicewareWordlists.forEach((item) => {
@@ -37,6 +39,65 @@ angular.module("password", [
             return item.default;
         })[0];
         $scope.ready = true;
+    });
+    $scope.$watch("generateWith", () => {
+        var hash, set;
+
+        set = $scope.generateWith.other || "";
+
+        if ($scope.generateWith.uppercase) {
+            set += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+
+        if ($scope.generateWith.lowercase) {
+            set += "abcdefghijklmnopqrstuvwxyz";
+        }
+
+        if ($scope.generateWith.numbers) {
+            set += "0123456789";
+        }
+
+        if ($scope.generateWith.hex) {
+            set += "0123456789ABCDEF";
+        }
+
+        if ($scope.generateWith.symbols) {
+            set += "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?";
+        }
+
+        hash = {};
+        set.split("").forEach((value) => {
+            hash[value] = true;
+        });
+        $scope.generateSet = Object.keys(hash).sort().join("");
+    }, true);
+    $scope.generateNewPassword = () => {
+        var index, pass;
+
+        pass = "";
+
+        while (pass.length < $scope.generatePasswordLength) {
+            index = random.number($scope.generateSet.length);
+            pass += $scope.generateSet[index];
+        }
+
+        $scope.generatedPasswords.unshift(pass);
+    };
+    $scope.preset = (size, options) => {
+        $scope.generatePasswordLength = size;
+        $scope.generateWith = {
+            hex: !!options.hex,
+            lowercase: !!options.lowercase,
+            numbers: !!options.numbers,
+            other: options.other || "",
+            symbols: !!options.symbols,
+            uppercase: !!options.uppercase
+        };
+    };
+    $scope.preset(24, {
+        lowercase: true,
+        numbers: true,
+        uppercase: true
     });
 }).directive("passwordStrength", ($window) => {
     return {
@@ -55,10 +116,10 @@ angular.module("password", [
             });
         }
     };
-}).directive("diceware", ($http) => {
+}).directive("diceware", ($http, random) => {
     return {
         link($scope, element, $attrs) {
-            var initialLoad, words;
+            var words;
 
             /**
              * Creates a new word and adds it to the result.
@@ -68,28 +129,18 @@ angular.module("password", [
                     $scope.dicewareResult += " ";
                 }
 
-                $scope.dicewareResult += words[Math.floor(Math.random() * words.length)];
+                $scope.dicewareResult += words[random.number(words.length)];
             }
 
 
             $scope.dicewareReady = false;
             words = [];
-            initialLoad = true;
             $scope.dicewareResult = "";
             $scope.$watch($attrs.diceware, (newVal) => {
                 $scope.dicewareReady = false;
                 $http.get(newVal.uri).then((response) => {
                     words = response.data.trim().split("\n");
                     $scope.dicewareReady = true;
-
-                    if (initialLoad) {
-                        addWord();
-                        addWord();
-                        addWord();
-                        addWord();
-                        addWord();
-                        initialLoad = false;
-                    }
                 });
             });
             $scope.addWord = addWord;

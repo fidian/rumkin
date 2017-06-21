@@ -1,6 +1,8 @@
 ---
 title: 3rd Edition D&D
-js: ../../js/random-line.js
+js:
+    - ../../js/random-line.js
+    - ../../js/random.js
 module: randomLine
 ---
 

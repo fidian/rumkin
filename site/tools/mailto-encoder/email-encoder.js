@@ -2,9 +2,11 @@
 
 "use strict";
 
-angular.module("emailEncoder", []);
+angular.module("emailEncoder", [
+    "random"
+]);
 
-angular.module("emailEncoder").factory("emailEncoder", () => {
+angular.module("emailEncoder").factory("emailEncoder", (random) => {
     /**
      * Encode something so it is safe in a URI.
      *
@@ -47,7 +49,7 @@ angular.module("emailEncoder").factory("emailEncoder", () => {
                 if (letter === "<") {
                     lt = true;
                 } else {
-                    index = Math.floor(Math.random() * letters.length);
+                    index = random.number(letters.length);
                     letters = letters.slice(0, index) + letter + letters.slice(index, letters.length);
                 }
             }

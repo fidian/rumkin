@@ -5,6 +5,7 @@ module: password
 js:
     - ../../js/auto-grow.js
     - ../../js/md5.min.js
+    - ../../js/random.js
     - password-strength.js
     - password-module.js
 ---
@@ -79,10 +80,14 @@ A method was created to generate passphrases with a lookup table and some dice, 
     </div>
     <div diceware="dicewareWordlist">
         <div>
-            <button ng-disabled="!dicewareReady" ng-click="addWord()">Add a word</button>
+            <button ng-disabled="!dicewareReady" ng-click="addWord()">Add a Word</button>
             <button ng-disabled="!dicewareReady" ng-click="clear()">Clear</button>
         </div>
-        <div class="result" ng-bind="dicewareResult"></div>
+        <div class="result">
+            <div ng-if="dicewareResult" ng-bind="dicewareResult"></div>
+            <div ng-if="!dicewareResult">
+                Generate a password by pressing the "Add a Word" button a few times.
+            </div>
     </div>
 </div>
 
@@ -91,6 +96,55 @@ Password Generator
 ------------------
 
 If the Diceware section doesn't satisfy your needs, this one should. It's far more flexible. Unfortunately that also makes it a bit more complex.
+
+<p>
+    I have a few presets as well:
+    <button ng-click="preset(24, {uppercase:true,lowercase:true,numbers:true})">Reasonable Password</button>
+    <button ng-click="preset(32, {uppercase:true,lowercase:true,numbers:true,symbols:true})">Strong Password</button>
+    <button ng-click="preset(64, {hex:true})">Fake SHA256</button>
+    <button ng-click="preset(32, {hex:true})">Fake MD5</button>
+    <button ng-click="preset(26, {hex:true})">128-bit WEP</button>
+    <button ng-click="preset(10, {hex:true})">64-bit WEP</button>
+    <button ng-click="preset(8, {other:'01'})">Byte in Binary</button>
+    <button ng-click="preset(2, {hex:true})">Byte in Hex</button>
+    <button ng-click="preset(20, {other:'Il10OoCcKkPpSs5UuVvWwXXZz2'})">Look-alikes</button>
+    <button ng-click="preset(48, {uppercase:true,lowercase:true,symbols:true,other:'äàáãćçëèéïìíĩj́ĺńñöòóõŕśßüùúũÿýźÄÀÁÃĆÇËÈÉÏÌÍĩJ́ĹŃÑÖÒÓÕŔŚẞÜÙÚŨŸÝŹ° ☃±'})">Extra Mean</button>
+</p>
+
+<div>
+    <div>
+        <input type=number min=1 ng-model="generatePasswordLength" class="W(3em)"> characters long
+    </div>
+    <div>
+        <label><input type=checkbox ng-model=generateWith.uppercase> Use uppercase, capital letters</label>
+    </div>
+    <div>
+        <label><input type=checkbox ng-model=generateWith.lowercase> Use lowercase letters</label>
+    </div>
+    <div>
+        <label><input type=checkbox ng-model=generateWith.numbers> Use numbers</label>
+    </div>
+    <div>
+        <label><input type=checkbox ng-model=generateWith.hex> Use hexadecimal (0-9 and A-F)</label>
+    </div>
+    <div>
+        <label><input type=checkbox ng-model=generateWith.symbols> Use mathematical symbols and punctuation</label>
+    </div>
+    <div>
+        Include extra charcters: <input type=text ng-model=generateWith.other>
+    </div>
+    <div>
+        <button ng-click="generateNewPassword()" ng-disabled="!generateSet.length">Generate a Password</button> <span ng-if="!generateSet.length">You must have something enabled for generating passwords.</span>
+    </div>
+    <div class="result">
+        <ul ng-if="generatedPasswords.length">
+            <li ng-repeat="value in generatedPasswords track by $index" ng-bind="value"></li>
+        </ul>
+        <div ng-if="!generatedPasswords.length">
+            Try pressing the button and see what happens.
+        </div>
+    </div>
+</div>
 
 
 MD5 Hash Generator

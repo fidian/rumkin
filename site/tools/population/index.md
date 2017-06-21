@@ -1,6 +1,8 @@
 ---
 title: Population Counter
-js: population.js
+js:
+    - population.js
+    - ../../js/random.js
 controller: populationController
 module: population
 ---

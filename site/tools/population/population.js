@@ -1,7 +1,9 @@
 "use strict";
 
 /* global angular */
-angular.module("population", []);
+angular.module("population", [
+    "random"
+]);
 
 angular.module("population").config(($locationProvider) => {
     $locationProvider.html5Mode({
@@ -10,7 +12,7 @@ angular.module("population").config(($locationProvider) => {
     });
 });
 
-angular.module("population").controller("populationController", ($http, $interval, $location, $scope) => {
+angular.module("population").controller("populationController", ($http, $interval, $location, $scope, random) => {
     /**
      * Keep some of the the response data, possibly remap the name, then
      * sort by the name.
@@ -98,7 +100,7 @@ angular.module("population").controller("populationController", ($http, $interva
     function findAge(ages) {
         var i, key, keys, r;
 
-        r = Math.random();
+        r = random.decimal();
         key = "?";
         keys = Object.keys(ages);
 

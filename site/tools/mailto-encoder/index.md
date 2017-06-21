@@ -3,6 +3,7 @@ title: Email Address (Mailto:) Encoder
 module: emailEncoder
 js:
     - email-encoder.js
+    - ../../js/random.js
 ---
 
 Junk email (a.k.a. spam) is a part of everyone's life if they ever put their email address on the web.  For HTML authors, site admins, and for people who want a little credit on the page that they put online, it is a constant problem.  You want to include your email address on the page, but you don't want your email address to be harvested by spambots.

@@ -9,7 +9,9 @@
  * @see https://rumkin.com/license/
  */
 /* global angular */
-angular.module("randomLine", []).directive("randomLine", ($http) => {
+angular.module("randomLine", [
+    "random"
+]).directive("randomLine", ($http, random) => {
     return {
         link($scope) {
             $scope.line = "Error with URI.";
@@ -19,7 +21,7 @@ angular.module("randomLine", []).directive("randomLine", ($http) => {
                 var index, list;
 
                 list = response.data.replace(/^[ \t\r\n]*|[ \t\r\n]$/g, "").split(/[\r\n]+/);
-                index = Math.floor(list.length * Math.random());
+                index = random.number(list.length);
                 $scope.line = list[index];
             }, () => {
                 $scope.line = "Unable to retrieve list.";
