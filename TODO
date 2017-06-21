@@ -13,13 +13,33 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * programming/atomic-css needs expansion
 
 
-Use fonts?
+Anagram solver?
+
+Dscript, nailscript, others?
+- http://dscript.org/
+- http://dscript.ca/
+- http://swankivy.com/aboutme/oatanese.html
+
+More ciphers
+- Copiale Cipher (copiale cipher wheel)
+- Dice cipher
+- Templar Cipher
+- Rosicrucian cipher
+
+Use fonts for braille?
 - http://www.tsbvi.edu/math/1087-download-braille-and-asl-specialty-fonts
 - Unicode? ⠓
 
+More fonts
+- http://www.fontsupply.com/fonts/M/Musical.html
+- http://www.fontspace.com/robert-allgeyer/musisync
+
+Cherokee Language syllabary by Sequoyah
+- http://www.native-languages.org/cherokee_alphabet.htm
+
 Sidebar char: ▶ (but make sure it's in the font being used)
 
-Decode mangled morse code into anything that's valid.
+Scytail !== Skip - search for an email explaining the difference
 
 Make fonts:
 - http://snapsvg.io/docs/#Paper.line
@@ -33,8 +53,11 @@ http://kenta.blogspot.com/2004/07/invented-cursive-alphabet.html?m=1
 
 All sorts of great stuff from the GC Codebook, currently v3.1.
 
-Babylonian number system is base 60.
-Decimals in Roman numerals
+Babylonian (sumerian) number system is sexagesimal (base 60).
+A lot of other cultures used duodecimal (base 12).
+Decimals in Roman numerals (base 10).
+Senary is base 6.
+Quipu is number system in knots
 other number systems
 
 Baudot code, punched card, coldplay code based on baudot
