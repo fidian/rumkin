@@ -3,6 +3,7 @@
     "private": true,
     "scripts": {
         "build": "node metalsmith.js",
+        "clean": "rm -rf node_modules/ package-lock.json",
         "fastbuild": "FASTBUILD=true node metalsmith.js",
         "test": "JASMINE_CONFIG_PATH=jasmine.json jasmine",
         "watch": "SERVE=true node metalsmith.js"
@@ -11,8 +12,8 @@
         "@fidian/rumkin-compression": "^1.1.0",
         "angular": "^1.6.4",
         "angular-marked": "^1.2.2",
-        "babel-preset-latest": "^6.24.1",
         "babel-preset-es2015-script": "^1.1.0",
+        "babel-preset-latest": "^6.24.1",
         "blueimp-md5": "^2.7.0",
         "browserify": "^14.4.0",
         "diceware-wordlist-en": "^1.0.0",
@@ -55,7 +56,8 @@
         "metalsmith-watch": "^1.0.3",
         "metalsmith-writemetadata": "^0.4.5",
         "mustache": "^2.3.0",
-        "tablesorter": "^2.28.12",
+        "polyfill-crypto.getrandomvalues": "^1.0.0",
+        "tablesorter": "^2.28.14",
         "tai-password-strength": "^1.0.4"
     },
     "false": {}
