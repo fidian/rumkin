@@ -108,7 +108,7 @@ If the Diceware section doesn't satisfy your needs, this one should. It's far mo
     <button ng-click="preset(8, {other:'01'})">Byte in Binary</button>
     <button ng-click="preset(2, {hex:true})">Byte in Hex</button>
     <button ng-click="preset(20, {other:'Il10OoCcKkPpSs5UuVvWwXXZz2'})">Look-alikes</button>
-    <button ng-click="preset(48, {uppercase:true,lowercase:true,symbols:true,other:'äàáãćçëèéïìíĩj́ĺńñöòóõŕśßüùúũÿýźÄÀÁÃĆÇËÈÉÏÌÍĩJ́ĹŃÑÖÒÓÕŔŚẞÜÙÚŨŸÝŹ° ☃±'})">Extra Mean</button>
+    <button ng-click="preset(48, {uppercase:true,lowercase:true,symbols:true,other:'äàáãâąāḃćçċḑđḋëèéêęēėḟģġḩïìíĩîįīıj́ķĺļṁńñņöòóõôǫōṗŕŗśşṡßţŧṫüùúũûųūŵÿýŷźżÄÀÁÃÂĄĀḂĆÇĊḐĐḊËÈÉÊĘĒĖḞĢĠḨÏÌÍĩÎĮĪİJ́ĹĻ£ṀŃÑŅÖÒÓÕÔǪŌṖŔŖŚŞṠẞŢŦṪÜÙÚŨÛŲŪŴŸÝŶ¥ŹŻ° ☃±ⒸⓇ™£¹²³⁴⁵⁶⁷⁸⁹⁰½⅓⅔¼¾αβδεφγηιθκλμνοπχρστυωξψζΑΒΔΕΦΓΗΙΘΚΛΜΝΟΠΧΡΣΤΥΩΞΨΖ'})">Extra Mean</button>
 </p>
 
 <div>
