@@ -64,7 +64,7 @@ sugar.use("metalsmith-markdown");
 sugar.use("metalsmith-rootpath");
 // Embed HTML within the templates.
 sugar.use("metalsmith-layouts", {
-    default: "page.html",
+    default: "index.html",
     directory: "layouts",
     engine: "handlebars",
     partials: "layouts/partials",
@@ -128,7 +128,7 @@ sugar.use("metalsmith-each", (file, filename) => {
     }
 
     // Only lowercase and hyphens plus an extension for the filename.
-    if (filename.match(/[^-a-z0-9.\/]/)) {
+    if (filename.match(/[^-a-z0-9./]/)) {
         console.log(`Invalid characters in filename: ${filename}`);
     }
 
@@ -153,7 +153,7 @@ sugar.use("metalsmith-each", (file, filename) => {
         }
 
         // No absolute links.
-        if (contents.match(/ (src|href)="?\/[^\/]/)) {
+        if (contents.match(/ (src|href)="?\/[^/]/)) {
             console.log(`Absolute link in file: ${filename}`);
         }
     }
