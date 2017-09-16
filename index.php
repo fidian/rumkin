@@ -71,9 +71,9 @@ $GLOBALS['MenuLinks'] = array(
 		'URL' => '/tools/',
 		'Links' => array(
 			array(
-				'Name' => 'Phone Uploader',
-				'Desc' => 'Send new ringtones, images, and Java midlets to your phone with ease.  Works with many phones and providers.',
-				'URL' => '/tools/sprint/'
+				'Name' => 'Ciphers',
+				'Desc' => 'Simpler ciphers used to hide crafty messages.',
+				'URL' => '/tools/cipher/'
 			),
 			array(
 				'Name' => 'SSH Applet',

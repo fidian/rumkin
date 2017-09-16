@@ -58,8 +58,8 @@ $Links = array(
 		'URL' => 'password/'
 	),
 	array(
-		'Name' => 'Phone Uploader',
-		'Desc' => 'Once geared only for Sprint phones, this software has been expanded to work with almost all providers.  Use this web site to send ringers, games, images, and screensavers to your phone.  Also has some technical information about how to set up your own uploader.  The source for this uploader is downloadable to allow you to get a copy going for your own use.',
+		'Name' => 'Phone Uploader (Offline)',
+		'Desc' => 'This tool could upload files to phones that had no other way to receive new ringers, backgrounds, and games. Taken down, but the software is still available.',
 		'URL' => 'sprint/'
 	),
 	array(
