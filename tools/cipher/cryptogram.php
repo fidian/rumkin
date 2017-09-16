@@ -50,10 +50,10 @@ function insert_js() {
 // Feel free to use this code if you so desire.
 // It would be nice if you left this header intact.  http://rumkin.com
 
-var Letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-=!@#$%^&*()_+,./;\'[]\\<>?:"{}|`~';
-var LettersAtbash = 'ZYXWVUTSRQPONMLKJIHGFEDCBA0123456789-=!@#$%^&*()_+,./;\'[]\\<>?:"{}|`~';
+var Letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+var LettersAtbash = 'ZYXWVUTSRQPONMLKJIHGFEDCBA0123456789';
 var last_alphabet = '', curr_alphabet = '';
-var TableColumns = 9;
+var TableColumns = 8;
 var Advanced = 0;
 
 
