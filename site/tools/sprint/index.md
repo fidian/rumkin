@@ -3,13 +3,9 @@ title: Rumkin Phone Uploader
 summary: Software that allows you to upload files to older phones.
 ----
 
-I'm sorry to say this, but it is time for this project to come to an end.  I've decided it was time because the project did not receive any donations in the past year.  During the year it received and handled 35,479 uploads.
+This project allowed people to upload files to older cell phones, ones that are not Android, iPhone nor any other kind of "smart" cell phone. These phones didn't even have USB nor a wireless connection, so people had a heck of a time getting custom backgrounds.
 
-To be fair, I had the uploader running for well over 10 years.  In that time, 29 wonderful people donated a total of $124.17 (after PayPal's meager fees), with an average donation of about $4.28.  In the end, getting less than $0.40 per *year* for this service wasn't enough to compensate for the headaches.  I wasn't in this for the money.  I only asked for enough to cover the hosting fees, but that never really happened.
-
-My website was also completely free of advertising, except for this one section.  The total revenue drawn over those years is double what I received from PayPal.  Again, not really worth the time it took to put the ads on my site and I never really liked having any advertising on this domain.
-
-I did spend hours upgrading this with each time the code needed to run on a new server or to remove performance bottlenecks.  Dealing with the reports of it not working, problems with people's phones, and the issues revolving around child porn all contributed to the problems hosting it.
+The software was taken offline for many reasons. Lack of funding, lack of users, lack of interest, and a whole bunch of potential exposure to new risks that my insurance company didn't like.
 
 Do you want to host this uploader yourself?  That's great!  I'm releasing the source code and you're welcome to get it running.
 
