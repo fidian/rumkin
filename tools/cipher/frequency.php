@@ -155,9 +155,8 @@ function makeTable(text) {
 
     for (i = 0; i < frequencies.length; i += 1) {
         f = frequencies[i];
-        console.log(f, maxFreq);
         table += "<tr>";
-        table += "<td width=1 align=center>" + i + "</td>";
+        table += "<td width=1 align=center>" + (i + 1) + "</td>";
         table += "<td width=1 align=center>" + (Math.round(f * 10000) / 10000) + "</td>";
         table += "<td width=1 align=center>" + (Math.round(26 * f * 10000) / 10000) + "</td>";
         table += "<td width=1>&nbsp;</td>";
