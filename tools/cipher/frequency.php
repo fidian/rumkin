@@ -28,6 +28,12 @@ the approximate value for English text.</p>
 <p>Result:</p>
 <?php MakeBoxTop('center', 'width: 75%'); ?>
 <span id='output'></span>
+<?php MakeBoxBottom(); ?>
+
+<p>Here's a bit of a keyfinder tool for the message. It only works on letters and assumes a 26 character alphabet for the Index of Coincidence. Only checks key lengths up to 42.</p>
+
+<?php MakeBoxTop('center', 'width: 75%') ?>
+<span id='outputIc'>unchanged</span>
 <?php
 
 MakeBoxBottom();
@@ -83,6 +89,7 @@ function upd()
    ResizeTextArea(document.encoder.text);
 
    var e = document.getElementById('output');
+   var eIc = document.getElementById('outputIc');
    
    if (document.encoder.text.value == '')
    {
@@ -90,6 +97,7 @@ function upd()
          'the approximate letter frequencies in the English language.' +
 	 '<br><br>' +
 	 insert_standard();
+      eIc.innerHTML = "Needs data to work."
    }
    else
    {
@@ -100,9 +108,66 @@ function upd()
       e.innerHTML = 'Friedman IC:  ' + f_ic + ' (kappa-plaintext: ' + f_kappa + ')';
       e.innerHTML += '<br>';
       e.innerHTML += analyze(document.encoder.text.value);
+      eIc.innerHTML = makeTable(document.encoder.text.value);
    }
    
    window.setTimeout('upd()', 100);
+}
+
+function friedmanSplit(text, len) {
+    var buckets, fSum, i;
+
+    buckets = [];
+
+    for (i = 0; i < len; i += 1) {
+        buckets[i] = "";
+    }
+
+    for (i = 0; i < text.length; i += 1) {
+        buckets[i % len] += text.charAt(i);
+    }
+
+    fSum = 0;
+
+    for (i = 0; i < len; i += 1) {
+        fSum += Friedman(buckets[i], "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    }
+
+    return fSum / len;
+}
+
+function makeTable(text) {
+    var colors, i, frequencies, maxFreq, table;
+
+    colors = [ "#CC2222", "#FF5555" ];
+    table = "<table width=100%><tr><th width=1 align=center>Length</th><th width=1 align=center>KP</th><th width=1 align=center>IC</th><th width=1>&nbsp;</th><th>&nbsp;</th></tr>"
+    text = text.toUpperCase().replace(/[^A-Z]/g, "");
+    frequencies = [];
+    maxFreq = 0;
+
+    for (i = 1; i <= 42 && i < text.length / 2; i += 1) {
+        frequencies[i - 1] = friedmanSplit(text, i);
+
+        if (frequencies[i - 1] > maxFreq) {
+            maxFreq = frequencies[i - 1];
+        }
+    }
+
+    for (i = 0; i < frequencies.length; i += 1) {
+        f = frequencies[i];
+        console.log(f, maxFreq);
+        table += "<tr>";
+        table += "<td width=1 align=center>" + i + "</td>";
+        table += "<td width=1 align=center>" + (Math.round(f * 10000) / 10000) + "</td>";
+        table += "<td width=1 align=center>" + (Math.round(26 * f * 10000) / 10000) + "</td>";
+        table += "<td width=1>&nbsp;</td>";
+        table += "<td><div style='background:" + colors[i % colors.length] + "; width:" + Math.floor(100 * (f / maxFreq)) + "%; font-size: 7pt'>&nbsp;</div></td>";
+        table += "</tr>";
+    }
+
+    table += "</table>"
+
+    return table;
 }
 
 function insert_standard()
