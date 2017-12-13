@@ -65,6 +65,8 @@ sensitive and you think that I care about what you are submitting.  Also, only
 words that are found in my dictionary will be found.  If there are proper
 names or misspellings, it may cause the puzzle to be unsolved.</p>
 
+<p><b>Warning:</b> Offensive results can be generated. This simply uses all of the words in several dictionaries. The dictionaries list words of varying offensiveness because, well, they are still words. Use of this tool implies that you understand that the risks of what you may see.</p>
+
 <form name="encoder" method=post action="cryptogram-solver.php">
 Dictionary:  <select name="dict">
 <?PHP
