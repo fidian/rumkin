@@ -2,14 +2,17 @@
 <html lang="en"{{#module}} ng-app="{{.}}"{{/module}}>
     <head>
         <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{title}}</title>
-        <link rel="stylesheet" href="{{rootPath}}css/site.css" />
-        <link rel="license" href="{{rootPath}}license" />
+        <link rel="stylesheet" href="{{rootPath}}css/site.css">
+        {{>favicon}}
+        <link rel="license" href="{{rootPath}}license">
         {{#liveReload}}
         <script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
         {{/liveReload}}
         {{#css}}
-        <link rel="stylesheet" href="{{.}}" />
+        <link rel="stylesheet" href="{{.}}">
         {{/css}}
         {{#module?}}
         <script type="text/javascript" src="{{rootPath}}js/angular.min.js"></script>
@@ -18,26 +21,15 @@
         <script type="text/javascript" src="{{.}}"></script>
         {{/js}}
     </head>
-    <body>
-        <div class="wrapper">
-            <!-- DISABLE THE NAV FOR NOW
-            <nav class="nav">
-                <div>Nav nav nav</div>
-            </nav>
-            -->
-            <div class="contentPane">
-                <header>
-                    <h1>{{title}}</h2>
-                </header>
-                <div class="content{{#controller}} ng-cloak" ng-controller="{{.}}{{/controller}}">
-                    {{{contents}}}
-                </div>
+    <body class="Ovx(h)">
+        {{>header}}
+        <div class="Mt(70px) C(textColorNormal)">
+            <div class="Mx(a) Maw(contextWidthMax) D(tb) Px(10px)--lg Pstart(0)--xs">
+                {{>sidebar}}
+{{! Must not indent this because <code> blocks will have their contents
+    indented. That makes the formatting completely messed up. }}
+{{>content}}
             </div>
         </div>
-        <footer class="inner">
-            <p>
-                &copy; {{buildYear}} {{owner}}
-            </p>
-        </footer>
     </body>
 </html>

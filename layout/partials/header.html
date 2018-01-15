@@ -1,0 +1,31 @@
+<nav class="Bgc(barBackground) Z(1030) T(0) Pos(f) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) Px(10px)--lg">
+    <div class="Mx(a) Maw(contentWidthMax) D(tb) H(100%)">
+        <div class="D(tbc) H(100%) Va(m) Fz(1.4em) Fw(b) no-wrap">
+            <a class="C(barText)" href="{{#root}}#{{/root}}{{^root}}{{rootPath}}{{/root}}">
+                <img src="{{rootPath}}image/monument-icon.png" class="H(1em) Va(bl) Mend(5px) Mend(0)--xs Mstart(60px)--xs" /><span class="D(n)--xs">{{site.title}}</span>
+            </a>
+        </div>
+
+        <div class="W(100%) D(tbc) Va(m) Ta(end)">
+            <ul>
+                {{#site.topNavLinks}}
+                <li class="D(ib) Mend(15px) D(n)--sm" >
+                    <a href="{{^external}}{{../rootPath}}{{/external}}{{href}}" class="C(barText)">{{title}}</a>
+                </li>
+                {{/site.topNavLinks}}
+
+                <li class="D(ib)">
+                    <input type="text" id="search-input" placeholder="{{site.searchPlaceholder}}" class="P(0.5em) W(150px) W(200px)--sm H(32px) H(40px)--sm Fz(.9em)--sm">
+                </li>
+            </ul>
+            <ul id="results-container" class="Pos(a) Ta(start) List(n) Bgc(searchBackground) End(0) C(searchTextColor) W(250px) Mah(50vh) Ovx(a) End(10px)--lg">
+                <li class="js-search-entry">
+                    <a class="Px(10px)--xs Py(20px)--xs Py(15px)--sm Py(10px) Px(5px) Lh(1.2) D(b)" href="{url}">{title}</a>
+                </li>
+                <li class="js-no-results Px(10px)--xs Py(20px)--xs Py(15px)--sm Py(10px) Px(5px) Lh(1.2)">
+                    No results match this search.
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

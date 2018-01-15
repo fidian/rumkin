@@ -18,7 +18,7 @@ your other "E"s in the message will also be squares.</p>
 as possible.  You'll see what I mean when you start playing with it.</p>
 
 <form name="encoder" method=post action="#" onsubmit="return false;">
-<p>Key for alphabet:  <input type=text size=30 name=key> - 
+<p>Key for alphabet:  <input type=text size=30 name=key> -
 <span id="Keymaker0" target="document.encoder.key.value"></span>
 <br>Keyed alphabet: <span id="alphabet"></span></p>
 <p>Method of Encoding:  <select name="method" onchange="upd_method()">
@@ -85,7 +85,7 @@ StandardFooter();
 
 
 function insert_js() {
-	
+
 	?><script language="JavaScript" src="js/util.js"></script>
 <script language="JavaScript" src="js/caesar.js"></script>
 <script language="JavaScript" src="js/keymaker.js"></script>
@@ -96,10 +96,10 @@ function insert_js() {
 
 
 force_run = 0;
-	
+
 function upd_method() {
 	var elem = document.getElementById('moreinput');
-   
+
 	if (document.encoder.method.value.charAt(0) == 'I') {
 		elem.innerHTML = ShowImages(document.encoder.method.value);
 	} else if (document.encoder.method.value.charAt(0) == 'T') {
@@ -107,7 +107,7 @@ function upd_method() {
 		elem.innerHTML += ShowDecodeBox();
 	} else {
 		elem.innerHTML = "";
-	} 
+	}
 
 	force_run = 1;
 }
@@ -122,7 +122,7 @@ function Tel_upd() {
 	var lett = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	var letn = '1231231231231231 23123123 ';
 	var letb = '2223334445556667 77888999 ';
-   
+
 	for (var i = 0; i < lett.length; i ++) {
 		var elem = document.getElementById('Text_Link_' + lett.charCodeAt(i));
 		if (letn.charAt(i) == '1') {
@@ -152,7 +152,7 @@ function start_update() {
 		window.setTimeout('start_update()', 100);
 		return;
 	}
-	
+
 	Keymaker_Start();
 	upd_method();
 	upd();
@@ -161,14 +161,14 @@ function start_update() {
 
 function upd() {
 	var alpha, elem, isunchanged, t;
-   
+
 	isunchanged = IsUnchanged(document.encoder.text) * IsUnchanged(document.encoder.key);
 
 	if (isunchanged && force_run == 0) {
 		window.setTimeout('upd()', 100);
 		return;
 	}
-   
+
 	force_run = 0;
 	ResizeTextArea(document.encoder.text);
 	elem = document.getElementById('alphabet');
@@ -181,9 +181,9 @@ function upd() {
 		elem.innerHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		t = document.encoder.text.value;
 	}
-   
+
 	Encode(t);
-   
+
 	window.setTimeout('upd()', 100);
 }
 
@@ -215,11 +215,11 @@ function Encode(t) {
 function EncodeImage(set, t) {
 	var pos = set.indexOf('_');
 	var s = "";
-	
+
 	if (pos >= 0) {
 		set = set.slice(pos + 1, set.length);
 	}
-   
+
 	if (set == 'braille') {
 		t = Braille_Translate(t);
 
@@ -229,7 +229,7 @@ function EncodeImage(set, t) {
 
 		return s;
 	}
-   
+
 	if (set == 'braille2') {
 		for (var i = 0; i < t.length; i ++) {
 			s += Braille_Image(t.charAt(i).toLowerCase());
@@ -237,9 +237,9 @@ function EncodeImage(set, t) {
 
 		return s;
 	}
-   
+
 	t = t.toUpperCase();
-   
+
 	for (var i = 0; i < t.length; i ++) {
 		var thisChar = t.charAt(i);
 		var isAlpha = (thisChar >= 'A' && thisChar <= 'Z')? 1 : 0;
@@ -264,7 +264,7 @@ function EncodeImage(set, t) {
 			}
 		}
 	}
-   
+
 	return s;
 }
 
@@ -294,6 +294,7 @@ function EncodeText(set, t) {
 				for (var j = 0; j < 2; j ++) {
 					var idx = cCode.toString().charAt(j);
 					var max = codes[idx].length;
+                    /* switch to angular's random module */
 					var rnd = Math.floor(Math.random() * max);
 					s += codes[idx][rnd];
 				}
@@ -306,7 +307,7 @@ function EncodeText(set, t) {
 			if (flags.indexOf('I') < 0) {
 				c = c.toUpperCase();
 			}
-		  
+
 			var e = document.getElementById('Text_Link_' + c.charCodeAt(0));
 
 			if (e) {
@@ -320,7 +321,7 @@ function EncodeText(set, t) {
 			}
 		}
 	}
-	   
+
 	return HTMLEscape(s);
 }
 
@@ -337,7 +338,7 @@ function ShowImages(set) {
 	if (set == 'bionicle' || set == 'dancingmen') {
 		lett += '0123456789';
 	}
-   
+
 	for (var i = 0; i < lett.length; i ++) {
 		s += "<a href=\"#\" onclick=\"return L('" + lett.charAt(i) + "');\"><img src=\"media/" + set + "/" + lett.charAt(i) + ".gif\" border=0></a>";
 	}
@@ -350,7 +351,7 @@ function ShowImages(set) {
 			s += "<a href=\"#\" onclick=\"return L('" + flaglett.charAt(i) + " ');\"><img src=\"media/" + set + "/" + flaglett.charAt(i) + "_.gif\" border=0></a>";
 		}
 	}
-   
+
 	if (set == 'braille' || set == 'braille2') {
 		// Start over.
 		s = "";
@@ -376,7 +377,7 @@ function ShowImages(set) {
 			}
 		}
 	}
-   
+
 	return s;
 }
 
@@ -390,7 +391,7 @@ function ShowText(set) {
 		flags = set.slice(0, pos);
 		set = set.slice(pos + 1, set.length);
 	}
-   
+
 	if (set == 'goldbug' || set == 'spirit') {
 		var s = '';
 
@@ -401,14 +402,14 @@ function ShowText(set) {
 			var patt = '--- --1 -1- -11 1-- 1-1--- 1-1--1 1-1-1- 1-1-11 1-11-- 1-11-1 1-111- 1-1111--- 1-1111--1 1-1111-1- 1-1111-11 1-11111-- 1-11111-1 11---- 11---1 11--1- 11--11 11-1-- 11-1-1 11-11- 11-111 111';
 			var alph = '&nbsp; E A O R M W F G Y P B V K J X Q Z T I N H D L C U S';
 		}
-      
+
 		while (patt.length > 0 && alph.length > 0) {
 			var letter, token, i;
-	 
+
 			if (s.length > 0) {
 				s += ' &nbsp; ';
 			}
-	 
+
 			i = patt.indexOf(' ');
 
 			if (i >= 0) {
@@ -418,7 +419,7 @@ function ShowText(set) {
 				token = patt;
 				patt = '';
 			}
-	 
+
 			i = alph.indexOf(' ');
 
 			if (i >= 0) {
@@ -428,7 +429,7 @@ function ShowText(set) {
 				letter = alph;
 				alph = '';
 			}
-	 
+
 			s += '<a onclick="return L(\'' + letter + '\')" id="Text_Link_';
 
 			if (letter == '&nbsp;') {
@@ -439,7 +440,7 @@ function ShowText(set) {
 
 			s += '" href="#" style="text-decoration: none">' + token + '</a>';
 		}
-      
+
 		return "<font size=+2><b>" + s + "</b></font>"
 	}
 
@@ -452,7 +453,7 @@ function ShowText(set) {
 		s += 'Right: <input type="text" name="slash3" size=1 value="/" ' + c + '> &nbsp; ';
 		s += 'Q: <input type="text" name="tel_q" size=3 value="0\\" ' + c + '> &nbsp; ';
 		s += 'Z: <input type="text" name="tel_z" size=3 value="0/" ' + c + '><br>';
-      
+
 		for (var i = 0; i < lett.length; i ++) {
 			if (i > 0) {
 				s += ' &nbsp; ';
@@ -460,12 +461,12 @@ function ShowText(set) {
 
 			s += '<a onclick="return L(\'' + lett.charAt(i) + '\')" id="Text_Link_' + lett.charCodeAt(i) + '" href="#">';
 			s += patt.charAt(2 * i) + patt.charAt((2 * i) + 1);
-			s += '</a>'; 
+			s += '</a>';
 		}
-      
+
 		return s;
 	}
-  
+
 	if (set == 'alphabet') {
 		var s = '';
 		var l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -484,7 +485,7 @@ function ShowText(set) {
 
 			c = "'" + c + "'";
 
-			s += '<a onclick="return L(' + c + ')" id="Text_Link_' + 
+			s += '<a onclick="return L(' + c + ')" id="Text_Link_' +
 				l.charCodeAt(i) + '" href="#">' + code + '</a>';
 		}
 
@@ -521,18 +522,18 @@ function ShowText(set) {
 	if (set == 'hex') {
 		var s = '';
 		var hexchars = '0123456789ABCDEF';
-      
+
 		for (var i = 32; i < 127; i ++) {
 			if (s != '') {
 				s += '&nbsp;&nbsp; ';
 			}
-	 
+
 			var c = String.fromCharCode(i);
 
 			if (c == "'" || c == "\\") {
 				c = "\\" + c;
 			}
-			
+
 			c = "'" + c + "'";
 
 			if (c == "\'\"\'") {
@@ -540,7 +541,7 @@ function ShowText(set) {
 			}
 
 			s += '<a onclick="return L(' + c + ')" id="Text_Link_' + i + '" href="#">';
-	    
+
 			var h = i;
 			s += hexchars.charAt(Math.floor(h / 16));
 			h -= Math.floor(h / 16) * 16;
@@ -553,12 +554,12 @@ function ShowText(set) {
 
 	if (set == 'octal') {
 		var s = '';
-      
+
 		for (var i = 32; i < 127; i ++) {
 			if (s != '') {
 				s += ' &nbsp; ';
 			}
-	 
+
 			var c = String.fromCharCode(i);
 
 			if (c == "'" || c == "\\") {
@@ -581,7 +582,7 @@ function ShowText(set) {
 			s += o;
 			s += '</a>';
 		}
-      
+
 		return s;
 	}
 
@@ -626,7 +627,7 @@ function ShowText(set) {
 	if (set == 'phonedec') {
 		return '';
 	}
-	
+
 	return "Insert " + set + " text info here.";
 }
 
@@ -643,7 +644,7 @@ function ShowDecodeBox() {
 
 function GetSeconds() {
 	var d = new Date();
-   
+
 	return d.getSeconds();
 }
 
@@ -655,7 +656,7 @@ function ProcessDecodeBox(work) {
 	var t = document.encoder.decodeBox.value.toUpperCase();
 	var d = GetSeconds();
 	var Lookup = new Array();
-   
+
 	if (! work) {
 		document.getElementById('decodeBoxLink').style.display = "none";
 		document.getElementById('decodeBoxWorking').style.display = "inline";
@@ -686,14 +687,14 @@ function ProcessDecodeBox(work) {
 				}
 			}
 		}
-      
+
 		window.setTimeout('ProcessDecodeBox(1)', 1);
 		return;
 	}
-   
+
 	while (t.length && d == GetSeconds()) {
 		var bestCode = null;
-      
+
 		for (var code in Process_Text_Lookup) {
 			if (code == t.slice(0, code.length)) {
 				if (bestCode == null || bestCode.length < code.length) {
@@ -710,14 +711,14 @@ function ProcessDecodeBox(work) {
 			t = t.slice(1, t.length);
 		}
 	}
-   
+
 	document.encoder.decodeBox.value = t;
-   
+
 	if (t.length) {
 		window.setTimeout('ProcessDecodeBox(1)', 1);
 		return;
 	}
-   
+
 	document.getElementById('decodeBoxWorking').style.display = "none";
 	document.getElementById('decodeBoxLink').style.display = "inline";
 	document.encoder.text.value = Process_Text_Done;
@@ -739,11 +740,11 @@ function Braille_Translate(input) {
 		var word = words[wordnum];
 		var word2 = Braille_Remap(word), word3;
 		var i, flag;
-      
+
 		if (wordnum > 0) {
 			output += ' ';
 		}
-      
+
 		// This violates Rule 1 (General Rules), section B (Contractions
 		// are not to be used when ...  This is due to the complexity of
 		// determining where word syllables are in just a tiny bit of code.
@@ -762,10 +763,10 @@ function Braille_Translate(input) {
 			if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')) {
 				i = -1;
 			}
-	 
+
 			i --;
 		}
-      
+
 		// Decimal point vs. period.  If a number is to either side,
 		// assume decimal point.
 		for (i = 0; i < word.length; i ++) {
@@ -775,7 +776,7 @@ function Braille_Translate(input) {
 				}
 			}
 		}
-      
+
 		// Escape numbers
 		// This is the first place things could get inserted.
 		flag = 0;  // Is in alpha mode
@@ -799,7 +800,7 @@ function Braille_Translate(input) {
 			word3 += word2.charAt(i);
 		}
 		word2 = word3;
-      
+
 		// Escape caps
 		// Things could have been inserted before here, so we need to base
 		// everything on word2.
@@ -837,7 +838,7 @@ function Braille_Translate(input) {
 		word2 = word2.toLowerCase();
 		output += word2;
 	}
-   
+
 	return output;
 }
 
@@ -848,7 +849,7 @@ function Braille_Remap(c) {
 	var From = '1234567890,:.?!"[]()';
 	var To =   'abcdefghij1245687777';
 	var c2 = '';
-   
+
 	for (var i = 0; i < c.length; i ++) {
 		var p = From.indexOf(c.charAt(i));
 
@@ -858,7 +859,7 @@ function Braille_Remap(c) {
 			c2 += c.charAt(i);
 		}
 	}
-   
+
 	return c2;
 }
 

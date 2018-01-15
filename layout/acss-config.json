@@ -1,0 +1,18 @@
+{
+    "breakPoints": {
+        "xs": "@media screen and (max-width: 575px)",
+        "sm": "@media screen and (max-width: 768px)",
+        "md": "@media screen and (max-width: 992px)",
+        "lg": "@media screen and (max-width: 1170px)"
+    },
+    "custom": {
+        "barBackground": "#347DBE",
+        "barBorder": "#015CAE",
+        "barText": "#fafafa",
+        "contentWidthMax": "1150px",
+        "prevNextBackground": "#c6dee4",
+        "searchBackground": "#eee",
+        "searchTextColor": "black",
+        "textColorNormal": "black"
+    }
+}

@@ -1,9 +1,11 @@
 "use strict";
 
-var handlebars, metadata, sugar;
+var handlebars, handlebarsWax, metadata, sugar;
 
 
+handlebarsWax = require("handlebars-wax");
 handlebars = require("handlebars");
+handlebarsWax(handlebars).partials("./layout/partials/**/*.html");
 
 
 /* ********************************************************************
@@ -65,9 +67,9 @@ sugar.use("metalsmith-rootpath");
 // Embed HTML within the templates.
 sugar.use("metalsmith-layouts", {
     default: "index.html",
-    directory: "layouts",
+    directory: "layout",
     engine: "handlebars",
-    partials: "layouts/partials",
+    partials: "layout/partials",
     pattern: "**/*.html"
 });
 
@@ -85,6 +87,8 @@ sugar.use("metalsmith-move-remove", {
 });
 // Generate CSS from HTML using Atomizer.
 sugar.use("metalsmith-atomizer", {
+    acssConfig: require("./layout/acss-config.json"),
+    addRules: require("./layout/acss-rules.js"),
     destination: "css/atomic.css",
     setOptions: {
         namespace: "body"
@@ -231,7 +235,7 @@ if (process.env.SERVE) {
             "${source}/**/*.{html,md}": "**/*.{html,md,css,less}",
             "${source}/**/*.{js,txt}": "**/*.{css,less,js,txt}",
             "${source}/**/*.{yaml,json}": "**/*.{css,less,html,md}",
-            "layouts/**/*": "**/*.{css,less,html,md}"
+            "layout/**/*": "**/*.{css,less,html,md}"
         }
     });
 } else {
