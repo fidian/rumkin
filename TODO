@@ -1,3 +1,6 @@
+https://search.google.com/test/mobile-friendly
+Must serve over HTTPS
+
 THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * Jasmine tests for tools/mailto-encoder/
 * manually test the marquee generator and its angular changes
@@ -11,7 +14,16 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * Make table sorter CSS more atomic.
 * Email rules may have changed since RFC 2822 is now obsolete.
 * programming/atomic-css needs expansion
+* Cryptogram page should scan for characters in the plaintext and produce a table from it, or at least without skipping some characters.
 
+Cipher analysis tools
+* http://bionsgadgets.appspot.com/gadget_forms/acarefstats.html
+* http://bionsgadgets.appspot.com/gadget_forms/refscore.html
+* Key length finding discussion: https://crypto.stackexchange.com/questions/40066/finding-length-of-a-key-for-a-given-vigenere-cipher-using-index-of-coincidence
+
+Wordlists
+* http://storage.googleapis.com/books/ngrams/books/datasetsv2.html
+* http://norvig.com/ngrams/
 
 Anagram solver?
 
@@ -19,12 +31,23 @@ Dscript, nailscript, others?
 - http://dscript.org/
 - http://dscript.ca/
 - http://swankivy.com/aboutme/oatanese.html
+- http://www.omniglot.com/writing/puzzlecode.htm
+- https://www.nordicrunes.info/runeconverter.php
+- http://www.vikingrune.com/rune-converter/
 
 More ciphers
 - Copiale Cipher (copiale cipher wheel)
 - Dice cipher
 - Templar Cipher
 - Rosicrucian cipher
+- http://www.cryptool-online.org/index.php?option=com_content&view=article&id=56&Itemid=66&lang=en
+- https://sites.google.com/site/cryptocrackprogram/home
+- http://practicalcryptography.com/cryptanalysis/text-characterisation/identifying-unknown-ciphers/
+- Gronsfeld
+- Bifid
+- Trifid
+- Straddling Checkerboard
+- Moon Type
 
 Use fonts for braille?
 - http://www.tsbvi.edu/math/1087-download-braille-and-asl-specialty-fonts
@@ -33,6 +56,7 @@ Use fonts for braille?
 More fonts
 - http://www.fontsupply.com/fonts/M/Musical.html
 - http://www.fontspace.com/robert-allgeyer/musisync
+- http://www.cufonfonts.com/en/font/4962/futurama
 
 Cherokee Language syllabary by Sequoyah
 - http://www.native-languages.org/cherokee_alphabet.htm
