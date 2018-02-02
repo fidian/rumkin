@@ -81,7 +81,7 @@ foreach ($dictionaries as $dictName => $dictDesc) {
 
 ?>
 </select><br>
-<textarea name="text" rows="5" cols="40"><?php echo $text ?></textarea><br>
+<textarea name="text" rows="5" cols="40" autocorrect="off" autocapitalize="off" spellcheck="false"><?php echo $text ?></textarea><br>
 <input type="submit" value="Solve The Cryptogram">
 </form>
 
