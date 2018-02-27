@@ -9,9 +9,9 @@ StandardHeader(array(
 
 ?>
 
-<p>I'm sorry to say this, but it is time for the uploader to come to an end. I have decided it was time to end this project because there were no donations for well over a year, yet it still handled 35,479 uploads for the visitors.</p>
+<p>I'm sorry to say this, but it is time for the uploader to come to an end. I have decided it was time to end this project because there were no donations for well over a year, yet it still handled 35,479 uploads in its final month.</p>
 
-<p>The uploader was running for well over 10 years. In that time, 29 wonderful people donated a total of $127.17 (after PayPal's fees) and I received about double that from ads. I am immensely grateful for each donation that was received. It isn't enough to pay for the insurance to cover me when illegal content gets uploaded and people could view it from my site.</p>
+<p>The uploader was running for well over 10 years. In that time, 29 wonderful people donated a total of $127.17 (after PayPal's fees) and I received about double that from ads. I am immensely grateful for each donation that was received. It isn't enough to pay for the insurance to cover me when more illegal content gets uploaded.</p>
 
 <p>The good news is that the software is still free and available for others to host on their own PHP server.</p>
 
