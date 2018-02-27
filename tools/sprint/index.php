@@ -16,9 +16,9 @@ StandardHeader(array(
 <p>The good news is that the software is still free and available for others to host on their own PHP server.</p>
 
 <ul>
-<li><a href="20150710.zip">2015-07-10</a> - Snapshot of the files right before I took the site down. The database was removed and now the filesystem is used again, but in a much better way. The files haven't changed even though the site was operating well into 2017.</li>
-<li><a href="20051019.zip">2005-10-19</a> - Earlier snapshot. Refined the database and the code.</li>
-<li><a href="older.zip">Super Old</a> - This one is so old that it didn't even use a database to store files.</li>
+<li><a href="media/archive/20150710.zip">2015-07-10</a> - Snapshot of the files right before I took the site down. The database was removed and now the filesystem is used again, but in a much better way. The files haven't changed even though the site was operating well into 2017.</li>
+<li><a href="media/archive/20051019.zip">2005-10-19</a> - Earlier snapshot. Refined the database and the code.</li>
+<li><a href="media/archive/older.zip">Super Old</a> - This one is so old that it didn't even use a database to store files.</li>
 </ul>
 
 <?php
