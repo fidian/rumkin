@@ -36,11 +36,13 @@ almost always followed by "U", so your password's score won't increase much
 when you type in the "U".</p>
 	
 <p>I use cryptographically-minded descriptions to describe how weak or
-strong a password is.  For email accounts, passwords to log into your
+strong a password is.  For throwaway email accounts, passwords to log into your
 personal machine, and other things that don't require the most strict
 authentication, feel free to use a password that is deemed "Weak" or
 "Reasonable".  However, be careful still; if you plan on using a single
-password for multiple things, I strongly suggest a better password.</p>
+password for multiple things, I strongly suggest a better password. I would
+strongly recommend never reusing a password and rotating your passwords
+often.</p>
 
 <p>This runs completely in your browser and sends no information back to me.
 If you are paranoid, you can read the source code, unplug your machine from
