@@ -73,10 +73,7 @@ Now you know which particular filter bounced your message.</p>
 
 <p>The general anti-spam policy at Rumkin.com is to let all good messages in
 and as few spam messages in.  If your messages are being blocked, you now
-need to let me know.  You must use this <a href="/reference/site/contact.php">Contact
-Form</a> instead of regular email (because your email is being blocked).
-When you fill out the form, make sure to include the following
-information:</p>
+need to let me know and include the following.</p>
 
 <ul>
 <li>Who you are emailing

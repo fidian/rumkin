@@ -27,9 +27,7 @@ nobody on this system needs the added overhead of TMDA.</p>
 
 <p>If someone is trying to email you but gets their messages returned, tell
 them to go to <a href="denied.php">this page</a>, which will explain what
-that is all about and how to fix it.  Make sure that they use my special
-<a href="/contact.php">contact form</a> to get ahold of me if their email is
-being stopped by my system.</p>
+that is all about and how to fix it.</p>
 
 <?php Section('Webmail'); ?>
 

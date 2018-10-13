@@ -10,8 +10,7 @@ StandardHeader(array(
 
 ?>
 
-<p>Here's links to everything that is related to D&D for the Palm.  If you
-have more links, feel free to <a href="/reference/site/contact.php">email me</a>.</p>
+<p>Here's links to everything that is related to D&D for the Palm.</p>
 
 <?php Section('Palm OS Programs'); ?>
 

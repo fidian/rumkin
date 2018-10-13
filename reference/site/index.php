@@ -7,11 +7,6 @@ StandardHeader(array(
 	));
 $Links = array(
 	array(
-		'Name' => 'Contact',
-		'Desc' => 'Use this form if you need to contact me.  It goes to the ' . 'same place as the email address below.',
-		'URL' => 'contact.php'
-	),
-	array(
 		'Name' => 'Donate',
 		'Desc' => 'Do you think that I could use a little extra cash for my ' . 'troubles?  Great!  Use this form to pull funds from a ' . 'card or a PayPal account.',
 		'URL' => 'donate.php'
