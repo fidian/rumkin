@@ -78,7 +78,6 @@ Tyler Akins &lt;<?php echo HideEmail('fidian', 'rumkin.com'); ?>&gt;
 	
 	?>
 <br>
-<a href="/reference/site/contact.php">Contact Me</a> - 
 <a href="/reference/site/legal.php">Legal Info</a>
 </td></tr></table>
 <?php
