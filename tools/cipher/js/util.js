@@ -15,7 +15,7 @@ function Trim(s)
    {
       s = s.slice(0, s.length - 1);
    }
-   
+
    return s;
 }
 
@@ -27,12 +27,12 @@ function Trim(s)
 function Tr(s, f, t)
 {
    var o = '';
-   
+
    if (typeof(t) != 'string')
    {
       t = '';
    }
-   
+
    for (var i = 0; i < s.length; i ++)
    {
       var c = s.charAt(i);
@@ -49,7 +49,7 @@ function Tr(s, f, t)
          o += c;
       }
    }
-   
+
    return o;
 }
 
@@ -60,7 +60,7 @@ function Tr(s, f, t)
 function InsertCRLF(t, e)
 {
    var o = "", i, j;
-   
+
    for (i = 0, j = 0; i < t.length; i ++)
    {
       if ("\r\n".indexOf(t.charAt(i)) >= 0)
@@ -72,7 +72,7 @@ function InsertCRLF(t, e)
          o += e.charAt(j ++);
       }
    }
-   
+
    return o;
 }
 
@@ -90,20 +90,20 @@ function MakeKeyedAlphabet(key, alphabet)
       alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
    else
       alphabet = alphabet.toUpperCase();
-      
+
    if (typeof(key) != 'string')
       return alphabet;
-      
+
    key = key.toUpperCase() + alphabet;
    for (var i = 0; i < key.length; i ++)
    {
-      if (out.indexOf(key.charAt(i)) < 0 && 
+      if (out.indexOf(key.charAt(i)) < 0 &&
           alphabet.indexOf(key.charAt(i)) >= 0)
       {
          out += key.charAt(i);
       }
    }
-   
+
    return out;
 }
 
@@ -112,7 +112,7 @@ function MakeKeyedAlphabet(key, alphabet)
 function OnlyAlpha(str)
 {
    var out = "";
-   
+
    for (i = 0; i < str.length; i ++)
    {
       var b = str.charAt(i);
@@ -121,7 +121,7 @@ function OnlyAlpha(str)
          out += b;
       }
    }
-   
+
    return out;
 }
 
@@ -130,7 +130,7 @@ function OnlyAlpha(str)
 function HTMLEscape(str)
 {
    var out = "";
-   
+
    for (var i = 0; i < str.length; i ++)
    {
       var c = str.charAt(i);
@@ -144,7 +144,7 @@ function HTMLEscape(str)
          c = "<br>\n";
       out += c;
    }
-   
+
    return out;
 }
 
@@ -158,7 +158,7 @@ function ResizeTextArea(obj)
    var i, chars = 0, wide = 0;
    var obj_max_cols = 100, obj_min_cols = 40, obj_max_rows = 15;
    var scrollbar_width = 2;
-   
+
    for (i = 0; i < s.length; i ++)
    {
       var c = s.charAt(i);
@@ -169,7 +169,7 @@ function ResizeTextArea(obj)
 	 chars = 0;
 	 newlines ++;
       }
-      else 
+      else
       {
          if (chars == obj_max_cols - scrollbar_width)
          {
@@ -198,7 +198,7 @@ function ResizeTextArea(obj)
             chars ++;
          }
       }
-      
+
       // Short-circuit
       if (obj_max_rows <= newlines + wide + 1 &&
          obj_max_cols <= max_chars + scrollbar_width)
@@ -208,7 +208,7 @@ function ResizeTextArea(obj)
 	 return;
       }
    }
-   
+
    obj.rows = Math.min(obj_max_rows, newlines + wide + 1);
    obj.cols = Math.min(Math.max(obj_min_cols, max_chars + scrollbar_width), obj_max_cols);
 }
@@ -217,12 +217,12 @@ function ResizeTextArea(obj)
 function Reverse_String(s)
 {
    var o = '', i = s.length;
-   
+
    while (i --)
    {
       o += s.charAt(i);
    }
-   
+
    return o;
 }
 
@@ -240,7 +240,7 @@ function Reverse_String(s)
 function IsUnchanged(e)
 {
    var v;
-   
+
    if (e.type == 'checkbox')
    {
       v = e.checked.toString();
@@ -249,13 +249,13 @@ function IsUnchanged(e)
    {
       v = e.value;
    }
-   
+
    if (v != e.getAttribute('_oldValue'))
    {
       e.setAttribute('_oldValue', v);
       return 0;
    }
-   
+
    return 1;
 }
 
@@ -265,7 +265,7 @@ function IsUnchanged(e)
 function HTMLTableau(key)
 {
    var out = '';
-   
+
    for (var i = 0; i < 25; i ++)
    {
       if (i > 0 && i % 5 == 0)
@@ -278,52 +278,24 @@ function HTMLTableau(key)
       }
       out += key.charAt(i);
    }
-   
+
    return "<tt>" + out + "</tt>";
 }
 
 
 // Change multiple spaces into &nbsp; to preserve padding.
+// Change "\r " and "\n " into &nbsp; for the same reason.
 function SwapSpaces(in_str)
 {
-   var out = '';
-   var multi = 1;
-   
-   for (var i = 0; i < in_str.length; i ++)
-   {
-      var c = in_str.charAt(i);
-      
-      if (c == ' ')
-      {
-         if (multi)
-	 {
-	    out += '&nbsp;';
-	    multi = 0;
-	 }
-	 else
-	 {
-	    out += ' ';
-	    multi = 1;
-	 }
-      }
-      else if (multi && (c == '\r' || c == '\n' || c == '\t'))
-      {
-         out = out.slice(0, out.length - 1) + '&nbsp;' + c;
-         multi = 0;
-      }
-      else
-      {
-         out += c;
-	 multi = 0;
-      }
-   }
-   
-   if (out.charAt(out.length - 1) == ' ')
-   {
-      out = out.slice(0, out.length - 1) + '&nbsp;';
-   }
-   
-   return out;
+    return in_str.replace(/\n /g, '\n&nbsp;')
+        .replace(/ \n/g, '&nbsp;\n')
+        .replace(/\r /g, '\r&nbsp;')
+        .replace(/ \r/g, '&nbsp;\r')
+        .replace(/\t /g, '\t&nbsp;')
+        .replace(/ \t/g, '&nbsp;\t')
+        .replace(/^ /g, '&nbsp;')
+        .replace(/ $/g, '&nbsp;')
+        .replace(/  /g, ' &nbsp;');
 }
 
 
@@ -336,19 +308,19 @@ function LetterFrequency(text)
 {
    var n = new Array();
    var i = 0, j;
-   
+
    if (LetterFrequency_LastText == text)
    {
       return LetterFrequency_LastFreq;
    }
-   
+
    if (text.slice(0, LetterFrequency_LastText.length) ==
        LetterFrequency_LastText)
    {
       n = LetterFrequency_LastFreq;
       i = LetterFrequency_LastText.length;
    }
-   
+
    for (j = text.length; i < j; i ++)
    {
       var c = text.charAt(i);
@@ -361,10 +333,10 @@ function LetterFrequency(text)
          n[c] ++;
       }
    }
-   
+
    LetterFrequency_LastText = text;
    LetterFrequency_LastFreq = n;
-   
+
    return n;
 }
 
@@ -379,7 +351,7 @@ function IsPrime(n)
    if (n < 2 || n != Math.floor(n)) {
       return false;
    }
-   
+
    // Quick check for all numbers < 100
    for (var i = 0; i < PrimeList.length; i ++) {
       if (PrimeList[i] == n) {
@@ -389,7 +361,7 @@ function IsPrime(n)
          return false;
       }
    }
-   
+
    // Build list of primes needed to do the check
    var m = Math.floor(Math.sqrt(n));
    var m2 = PrimeList[PrimeList.length - 1];
@@ -401,7 +373,7 @@ function IsPrime(n)
 	 }
       }
    }
-   
+
    // Now we just cycle through the primes
    for (var i = 0; PrimeList[i] <= m; i ++) {
       var d = n / PrimeList[i];
@@ -409,7 +381,7 @@ function IsPrime(n)
          return false;
       }
    }
-   
+
    return true;
 }
 
@@ -423,13 +395,13 @@ function GetFactors(n)
    {
       return factors;
    }
-   
+
    // Check if the number is prime
    if (IsPrime(n)) {
       factors[factors.length] = n;
       return factors;
    }
-   
+
    // Start building a list of factors
    // This also populates PrimeList with enough primes for us to use
    var index = 0;
@@ -450,7 +422,7 @@ function GetFactors(n)
    if (n != factors[factors.length - 1]) {
       factors[factors.length] = n;
    }
-   
+
    return factors;
 }
 
@@ -463,7 +435,7 @@ var CoprimeCacheNum = new Array();
 function IsCoprime(a, b)
 {
    var a_factors = false, b_factors = false;
-   
+
    if (a < 1 || b < 1 || a != Math.floor(a) || b != Math.floor(b)) {
       return false;
    }
@@ -481,7 +453,7 @@ function IsCoprime(a, b)
          b_factors = CoprimeCache[i];
       }
    }
-   
+
    // Get factors
    if (! a_factors) {
       a_factors = GetFactors(a);
@@ -489,11 +461,11 @@ function IsCoprime(a, b)
    if (! b_factors) {
       b_factors = GetFactors(b);
    }
-   
+
    // Set up the cache again
    CoprimeCache = [a_factors, b_factors];
    CoprimeCacheNum = [a, b];
-   
+
    var a_idx = 0;
    var b_idx = 0;
    while (a_idx < a_factors.length && b_idx < b_factors.length)
@@ -509,6 +481,6 @@ function IsCoprime(a, b)
    }
    return true;
 }
-   
+
 
 document.Util_Loaded = 1;
