@@ -70,7 +70,7 @@ the links to change things around.</p>
 <br><b>Other Things:</b> <a href="#" onclick="return T_Reverse()">Reverse</a>
 </p>
 </form>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <span id='output'></span>
 <?php
 

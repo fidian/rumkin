@@ -15,7 +15,7 @@ spreads the information out to multiple letters, increasing security.  It
 uses a table with one letter of the alphabet omitted.  Often the J is
 removed and people just use an I instead.  Below is an unkeyed grid.</p>
 
-<?php MakeBoxTop('left'); ?>
+<?php MakeBoxTop('left', 'font-family: monospace'); ?>
 <tt>A B C D E<br>
 F G H I K<br>
 L M N O P<br>
@@ -29,7 +29,7 @@ letters, like the example shows.  Then you read the numbers off; all of the
 rows first and then all of the columns.  Using this string of numbers, you
 then look up the letters on the table again and get the encoded message.</p>
 
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <tt>letter: A B C D<Br>
 &nbsp;&nbsp;&nbsp;row: 1 1 1 1<br>
 column: 1 2 3 4<br>
@@ -119,7 +119,7 @@ V W X Y Z
 all non-letters from the text.</p>
 <p>This is your encoded or decoded text:</p>
 </form>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <p><b><tt><span id='output'></span></tt></b></p>
 <?php MakeBoxBottom();
 StandardFooter();

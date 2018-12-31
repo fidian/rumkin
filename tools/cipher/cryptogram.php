@@ -30,7 +30,7 @@ type=text onkeyup="quickswap()" size=3> or reset the letters to
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>Result:</p>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <div id='recode'></div>
 <?php MakeBoxBottom(); ?>
 <p><a href="caesar-keyed.php">Keyed Caesar</a> alphabet:

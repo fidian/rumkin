@@ -34,7 +34,7 @@ evenly into the text length.</p>
 <p>Box width:  <input type=text size=4 name=col value="1"></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <span id='output'></span>
 <?php
 

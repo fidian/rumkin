@@ -26,13 +26,13 @@ the approximate value for English text.</p>
 <p><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>Result:</p>
-<?php MakeBoxTop('center', 'width: 75%'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace; width: 75%'); ?>
 <span id='output'></span>
 <?php MakeBoxBottom(); ?>
 
 <p>Here's a bit of a keyfinder tool for the message. It only works on letters and assumes a 26 character alphabet for the Index of Coincidence. Only checks key lengths up to 42.</p>
 
-<?php MakeBoxTop('center', 'width: 75%') ?>
+<?php MakeBoxTop('center', 'font-family: monospace; width: 75%') ?>
 <span id='outputIc'>unchanged</span>
 <?php
 

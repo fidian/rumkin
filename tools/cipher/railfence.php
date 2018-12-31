@@ -50,7 +50,7 @@ rails</a></p>
 at the beginning, end, or two in a row.
 Be careful when copying encrypted text and make sure that it will
 decrypt to the message properly.</p>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <span id='output'></span>
 <?php
 

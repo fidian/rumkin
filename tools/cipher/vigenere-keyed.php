@@ -44,7 +44,7 @@ Tableau</a></p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?php MakeBoxTop('center') ?>
+<?php MakeBoxTop('center', 'font-family: monospace') ?>
 <p><b><tt><span id='output'></span></tt></b>
 <?php
 

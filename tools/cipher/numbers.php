@@ -29,7 +29,7 @@ letters, hyphens will be removed, and the rest fill act like spaces.</p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <span id=output></span>
 <?php
 

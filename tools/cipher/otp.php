@@ -28,7 +28,7 @@ of characters in your message, otherwise your message will not be encoded.</p>
 <p>Your message:<br><textarea name="text" rows="5" cols="80"></textarea></p>
 <p>The pad:<br><textarea name="pad" rows="5" cols="80"></textarea></p>
 </form>
-<?php MakeBoxTop('center') ?>
+<?php MakeBoxTop('center', 'font-family: monospace') ?>
 <span id='output'></span>
 <?php
 

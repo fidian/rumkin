@@ -14,7 +14,7 @@ where one letter of the alphabet is omitted, and the letters are arranged in
 a 5x5 grid.  Typically, the J is removed from the alphabet and an I takes
 its place in the text that is to be encoded.  Below is an unkeyed grid.</p>
 
-<?php MakeBoxTop('left'); ?>
+<?php MakeBoxTop('left', 'font-family: monospace'); ?>
 <tt>A B C D E<br>
 F G H I K<br>
 L M N O P<br>
@@ -147,7 +147,7 @@ pairs.<br>
 all non-letters from the text.</p>
 <p>This is your encoded or decoded text:</p>
 </form>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <p><b><tt><span id='output'></span></tt></b></p>
 <?php MakeBoxBottom();
 StandardFooter();

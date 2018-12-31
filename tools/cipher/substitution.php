@@ -44,7 +44,7 @@ as possible.  You'll see what I mean when you start playing with it.</p>
 <p>Message to encode:<br>
 <textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
-<?php MakeBoxTop('center') ?>
+<?php MakeBoxTop('center', 'font-family: monospace') ?>
 <div id="result"></div>
 <?php MakeBoxBottom() ?>
 

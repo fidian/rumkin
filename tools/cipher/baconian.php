@@ -47,7 +47,7 @@ A and B</a>)<br>
 <textarea name="text" rows="5" cols="80"></textarea></p>
 </form>
 <p>This is your encoded or decoded text:</p>
-<?php MakeBoxTop('center'); ?>
+<?php MakeBoxTop('center', 'font-family: monospace'); ?>
 <span id='output'></span>
 <?php
 
