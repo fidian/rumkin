@@ -1,20 +1,15 @@
-"use strict";
+import levenshtein from "./levenshtein";
+import test from "ava";
 
-var levenshtein;
-
-levenshtein = require("./levenshtein");
-
-describe("levenshtein", () => {
-    it("returns zero for matching strings", () => {
-        expect(levenshtein("test", "test")).toBe(0);
-    });
-    it("returns a number of changes", () => {
-        expect(levenshtein("test", "tent")).toBe(1);
-    });
-    it("does not crash on empty strings", () => {
-        expect(levenshtein("", "")).toBe(0);
-    });
-    it("counts inserts and deletes", () => {
-        expect(levenshtein("tangle", "entange")).toBe(3);
-    });
+test("returns zero for matching strings", t => {
+    t.is(levenshtein("test", "test"), 0);
+});
+test("returns a number of changes", t => {
+    t.is(levenshtein("test", "tent"), 1);
+});
+test("does not crash on empty strings", t => {
+    t.is(levenshtein("", ""), 0);
+});
+test("counts inserts and deletes", t => {
+    t.is(levenshtein("tangle", "entange"), 3);
 });
