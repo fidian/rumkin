@@ -47,7 +47,7 @@ Here's a quick run-down of uses for whiteboards and some methods that work best.
     * MB4000w - This is what it was designed to do
     * Rain-X / Hard Surface Protectant
 
-This is a table with a quick comparison of surfaces.  The higher the score, the better it works with whiteboard markers.  The higher the price, the more economical it is (ie. it costs less).  A "?" means I did not test this product yet.
+This is a table with a quick comparison of surfaces.  The higher the score, the better it works with whiteboard markers.  The lower the price, the more economical it is (ie. it saves more money as the score goes up).  A "?" means I did not test this product yet.
 
 | Material | Score | Price | Notes |
 |----------|:-----:|:-----:|-------|
