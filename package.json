@@ -11,8 +11,8 @@
         "clean": "rm -rf node_modules/ package-lock.json",
         "fastbuild": "FASTBUILD=true node metalsmith.js",
         "start": "SERVE=true node metalsmith.js",
-        "test": "ava",
-        "watch": "ava --watch"
+        "test": "ava -v",
+        "watch": "ava -v --watch"
     },
     "dependencies": {
         "@babel/preset-env": "^7.7.4",
