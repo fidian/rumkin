@@ -1,20 +1,15 @@
-#!/usr/bin/env node
+const isValidEmail = require('./is-valid-email');
+const scenarios = require('./scenarios.json');
+const test = require('ava');
 
-var isValidEmail, scenarios;
-
-isValidEmail = require("./is-valid-email");
-scenarios = require("./scenarios.json");
-
-describe("is-valid-email", () => {
-    scenarios.forEach((scenario) => {
-        if (scenario.valid) {
-            it(`allows ${scenario.email}`, () => {
-                expect(isValidEmail(scenario.email)).toBe(true);
-            });
-        } else {
-            it(`blocks ${scenario.email}`, () => {
-                expect(isValidEmail(scenario.email)).toBe(false);
-            });
-        }
-    });
+scenarios.forEach((scenario) => {
+    if (scenario.valid) {
+        test(`allows ${scenario.email}`, t => {
+            t.is(isValidEmail(scenario.email), true);
+        });
+    } else {
+        test(`blocks ${scenario.email}`, t => {
+            t.is(isValidEmail(scenario.email), false);
+        });
+    }
 });
