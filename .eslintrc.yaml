@@ -1,5 +1,6 @@
 parserOptions:
     ecmaVersion: 6
+    sourceType: module
 env:
     es6: true
     jasmine: true
@@ -14,7 +15,6 @@ rules:
     arrow-body-style:
         - error
         - always
-    arrow-parens: error
     arrow-spacing: error
     block-spacing:
         - error
@@ -55,8 +55,6 @@ rules:
     max-statements-per-line: error
     new-cap: error
     new-parens: error
-    newline-after-var: error
-    newline-before-return: error
     no-alert: error
     no-array-constructor: error
     no-bitwise: error
@@ -136,7 +134,6 @@ rules:
     no-shadow-restricted-names: error
     no-spaced-func: error
     no-sparse-arrays: error
-    no-sync: error
     no-ternary: error
     no-this-before-super: error
     no-throw-literal: error
@@ -163,14 +160,9 @@ rules:
     no-warning-comments: warn
     no-whitespace-before-property: error
     no-with: error
-    object-curly-spacing: error
     object-property-newline: error
     object-shorthand: error
-    one-var: error
     operator-assignment: error
-    operator-linebreak:
-        - error
-        - none
     padded-blocks:
         - error
         - never
@@ -183,7 +175,6 @@ rules:
     quote-props:
         - error
         - as-needed
-    quotes: error
     radix: error
     require-jsdoc:
         - error

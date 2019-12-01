@@ -1,17 +1,11 @@
-"use strict";
-
-var handlebars, handlebarsWax, metadata, sugar;
-
-
-handlebarsWax = require("handlebars-wax");
-handlebars = require("handlebars");
-handlebarsWax(handlebars).partials("./layout/partials/**/*.html");
-
+const handlebarsWax = require("handlebars-wax");
+const handlebars = require("handlebars");
+handlebarsWax(handlebars).partials("./layouts/partials/**/*.html");
 
 /* ********************************************************************
  * Build metadata
  ******************************************************************* */
-metadata = require("./metadata.json");
+const metadata = require("./metadata.json");
 metadata.buildYear = new Date().getFullYear();
 
 if (process.env.SERVE) {
@@ -21,13 +15,12 @@ if (process.env.SERVE) {
 /* ********************************************************************
  * Make the new Metalsmith object
  ******************************************************************* */
-sugar = require("metalsmith-sugar")({
+const sugar = require("metalsmith-sugar")({
     clean: true,
     destination: "./build",
     metadata,
     source: "./site"
 });
-
 
 /* ********************************************************************
  * Make the new Metalsmith object
@@ -37,12 +30,13 @@ sugar.use("metalsmith-data-loader", {
     removeSource: true
 });
 
-
 /* ********************************************************************
  * Markdown -> HTML
  *
  * Must happen before CSS for Atomizer plugin.
  ******************************************************************* */
+// Rename *.html so they don't get in the way during conversion
+sugar.use("metalsmith-rename", [[/\.html$/, ".html.real"]]);
 // Set up links so indices and automatic subpage listings can be generated
 // within a document.
 sugar.use("metalsmith-ancestry");
@@ -51,28 +45,30 @@ sugar.use("metalsmith-relative-links");
 // Add `propName?` and `_parent` properties throughout the metadata.  This
 // is added early for mustache parsing in markdown before templating.
 sugar.use("metalsmith-mustache-metadata", {
-    match: "**/*.{htm,html,md}"
+    match: "**/*.md"
 });
 // Parse Markdown using Handlebars to be able to build tables and generate
 // content from metadata.  Unfortunately, in order to report parse errors,
 // this debug setting needs to be set.
+const debug = require('debug');
+debug.enable('metalsmith-data-loader');
 sugar.use("metalsmith-hbt-md", handlebars);
 // Convert Markdown to HTML.
 sugar.use("metalsmith-markdown");
-
 // Add a `rootPath` metadata property to all files.  It's relative, allowing
 // the site to be hosted under any path.  "" = at root, or could be "../" or
 // "../../" etc.
 sugar.use("metalsmith-rootpath");
 // Embed HTML within the templates.
-sugar.use("metalsmith-layouts", {
-    default: "index.html",
-    directory: "layout",
-    engine: "handlebars",
-    partials: "layout/partials",
-    pattern: "**/*.html"
+const templateString = require("fs").readFileSync('layouts/index.html').toString();
+const template = handlebars.compile(templateString);
+sugar.use("metalsmith-each", (file, filename) => {
+    if (filename.match(/\.html$/)) {
+        file.contents = template(file);
+    }
 });
-
+// Rename *.html files back to their original names.
+sugar.use("metalsmith-rename", [[/\.html\.real$/, ".html"]]);
 
 /* ********************************************************************
  * LESS + HTML(Atomic) + CSS -> CSS
@@ -81,14 +77,12 @@ sugar.use("metalsmith-layouts", {
 sugar.use("metalsmith-less");
 // metalsmith-less does not remove source files.  This does.
 sugar.use("metalsmith-move-remove", {
-    remove: [
-        ".*\\.less$"
-    ]
+    remove: [".*\\.less$"]
 });
 // Generate CSS from HTML using Atomizer.
 sugar.use("metalsmith-atomizer", {
-    acssConfig: require("./layout/acss-config.json"),
-    addRules: require("./layout/acss-rules.js"),
+    acssConfig: require("./layouts/acss-config.json"),
+    addRules: require("./layouts/acss-rules.js"),
     destination: "css/atomic.css",
     setOptions: {
         namespace: "body"
@@ -100,7 +94,6 @@ sugar.use("metalsmith-concat", {
     output: "css/site.css"
 });
 
-
 /* ********************************************************************
  * JS -> JS
  ******************************************************************* */
@@ -108,16 +101,8 @@ sugar.use("metalsmith-browserify-alt", {});
 
 // Make ES6 more friendly to browsers.
 sugar.use("metalsmith-babel", {
-    presets: [
-        "es2015-script"
-    ]
+    presets: ["@babel/preset-env"]
 });
-
-sugar.use("metalsmith-ng-annotate", {
-    add: true,
-    pattern: "**/!(*spec).js"
-});
-
 
 /* ********************************************************************
  * My custom linting rules. Simply emits warnings to console.
@@ -127,7 +112,10 @@ sugar.use("metalsmith-each", (file, filename) => {
     var contents;
 
     // Only valid extensions allowed.
-    if (!filename.match(/\.(css|html|js|json|txt)$/) && filename.match(/\.[^.]*$/)) {
+    if (
+        !filename.match(/\.(css|html|js|json|txt)$/) &&
+        filename.match(/\.[^.]*$/)
+    ) {
         console.log(`Invalid extension: ${filename}`);
     }
 
@@ -190,7 +178,6 @@ if (!process.env.UNMINIFIED) {
     }
 }
 
-
 /* ********************************************************************
  * Static assets outside of the source folder.
  ******************************************************************* */
@@ -203,7 +190,6 @@ sugar.use("metalsmith-assets", {
     source: "./redirect"
 });
 
-
 /* ********************************************************************
  * Server, testing, debugging, etc.
  ******************************************************************* */
@@ -211,10 +197,7 @@ if (process.env.JSON) {
     // Debugging on the fly
     sugar.use("metalsmith-writemetadata", {
         bufferencoding: "utf8",
-        ignorekeys: [
-            "ancestry",
-            "contents"
-        ],
+        ignorekeys: ["ancestry", "contents"],
         pattern: process.env.JSON.split(" ")
     });
 }

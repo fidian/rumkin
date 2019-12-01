@@ -1,3 +1,6 @@
+Wigwag code
+https://diy.smartkids123.com/wig-wag-signals-and-wigwagging/
+
 https://search.google.com/test/mobile-friendly
 Must serve over HTTPS
 
@@ -15,6 +18,7 @@ THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
 * Email rules may have changed since RFC 2822 is now obsolete.
 * programming/atomic-css needs expansion
 * Cryptogram page should scan for characters in the plaintext and produce a table from it, or at least without skipping some characters.
+* Cipher entry textareas should have `autocorrect="off" autocapitalize="off" spellcheck="false"` when entering ciphertext.
 
 Cipher analysis tools
 * http://bionsgadgets.appspot.com/gadget_forms/acarefstats.html
@@ -48,6 +52,10 @@ More ciphers
 - Trifid
 - Straddling Checkerboard
 - Moon Type
+- Different variants of morse code for different languages.
+- The "see also" section: https://en.wikipedia.org/wiki/Prosigns_for_Morse_code
+- Keyboard cipher (shift left 1 letter - shift punctuation? shift numbers? what keyboard layout? Other shift directions? Shift more than one letter?)
+- Hutton Cipher (old and new versions)
 
 Use fonts for braille?
 - http://www.tsbvi.edu/math/1087-download-braille-and-asl-specialty-fonts

@@ -39,14 +39,3 @@ addStyle("text-special", {
     "font-weight": 400,
     "letter-spacing": ".025em"
 });
-addStyle("no-select", {
-    "-webkit-touch-callout": "none",
-    "-webkit-user-select": "none",
-    "-khtml-user-select": "none",
-    "-moz-user-select": "none",
-    "-ms-user-select": "none",
-    "user-select": "none"
-});
-addStyle("no-wrap", {
-    "white-space": "nowrap"
-});
