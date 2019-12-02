@@ -12,10 +12,6 @@ rules:
         - error
         - never
     array-callback-return: error
-    arrow-body-style:
-        - error
-        - always
-    arrow-spacing: error
     block-spacing:
         - error
         - never
@@ -161,28 +157,15 @@ rules:
     no-whitespace-before-property: error
     no-with: error
     object-property-newline: error
-    object-shorthand: error
     operator-assignment: error
     padded-blocks:
         - error
         - never
-    prefer-arrow-callback:
-        - error
-        -
-            allowNamedFunctions: true
     prefer-const: error
-    prefer-template: error
     quote-props:
         - error
         - as-needed
     radix: error
-    require-jsdoc:
-        - error
-        -
-            require:
-                FunctionDeclaration: true
-                MethodDefinition: true
-                ClassDeclaration: true
     require-yield: error
     semi: error
     semi-spacing: error
@@ -204,20 +187,7 @@ rules:
             int32Hint: false
     space-unary-ops: error
     spaced-comment: error
-    strict: error
-    template-curly-spacing: error
     use-isnan: error
-    valid-jsdoc:
-        - error
-        -
-            prefer:
-                returns: return
-            preferType:
-                object: Object
-                String: string
-            requireParamDescription: false
-            requireReturn: false
-            requireReturnDescription: false
     valid-typeof: error
     vars-on-top: error
     wrap-iife: error
