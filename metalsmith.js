@@ -183,7 +183,7 @@ if (!process.env.UNMINIFIED) {
  ******************************************************************* */
 sugar.use("metalsmith-assets", {
     destination: ".",
-    source: "./asset"
+    source: "./assets"
 });
 sugar.use("metalsmith-assets", {
     destination: ".",
