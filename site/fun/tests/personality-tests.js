@@ -1,72 +1,175 @@
-/* global angular */
-"use strict";
+/* global m, marked */
 
-angular.module("personalityTests", [
-    "hc.marked"
-]);
+const tests = [
+    {
+        id: "candybar",
+        name: "What candy bar are you?"
+    },
+    {
+        id: "iq-test",
+        name: "How smart are you?"
+    },
+    {
+        id: "love",
+        name: "Your opinions about marriage and your significant other."
+    },
+    {
+        id: "priorities",
+        name: "How do you rank different priorities?"
+    },
+    {
+        id: "world-leader",
+        name: "Pick the next world leader."
+    }
+];
 
-angular.module("personalityTests").config(($locationProvider) => {
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
-});
+// eslint-disable-next-line
+class Introduction {
+    view() {
+        return [
+            m(
+                "p",
+                "These personality tests are designed only to amuse and potentially provide insight into your mind. The results are not intended to be accurate, but they could bring a smile to your face. If you know of more tests like this that you would like to see here, send them to me!"
+            ),
+            m(
+                "ul",
+                tests.map((test) =>
+                    m(
+                        "li",
+                        m(
+                            m.route.Link,
+                            {
+                                href: "/test/" + test.id
+                            },
+                            test.name
+                        )
+                    )
+                )
+            ),
+            m("p", "Don't worry. You are not graded.")
+        ];
+    }
+}
 
-angular.module("personalityTests").controller("personalityTestsController", ($scope, $location, $http) => {
-    /**
-     * Loads a test data file.
-     *
-     * @param {string} name
-     * @return {Object} test (filled in async later)
-     */
-    function loadTest(name) {
-        var test;
+class Question {
+    view(vnode) {
+        const question = vnode.attrs.question;
+        const result = [m.trust(marked(question.text))];
 
-        // Sanitize
-        name = name.replace(/[^-a-z0-9]/g, "");
-        test = {
-            name,
-            isLoading: true,
-            title: ""
-        };
+        if (question.selected) {
+            result.push(m("div", m("em", m.trust(marked(question.selected)))));
+            result.push(
+                m(
+                    "div",
+                    m(
+                        "strong",
+                        m.trust(marked(question.answers[question.selected]))
+                    )
+                )
+            );
+            result.push(
+                m(
+                    "div",
+                    m(
+                        "a",
+                        {
+                            href: "#",
+                            onclick: () => {
+                                question.selected = null;
+                                return false;
+                            }
+                        },
+                        "Reset question?"
+                    )
+                )
+            );
+        } else {
+            result.push(
+                m(
+                    "ul",
+                    Object.keys(question.answers).map((answer) => {
+                        return m(
+                            "li",
+                            m(
+                                "a",
+                                {
+                                    href: "#",
+                                    onclick: () => {
+                                        question.selected = answer;
+                                        return false;
+                                    }
+                                },
+                                m.trust(marked(answer))
+                            )
+                        );
+                    })
+                )
+            );
+        }
 
-        $http.get(`${name}.json`).then((response) => {
-            test.isLoading = false;
-            test.isLoaded = true;
-            test.data = response.data;
-            test.title = test.data.title;
-            test.summary = test.data.summary;
-            test.questions = test.data.questions;
-        }, (err) => {
-            test.isLoading = false;
-            test.isError = true;
-            test.error = err.data;
-            test.title = "Error loading test";
-        });
+        return m("div", result);
+    }
+}
 
-        return test;
+// eslint-disable-next-line
+class Test {
+    constructor() {
+        this.setId(null);
     }
 
+    setId(id) {
+        this.id = id;
+        this.loading = true;
+        this.error = false;
+        this.data = {};
 
-    /**
-     * On location change, load any specified test.
-     */
-    function reconfigure() {
-        var name;
-
-        name = $location.search().test;
-
-        if (name) {
-            $scope.test = loadTest(name);
+        if (id) {
+            m.request({
+                url: id + ".json"
+            }).then(
+                (data) => {
+                    this.loading = false;
+                    this.data = data;
+                },
+                () => {
+                    this.loading = false;
+                    this.error = "Unable to load test data.";
+                }
+            );
         } else {
-            $scope.test = null;
+            this.loading = false;
+            this.error = "No test specified.";
         }
     }
 
-    $scope.showTest = function (name) {
-        $location.search("test", name);
-    };
+    view(vnode) {
+        const result = [];
 
-    reconfigure();
-    $scope.$on("$locationChangeSuccess", reconfigure);
-});
+        if (this.id !== vnode.attrs.id) {
+            this.setId(vnode.attrs.id);
+        }
+
+        result.push(
+            m(
+                m.route.Link,
+                {
+                    href: "/"
+                },
+                "Back to the list of tests."
+            )
+        );
+
+        if (this.loading) {
+            result.push(m("div", "Loading the test ..."));
+        } else if (this.error) {
+            result.push(m("div", "Error with test: " + this.error));
+        } else {
+            result.push(m("div", m.trust(marked("# " + this.data.title))));
+            this.data.questions.forEach((question) => {
+                result.push(m(Question, { question: question }));
+            });
+        }
+
+        return result;
+    }
+}

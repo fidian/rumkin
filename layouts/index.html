@@ -14,12 +14,22 @@
         {{#css}}
         <link rel="stylesheet" href="{{.}}">
         {{/css}}
-        {{#module?}}
-        <script type="text/javascript" src="{{rootPath}}js/angular.min.js"></script>
-        {{/module?}}
         {{#js}}
         <script type="text/javascript" src="{{.}}"></script>
         {{/js}}
+        {{#routes?}}
+        <script type="text/javascript" src="{{rootPath}}js/mithril.min.js"></script>
+        <script>
+            window.addEventListener('load', function () {
+                const root = document.getElementsByClassName('module')[0];
+                const routes = [];
+{{#routes}}
+                routes['{{path}}'] = {{component}};
+{{/routes}}
+                m.route(root, '/', routes);
+            });
+        </script>
+        {{/routes?}}
     </head>
     <body class="Ovx(h)">
 {{>header}}
