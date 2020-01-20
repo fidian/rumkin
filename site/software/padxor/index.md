@@ -31,7 +31,7 @@ Encrypting and Decrypting
 
 This tool is similar to the one on the [Unbreakable site][Unbreakable], but I decided to make a few parameters for it.
 
-    padgen [options] inputfile padfile outputfile
+    padxor [options] inputfile padfile outputfile
 
 Options:
 
