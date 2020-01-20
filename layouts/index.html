@@ -17,6 +17,15 @@
         {{#js}}
         <script type="text/javascript" src="{{.}}"></script>
         {{/js}}
+        {{#component?}}
+        <script type="text/javascript" src="{{rootPath}}js/mithril.min.js"></script>
+        <script>
+            window.addEventListener('load', function () {
+                const root = document.getElementsByClassName('module')[0];
+                m.mount(root, {{component}});
+            });
+        </script>
+        {{/component?}}
         {{#routes?}}
         <script type="text/javascript" src="{{rootPath}}js/mithril.min.js"></script>
         <script>
