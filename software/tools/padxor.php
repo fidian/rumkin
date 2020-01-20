@@ -50,7 +50,7 @@ than the file you wish to encrypt, but not 100% necessary for these tools.</p>
 <p>This tool is similar to the one on the Unbreakable site, but I decided to
 make a few parameters for it.</p>
 
-<p><tt>padgen [options] inputfile padfile outputfile</tt></p>
+<p><tt>padxor [options] inputfile padfile outputfile</tt></p>
 
 <p>Options:<br>
 <tt>-s byte</tt> :: Start using the padfile at the specified byte<br>
