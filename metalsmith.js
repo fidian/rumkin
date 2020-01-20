@@ -6,7 +6,7 @@ handlebarsWax(handlebars).partials("./layouts/partials/**/*.html");
  * Build metadata
  ******************************************************************* */
 const metadata = require("./metadata.json");
-metadata.buildYear = new Date().getFullYear();
+metadata.site.buildYear = new Date().getFullYear();
 
 if (process.env.SERVE) {
     metadata.liveReload = true;
@@ -22,9 +22,6 @@ const sugar = require("metalsmith-sugar")({
     source: "./site"
 });
 
-/* ********************************************************************
- * Make the new Metalsmith object
- ******************************************************************* */
 // Load files referenced in `data` metadata property.
 sugar.use("metalsmith-data-loader", {
     removeSource: true
@@ -64,7 +61,10 @@ const templateString = require("fs").readFileSync('layouts/index.html').toString
 const template = handlebars.compile(templateString);
 sugar.use("metalsmith-each", (file, filename) => {
     if (filename.match(/\.html$/)) {
-        file.contents = template(file);
+        file.contents = template({
+            ...metadata,
+            ...file
+        });
     }
 });
 // Rename *.html files back to their original names.

@@ -1,7 +1,16 @@
 {
-    "title": "Rumkin.com",
-    "description": "Anything I found useful at any time in the past.",
-    "owner": "Tyler Akins",
-    "generator": "Metalsmith",
-    "url": "http://rumkin.com/"
+    "site": {
+        "buildYear": "replaced by metalsmith.js",
+        "owner": "Tyler Akins",
+        "ownerEmail": "fidian@rumkin.com",
+        "title": "Rumkin.com",
+        "topNavLinks": [
+            {
+                "external": true,
+                "href": "mailto:fidian@rumkin.com",
+                "title": "Email Me"
+            }
+        ],
+        "url": "http://rumkin.com/"
+    }
 }
