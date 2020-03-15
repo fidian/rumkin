@@ -6,5 +6,4 @@ All sorts of programs reside here.  They range from desktop software packages, t
 
 {{#ancestry.children}}
 * [{{title}}]({{link.from ancestry.parent}}) - {{summary}}
-
 {{/ancestry.children}}

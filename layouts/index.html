@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="en"{{#module}} ng-app="{{.}}"{{/module}}>
+<html lang="en" {{#module}} ng-app="{{.}}"{{/module}} >
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{title}}</title>
-        <link rel="stylesheet" href="{{rootPath}}css/site.css">
-        {{>favicon}}
-        <link rel="license" href="{{rootPath}}license">
-        {{#liveReload}}
-        <script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
-        {{/liveReload}}
-        {{#css}}
-        <link rel="stylesheet" href="{{.}}">
-        {{/css}}
-        {{#js}}
-        <script type="text/javascript" src="{{.}}"></script>
-        {{/js}}
-        {{#component?}}
-        <script type="text/javascript" src="{{rootPath}}js/mithril.min.js"></script>
+        <link rel="stylesheet" href="{{rootPath}}css/site.css" />
+
+        <!-- Favicon generated content from http://realfavicongenerator.net/ -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{rootPath}}img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{{rootPath}}img/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{{rootPath}}img/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="{{rootPath}}img/favicon/manifest.json" />
+        <link rel="mask-icon" href="{{rootPath}}img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="{{rootPath}}img/favicon/favicon.ico" />
+        <meta name="msapplication-config" content="{{rootPath}}img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- End of favicon generated content -->
+
+        <link rel="license" href="{{rootPath}}license" />
+{{#liveReload}}
+        <script src="http://localhost:35729/livereload.js"></script>
+{{/liveReload}}
+{{#css}}
+        <link rel="stylesheet" href="{{.}}" />
+{{/css}}
+{{#js}}
+        <script src="{{.}}"></script>
+{{/js}}
+{{#component?}}
+        <script src="{{rootPath}}js/mithril.min.js"></script>
         <script>
             window.addEventListener('load', function () {
                 const root = document.getElementsByClassName('module')[0];
                 m.mount(root, {{component}});
             });
         </script>
-        {{/component?}}
-        {{#routes?}}
-        <script type="text/javascript" src="{{rootPath}}js/mithril.min.js"></script>
+{{/component?}}
+{{#routes?}}
+        <script src="{{rootPath}}js/mithril.min.js"></script>
         <script>
             window.addEventListener('load', function () {
                 const root = document.getElementsByClassName('module')[0];
@@ -38,16 +49,58 @@
                 m.route(root, '/', routes);
             });
         </script>
-        {{/routes?}}
+{{/routes?}}
+        <script async src="https://cse.google.com/cse.js?cx=018268869746522778088:menk8szbtrf"></script>
     </head>
     <body class="Ovx(h)">
-{{>header}}
+        <nav
+            class="Bgc(barBackground) T(0) Pos(f) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) Px(10px)--lg Z(1)"
+        >
+            <div class="Mx(a) Maw(contentWidthMax) D(f) H(100%) Jc(sb)">
+                <div class="H(100%) D(f) Whs(nw) Ai(c)">
+                    {{#ancestry.parent}}
+                    {{>breadcrumbs target=.}}
+                    {{/ancestry.parent}}
+                    {{^ancestry.parent}}
+                    <a class="C(barText) Fz(1.4em) Fw(b)" href="{{site.urlToRoot}}">{{site.title}}</a>
+                    {{/ancestry.parent}}
+                </div>
+
+                <div class="Ai(c) D(f)">
+                    <ul class="D(f) Ai(c)">
+{{#site.topNavLinks}}
+                        <li class="Mend(15px) D(n)--sm List(n)">
+                            <a
+                                href="{{^external}}{{../rootPath}}{{/external}}{{href}}"
+                                class="C(barText)"
+                                >{{title}}</a
+                            >
+                        </li>
+{{/site.topNavLinks}}
+
+                        <li class="List(n)">
+                            <div class="gcse-searchbox-only"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="Mt(70px) C(textColorNormal)">
             <div class="Mx(a) W(100%) Maw(contentWidthMax) D(f) Px(10px)--lg Pstart(0)--xs">
-{{>sidebar}}
-{{! Must not indent this because <code> blocks will have their contents
-    indented. That makes the formatting completely messed up. }}
-{{>content}}
+                <main class="D(tbc) Va(t) W(100%)">
+                    <header>
+                        <h1>
+                            {{title}}
+                        </h1>
+
+{{#summary}}
+                        <div class="Mstart(10px) Bdstartw(3px) Bdc(#777) Pstart(10px) Mb(15px)">
+                            {{{.}}}
+                        </div>
+{{/summary}}
+                    </header>
+                    <div class="contents">{{{contents}}}</div>
+                </main>
             </div>
         </div>
     </body>

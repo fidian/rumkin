@@ -152,33 +152,6 @@ sugar.use("metalsmith-each", (file, filename) => {
 });
 
 /* ********************************************************************
- * Minification
- ******************************************************************* */
-if (!process.env.UNMINIFIED) {
-    // Minify HTML
-    // This must happen after atomizer parses the HTML.
-    sugar.use("metalsmith-html-minifier");
-
-    // Minify CSS
-    sugar.use("metalsmith-clean-css", {
-        cleanCSS: {
-            // Rebasing breaks links because it doesn't understand the
-            // real CSS location.
-            rebase: false
-        },
-        files: "**/*.css"
-    });
-
-    if (!process.env.FASTBUILD) {
-        // Minify JS
-        sugar.use("metalsmith-uglify", {
-            nameTemplate: "[name].[ext]",
-            preserveComments: "some"
-        });
-    }
-}
-
-/* ********************************************************************
  * Static assets outside of the source folder.
  ******************************************************************* */
 sugar.use("metalsmith-assets", {
