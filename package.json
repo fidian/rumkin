@@ -15,10 +15,10 @@
         "watch": "ava -v --watch"
     },
     "dependencies": {
-        "@babel/preset-env": "^7.7.4",
+        "@babel/preset-env": "^7.8.7",
         "@fidian/rumkin-cipher": "^0.0.0",
         "@fidian/rumkin-compression": "^1.1.0",
-        "ava": "^2.4.0",
+        "ava": "^3.5.0",
         "blueimp-md5": "^2.12.0",
         "browserify": "^16.5.0",
         "diceware-wordlist-en": "^1.0.0",
@@ -28,12 +28,12 @@
         "diceware-wordlist-swe": "^1.0.1",
         "es5-shim": "^4.5.13",
         "file-saver": "^2.0.2",
-        "handlebars": "^4.5.3",
+        "handlebars": "^4.7.3",
         "handlebars-wax": "^6.1.0",
         "jquery": "^3.4.1",
         "jszip": "^3.2.2",
         "jszip-utils": "^0.1.0",
-        "marked": "^0.7.0",
+        "marked": "^0.8.0",
         "metalsmith-ancestry": "^1.4.0",
         "metalsmith-assets": "^0.1.0",
         "metalsmith-atomizer": "^1.1.0",
@@ -41,7 +41,7 @@
         "metalsmith-broken-link-checker": "^1.0.2",
         "metalsmith-browserify-alt": "^2.0.0",
         "metalsmith-concat": "^7.0.2",
-        "metalsmith-data-loader": "^1.1.3",
+        "metalsmith-data-loader": "^1.1.4",
         "metalsmith-each": "^0.1.1",
         "metalsmith-hbt-md": "^1.0.1",
         "metalsmith-less": "^2.0.0",
@@ -59,9 +59,9 @@
         "metalsmith-watch": "^1.0.3",
         "metalsmith-writemetadata": "^0.4.5",
         "mithril": "^2.0.4",
-        "mustache": "^3.1.0",
+        "mustache": "^4.0.1",
         "polyfill-crypto.getrandomvalues": "^1.0.0",
-        "tablesorter": "^2.31.2",
+        "tablesorter": "^2.31.3",
         "tai-password-strength": "^1.1.1"
     }
 }
