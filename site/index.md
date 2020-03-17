@@ -2,6 +2,13 @@
 title: Rumkin.com
 ---
 
+### [Fun Stuff](fun/)
+
+* [Fortune Cookie](fun/fortune-cookie/) - Need a random fortune from a fortune cookie?
+* [Personality Tests](fun/tests/) - What don't you know about yourself?
+* [Tongue Twisters](fun/tongue-twisters/) - There's no way you can say them *all*!
+
+
 ### [Web-Based Tools](tools/)
 
 * [Phone Uploader](tools/sprint/) - Send new ringtones, images, and Java midlets to your phone with ease.  Works with many phones and providers, and I don't charge a cent!
@@ -15,14 +22,6 @@ title: Rumkin.com
 * [JavaScript Boilerplate](programming/js-boilerplate/) - A useful wrapper and object definition pattern
 * [Lean CSS](programming/lean-css/) - A new technique to structuring CSS to make your maintenance life easier
 * [more ...](programming/)
-
-
-### [Fun](fun/)
-
-* [Fortune Cookie](fun/fortune-cookie/) - Need a random fortune from a fortune cookie?
-* [Games](fun/games/) - Interactive arcade games
-* [Tongue Twisters](fun/tongue-twisters/) - There's no way you can say them *all*!
-* [more ...](fun/)
 
 
 ### [Reference Materials](reference/)
