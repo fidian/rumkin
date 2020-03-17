@@ -1,3 +1,1 @@
-<?php
-
-header("Location: donate/", true, 301);
+../../index-page.template

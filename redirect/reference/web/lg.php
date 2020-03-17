@@ -1,3 +1,1 @@
-<?php
-
-header("Location: lifegenesis/", true, 301);
+../../index-page.template

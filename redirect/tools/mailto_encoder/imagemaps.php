@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../mailto-encoder/", true, 301);
+../../index-page.template

@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../degree-converter/", true, 301);
+../../index-page.template

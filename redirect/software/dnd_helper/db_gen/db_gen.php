@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../../dnd-helper/developer/", true, 301);
+../../../index-page.template

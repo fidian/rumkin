@@ -1,3 +1,1 @@
-<?php
-
-header("Location: char-sheet/", true, 301);
+../../index-page.template

@@ -1,3 +1,1 @@
-<?php
-
-header("Location: image-mouseover/", true, 301);
+../../index-page.template

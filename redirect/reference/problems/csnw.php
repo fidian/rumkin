@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../../problems/csnw/", true, 301);
+../../index-page.template

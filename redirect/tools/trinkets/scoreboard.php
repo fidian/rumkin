@@ -1,3 +1,1 @@
-<?php
-
-header("Location: scoreboard/", true, 301);
+../../index-page.template

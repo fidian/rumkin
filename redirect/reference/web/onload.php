@@ -1,3 +1,1 @@
-<?php
-
-header("Location: onload/", true, 301);
+../../index-page.template

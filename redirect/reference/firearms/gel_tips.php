@@ -1,3 +1,1 @@
-<?php
-
-header("Location: gel-recipe/", true, 301);
+../../index-page.template

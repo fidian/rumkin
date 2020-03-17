@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../dbf-tools/", true, 301);
+../../index-page.template

@@ -1,3 +1,1 @@
-<?php
-
-header("Location: example-slide/", true, 301);
+../../index-page.template

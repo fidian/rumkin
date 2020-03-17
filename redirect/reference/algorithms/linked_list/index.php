@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../linked-list/", true, 301);
+../../../index-page.template

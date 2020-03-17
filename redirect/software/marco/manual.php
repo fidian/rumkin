@@ -1,3 +1,1 @@
-<?php
-
-header("Location: manual/", true, 301);
+../../index-page.template

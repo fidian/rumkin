@@ -1,3 +1,1 @@
-<?php
-
-header("Location: garbots/", true, 301);
+../../index-page.template

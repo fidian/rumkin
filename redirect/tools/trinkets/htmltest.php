@@ -1,3 +1,1 @@
-<?php
-
-header("Location: html/", true, 301);
+../../index-page.template

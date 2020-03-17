@@ -1,3 +1,1 @@
-<?php
-
-header("Location: javascript-speed/", true, 301);
+../../index-page.template

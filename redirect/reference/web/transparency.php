@@ -1,3 +1,1 @@
-<?php
-
-header("Location: transparency/", true, 301);
+../../index-page.template

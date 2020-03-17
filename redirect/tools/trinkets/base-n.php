@@ -1,3 +1,1 @@
-<?php
-
-header("Location: base-n/", true, 301);
+../../index-page.template

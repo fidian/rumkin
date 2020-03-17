@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../../problems/windows-domain-time-diff/", true, 301);
+../../index-page.template

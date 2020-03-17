@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../escaping-encoding/", true, 301);
+../../../index-page.template

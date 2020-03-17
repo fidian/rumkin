@@ -1,3 +1,1 @@
-<?php
-
-header("Location: favicon/", true, 301);
+../../index-page.template

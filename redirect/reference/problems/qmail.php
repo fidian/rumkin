@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../../problems/qmail-gentoo/", true, 301);
+../../index-page.template

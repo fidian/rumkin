@@ -1,3 +1,1 @@
-<?php
-
-header("Location: ../tongue-twisters/", true, 301);
+../../index-page.template
