@@ -228,8 +228,8 @@ function show_graph(lett, valu)
    out = "<table border=0 cellpadding=0 cellspacing=0 width=100%>\n";
    for (i = 0; i < valu.length; i ++)
    {
-      out += "<tr><th width=1>" + lett.charAt(i) + 
-         "</th><td>" + valu[i] + "</td><td width=1>&nbsp;</td><td>";
+      out += "<tr><th width=1 style=\"padding-right: 1em\">" + lett.charAt(i) + 
+         "</th><td width=1 style=\"text-align: right\">" + valu[i] + "</td><td width=1>&nbsp;</td><td>";
       out += "<div style='background: ";
       out += colors[i % colors.length];
       out += "; width: ";
