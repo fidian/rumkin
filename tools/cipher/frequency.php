@@ -229,7 +229,7 @@ function show_graph(lett, valu)
    for (i = 0; i < valu.length; i ++)
    {
       out += "<tr><th width=1>" + lett.charAt(i) + 
-         "</th><td width=1>&nbsp;</td><td>";
+         "</th><td>" + valu[i] + "</td><td width=1>&nbsp;</td><td>";
       out += "<div style='background: ";
       out += colors[i % colors.length];
       out += "; width: ";
