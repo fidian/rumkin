@@ -3,7 +3,7 @@
     "summary": "What ranks as the most important in your life?  What's next?",
     "questions": [
         {
-            "text": "All of these things are happening at once.  Please rank them in importance in your life.  Do not try to plan things such as \"If I answer the door, the person can turn off the water in the kitchen.\"\n\n* Your baby is crying and needs you.\n* The telephone is rining, you are expecting an important phone call, and you have no answering machine or voicemail available.\n* The doorbell is sounding and you hear the person knocking on the door.\n* There is dry laundry on the line outside and it is beginning to rain.\n* The water faucet in the kitchen is running.\n\nWhat is the most important thing in your life at this moment?",
+            "text": "All of these things are happening at once.  Please rank them in importance in your life.  Do not try to plan things such as \"If I answer the door, the person can turn off the water in the kitchen.\"\n\n* Your baby is crying and needs you.\n* The telephone is ringing, you are expecting an important phone call, and you have no answering machine or voicemail available.\n* The doorbell is sounding and you hear the person knocking on the door.\n* There is dry laundry on the line outside and it is beginning to rain.\n* The water faucet in the kitchen is running.\n\nWhat is the most important thing in your life at this moment?",
             "answersText": "The most important event is …",
             "answers": {
                 "Attend to Baby": "The baby represents your family.",
