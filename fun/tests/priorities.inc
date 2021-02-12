@@ -8,7 +8,7 @@ $GLOBALS['Tests']['Priorities'] = array(
       importance in your life.  Do not try to plan things such as "If I
       answer the door, the person can turn off the water in the kitchen."',
 		'Your baby is crying and needs you.',
-		'The telephone is rining, you are expecting an important phone call,
+		'The telephone is ringing, you are expecting an important phone call,
       and you have no answering machine or voicemail available.',
 		'The doorbell is sounding and you hear the person knocking on the
       door.',
