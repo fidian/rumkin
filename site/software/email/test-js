@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const isValidEmail = require("./is-valid-email");
+const scenarios = require("./scenarios.json");
+
+let passes = 0;
+let failures = 0;
+
+scenarios.forEach((scenario) => {
+    const result = isValidEmail(scenario.email);
+    let resultString = "pass";
+
+    if (result === scenario.valid) {
+        passes += 1;
+    } else {
+        failures += 1;
+        resultString = "*** FAILURE ***";
+    }
+
+    if (scenario.valid) {
+        console.log(`allows ${scenario.email}`, resultString);
+    } else {
+        console.log(`blocks ${scenario.email}`, resultString);
+    }
+});
+
+console.log("");
+console.log("Total passed:", passes);
+console.log("Total failed:", failures);

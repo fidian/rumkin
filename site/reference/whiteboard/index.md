@@ -1,5 +1,6 @@
 ---
 title:  Homemade Whiteboards
+summary: How you can build your own whiteboard at home and information for how to best clean a whiteboard.
 ---
 
 Whiteboards are very useful devices for many reasons.  I have used them for fleshing out ideas, planning crafts, keeping track of lists, and using them as maps for D&D (the land, encounters, etc).  Downstairs, in my "general purpose" room, I have a large 4' x 8' sheet of plywood that was turned into a crude craft table.  I wanted a whiteboard on top.  I also used to do a lot of sketching on my bedroom wall and my wife thinks that a whiteboard used to be very useful there.

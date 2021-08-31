@@ -1,13 +1,15 @@
 ---
 title: Cleaning Whiteboards
+css:
+    - ../../../css/tablesorter.css
 js:
-    - ../../../js/jquery.min.js
-    - ../../../js/jquery.tablesorter.min.js
-    - ../../../js/tablesorter-start.js
+    - ../../../js/jquery/jquery.js
+    - ../../../js/jquery/tablesorter.js
+    - ../../../js/jquery/tablesorter-autostart.js
 data: cleaners.json
 ---
 
-<div class="Fl(end)">[![](board-small.jpg)](board-big.jpg)</div>
+<div class="Fl(end)"><a href="board-big.jpg"><img src="board-small.jpg" /></a></div>
 
 People have all sorts of different tricks that they used to clean a whiteboard.  Some things work well for whiteboard markers.  Other methods are better for marks by markers that are not dry erase.  I decided to finally put all the rumors and tips to the test.  This is just one page of my [whiteboards](../) reference.  Another great section to visit is how to [create a whiteboard](../surfaces/) using various surfaces you may have available.
 
@@ -53,7 +55,7 @@ Click a heading to sort.  Scores range from 1 to 5, with 5 being the best.  Each
 
 | Cleaner | Brand | Extreme | Typical | Notes |
 |---------|-------|:-------:|:-------:|-------|
-{{#data}}| {{name}} | {{brand}} | {{extreme}} | {{typical}} | {{notes}} |
+{{#data}}| [{{name}}](#{{anchor}}) | [{{brand}}](#{{anchor}}) | {{extreme}} | {{typical}} | {{notes}} |
 {{/data}}
 
 
@@ -80,20 +82,19 @@ I attempted to take photos of the results of each cleaner during my testing.
 
 
 {{#data}}
-### {{name}} - {{brand}}
+### <a name="{{anchor}}"></a>{{name}} - {{brand}}
 
-{{#imageList?}}
+{{#if imageList}}
 <div class="Fl(end)">
     {{#imageList}}
-        {{#full?}}
-            [![]({{thumbnail}})]({{full}})
-        {{/full?}}
-        {{^full?}}
-            ![]({{thumbnail}})
-        {{/full?}}
+        {{#if full}}
+            <a href="{{full}}"><img src="{{thumbnail}}" /></a>
+        {{else}}
+            <img src="{{thumbnail}}" />
+        {{/if}}
     {{/imageList}}
 </div>
-{{/imageList?}}
+{{/if}}
 
 * Extreme Test Score: {{extreme}} / 5
 * Typical Test Score: {{typical}} / 5

@@ -37,7 +37,8 @@ Anyone drawing a card from this deck becomes the recipient of its magic, for bet
 
 The DM may, if desired, use the face cards and aces from a standard deck of playing cards to simulate the _deck of destinies_ cards according to the descriptions below. The Deck of Destinies cards have the following individual effects:
 
-{{#data.destinies}}* _{{name}}_ ({{card}}): {{description}}
+{{#data.destinies}}
+* _{{name}}_ ({{card}}): {{description}}
 {{/data.destinies}}
 
 Caster Level: 20th (_artifact_); _Weight_: 0.5 lb.; Reference: Return to White Plume Mountain.
@@ -88,7 +89,8 @@ Whelm
 -----
 
 This _+3 hammer_ acts as a _bane_ weapon against giants and monstrous humanoids, except that if the wielder fails to slay such a creature at least once per month, they must make a successful Will save (DC 16) or be forced to hunt one down-even if that would involve a journey of several days. On a successful critical hit with _Whelm_, any large-size or smaller target must make a successful Fort save (DC 16) or be affected by a _disintegrate_ spell.
-    Up to three times per day, _Whelm_ can _teleport_ back to its wielder's hand (150ft. maximum) after being thrown. By striking its haft upon the ground, the wielder can generate a shockwave that forces up to 7HD of enemies up to 60ft. away to make a successful Fort save (DC 13) or be stunned for 1d4 rounds. (The wielder and his allies are immune to this effect.) In addition, _Whelm_ automatically detects the existence of any gold, gems, or monstrous humanoids within a 60ft. radius, though it cannot pinpoint their precise locations.
+
+Up to three times per day, _Whelm_ can _teleport_ back to its wielder's hand (150ft. maximum) after being thrown. By striking its haft upon the ground, the wielder can generate a shockwave that forces up to 7HD of enemies up to 60ft. away to make a successful Fort save (DC 13) or be stunned for 1d4 rounds. (The wielder and his allies are immune to this effect.) In addition, _Whelm_ automatically detects the existence of any gold, gems, or monstrous humanoids within a 60ft. radius, though it cannot pinpoint their precise locations.
 
 The hammer has one drawback: It afflicts its wielder with agoraphobia (fear of wide, open places) within one day of its first use. Agoraphobics suffer -2 to all actions in outdoor settings. For each consecutive 24-hour period during which the user fails to spend at least eight hours inside or underground, this penalty increases by -1 cumulatively, to a maximum of -5. This condition persists until the wielder disposes of the weapon permanently-an action _Whelm_ vigorously opposes if reasonably satisfied with the relationship.
 

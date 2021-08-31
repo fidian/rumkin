@@ -1,5 +1,6 @@
 ---
 title: File Transfer Through Terminal
+summary: Sometimes one connects to a terminal through SSH and using SCP / rsync isn't an available option.
 ---
 
 I use `ssh` a lot to connect to remote computers.  Sometimes I have to connect to a computer that's hidden, so I `ssh` into a jump host and `ssh` again into the destination.  While poking around, I may have the urge to download a file to my computer, but that's not usually easy to do.

@@ -2,7 +2,7 @@
 title: Transparency
 js: transparency.js
 summary: How to fade elements in and out.  Complete with a live example and tips to avoid flickers in the browser.
-----
+---
 
 Transparency works for NN6+, Firefox 0.9+, and Internet Explorer 5+.  It's awesome.  First off, you will need to use CSS with whatever you need to make transparent.  Here's the attributes you need to set.  80% opaque (mostly there) is defined nearly the same way for the different attributes.
 

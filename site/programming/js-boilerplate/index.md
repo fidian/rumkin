@@ -1,6 +1,6 @@
 ---
 title: Best JavaScript Boilerplate
-summary: The ES5 starting template for a JavaScript object that I am personally fond of.  It allows for use in `node.js` as well as in a browser, plus works with a wide variety of module loading systems.
+summary: The ES5 starting template for a JavaScript object that I am personally fond of.  It allows for use in Node.js as well as in a browser, plus it works with a wide variety of module loading systems.
 ---
 
 I'm writing JavaScript objects and I keep refining how I am creating objects in order to have cleaner code, stand behind community standards, remove potential problems and attempt to be more maintainable.  Here is my boilerplate code for a new JavaScript object that seems to work well for me so far.

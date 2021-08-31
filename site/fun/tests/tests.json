@@ -1,0 +1,22 @@
+[
+    {
+        "id": "candybar",
+        "name": "What candy bar are you?"
+    },
+    {
+        "id": "iq-test",
+        "name": "How smart are you?"
+    },
+    {
+        "id": "love",
+        "name": "Your opinions about marriage and your significant other."
+    },
+    {
+        "id": "priorities",
+        "name": "How do you rank different priorities?"
+    },
+    {
+        "id": "world-leader",
+        "name": "Pick the next world leader."
+    }
+]

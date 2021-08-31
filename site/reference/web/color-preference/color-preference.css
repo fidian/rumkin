@@ -1,0 +1,15 @@
+.label:after {
+  content: "No Preference";
+}
+
+@media (prefers-color-scheme: light) {
+  .label:after {
+    content: "Light";
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .label:after {
+    content: "Dark";
+  }
+}

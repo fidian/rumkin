@@ -1,5 +1,6 @@
 ---
 title: Programming Bots
+summary: I like to program tank things. Here's the collection of links and things that I enjoyed.
 ---
 
 I'm a self-proclaimed computer geek.  As such, I like to have games where you make a strategy, program a robot to follow the strategy, and kill everyone else on the playing field.

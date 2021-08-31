@@ -2,13 +2,6 @@
 title: Rumkin.com
 ---
 
-### [Fun Stuff](fun/)
-
-* [Fortune Cookie](fun/fortune-cookie/) - Need a random fortune from a fortune cookie?
-* [Personality Tests](fun/tests/) - What don't you know about yourself?
-* [Tongue Twisters](fun/tongue-twisters/) - There's no way you can say them *all*!
-
-
 ### [Web-Based Tools](tools/)
 
 * [Phone Uploader](tools/sprint/) - Send new ringtones, images, and Java midlets to your phone with ease.  Works with many phones and providers, and I don't charge a cent!
@@ -16,13 +9,17 @@ title: Rumkin.com
 * [SSH Applet](tools/ssh/) - Need to log into a remote machine but you don't have an SSH client handy?  On a loaner computer or can't install software?  Just need to SCP that one file?  Here you go!
 * [more ...](tools/)
 
+### [Fun Stuff](fun/)
+
+* [Fortune Cookie](fun/fortune-cookie/) - Need a random fortune from a fortune cookie?
+* [Personality Tests](fun/tests/) - What don't you know about yourself?
+* [Tongue Twisters](fun/tongue-twisters/) - There's no way you can say them *all*!
 
 ### [Programming Topics](programming/)
 
-* [JavaScript Boilerplate](programming/js-boilerplate/) - A useful wrapper and object definition pattern
-* [Lean CSS](programming/lean-css/) - A new technique to structuring CSS to make your maintenance life easier
+* [Atomic CSS](programming/atomic-css/) - A new technique to working with CSS to make your maintenance life easier.
+* [JavaScript Boilerplate](programming/js-boilerplate/) - A useful wrapper and object definition pattern.
 * [more ...](programming/)
-
 
 ### [Reference Materials](reference/)
 
@@ -38,3 +35,8 @@ title: Rumkin.com
 * [Java Puzzle Applet](software/puzzle/) - Free puzzle applet that lets you easily add an image puzzle to your web site.  Very customizable.
 * [Marco](software/marco/) - A set of surveyor programs that run on Palm OS, intended to replace outdated hardware and bulky laptops in the field.
 * [more ...](software/)
+
+### [Problems Only Tyler Has](problems/)
+
+* [See The List](problems/) - There's a bunch of silly things that I encounter where there's no solution (yet) to be found on the internet.
+

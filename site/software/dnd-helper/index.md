@@ -3,7 +3,7 @@ title: D&D Helper
 summary: Palm OS program that is designed to help out DMs and characters.  It tries to speed up the game by rolling large amounts of dice and performing time-consuming calculations.  It can also look up information and generate various things.
 ---
 
-<div class="Fl(end)">![](dnd-helper.gif)</div>
+<div class="Fl(end) Bdw(1px) M(4px)"><img src="dnd-helper.gif"/></div>
 
 If you are a DM, then you know that there are several tables, charts, and other things that you need to look up from time to time.  Many dice get rolled when you use a breath weapon.  Experience for the party makes you look up a few things on an annoying chart and you need to divide by the number of party members.  Calculating how far you get in a day of traveling over different terrains.
 
@@ -12,7 +12,6 @@ If you have a Palm OS device (Palm Pilot, Handspring Visor, Sony Clié, etc.), t
 This program is free for anyone to use.  That's an unbeatable price for all of the things that are now much easier.  Since there does not seem to be any interest, this project is not moving to any online repository, but you can download the program, additional databases, and even the source code from the [download page](download/).  If you're extremely interested, there is a [developer section](developer/) that explains the database format in detail.
 
 D&D Helper is not able to replace the books at the gaming table.  This merely speeds up gameplay.  You should still use your Player's Handbook and the other slew of books that you have on your gaming table.  Just keep your dice in your bag if you need to calculate the damage from a 10d6 fireball, roll up a magic item for treasure, or maybe find a new name for a character.
-
 
 Nearly every feature of the program is listed here, by category.
 

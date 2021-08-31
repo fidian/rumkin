@@ -1,5 +1,6 @@
 ---
 title: FIC AquaPad
+summary: More than you ever wanted to know about the FIC AquaPad.
 ---
 
 The AquaPad was a light web tablet that can run Windows CE, 2000, ME, and Midori Linux.  I'm not really one for words, so here's some stats.
@@ -192,7 +193,7 @@ This is a bit easier because you aren't trying to install a foreign OS under ano
 Obtaining an Image of the Compact Flash Card
 --------------------------------------------
 
-Want to make an exact copy of the Compact Flash card?  Need the original images so that you can install and upgrade your own applications?  Here you go.  Information for this process originally came from [Pavel Tkatchouk](http://www.geocities.com/ptkatch/aquapad.htm">Pavel Tkatchouk).
+Want to make an exact copy of the Compact Flash card?  Need the original images so that you can install and upgrade your own applications?  Here you go.  Information for this process originally came from [Pavel Tkatchouk](http://www.geocities.com/ptkatch/aquapad.htm).
 
 * Dissassemble the AquaPad.  Remove the Compact Flash card and walk over to your other computer with the Compact Flash reader.  My reader mounts Compact Flash cards as `/dev/sda` in Linux.
 
@@ -259,9 +260,7 @@ Inside the Pad
 We dissect an AquaPad, piece by piece, in order to expose the guts to the public.  This is only to prevent others from taking apart their AquaPad to just see what the insides look like.  Higher resolution photos are available by clicking on the thumbnails.
 
 <div class="Ta(c)">
-
-[![Front of AquaPad](front-small.jpg)](front.jpg)
-
+<a href="front.jpg"><img src="front-small.jpg" alt="Front of AquaPad" /></a>
 </div>
 
 First thing is first -- what does the AquaPad look like on the outside?  This is a nice image of the front of the tablet.
@@ -271,9 +270,7 @@ On the left side, near the top, you can see the housing for the speaker.  Moving
 At the top you see three LEDs.  From left to right, they are suspend, power, and battery indicator (low battery / charging).  The right-hand side has the power switch and a microphone.
 
 <div class="Ta(c)">
-
-[![Back of Aquapad with Battery and Stylus](back-battery-stylus-small.jpg)](back-battery-stylus.jpg)
-
+<a href="back-battery-stylus.jpg"><img src="back-battery-stylus-small.jpg" alt="Back of AquaPad with Battery and Stylus" /></a>
 </div>
 
 Here, you will see an image of the AquaPad already beginning to be taken apart.  This is the stylish back.  The ridges make it easier to grab, and the rubber feet really make it stick nicely to hard surfaces.
@@ -283,17 +280,13 @@ The battery compartment is opened and the battery is exposed right above the tap
 In the upper left, you will see two rubber pads (blue) and 8 screws.  That's how many screws hold this together.  Two screws are under the rubber pads by the battery compartment.  Make sure to remove them before prying too hard.  When you get them all off, and remove the stylus, the device will easily come apart.
 
 <div class="Ta(c)">
-
-[![LCD Panel](lcd-small.jpg)](lcd.jpg)
-
+<a href="lcd.jpg"><img src="lcd-small.jpg" alt="LCD Panel" /></a>
 </div>
 
 The front panel comes off, giving you a nice image of the LCD behind it and my grubby fingerprints.  Disconnect the pink and white wires to the lower right, unscrew the four screws, lift up the LCD, disconnect the two flat cables on the left.  You are now down to a shield.  Take out three more screws and disconnect the red and black wires for the microphone.  We are in business.
 
 <div class="Ta(c)">
-
-[![Front of Motherboard](motherboard-front-small.jpg)](motherboard-front.jpg)
-
+<a href="motherboard-front.jpg"><img src="motherboard-front-small.jpg" alt="Front of Motherboard" /></a>
 </div>
 
 Ahh, the motherboard.  Please note the standard SO-DIMM SDRAM in the lower right.  Don't try to upgrade that.  There are notes regarding Upgrades later.  You can also see the battery, processor, and what looks like a potential IDE port.
@@ -305,9 +298,7 @@ After undoing a set of orangish wires on the bottom, and the red/black wires tha
 When you put the motherboard back, make sure to be VERY careful with the orangish wires on the bottom.  They can overlap the screw hole right there, so when you put the shield back on, it could crunch the wires and possibly expose them and ground out the wires on the motherboard and break the wire and do other nasty stuff.  That took a long time for me to figure out.  "When I put in this one screw, why does my AquaPad not boot anymore?"  Yeah.  Another hour lost there trying to diagnose the problem, and getting the wrong idea in my head that it was because of the shield shorting something out.
 
 <div class="Ta(c) M(x)">
-
-[![Back of Motherboard](motherboard-back-small.jpg)](motherboard-back.jpg)
-
+<a href="motherboard-back.jpg"><img src="motherboard-back-small.jpg" alt="Back of Motherboard" /></a>
 </div>
 
 Please note the 32 meg Compact Flash card.  This is what holds Midori.  It is held in with a small piece of foam.  You can also see the PCMCIA slot and the other CF port.  There's also a large heatsink for the processor that transfers heat to the case, and out of the device without a need for a fan.

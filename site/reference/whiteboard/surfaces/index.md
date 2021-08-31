@@ -1,9 +1,11 @@
 ---
 title: Make a Whiteboard
+css:
+    - ../../../css/tablesorter.css
 js:
-    - ../../../js/jquery.min.js
-    - ../../../js/jquery.tablesorter.min.js
-    - ../../../js/tablesorter-start.js
+    - ../../../js/jquery/jquery.js
+    - ../../../js/jquery/tablesorter.js
+    - ../../../js/jquery/tablesorter-autostart.js
 data: surfaces.json
 ---
 

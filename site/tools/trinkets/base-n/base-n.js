@@ -1,7 +1,7 @@
 /**
  * Base-N Conversion
  * Copyright 2013 Tyler Akins
- * http://rumkin.com/license.html
+ * http://rumkin.com/license/
  */
 /*global angular*/
 (function () {

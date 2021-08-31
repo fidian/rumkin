@@ -1,40 +1,99 @@
-/*global angular, Psr*/
-angular.module('psr-sample', []).directive('psrSample', [
-    '$http',
-    function ($http) {
-        return {
-            link: function ($scope, $element, $attrs) {
-                /*jslint unparam:true*/
-                $scope.loading = true;
-                $scope.show = false;
-                $scope.url = $attrs.psrSample;
+/* global m */
 
-                function generate() {
-                    if ($scope.loading || $scope.error) {
-                        return;
-                    }
+"use strict";
 
-                    $scope.sample = $scope.psr.generate();
-                }
+const Psr = require('psr');
 
-                $scope.$watch('show', function (newVal) {
-                    if (newVal) {
-                        $scope.loading = true;
-                        $scope.error = false;
-                        $http.get($scope.url).then(function (response) {
-                            $scope.loading = false;
-                            $scope.psr = new Psr(response.data);
-                            generate();
-                        }, function (err) {
-                            $scope.loading = false;
-                            $scope.error = err;
-                        });
-                    }
-                });
-                $scope.generate = generate;
-            },
-            scope: {},
-            templateUrl: "psr-sample.html"
-        };
+module.exports = class PsrSample {
+    constructor(args) {
+        this.loaded = false;
+        this.loading = false;
+        this.error = false;
+        this.sample = "";
+        this.show = false;
+        this.args = args;
     }
-]);
+
+    generate() {
+        if (this.loading || this.error) {
+            return;
+        }
+
+        this.sample = this.psr.generate();
+    }
+
+    loadData() {
+        this.loading = true;
+
+        m.request({
+            extract: (x) => x.responseText,
+            url: this.args.attrs["psr-sample"]
+        }).then(
+            (data) => {
+                this.loading = false;
+                this.loaded = true;
+                this.psr = new Psr(data);
+                this.generate();
+            },
+            () => {
+                this.loading = false;
+                this.error = true;
+            }
+        );
+    }
+
+    toggleShow() {
+        this.show = !this.show;
+
+        if (!this.loaded && !this.loading && !this.error) {
+            this.loadData();
+        }
+    }
+
+    view() {
+        const textStyles = {
+            style: "background-color: #ddf; padding: 0.3em 1em"
+        };
+
+        if (!this.show) {
+            return m(
+                "button",
+                {
+                    type: "button",
+                    onclick: () => this.toggleShow()
+                },
+                "Generate Samples"
+            );
+        }
+
+        if (this.loading) {
+            return m("div", textStyles, "Loading rules");
+        }
+
+        if (this.error) {
+            return m("div", textStyles, "Error loading rules");
+        }
+
+        return [
+            m("div", [
+                m(
+                    "button",
+                    {
+                        type: "button",
+                        onclick: () => this.generate()
+                    },
+                    "Generate Again"
+                ),
+                m(
+                    "button",
+                    {
+                        type: "button",
+                        onclick: () => this.toggleShow()
+                    },
+                    "Hide Sample"
+                )
+            ]),
+            m("div", textStyles, this.sample)
+        ];
+    }
+};

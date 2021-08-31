@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="H(100%) Ovy(h)">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="{{rootPath}}css/reset.css" />
+        <link rel="stylesheet" href="{{rootPath}}css/atomic.css" />
+        <link rel="stylesheet" href="{{rootPath}}css/fonts.css" />
+        <link rel="stylesheet" href="{{rootPath}}css/site.css" />
+
+        <!-- Favicon generated content from http://realfavicongenerator.net/ -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="{{rootPath}}img/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{{rootPath}}img/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{rootPath}}img/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="{{rootPath}}img/favicon/manifest.json" />
+        <link
+            rel="mask-icon"
+            href="{{rootPath}}img/favicon/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
+        <link rel="shortcut icon" href="{{rootPath}}img/favicon/favicon.ico" />
+        <meta
+            name="msapplication-config"
+            content="{{rootPath}}img/favicon/browserconfig.xml"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- End of favicon generated content -->
+
+        <link rel="license" href="{{rootPath}}license" />
+        {{#liveReload}}
+        <script src="http://localhost:35729/livereload.js"></script>
+        {{/liveReload}} {{#css}}
+        <link rel="stylesheet" href="{{.}}" />
+        {{/css}} {{#js}}
+        <script src="{{.}}"></script>
+        {{/js}} {{#if components}}
+        <script src="{{rootPath}}js/mithril/mithril.js"></script>
+        <script>
+            window.addEventListener('load', function () {
+                let root, attrs;
+                {{#components}}
+                for (const root of document.getElementsByClassName('{{className}}')) {
+                    attrs = {};
+                    for (const a of root.attributes) {
+                        attrs[a.name] = a.value;
+                    }
+                    m.mount(root, {
+                        // Anonymous component in order to get and pass along attributes
+                        view: function () {
+                            return m({{component}}, attrs);
+                        }
+                    });
+                }
+                {{/components}}
+            });
+        </script>
+        {{/if}} {{#if routes}}
+        <script src="{{rootPath}}js/mithril/mithril.js"></script>
+        <script>
+            window.addEventListener('load', function () {
+                const root = document.getElementsByClassName('module')[0];
+                const routes = [];
+                {{#routes}}
+                routes['{{path}}'] = {{component}};
+                {{/routes}}
+                m.route(root, '/', routes);
+            });
+        </script>
+        {{/if}}
+    </head>
+    <body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p">
+        {{>breadcrumbs}}
+        <div
+            class="Maw(1002px) Maw(100%)--p Mx(a) Bgc(pageBackground) Bgc(t)--p"
+        >
+            <div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)">
+                <div
+                    class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"
+                >
+                    <main class="D(tbc) Va(t) W(100%)">
+                        <header>
+                            <h1>
+                                {{title}}
+                            </h1>
+
+                            {{#if summary}}
+                            <div class="Px(20px) Pb(15px)">
+                                <div
+                                    class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)"
+                                >
+                                    {{{summary}}}
+                                </div>
+                            </div>
+                            {{/if}}
+                        </header>
+                        <div class="contents">{{{contents}}}</div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        {{>footer}}
+    </body>
+</html>

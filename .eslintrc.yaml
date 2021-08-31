@@ -34,10 +34,6 @@ rules:
     generator-star-spacing: error
     global-require: off
     guard-for-in: error
-    indent: error
-    init-declarations:
-        - error
-        - never
     jsx-quotes: error
     key-spacing: error
     keyword-spacing: error
@@ -70,7 +66,6 @@ rules:
     no-dupe-keys: error
     no-duplicate-case: error
     no-duplicate-imports: error
-    no-else-return: error
     no-empty: error
     no-empty-character-class: error
     no-empty-pattern: error
@@ -80,7 +75,6 @@ rules:
     no-extra-bind: error
     no-extra-boolean-cast: error
     no-extra-label: error
-    no-extra-parens: error
     no-extra-semi: error
     no-fallthrough: error
     no-func-assign: error
@@ -175,11 +169,6 @@ rules:
         -
             ignoreCase: true
     space-before-blocks: error
-    space-before-function-paren:
-        - error
-        -
-            anonymous: always
-            named: never
     space-in-parens: error
     space-infix-ops:
         - error

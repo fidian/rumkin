@@ -1,5 +1,6 @@
 ---
 title: Tongue Twisters
+summary: A large collection of phrases and verses that are challenging to properly say.  A great way to work our your mouth muscles.
 ---
 
 Tongue twisters are fun little exercises for your mouth.  They often use alliteration (the repeating of the beginning sounds of words) and rhyme in order to force you to verbally "stumble" instead of speaking clearly.  The mistake will usually produce a smile in those listening to your attempt.

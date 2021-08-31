@@ -1,9 +1,11 @@
 ---
 title: Download D&D Helper
 js:
-    - ../../../js/psr.js
-    - psr-sample.js
-module: psr-sample
+    - psr-sample-module.js
+components:
+    -
+        className: module
+        component: PsrSample
 ---
 
 Here are all of the files you can download to expand [D&D Helper](../), a tool for dungeon masters and game masters (DMs and GMs) to run their campaign.
@@ -29,15 +31,15 @@ Miscellaneous Databases
 
 Download all of these at once:  [misc.zip](misc.zip)
 
-* [Business Names](misc/business.pdb) - From the Net Book of Names, List of Businesses <div psr-sample="misc/business.psr.txt"></div>
-* [Critical Hit](misc/crit-hit.pdb) - Used with permission from D&D Adventures. ([source](http://dndadventure.com/dnda_optional_rules.html)) <div psr-sample="misc/crit-hit.psr.txt"></div>
-* [Gems](misc/gems.pdb) - One random gen description per gem type. ([source](http://www.systemreferencedocuments.org/index.htm?35/wotc.htm)) <div psr-sample="misc/gems.psr.txt"></div>
-* [Fumble](misc/crit-miss.pdb) - Used with permission from D&D Adventures. ([source](http://dndadventure.com/dnda_optional_rules.html)) <div psr-sample="misc/crit-miss.psr.txt"></div>
-* [Magic Items](misc/magic-items.pdb) - A fairly decent magic item generator.  Results should still be checked for mismatched attributes, such as a dancing bow or a sap of wounding. ([source](http://www.d20srd.org/indexes/magicItems.htm)) <div psr-sample="misc/magic-items.psr.txt"></div>
-* [Mundane Items](misc/mundane.pdb) - Generates several mundane items for treasure. ([source](http://www.d20srd.org/srd/treasure.htm)) <div psr-sample="misc/mundane.psr.txt"></div>
-* [Riddles](misc/riddles.pdb) - From the net.book.riddles. <div psr-sample="misc/riddles.psr.txt"></div>
-* [Wild Surge](misc/wildsurge.pdb) - Used with permission from Joseph DuBois (Scooby). ([source](http://www.miniworld.com/adnd/surge.html)) <div psr-sample="misc/wildsurge.psr.txt"></div>
-* [Wild Surge Fumble](misc/wildsurgefumble.pdb) - Used with permission from Joseph DuBois (Scooby). ([source](http://www.miniworld.com/adnd/surge.html)) <div psr-sample="misc/wildsurgefumble.psr.txt"></div>
+* [Business Names](misc/business.pdb) - From the Net Book of Names, List of Businesses <div class="module" psr-sample="misc/business.psr.txt"></div>
+* [Critical Hit](misc/crit-hit.pdb) - Used with permission from D&D Adventures. ([source](http://dndadventure.com/dnda_optional_rules.html)) <div class="module" psr-sample="misc/crit-hit.psr.txt"></div>
+* [Gems](misc/gems.pdb) - One random gen description per gem type. ([source](http://www.systemreferencedocuments.org/index.htm?35/wotc.htm)) <div class="module" psr-sample="misc/gems.psr.txt"></div>
+* [Fumble](misc/crit-miss.pdb) - Used with permission from D&D Adventures. ([source](http://dndadventure.com/dnda_optional_rules.html)) <div class="module" psr-sample="misc/crit-miss.psr.txt"></div>
+* [Magic Items](misc/magic-items.pdb) - A fairly decent magic item generator.  Results should still be checked for mismatched attributes, such as a dancing bow or a sap of wounding. ([source](http://www.d20srd.org/indexes/magicItems.htm)) <div class="module" psr-sample="misc/magic-items.psr.txt"></div>
+* [Mundane Items](misc/mundane.pdb) - Generates several mundane items for treasure. ([source](http://www.d20srd.org/srd/treasure.htm)) <div class="module" psr-sample="misc/mundane.psr.txt"></div>
+* [Riddles](misc/riddles.pdb) - From the net.book.riddles. <div class="module" psr-sample="misc/riddles.psr.txt"></div>
+* [Wild Surge](misc/wildsurge.pdb) - Used with permission from Joseph DuBois (Scooby). ([source](http://www.miniworld.com/adnd/surge.html)) <div class="module" psr-sample="misc/wildsurge.psr.txt"></div>
+* [Wild Surge Fumble](misc/wildsurgefumble.pdb) - Used with permission from Joseph DuBois (Scooby). ([source](http://www.miniworld.com/adnd/surge.html)) <div class="module" psr-sample="misc/wildsurgefumble.psr.txt"></div>
 
 
 Names
@@ -47,13 +49,13 @@ Need a name for your character?
 
 Download all of these at once:  [names.zip](names.zip)
 
-* [Elvish](names/elf-names.pdb) - From Martin Keegan, posted to the MUD-Devel mailing list. ([source](http://www.kanga.nu/archives/MUD-Dev-L/1997Q2/msg01379.php)) <div psr-sample="names/elf-names.psr.txt"></div>
-* [Fantasy (Pick)](names/fantnames.pdb) - Used with permission from Joseph Dubois (Scooby).  ([source](http://www.miniworld.com/adnd/)) <div psr-sample="names/fantnames.psr.txt"></div>
+* [Elvish](names/elf-names.pdb) - From Martin Keegan, posted to the MUD-Devel mailing list. ([source](http://www.kanga.nu/archives/MUD-Dev-L/1997Q2/msg01379.php)) <div class="module" psr-sample="names/elf-names.psr.txt"></div>
+* [Fantasy (Pick)](names/fantnames.pdb) - Used with permission from Joseph Dubois (Scooby).  ([source](http://www.miniworld.com/adnd/)) <div class="module" psr-sample="names/fantnames.psr.txt"></div>
 * [Fantasy (Gen)](names/fantna-g.pdb) - Generated using letter frequencies.  Used with permission from Joseph Dubois (Scooby).  ([source](http://www.miniworld.com/adnd/))
-* [US Female First Names (Pick)](names/us-female.pdb) - 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div psr-sample="names/us-female.psr.txt"></div>
+* [US Female First Names (Pick)](names/us-female.pdb) - 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div class="module" psr-sample="names/us-female.psr.txt"></div>
 * [US Female First Names (Gen)](names/us-female-g.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/))
-* [US Last Names](names/us-last.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div psr-sample="names/us-last.psr.txt"></div>
-* [US Male First Names (Pick)](names/us-male.pdb) - 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div psr-sample="names/us-male.psr.txt"></div>
+* [US Last Names](names/us-last.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div class="module" psr-sample="names/us-last.psr.txt"></div>
+* [US Male First Names (Pick)](names/us-male.pdb) - 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div class="module" psr-sample="names/us-male.psr.txt"></div>
 * [US Male First Names (Gen)](names/us-male-g.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/))
 
 

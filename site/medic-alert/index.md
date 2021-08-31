@@ -5,13 +5,15 @@ title: Medic Alert - Tyler Akins
 Medical Summary
 ---------------
 
-* NO MRI - Implanted device to prevent sleep apnea (Inspire sleep system, hypoglossal nerve stimulator)
-* Diabetes, Type 2 (controlled with medication)
+* NO MRI for torso area - implanted device to prevent sleep apnea (Inspire<sup>&reg;</sup> sleep system, hypoglossal nerve stimulator)
+* Diabetes, Type 2 (controlled with diet + medications listed below)
 * High blood pressure
 * High cholesterol
 * Allergies: metal taste with influenza virus vaccines
 * Blood type: A+
 * Macular edema (controlled with eye injections)
+
+<a href="inspire-medical-card.jpg"><img class="W(200px) Bdw(1px)" src="inspire-medical-card.jpg" /></a>
 
 
 Medications
@@ -25,16 +27,18 @@ Medications
 * Lisinopril, 20mg daily AM (high blood pressure)
 * Metformin HCl, 1000 mg twice daily AM+PM (Diabetes)
 
+Last checked: 2021-08-14
+
 
 Contact Information
 -------------------
 
     Tyler Akins
-    3706 Commodore Dr.
-    Brooklyn Center, MN  55429
+    12650 130th Ave N.
+    Dayton, MN 55327
     612-387-8102
 
-In case of emergency, contact
+In case of emergency, contact:
 
 * Sarah Akins (Wife) <a href="tel:6123966261">612-396-6261</a>
 * Bruce / Dori Akins (Parents) <a href="tel:9529551133">952-955-1133</a>
@@ -60,4 +64,6 @@ Retina specialist: Dr. Shawn M. Ronin, MD <a href="9529933150">952-993-3150</a>
 Other Notes
 ===========
 
-Registered organ donor. Contact 1-888-5-DONATE or <a href="mailto:info@life-source.org">info@life-source.org</a> with donor registration questions.
+Registered organ donor. Contact 1-888-5-DONATE or <a href="mailto:info@life-source.org">info@life-source.org</a> with donor registration questions. If anyone can benefit from my body (including students), I'd prefer to help humanity after I'm done.
+
+Strong desire to have a relatively good "quality of life." Please do not keep me alive if I won't be able to function.

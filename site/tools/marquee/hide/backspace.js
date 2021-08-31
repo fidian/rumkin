@@ -1,7 +1,7 @@
 /**
  * JavaScript Marquee Generator
  * Copyright 2012 Tyler Akins
- * http://rumkin.com/license.html
+ * http://rumkin.com/license/
  */
 /*global window*/
 (function () {

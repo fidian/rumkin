@@ -1,0 +1,7 @@
+{{#target.ancestry.parent}}
+{{>breadcrumbs-label target=. flexShrink=1}}
+<span class="Px(0.3em) Fxs(0)">&gt;</span>
+{{/target.ancestry.parent}}
+<a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs({{flexShrink}}) Td(n)--p Tov(e) D(b)" href="{{@root.link.to target}}">
+    {{target.title}}
+</a>

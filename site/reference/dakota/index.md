@@ -1,5 +1,6 @@
 ---
 title: Dakota Digital Single-Use Camera
+summary: Just a little information about a really cheap digital camera and how to reuse it instead of paying the processing fees.
 ---
 
 As is covered elsewhere on the net, Ritz is selling a "Dakota Digital Single-Use Camera" for about $11, and they want you to return it for processing (and they keep the camera at this point) for another $11.  You get a CD with the images and a printed index.

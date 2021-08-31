@@ -5,11 +5,15 @@
 	width: 220px;
 }
 
+.row {
+    display: flex;
+}
+
 .cell {
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-	margin: 1px;
+    width: 20px;
+    height: 20px;
+    border-collapse: collapse;
+    border: 1px solid black;
 
 	&.state0 {
 		background-color: yellow;
@@ -26,4 +30,11 @@
 	&.state3 {
 		background-color: purple;
 	}
+}
+
+.cell-fixed {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+    border: 1px solid black;
 }

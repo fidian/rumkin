@@ -1,5 +1,6 @@
 [
     {
+        "anchor": "klean-strip_acetone",
         "name": "Acetone",
         "brand": "Klean-Strip",
         "extreme": 4,
@@ -16,6 +17,7 @@
         ]
     },
     {
+        "anchor": "generic_isopropyl-alcohol",
         "name": "Alcohol, Isopropyl",
         "brand": "Generic",
         "extreme": 4,
@@ -31,6 +33,7 @@
         ]
     },
     {
+        "anchor": "johnson-and-johnson_baby-oil",
         "name": "Baby Oil",
         "brand": "Johnson & Johnson",
         "extreme": 1,
@@ -47,6 +50,7 @@
         ]
     },
     {
+        "anchor": "generic_dry-cloth",
         "name": "Cloth, Dry",
         "brand": "Generic",
         "extreme": 1,
@@ -62,6 +66,7 @@
         ]
     },
     {
+        "anchor": "generic_wet-cloth",
         "name": "Cloth, Wet (Water)",
         "brand": "Generic",
         "extreme": 1,
@@ -74,6 +79,7 @@
         ]
     },
     {
+        "anchor": "dawn_dish-soap",
         "name": "Dish Soap",
         "brand": "Dawn",
         "extreme": 1,
@@ -89,6 +95,7 @@
         ]
     },
     {
+        "anchor": "mr-clean_eraser-pad",
         "name": "Eraser Pad",
         "brand": "Mr. Clean",
         "extreme": 1,
@@ -104,6 +111,7 @@
         ]
     },
     {
+        "anchor": "suave-naturals_hair-spray",
         "name": "Hair Spray",
         "brand": "Suave Naturals",
         "extreme": 3,
@@ -119,6 +127,7 @@
         ]
     },
     {
+        "anchor": "lift-off-2_household-cleaner",
         "name": "Household Cleaner",
         "brand": "Lift Off 2",
         "extreme": 2,
@@ -134,6 +143,7 @@
         ]
     },
     {
+        "anchor": "lysol-kitchen-cleaner_household-cleaner",
         "name": "Household Cleaner",
         "brand": "Lysol Kitchen Cleaner",
         "extreme": 2,
@@ -149,6 +159,7 @@
         ]
     },
     {
+        "anchor": "oil-eater_household-cleaner",
         "name": "Household Cleaner",
         "brand": "Oil Eater",
         "extreme": 4,
@@ -165,6 +176,7 @@
         ]
     },
     {
+        "anchor": "fantastik_citrus-household-cleaner",
         "name": "Household Cleaner, Citrus",
         "brand": "Fantastik",
         "extreme": 3,
@@ -180,6 +192,7 @@
         ]
     },
     {
+        "anchor": "goo-gone_citrus-household-cleaner",
         "name": "Household Cleaner, Citrus",
         "brand": "Goo Gone",
         "extreme": 2,
@@ -195,6 +208,7 @@
         ]
     },
     {
+        "anchor": "orange-glow_citrus-household-cleaner",
         "name": "Household Cleaner, Citrus",
         "brand": "Orange Glow",
         "extreme": 2,
@@ -210,6 +224,7 @@
         ]
     },
     {
+        "anchor": "vinegar-and-fantastic_household-cleaner-mixutre",
         "name": "Household Cleaner, Mixture",
         "brand": "Vinegar & Fantastic",
         "extreme": 2,
@@ -225,6 +240,7 @@
         ]
     },
     {
+        "anchor": "vinegar-and-orange-glow_household-cleaner-mixture",
         "name": "Household Cleaner, Mixture",
         "brand": "Vinegar & Orange Glow",
         "extreme": 2,
@@ -240,6 +256,7 @@
         ]
     },
     {
+        "anchor": "kleen-strip_lacquer-thinner",
         "name": "Lacquer Thinner",
         "brand": "Kleen-Strip",
         "extreme": 3,
@@ -255,6 +272,7 @@
         ]
     },
     {
+        "anchor": "expo-2_dry-erase-marker",
         "name": "Marker, Dry Erase",
         "brand": "Expo 2",
         "extreme": 2,
@@ -270,6 +288,7 @@
         ]
     },
     {
+        "anchor": "vis-a-vis_wet-erase-marker",
         "name": "Marker, Wet Erase",
         "brand": "Vis-A-Vis",
         "extreme": 1,
@@ -285,6 +304,7 @@
         ]
     },
     {
+        "anchor": "kleen-strip_mineral-spirits",
         "name": "Mineral Spirits",
         "brand": "Kleen-Strip",
         "extreme": 3,
@@ -300,6 +320,7 @@
         ]
     },
     {
+        "anchor": "generic_nail-polish-remover",
         "name": "Nail Polish Remover",
         "brand": "Generic",
         "extreme": 4,
@@ -315,6 +336,7 @@
         ]
     },
     {
+        "anchor": "kleen-strip_paint-stripper",
         "name": "Paint Stripper",
         "brand": "Kleen-Strip",
         "extreme": 1,
@@ -331,6 +353,7 @@
         ]
     },
     {
+        "anchor": "greased-lightning_stain-remover",
         "name": "Stain Remover",
         "brand": "Greased Lightning",
         "extreme": 4,
@@ -346,6 +369,7 @@
         ]
     },
     {
+        "anchor": "tech_stain-remover",
         "name": "Stain Remover",
         "brand": "Tech",
         "extreme": 3,
@@ -361,6 +385,7 @@
         ]
     },
     {
+        "anchor": "3m_clear-tape",
         "name": "Tape, Clear",
         "brand": "3M (Scotch)",
         "extreme": 1,
@@ -376,6 +401,7 @@
         ]
     },
     {
+        "anchor": "heinz_vinegar",
         "name": "Vinegar",
         "brand": "Heinz",
         "extreme": 1,
@@ -391,6 +417,7 @@
         ]
     },
     {
+        "anchor": "wd-40_water-displacer",
         "name": "Water Displacer",
         "brand": "WD-40",
         "extreme": 2,
@@ -407,6 +434,7 @@
         ]
     },
     {
+        "anchor": "expo_whiteboard-cleaner",
         "name": "Whiteboard Cleaner",
         "brand": "Expo",
         "extreme": 2,
@@ -422,8 +450,9 @@
         ]
     },
     {
-        "name": "Whiteboard Cleaner",
-        "brand": "Solutions MB (MB10W)",
+        "anchor": "solutions-mb_whiteboard-cleaner",
+        "name": "Whiteboard Cleaner (MB10W)",
+        "brand": "Solutions MB",
         "extreme": 5,
         "typical": 5,
         "notes": "The best cleaner tested",
@@ -441,6 +470,7 @@
         ]
     },
     {
+        "anchor": "soytek_whiteboard-cleaner",
         "name": "Whiteboard Cleaner",
         "brand": "Soytek",
         "extreme": "?",

@@ -1,7 +1,7 @@
 /**
  * Rainbow text generator
  * Copyright 2013 Tyler Akins
- * http://rumkin.com/license.html
+ * http://rumkin.com/license/
  */
 /*global angular, document*/
 (function () {

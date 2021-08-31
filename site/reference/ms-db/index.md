@@ -1,5 +1,6 @@
 ---
 title: Access and MSSQL
+summary: Little functions and bits of code for Microsoft Access and Microsoft SQL Server.
 ---
 
 While working in Microsoft Access and Microsoft SQL Server, I needed a few things to make my work day a little easier.  I've got them listed here to help you out too.

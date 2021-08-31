@@ -1,0 +1,35 @@
+/* Specificity: 0, 0, 0, 0 */
+* {
+    border: 0 solid #000000;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    zoom: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    padding-left: 40px;
+}
+
+input, textarea {
+    border: 2px inset;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Open Sans Regular", sans-serif;
+    line-height: 1.4;
+}
+
+code, tt, pre {
+    font-family: "Anonymous Pro Regular", monospace;
+}

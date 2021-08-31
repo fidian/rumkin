@@ -1,5 +1,6 @@
 ---
 title: Firearms
+summary: Information about ballistic gel, alternatives to ballistic gel for testing ammunition, and firearm performance in certain situations.  Links to great sites about effectiveness of ammunition and various test results.
 ---
 
 If you talk to a lot of gun enthusiasts, many opinions will be shared and they often don't agree. Each person has their own background, reasoning, and justification for what they believe is the best.  However, nearly everyone will agree on the following saying:

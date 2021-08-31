@@ -16,7 +16,7 @@ Presentations
 
 * [Palm OS Programming Gotchyas and Pitfalls](gotchyas/) - A slide show converted to text, then to HTML.  Easier to print out this way.  Lots of good ideas and information is summed up.
 
-* [Advanced UI Topics](advanced/) - A great look at thwat's going on inside the palm.  Another slide show that was converted to a web page.
+* [Advanced UI Topics](advanced/) - A great look at that's going on inside the palm.  Another slide show that was converted to a web page.
 
 
 PilRC

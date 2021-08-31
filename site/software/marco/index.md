@@ -1,8 +1,12 @@
 ---
 title: Marco
 summary: Surveyor software for the Palm Pilot and other Palm OS devices.  Designed to be a tool for quick calculations and small amounts of number crunching.  Not a complete solution for surveying, but a fast and quick reference and calculator.
-js: register.js
-module: register
+components:
+    -
+        className: module
+        component: Register
+js:
+    - ./register-module.js
 ---
 
 **Notice:** Marco is considered "End of Life" software and will no longer be supported.  It is still available for download and this site will now generate registration codes for free.
@@ -43,23 +47,11 @@ Marco used to be shareware, but now it is not supported.  I have opened up the r
 
 1. Start Marco.
 2. Tap on Preferences, and then press Register Me.
-3. Look for something that says RegCode.  It should look something like this:  `82:C1:DF:7D:7A:81:70:21:7E:B5:BD`
+3. Look for something that says RegCode.  It should look something like this:  `82:C1:DF:7D:7A:81:70:21:8A:B5:BD`
 4. Enter the code into the area below to get your unlock code.
 5. Enter the unlock code into Marco.
 
-<div register>
-
-Enter your registration code here:
-
-<input type=text class="w-100pct" ng-model="code" />
-
-<span ng-show="errorCode == 'EMPTY'">You need to enter a registration code above to see the unlock code here.</span>
-<span ng-show="errorCode == 'SHORT'">Enter more characters.</span>
-<span ng-show="errorCode == 'LONG'">The code is too long.  Something is wrong.</span>
-<span ng-show="errorCode == 'CHECKSUM'">The code has a problem.  Double check all of the letters and numbers.</span>
-<span ng-show="errorCode == ''">Your unlock code is <span ng-bind="unlockCode"></span></span>
-
-</div>
+<p class="module"></p>
 
 
 Other Calculators

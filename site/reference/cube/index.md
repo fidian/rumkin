@@ -1,5 +1,6 @@
 ---
 title: Solving NxNxN Cubes
+summary: Want a simpler way to solve a Rubik's Cube?  It may not be the fastest, but it is one I can remember.  As a bonus, it works for any size cube, not just the kind that have 3 on a side.
 ---
 
 I have been very interested in the Rubik's cube for quite a while.  Even though I don't really understand how the number of combinations are determined or how some of the larger cubes work, it still fascinates.  Doing a search on Google for [Rubik cube](http://www.google.com/search?q=Rubik+cube) turns up millions of pages, so I am not the only one out there with a fondness for this puzzle.

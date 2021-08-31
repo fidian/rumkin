@@ -1,5 +1,6 @@
 ---
 title: Make Your Own Desiccant
+summary: How to make your own moisture removing device for small, semi-sealed containers.  You can use it in your tackle box, in a safe, or in a geocache.
 ---
 
 I have a geocached called the [Watertown Area History Cache](http://www.geocaching.com/seek/cache_details.aspx?wp=GC128DJ).  The container is quite large and had a problem of moisture getting into the box, causing rust and the possibility of mold to start growing on the log book.  I planned this cache for nearly two years, so that was unacceptable.  I wasn't about to have the cache container ruined!  Someone told me about desiccants, which will absorb moisture, and suggested I check out a marine supply shop.

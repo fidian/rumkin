@@ -20,11 +20,11 @@ Screen Shots
 
 Here is how it looks on Windows XP.  The configuration file (`Floater.txt`) is open so you can refer to how I made the four programs appear.
 
-<div class="Mx(a)">![](floater-open.png)</div>
+<div class="Mx(a)"><img src="floater-open.png" /></div>
 
 And this is how it looks when you toggle it to the "closed" state.
 
-<div class="Mx(a)">![](floater-closed.png)</div>
+<div class="Mx(a)"><img src="floater-closed.png" /></div>
 
 
 Downloads

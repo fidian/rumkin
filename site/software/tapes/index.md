@@ -3,7 +3,7 @@ title: Tape Tools
 summary: C programs designed to get data off of tapes from a Linux system.  Especially geared for 3480/3490 tapes.
 ---
 
-In the June 2002 issue of [Linux Journal](http://linuxjournal.org/">Linux Journal), Craig Johnson asked about [getting data off of tapes](http://www.linuxjournal.com/article/5972).  It is mentioned in his question that there is not a lot of help out there for reading data off of tapes.  Hopefully this will help out those select few who need to do this.
+In the June 2002 issue of [Linux Journal](http://linuxjournal.org/), Craig Johnson asked about [getting data off of tapes](http://www.linuxjournal.com/article/5972).  It is mentioned in his question that there is not a lot of help out there for reading data off of tapes.  Hopefully this will help out those select few who need to do this.
 
 These tools are placed into the public domain.  Do with them what you will.
 
