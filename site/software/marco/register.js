@@ -101,7 +101,7 @@ module.exports = class Register {
                 "input",
                 {
                     type: "text",
-                    class: "W(100%)",
+                    style: "width: 100%",
                     oninput: (e) => {
                         this.code = e.target.value;
                         this.updateMessage();

@@ -28,7 +28,7 @@ module.exports = class ValidEmail {
                     this.email = e.target.value;
                     this.check();
                 },
-                style: "width: 100%",
+                class: "W(100%)",
                 value: this.email
             }),
             this.results()

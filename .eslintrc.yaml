@@ -47,7 +47,6 @@ rules:
     max-statements-per-line: error
     new-cap: error
     new-parens: error
-    no-alert: error
     no-array-constructor: error
     no-bitwise: error
     no-caller: error
@@ -79,7 +78,6 @@ rules:
     no-fallthrough: error
     no-func-assign: error
     no-implied-eval: error
-    no-inline-comments: error
     no-inner-declarations: error
     no-invalid-this: error
     no-invalid-regexp: error
@@ -124,7 +122,6 @@ rules:
     no-shadow-restricted-names: error
     no-spaced-func: error
     no-sparse-arrays: error
-    no-ternary: error
     no-this-before-super: error
     no-throw-literal: error
     no-trailing-spaces: error
@@ -164,10 +161,6 @@ rules:
     semi: error
     semi-spacing: error
     sort-imports: error
-    sort-vars:
-        - error
-        -
-            ignoreCase: true
     space-before-blocks: error
     space-in-parens: error
     space-infix-ops:
@@ -178,6 +171,5 @@ rules:
     spaced-comment: error
     use-isnan: error
     valid-typeof: error
-    vars-on-top: error
     wrap-iife: error
     yield-star-spacing: error

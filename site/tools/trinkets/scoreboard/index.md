@@ -1,8 +1,14 @@
 ---
 title: Scoreboard
-js: scoreboard.js
-css: scoreboard.css
-module: scoreboard
+js:
+    - scoreboard-module.js
+css:
+    - scoreboard.css
+components:
+    -
+        className: module
+        component: Scoreboard
+summary: A sample scoreboard for a geocacher in my area
 ---
 
 King Boreas' Hall of Fame
@@ -18,21 +24,4 @@ Last Updated: April 7<sup>th</sup>, 2013 with number 196
 [9Key Hall of Fame]: http://www.9key.com/hall_of_fame.asp
 [Licensing Info]: ../../../license/
 
-<div id="scoreboard" scoreboard>
-	<div class="scoreboard_menu">
-		<span class="scoreboard_link" ng-class="{scoreboard_active: top10}" ng-click="pickLink('top10')">Top 10</span>
-		<span class="scoreboard_link" ng-class="{scoreboard_active: full}" ng-click="pickLink('full')">Full List</span>
-		<span class="scoreboard_link" ng-class="{scoreboard_active: name}" ng-click="pickLink('name')">By Name</span>
-	</div>
-	<div class="scoreboard_content">
-		<ol class="scoreboard_top10" ng-show="top10">
-			<li ng-repeat="item in top10List">{{item.name}} = {{item.count}}</li>
-		</ol>
-		<ol ng-show="full">
-			<li ng-repeat="item in fullList">{{item.name}} = {{item.count}}</li>
-		</ol>
-		<ul ng-show="name">
-			<li ng-repeat="item in nameList">{{item.name}} = {{item.count}}</li>
-		</ul>
-	</div>
-</div>
+<div class="module My(1em)"></div>
