@@ -1,5 +1,6 @@
 ---
 title: Population Counter
+summary: A simulator that helps you better visualize how fast different countries have their populations change.
 js:
     - population.js
     - ../../js/random.js

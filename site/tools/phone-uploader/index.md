@@ -9,6 +9,7 @@ The software was taken offline for many reasons. Lack of funding, lack of users,
 
 Do you want to host this uploader yourself?  That's great!  I'm releasing the source code and you're welcome to get it running.
 
+* [midlets](midlets.zip) - Simplified version that lets people host midlets (jar files) and download them to their phone. Does not require a database, but it also needs you to manually modify a file in order to see it listed and allow it to be downloaded. Requires PHP on the server. `debug.php` can test if things are mostly working correctly. `index.php` is what needs to get modified to start hosting your own files. Comes with `mgmaps` for two platforms and another program so you can see how this set of files work.
 * [2015-07-10](20150710.zip) - Snapshot of the files right before I took the site down.  The database was removed and now the filesystem is used again, but in a much better way.
 * [2005-10-19](20051019.zip) - Earlier snapshot.  Refined the database and the code.
 * [2004-02-03](20040203.zip) - Even earlier.  Added a database.
