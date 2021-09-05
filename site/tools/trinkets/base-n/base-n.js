@@ -1,28 +1,80 @@
-/**
- * Base-N Conversion
- * Copyright 2013 Tyler Akins
- * http://rumkin.com/license/
- */
-/*global angular*/
-(function () {
-    'use strict';
+/* global m */
 
-    var numList;
+"use strict";
 
-    numList = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+module.exports = class BaseN {
+    constructor() {
+        this.inBase = 10;
+        this.inNumber = "";
+        this.outBase = 10;
+        this.outNumber = "0";
+    }
 
-    function recalc(inBase, outBase, number) {
-        var convertedNumber, i, idx, s;
+    optionList(propertyName) {
+        const options = [];
+        const currentValue = this[propertyName];
 
-        inBase = +inBase;
-        outBase = +outBase;
-        number = number.toUpperCase();
-        convertedNumber = 0;
-        s = '';
+        for (let i = 2; i <= 32; i += 1) {
+            options.push(
+                m(
+                    "option",
+                    {
+                        selected: currentValue === i,
+                        value: i
+                    },
+                    i
+                )
+            );
+        }
+
+        return m(
+            "select",
+            {
+                onchange: (e) => {
+                    this[propertyName] = +e.target.value;
+                    this.recalculate();
+                }
+            },
+            options
+        );
+    }
+
+    view() {
+        return [
+            m("p", ["Input base: ", this.optionList("inBase")]),
+            m("p", [
+                "Input number: ",
+                m("input", {
+                    type: "text",
+                    oninput: (e) => {
+                        this.inNumber = e.target.value;
+                        this.recalculate();
+                    },
+                    value: this.inNumber
+                })
+            ]),
+            m("p", ["Output base: ", this.optionList("outBase")]),
+            m(
+                "p",
+                {
+                    class: "output"
+                },
+                this.outNumber
+            )
+        ];
+    }
+
+    recalculate() {
+        const numList = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const inBase = +this.inBase;
+        const outBase = +this.outBase;
+        const number = this.inNumber.toUpperCase();
+        let convertedNumber = 0;
+        let s = "";
 
         // Convert the input number
-        for (i = 0; i < number.length; i += 1) {
-            idx = numList.indexOf(number.charAt(i));
+        for (let i = 0; i < number.length; i += 1) {
+            const idx = numList.indexOf(number.charAt(i));
 
             if (idx >= 0) {
                 convertedNumber *= inBase;
@@ -32,7 +84,7 @@
 
         // Convert to the output number base
         while (convertedNumber) {
-            idx = convertedNumber % outBase;
+            const idx = convertedNumber % outBase;
             s = numList.charAt(idx) + s;
             convertedNumber -= idx;
             convertedNumber /= outBase;
@@ -40,28 +92,9 @@
 
         // Handle zero, the only special case
         if (!s.length) {
-            s = '0';
+            s = "0";
         }
 
-        return s;
+        this.outNumber = s;
     }
-
-    angular.module('baseN', []).directive("baseN", function () {
-        return {
-            link: function ($scope, element, attrs) {
-                function update() {
-                    $scope.output = recalc($scope.inbase, $scope.outbase, $scope.input);
-                }
-
-                $scope.inbase = 10;
-                $scope.outbase = 10;
-                $scope.input = '';
-                $scope.output = '';
-                $scope.$watch('inbase', update);
-                $scope.$watch('outbase', update);
-                $scope.$watch('input', update);
-            }
-        };
-    });
-}());
-
+};

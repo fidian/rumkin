@@ -52,7 +52,7 @@ module.exports = class PsrSample {
 
     view() {
         const textStyles = {
-            style: "background-color: #ddf; padding: 0.3em 1em"
+            class: 'output'
         };
 
         if (!this.show) {

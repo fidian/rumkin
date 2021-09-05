@@ -1,9 +1,11 @@
 ---
 title: JS Chars
 js:
-    - ../../../js/auto-grow.js
-    - js-chars.js
-module: jsChars
+    - js-chars-module.js
+components:
+    -
+        className: module
+        component: JsChars
 summary: Display the JavaScript character codes for anything entered.
 ---
 
@@ -11,8 +13,4 @@ Want to know the hex codes for Unicode characters?  This will do it for you.  Ju
 
 JavaScript uses with two-byte characters, so that's why "a" becomes "0061".
 
-<div>
-	<textarea auto-grow class="wide" ng-model="input"></textarea>
-	<p>This is the character code of everything above.</p>
-	<div class="outline" ng-bind="input | jsChars"></div>
-</div>
+<div class="module"></div>

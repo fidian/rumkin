@@ -1,27 +1,41 @@
-/**
- * JavaScript Character Code
- * Copyright 2013 Tyler Akins
- * http://rumkin.com/license/
- */
-/*global angular*/
-(function () {
-    'use strict';
+/* global m */
 
-    angular.module('jsChars', ['autoGrow']).filter('jsChars', function () {
-        return function (input) {
-            if (input === undefined || input === '') {
-                return '';
-            }
+"use strict";
 
-            return input.split('').map(function (c) {
-                var code, str;
+module.exports = class JsChars {
+    constructor() {
+        this.values = this.jsChars();
+    }
 
-                code = c.charCodeAt(0);
-                str = '0000' + code.toString(16).toUpperCase();
+    jsChars(text) {
+        if (!text) {
+            return ["Enter text and see the character codes here."];
+        }
 
-                return str.substr(str.length - 4);
-            }).join(' ');
-        };
-    });
-}());
+        return text
+            .split("")
+            .map((c) => ("0000" + c.charCodeAt(0).toString(16)).substr(-4));
+    }
 
+    view() {
+        return [
+            m("textarea", {
+                style: "width: 100%",
+                oninput: (e) => {
+                    this.values = this.jsChars(e.target.value);
+                }
+            }),
+            m(
+                "p",
+                "This is the character codes for whatever is in the text box."
+            ),
+            m(
+                "div",
+                {
+                    class: "output"
+                },
+                this.values.join(" ")
+            )
+        ];
+    }
+};

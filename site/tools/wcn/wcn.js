@@ -33,14 +33,15 @@ module.exports = class Wcn {
             label,
             m(
                 "select",
+                {
+                    onchange: (e) => (this[property] = e.target.value)
+                },
                 Object.entries(options).map(([k, v]) =>
                     m(
                         "option",
                         {
                             selected: this[property] === k,
-                            onclick: () => {
-                                this[property] = k;
-                            }
+                            value: k
                         },
                         v
                     )

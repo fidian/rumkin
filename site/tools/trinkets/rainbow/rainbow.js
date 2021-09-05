@@ -83,8 +83,8 @@ module.exports = class Rainbow {
             m(
                 "p",
                 {
-                    style:
-                        'font-size: 0.8em; font-family: "Anonymous Pro"; background-color: #ddf'
+                    class: 'output',
+                    style: 'font-size: 0.8em; font-family: "Anonymous Pro"'
                 },
                 this.html
             )
