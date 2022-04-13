@@ -94,48 +94,28 @@ define('PDB_DOUBLEMETHOD_BROKEN', 3);
  * Extend this class to provide functionality for memos, addresses, etc.
  */
 class PalmDB {
-	public
 	public $Records = array();
-	
 	
 	/* All of the data from the records is here
 	 * Key = record ID */
-	public
 	public $RecordAttrs = array();  // And their attributes are here
-	public
 	public $RecordSizes = array();  // Used to check record sizes -- don't use!
-	public
 	public $CurrentRecord = 1;  // Which record we are currently editing
-	public
 	public $Name = '';  // Name of the PDB file
-	public
 	public $TypeID = '';  // The 'Type' of the file (4 chars)
-	public
 	public $CreatorID = '';  // The 'Creator' of the file (4 chars)
-	public
 	public $Attributes = 0;  // Attributes (bitmask)
-	public
 	public $Version = 0;  // Version of the file
-	public
 	public $ModNumber = 0;  // Modification number
-	public
 	public $CreationTime = 0;  // Stored in unix time (Jan 1, 1970)
-	public
 	public $ModificationTime = 0;  // Stored in unix time (Jan 1, 1970)
-	public
 	public $BackupTime = 0;  // Stored in unix time (Jan 1, 1970)
-	public
 	public $AppInfo = '';  // Basic AppInfo block
-	public
 	public $SortInfo = '';  // Basic SortInfo block
-	public
 	public $DoubleMethod = PDB_DOUBLEMETHOD_UNTESTED;
 	
-	
 	// What method to use for converting doubles
-	public
 	public $CategoryList = array();
-	
 	
 	/* Category data (not used by default --
 	 * See "Category Support" comment below)
