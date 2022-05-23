@@ -3,20 +3,19 @@
  * Copyright 2012 Tyler Akins
  * http://rumkin.com/license/
  */
-/*global window*/
-(function () {
-    'use strict';
-    window.generator.depends.range = function (min, max, callback) {
-        var result;
 
-        result = [];
+"use strict";
 
-        while (min <= max) {
-            callback(min);
-            result.push(min);
-            min += 1;
-        }
+module.exports = function(min, max, callback) {
+    var result;
 
-        return result;
-    };
-}());
+    result = [];
+
+    while (min <= max) {
+        callback(min);
+        result.push(min);
+        min += 1;
+    }
+
+    return result;
+};

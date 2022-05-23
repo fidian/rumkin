@@ -17,7 +17,7 @@ I have modified their algorithm and created [C](levenshtein.c.txt), [FoxPro](lev
 Gestalt
 -------
 
-I stumbled across this algorithm in [PHP's](http://php.net/) documentation about the [similar_text()](http://php.net/manual/en/function.similar-text.php) function.  The best source for the algorithm that I found was in PHP's source code for the [string functions](http://cvs.php.net/co.php/php-src/ext/standard/string.c).  Look for the `php_similar_str`, `php_similar_char`, and `PHP_FUNCTION(similar_text)` functions.
+I stumbled across this algorithm in [PHP's](http://php.net/) documentation about the [similar_text()](http://php.net/manual/en/function.similar-text.php) function.  The best source for the algorithm that I found was in PHP's source code for the string functions.  Look for the `php_similar_str`, `php_similar_char`, and `PHP_FUNCTION(similar_text)` functions.
 
 I have created [C](gestalt.c.txt) and [FoxPro](gestalt.prg.txt) versions of the code.  They are both recursive, so be careful with large strings on limited devices.  [Eduardo Curtolo](mailto:ecurtolo@gmail.com) provided a [Pascal](gestalt.pas.txt) version.  Someone (sorry, I don't have this information any longer) contributed a [Ruby](gestalt.rb.txt) implementation.
 
@@ -25,4 +25,4 @@ I have created [C](gestalt.c.txt) and [FoxPro](gestalt.prg.txt) versions of the 
 SoundEx
 -------
 
-This algorithm was once used on many U.S. driver's licenses.  Its goal is to group letters that sound alike, then convert the name into a series of numbers that can represent the name.  [Understanding Classic Soundex Algorithms](http://www.creativyst.com/Doc/Articles/SoundEx1/SoundEx1.htm) provides a very nice description of how SoundEx is used and generated.  Taking the concept one step further, you could read [A Better Phonetc Lookup](http://www.lanw.com/java-showcase/a-better-phonetic-lookup/) and get an algorithm that matches really well, which is based on how the language works.
+This algorithm was once used on many U.S. driver's licenses.  Its goal is to group letters that sound alike, then convert the name into a series of numbers that can represent the name.  [Understanding Classic Soundex Algorithms](http://www.creativyst.com/Doc/Articles/SoundEx1/SoundEx1.htm) provides a very nice description of how SoundEx is used and generated.  Taking the concept one step further, you could read [A Better Phonetic Lookup](http://www.lanw.com/java-showcase/a-better-phonetic-lookup/) and get an algorithm that matches really well, which is based on how the language works.

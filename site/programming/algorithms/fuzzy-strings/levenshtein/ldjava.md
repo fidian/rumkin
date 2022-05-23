@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Java Implementation
----
+----
 
 by Chas Emerick
 

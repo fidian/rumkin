@@ -9,7 +9,7 @@ If you know of a tongue twister that you would like to see listed on these pages
 
 
 5 Times Fast
-============
+------------
 
 This section is dedicated to the simplest tongue twisters.  Sometimes simply saying a couple words isn't too hard, but repeating those words over and over causes difficulty.  I dare you to read these out loud five times in a row without any mistakes.
 
@@ -60,7 +60,7 @@ This section is dedicated to the simplest tongue twisters.  Sometimes simply say
 
 
 One-Liners
-==========
+----------
 
 Were the ones in the last section too easy?  Let's step this up a notch.  Attempt to read these short phrases and sentences.
 
@@ -254,7 +254,7 @@ Were the ones in the last section too easy?  Let's step this up a notch.  Attemp
 
 
 Verse and Story
-===============
+---------------
 
 This last section is dedicated to the tongue twisters that portray a story or are often recited in a sing-song, rhyming style of verse.  There are numerous variations of many of these and each region seems to have it's own unique way of saying it.
 

@@ -51,11 +51,11 @@ module.exports = class Test {
         );
 
         if (this.loading) {
-            result.push(m("div", "Loading the test ..."));
+            result.push(m("p", "Loading the test ..."));
         } else if (this.error) {
-            result.push(m("div", "Error with test: " + this.error));
+            result.push(m("p", "Error with test: " + this.error));
         } else {
-            result.push(m("div", m.trust(marked("# " + this.data.title))));
+            result.push(m("p", m.trust(marked.parse("# " + this.data.title))));
             this.data.questions.forEach((question) => {
                 result.push(m(Question, { question: question }));
             });

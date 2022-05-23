@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Objective-C Implementation
----
+----
 
 by Rick Bourner
 

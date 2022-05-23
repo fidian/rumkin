@@ -1,7 +1,7 @@
 ---
 title: Rumkin Phone Uploader
 summary: Software that allows you to upload files to older phones.
-----
+---
 
 This project allowed people to upload files to older cell phones, ones that are not Android, iPhone nor any other kind of "smart" cell phone. These phones didn't even have USB nor a wireless connection, so people had a heck of a time getting custom backgrounds.
 

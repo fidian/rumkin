@@ -9,16 +9,6 @@ pre {
     max-height: 75vh;
 }
 
-p,
-ul,
-ol,
-pre,
-table,
-blockquote,
-textarea {
-    margin-top: 1.2em;
-}
-
 li > p:first-child,
 li > ul:first-child,
 li > ol:first-child,
@@ -32,14 +22,18 @@ hr {
     border: 1px inset black;
 }
 
-h1,
+h1 {
+    margin-bottom: 0.6em;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6,
 h7 {
-    padding-top: 10px;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
 }
 
 table,
@@ -72,6 +66,8 @@ table tr:nth-child(even) {
 blockquote {
     border-left: 4px solid #347dbe;
     padding-left: 8px;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
 }
 
 @media print {
@@ -100,7 +96,7 @@ blockquote {
     }
 }
 
-button {
+button, select {
     margin: 0.2em;
     padding: 0.3em;
     border: 1px solid #333;
@@ -109,5 +105,15 @@ button {
 .output {
     margin-top: 1.2em;
     background-color: #ddf;
-    padding: 0.3em 1em;
+    padding: 0.3em 0.6em;
+}
+
+.output > p:first-child,
+.output > ul:first-child,
+.output > ol:first-child,
+.output > pre:first-child,
+.output > table:first-child,
+.output > blockquote:first-child,
+.output > textarea:first-child {
+    margin-top: 0;
 }

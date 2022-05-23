@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Rscheme Implementation
----
+----
 
 by Joerg F. Wittenberger
 

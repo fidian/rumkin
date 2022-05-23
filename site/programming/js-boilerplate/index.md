@@ -7,7 +7,7 @@ I'm writing JavaScript objects and I keep refining how I am creating objects in 
 
 
 Example Code
-============
+------------
 
     // fid-umd {"name":"TestObject","jslint":1}
 	/*global define, YUI*/

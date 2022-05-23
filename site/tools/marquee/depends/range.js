@@ -1,13 +1,13 @@
-/**
- * JavaScript Marquee Generator
- * Copyright 2012 Tyler Akins
- * http://rumkin.com/license/
- */
-/*global window*/
-(function () {
-    'use strict';
+"use strict";
 
-    window.generator.depends.random = function (max) {
-        return Math.floor(Math.random() * max);
-    };
-}());
+module.exports = function(min, max, callback) {
+    var result = [];
+
+    while (min <= max) {
+        callback(min);
+        result.push(min);
+        min += 1;
+    }
+
+    return result;
+};

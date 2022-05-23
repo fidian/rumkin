@@ -16,7 +16,7 @@ Like a plethora of people before me, I have decided to write my own validators. 
 
 
 Try It Yourself
-===============
+---------------
 
 Enter an email below and it will validate the email address as you type.
 
@@ -27,7 +27,7 @@ See a mistake?  First, confirm with [the rules](rules/) and see where I have gon
 
 
 Download
-========
+--------
 
 Here's the email validation rules as source code.  Licensing information
 for each one is included at the top of the file.

@@ -1,6 +1,6 @@
 ---
 title: Color Preference
-summary: Detect a light or dark theme using just CSS
+summary: Detect a light or dark theme using just CSS.
 css: color-preference.css
 ---
 

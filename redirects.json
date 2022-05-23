@@ -2,6 +2,10 @@
     "software/dnd_helper/languages/index.html": "../",
     "software/dnd_helper/misc/index.html": "../",
     "software/dnd_helper/names/index.html": "../",
+    "tools/marquee/depends/index.html": "../",
+    "tools/marquee/hide/index.html": "../",
+    "tools/marquee/show/index.html": "../",
+    "tools/password/diceware/index.html": "../",
 
     "fun/games/freecell.php/index.html": "../",
     "fun/games/index.html": "../",
@@ -93,7 +97,6 @@
     "reference/gutenberg/index.html": "../",
     "reference/gutenberg/index.php/index.html": "../",
     "reference/index.php/index.html": "../",
-    "reference/kryptos/elonka.html": "../",
     "reference/ms_db/index.html": "../",
     "reference/ms_db/index.php/index.html": "../",
     "reference/palm/advanced.php/index.html": "../../../programming/palm/advanced/",

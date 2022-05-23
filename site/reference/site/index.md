@@ -1,11 +1,9 @@
 ---
 title: About This Site
-summary: How did I pick the name "Rumkin"? Legal information and how to donate!
+summary: How did I pick the name "Rumkin", legal information, and other boring stuff.
 ---
 
 * [Origin of Rumkin.com](origin/) - Curious about why I selected "rumkin.com" as my site's domain name?
-
-* [Donate](donate/) - Anyone is welcome to donate funds to keep my site alive.
 
 * [Legal Information](legal/) - My list of disclaimers.
 

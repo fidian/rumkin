@@ -5,22 +5,22 @@ const marked = require("marked");
 module.exports = class Question {
     view(vnode) {
         const question = vnode.attrs.question;
-        const result = [m.trust(marked(question.text))];
+        const result = [m.trust(marked.parse(question.text))];
 
         if (question.selected) {
-            result.push(m("div", m("em", m.trust(marked(question.selected)))));
+            result.push(m("p", m("em", m.trust(marked.parse(question.selected)))));
             result.push(
                 m(
-                    "div",
+                    "p",
                     m(
                         "strong",
-                        m.trust(marked(question.answers[question.selected]))
+                        m.trust(marked.parse(question.answers[question.selected]))
                     )
                 )
             );
             result.push(
                 m(
-                    "div",
+                    "p",
                     m(
                         "a",
                         {
@@ -50,7 +50,7 @@ module.exports = class Question {
                                         return false;
                                     }
                                 },
-                                m.trust(marked(answer))
+                                m.trust(marked.parse(answer))
                             )
                         );
                     })
@@ -58,6 +58,6 @@ module.exports = class Question {
             );
         }
 
-        return m("div", result);
+        return result;
     }
 };

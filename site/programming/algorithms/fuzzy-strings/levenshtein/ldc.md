@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: C Implementation
----
+----
 
 by Lorenzo Seidenari (sixmoney@virgilio.it)
 

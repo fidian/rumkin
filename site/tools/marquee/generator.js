@@ -1,20 +1,302 @@
-/**
- * JavaScript Marquee Generator
- * Copyright 2012 Tyler Akins
- * http://rumkin.com/license/
- */
-/* global angular, window */
-"use strict";
+/* global m */
 
-var module;
+/*
+const depends = {
+    random: require("./depends/random"),
+    range: require("./depends/range"),
+    repeat: require("./depends/repeat")
+};
+*/
 
-window.generator = {
-    depends: {},
-    show: {},
-    hide: {}
+const show = {
+    cryptography: require("./show/cryptography"),
+    implode: require("./show/implode"),
+    none: require("./show/none"),
+    slam: require("./show/slam"),
+    "slide-left": require("./show/slide-left"),
+    "slide-right": require("./show/slide-right"),
+    typing: require("./show/typing")
 };
 
-module = angular.module("generator", []);
+const hide = {
+    backspace: require("./hide/backspace"),
+    explode: require("./hide/explode"),
+    "fly-off": require("./hide/fly-off"),
+    none: require("./hide/none"),
+    "slide-left": require("./hide/slide-left"),
+    "slide-right": require("./hide/slide-right")
+};
+
+module.exports = class Generator {
+    constructor() {
+        this.message = ""; // Message currently being worked on
+        this.betweenDelay = 0.5;
+        this.readDelay = 1.5;
+        this.showMethod = "none";
+        this.hideMethod = "none";
+        this.preview = null;
+        this.animationList = [];
+        this.repeat = true;
+        this.functionExtra = "";
+        this.jQueryExtra = "";
+        this.generatedCode = "";
+    }
+
+    makePreview() {
+        return {
+            message: this.message,
+            show: show[this.showMethod],
+            readDelay: this.readDelay,
+            hide: hide[this.hideMethod],
+            betweenDelay: this.betweenDelay
+        };
+    }
+
+    updateDemo() {
+        if (this.demoTimeout) {
+            clearTimeout(this.demoTimeout);
+            this.demoTimeout = null;
+        }
+
+        // FIXME
+    }
+
+    update() {
+        this.updateDemo();
+        this.preview = this.makePreview();
+    }
+
+    addConfig(animData) {
+        // This line is just a guess
+        this.animationList.push(animData);
+
+        this.update();
+    }
+
+    writeSelect(property, list, label) {
+        return m("p", [
+            label,
+            m(
+                "select",
+                {
+                    onchange: (e) => {
+                        this[property] = e.target.value;
+                        this.update();
+                    }
+                },
+                Object.entries(list).map(([k, v]) =>
+                    m(
+                        "option",
+                        {
+                            value: k,
+                            selected: this[property] === k
+                        },
+                        v.title
+                    )
+                )
+            )
+        ]);
+    }
+
+    viewMethodDetail(method) {
+        const variables = method.variables || [];
+
+        return m(
+            "div",
+            {
+                style: "padding-left: 3em"
+            },
+            [
+                m("p", method.description),
+                ...variables.map((variable) => {
+                    return m("div", [
+                        `${variable.name}: `,
+                        m("input", {
+                            type: "text",
+                            style: "width: 5em",
+                            value: variable.currentValue,
+                            oninput: (e) => {
+                                variable.currentValue = e.target.value;
+                                this.update();
+                            }
+                        }),
+                        ` ${variable.description}`
+                    ]);
+                })
+            ]
+        );
+    }
+
+    viewDelay(prop, label) {
+        return m("div", [
+            label,
+            m("input", {
+                type: "text",
+                value: this[prop],
+                style: "width: 5em",
+                oninput: (e) => {
+                    this[prop] = +e.target.value;
+                    this.update();
+                }
+            })
+        ]);
+    }
+
+    viewWriteMethodAdditional() {
+        switch (this.writeMethod) {
+            case "window.status":
+                return m(
+                    "p",
+                    "Warning: this method is blocked by most browsers."
+                );
+
+            case "jQuery.text":
+                return m("p", [
+                    "Element selector: ",
+                    m("input", {
+                        type: "text",
+                        value: this.jQueryExtra,
+                        onchange: (e) => {
+                            this.jQueryExtra = e.target.value;
+                            this.update();
+                        }
+                    }),
+                    m("br"),
+                    "Result: ",
+                    m(
+                        "tt",
+                        m(
+                            "code",
+                            `$(${JSON.stringify(
+                                this.writeMethodExtra
+                            )}).text("message goes here");`
+                        )
+                    )
+                ]);
+
+            default:
+                return m("p", [
+                    "Name of function to call: ",
+                    m("input", {
+                        type: "text",
+                        value: this.functionExtra,
+                        onchange: (e) => {
+                            this.functionExtra = e.target.value;
+                            this.update();
+                        }
+                    }),
+                    m("br"),
+                    "Sample call: ",
+                    m(
+                        "tt",
+                        m("code", `${this.functionExtra}("message goes here");`)
+                    )
+                ]);
+        }
+    }
+
+    viewAnimationList() {
+        if (!this.animationList.length) {
+            return "";
+        }
+
+        return [
+            m("h2", "Animations"),
+            m(
+                "ul",
+                this.animationList.map((anim) => m("li", anim.message))
+            ),
+            m("h3", "Demo of the animation"),
+            m(
+                "p",
+                m("input", {
+                    type: "text",
+                    disabled: "disabled",
+                    style: "width: 100%",
+                    id: "animationDemo"
+                })
+            )
+        ];
+    }
+
+    viewGeneratedCode() {
+        if (!this.generatedCode) {
+            return "";
+        }
+
+        return m("pre", m("code", this.generatedCode));
+    }
+
+    view() {
+        return [
+            m("h2", "Customize your message"),
+            m(
+                "p",
+                m("input", {
+                    type: "text",
+                    placeholder: "Write your message here",
+                    style: "width: 100%",
+                    value: this.message,
+                    oninput: (e) => {
+                        this.message = e.target.value;
+                        this.update();
+                    }
+                })
+            ),
+            this.writeSelect("showMethod", show, "Method for showing: "),
+            this.viewMethodDetail(this.showMethod),
+            this.viewDelay("readDelay", "Delay after showing, in seconds: "),
+            this.writeSelect("hideMethod", hide, "Method for hiding: "),
+            this.viewMethodDetail(this.hideMethod),
+            this.viewDelay("betweenDelay", "Delay after hiding, in seconds: "),
+            m("h2", "Demo of this message (loops continually)"),
+            m(
+                "p",
+                m("input", {
+                    type: "text",
+                    disabled: "disabled",
+                    style: "width: 100%",
+                    id: "generator-demo"
+                })
+            ),
+            m("h2", "Build a sequence of messages"),
+            m(
+                "p",
+                m(
+                    "button",
+                    {
+                        onclick: () => this.addConfig(this.preview[0])
+                    },
+                    "Add This Message"
+                )
+            ),
+            this.viewAnimationList(),
+            m("h2", "Generated Code Options"),
+            this.writeSelect(
+                "repeat",
+                {
+                    true: { title: "loop forever." },
+                    false: { title: "display only once." }
+                },
+                "The generated code should "
+            ),
+            this.writeSelect(
+                "writeMethod",
+                {
+                    function: { title: "a function call" },
+                    "jQuery.text": { title: "using jQuery.text." },
+                    "window.status": { title: "setting window.status." }
+                },
+                "Write the message using "
+            ),
+            this.viewWriteMethodAdditional(),
+            m("h2", "Result"),
+            this.viewGeneratedCode()
+        ];
+    }
+};
+
+/**
 
 module.directive("generator", () => {
     return {
@@ -26,7 +308,7 @@ module.directive("generator", () => {
              * @param {Object} halfStep Either a hide or a show definition
              * @param {Object} methods
              * @return {string}
-             */
+             * /
             function getAnimation(message, halfStep, methods) {
                 var args, fn, fnStr;
 
@@ -70,7 +352,7 @@ module.directive("generator", () => {
              *
              * @param {number} delay
              * @return {string}
-             */
+             * /
             function getDelay(delay) {
                 var fn;
 
@@ -90,7 +372,7 @@ module.directive("generator", () => {
              * @param {Array.<Object>} animationList of full steps
              * @param {Object} methods
              * @return {Array.<string>}
-             */
+             * /
             function getAnimations(animationList, methods) {
                 var animations;
 
@@ -111,7 +393,7 @@ module.directive("generator", () => {
              *
              * @param {Array.<Object>} animationList of full animations
              * @return {Object}
-             */
+             * /
             function getDepends(animationList) {
                 var depends;
 
@@ -119,7 +401,7 @@ module.directive("generator", () => {
                  * If an animation is required, add it.
                  *
                  * @param {Object} animation
-                 */
+                 * /
                 function checkDepends(animation) {
                     if (animation.depends) {
                         animation.depends.forEach((name) => {
@@ -142,7 +424,7 @@ module.directive("generator", () => {
              *
              * @param {Array.<Object>} animationList of full steps
              * @return {Array.<Object>} animation methods
-             */
+             * /
             function getMethods(animationList) {
                 var result;
 
@@ -150,7 +432,7 @@ module.directive("generator", () => {
                  * Only keep one copy of each method
                  *
                  * @param {Function} fn
-                 */
+                 * /
                 function arrange(fn) {
                     if (result.indexOf(fn) === -1) {
                         result.push(fn);
@@ -173,7 +455,7 @@ module.directive("generator", () => {
              *
              * @param {string} writeMethod
              * @return {string}
-             */
+             * /
             function getWriteMethod(writeMethod) {
                 if (writeMethod === "window.status") {
                     return `\twriteMethod = function (msg) {
@@ -183,19 +465,19 @@ module.directive("generator", () => {
 
                 if (writeMethod === "jQuery.text") {
                     return `\twriteMethod = function (msg) {
-\t\t/*global $*/
+\t\t/*global $*` + `/
 \t\t$(${JSON.stringify(scope.writeMethodExtra || "")}).text(msg);
 \t};`;
                 }
 
-                return `\t/*global ${scope.writeMethodExtra}*/
+                return `\t/*global ${scope.writeMethodExtra}*` + `/
 \twriteMethod = ${scope.writeMethodExtra};`;
             }
 
 
             /**
              * Uses scope and builds the necessary JavaScript.
-             */
+             * /
             function updateGeneratedCode() {
                 var animations, c, depends, methods, vars;
 
@@ -275,43 +557,6 @@ module.directive("generator", () => {
             }
 
 
-            /**
-             * Updates the preview with the animation
-             */
-            function updatePreview() {
-                var preview;
-
-                preview = {
-                    message: scope.message,
-                    show: scope.showMethod,
-                    readDelay: scope.readDelay,
-                    hide: scope.hideMethod,
-                    betweenDelay: scope.betweenDelay
-                };
-
-                if (!preview.show) {
-                    preview.show = scope.showMethodList.none;
-                }
-
-                if (!preview.hide) {
-                    preview.hide = scope.hideMethodList.none;
-                }
-
-                scope.preview = [
-                    preview
-                ];
-            }
-
-            scope.animationList = [];
-            scope.depends = window.generator.depends;
-            scope.hideMethodList = window.generator.hide;
-            scope.showMethodList = window.generator.show;
-            scope.readDelay = 1000;
-            scope.betweenDelay = 500;
-            scope.generatedCode = "";
-            scope.$watch("betweenDelay", updatePreview);
-            scope.$watch("readDelay", updatePreview);
-            scope.$watch("message", updatePreview);
             scope.$watch("writeMethod", () => {
                 scope.writeMethodExtra = "";
                 updateGeneratedCode();
@@ -319,14 +564,6 @@ module.directive("generator", () => {
             scope.$watchCollection("animationList", updateGeneratedCode);
             scope.$watch("repeat", updateGeneratedCode);
             scope.$watch("writeMethodExtra", updateGeneratedCode);
-            scope.setHideMethod = function (method) {
-                scope.hideMethod = method;
-                updatePreview();
-            };
-            scope.setShowMethod = function (method) {
-                scope.showMethod = method;
-                updatePreview();
-            };
             scope.addConfig = function (animationStep) {
                 scope.animationList.push(animationStep);
             };
@@ -374,7 +611,7 @@ module.directive("generatorDemo", () => {
              *
              * @param {angular~element} target
              * @return {Object}
-             */
+             * /
             function generatePreview(target) {
                 var active, animateSteps, obj;
 
@@ -474,3 +711,4 @@ module.directive("generatorDemo", () => {
         }
     };
 });
+*/

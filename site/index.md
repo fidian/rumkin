@@ -19,15 +19,14 @@ title: Rumkin.com
 
 * [Atomic CSS](programming/atomic-css/) - A new technique to working with CSS to make your maintenance life easier.
 * [JavaScript Boilerplate](programming/js-boilerplate/) - A useful wrapper and object definition pattern.
+* [Palm OS Programming](programming/palm/) - Free programs, links to useful sites and other related gems.
 * [more ...](programming/)
 
 ### [Reference Materials](reference/)
 
 * [D&D Resources](reference/dnd/) - House rules and software used by our D&D sessions.
-* [Email Information](reference/email/) - Useful information for people who use this domain as their email server.
-* [Palm OS Programming](reference/palm/) - Free programs, links to useful sites and other related gems.
+* [Desiccant](reference/desiccant/) - Dry out an area using beads of silica gel. Great for buried containers, geocaches, and places where you don't want objects to rust.
 * [more ...](reference/)
-
 
 ### [Software Projects and Downloads](software/)
 

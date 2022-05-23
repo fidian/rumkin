@@ -1,6 +1,6 @@
 ---
 title: Atomic CSS
-summary: A CSS technique to make modular CSS.  Blends together many other ideas in a controversial way to put simplicity and maintainability as its primary goals.  Works on a wide variety of site sizes from a landing page to an enterprise's online shopping site, from a single page application to static pages.
+summary: A CSS technique to make maintainable, uncomplicated CSS. Blends together many other ideas in a controversial way, but ends up with much simpler rules in the end. Works on a wide variety of site sizes from a landing page to an enterprise's online shopping site, from a giant single page application to static pages.
 ---
 
 Every web developer's dream is to have CSS that is all of the following.
@@ -86,7 +86,7 @@ I bet once you looked at the first few rules that were listed, the rest seemed o
 Downsides
 ---------
 
-You'll feel weird adding LOTS of CSS classes to HTML elements. The good news is that it's easy to see what's duplicated and you won't ever have issues where the HTML structure changing causes CSS to not apply correctly.
+You'll feel weird adding *lots* of CSS classes to HTML elements. The good news is that it's easy to see what's duplicated and you won't ever have issues where the HTML structure changing causes CSS to not apply correctly.
 
 The CSS file looks bad because it appears that it's highly redundant. In reality, it will likely be smaller than your normal CSS file because any property that is repeated will be listed once.
 
@@ -107,6 +107,14 @@ When maintaining the HTML, you can more freely add/remove elements and understan
 Compression. The CSS is extremely compressible and the extra classes added to the HTML are also repetitive. Both will be easy to compress and add almost no extra bandwidth.
 
 Total number of CSS rules will go down for larger sites. This won't be visible on a single page, but really starts to shine for single page apps and complex sites.
+
+
+Summary
+-------
+
+Nearly all of the sites that I write now won't include hand-written CSS. Everything uses this approach. I'm significantly happier, the amount of code transferred across the wire is smaller, the browser is responsive, and it provides everything that I want to use when styling web pages.
+
+Give it a try.
 
 
 [atomizer]: https://acss.io/guides/atomizer.html

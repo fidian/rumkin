@@ -1,5 +1,5 @@
 Generated with rumkin-population-data repository.
-Source data is WPP2015_DB01_Perioud_Indicators.zip, available from
+Source data is WPP2015_DB01_Period_Indicators.zip, available from
 https://esa.un.org/unpd/wpp/Download/Standard/ASCII/
 Conversion script
 https://github.com/fidian/rumkin-population-data/

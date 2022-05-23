@@ -42,7 +42,7 @@ Problem solved.
 
 
 References
-==========
+----------
 
 * [Microsoft Knowledge Base](http://support.microsoft.com/?kbid=232386) - article that uses `net time` to fix the problem.
 * [Microsoft Help and Support](http://support.microsoft.com/default.aspx?kbid=297234) - page that illustrates how to use regedit to fix a very similar problem.

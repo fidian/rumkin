@@ -1,5 +1,6 @@
 ---
 title: AWS Maximum Number of Interfaces Exceecded
+summary: Had difficulty making a new instance when we didn't hit our instance limit. What could have been the problem?
 ---
 
 We were trying to spin up a jump host to access an environment that is hosted in AWS. This is with an established piece of software and it had the right keys. Also, it said the maximum number of *interfaces*, not *instances*, so most of the web pages that existed did not have relevant information.

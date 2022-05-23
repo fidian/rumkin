@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Delphi Implementation
----
+----
 
 by Alvaro Jeria Madariaga
 

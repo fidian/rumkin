@@ -85,35 +85,37 @@
         {{/if}}
     </head>
     <body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p">
-        {{>breadcrumbs}}
-        <div
-            class="Maw(1002px) Maw(100%)--p Mx(a) Bgc(pageBackground) Bgc(t)--p"
-        >
-            <div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)">
-                <div
-                    class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"
-                >
-                    <main class="D(tbc) Va(t) W(100%)">
-                        <header>
-                            <h1>
-                                {{title}}
-                            </h1>
+        <div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p">
+            {{>breadcrumbs}}
+            <div
+                class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"
+            >
+                <div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)">
+                    <div
+                        class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"
+                    >
+                        <main class="D(tbc) Va(t) W(100%)">
+                            <header>
+                                <h1>
+                                    {{title}}
+                                </h1>
 
-                            {{#if summary}}
-                            <div class="Px(20px) Pb(15px)">
-                                <div
-                                    class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)"
-                                >
-                                    {{{summary}}}
+                                {{#if summary}}
+                                <div class="Px(20px) Pb(15px)">
+                                    <div
+                                        class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)"
+                                    >
+                                        {{{summary}}}
+                                    </div>
                                 </div>
-                            </div>
-                            {{/if}}
-                        </header>
-                        <div class="contents">{{{contents}}}</div>
-                    </main>
+                                {{/if}}
+                            </header>
+                            <div class="contents">{{{contents}}}</div>
+                        </main>
+                    </div>
                 </div>
             </div>
+            {{>footer}}
         </div>
-        {{>footer}}
     </body>
 </html>

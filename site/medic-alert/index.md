@@ -23,11 +23,11 @@ Medications
 * Atorvastatin, 40 mg daily PM (high cholesterol)
 * Avastin (Bevacizumab), 25mg as needed (macular edema)
 * Cetirizine HCl, 10 mg daily AM (generic allergy pill)
-* Hydrochlorothiazide, 25 mg daily AM (kidney functions, control potassium)
+* Hydrochlorothiazide, 25 mg daily AM (kidney functions, control potassium) **currently not taking, expect to get back on this**
 * Lisinopril, 20mg daily AM (high blood pressure)
 * Metformin HCl, 1000 mg twice daily AM+PM (Diabetes)
 
-Last checked: 2021-08-14
+Last checked: 2022-05-23
 
 
 Contact Information
@@ -45,9 +45,9 @@ In case of emergency, contact:
 
 
 Physician Information
-=====================
+---------------------
 
-General health and diabetes: Dr. Mark W. DePaolis, MD <a href="tel:9529934900">952-993-4900</a>
+Current physician retired. Contact Park Nicollet clinic. <a href="tel:9529934900">952-993-4900</a>
 
     Park Nicollet Clinic - Brookdale
     6000 Earle Brown Drive
@@ -62,8 +62,8 @@ Retina specialist: Dr. Shawn M. Ronin, MD <a href="9529933150">952-993-3150</a>
 
 
 Other Notes
-===========
+-----------
 
-Registered organ donor. Contact 1-888-5-DONATE or <a href="mailto:info@life-source.org">info@life-source.org</a> with donor registration questions. If anyone can benefit from my body (including students), I'd prefer to help humanity after I'm done.
+Registered organ donor. Contact 1-888-5-DONATE or <a href="mailto:info@life-source.org">info@life-source.org</a> with donor registration questions. If anyone can benefit from my body (including students), I'd prefer to help humanity after I'm gone.
 
 Strong desire to have a relatively good "quality of life." Please do not keep me alive if I won't be able to function.

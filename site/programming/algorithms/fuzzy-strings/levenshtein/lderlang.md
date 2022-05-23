@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Erlang Implementation
----
+----
 
 by Fredrik Svensson and Adam Lindberg
 

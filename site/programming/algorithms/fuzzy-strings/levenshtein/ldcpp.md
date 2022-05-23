@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: C++ Implementation
----
+----
 
 by Anders Sewerin Johansen
 

@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Oracle PL/SQL Implementation
----
+----
 
 by Barbara Boehmer (baboehme@hotmail.com)
 

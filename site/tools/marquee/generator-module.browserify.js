@@ -2,6 +2,6 @@
 
 module.exports = {
     entries: [
-        require.resolve("./password-strength")
+        require.resolve("./generator-module")
     ]
 };

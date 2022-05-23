@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: Progress 4gl Implementation
----
+----
 
 by Steve Southwell
 

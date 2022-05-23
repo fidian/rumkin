@@ -15,7 +15,7 @@ To run it, you just use the `untgz()` function.
 
 
 Download
-========
+--------
 
 * [untgz-dll.zip](untgz-dll.zip) - Source code for the DLL.
 * [untgz-dll-upx.zip](untgz-dll-upx.zip) - A compiled DLL that has also been UPX compressed for the tiniest version available.

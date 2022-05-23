@@ -1,6 +1,6 @@
----
+----
 title: Levenshtein Distance Algorithm: TSQL Implementation
----
+----
 
 by Joseph Gama
 

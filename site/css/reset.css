@@ -33,3 +33,20 @@ body {
 code, tt, pre {
     font-family: "Anonymous Pro Regular", monospace;
 }
+
+p + p, p + ul, p + ol,
+ul + p, ul + ul, ul + ol,
+ol + p, ol + ol, ol + ul {
+    margin-top: 1.2em;
+}
+
+hr {
+    border: 1px inset black;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+pre {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}

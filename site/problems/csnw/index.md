@@ -1,6 +1,6 @@
 ---
 title: Uninstalling CSNW
-summary: Fixing the `Cannot load VDM IPX/SPX support` message in DOS shells.  It occurs because of Novell's drivers.
+summary: DOS shells would display "Cannot load VDM IPX/SPX support" because of Novell's drivers.
 ---
 
 I worked at a company that used a Novell server.  I also used DOS quite a bit.  Whenever I created a DOS shell, I got a funny error message.  One day I decided to remove that message but had a hard time figuring out what was causing it.
