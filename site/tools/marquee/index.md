@@ -1,7 +1,6 @@
 ---
 title: The Great JavaScript Marquee Generator
 summary: Creates the necessary code for you to plug into a web page in order to show a marquee.
-module: generator
 js:
     - generator-module.js
 components:

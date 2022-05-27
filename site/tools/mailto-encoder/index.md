@@ -1,6 +1,5 @@
 ---
 title: Email Address (Mailto:) Encoder
-module: emailEncoder
 js:
     - mailto-encoder-module.js
 components:
