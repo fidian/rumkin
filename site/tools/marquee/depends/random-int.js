@@ -7,5 +7,5 @@
 "use strict";
 
 module.exports = function (max) {
-    return Math.random() * max;
+    return Math.floor(Math.random() * max);
 };

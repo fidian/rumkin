@@ -8,7 +8,7 @@ components:
     -
         className: module
         component: Scoreboard
-summary: A sample scoreboard for a geocacher in my area
+summary: A sample scoreboard for a geocacher in my area.
 ---
 
 King Boreas' Hall of Fame

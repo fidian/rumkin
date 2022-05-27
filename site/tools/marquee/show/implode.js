@@ -2,39 +2,41 @@
 
 module.exports = {
     title: "Implode",
+    key: "implode",
     description:
         "Inserts many spaces between each letter of your message.  Reduces the number of spaces with every iteration.  Makes the message appear to implode.",
     variables: [
         {
             name: "Delay",
-            description: "How long to wait between animations.",
-            default: 10
+            description:
+                "How long to wait between animation frames, in seconds.",
+            isNumeric: true,
+            default: 0.01
         },
         {
             name: "Max Spaces",
             description: "How many spaces between letters at the beginning",
+            isNumeric: true,
             default: 100
         }
     ],
     depends: ["repeat"],
-    method: function(text, writer, whenDone, delay, spaces, repeat) {
-        var letters = text.split(""),
-            spacesString = repeat(" ", spaces);
+    method: function (text, delay, spaces, repeat) {
+        const letters = text.split("");
+        letters.unshift("");
+        let spacesString = repeat(" ", spaces + 1);
 
         function animate() {
-            if (writer(letters.join(spacesString))) {
-                return;
+            spacesString = spacesString.substr(1);
+            const t = letters.join(spacesString);
+
+            if (!spacesString.length) {
+                return [t];
             }
 
-            if (spacesString.length) {
-                spacesString = spacesString.substr(1);
-                setTimeout(animate, delay);
-            } else {
-                whenDone();
-            }
+            return [t, delay * 1000, animate];
         }
 
-        letters.unshift("");
-        animate();
+        return animate();
     }
 };

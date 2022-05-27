@@ -1,31 +1,32 @@
-/* global m */
+/* global document, m */
 
-/*
 const depends = {
     random: require("./depends/random"),
+    randomInt: require("./depends/random-int"),
     range: require("./depends/range"),
     repeat: require("./depends/repeat")
 };
-*/
 
 const show = {
     cryptography: require("./show/cryptography"),
     implode: require("./show/implode"),
     none: require("./show/none"),
     slam: require("./show/slam"),
-    "slide-left": require("./show/slide-left"),
-    "slide-right": require("./show/slide-right"),
+    slideLeft: require("./show/slide-left"),
+    slideRight: require("./show/slide-right"),
     typing: require("./show/typing")
 };
 
 const hide = {
     backspace: require("./hide/backspace"),
     explode: require("./hide/explode"),
-    "fly-off": require("./hide/fly-off"),
+    flyOff: require("./hide/fly-off"),
     none: require("./hide/none"),
-    "slide-left": require("./hide/slide-left"),
-    "slide-right": require("./hide/slide-right")
+    slideLeft: require("./hide/slide-left"),
+    slideRight: require("./hide/slide-right")
 };
+
+const Timeout = require("./timeout");
 
 module.exports = class Generator {
     constructor() {
@@ -34,42 +35,350 @@ module.exports = class Generator {
         this.readDelay = 1.5;
         this.showMethod = "none";
         this.hideMethod = "none";
-        this.preview = null;
         this.animationList = [];
         this.repeat = true;
         this.functionExtra = "";
         this.jQueryExtra = "";
-        this.generatedCode = "";
+        this.timeout = new Timeout();
+        this.generatedCode = this.generateCode();
+        this.preview = this.makePreview();
+    }
+
+    generateCode() {
+        if (this.animationList.length === 0) {
+            return "// No animations in list";
+        }
+
+        return `(function () {
+    ${this.indent(this.generateCodeDepends())}
+
+    ${this.indent(this.generateCodeMethod("show"))}
+
+    ${this.indent(this.generateCodeMethod("hide"))}
+
+    ${this.indent(this.generateCodeDelay())}
+
+    ${this.indent(this.generateCodeSteps())}
+
+    ${this.indent(this.generateCodeWriter())}
+
+    ${this.indent(this.generateCodeAnimate())}
+})()`;
+    }
+
+    generateCodeAnimate() {
+        const pushBack = this.repeat ? "\n    steps.push(step);" : "";
+
+        return `function nextStep() {
+    const step = steps.shift();${pushBack}
+
+    if (step) {
+        runFunction(step);
+    }
+}
+
+function runFunction(fn) {
+    const result = fn();
+
+    if (result[0] !== null) {
+        writer(result[0]);
+    }
+
+    if (result[2]) {
+        setTimeout(function () {
+            runFunction(result[2]);
+        }, result[1]);
+    } else {
+        nextStep();
+    }
+}
+
+window.addEventListener('load', nextStep)`;
+    }
+
+    generateCodeDelay() {
+        for (const anim of this.animationList) {
+            if (anim.readDelay || anim.betweenDelay) {
+                return `// Delay function between animations
+function delay(seconds) {
+    return [null, seconds * 1000, function () {
+        return [null];
+    }];
+}`;
+            }
+        }
+
+        return "// Delay function not needed";
+    }
+
+    generateCodeDepends() {
+        const dependsNeeded = {};
+
+        for (const anim of this.animationList) {
+            for (const key of anim.show.depends || []) {
+                dependsNeeded[key] = depends[key];
+            }
+
+            for (const key of anim.hide.depends || []) {
+                dependsNeeded[key] = depends[key];
+            }
+        }
+
+        if (!Object.keys(dependsNeeded).length) {
+            return "// No dependencies";
+        }
+
+        const list = Object.entries(dependsNeeded)
+            .map((e) => `${e[0]}: ${this.generateCodeFunction(e[1])}`)
+            .join(",\n");
+
+        return `// Dependencies
+const depends = {
+    ${this.indent(list)}
+};`;
+    }
+
+    generateCodeFunction(fn) {
+        let fnStr = fn.toString();
+        const lines = fnStr.split(/\n/g);
+        lines.shift();
+        let minIndent = lines.length ? fnStr.length : 0;
+
+        while (lines.length) {
+            const line = lines.shift();
+
+            if (line.length) {
+                const indent = line.match(/^ */)[0].length;
+                minIndent = Math.min(indent, minIndent);
+            }
+        }
+
+        if (minIndent) {
+            const r = new RegExp(`^${depends.repeat(" ", minIndent)}`, "gm");
+            fnStr = fnStr.replace(r, "");
+        }
+
+        return fnStr;
+    }
+
+    generateCodeMethod(type) {
+        const needed = {};
+
+        for (const anim of this.animationList) {
+            needed[anim[type].key] = anim[type].method;
+        }
+
+        if (!Object.keys(needed).length) {
+            return `// No methods: ${type}`;
+        }
+
+        const lines = Object.entries(needed)
+            .map((e) => `${e[0]}: ${this.generateCodeFunction(e[1])}`)
+            .join(",\n");
+
+        return `// Methods: ${type}
+const ${type} = {
+    ${this.indent(lines)}
+};`;
+    }
+
+    generateCodeSteps() {
+        const segments = [];
+
+        for (const anim of this.animationList) {
+            // Show
+            segments.push(
+                this.generateCodeStepsMethod(
+                    anim,
+                    "show",
+                    anim.show,
+                    anim.showVariables
+                )
+            );
+
+            // Read Delay
+            if (anim.readDelay) {
+                segments.push(this.generateCodeStepsDelay(anim.readDelay));
+            }
+
+            // Hide
+            segments.push(
+                this.generateCodeStepsMethod(
+                    anim,
+                    "hide",
+                    anim.hide,
+                    anim.hideVariables
+                )
+            );
+
+            // Between Delay
+            if (anim.betweenDelay) {
+                segments.push(this.generateCodeStepsDelay(anim.betweenDelay));
+            }
+        }
+
+        return `const steps = [
+    ${this.indent(segments.join(",\n"))}
+];`;
+    }
+
+    generateCodeStepsDelay(delay) {
+        return `function () { return delay(${delay}); }`;
+    }
+
+    generateCodeStepsMethod(anim, type, def, variables) {
+        const args = [JSON.stringify(anim.message)];
+
+        for (const variable of variables) {
+            args.push(JSON.stringify(variable));
+        }
+
+        for (const depend of def.depends || []) {
+            args.push(`depends.${depend}`);
+        }
+
+        return `function () { return ${type}.${def.key}(${args.join(", ")}); }`;
+    }
+
+    generateCodeWriter() {
+        switch (this.writeMethod) {
+            case "window.status":
+                return `function writer(msg) {
+    window.status = msg;
+}`;
+
+            case "jQuery.text":
+                return `function writer(msg) {
+    $(${JSON.stringify(this.jQueryExtra)}).text(msg);
+}`;
+
+            default:
+                return `function writer(msg) {
+    ${this.functionExtra}(msg);
+}`;
+        }
+    }
+
+    indent(lines) {
+        return lines.replace(/\n/g, "\n    ");
     }
 
     makePreview() {
         return {
             message: this.message,
             show: show[this.showMethod],
+            showVariables: this.getVariables(show[this.showMethod]),
             readDelay: this.readDelay,
             hide: hide[this.hideMethod],
+            hideVariables: this.getVariables(show[this.hideMethod]),
             betweenDelay: this.betweenDelay
         };
     }
 
-    updateDemo() {
-        if (this.demoTimeout) {
-            clearTimeout(this.demoTimeout);
-            this.demoTimeout = null;
+    getVariables(def) {
+        const result = [];
+
+        for (const variable of def.variables || []) {
+            const v =
+                variable.currentValue === undefined
+                    ? variable.default
+                    : variable.currentValue;
+            result.push(v);
         }
 
-        // FIXME
+        return result;
+    }
+
+    updateDemo() {
+        this.timeout.clear();
+
+        const writer = (message) => {
+            document.getElementById("generator-demo").value = message;
+        };
+
+        const steps = [];
+        const nextStep = () => {
+            const s = steps.shift();
+            steps.push(s);
+            s();
+        };
+        steps.push(
+            this.stepCallMethod(
+                this.preview.show,
+                this.preview.showVariables,
+                this.preview.message,
+                writer,
+                nextStep
+            )
+        );
+
+        if (this.preview.readDelay) {
+            steps.push(this.stepDelayFn(nextStep, this.preview.readDelay));
+        }
+
+        steps.push(
+            this.stepCallMethod(
+                this.preview.hide,
+                this.preview.hideVariables,
+                this.preview.message,
+                writer,
+                nextStep
+            )
+        );
+
+        if (this.preview.betweenDelay) {
+            steps.push(this.stepDelayFn(nextStep, this.preview.betweenDelay));
+        }
+
+        nextStep();
+    }
+
+    stepCallMethod(def, variables, message, writer, nextStep) {
+        const makeCall = (fn) => {
+            const result = fn();
+
+            if (!Array.isArray(result)) {
+                nextStep();
+            }
+
+            writer(result[0]);
+
+            if (result[2]) {
+                this.timeout.set(result[1], () => {
+                    makeCall(result[2]);
+                });
+            } else {
+                nextStep();
+            }
+        };
+
+        return () => {
+            const args = [message, ...variables];
+
+            for (const depend of def.depends || []) {
+                args.push(depends[depend]);
+            }
+
+            makeCall(function () {
+                return def.method(...args);
+            });
+        };
+    }
+
+    stepDelayFn(nextStep, delay) {
+        return () => {
+            this.timeout.set(delay * 1000, nextStep);
+        };
     }
 
     update() {
-        this.updateDemo();
         this.preview = this.makePreview();
+        this.updateDemo();
+        this.generatedCode = this.generateCode();
     }
 
     addConfig(animData) {
-        // This line is just a guess
         this.animationList.push(animData);
-
         this.update();
     }
 
@@ -101,10 +410,16 @@ module.exports = class Generator {
     viewMethodDetail(method) {
         const variables = method.variables || [];
 
+        for (const variable of variables) {
+            if (variable.currentValue === undefined) {
+                variable.currentValue = variable.default;
+            }
+        }
+
         return m(
             "div",
             {
-                style: "padding-left: 3em"
+                style: "padding-left: 3em; margin-bottom: 0.5em;"
             },
             [
                 m("p", method.description),
@@ -113,10 +428,15 @@ module.exports = class Generator {
                         `${variable.name}: `,
                         m("input", {
                             type: "text",
-                            style: "width: 5em",
+                            style: "width: 5em;",
                             value: variable.currentValue,
                             oninput: (e) => {
-                                variable.currentValue = e.target.value;
+                                if (variable.isNumeric) {
+                                    variable.currentValue = +e.target.value;
+                                } else {
+                                    variable.currentValue = e.target.value;
+                                }
+
                                 this.update();
                             }
                         }),
@@ -133,7 +453,7 @@ module.exports = class Generator {
             m("input", {
                 type: "text",
                 value: this[prop],
-                style: "width: 5em",
+                style: "width: 5em;",
                 oninput: (e) => {
                     this[prop] = +e.target.value;
                     this.update();
@@ -156,6 +476,10 @@ module.exports = class Generator {
                     m("input", {
                         type: "text",
                         value: this.jQueryExtra,
+                        onkeyup: (e) => {
+                            this.jQueryExtra = e.target.value;
+                            this.update();
+                        },
                         onchange: (e) => {
                             this.jQueryExtra = e.target.value;
                             this.update();
@@ -168,7 +492,7 @@ module.exports = class Generator {
                         m(
                             "code",
                             `$(${JSON.stringify(
-                                this.writeMethodExtra
+                                this.jQueryExtra
                             )}).text("message goes here");`
                         )
                     )
@@ -180,6 +504,10 @@ module.exports = class Generator {
                     m("input", {
                         type: "text",
                         value: this.functionExtra,
+                        onkeyup: (e) => {
+                            this.functionExtra = e.target.value;
+                            this.update();
+                        },
                         onchange: (e) => {
                             this.functionExtra = e.target.value;
                             this.update();
@@ -205,16 +533,6 @@ module.exports = class Generator {
             m(
                 "ul",
                 this.animationList.map((anim) => m("li", anim.message))
-            ),
-            m("h3", "Demo of the animation"),
-            m(
-                "p",
-                m("input", {
-                    type: "text",
-                    disabled: "disabled",
-                    style: "width: 100%",
-                    id: "animationDemo"
-                })
             )
         ];
     }
@@ -235,7 +553,7 @@ module.exports = class Generator {
                 m("input", {
                     type: "text",
                     placeholder: "Write your message here",
-                    style: "width: 100%",
+                    style: "width: 100%;",
                     value: this.message,
                     oninput: (e) => {
                         this.message = e.target.value;
@@ -244,19 +562,18 @@ module.exports = class Generator {
                 })
             ),
             this.writeSelect("showMethod", show, "Method for showing: "),
-            this.viewMethodDetail(this.showMethod),
+            this.viewMethodDetail(show[this.showMethod]),
             this.viewDelay("readDelay", "Delay after showing, in seconds: "),
             this.writeSelect("hideMethod", hide, "Method for hiding: "),
-            this.viewMethodDetail(this.hideMethod),
+            this.viewMethodDetail(hide[this.hideMethod]),
             this.viewDelay("betweenDelay", "Delay after hiding, in seconds: "),
             m("h2", "Demo of this message (loops continually)"),
             m(
                 "p",
-                m("input", {
+                m("input#generator-demo", {
                     type: "text",
                     disabled: "disabled",
-                    style: "width: 100%",
-                    id: "generator-demo"
+                    style: "width: 100%"
                 })
             ),
             m("h2", "Build a sequence of messages"),
@@ -265,7 +582,7 @@ module.exports = class Generator {
                 m(
                     "button",
                     {
-                        onclick: () => this.addConfig(this.preview[0])
+                        onclick: () => this.addConfig(this.preview)
                     },
                     "Add This Message"
                 )
@@ -295,420 +612,3 @@ module.exports = class Generator {
         ];
     }
 };
-
-/**
-
-module.directive("generator", () => {
-    return {
-        link: (scope) => {
-            /**
-             * Builds an animation function
-             *
-             * @param {string} message
-             * @param {Object} halfStep Either a hide or a show definition
-             * @param {Object} methods
-             * @return {string}
-             * /
-            function getAnimation(message, halfStep, methods) {
-                var args, fn, fnStr;
-
-                if (!message) {
-                    message = "";
-                }
-
-                args = [
-                    JSON.stringify(message),
-                    "writeMethod",
-                    "whenDone"
-                ];
-
-                if (halfStep.variables) {
-                    halfStep.variables.forEach((v) => {
-                        // All arguments are numeric
-                        args.push(+v.currentValue);
-                    });
-                }
-
-                if (halfStep.depends) {
-                    halfStep.depends.forEach((v) => {
-                        args.push(`depends.${v}`);
-                    });
-                }
-
-                fn = null;
-                fnStr = `fn = function (whenDone) {
-\tmethods[${methods.indexOf(halfStep.method)}](${args.join(", ")});
-}`;
-
-                // eslint-disable-next-line no-eval
-                eval(fnStr);
-
-                return fn;
-            }
-
-
-            /**
-             * Builds a delay function.
-             *
-             * @param {number} delay
-             * @return {string}
-             * /
-            function getDelay(delay) {
-                var fn;
-
-                fn = `fn = function (whenDone) {
-\tsetTimeout(whenDone, ${delay});
-}`;
-
-                // eslint-disable-next-line no-eval
-                eval(fn);
-
-                return fn;
-            }
-
-            /**
-             * Build an array of animation functions.
-             *
-             * @param {Array.<Object>} animationList of full steps
-             * @param {Object} methods
-             * @return {Array.<string>}
-             * /
-            function getAnimations(animationList, methods) {
-                var animations;
-
-                animations = [];
-                animationList.forEach((step) => {
-                    animations.push(getAnimation(step.message, step.show, methods));
-                    animations.push(getDelay(step.readDelay));
-                    animations.push(getAnimation(step.message, step.hide, methods));
-                    animations.push(getDelay(step.betweenDelay));
-                });
-
-                return animations;
-            }
-
-
-            /**
-             * Get dependent functions when they are required.
-             *
-             * @param {Array.<Object>} animationList of full animations
-             * @return {Object}
-             * /
-            function getDepends(animationList) {
-                var depends;
-
-                /**
-                 * If an animation is required, add it.
-                 *
-                 * @param {Object} animation
-                 * /
-                function checkDepends(animation) {
-                    if (animation.depends) {
-                        animation.depends.forEach((name) => {
-                            depends[name] = window.generator.depends[name];
-                        });
-                    }
-                }
-
-                depends = {};
-                animationList.forEach((step) => {
-                    checkDepends(step.show);
-                    checkDepends(step.hide);
-                });
-
-                return depends;
-            }
-
-            /**
-             * Build a list of methods for an animation
-             *
-             * @param {Array.<Object>} animationList of full steps
-             * @return {Array.<Object>} animation methods
-             * /
-            function getMethods(animationList) {
-                var result;
-
-                /**
-                 * Only keep one copy of each method
-                 *
-                 * @param {Function} fn
-                 * /
-                function arrange(fn) {
-                    if (result.indexOf(fn) === -1) {
-                        result.push(fn);
-                    }
-                }
-
-                result = [];
-
-                animationList.forEach((step) => {
-                    arrange(step.show.method);
-                    arrange(step.hide.method);
-                });
-
-                return result;
-            }
-
-
-            /**
-             * Returns the writing method as a function string.
-             *
-             * @param {string} writeMethod
-             * @return {string}
-             * /
-            function getWriteMethod(writeMethod) {
-                if (writeMethod === "window.status") {
-                    return `\twriteMethod = function (msg) {
-\t\twindow.status = msg;
-\t};`;
-                }
-
-                if (writeMethod === "jQuery.text") {
-                    return `\twriteMethod = function (msg) {
-\t\t/*global $*` + `/
-\t\t$(${JSON.stringify(scope.writeMethodExtra || "")}).text(msg);
-\t};`;
-                }
-
-                return `\t/*global ${scope.writeMethodExtra}*` + `/
-\twriteMethod = ${scope.writeMethodExtra};`;
-            }
-
-
-            /**
-             * Uses scope and builds the necessary JavaScript.
-             * /
-            function updateGeneratedCode() {
-                var animations, c, depends, methods, vars;
-
-                methods = getMethods(scope.animationList);
-                depends = getDepends(scope.animationList);
-                animations = getAnimations(scope.animationList, methods);
-
-                if (!scope.animationList.length || !scope.repeat || !scope.writeMethod) {
-                    scope.generatedCode = "";
-
-                    return;
-                }
-
-                // Header
-                c = [];
-                c.push("(function () {");
-                vars = [
-                    "animations",
-                    "writeMethod"
-                ];
-
-                if (Object.keys(depends).length) {
-                    vars.push("depends");
-                }
-
-                vars.sort();
-                c.push(`\tvar ${vars.join(", ")};`);
-                c.push(getWriteMethod(scope.writeMethod));
-
-                // Dependencies
-                if (Object.keys(depends).length) {
-                    c.push("\tdepends = {}");
-                    Object.keys(depends).forEach((name) => {
-                        c.push(`\tdepends.${name} = ${depends[name].toString()};`);
-                    });
-                    c.push("\t};");
-                }
-
-                // Animation methods
-                methods = methods.map((fn) => {
-                    return fn.toString();
-                }).join(",\n");
-                c.push(`\tmethods = [
-\t\t${methods.replace(/\n/g, "\n\t\t")}
-\t]`);
-
-                // Animations
-                animations = animations.map((val) => {
-                    return val.toString();
-                }).join(",\n");
-                c.push(`\tanimations = [
-\t\t${animations.replace(/\n/g, "\n\t\t")}
-\t];`);
-
-                // Animator
-                c.push("\tfunction animateIt() {");
-                c.push("\t\tvar animateFn;");
-                c.push("\t\tanimateFn = animations.shift();");
-                c.push("\t\tif (animateFn) {");
-                c.push("\t\t\tanimateFn(animateIt);");
-
-                if (scope.repeat === "yes") {
-                    c.push("\t\t\tanimations.push(animateFn);");
-                }
-
-                c.push("\t\t}");
-                c.push("\t}");
-
-                // Start the animator
-                c.push("\twindow.setTimeout(animateIt, 0);");
-
-                // Footer
-                c.push("}());");
-
-                // Combine to a single string
-                scope.generatedCode = c.join("\n").replace(/\t/g, "    ");
-            }
-
-
-            scope.$watch("writeMethod", () => {
-                scope.writeMethodExtra = "";
-                updateGeneratedCode();
-            });
-            scope.$watchCollection("animationList", updateGeneratedCode);
-            scope.$watch("repeat", updateGeneratedCode);
-            scope.$watch("writeMethodExtra", updateGeneratedCode);
-            scope.addConfig = function (animationStep) {
-                scope.animationList.push(animationStep);
-            };
-        }
-    };
-});
-
-module.directive("generatorMethod", () => {
-    return {
-        link(scope) {
-            scope.sendUpdate = () => {
-                scope.callback({
-                    method: scope.method
-                });
-            };
-            scope.$watch("method", (newVal) => {
-                // Reset current values for variables
-                if (newVal && newVal.variables) {
-                    newVal.variables.forEach((variable) => {
-                        variable.currentValue = variable.default;
-                    });
-                }
-
-                scope.sendUpdate();
-            });
-            scope.method = scope.methodList.none;
-        },
-        scope: {
-            callback: "&callback",
-            label: "=label",
-            methodList: "=generatorMethod"
-        },
-        templateUrl: "method"
-    };
-});
-
-module.directive("generatorDemo", () => {
-    return {
-        link(scope, element) {
-            var preview;
-
-
-            /**
-             * Creates a preview in the target element.
-             *
-             * @param {angular~element} target
-             * @return {Object}
-             * /
-            function generatePreview(target) {
-                var active, animateSteps, obj;
-
-                active = true;
-                animateSteps = [];
-                obj = {
-                    abort() {
-                        active = false;
-                    },
-                    addAnimation(message, animation) {
-                        var args;
-
-                        if (!message) {
-                            message = "";
-                        }
-
-                        args = [
-                            message,
-                            obj.writer,
-
-                            // eslint-disable-next-line no-undefined
-                            undefined
-                        ];
-
-                        if (animation.variables) {
-                            animation.variables.forEach((v) => {
-                                args.push(v.currentValue);
-                            });
-                        }
-
-                        if (animation.depends) {
-                            animation.depends.forEach((v) => {
-                                args.push(window.generator.depends[v]);
-                            });
-                        }
-
-                        animateSteps.push((whenDone) => {
-                            args[2] = whenDone;
-                            animation.method.apply(null, args);
-                        });
-                    },
-                    addDelay(ms) {
-                        animateSteps.push((whenDone) => {
-                            setTimeout(whenDone, ms);
-                        });
-                    },
-                    start() {
-                        var fn;
-
-                        if (!animateSteps.length) {
-                            return;
-                        }
-
-                        fn = animateSteps.shift();
-                        animateSteps.push(fn);
-                        fn(() => {
-                            setTimeout(obj.start, 0);
-                        });
-                    },
-                    writer(message) {
-                        if (!active) {
-                            return 1;
-                        }
-
-                        target.val(message);
-
-                        return 0;
-                    }
-                };
-
-                return obj;
-            }
-
-            scope.$watchCollection("animations", (newVal) => {
-                if (!angular.isArray(newVal)) {
-                    element.val("");
-
-                    return;
-                }
-
-                if (preview) {
-                    preview.abort();
-                }
-
-                preview = generatePreview(element);
-                newVal.forEach((step) => {
-                    preview.addAnimation(step.message, step.show);
-                    preview.addDelay(step.readDelay);
-                    preview.addAnimation(step.message, step.hide);
-                    preview.addDelay(step.betweenDelay);
-                });
-                preview.start();
-            });
-        },
-        scope: {
-            animations: "=generatorDemo"
-        }
-    };
-});
-*/

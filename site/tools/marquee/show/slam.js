@@ -2,46 +2,43 @@
 
 module.exports = {
     title: "Slam",
+    key: "slam",
     description:
         "Slams the letters, one by one, from the far right towards the left side.",
     variables: [
         {
             name: "Delay",
-            description: "How long to wait between animations.",
-            default: 10
+            description: "How long to wait between animations, in seconds.",
+            isNumeric: true,
+            default: 0.01
         }
     ],
-    method: function(text, writer, whenDone, delay) {
-        var completed = "",
-            current = "",
-            queue = text.length,
-            spaces = "";
+    depends: ["repeat"],
+    method: function (text, delay, repeat) {
+        let completed = "";
+        let current = "";
+        const queue = text.split("");
+        let spaces = "";
+        const spacesInitial = repeat("    ", 20);
 
         function animate() {
-            if (spaces === "") {
+            if (spaces.length === 0) {
                 completed += current;
-
-                if (!queue) {
-                    whenDone();
-                    return;
-                }
-
-                spaces = "                    "; // 20 spaces
-                current = text.charAt(completed.length);
-                queue -= 1;
+                current = queue.shift();
+                spaces = spacesInitial;
             } else {
-                spaces = spaces.substr(1);
+                spaces = spaces.substr(4);
             }
 
-            if (
-                writer(completed + spaces + spaces + spaces + spaces + current)
-            ) {
-                return;
+            const t = completed + spaces + current;
+
+            if (spaces.length === 0 && queue.length === 0) {
+                return [t];
             }
 
-            setTimeout(animate, delay);
+            return [t, delay * 1000, animate];
         }
 
-        animate();
+        return animate();
     }
 };

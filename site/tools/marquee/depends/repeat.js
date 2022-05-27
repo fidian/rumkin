@@ -1,7 +1,8 @@
 "use strict";
 
-module.exports = function(what, howMany) {
-    var i = 0, result = "";
+module.exports = function (what, howMany) {
+    let i = 0;
+    let result = "";
 
     while (i < howMany) {
         result += what;

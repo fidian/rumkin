@@ -2,31 +2,30 @@
 
 module.exports = {
     title: "Slide Left",
+    key: "slideLeft",
     description: "Scrolls your text out to the left side.",
     variables: [
         {
             name: "Delay",
-            description: "How long to wait between animations.",
-            default: 10
+            description: "How long to wait between animations, in seconds.",
+            isNumeric: true,
+            default: 0.01
         }
     ],
-    method: function(text, writer, whenDone, delay) {
-        var chars = 0;
+    method: function (text, delay) {
+        let chars = 0;
 
         function animate() {
             chars += 1;
-
-            if (writer(text.substr(chars))) {
-                return;
-            }
+            const t = text.substr(chars);
 
             if (chars < text.length) {
-                setTimeout(animate, delay);
-            } else {
-                whenDone();
+                return [t, delay * 1000, animate];
             }
+
+            return [t];
         }
 
-        animate();
+        return animate();
     }
 };

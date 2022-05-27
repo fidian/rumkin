@@ -1,7 +1,7 @@
 "use strict";
 
-module.exports = function(min, max, callback) {
-    var result = [];
+module.exports = function (min, max, callback) {
+    const result = [];
 
     while (min <= max) {
         callback(min);

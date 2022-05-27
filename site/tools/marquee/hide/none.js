@@ -2,12 +2,9 @@
 
 module.exports = {
     title: "None",
+    key: 'none',
     description: "Just removes the message.  Nothing fancy.",
-    method: function(text, writer, whenDone) {
-        if (writer("")) {
-            return;
-        }
-
-        whenDone();
+    method: function () {
+        return [""];
     }
 };

@@ -2,58 +2,56 @@
 
 module.exports = {
     title: "Cryptography",
+    key: "cryptography",
     description:
         'The message is replaced with random letters.  They continue to change until they are the right letter for that position or until the maximum number of loops occur.  Always shows the right message at the end.  Similar to some "hacking" seen in movies.',
     variables: [
         {
             name: "Delay",
-            description: "How long to wait between animations.",
-            default: 10
+            description: "How long to wait between animations, in seconds.",
+            isNumeric: true,
+            default: 0.01
         },
         {
             name: "Time Limit",
-            description: "Maximum amount of time to cycle.",
-            default: 3000
+            description: "Maximum amount of seconds to cycle.",
+            isNumeric: true,
+            default: 3
         }
     ],
-    depends: ["range", "random"],
-    method: function(text, writer, whenDone, delay, timeLimit, range, random) {
-        var chars = "",
-            crypted = "";
+    depends: ["range", "randomInt"],
+    method: function (text, delay, timeLimit, range, randomInt) {
+        let chars = "";
+        let crypted = "";
+        range(32, 128, function (num) {
+            chars += String.fromCharCode(num);
+        });
+        const start = Date.now();
 
-        function solver() {
-            var i = 0,
-                newCrypted = "";
+        function animate() {
+            if (Date.now() - start >= timeLimit * 1000) {
+                return [text];
+            }
 
-            for (; i < text.length; i += 1) {
+            let newCrypted = "";
+
+            for (let i = 0; i < text.length; i += 1) {
                 if (text.charAt(i) === crypted.charAt(i)) {
                     newCrypted += text.charAt(i);
                 } else {
-                    newCrypted += chars.charAt(random(chars.length));
+                    newCrypted += chars.charAt(randomInt(chars.length));
                 }
             }
 
             crypted = newCrypted;
 
-            if (writer(crypted)) {
-                return;
+            if (Date.now() - start >= timeLimit * 1000 || crypted === text) {
+                return [text];
             }
 
-            if (crypted === text) {
-                whenDone();
-                return;
-            }
-
-            setTimeout(solver, delay);
+            return [crypted, delay * 1000, animate];
         }
 
-        range(32, 128, function(num) {
-            chars += String.fromCharCode(num);
-        });
-        writer(text);
-        setTimeout(function() {
-            crypted = text;
-        }, timeLimit);
-        solver();
+        return animate();
     }
 };
