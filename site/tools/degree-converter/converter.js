@@ -16,7 +16,6 @@ module.exports = class Converter {
         let d = 0;
 
         const numbers = cleansed.trim().split(" ");
-        console.log(numbers);
 
         for (const number of numbers) {
             d += +number * factor;
@@ -60,7 +59,6 @@ module.exports = class Converter {
 
         const d = this.getDegreeValue(input);
         const numbers = this.convertDegreeValue(d);
-        console.log(numbers);
 
         this.outputDegrees = `${this.round(numbers.df, 6)}`;
         this.outputDegreesMinutes = `${numbers.d}° ${this.round(
