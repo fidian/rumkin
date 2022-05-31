@@ -1,5 +1,6 @@
 ---
 title: Die Roll Stats
+summary: Statistically determine how well dice will roll given a specific combination of dice. Shows a chart to visually explain the results.
 js: dice-module.js
 routes:
     - path: /
