@@ -27,7 +27,7 @@ module.exports = class MailtoEncoderSimple {
             m("p", "Email address:"),
             m("input", {
                 type: "text",
-                style: "width: 100%",
+                class: "W(100%)",
                 placeholder: "user@example.com",
                 value: this.email,
                 onkeyup: (e) => {
@@ -43,7 +43,7 @@ module.exports = class MailtoEncoderSimple {
             m("p", "Link text:"),
             m("input", {
                 type: "text",
-                style: "width: 100%",
+                class: "W(100%)",
                 placeholder: "Defaults to email address",
                 value: this.linkText,
                 onkeyup: (e) => {

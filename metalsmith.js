@@ -10,6 +10,7 @@ metalsmithSite.run(
                 });
 
                 if (!process.env.FAST) {
+                    // Reduce content size
                     sugar.use("metalsmith-uglify", {
                         sameName: true,
                         uglify: {
@@ -20,6 +21,8 @@ metalsmithSite.run(
                         files: "**/*.css"
                     });
                     sugar.use("metalsmith-html-minifier");
+
+                    // Precompress so GitHub Pages will serve minified files
                     sugar.use("metalsmith-gzip");
                     sugar.use("metalsmith-brotli");
                 }

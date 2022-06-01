@@ -78,7 +78,7 @@ module.exports = class DecisionTree {
         return m(
             "ul",
             {
-                style: "margin-top: 1.5em"
+                class: "Mt(1.5em)"
             },
             Object.entries(trees).map(([k, v]) => {
                 return m(
@@ -102,7 +102,7 @@ module.exports = class DecisionTree {
             m(
                 "div",
                 {
-                    style: 'margin: 1em'
+                    class: "M(1em)",
                 },
                 Object.entries(node.answers || {}).map((answer) =>
                     this.viewTreeAnswer(answer)

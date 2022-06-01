@@ -10,7 +10,7 @@ module.exports = class HtmlTest {
     view() {
         return [
             m("textarea", {
-                style: "width: 100%",
+                class: "W(100%)",
                 oninput: (e) => {
                     this.html = e.target.value;
                 }

@@ -65,7 +65,7 @@ module.exports = class PasswordStrength {
                 m("input", {
                     type: this.showPassword ? "text" : "password",
                     placeholder: "Password or passphrase",
-                    style: "width: 100%",
+                    class: "W(100%)",
                     value: this.password,
                     oninput: (e) => this.updatePassword(e.target.value)
                 })
@@ -137,7 +137,7 @@ module.exports = class PasswordStrength {
                         m(
                             "span",
                             {
-                                style: "font-weight: bold"
+                                class: "Fw(b)"
                             },
                             "VERY WEAK PASSWORD!"
                         ),

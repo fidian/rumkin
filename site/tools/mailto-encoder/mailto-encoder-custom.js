@@ -65,7 +65,7 @@ module.exports = class MailtoEncoderCustom {
             m("p", label),
             m("input", {
                 type: "text",
-                style: "width: 100%",
+                class: "W(100%)",
                 value: this[property],
                 onkeyup: update,
                 oninput: update

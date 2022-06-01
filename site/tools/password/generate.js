@@ -158,7 +158,7 @@ module.exports = class Generate {
                 m("input", {
                     type: "number",
                     min: 1,
-                    style: "width: 3em",
+                    class: "W(3em)",
                     value: this.length
                 }),
                 " characters long",

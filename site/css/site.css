@@ -117,3 +117,7 @@ button, select {
 .output > textarea:first-child {
     margin-top: 0;
 }
+
+textarea {
+    padding: 0.2em 0.4em;
+}

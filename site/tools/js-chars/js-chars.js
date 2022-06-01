@@ -20,7 +20,7 @@ module.exports = class JsChars {
     view() {
         return [
             m("textarea", {
-                style: "width: 100%",
+                class: "W(100%)",
                 oninput: (e) => {
                     this.values = this.jsChars(e.target.value);
                 }

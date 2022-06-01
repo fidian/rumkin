@@ -149,9 +149,8 @@ module.exports = class Dice {
                         "td",
                         { valign: "center" },
                         m("div", {
-                            style: `background-color: blue; height: 0.8em; width: ${percentOfMax.toFixed(
-                                2
-                            )}%`
+                            class: "Bgc(blue) H(0.8em)",
+                            style: `width: ${percentOfMax.toFixed(2)}%`
                         })
                     )
                 ])

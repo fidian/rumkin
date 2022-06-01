@@ -22,5 +22,6 @@ module.exports = {
         }
     },
     addRules: [],
-    destination: "css/atomic.css"
+    destination: "css/atomic.css",
+    match: "**/*.{html,htm,js}"
 };

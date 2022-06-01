@@ -65,7 +65,7 @@ module.exports = class Rainbow {
         return [
             m("input", {
                 type: "text",
-                style: "width: 100%",
+                class: "W(100%)",
                 oninput: (e) => {
                     this.makeRainbow(e.target.value);
                 }
@@ -74,17 +74,15 @@ module.exports = class Rainbow {
             m(
                 "p",
                 {
-                    style:
-                        "padding: 0.3em 1em; background-color: #114; font-weight: bold"
+                    class: "Px(0.3em) Py(1em) Bgc(#114) Fw(b)"
                 },
                 this.rainbow
             ),
             m("p", "And here is the HTML for your use:"),
             m(
-                "p",
+                "code",
                 {
-                    class: 'output',
-                    style: 'font-size: 0.8em; font-family: "Anonymous Pro"'
+                    class: 'output Fz(0.8em) D(b)'
                 },
                 this.html
             )

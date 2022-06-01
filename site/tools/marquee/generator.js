@@ -419,7 +419,7 @@ const ${type} = {
         return m(
             "div",
             {
-                style: "padding-left: 3em; margin-bottom: 0.5em;"
+                class: "Pstart(3em) Mb(0.5em)"
             },
             [
                 m("p", method.description),
@@ -428,7 +428,7 @@ const ${type} = {
                         `${variable.name}: `,
                         m("input", {
                             type: "text",
-                            style: "width: 5em;",
+                            class: "W(5em)",
                             value: variable.currentValue,
                             oninput: (e) => {
                                 if (variable.isNumeric) {
@@ -453,7 +453,7 @@ const ${type} = {
             m("input", {
                 type: "text",
                 value: this[prop],
-                style: "width: 5em;",
+                class: "W(5em)",
                 oninput: (e) => {
                     this[prop] = +e.target.value;
                     this.update();
@@ -553,7 +553,7 @@ const ${type} = {
                 m("input", {
                     type: "text",
                     placeholder: "Write your message here",
-                    style: "width: 100%;",
+                    class: "W(100%)",
                     value: this.message,
                     oninput: (e) => {
                         this.message = e.target.value;
@@ -573,7 +573,7 @@ const ${type} = {
                 m("input#generator-demo", {
                     type: "text",
                     disabled: "disabled",
-                    style: "width: 100%"
+                    class: "W(100%)"
                 })
             ),
             m("h2", "Build a sequence of messages"),

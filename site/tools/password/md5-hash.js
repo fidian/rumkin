@@ -10,7 +10,7 @@ module.exports = class Md5Hash {
     view() {
         return [
             m("textarea", {
-                style: "width: 100%",
+                class: "W(100%)",
                 oninput: (e) => {
                     this.md5 = window.md5(e.target.value);
                 }
