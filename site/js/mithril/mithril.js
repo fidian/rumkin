@@ -1,1 +1,1 @@
-../../../node_modules/mithril/mithril.min.js
+../../../node_modules/mithril/mithril.js

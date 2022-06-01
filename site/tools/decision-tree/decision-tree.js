@@ -1,107 +1,131 @@
-/* global angular */
-"use strict";
+/* global m */
 
-angular.module("decisionTree", [
-    "hc.marked"
-]);
+const marked = require("marked");
 
-angular.module("decisionTree").config(($locationProvider) => {
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
-});
+const trees = {
+    "diablo-ii": {
+        label: "Diablo II",
+        file: "diablo-ii.json"
+    },
+    uploader: {
+        label: "Phone Uploader",
+        file: "uploader.json"
+    }
+};
 
-angular.module("decisionTree").controller("decisionTreeController", ($scope, $location, $http) => {
-    /**
-     * Loads the JSON for a tree. If the tree is the same as the previous,
-     * just reuse the existing tree.
-     *
-     * @param {string} name
-     * @param {Object} previous
-     * @param {Function} onLoad What to call if using AJAX to load data
-     * @return {Object} tree
-     */
-    function loadTree(name, previous, onLoad) {
-        var tree;
+const ROUTE = "/:treeName/:id";
 
-        // Sanitize
-        name = name.replace(/[^-a-z0-9]/g, "");
+module.exports = class DecisionTree {
+    constructor() {
+        this.loading = false;
+        this.loadedTree = null;
+        this.treeData = {};
+    }
 
-        if (previous && previous.name === name) {
-            return previous;
-        }
+    marked(text) {
+        return m.trust(marked.parse(text));
+    }
 
-        tree = {
-            name,
-            isLoading: true,
-            title: ""
-        };
-
-        $http.get(`${name}.json`).then((response) => {
-            tree.isLoading = false;
-            tree.isLoaded = true;
-            tree.data = response.data;
-            tree.title = tree.data.title;
-            onLoad();
-        }, (err) => {
-            tree.isLoading = false;
-            tree.isError = true;
-            tree.error = err.data;
-            tree.title = "Error loading tree";
+    setNode(id) {
+        m.route.set(ROUTE, {
+            treeName: m.route.param("treeName"),
+            id
         });
-
-        return tree;
     }
 
+    view() {
+        const treeName = m.route.param("treeName");
 
-    /**
-     * Selects the question with the given ID. Returns that question so
-     * it can be placed on $scope.
-     *
-     * @param {Object} tree
-     * @param {string} id
-     * @return {Object} node
-     */
-    function loadQuestion(tree, id) {
-        if (!tree.data) {
-            return {};
+        if (!treeName || !trees[treeName]) {
+            return this.viewTreeList();
         }
 
-        if (!id || !tree.data.tree[id]) {
-            id = tree.data.start;
+        if (this.loading) {
+            return this.viewLoading();
         }
 
-        return tree.data.tree[id];
+        if (this.loadedTree !== treeName) {
+            this.loadedTree = null;
+            this.loading = true;
+            m.request({
+                url: trees[treeName].file
+            }).then((result) => {
+                this.loading = false;
+                this.loadedTree = treeName;
+                this.treeData = result;
+            });
+
+            return this.viewLoading();
+        }
+
+        let nodeId = m.route.param("id");
+        let node = this.treeData.tree[nodeId];
+
+        if (!this.treeData.tree[nodeId]) {
+            nodeId = this.treeData.start;
+            node = this.treeData.tree[nodeId];
+            this.setNode(nodeId);
+        }
+
+        return this.viewTreeNode(node);
     }
 
-
-    /**
-     * When there's an update to the location, go load the tree and jump
-     * to the right node.
-     */
-    function reconfigure() {
-        var name;
-
-        name = $location.search().tree;
-
-        if (name) {
-            $scope.tree = loadTree(name, $scope.tree, reconfigure);
-            $scope.question = loadQuestion($scope.tree, $location.search().q);
-        } else {
-            $scope.tree = null;
-            $scope.question = null;
-        }
+    viewLoading() {
+        return m("p", "Loading");
     }
 
-    $scope.showTree = function (name) {
-        $location.search("tree", name);
-    };
+    viewTreeList() {
+        return m(
+            "ul",
+            {
+                style: "margin-top: 1.5em"
+            },
+            Object.entries(trees).map(([k, v]) => {
+                return m(
+                    "li",
+                    m(
+                        m.route.Link,
+                        {
+                            href: k
+                        },
+                        v.label
+                    )
+                );
+            })
+        );
+    }
 
-    $scope.selectAnswer = function (answer) {
-        $location.search("q", answer);
-    };
+    viewTreeNode(node) {
+        return [
+            m("h2", this.marked(this.treeData.title)),
+            m("div", this.marked(node.text)),
+            m(
+                "div",
+                {
+                    style: 'margin: 1em'
+                },
+                Object.entries(node.answers || {}).map((answer) =>
+                    this.viewTreeAnswer(answer)
+                )
+            ),
+            m("hr"),
+            m("p", m(m.route.Link, {
+                href: '/'
+            }, 'Start over'))
+        ];
+    }
 
-    reconfigure();
-    $scope.$on("$locationChangeSuccess", reconfigure);
-});
+    viewTreeAnswer([id, text]) {
+        return m('p', m(
+            m.route.Link,
+            {
+                href: ROUTE,
+                params: {
+                    treeName: m.route.param("treeName"),
+                    id
+                }
+            },
+            this.marked(text)
+        ));
+    }
+};
