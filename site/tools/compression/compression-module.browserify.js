@@ -2,6 +2,6 @@
 
 module.exports = {
     entries: [
-        require.resolve("./compression.js")
+        require.resolve("./compression-module.js")
     ]
 };
