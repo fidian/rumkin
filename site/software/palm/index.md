@@ -32,10 +32,11 @@ I have a few bits for [Palm programming](../../programming/palm/) as well, showi
 
 -   Calcul-8! (freeware)
     -   A scientific calculator that I replaced the standard calculator with. It supports base and unit conversion, hexadecimal, trig functions, and more. Requires MathLib (see the Libraries section below).
-    -   [Official Site](http://www.nutcom.fsnet.co.uk/palm/)
+    -   [Local Copy](calcul-8.zip)
 -   Kalk (freeware, postcard ware)
     -   RPN Calculator for all of you truly scientific people. Requires MathLib (see the Libraries section below).
     -   [Official Site](http://www.klawitter.de/palm/kalk.html)
+    -   [Local Copy](kalk3010.zip)
 -   snapCalc (freeware)
     -   Pop up a calculator anywhere. Very nice. This one is for use with OS 5 handhelds only. If you don't have Palm OS 5 or better, use the snapCalc listed under the Hacks category below.
     -   [Official Site](http://www.geocities.com/rnlnero/Palmos.html)
