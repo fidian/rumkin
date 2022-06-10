@@ -2,52 +2,41 @@
 
 "use strict";
 
+const Dropdown = require('../../js/mithril/dropdown.js');
+
 module.exports = class Wcn {
     constructor() {
         this.connectionTypes = {
-            ESS: "Infrastructure mode (ESS, uses access point)",
-            IBSS: "Ad-Hoc (IBSS, peer to peer)"
+            label: 'Connection type',
+            options: {
+                ESS: "Infrastructure mode (ESS, uses access point)",
+                IBSS: "Ad-Hoc (IBSS, peer to peer)"
+            },
+            value: 'ESS'
         };
-        this.connectionType = "ESS";
         this.authentications = {
-            open: "Open network",
-            shared: "Shared",
-            "WPA-NONE": "WPA-NONE",
-            WPA: "WPA",
-            "WPA-PSK": "WPA-PSK",
-            WPA2: "WPA2",
-            "WPA2-PSK": "WPA2-PSK"
+            label: 'Authentication',
+            options: {
+                open: "Open network",
+                shared: "Shared",
+                "WPA-NONE": "WPA-NONE",
+                WPA: "WPA",
+                "WPA-PSK": "WPA-PSK",
+                WPA2: "WPA2",
+                "WPA2-PSK": "WPA2-PSK"
+            },
+            value: 'open'
         };
-        this.authentication = "open";
         this.encryptions = {
-            none: "No encryption",
-            WEP: "WEP (Insecure)",
-            TKIP: "TKIP",
-            AES: "AES"
+            label: 'Encryption',
+            options: {
+                none: "No encryption",
+                WEP: "WEP (Insecure)",
+                TKIP: "TKIP",
+                AES: "AES"
+            },
+            value: 'none'
         };
-        this.encryption = "none";
-    }
-
-    makeSelect(property, label, options) {
-        return m("p", [
-            label,
-            m(
-                "select",
-                {
-                    onchange: (e) => (this[property] = e.target.value)
-                },
-                Object.entries(options).map(([k, v]) =>
-                    m(
-                        "option",
-                        {
-                            selected: this[property] === k,
-                            value: k
-                        },
-                        v
-                    )
-                )
-            )
-        ]);
     }
 
     makeInput(property, label, note) {
@@ -79,17 +68,9 @@ module.exports = class Wcn {
     view() {
         return [
             this.makeInput("ssid", "SSID: ", " (required)"),
-            this.makeSelect(
-                "connectionType",
-                "Connection Type: ",
-                this.connectionTypes
-            ),
-            this.makeSelect(
-                "authentication",
-                "Authentication: ",
-                this.authentications
-            ),
-            this.makeSelect("encryption", "Encryption: ", this.encryptions),
+            m(Dropdown, this.connectionTypes),
+            m(Dropdown, this.authentications),
+            m(Dropdown, this.encryptions),
             this.makeInput(
                 "networkkey",
                 "Network Key: ",
@@ -145,6 +126,11 @@ module.exports = class Wcn {
     }
 
     generate() {
+        // Copy properties to "this" for much easier templates
+        this.authentication = this.authentications.value;
+        this.encryption = this.encryptions.value;
+        this.connectionType = this.connectionTypes.value;
+
         JSZipUtils.getBinaryContent(
             "wireless-settings.zip",
             (errGettingZip, content) => {

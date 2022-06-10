@@ -2,46 +2,35 @@
 
 "use strict";
 
+const Dropdown = require('../../js/mithril/dropdown');
+
 module.exports = class BaseN {
     constructor() {
-        this.inBase = 10;
-        this.inNumber = "";
-        this.outBase = 10;
-        this.outNumber = "0";
-    }
-
-    optionList(propertyName) {
-        const options = [];
-        const currentValue = this[propertyName];
+        const allowedBases = {}
 
         for (let i = 2; i <= 32; i += 1) {
-            options.push(
-                m(
-                    "option",
-                    {
-                        selected: currentValue === i,
-                        value: i
-                    },
-                    i
-                )
-            );
+            allowedBases[i] = i;
         }
 
-        return m(
-            "select",
-            {
-                onchange: (e) => {
-                    this[propertyName] = +e.target.value;
-                    this.recalculate();
-                }
-            },
-            options
-        );
+        this.inBase = {
+            label: 'Input base',
+            onchange: () => this.recalculate(),
+            options: allowedBases,
+            value: 10
+        };
+        this.inNumber = "";
+        this.outBase = {
+            label: 'Output base',
+            onchange: () => this.recalculate(),
+            options: allowedBases,
+            value: 10
+        };
+        this.outNumber = "0";
     }
 
     view() {
         return [
-            m("p", ["Input base: ", this.optionList("inBase")]),
+            m("p", m(Dropdown, this.inBase)),
             m("p", [
                 "Input number: ",
                 m("input", {
@@ -53,7 +42,7 @@ module.exports = class BaseN {
                     value: this.inNumber
                 })
             ]),
-            m("p", ["Output base: ", this.optionList("outBase")]),
+            m("p", m(Dropdown, this.outBase)),
             m(
                 "p",
                 {
@@ -66,8 +55,8 @@ module.exports = class BaseN {
 
     recalculate() {
         const numList = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const inBase = +this.inBase;
-        const outBase = +this.outBase;
+        const inBase = +this.inBase.value;
+        const outBase = +this.outBase.value;
         const number = this.inNumber.toUpperCase();
         let convertedNumber = 0;
         let s = "";

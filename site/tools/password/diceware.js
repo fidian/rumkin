@@ -2,37 +2,47 @@
 
 "use strict";
 
+const Dropdown = require("../../js/mithril/dropdown");
 const random = require("../../js/module/random");
 
 module.exports = class Diceware {
     constructor() {
         this.loadingIndex = true;
-        this.loadingWords = false;
+        this.loadingWords = null;
         this.result = "";
         this.words = [];
+        this.wordlistSelect = {
+            options: {},
+            onchange: () => {
+                this.loadWordlist(this.wordlistSelect.value);
+            }
+        };
 
         m.request({
             extract: (x) => JSON.parse(x.responseText),
             url: "diceware-wordlists.json"
         }).then((wordlists) => {
             this.loadingIndex = false;
-            this.wordlists = wordlists;
-            let defaultWordlist = 0;
+            this.wordlists = {};
+            let defaultWordlist = null;
 
-            for (let i = 0; i < wordlists.length; i += 1) {
-                if (wordlists[i].default) {
-                    defaultWordlist = i;
+            for (const item of wordlists) {
+                this.wordlists[item.url] = item;
+                this.wordlistSelect.options[item.url] = `${item.code} - ${iitem.description}`;
+
+                if (defaultWordlist === null || item.default) {
+                    defaultWordlist = item.url;
                 }
             }
 
+            this.wordlistSelect.default = defaultWordlist;
             this.loadWordlist(defaultWordlist);
         });
     }
 
-    loadWordlist(number) {
-        this.selectedWordlist = number;
-        this.loadingWords = number;
-        const entry = this.wordlists[number];
+    loadWordlist(key) {
+        this.loadingWords = key;
+        const entry = this.wordlists[key];
         m.request({
             extract: (response) =>
                 response.responseText
@@ -43,7 +53,7 @@ module.exports = class Diceware {
             url: entry.uri
         }).then((words) => {
             this.words = words;
-            this.loadingWords = false;
+            this.loadingWords = null;
         });
     }
 
@@ -68,13 +78,7 @@ module.exports = class Diceware {
             m(
                 "p",
                 m(
-                    "select",
-                    {
-                        onchange: (e) => {
-                            this.loadWordlist(+e.target.value);
-                        }
-                    },
-                    this.wordlistOptions()
+                    Dropdown, this.wordlistOptions
                 )
             ),
             this.actionButtons(),
@@ -90,8 +94,7 @@ module.exports = class Diceware {
     }
 
     actionButtons() {
-        // Note: 0 is a value indicating that we are loading words
-        if (this.loadingWords !== false) {
+        if (this.loadingWords !== null) {
             return m(
                 "p",
                 `Loading wordlinst: ${
@@ -116,18 +119,5 @@ module.exports = class Diceware {
                 "Clear"
             )
         ]);
-    }
-
-    wordlistOptions() {
-        return this.wordlists.map((entry, index) =>
-            m(
-                "option",
-                {
-                    value: index,
-                    selected: this.selectedWordlist === index
-                },
-                `${entry.code} - ${entry.description}`
-            )
-        );
     }
 };

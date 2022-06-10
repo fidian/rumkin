@@ -28,6 +28,9 @@ metalsmithSite.run(
                 }
             }
         },
+        contentsAfter: (sugar) => {
+            sugar.use("metalsmith-mathjax");
+        },
         contentsBefore: (sugar) => {
             sugar.use("metalsmith-browserify-alt");
         },
