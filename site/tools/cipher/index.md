@@ -9,8 +9,10 @@ If you know of another cipher that you think should be on here or a tool that wo
 
 ## Ciphers
 
-{{#ancestry.children}}{{#if !tool}}* [{{title}}]({{link.from ancestry.parent}}) - {{summary}}{{/if}}{{/ancestry.children}}
+{{#ancestry.children}}{{#if cipher}}* [{{title}}]({{link.from ancestry.parent}}) - {{summary}}
+{{/if}}{{/ancestry.children}}
 
 ## Tools
 
-{{#ancestry.children}}{{#if tool}}* [{{title}}]({{link.from ancestry.parent}}) - {{summary}}{{/if}}{{/ancestry.children}}
+{{#ancestry.children}}{{#if tool}}* [{{title}}]({{link.from ancestry.parent}}) - {{summary}}
+{{/if}}{{/ancestry.children}}

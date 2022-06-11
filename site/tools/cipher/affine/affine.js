@@ -1,4 +1,4 @@
-/* global m */
+/* global m, rumkinCipher */
 
 const AlphabetSelector = require("../alphabet-selector");
 const EncryptionDirectionSelector = require("../encryption-direction-selector");
@@ -6,15 +6,11 @@ const ErrorMessage = require("../error-message");
 const InputArea = require("../input-area");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
-const rumkinCipher = require("@fidian/rumkin-cipher");
 
 module.exports = class Affine {
     constructor() {
         this.alphabet = {
-            value: "English",
-            onchange: () => {
-                this.updateAlphabet();
-            }
+            value: new rumkinCipher.alphabet.English()
         };
         this.a = {
             label: ["Multiplier (", m("tt", "a"), ")"],
@@ -32,12 +28,6 @@ module.exports = class Affine {
         this.input = {
             value: ""
         };
-        this.updateAlphabet();
-    }
-
-    updateAlphabet() {
-        const C = rumkinCipher.alphabet[this.alphabet.value];
-        this.alphabetObject = new C();
     }
 
     modifyA(direction) {
@@ -47,7 +37,7 @@ module.exports = class Affine {
 
         while (
             a >= 1 &&
-            !rumkinCipher.util.coprime(a, this.alphabetObject.length)
+            !rumkinCipher.util.coprime(a, this.alphabet.value.length)
         ) {
             a += direction;
         }
@@ -101,21 +91,21 @@ module.exports = class Affine {
     }
 
     viewAlphabet() {
-        const upperAndLower = this.alphabetObject.letterOrder.upper && this.alphabetObject.letterOrder.lower;
+        const upperAndLower = this.alphabet.value.letterOrder.upper && this.alphabet.value.letterOrder.lower;
         const upperAndLowerText = upperAndLower ? ' and lowercase' : '';
 
         return [
             m(AlphabetSelector, this.alphabet),
-            ` (m = ${this.alphabetObject.length})`,
+            ` (m = ${this.alphabet.value.length})`,
             m("br"),
-            `Letters: ${this.alphabetObject.letterOrder.upper}`,
+            `Letters: ${this.alphabet.value.letterOrder.upper}`,
             upperAndLowerText,
             this.viewAlphabetTranslations()
         ];
     }
 
     viewAlphabetTranslations() {
-        const keys = Object.keys(this.alphabetObject.translations);
+        const keys = Object.keys(this.alphabet.value.translations);
 
         if (keys.length === 0) {
             return null;
@@ -153,7 +143,7 @@ module.exports = class Affine {
         if (
             !rumkinCipher.util.coprime(
                 this.a.value,
-                this.alphabetObject.length
+                this.alphabet.value.length
             )
         ) {
             return m(ErrorMessage, [
@@ -182,7 +172,7 @@ module.exports = class Affine {
             shift: this.b.value
         };
         const method = this.encryptDecrypt.value === 'ENCRYPT' ? 'encipher' : 'decipher';
-        const result = module[method](message, this.alphabetObject, options);
+        const result = module[method](message, this.alphabet.value, options);
 
         return m(Result, result.toString());
     }

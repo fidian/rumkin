@@ -18,6 +18,7 @@ module.exports = class InputArea {
                 placeholder: 'Enter text here'
             }, attrs, {
                 class: `W(100%) H(8em) Mah(75vh) ${attrs.class}`,
+                value: undefined,
                 onkeyup: (e) => {
                     attrs.value = e.target.value;
 

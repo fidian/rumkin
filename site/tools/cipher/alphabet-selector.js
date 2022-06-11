@@ -1,7 +1,6 @@
-/* global m */
+/* global m, rumkinCipher */
 
 const Dropdown = require("../../js/mithril/dropdown");
-const rumkinCipher = require("@fidian/rumkin-cipher");
 
 const options = {};
 
@@ -11,20 +10,22 @@ for (const name of Object.keys(rumkinCipher.alphabet)) {
 
 module.exports = class AlphabetSelector {
     constructor(vnode) {
-        this.d = {
+        const attrs = vnode.attrs;
+        const d = {
             options,
             label: "Alphabet",
-            value: vnode.attrs.value,
+            value: attrs.value.name,
             onchange: (e) => {
-                vnode.attrs.value = this.d.value;
+                attrs.value = new rumkinCipher.alphabet[d.value]();
 
-                if (vnode.attrs.onchange) {
-                    return vnode.attrs.onchange(e);
+                if (attrs.onchange) {
+                    return attrs.onchange(e);
                 }
 
                 return true;
             }
         };
+        this.d = d;
     }
 
     view() {

@@ -4,6 +4,7 @@ summary: Similar to a Caesarian shift, but also adds in a multiplier to further 
 cipher: true
 mathjax: true
 js:
+    - ../rumkin-cipher.js
     - affine-module.js
 components:
     - className: module

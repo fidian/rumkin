@@ -5,9 +5,11 @@ module.exports = class Result {
         return m(
             "div",
             {
-                class: "M(1em) Bdw(1px) Bgc(#ddd) P(0.5em)"
+                class: "Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl)"
             },
-            vnode.children
+            [
+                m("tt", vnode.children)
+            ]
         );
     }
 };
