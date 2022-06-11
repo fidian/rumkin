@@ -14,15 +14,18 @@ module.exports = class Dropdown {
 
         return [this.viewLabel(attrs), m(
             "select",
-            {
+            Object.assign({}, attrs, {
                 onchange: (e) => {
                     attrs.value = e.target.value;
 
                     if (attrs.onchange) {
-                        attrs.onchange();
+                        return attrs.onchange(e);
                     }
-                }
-            },
+
+                    return true;
+                },
+                options: undefined
+            }),
             Object.entries(attrs.options).map((option) => {
                 return m(
                     "option",
@@ -39,7 +42,7 @@ module.exports = class Dropdown {
     viewLabel(attrs) {
         if (attrs.label) {
             return [
-                m.trust(attrs.label),
+                attrs.label,
                 ': '
             ];
         }

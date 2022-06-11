@@ -1,6 +1,6 @@
 /* global m, window */
 
-const random = require("../../js/module/random");
+const random = require("../../module/random");
 
 module.exports = class Fortunes {
     constructor(args) {

@@ -23,5 +23,5 @@
 "use strict";
 
 window.randomLineTriggers = [];
-window.RandomLine = require("./random-line");
-window.RandomLineController = require("./random-line-controller");
+window.RandomLine = require("./random-line/random-line");
+window.RandomLineController = require("./random-line/random-line-controller");
