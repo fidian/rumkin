@@ -18,24 +18,14 @@ module.exports = class InputArea {
                 placeholder: 'Enter text here'
             }, attrs, {
                 class: `W(100%) H(8em) Mah(75vh) ${attrs.class}`,
-                value: undefined,
-                onkeyup: (e) => {
-                    attrs.value = e.target.value;
+                oninput: (e) => {
+                    this.value = attrs.value = e.target.value;
 
-                    if (attrs.onkeyup) {
-                        return attrs.onkeypress(e);
+                    if (attrs.oninput) {
+                        return attrs.oninput(e);
                     }
 
-                    return true;
-                },
-                onchange: (e) => {
-                    attrs.value = e.target.value;
-
-                    if (attrs.onchange) {
-                        return attrs.onchange(e);
-                    }
-
-                    return true;
+                    return false;
                 }
             }))
         ];

@@ -27,13 +27,13 @@ module.exports = class NumericInput {
                 Object.assign({}, attrs, {
                     value: this.value,
                     type: "number",
-                    onchange: (e) => {
+                    oninput: (e) => {
                         const v = e.target.value;
                         this.value = v;
                         attrs.value = +v;
 
-                        if (attrs.onchange) {
-                            return attrs.onchange(e);
+                        if (attrs.oninput) {
+                            return attrs.oninput(e);
                         }
 
                         return true;
