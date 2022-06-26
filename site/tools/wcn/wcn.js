@@ -2,11 +2,13 @@
 
 "use strict";
 
-const Dropdown = require('../../js/mithril/dropdown.js');
+const Checkbox = require("../../js/mithril/checkbox");
+const Dropdown = require('../../js/mithril/dropdown');
+const TextInput = require("../../js/mithril/text-input");
 
 module.exports = class Wcn {
     constructor() {
-        this.connectionTypes = {
+        this.connectionType = {
             label: 'Connection type',
             options: {
                 ESS: "Infrastructure mode (ESS, uses access point)",
@@ -14,7 +16,7 @@ module.exports = class Wcn {
             },
             value: 'ESS'
         };
-        this.authentications = {
+        this.authentication = {
             label: 'Authentication',
             options: {
                 open: "Open network",
@@ -27,7 +29,7 @@ module.exports = class Wcn {
             },
             value: 'open'
         };
-        this.encryptions = {
+        this.encryption = {
             label: 'Encryption',
             options: {
                 none: "No encryption",
@@ -37,55 +39,43 @@ module.exports = class Wcn {
             },
             value: 'none'
         };
-    }
-
-    makeInput(property, label, note) {
-        return m("p", [
-            label,
-            m("input", {
-                type: "text",
-                oninput: (e) => {
-                    this[property] = e.target.value;
-                }
-            }),
-            note
-        ]);
-    }
-
-    makeCheckbox(property, label) {
-        return m("p", [
-            m("label", [
-                m("input", {
-                    type: "checkbox",
-                    value: this[property],
-                    onclick: () => (this[property] = !!this[property])
-                }),
-                label
-            ])
-        ]);
+        this.ssid = {
+            label: "SSID (required)",
+            value: ""
+        };
+        this.networkKey = {
+            label: "Network key (required if there is encryption)",
+            value: ""
+        };
+        this.automatically = {
+            label: "Key is provided automatically",
+            value: false
+        };
+        this.ieee802dot1x = {
+            label: "IEEE 802.1x enabled",
+            value: false
+        };
+        this.autorun = {
+            label: "Include an Autorun file",
+            value: false
+        };
+        this.batch = {
+            label: "Include batch file that runs the setup program",
+            value: false
+        };
     }
 
     view() {
         return [
-            this.makeInput("ssid", "SSID: ", " (required)"),
-            m(Dropdown, this.connectionTypes),
-            m(Dropdown, this.authentications),
-            m(Dropdown, this.encryptions),
-            this.makeInput(
-                "networkkey",
-                "Network Key: ",
-                " (required if there is encryption)"
-            ),
-            this.makeCheckbox(
-                "automatically",
-                " Key is provided automatically"
-            ),
-            this.makeCheckbox("ieee802dot1x", " IEEE 802.1x enabled"),
-            this.makeCheckbox("autorun", " Include an Autorun file"),
-            this.makeCheckbox(
-                "batch",
-                " Include batch file that runs the setup program"
-            ),
+            m("p", m(TextInput, this.ssid)),
+            m("p", m(Dropdown, this.connectionType)),
+            m("p", m(Dropdown, this.authentication)),
+            m("p", m(Dropdown, this.encryption)),
+            m("p", m(TextInput, this.networkKey)),
+            m("p", m(Checkbox, this.automatically)),
+            m("p", m(Checkbox, this.ieee802dot1x)),
+            m("p", m(Checkbox, this.autorun)),
+            m("p", m(Checkbox, this.batch)),
             m("p", [
                 m(
                     "button",
@@ -105,8 +95,12 @@ module.exports = class Wcn {
             .file(filename)
             .async("string")
             .then((content) => {
-                this.automaticallyNumber = this.automatically ? 1 : 0;
-                this.ieee802dot1xNumber = this.ieee802dot1x ? 1 : 0;
+                this.automaticallyNumber = {
+                    value: this.automatically ? 1 : 0
+                };
+                this.ieee802dot1xNumber = {
+                    value: this.ieee802dot1x ? 1 : 0
+                };
 
                 const bits = content.split("{{");
                 let result = bits.shift();
@@ -116,21 +110,17 @@ module.exports = class Wcn {
                     const b0 = b.shift();
 
                     if (b0 in this) {
-                        result += this[b0].toString();
+                        result += this[b0].value.toString();
                     }
 
                     result += b.join("}}");
                 }
+
                 zipFile.file(filename, result);
             });
     }
 
     generate() {
-        // Copy properties to "this" for much easier templates
-        this.authentication = this.authentications.value;
-        this.encryption = this.encryptions.value;
-        this.connectionType = this.connectionTypes.value;
-
         JSZipUtils.getBinaryContent(
             "wireless-settings.zip",
             (errGettingZip, content) => {
@@ -145,12 +135,12 @@ module.exports = class Wcn {
                 zip = new JSZip();
                 zip.loadAsync(content)
                     .then(() => {
-                        if (!this.autorun) {
+                        if (!this.autorun.value) {
                             zip.remove("AUTORUN.INF");
                             zip.remove("SMRTNTKY/fcw.ico");
                         }
 
-                        if (!this.batch) {
+                        if (!this.batch.value) {
                             zip.remove("Install_Wireless.bat");
                         }
 

@@ -1,10 +1,10 @@
-/* global m, window */
+/* global m, md5 */
 
 "use strict";
 
 module.exports = class Md5Hash {
     constructor() {
-        this.md5 = window.md5("");
+        this.md5 = md5("");
     }
 
     view() {
@@ -12,7 +12,7 @@ module.exports = class Md5Hash {
             m("textarea", {
                 class: "W(100%)",
                 oninput: (e) => {
-                    this.md5 = window.md5(e.target.value);
+                    this.md5 = md5(e.target.value);
                 }
             }),
             m(

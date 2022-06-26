@@ -3,7 +3,7 @@
 const baconianApplier = require("./baconian-applier");
 const Dropdown = require("../../../js/mithril/dropdown");
 const EncryptionDirectionSelector = require("../encryption-direction-selector");
-const InputArea = require("../input-area");
+const InputArea = require("../../../js/mithril/input-area");
 const Result = require("../result");
 
 module.exports = class Baconian {

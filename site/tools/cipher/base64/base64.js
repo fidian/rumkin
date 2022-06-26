@@ -1,7 +1,7 @@
 /* global m, rumkinCipher */
 
 const EncryptionDirectionSelector = require("../encryption-direction-selector");
-const InputArea = require("../input-area");
+const InputArea = require("../../../js/mithril/input-area");
 const Result = require("../result");
 
 module.exports = class Base64 {
@@ -17,8 +17,8 @@ module.exports = class Base64 {
 
     view() {
         return [
-            m(EncryptionDirectionSelector, this.encryptionDirection),
-            m(InputArea, this.input),
+            m("p", m(EncryptionDirectionSelector, this.encryptionDirection)),
+            m("p", m(InputArea, this.input)),
             m("p", this.viewResult())
         ];
     }

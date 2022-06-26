@@ -3,7 +3,7 @@
 const AlphabetSelector = require("../alphabet-selector");
 const EncryptionDirectionSelector = require("../encryption-direction-selector");
 const ErrorMessage = require("../error-message");
-const InputArea = require("../input-area");
+const InputArea = require("../../../js/mithril/input-area");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
 

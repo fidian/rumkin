@@ -1,118 +1,97 @@
 /* global m */
 
 const emailEncoder = require("./email-encoder");
+const TextInput = require("../../js/mithril/text-input");
+const Dropdown = require("../../js/mithril/dropdown");
 
 module.exports = class MailtoEncoderCustom {
     constructor() {
-        this.to = "";
-        this.cc = "";
-        this.bcc = "";
-        this.subject = "";
-        this.body = "";
-        this.encoding = "html";
-        this.linkText = "";
-        this.obfuscation = "shuffled";
-    }
-
-    update() {
-        if (!this.to) {
-            this.encoded = "";
-        }
-
-        this.encoded = emailEncoder({
-            to: this.to,
-            cc: this.cc,
-            bcc: this.bcc,
-            subject: this.subject,
-            body: this.body,
-            encoding: this.encoding,
-            linkText: this.linkText,
-            obfuscation: this.obfuscation
-        });
+        this.to = {
+            label: "To",
+            class: "W(100%)",
+            value: ""
+        };
+        this.cc = {
+            label: "Cc",
+            class: "W(100%)",
+            value: ""
+        };
+        this.bcc = {
+            label: "Bcc",
+            class: "W(100%)",
+            value: ""
+        };
+        this.subject = {
+            label: "Subject",
+            class: "W(100%)",
+            value: ""
+        };
+        this.body = {
+            label: "Body",
+            class: "W(100%)",
+            value: ""
+        };
+        this.linkText = {
+            label: "HTML label (only works when creating an HTML link)",
+            class: "W(100%)",
+            value: ""
+        };
+        this.encoding = {
+            label: "Method of encoding",
+            options: {
+                none: "Skip encoding the link",
+                html: "Create a normal HTML link"
+            },
+            value: "html"
+        };
+        this.obfuscation = {
+            label: "Method of obfuscation",
+            options: {
+                none: "Skip JavaScript-based obfuscation",
+                break: "Break up strings",
+                shuffled: "Shuffled encoding"
+            },
+            value: "shuffled"
+        };
     }
 
     view() {
         return [
-            this.viewField("To:", "to"),
-            this.viewField("Cc:", "cc"),
-            this.viewField("Bcc:", "bcc"),
-            this.viewField("Subject:", "subject"),
-            this.viewField("Body:", "body"),
-            this.viewRadioList("encoding", {
-                none: "Skip encoding the link.",
-                html: "Create a normal HTML link."
-            }),
-            this.viewField(
-                "HTML Label: (Only works when creating an HTML link)",
-                "linkText"
-            ),
-            this.viewRadioList("obfuscation", {
-                none: "Skip JavaScript-based obfuscation.",
-                break: "Break up strings.",
-                shuffled: "Shuffled encoding."
-            }),
+            m("p", m(TextInput, this.to)),
+            m("p", m(TextInput, this.cc)),
+            m("p", m(TextInput, this.bcc)),
+            m("p", m(TextInput, this.subject)),
+            m("p", m(TextInput, this.body)),
+            m("p", m(Dropdown, this.encoding)),
+            m("p", m(TextInput, this.linkText)),
+            m("p", m(Dropdown, this.obfuscation)),
             this.viewResult()
         ];
     }
 
-    viewField(label, property) {
-        const update = (e) => {
-            this[property] = e.target.value;
-            this.update();
-        };
-
-        return [
-            m("p", label),
-            m("input", {
-                type: "text",
-                class: "W(100%)",
-                value: this[property],
-                onkeyup: update,
-                oninput: update
-            })
-        ];
-    }
-
-    viewRadioList(property, options) {
-        return m(
-            "p",
-            Object.entries(options).map((e) =>
-                this.viewRadioItem(property, e[0], e[1])
-            )
-        );
-    }
-
-    viewRadioItem(property, val, label) {
-        return m(
-            "div",
-            m("label", [
-                m("input", {
-                    checked: this[property] === val,
-                    type: "radio",
-                    name: property,
-                    value: val,
-                    onchange: () => {
-                        this[property] = val;
-                        this.update();
-                    }
-                }),
-                label
-            ])
-        );
-    }
-
     viewResult() {
-        if (this.encoded) {
-            return [
-                m("p", "Result:"),
-                m("pre", this.encoded),
-                m(
-                    "p",
-                    "To use this, copy and paste the above into your HTML web page. When viewed in a browser, it will show a link to send you an email."
-                )
-            ];
+        if (!this.to.value) {
+            return "Enter a valid email address above and see the generated code here.";
         }
 
-        return "Enter a valid email address above and see the generated code here.";
+        const encoded = emailEncoder({
+            to: this.to.value,
+            cc: this.cc.value,
+            bcc: this.bcc.value,
+            subject: this.subject.value,
+            body: this.body.value,
+            encoding: this.encoding.value,
+            linkText: this.linkText.value,
+            obfuscation: this.obfuscation.value
+        });
+
+        return [
+            m("p", "Result:"),
+            m("pre", encoded),
+            m(
+                "p",
+                "To use this, copy and paste the above into your HTML web page. When viewed in a browser, it will show a link to send you an email."
+            )
+        ];
     }
 };

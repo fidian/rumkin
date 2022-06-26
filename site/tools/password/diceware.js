@@ -27,15 +27,16 @@ module.exports = class Diceware {
             let defaultWordlist = null;
 
             for (const item of wordlists) {
-                this.wordlists[item.url] = item;
-                this.wordlistSelect.options[item.url] = `${item.code} - ${iitem.description}`;
+                this.wordlists[item.uri] = item;
+                this.wordlistSelect.options[item.uri] = `${item.code} - ${item.description}`;
 
                 if (defaultWordlist === null || item.default) {
-                    defaultWordlist = item.url;
+                    console.log('set default', item);
+                    defaultWordlist = item.uri;
                 }
             }
 
-            this.wordlistSelect.default = defaultWordlist;
+            this.wordlistSelect.value = defaultWordlist;
             this.loadWordlist(defaultWordlist);
         });
     }
@@ -78,7 +79,7 @@ module.exports = class Diceware {
             m(
                 "p",
                 m(
-                    Dropdown, this.wordlistOptions
+                    Dropdown, this.wordlistSelect
                 )
             ),
             this.actionButtons(),
