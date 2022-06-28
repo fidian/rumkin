@@ -1,9 +1,9 @@
 /* global m, rumkinCipher */
 
+const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
 const EncryptionDirectionSelector = require("../encryption-direction-selector");
 const ErrorMessage = require("../error-message");
-const InputArea = require("../../../js/mithril/input-area");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
 
@@ -55,7 +55,7 @@ module.exports = class Affine {
             m("p", this.viewAlphabet()),
             m("p", this.viewA()),
             m("p", this.viewB()),
-            m("p", m(InputArea, this.input)),
+            m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
     }

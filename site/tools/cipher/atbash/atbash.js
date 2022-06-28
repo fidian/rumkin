@@ -1,7 +1,7 @@
 /* global m, rumkinCipher */
 
+const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
-const InputArea = require("../../../js/mithril/input-area");
 const Result = require("../result");
 
 module.exports = class Atbash {
@@ -17,7 +17,7 @@ module.exports = class Atbash {
     view() {
         return [
             m('p', m(AlphabetSelector, this.alphabet)),
-            m('p', m(InputArea, this.input)),
+            m('p', m(AdvancedInputArea, this.input)),
             m('p', this.viewResult())
         ];
     }

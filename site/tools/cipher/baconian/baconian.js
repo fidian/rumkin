@@ -1,9 +1,9 @@
 /* global m, rumkinCipher */
 
+const AdvancedInputArea = require("../advanced-input-area");
 const baconianApplier = require("./baconian-applier");
 const Dropdown = require("../../../js/mithril/dropdown");
 const EncryptionDirectionSelector = require("../encryption-direction-selector");
-const InputArea = require("../../../js/mithril/input-area");
 const Result = require("../result");
 
 module.exports = class Baconian {
@@ -52,7 +52,7 @@ module.exports = class Baconian {
         return [
             m("p", m(EncryptionDirectionSelector, this.encryptionDirection)),
             m("p", m(Dropdown, this.condensingOptions)),
-            m("p", m(InputArea, this.input)),
+            m("p", m(AdvancedInputArea, this.input)),
             this.viewSwapAB(),
             m("p", this.viewResult()),
             this.viewEmbed()
@@ -66,7 +66,7 @@ module.exports = class Baconian {
 
         return [
             m("p", m(Dropdown, this.embeddingOptions)),
-            m("p", m(InputArea, this.embeddingText)),
+            m("p", m(AdvancedInputArea, this.embeddingText)),
             m("p", this.viewEmbedResult())
         ];
     }
