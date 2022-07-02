@@ -2,7 +2,7 @@
 
 const Dropdown = require("../../js/mithril/dropdown");
 
-module.exports = class EncryptionDirectionSelector {
+module.exports = class DirectionSelector {
     constructor(vnode) {
         const attrs = vnode.attrs;
         this.d = {
@@ -11,9 +11,10 @@ module.exports = class EncryptionDirectionSelector {
                 DECRYPT: "Decrypt"
             },
             label: "Operating mode",
-            value: attrs.value,
+            value: 'ENCRYPT',
             onchange: (e) => {
                 attrs.value = this.d.value;
+                this.updateValues(attrs);
 
                 if (attrs.onchange) {
                     return attrs.onchange(e);
@@ -22,6 +23,21 @@ module.exports = class EncryptionDirectionSelector {
                 return true;
             }
         };
+        this.updateValues(attrs);
+    }
+
+    updateValues(attrs) {
+        if (this.d.value === 'ENCRYPT') {
+            attrs.cipher = 'encipher';
+            attrs.crypt = 'encrypt';
+            attrs.code = 'encode';
+            attrs.obfuscate = true;
+        } else {
+            attrs.cipher = 'decipher';
+            attrs.crypt = 'decrypt';
+            attrs.code = 'decode';
+            attrs.obfuscate = false;
+        }
     }
 
     view() {

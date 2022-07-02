@@ -1,14 +1,12 @@
 /* global m, rumkinCipher */
 
-const EncryptionDirectionSelector = require("../encryption-direction-selector");
 const AdvancedInputArea = require("../advanced-input-area");
+const DirectionSelector = require("../direction-selector");
 const Result = require("../result");
 
 module.exports = class Base64 {
     constructor() {
-        this.encryptionDirection = {
-            value: "ENCRYPT"
-        };
+        this.direction = {};
         this.input = {
             label: "Message to encode or decode",
             value: ""
@@ -17,7 +15,7 @@ module.exports = class Base64 {
 
     view() {
         return [
-            m("p", m(EncryptionDirectionSelector, this.encryptionDirection)),
+            m("p", m(DirectionSelector, this.direction)),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
@@ -30,8 +28,7 @@ module.exports = class Base64 {
 
         const message = new rumkinCipher.util.Message(this.input.value);
         const module = rumkinCipher.code.base64;
-        const method = this.encryptionDirection.value === "ENCRYPT" ? "encode" : "decode";
-        const result = module[method](message).toString();
+        const result = module[this.direction.code](message).toString();
 
         return m(Result, result);
     }

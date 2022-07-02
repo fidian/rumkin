@@ -3,16 +3,14 @@
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetKey = require("../alphabet-key");
 const AlphabetSelector = require("../alphabet-selector");
+const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
-const EncryptionDirectionSelector = require("../encryption-direction-selector");
 const keyAlphabet = require("../key-alphabet");
 const Result = require("../result");
 
 module.exports = class Bifid {
     constructor() {
-        this.encryptionDirection = {
-            value: "ENCRYPT"
-        };
+        this.direction = {};
         this.alphabet = {
             value: new rumkinCipher.alphabet.English(),
             onchange: () => this.resetTranslations()
@@ -88,7 +86,7 @@ module.exports = class Bifid {
 
     view() {
         return [
-            m("p", m(EncryptionDirectionSelector, this.encryptionDirection)),
+            m("p", m(DirectionSelector, this.direction)),
             m("p", m(AlphabetSelector, this.alphabet)),
             this.viewTranslations(),
             m("p", m(AlphabetKey, this.alphabetKey)),
@@ -107,8 +105,7 @@ module.exports = class Bifid {
         const message = new rumkinCipher.util.Message(this.input.value);
         const alphabet = keyAlphabet(this.alphabetInstance, this.alphabetKey);
         const module = rumkinCipher.cipher.bifid;
-        const method = this.encryptionDirection.value === 'ENCRYPT' ? 'encipher' : 'decipher';
-        const result = module[method](message, alphabet);
+        const result = module[this.direction.cipher](message, alphabet);
 
         return m(Result, result.toString());
     }

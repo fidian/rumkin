@@ -2,8 +2,8 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const baconianApplier = require("./baconian-applier");
+const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
-const EncryptionDirectionSelector = require("../encryption-direction-selector");
 const Result = require("../result");
 
 module.exports = class Baconian {
@@ -22,9 +22,7 @@ module.exports = class Baconian {
             },
             value: "DISTINCT"
         };
-        this.encryptionDirection = {
-            value: "ENCRYPT"
-        };
+        this.direction = {};
         this.input = {
             label: "The hidden message",
             value: ""
@@ -44,13 +42,9 @@ module.exports = class Baconian {
         };
     }
 
-    isEncrypt() {
-        return this.encryptionDirection.value === "ENCRYPT";
-    }
-
     view() {
         return [
-            m("p", m(EncryptionDirectionSelector, this.encryptionDirection)),
+            m("p", m(DirectionSelector, this.direction)),
             m("p", m(Dropdown, this.condensingOptions)),
             m("p", m(AdvancedInputArea, this.input)),
             this.viewSwapAB(),
@@ -60,7 +54,7 @@ module.exports = class Baconian {
     }
 
     viewEmbed() {
-        if (!this.isEncrypt()) {
+        if (!this.direction.obfuscate) {
             return [];
         }
 
@@ -125,14 +119,13 @@ module.exports = class Baconian {
 
         const message = new rumkinCipher.util.Message(this.input.value);
         const module = rumkinCipher.code.baconian;
-        const method = this.isEncrypt() ? "encode" : "decode";
-        this.lastResult = module[method](message, this.lastAlphabet).toString();
+        this.lastResult = module[this.direction.code](message, this.lastAlphabet).toString();
 
         return m(Result, this.lastResult);
     }
 
     viewSwapAB() {
-        if (this.isEncrypt()) {
+        if (this.direction.obfuscate) {
             return [];
         }
 

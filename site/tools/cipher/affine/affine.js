@@ -2,7 +2,7 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
-const EncryptionDirectionSelector = require("../encryption-direction-selector");
+const DirectionSelector = require("../direction-selector");
 const ErrorMessage = require("../error-message");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
@@ -22,9 +22,7 @@ module.exports = class Affine {
             value: 1,
             class: "W(4em)"
         };
-        this.encryptDecrypt = {
-            value: "ENCRYPT"
-        };
+        this.direction = {};
         this.input = {
             value: ""
         };
@@ -51,7 +49,7 @@ module.exports = class Affine {
 
     view() {
         return [
-            m("p", m(EncryptionDirectionSelector, this.encryptDecrypt)),
+            m("p", m(DirectionSelector, this.direction)),
             m("p", this.viewAlphabet()),
             m("p", this.viewA()),
             m("p", this.viewB()),
@@ -171,8 +169,7 @@ module.exports = class Affine {
             multiplier: this.a.value,
             shift: this.b.value
         };
-        const method = this.encryptDecrypt.value === 'ENCRYPT' ? 'encipher' : 'decipher';
-        const result = module[method](message, this.alphabet.value, options);
+        const result = module[this.direction.cipher](message, this.alphabet.value, options);
 
         return m(Result, result.toString());
     }
