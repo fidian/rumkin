@@ -20,6 +20,7 @@ module.exports = class Bifid {
             value: ""
         };
         this.input = {
+            alphabet: this.alphabet,
             label: "The message to encipher or decipher",
             value: ""
         };

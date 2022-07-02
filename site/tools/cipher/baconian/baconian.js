@@ -24,6 +24,7 @@ module.exports = class Baconian {
         };
         this.direction = {};
         this.input = {
+            alphabet: this.alphabet,
             label: "The hidden message",
             value: ""
         };

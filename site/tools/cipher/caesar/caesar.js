@@ -27,6 +27,7 @@ module.exports = class Caesar {
         };
         this.updateN();
         this.input = {
+            alphabet: this.alphabet,
             value: ''
         };
     }
