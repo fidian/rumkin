@@ -43,7 +43,12 @@ module.exports = class AdvancedInputArea {
             }
         }
 
+        if (!actionsConverted.length) {
+            return null;
+        }
+
         return [
+            m('br'),
             `${label}: `,
             actionsConverted
         ];
