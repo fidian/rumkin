@@ -1,11 +1,9 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
-const AlphabetKey = require("../alphabet-key");
-const AlphabetSelector = require("../alphabet-selector");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
-const keyAlphabet = require("../key-alphabet");
+const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 
 module.exports = class Bifid {
@@ -14,10 +12,6 @@ module.exports = class Bifid {
         this.alphabet = {
             value: new rumkinCipher.alphabet.English(),
             onchange: () => this.resetTranslations()
-        };
-        this.alphabetKey = {
-            options: {},
-            value: ""
         };
         this.input = {
             alphabet: this.alphabet,
@@ -51,7 +45,6 @@ module.exports = class Bifid {
         }
 
         this.alphabetInstance = alphabet;
-        this.input.alphabet = alphabet;
     }
 
     updateAlphabet() {
@@ -82,18 +75,15 @@ module.exports = class Bifid {
         }
 
         this.alphabetInstance = alphabet;
-        this.input.alphabet = alphabet;
     }
 
     view() {
         return [
             m("p", m(DirectionSelector, this.direction)),
-            m("p", m(AlphabetSelector, this.alphabet)),
+            m("p", m(KeyedAlphabet, this.alphabet)),
             this.viewTranslations(),
-            m("p", m(AlphabetKey, this.alphabetKey)),
             this.viewTableau(),
             m("p", m(AdvancedInputArea, this.input)),
-            // Add an action to remove non-letters from the text
             m("p", this.viewResult())
         ];
     }
@@ -104,17 +94,16 @@ module.exports = class Bifid {
         }
 
         const message = new rumkinCipher.util.Message(this.input.value);
-        const alphabet = keyAlphabet(this.alphabetInstance, this.alphabetKey);
         const module = rumkinCipher.cipher.bifid;
-        const result = module[this.direction.cipher](message, alphabet);
+        const result = module[this.direction.cipher](message, this.alphabetInstance);
 
         return m(Result, result.toString());
     }
 
     viewTableau() {
-        const size = Math.sqrt(this.alphabetInstance.length);
+        const alphabet = this.alphabetInstance;
+        const size = Math.sqrt(alphabet.length);
         let letters = "";
-        const alphabet = keyAlphabet(this.alphabetInstance, this.alphabetKey);
 
         for (let row = 0; row < size; row += 1) {
             for (let col = 0; col < size; col += 1) {

@@ -1,35 +1,30 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
-const AlphabetKey = require("../alphabet-key");
-const AlphabetSelector = require("../alphabet-selector");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require('../../../js/mithril/dropdown');
-const keyAlphabet = require("../key-alphabet");
+const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 
 module.exports = class Caesar {
     constructor() {
         this.direction = {};
         this.alphabet = {
+            alphabet: new rumkinCipher.alphabet.English(),
             value: new rumkinCipher.alphabet.English(),
             onchange: () => {
                 this.updateN();
             }
         };
-        this.alphabetKey = {
-            options: {},
-            value: ""
-        };
         this.n = {
             label: 'N',
             value: '3'
         };
-        this.updateN();
         this.input = {
             alphabet: this.alphabet,
             value: ''
         };
+        this.updateN();
     }
 
     updateN() {
@@ -45,8 +40,7 @@ module.exports = class Caesar {
     view() {
         return [
             m("p", m(DirectionSelector, this.direction)),
-            m('p', m(AlphabetSelector, this.alphabet)),
-            m("p", m(AlphabetKey, this.alphabetKey)),
+            m('p', m(KeyedAlphabet, this.alphabet)),
             m('p', m(Dropdown, this.n)),
             this.viewAlphabet(),
             m('p', m(AdvancedInputArea, this.input)),
@@ -55,9 +49,8 @@ module.exports = class Caesar {
     }
 
     viewAlphabet() {
-        const alphabet = keyAlphabet(this.alphabet.value, this.alphabetKey);
-        const input = this.alphabet.value.letterOrder.upper;
-        const keyed = alphabet.letterOrder.upper;
+        const input = this.alphabet.alphabet.letterOrder.upper;
+        const keyed = this.alphabet.value.letterOrder.upper;
         const encoded = keyed.substr(+this.n.value) + keyed.substr(0, +this.n.value);
 
         return m('div', {
@@ -72,10 +65,9 @@ Encoded: ${encoded}`));
             return m(Result, "Enter text to see it encoded here");
         }
 
-        const alphabet = keyAlphabet(this.alphabet.value, this.alphabetKey);
         const message = new rumkinCipher.util.Message(this.input.value);
         const module = rumkinCipher.cipher.caesar;
-        const result = module[this.direction.cipher](message, alphabet, {
+        const result = module[this.direction.cipher](message, this.alphabet.value, {
             shift: +this.n.value
         });
 
