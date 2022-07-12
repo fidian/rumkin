@@ -62,7 +62,7 @@ Encoded: ${encoded}`));
 
     viewResult() {
         if (this.input.value.trim() === '') {
-            return m(Result, "Enter text to see it encoded here");
+            return m(Result, "Enter text to see the result here");
         }
 
         const message = new rumkinCipher.util.Message(this.input.value);

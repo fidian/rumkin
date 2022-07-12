@@ -4,8 +4,6 @@ const AlphabetSelector = require("./alphabet-selector");
 const Checkbox = require("../../js/mithril/checkbox");
 const TextInput = require("../../js/mithril/text-input");
 
-// FIXME - add keymaker
-
 module.exports = class KeyedAlphabet {
     constructor(vnode) {
         const attrs = vnode.attrs;
