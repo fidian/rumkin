@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Best JavaScript Boilerplate</title><link rel=stylesheet href=../../css/reset.css><link rel=stylesheet href=../../css/atomic.css><link rel=stylesheet href=../../css/fonts.css><link rel=stylesheet href=../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../img/favicon/favicon-16x16.png><link rel=manifest href=../../img/favicon/manifest.json><link rel=mask-icon href=../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../img/favicon/favicon.ico><meta name=msapplication-config content=../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >Programming Topics</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>Best JavaScript Boilerplate</h1><div class=Px(20px)><div class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)">The ES5 starting template for a JavaScript object that I am personally fond of. It allows for use in Node.js as well as in a browser, plus it works with a wide variety of module loading systems.</div></div></header><div class=contents><p>I&#39;m writing JavaScript objects and I keep refining how I am creating objects in order to have cleaner code, stand behind community standards, remove potential problems and attempt to be more maintainable. Here is my boilerplate code for a new JavaScript object that seems to work well for me so far.</p><h2 id=example-code>Example Code</h2><pre><code>// fid-umd {&quot;name&quot;:&quot;TestObject&quot;,&quot;jslint&quot;:1}
+/*global define, YUI*/
+(function (n, r, f) {
+    &quot;use strict&quot;;
+    try { module.exports = f(); return; } catch (ignore) {}
+    try { exports[n] = f(); return; } catch (ignore) {}
+    try { return define.amd &amp;&amp; define(n, [], f); } catch (ignore) {}
+    try { return YUI.add(n, function (Y) { Y[n] = f(); }); } catch (ignore) {}
+    try { r[n] = f(); return; } catch (ignore) {}
+    throw new Error(&quot;Unable to export &quot; + n);
+}(&quot;TestObject&quot;, this, function () {
+    &quot;use strict&quot;;
+    // fid-umd end
+
+
+    /**
+     * Here is my constructor.  Let&#39;s pretend it takes an argument or two.
+     *
+     * @class TestObject
+     * @param {string} type The brand new type property
+     * @param {boolean} [isEnabled=false] If truthy, this object is enabled.
+     */
+    function TestObject(type, isEnabled) {
+        if (!(this instanceOf TestObject)) {
+            return new TestObject(type, isEnabled);
+        }
+
+        this.type = type;
+        this.isEnabled = !!isEnabled;
+        this.thingsPerformed = 0;
+    }
+
+
+    /**
+     * Here&#39;s a method that does stuff.
+     *
+     * @return {Function} A callback that does something
+     */
+    TestObject.prototype.doStuff = function () {
+        var self;
+
+        function returnable() {
+            self.thingsPerformed += 1;
+        }
+
+        self = this;
+
+        return returnable;
+    };
+
+
+    return TestObject;
+
+
+    // fid-umd post
+}));
+// fid-umd post-end
+</code></pre><p>That&#39;s a big example. It&#39;s totally worth it and has lots of subtle things embedded that I will expound upon.</p><h2 id=one-class-per-file>One Class Per File</h2><p>Following this guide of having only one class or module per file really forces you to examine problems thoroughly. Do you need another class? Do you gain clarity by having two classes in one file? While it isn&#39;t an absolute rule, I will follow this well over 90% of the time.</p><h2 id=universal-module-definition>Universal Module Definition</h2><p>I like my JavaScript to be executable in a variety of places. A web browser is just one environment. To further that goal, I would also like it loadable in whatever module system you use. That&#39;s why I wrote <a href=https://github.com/fidian/fid-umd>FidUmd</a>. These chunks at the beginning and end are entirely written by that library.</p><pre><code>// fid-umd {&quot;name&quot;:&quot;TestObject&quot;,&quot;jslint&quot;:1}
+/*global define, YUI*/
+(function (n, r, f) {
+    &quot;use strict&quot;;
+    try { module.exports = f(); return; } catch (ignore) {}
+    try { exports[n] = f(); return; } catch (ignore) {}
+    try { return define.amd &amp;&amp; define(n, [], f); } catch (ignore) {}
+    try { return YUI.add(n, function (Y) { Y[n] = f(); }); } catch (ignore) {}
+    try { r[n] = f(); return; } catch (ignore) {}
+    throw new Error(&quot;Unable to export &quot; + n);
+}(&quot;TestObject&quot;, this, function () {
+    &quot;use strict&quot;;
+    // fid-umd end
+</code></pre><p>You will notice the &quot;fid-umd&quot; comments that start and stop the section. Here&#39;s the bit at the bottom of the file.</p><pre><code>    // fid-umd post
+}));
+// fid-umd post-end
+</code></pre><p>When I need to include another dependency or change the name of the class, FidUmd makes that trivial. I simply list the new object that&#39;s needed and rerun the program. The header is rebuilt and the factory function will get the object as a dependency.</p><h2 id=comments>Comments</h2><p>I strongly urge you to write comments. They will help you out tremendously in life. The more effort you put into them, the more benefit you reap. Also, big comments can be a flag that the function or class is too difficult to understand readily. Consider breaking the code up or reorganizing things.</p><p>JavaScript has a format for comments called jsdoc, and I&#39;ll happily use standards when they exist.</p><pre><code>/**
+ * Here is my constructor.  Let&#39;s pretend it takes an argument or two.
+ *
+ * @class TestObject
+ * @param {string} type The brand new type property
+ * @param {boolean} [isEnabled=false] If truthy, this object is enabled.
+ */
+</code></pre><h2 id=constructor-function>Constructor Function</h2><p>I name the constructor function the same name as my module I am exporting. This is a named function so that stack traces are much more useful. If I used <code>var TestObject = function (type isEnabled) {</code> instead, stack traces say that the problem happened in &quot;[object Object]&quot;, which is not very useful.</p><pre><code>function TestObject(type, isEnabled) {
+</code></pre><p>Also, in JavaScript, one may forget to use the <code>new</code> keyword when using your library. You can easily compensate for this by calling yourself if <code>this</code> is not an instance of your constructor.</p><pre><code>if (!(this instanceOf TestObject)) {
+    return new TestObject(type, isEnabled);
+}
+</code></pre><p>Then we wrap up a couple things. No work is done in the constructor. Just some variable assignments.</p><pre><code>    this.type = type;
+    this.isEnabled = !!isEnabled;
+    this.thingsPerformed = 0;
+}
+</code></pre><h2 id=methodsfunctions>Methods/Functions</h2><p>JavaScript is a bit loose when it comes to methods and functions. Really, they are just function objects attached to properties of objects. Calling them as <code>className.functionName()</code> automatically sets the context to be the object itself. I add <code>doStuff</code> to the function&#39;s prototype and it magically is now a method on all instances of that class.</p><p>This method returns a callback. I do not have it inline with the <code>return</code> just so I can make things more readable. I do not embed functions in other function calls because that throws off indentation. They are as high as possible (just under the <code>var</code> line) to better mimic the function hoisting that the JavaScript interpreter will be doing. This way I can name functions easily and see what is going on. Again, if the function is too large, you should consider reorganizing your code.</p><p>Inside, the function would want to set <code>this.thingsPerformed ++</code>, but jslint doesn&#39;t like the <code>++</code> and the function&#39;s scope might not be the object. I do jslint flags for the function (eg. <code>/*jslint unparam:true*/</code>) first, then a <code>var</code> line with no assignments, followed by all functions and finally the meat of the code. If it gets too big, your function is doing too much.</p><pre><code>/**
+ * Here&#39;s a method that does stuff.
+ *
+ * @return {function} A callback that does something
+ */
+TestObject.prototype.doStuff = function () {
+    var self;
+
+    function returnable() {
+        self.thingsPerformed += 1;
+    }
+
+    self = this;
+
+    return returnable;
+};
+</code></pre><h2 id=exporting-the-module>Exporting the Module</h2><p>This one last line will export the module. It will go into the UMD as whatever name you configured.</p><pre><code>return TestObject;
+</code></pre><h2 id=a-note-on-minification>A Note on Minification</h2><p>Do I minify my code? Yes. I just don&#39;t do it by hand. I don&#39;t even do it a tiny bit by hand. I find it a lot easier to read unminified code and review code from other people if they don&#39;t minify their code either. Debugging a program is significantly easier and I can set breakpoints far more easily when I expand conditional assignments or multiple checks into separate conditions. Yes, there may be times that minification would trump other concerns, but those cases are extremely rare. Testability and maintainability should be your first two goals. Everything else should fall to a very distant third.</p><p>Modern day minifiers can inspect the code above and rewrite it so that it looks completely different but will still execute the same, so just incorporate a good minifier in your code. If you are concerned about the results after minification, that&#39;s why you have lots of tests. You do have tests, right?</p></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

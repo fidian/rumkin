@@ -1,0 +1,1 @@
+"use strict";module.exports={title:"Slide Right",key:"slideRight",description:"Scrolls your text in from the left side.",variables:[{name:"Delay",description:"How long to wait between animations, in seconds.",isNumeric:!0,default:.01}],method:function(t,i){var n=0;return function e(){return(n+=1)<t.length?[t.substr(t.length-n),1e3*i,e]:[t]}()}};

@@ -1,0 +1,62 @@
+/**
+ * Gestalt string comparison algorithm
+ *
+ * Web Site:  http://rumkin.com/reference/algorithms/fuzzy_strings/
+ * License:  http://rumkin.com/license/
+ */
+
+#include <stdio.h>
+#include <string.h>
+
+// This function is recursive, which is not good for limited systems, but
+// it is a bit easier to look at.
+int sim_char(char *str1, int len1, char *str2, int len2)
+{
+   int max = 0, l, pos1, pos2, sum;
+   char *p, *q, *end1, *end2;
+
+   end1 = str1 + len1;
+   end2 = str2 + len2;
+
+   for (p = str1; p < end1; p ++)
+   {
+       for (q = str2; q < end2; q ++)
+       {
+           for (l = 0; (p + l < end1) && (q + l < end2) &&
+                   p[l] == q[l]; l ++);
+           if (l > max)
+           {
+               max = l;
+               pos1 = p - str1;
+               pos2 = q - str2;
+           }
+       }
+   }
+
+   if (max == 0)
+       return 0;
+
+   sum = max;
+   if (pos1 && pos2)
+   {
+       sum += sim_char(str1, pos1, str2, pos2);
+   }
+   if ((pos1 + max < len1) && (pos2 + max < len2))
+   {
+       sum += sim_char(str1 + pos1 + max, len1 - pos1 - max,
+               str2 + pos2 + max, len2 - pos2 - max);
+   }
+
+   return sum;
+}
+
+int main(void)
+{
+    char a[] = "YelloDoggie";
+    char b[] = "FollowHoggie";
+
+    printf("result: %d\n", sim_char(a, strlen(a), b, strlen(b)));
+
+    // Calculate confidence level (0.0 to 1.0) with this formula
+    // confidence = result * 2 / (strlen(a) + strlen(b))
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Access and MSSQL</title><link rel=stylesheet href=../../css/reset.css><link rel=stylesheet href=../../css/atomic.css><link rel=stylesheet href=../../css/fonts.css><link rel=stylesheet href=../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../img/favicon/favicon-16x16.png><link rel=manifest href=../../img/favicon/manifest.json><link rel=mask-icon href=../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../img/favicon/favicon.ico><meta name=msapplication-config content=../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >Reference Materials</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>Access and MSSQL</h1><div class=Px(20px)><div class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)">Little functions and bits of code for Microsoft Access and Microsoft SQL Server.</div></div></header><div class=contents><p>While working in Microsoft Access and Microsoft SQL Server, I needed a few things to make my work day a little easier. I&#39;ve got them listed here to help you out too.</p><h2 id=access-module-list-connections>Access Module: List Connections</h2><p>I was trying to set up a proper DSN to a FoxPro table and was having a difficult time about it. If you can not find any help at <a href=http://www.connectionstrings.com>ConnectionStrings.com</a>, which would be rare, then this module will help you out. First, make a connection to the desired target in an Access database (not a project). Then, make a new module with this code in it.</p><pre><code>Sub ListConnections()
+    Dim TD As TableDef
+    Debug.Print CurrentDb.TableDefs.Count &amp; &quot; TableDefs in &quot; &amp; CurrentDb.Name
+    For Each TD In CurrentDb.TableDefs
+        Debug.Print &quot;[&quot; &amp; TD.Name &amp; &quot;]&quot;
+        Debug.Print &quot;  Connection String:  &quot; &amp; TD.Connect
+        Debug.Print &quot;  Source table:  &quot; &amp; TD.SourceTableName
+    Next TD
+End Sub
+</code></pre><p>Move your cursor to be in the function and hit the play button. All of the connection strings that are in your database will be shown in the debug window.</p><h2 id=access-module--strip-everything-except-numbers>Access Module: Strip Everything Except Numbers</h2><p>There were some fields that contained both numbers and letters, but all I wanted were the numbers. I created a module and added this function to it.</p><pre><code>Public Function StripValues(selection)
+  Dim sValue
+  Dim rValue As Object
+
+  If (IsNull(selection)) Then
+    StripValues = &quot;0&quot;
+    Exit Function
+  End If
+
+  Set rValue = CreateObject(&quot;VBScript.RegExp&quot;)
+  rValue.Global = True
+  rValue.IgnoreCase = True
+
+  &#39;strip the numbers off
+  rValue.Pattern = &quot;(\D*)&quot;
+  sValue = rValue.Replace(selection, &quot;&quot;)
+  If (sValue = &quot;&quot;) Then
+    sValue = &quot;0&quot;
+  End If
+  StripValues = sValue
+End Function
+</code></pre><p>Now, you can use <code>StripValues()</code> in your SQL statements, as in <code>select id, StripValues(itemcode) from items</code> and get the numbers you are seeking.</p><h2 id=sql-server--cpu-usage>SQL Server: CPU Usage</h2><p>One day our SQL server was acting up. We needed to see what was going on and what was chewing up all of the time. The below code will get a snapshot of what was going on, wait 10 seconds, then compare the current activity to what was happening in order to determine how much CPU time was spent for the various tasks.</p><pre><code>use master
+select spid, login_time, cpu into #before
+    from dbo.sysprocesses
+
+waitfor delay &#39;00:00:10&#39;
+
+select a.spid, (a.cpu - b.cpu) as cpu, rtrim(hostname) as hostname,
+    rtrim(program_name) as program_name, loginame, cmd
+    from dbo.sysprocesses as a inner join #before as b
+        on a.spid = b.spid and a.login_time = b.login_time
+    order by cpu desc
+
+drop table #before
+</code></pre><p>This code will not work well if the server is being chewed away by lots of little processes that get done in under 10 seconds. It is only good for those long queries that build massive tables and manipulate data for extended periods of time.</p><h2 id=sql-server--find-table>SQL Server: Find Table</h2><p>This slightly longer snippet will iterate through all of the databases in the system and will look for a database name that contains &quot;asdf&quot; (I expect you to change that part in the code). This was written because we had access to a large system with thousands of tables in the various different databases, and we were looking for a table. We didn&#39;t know the full name, so that made our search even more difficult.</p><pre><code>set nocount on
+
+declare @dbname as varchar(8000)
+declare @tblname as varchar(8000)
+declare @sql as varchar(8000)
+
+declare cursor1 Cursor for
+select name from master.dbo.sysdatabases
+
+open cursor1
+
+Fetch Next From Cursor1 Into @dbname
+
+--  Loop thru cursor
+While @@FETCH_STATUS = 0
+Begin
+    set @sql = &#39;declare cursor2 cursor for select name from [&#39; + @dbname + &#39;].dbo.sysobjects&#39;
+    set @sql = @sql + &#39; where type = &#39;&#39;U&#39;&#39; and name like &#39;&#39;%asdf%&#39;&#39;&#39;
+
+    exec(@sql)
+    open cursor2
+
+    fetch next from cursor2 into @tblname
+    while @@FETCH_STATUS = 0
+    begin
+        print @dbname + &#39;.&#39; + @tblname
+        fetch next from cursor2 into @tblname
+    end
+
+    close cursor2
+    deallocate cursor2
+
+    --Get the next record in the cursor
+    Fetch Next From Cursor1 into @dbname
+End
+
+Close Cursor1
+Deallocate Cursor1
+set nocount off
+</code></pre><p>You might need special permissions on the server in order for this code to work, but then again, if you need this code to work, you should probably already have the permissions.</p><h2 id=sql-server--shrink-all-databases>SQL Server: Shrink All Databases</h2><p>If your SQL server is running out of space and you need to delete some files to just get some more available hard drive real estate, you might run through all of the databases on your SQL server and shrink them and truncate the logs. This code does that for you on all databases.</p><pre><code>use master
+
+set nocount on
+
+declare @dbname as varchar(8000)
+declare @sql as varchar(8000)
+declare @filname as varchar(8000)
+
+declare cursor1 Cursor for
+select name from sysdatabases
+
+open cursor1
+
+Fetch Next From Cursor1 Into @dbname
+
+--  Loop thru cursor
+While @@FETCH_STATUS = 0
+Begin
+    print @dbname
+
+    print &#39; -- Truncating log&#39;
+    set @sql = &#39;backup log [&#39; + @dbname + &#39;] with truncate_only&#39;
+    exec(@sql)
+
+    print &#39; -- Shrinking database&#39;
+    set @sql = &#39;dbcc shrinkdatabase ([&#39; + @dbname + &#39;], 5, TRUNCATEONLY)&#39;
+    exec(@sql)
+
+    -- Get the next record in the cursor
+    Fetch Next From Cursor1 into @dbname
+End
+
+Close Cursor1
+Deallocate Cursor1
+
+set nocount off
+
+print &#39;Done.&#39;
+</code></pre><p>With this script, you need the person to have appropriate privileges in order to perform the log truncation and the database shrinking, but you can get huge amounts of hard drive space reclaimed for the file system.</p></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

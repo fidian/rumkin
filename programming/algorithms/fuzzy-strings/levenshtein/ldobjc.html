@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title></title><link rel=stylesheet href=../../../../css/reset.css><link rel=stylesheet href=../../../../css/atomic.css><link rel=stylesheet href=../../../../css/fonts.css><link rel=stylesheet href=../../../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../../../img/favicon/favicon-16x16.png><link rel=manifest href=../../../../img/favicon/manifest.json><link rel=mask-icon href=../../../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../../../img/favicon/favicon.ico><meta name=msapplication-config content=../../../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../ >Programming Topics </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Algorithms </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >Fuzzy String Matching</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1></h1></header><div class=contents><hr><h2 id=title-levenshtein-distance-algorithm-objective-c-implementation>title: Levenshtein Distance Algorithm: Objective-C Implementation</h2><p>by Rick Bourner</p><pre><code>------------------------------------------------------------------------
+
+//
+//  NSString-Levenshtein.h
+//
+//  Created by Rick Bourner on Sat Aug 09 2003.
+//  rick@bourner.com
+
+@interface NSString(Levenshtein)
+
+// calculate the smallest distance between all words in stringA and
+stringB
+- (float) compareWithString: (NSString *) stringB;
+
+// calculate the distance between two string treating them each as a
+// single word
+- (float) compareWithWord: (NSString *) stringB;
+
+// return the minimum of a, b and c
+- (int) smallestOf: (int) a andOf: (int) b andOf: (int) c;
+
+@end
+
+--------------------------------------------------------------------
+
+//
+//  NSString-Levenshtein.m
+//
+//  Created by Rick Bourner on Sat Aug 09 2003.
+//  Rick@Bourner.com
+</code></pre><p>#import &quot;NSString-Levenshtein.h&quot;</p><pre><code>@implementation NSString(Levenshtein)
+
+// calculate the mean distance between all words in stringA and stringB
+- (float) compareWithString: (NSString *) stringB
+{
+     float averageSmallestDistance = 0.0;
+     float smallestDistance;
+     float distance;
+
+     NSMutableString * mStringA = [[NSMutableString alloc]  initWithString: self];
+     NSMutableString * mStringB = [[NSMutableString alloc]  initWithString: stringB];
+
+
+     // normalize
+     [mStringA replaceOccurrencesOfString:@&quot;\n&quot;
+                              withString: @&quot; &quot;
+                                 options: NSLiteralSearch
+                                   range: NSMakeRange(0, [mStringA  length])];
+
+     [mStringB replaceOccurrencesOfString:@&quot;\n&quot;
+                              withString: @&quot; &quot;
+                                 options: NSLiteralSearch
+                                   range: NSMakeRange(0, [mStringB  length])];
+
+     NSArray * arrayA = [mStringA componentsSeparatedByString: @&quot; &quot;];
+     NSArray * arrayB = [mStringB componentsSeparatedByString: @&quot; &quot;];
+
+     NSEnumerator * emuA = [arrayA objectEnumerator];
+     NSEnumerator * emuB;
+
+     NSString * tokenA = NULL;
+     NSString * tokenB = NULL;
+
+     // O(n*m) but is there another way ?!?
+     while ( tokenA = [emuA nextObject] ) {
+
+         emuB = [arrayB objectEnumerator];
+         smallestDistance = 99999999.0;
+
+         while ( tokenB = [emuB nextObject] )
+             if ( (distance = [tokenA compareWithWord: tokenB] ) &lt;  smallestDistance )
+                 smallestDistance = distance;
+
+         averageSmallestDistance += smallestDistance;
+
+     }
+
+     [mStringA release];
+     [mStringB release];
+
+     return averageSmallestDistance / [arrayA count];
+}
+
+
+// calculate the distance between two string treating them eash as a
+// single word
+- (float) compareWithWord: (NSString *) stringB
+{
+     // normalize strings
+     NSString * stringA = [NSString stringWithString: self];
+     [stringA stringByTrimmingCharactersInSet:
+               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+     [stringB stringByTrimmingCharactersInSet:
+               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+     stringA = [stringA lowercaseString];
+     stringB = [stringB lowercaseString];
+
+
+     // Step 1
+     int k, i, j, cost, * d, distance;
+
+     int n = [stringA length];
+     int m = [stringB length];
+
+     if( n++ != 0 &amp;&amp; m++ != 0 ) {
+
+         d = malloc( sizeof(int) * m * n );
+
+         // Step 2
+         for( k = 0; k &lt; n; k++)
+             d[k] = k;
+
+         for( k = 0; k &lt; m; k++)
+             d[ k * n ] = k;
+
+         // Step 3 and 4
+         for( i = 1; i &lt; n; i++ )
+             for( j = 1; j &lt; m; j++ ) {
+
+                 // Step 5
+                 if( [stringA characterAtIndex: i-1] ==
+                      [stringB characterAtIndex: j-1] )
+                     cost = 0;
+                 else
+                     cost = 1;
+
+                 // Step 6
+                 d[ j * n + i ] = [self smallestOf: d [ (j - 1) * n + i ] + 1
+                                             andOf: d[ j * n + i - 1 ] +  1
+                                             andOf: d[ (j - 1) * n + i -1 ] + cost ];
+             }
+
+         distance = d[ n * m - 1 ];
+
+         free( d );
+
+         return distance;
+     }
+     return 0.0;
+}
+
+
+// return the minimum of a, b and c
+- (int) smallestOf: (int) a andOf: (int) b andOf: (int) c
+{
+     int min = a;
+     if ( b &lt; min )
+         min = b;
+
+     if( c &lt; min )
+         min = c;
+
+     return min;
+}
+
+@end
+</code></pre></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

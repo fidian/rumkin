@@ -1,0 +1,2 @@
+# Welcome!
+User-agent: *

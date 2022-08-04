@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+const isValidEmail=require("./is-valid-email"),scenarios=require("./scenarios.json");let passes=0,failures=0;scenarios.forEach(s=>{let l="pass";isValidEmail(s.email)===s.valid?passes+=1:(failures+=1,l="*** FAILURE ***"),s.valid?console.log("allows "+s.email,l):console.log("blocks "+s.email,l)}),console.log(""),console.log("Total passed:",passes),console.log("Total failed:",failures);

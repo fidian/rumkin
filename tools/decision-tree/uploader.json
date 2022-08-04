@@ -1,0 +1,244 @@
+{
+    "start": "Start",
+    "title": "Phone Uploader Problem Solver",
+    "tree": {
+        "Start": {
+            "text": "If you are having issues with the phone uploader or questions about problems you are experiencing, this diagnostic tool should help you find an answer quickly.  That is, of course, assuming that I already know about the problem.\n\nFirst thing's first - What type of problem are you experiencing?",
+            "answers": {
+                "UnableToUploadFile": "Unable to upload a file to the web site",
+                "CanNotGetToJumpPage": "Can not get phone to the jump page",
+                "ProblemDownloadingToPhone": "Problem downloading from web site to phone",
+                "CanNotFindOrUseFile": "Can not find / use file after it was downloaded",
+                "AdditionalHelp": "Other / Not Covered"
+            }
+        },
+        "UnableToUploadFile": {
+            "text": "This section will cover various errors that could happen when you try to send a file to the phone uploader web site.  What statement best describes the problem you had?",
+            "answers": {
+                "Upload-Type": "File Type Not Allowed",
+                "Upload-Size": "File Is Too Large",
+                "AdditionalHelp": "Other / Not Listed"
+            }
+        },
+        "Upload-Type": {
+            "text": "The phone uploader only allows you to upload specific types of files.  For instance, pictures are allowed, but executable files are not allowed.  This is because phones only support some types of files, and because I don't want this web site abused by people uploading virus-laden programs.\n\nThat being said, you can request that I allow file types by just emailing me.  For more information on the file types that are allowed, check out the File Formats page.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Upload-Size": {
+            "text": "The uploader has a limit on the size of a file that you can send to your phone.  You can try emailing me and asking if I will raise the limit.  Also, you could try some of these options:\n\n* **Images:** Shrink the size of the image.  Use a photo editor to reduce the size before uploading.\n* **Ringers:** Open the ringer in a sound editor and cut it down to about 30 seconds, which is how long you phone will ring until it cuts over to voicemail.\n* **Games / Programs:** There's really nothing you can do to cut the size down.\n\nIf you shrink the size of the file before uploading it to this server, it will transfer significantly faster.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "CanNotGetToJumpPage": {
+            "text": "Please select the statement that best fits your current scenario.",
+            "answers": {
+                "Jump-How": "How do I go to a web site on my phone?",
+                "Jump-Error": "I get an error message when I go to the jump page URL",
+                "AdditionalHelp": "Other / Not Listed"
+            }
+        },
+        "Jump-How": {
+            "text": "I can not tell you exactly how to get to the phone uploader's jump page in order to download your file.  This is because the instructions can change with each manufacturer, each model of phone, and with different firmware/browser versions.  However, I can provide a general guideline.\n\n1. Go to your phone's web browser.  This is usually obtained through your phone's menu.\n2. Press the menu button\n3. Look for Go To URL, Enter URL, Go To ..., or something that has a similar wording.\n4. Use your keypad to enter in the jump page URL.\n5. Press \"Go\", \"Go To\", the Enter button, or something similar to visit the jump page.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Jump-Error": {
+            "text": "Which error message do you get?  You may get a message that is not exactly shown, but may be very similar to an option listed.",
+            "answers": {
+                "Jump-Error-403": "Error 403: Forbidden",
+                "Jump-Error-404": "Error 404: Not Found",
+                "AdditionalHelp": "Other / Not Listed"
+            }
+        },
+        "Jump-Error-403": {
+            "text": "If you get the **Error 403: Forbidden* message, or something that is similar, it is because the provider has blocked this web site from sending content to their phones.  Try another phone uploader and hope that the new one works for you.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Jump-Error-404": {
+            "text": "Most likely, this error occured because the jump page URL was not entered exactly as shown on the webiste.  Common mistakes:\n\n* A comma (,) was entered instead of a period (.)\n* A backslash (\\) was used instead of a slash (/)\n* A letter is wrong (n instead of m, 0 instead of o, etc.)",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "ProblemDownloadingToPhone": {
+            "text": "Which one of these scenarios best describes what is wong?",
+            "answers": {
+                "Download-Message": "I get a specific error message",
+                "Download-WrongFolder": "File is downloaded to the wrong folder",
+                "Download-ImageSize": "Image is resized incorrectly",
+                "Download-WrongSize": "File is the wrong size (in bytes) when downloaded",
+                "Download-Other": "Other / Not Listed"
+            }
+        },
+        "Download-Message": {
+            "title": "Which error message do you get?  You might get something similar to the messages below.  If so, select the closest message.",
+            "answers": {
+                "Download-Message-Authenticity": "Cannot Guarantee The Authenticity Of The File",
+                "Download-Message-Handler": "A Handler Is Needed To Use This Content Type",
+                "Download-Message-406": "Data Error 406 / Content Not Acceptable",
+                "Download-Message-901": "Data Error 901 / Content Size Too Large",
+                "Download-Message-903": "Data Error 903 / Loss of Service",
+                "Download-Message-904": "Data Error 904 / Size Mismatched",
+                "Download-Message-905": "Data Error 905 / Attribute Mismatch",
+                "Download-Message-906": "Data Error 906 / Invalid Descriptor",
+                "Download-Message-907": "Data Error 907 / Server Error",
+                "Download-Message-984": "Data Error 984 / Size Mismatched",
+                "Download-Message-413": "Error Code 413 / Page Cannot Be Displayed",
+                "Download-Message-500": "Error 500:  Internal Service Error",
+                "Download-Message-ExactUrl": "No Exact URL",
+                "Download-Message-950": "Server Error 950 / This issue has been reported.  Please try again later.",
+                "AdditionalHelp": "Other / Not Listed"
+            }
+        },
+        "Download-Message-Authenticity": {
+            "text": "Your phone will say that it can not guarantee the authenticity of the file you are about to download.  It is a warning that the servers spit out for any file that is not downloaded from their server.  Almost all sites that offer downloads for free will not be able to afford the licence to get rid of that message.  Just press OK and go past it.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-Handler": {
+            "text": "The short answer is that your phone can not handle this particular type of file.  I suggest trying something else.  If you tried to get an MP3, maybe a MIDI, WAV or PMD will work instead.\n\nThe long answer is that your phone's browser can likely be extended with plugins and your phone does not have the plugin to work with your MP3 or whatever.  The really bad news is that I am not aware of any plugins for any phone browsers.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-406": {
+            "text": "You should never get \"Data Error 406 / Content Not Acceptable\" with the uploader.  This error message happens when someone links directly to a file when the phone requires that a GCD file is used instead.  To fix this, contact the webmaster and tell them that your phone needs a GCD file to download the ringer, wallpaper, or Java midlet.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-901": {
+            "text": "\"Data Error 901 / Content Size Too Large\" means that the file that you attempted to download is too big for your phone.  First, you should try to make the file smaller by resizing the image or chopping the ringer down to the 30 seconds that you want, downsampling, or remixing it as mono.\n\nTypically, phones require extra space to process downloads.  If you are downloading a ringer that is 100k, you may need up to 300k in order to save it on your phone.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-903": {
+            "text": "Sorry, but this message is caused by your provider.  If you were trying to send a large file, such as a .WAV audio file, I suggest trying a different format.  Perhaps you could try compressing it as .MP3 or .QCP.  If you were sending a ringer, perhaps it is too large.  I have had one report that by making the ringer smaller (changing the bitrate, format, or just cutting it down to 30 seconds) made it work.\n\nIf that does not solve your problem, then it is the most likely that your provider is performing maintenance on their servers or perhaps an affiliate is having problems routing your content.  There is nothing really that I can do about it.\n\nTry cutting the size to a minimum.  If that fails, wait a while, perhaps even a day or two, and then try again.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-904": {
+            "text": "\"Data Error 904 / Size Mismatched\" should not happen if you are using this uploader.  It only occurs when the file that was downloaded does not match the size shown in the GCD file.  Since the uploader creates the GCD file based on what you sent it, the number should always be correct.\n\nRecently, gateway servers for phone companies have started resizing images, causing problems for some uploaders, but that was fixed with a \"no-transform\" flag being sent by the web server.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-905": {
+            "text": "The error message \"Data Error 905 / Attribute Mismatch\" can be caused by several reasons.\n* **Too Large:** Some phones do not allow uploads over a certaion size.  Often, this is about 50k.  You will need to shorten your ringer, downsample the quality, or resize the image to be smaller in order for your phone to accept it.\n* **Invalid Image:** Phones sometimes don't like certain types of images.  You may get this error if you have a \"progressive image\".  Try using a photo editor to save it as a non-progressive image instead.  You may get this error with animated GIF images, which just means that you are unable to use animated GIFs.  You may get this error when the JPG image has extra EXIF information stored with the picture.  Try to remove that extra information before sending it to your phone.\n* **Bad GCD File:** This should not happen with the uploader, since all of the GCD files are dynamically generated directly from the file.  If the GCD file was created by hand, make sure that all of the lines are correct and that there are only LF newlines (not CR/LF).\n* **Midlets:** If you created a midlet and are having problems sending it to phones, make sure the manifest file only contains LF newlines, that the information matches the JAD file exactly, and that it is named \"META-INF/MANIFEST.mf\" (case sensitive).* **MIME Types Do Not Match** - If you are not using the uploader on this site, you need to be careful with MIME types.  One user was setting up the uploader on his own machine.  Apache said the MIME type for an MP3 file is audio/mpeg and the generated GCD files said audio/mp3.\n\nThe phone uploader will reduce images automatically, convert progressive images to non-progressive images, remove the animation from an animated GIF, and remove extra EXIF information for you as long as it knows what type of phone you have.  If you go to the jump page and it says the type of phone you have, images will be downsized to fit on your phone automatically.\n\nThe phone uploader generates its own JAD and GCD files and makes sure that the information is correct.  You shouldn't ever get this error message due to an poorly-constructed JAD or GCD.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-906": {
+            "text": "If you are using the phone uploader, you should never see \"Data Error 906 / Invalid Descriptor\" because all GCD and JAD files are generated and checked for most errors before they are sent out to a phone.  If you do get this error, check out GCD-related error messages in the Data Error 905 topic.\n\nThere is a possibility that if you have a JAR whose manifest file does not have a \"MIDlet-1\" line in it, the JAD that is served may also be corrupt.  If you are trying to install a midlet and you get the 906 error, this is the first thing that you should check.",
+            "answers": {
+                "Download-Message-905": "Read more about \"Data Error 905\"",
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-907": {
+            "text": "This is a very mysterious error that sporatically pops up and dissapears.  Known solutions include:\n\n* One person said to replace the server name with the IP.  This likely got around the gateway's cache.\n* Relative URLs are not allowed in GCD or JAD files.\n* If you are uploading a midlet, it needs to have a \"META-INF/MANIFEST.mf\" file (case sensitive).\n* If the server returns an error code, such as 404 Not Found, the phone will display Data Error 907.\n* If the file is too big for the phone, it may display Data Error 907.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-984": {
+            "text": "\"Data Error 984 / Size Mismatched\" only happens when the size in the JAD file does not match the size of the JAR file.  This should never happen with the uploader, since the size listed in the JAD file is set to the size of the JAR file.",
+            "answers": {
+                "Download-Message-905": "See the \"Data Error 905\" for more information about size mismatches",
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-413": {
+            "text": "The file you are attempting to download may be too large.  One user reported that this problem will happen if the file is larger than 350k, or so.  The size limit may vary with the provider and the model of the phone.  Try to shrink the file before sending it to your phone or use smaller files if you can find them.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-500": {
+            "text": "I am very sorry, but I do not have a lot of information for you.  Currently this has been reported with an MP3 going to a Motorola RAZR on the AT&T network.  It could be that the provider is blocking my site, the song was too large, the song was in the wrong format, the phone did not support the bitrate of the mp3, or other transient problems.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-ExactUrl": {
+            "text": "The error message \"No Exact URL\" is caused by spaces in the URL.  Either replace the spaces with `+` symbols, `%20` tokens, or completely remove the spaces and use another type of separator.  The uploader here replaces spaces and odd characters with an underline (the \"_\" symbol) so users here never need to worry.  You can also read about Data Error 904, which sometimes is a related problem.",
+            "answers": {
+                "Download-Message-904": "Read bout Data Error 904",
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Message-950": {
+            "text": "Sorry, but this error message is from your provider.  I have no idea what could be causing it, nor if it is a temporary problem.  I suggest you try again after a few days or try a different type of file.  One user suggests changing the title to be between 5 and 8 characters.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-WrongFolder": {
+            "text": "If the file you sent to your phone is placed in the wrong folder, it could be caused by several different issues.\n\n* If you are uploading a midlet (.jar file), make sure that you are specifying the correct folder if you do not want the default.\n* If you are uploading a .mp4 file and it is not ending up in the \"Ringers\" folder, try renaming it to .m4a and upload it again.\n* You can sometimes use BitPim and a data cable to move files around.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-WrongSize": {
+            "text": "The most common reason that the file you downloaded was not the same size as the file you uploaded is because the uploader will resize images to fit your phone's screen.  This means your phone can hold more images and they are transferred to your phone faster.\n\nAnother factor is that the gateways that some providers employ will automatically shrink and reduce image quality for all images that pass through them without the special \"no-transform\" flag.  Files sent with the uploader have this special flag, but other web sites may not have the flag.",
+            "answers": {
+                "Download-ImageSize": "My problem was with an image's size.  Do you know more about those problems?",
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-ImageSize": {
+            "text": "If the images are too small, try manually resizing the image and then use other uploaders to send the file to your phone.  Be aware:  There are several different types of \"screen sizes\" that you can find.  You can get the screen size of the external display, physical screen size of the internal display, the amount of screen that is available for a wallpaper, and the amount of screen available for Java midlets (like the SysInfo midlet).  You should be looking for the wallpaper size.\n\nSometimes, the maximum dimensions for a wallpaper or screen saver is the same as the SysInfo midlet's results.  Sometimes the wallpaper can fill the area where the \"status bar\" resides and will be larger than what SysInfo reports.",
+            "answers": {
+                "AdditionalHelp": "Need more help?"
+            }
+        },
+        "Download-Other": {
+            "text": "Just to be aware, if you know that this model of phone used to work and now you have one where it does not work, it could be due to a firmware change.",
+            "answers": {
+                "AdditionalHelp": "Ok, I get it.  Is there any other help you can give me?"
+            }
+        },
+        "AdditionalHelp": {
+            "text": "Sorry, you have reached the end of this troubleshooter.\n\nFor additional help on this issue, please first check the FAQ to make sure your question was not already answered.  Next, email me and describe your problem in detail.  Include information about your phone, your provider, and the file that you are trying to upload.  Describe the type and size of the file, and provide a link to it if you can.  Also, describe the links you went through in this problem solver so I am able to expand this database of information in the hopes that others will find an answer."
+        },
+        "CanNotFileOrUseFile": {
+            "text": "I need to narrow the problem down even further.  Please pick what type of issue you are experiencing.",
+            "answers": {
+                "CanNotFind": "Can't Find File After Download",
+                "Download-WrongFolder": "File is downloaded to the wrong folder",
+                "AnimatedGif": "My Animated GIF Doesn't Work",
+                "Download-ImageSize": "Image is resized incorrectly",
+                "AppDoesNotRun": "Game or Application Does Not Run",
+                "AdditonalHelp": "Other / Not Listed"
+            }
+        },
+        "CanNotFind": {
+            "text": "Unfortunately, every phone is different, and I can't provide instructions for everyone.  I can say that some phones have a \"downloads\" area where everything goes.  Other phones have separate folders for everything.  I have even heard of phones that put the ringers in the phone book, images in a screen savers menu option, and the Java midlets are stored in a completely different third area.\n\nIf you have searched your phone, you can still check out your phone's manual.  On some phones, when the file is not recognized or if there is a \"silent error\" (the download looked good, but the phone had an error that it didn't tell you) the file won't be saved.  Try resetting your phone by pulling out the battery for one second and then putting the battery back in.",
+            "answers": {
+                "AdditionalHelp": "Ok, I get it.  Is there any other help you can give me?"
+            }
+        },
+        "AppDoesNotRun": {
+            "text": "When I have tried to get Java midlets running on my phone, it sometimes took several tries to even find one that worked.  When a game or other type of Java midlet does not run on your phone, it is usually for one of these reasons:\n\n* **Java Version:** The version of Java on your phone is not new enough (or maybe old enough) to run the program.\n* **Java Extensions:** Some phones come with provider-specific modifications that let you do extra things.  For instance, some providers let you retrieve your geographical location, turning your phone into a GPS receiver of sorts.\n* **Screen Size:** Some programs are just designed for a specific screen size.\n* **Free Memory:** There is not enough \"free heap memory\" to run the program.  You might be able to delete a few things on your phone, but you still may not be able to run it even if you deleted everything from your phone.\n* **Corrupt Manifest:** The \"META-INF/MANIFEST.mf\" file is missing, malformed, or improperly named.\n* **Wrong Type Of File:** It is possible that what you thought was a Java midlet was actually a Java applet or program.  The software might not run at all on any phone.\n\nYou are pretty much unable to change these problems.  The best thing you can do is to work with the software developer so that a version of the program will be created that will work on your phone.",
+            "answers": {
+                "AdditionalHelp": "Ok, I get it.  Is there any other help you can give me?"
+            }
+        },
+        "AnimatedGif": {
+            "text": "There are two distinct issues at work when you say that an animated GIF will not work on your phone.\n\n**If the GIF is bigger than your screen size:** The image will be stripped to just one frame and then resized to fit your phone's screen.  Animated GIFs that are bigger than your screen will never work as an animated GIF.  This is because it is pretty hard for me to shrink an animation while keeping it animated.  Try to find a smaller animated GIF and see if that works before trying to resize the animated GIF to fit your screen size.\n\n**If the GIF is the same size or smaller than your screen size:** The GIF will be sent as-is.  Most phones do not allow animated GIFs even if they do display regular GIF files.",
+            "answers": {
+                "AdditionalHelp": "Ok, I get it.  Is there any other help you can give me?"
+            }
+        }
+    }
+}

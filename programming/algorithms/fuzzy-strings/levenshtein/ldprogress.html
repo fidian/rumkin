@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title></title><link rel=stylesheet href=../../../../css/reset.css><link rel=stylesheet href=../../../../css/atomic.css><link rel=stylesheet href=../../../../css/fonts.css><link rel=stylesheet href=../../../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../../../img/favicon/favicon-16x16.png><link rel=manifest href=../../../../img/favicon/manifest.json><link rel=mask-icon href=../../../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../../../img/favicon/favicon.ico><meta name=msapplication-config content=../../../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../ >Programming Topics </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Algorithms </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >Fuzzy String Matching</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1></h1></header><div class=contents><hr><h2 id=title-levenshtein-distance-algorithm-progress-4gl-implementation>title: Levenshtein Distance Algorithm: Progress 4gl Implementation</h2><p>by Steve Southwell</p><pre><code>DEFINE TEMP-TABLE matrix NO-UNDO
+ FIELD X AS INTEGER
+ FIELD Y AS INTEGER
+ FIELD pointvalue AS INTEGER
+ INDEX xy IS PRIMARY UNIQUE X Y.
+
+
+FUNCTION lscore RETURNS INTEGER
+  ( INPUT myfirst AS CHAR,
+    INPUT mysecond AS CHAR ) :
+/*------------------------------------------------------------------------------
+  Purpose:  Computes Levenshtein distance between two strings
+    Notes:  See http://www.merriampark.com/ld.htm for a description of this
+            algorithm in further detail
+------------------------------------------------------------------------------*/
+  DEFINE VAR myscore AS INTEGER NO-UNDO.
+  DEFINE VAR m AS INTEGER NO-UNDO.
+  DEFINE VAR n AS INTEGER NO-UNDO.
+  DEFINE VAR i AS INTEGER NO-UNDO.
+  DEFINE VAR j AS INTEGER NO-UNDO.
+  DEFINE VAR s AS CHARACTER NO-UNDO.
+  DEFINE VAR t AS CHARACTER NO-UNDO.
+
+  DEFINE BUFFER leftcell FOR matrix.
+  DEFINE BUFFER abovecell FOR matrix.
+  DEFINE BUFFER diagcell FOR matrix.
+
+  ASSIGN
+   s = mysecond
+   t = myfirst
+  .
+
+  ASSIGN
+   m = LENGTH(t,&quot;CHARACTER&quot;)
+   n = LENGTH(s,&quot;CHARACTER&quot;)
+  .
+
+  /* if both empty, return 0 */
+  IF m + n = 0 THEN RETURN 0.
+
+   /* Initialize our matrix */
+  EMPTY TEMP-TABLE matrix.
+
+  DO i = 0 TO n:
+    CREATE matrix.
+    ASSIGN
+     matrix.X = i
+     matrix.Y = 0
+     matrix.pointvalue = i
+    .
+  END.
+  DO j = 1 TO m:
+    CREATE matrix.
+    ASSIGN
+     matrix.X = 0
+     matrix.Y = j
+     matrix.pointvalue = j
+    .
+  END.
+
+  DO i = 1 TO N:
+    DO j = 1 TO m:
+        CREATE matrix.
+        ASSIGN
+         matrix.X = i
+         matrix.Y = j
+        .
+        IF SUBSTRING(s,i,1,&quot;CHARACTER&quot;) = SUBSTRING(t,j,1,&quot;CHARACTER&quot;) THEN
+         ASSIGN matrix.pointvalue = 0.
+        ELSE matrix.pointvalue = 1.
+
+        FIND leftcell WHERE leftcell.X = i - 1 AND leftcell.Y = j.
+        FIND abovecell WHERE abovecell.Y = j - 1 AND abovecell.X = i.
+        FIND diagcell WHERE diagcell.X = i - 1 AND diagcell.Y = j - 1.
+
+        ASSIGN matrix.pointvalue = MIN(abovecell.pointvalue + 1,
+                                       leftcell.pointvalue + 1,
+                                       diagcell.pointvalue + matrix.pointvalue).
+
+    END.
+  END.
+
+
+  RETURN matrix.pointvalue.
+END FUNCTION.
+</code></pre></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

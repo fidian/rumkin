@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>String Escaping and Encoding</title><link rel=stylesheet href=../../../css/reset.css><link rel=stylesheet href=../../../css/atomic.css><link rel=stylesheet href=../../../css/fonts.css><link rel=stylesheet href=../../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../../img/favicon/favicon-16x16.png><link rel=manifest href=../../../img/favicon/manifest.json><link rel=mask-icon href=../../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../../img/favicon/favicon.ico><meta name=msapplication-config content=../../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Programming Topics </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >Algorithms</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>String Escaping and Encoding</h1><div class=Px(20px)><div class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)">Discussion on the topic of properly escaping strings when converting from one language or system to another. Some code examples are included.</div></div></header><div class=contents><p>There is a lot of confusion out there about the proper way to escape strings in different languages for different purposes. Escaping strings once is easy, but escaping them so they pass through a series of systems is tricky. The difficult part is that using invalid syntax often works ... for a while.</p><p>If you would like to jump straight to the code, here&#39;s some stuff I have. It is all organized by the executing programming language.</p><ul><li><a href=php/ >PHP</a></li></ul><h2 id=the-discussion>The Discussion</h2><p>Let&#39;s pretend we want to write a regular expression to remove all periods. I&#39;m using only a couple languages to better illustrate my point, and please don&#39;t mention that the JavaScript one doesn&#39;t really need a RegExp object. Remember, this code is designed to show you a tricky part about escaping.</p><pre><code>// Version 1
+
+// PHP
+$result = preg_replace(&quot;/./&quot;, &quot;&quot;, $input);
+
+// JavaScript
+var regexp = new RegExp(&quot;.&quot;);
+var result = input.replace(regexp, &quot;&quot;);
+</code></pre><p>There, done.</p><p>Oh wait, I forgot to escape the period in the string! Regular expressions will match any character on a period, so we need to put a backslash before the period so the engine knows we want to match just periods.</p><pre><code>// Version 2
+
+// PHP
+$result = preg_replace(&quot;/\./&quot;, &quot;&quot;, $input);
+
+// JavaScript
+var regexp = new RegExp(&quot;\.&quot;);
+var result = input.replace(regexp, &quot;&quot;);
+</code></pre><p>There, done.</p><p>Or am I? When doing escaping in strings, the backslash character is often the indicator that the next character is treated differently. For instance, <code>\n</code> translates to a newline character, <code>\t</code> becomes a tab character and <code>\\</code> means to put in a literal backslash character. The real string that we want passed into the Regular Expression engine is literally, <code>\.</code> (a backslash and a period = an escaped period). We need to take that string and then escape it again to embed it in our code properly.</p><pre><code>// Version 3
+
+// PHP
+$result = preg_replace(&quot;/\\./&quot;, &quot;&quot;, $input);
+
+// JavaScript
+var regexp = new RegExp(&quot;\\.&quot;);
+var result = input.replace(regexp, &quot;&quot;);
+</code></pre><p>Finally, our code is correct. I&#39;ve received several questions during my career about the multiple levels of escaping, so let&#39;s anticipate some questions and provide useful answers right away!</p><h2 id=why-are-we-escaping-the-period-twice>Why are we escaping the period twice?</h2><p>It&#39;s because the string goes through two levels of unescaping before being used - first it goes through PHP&#39;s string unescaping and then through the regular expression engine&#39;s string unescaping.</p><h2 id=why-does-version-2-still-work>Why does Version 2 still work?</h2><p>Great question, and I think this is the source of the confusion about string escaping. Version 2 still works because <code>\.</code> doesn&#39;t unescape to anything. Instead of choking and dying, the software will just let the two characters go through. Better yet is this list of strings after they get unescaped. Let&#39;s assume you used the following code</p><pre><code>// PHP
+echo &quot;INPUT_STRING&quot;;
+
+// JavaScript
+console.log(&quot;INPUT_STRING&quot;);
+</code></pre><p>When you pass in the following strings under the &quot;Input&quot; column, then the result will be the &quot;Output&quot; column.</p><pre><code>Input   Output
+\       \
+\\      \
+\&quot;      &quot;
+\\&quot;     Won&#39;t Work
+\n      Newline
+\\n     \n
+</code></pre><p>You&#39;ll see that using <code>\n</code> for the input gets you a newline and <code>\\n</code> indicates an escaped backslash followed by the <code>n</code> character. The <code>\\&quot;</code> input won&#39;t work because your code would look like this:</p><pre><code>// PHP
+echo &quot;\\&quot;&quot;;
+
+// JavaScript
+console.log(&quot;\\&quot;&quot;);
+</code></pre><p>The parser will see the first <code>&quot;</code>, then the double backslashes that indicate an escaped backslash, the second <code>&quot;</code>, and then freak out because of the third <code>&quot;</code> on that line.</p><h2 id=if-version-2-works-why-worry-about-proper-escaping>If Version 2 works, why worry about proper escaping?</h2><p>It is doubtful that the string processing engine of the different languages will change much in the future. However, it could help you avoid problems, especially when you change your code. Let&#39;s pretend you wanted to match a literal backslash and any character. You&#39;d want the pattern <code>\\.</code> and in both of the example languages it should be escaped as <code>&quot;\\\\.&quot;</code> Yeah, four backslashes in the string = 2 backslashes sent to the regular expression engine = 1 literal backslash. The string gets unescaped twice. If you get your escaping messed up or don&#39;t know how many levels of unescaping will happen, you would get unexpected results. If you only used the string <code>&quot;\\.&quot;</code> in either language, it would match only periods, not a backslash followed by any character.</p><h2 id=in-php-there-are-these-single-quoted-strings-where-you-dont-need-to-escape->In PHP there are these single-quoted strings where you don&#39;t need to escape ...</h2><p>Sorry, that&#39;s wrong. You must still escape there. Try <code>echo &#39;\\&#39;</code> or <code>echo &#39;\&#39;&#39;</code> (that&#39;s two single-quotes, not a double quote at the end). Without the escaping in single-quoted strings, you would not be able to embed an apostrophe. Most of the other escape characters are disabled, so sequences like <code>\n</code> and <code>\t</code> will not produce a newline nor a tab.</p><h2 id=time-to-prove-it>Time to Prove It</h2><p>So, armed with this knowledge, I could ask you to escape the regular expression that looks for a backslash, a period, a double quote, and a slash. You&#39;d be able to produce the following:</p><pre><code>// Looking for these literal characters:  \.&quot;/
+// Escaped for a regular expression:  \\\.&quot;/
+
+// PHP - Escape backslashes, slash, double quote
+$result = preg_replace(&quot;/\\\\\\.\&quot;\\//&quot;, &quot;&quot;, $input);
+
+// JavaScript - Escape backslashes and double quote
+var regexp = new RegExp(&quot;\\\\\\.\&quot;/&quot;);
+var result = input.replace(regexp, &quot;&quot;);
+</code></pre><p>Trying to encode this in other ways may or may not work, but the above amount of escaping is the correct amount.</p></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

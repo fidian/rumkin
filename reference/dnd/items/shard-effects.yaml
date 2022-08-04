@@ -1,0 +1,12 @@
+-
+    roll: 1
+    effect: Shard drain 1 hp per round and transfers it to wielder, healing the wielder first then adding temporary bonus hp.  Bonus HP fade after 30 minutes.
+-
+    roll: 2
+    effect: Same as above but 3 hp per round.
+-
+    roll: 3
+    effect: Shard drains 1 Strength point per round from foe for two rounds and transfers it to wielder.  Maximum Strength bonus that can be achieved this way is +8 regardless how many times this effect happens.  This bonus fades after 30 minutes.
+-
+    roll: 4
+    effect: Shard drains one level or HD from the foe upon first embedding. If still lodged in the wounds after 10 rounds, the victim must make a successful Fort save (DC 14) or lose another level before the ice melts. The wielder gains any and all lost levels, adding them as positive levels.  This bonus fades after 30 minutes.

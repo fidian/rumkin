@@ -1,0 +1,42 @@
+* One thing you can do if your data set is really large is to break it into
+* sections.  Then, you just run your "select * from TABLE into cursor NAME"
+* repeatedly and append the results into a writeable cursor.  This is also
+* great if you need to change the default read-only cursor into a read-write
+* cursor.
+*
+*     scan for ...
+*         * The "NOFILTER" is mandatory for build_cursor()
+*         select * from TABLE where ... into cursor temp nofilter
+*         build_cursor('everything', 'temp')
+*         use in temp
+*     endscan
+*
+* Now you have all of the records in the cursor "everything"
+*
+* Turn a read-only cursor into a read-write cursor
+*
+*     select * from TABLE into cursor ReadOnly nofilter
+*     build_cursor('ReadWrite', 'ReadOnly')
+
+* Create a writeable cursor or append to a cursor
+function build_cursor
+lparameters m.dest, m.src
+    local m.orig_alias, m.build_tmp
+
+    m.build_tmp = sys(2015)
+    m.orig_alias = alias()
+
+    if ! used(m.dest)
+        select * from alias(m.src) where .F. into cursor (m.build_tmp) nofilter
+        use dbf(m.build_tmp) again in 0 alias (m.dest) excl
+        use in (m.build_tmp)
+    endif
+
+    select (m.dest)
+    append from dbf(m.src)
+
+    if ! empty(m.orig_alias)
+        select (m.orig_alias)
+    endif
+endfunc
+

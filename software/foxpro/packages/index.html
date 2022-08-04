@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>FoxPro Packages</title><link rel=stylesheet href=../../../css/reset.css><link rel=stylesheet href=../../../css/atomic.css><link rel=stylesheet href=../../../css/fonts.css><link rel=stylesheet href=../../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../../img/favicon/favicon-16x16.png><link rel=manifest href=../../../img/favicon/manifest.json><link rel=mask-icon href=../../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../../img/favicon/favicon.ico><meta name=msapplication-config content=../../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Software Projects </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >FoxPro</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>FoxPro Packages</h1></header><div class=contents><p>These FoxPro packages are all zip files that typically contain a form and a library that will perform the given task. I also have more <a href=../ >FoxPro stuff</a>.</p><h2 id=command-window-simulator>Command Window Simulator</h2><p>Did you ever want to distribute an application but keep the command window? Do you have advanced FoxPro users out there that like to type in their own commands to fix data instead of having them bother IT? Now, you can have your developer with one licensed copy of FoxPro and distribute your application with this command window emulator.</p><p>I found a command window simulator written by Walter Meester and modified by Eric den Doop at <a href="http://www.foxite.com/downloads/default.aspx?id=11">Foxite</a>. I later altered it a bit more to not require the &quot;READ EVENTS&quot; stuff and handle &quot;BROWSE&quot; commands a bit better. These changes were necessary for the application I was adding it to. Now, you just need one line to pop open the form and get the command window simulator running.</p><ul><li><p>Download: <a href=command.zip>command.zip</a></p><ul><li>Start up the Command window with just this one line do form Command</li></ul></li></ul><h2 id=excel-dde>Excel DDE</h2><p>You can always use &quot;<code>copy to FILENAME type xl5</code>&quot; in order to get your table in an Excel-ready format, but the formatting sucks. Actually, it is a complete and total lack of formatting that sucks.</p><p>You can open up Excel, set up a DDE link to it, and then send data to the spreadsheet with <code>DDEPoke()</code>. To make this job a bit easier, I made a few utility functions. An explanation of the DDE functions is available in a separate help file <a href=xlmacr8.zip>xlmacr8.zip</a>.</p><pre><code>* Include the program
+set procedure to exceldde.prg additive
+
+* Open Excel and set up a DDE link to it.
+* This searches the registry for the handler for &quot;XLS&quot; files and opens
+* that program.
+m.mc = StartExcelDDE()
+
+* To send data, use DDEPoke().  MakeRC(row, col) returns a &quot;RxCx&quot; style
+* row/column.  You can do it yourself or use MakeRC(1, 10) to get &quot;R1C10&quot;
+DDEPoke(m.mc &quot;R1C1&quot;, &quot;My Header&quot;
+DDEPoke(m.mc, MakeRC(1, 2), &quot;More Header&quot;)
+
+* To add formatting, use DDEExecute()
+DDEExecute(m.mc, &#39;[SELECT(&quot;&#39; + MakeRC(1, 1) + &#39;:&#39; + MakeRC(1, 5) + &#39;&quot;)]&#39; + ;
+    &#39;[ALIGNMENT(3)][FONT.PROPERTIES(,&quot;Bold&quot;)][BORDER(,,,,6)]&#39;)
+
+* Change the paper layout
+ExcelLandscape(m.mc)
+ExcelLegal(m.mc)
+
+* Pull data from row 1, column 2, remove newlines, trim
+m.info_from_spreadsheet = DDERequest2(m.mc, 1, 2)
+</code></pre><p>The second script, <code>exceldump</code>, will take your table and dump it to Excel via DDE with formatting. Pretty handy.</p><pre><code>* Include both files
+set procedure to exceldump.prg additive
+set procedure to exceldde.prg additive
+
+* Open your table
+use YOUR_TABLE
+
+* Dump to Excel  (read ExcelDump.prg for explanation of optional parameters)
+DumpToExcel()
+</code></pre><p>DumpToExcel takes many parameters. See <code>ExcelDump.prg</code> for a list of them and how to specify them. You are able to select the database to dump, specify the starting row on an Excel spreadsheet, force a particular format for the fields (numeric, currency, character, etc.), have it call special functions if you want to insert breaks and subtotals, and just dump the raw data without titles. It is a very nice and powerful function.</p><p>You will also find <code>list_stru.prg</code> in the archive. It has some simple code that uses the exceldde functions to perform a nicer <code>list stru</code> equivalent, but puts the output in Excel. The old DOS FoxPro had a useful <code>list stru to print</code> command, but the Windows varieties all have really poor output when you try that exact same command. Printing it from Excel makes it look nice again.</p><ul><li>Download: <a href=exceldde.zip>exceldde.zip</a> - Libraries that make DDE easier</li><li>Download: <a href=xlmacr8.zip>xlmacr8.zip</a> - DDE functions help file</li></ul><h2 id=fiscal-date-functions>Fiscal Date Functions</h2><p>I am not sure if anyone else out there has to work with fiscal dates in FoxPro, but I did. This set of functions will help you out immensely. With them, you can query for fiscal years, get just specific fiscal months, and much more.</p><pre><code>* Add in the fiscal functions
+set procedure to fiscal.prg additive
+
+* Get the fiscal week number/month number/year of a date
+? FiscalDateToWeek({^2004-10-31})
+? FiscalDateToMonth({^2004-10-31})
+? FiscalDateToYear({^2004-10-31})
+
+* Get the first day in a fiscal year or a fiscal month
+* Fiscal month means 1 = February, 12 = January
+? FiscalFirstDayOfMonth(2004, 10)
+? FiscalFirstDayInYear({^2001-12-27})
+
+* Get the number of weeks in a fiscal month or a fiscal year
+* Again, a fiscal month has 1 = February, 12 = January
+? FiscalWeeksInMonth(2004, 12)
+? FiscalWeeksInYear(2004)
+
+* Convert a fiscal week to a fiscal month and a year week number to a
+* month&#39;s week number
+? FiscalWeekToMonth(34)
+? FiscalWeekToMonthWeek(10) &amp;&amp; returns 1 -- first fiscal week of April)
+
+* Get the number of fiscal weeks before a specific month
+? FiscalWeeksBeforeMonth(1)
+</code></pre><p>The code has slightly better comments before each function, and explains the data types going in and returned from each function a bit better.</p><ul><li>Download: <a href=fiscal.zip>fiscal.zip</a></li></ul><h2 id=fuzzy-string-matching>Fuzzy String Matching</h2><p>I have expanded the fuzzy string matching for FoxPro to handle two different algorithms, and they are also coded for other languages. They are explained in detail on my <a href=../../../reference/algorithms/fuzzy-strings/ >fuzzy string matching</a> page.</p><h2 id=getdate>GetDate</h2><p>Tired of asking the user to type in a date? Use this form to pop open a calendar. I modified this one to remove extra weird code, make it more portable, and (of course) make the form&#39;s background color purple. To include it on your forms, add a button (width 23, height 22) of the calendar (<code>getdate.bmp</code> in the zip file) and set the <code>Click</code> event to something like what is shown below. You can also set the date text field&#39;s <code>DblClick</code> event to what is shown to make it even easier for the user to enter dates.</p><pre><code>* These snippets of code assume that your form has a text field on it
+* that is called txtdDate1
+
+* This is the code for the button&#39;s Click event
+with thisform
+    do form GetDate name ofrmGetDate ;
+        with .txtdDate1.value, &quot;Enter date for WHATEVER&quot; ;
+    to .txtdDate1.value
+    .txtdDate1.refresh()
+endwith
+
+* This code can be placed on the date field&#39;s DblClick event
+with this
+    do form GetDate name ofrmGetDate ;
+        with .value, &quot;Enter date for WHATEVER&quot;
+    to .value
+    .refresh()
+endwith
+</code></pre><ul><li>Download: <a href=getdate.zip>getdate.zip</a></li></ul><h2 id=md5>MD5</h2><p>Did you ever need to make a MD5 checksum of a file or a string? This will certainly be exactly what you need. I found this code out on the net and immediately thought that it should be on my website. In this zip file you will find the original documentation and the library. The text file says that the source to the library was included, but it was not in the zip file that I found.</p><p>To use, you merely include the library and then run the <code>MD5Hash()</code> function.</p><pre><code>set library to MD5.FLL additive
+HashCode = MD5Hash(any_string) &amp;&amp; returns 16-byte result
+
+? MD5Version() &amp;&amp; tells you what version of the library you are using
+HashCode = MD5HashFile(&quot;C:\test_file.dat&quot;) &amp;&amp; 16-byte result
+
+if (MD5VerifyFile(&quot;C:\the_file.zip&quot;, m.Old_Hash) == .F.) then
+   ? &quot;MD5 did not match&quot;
+endif
+
+* This will generate a 32-character hex-encoded MD5 string.
+m.md = MD5Hash(&quot;Some String&quot;)
+? HexEncode(m.md)
+
+function HexEncode
+lparam m.binary
+    local m.out
+    m.out = &quot;&quot;
+    do while len(m.binary) &gt; 0
+        m.out = m.out + right(transform(asc(m.binary), &quot;@0&quot;), 2)
+        m.binary = substr(m.binary, 2)
+    enddo
+    return m.out
+endfunc
+</code></pre><ul><li>Download: <a href=md5.zip>md5.zip</a></li></ul><h2 id=prompter>Prompter</h2><p>I don&#39;t know why FoxPro did not include a message box that could prompt the user for information. They have <code>MessageBox()</code>, but nothing like <code>prompt()</code> or <code>ask()</code> or whatever. At least, they don&#39;t in FoxPro 6, which is what I used at work.</p><pre><code>m.result = .F.
+
+* Prompt with an empty input box
+do form Prompter with &quot;What is your name?&quot; to m.result
+if type(&#39;m.result&#39;) != &#39;C&#39; or len(allt(m.result)) == 0
+   ? &quot;User pressed cancel, hit escape, or just hit enter (empty value)&quot;
+else
+   ? &quot;Something was actually entered.&quot;
+endif
+
+* Or have a default value specified
+do form Prompter with &quot;What is 2 * 3?&quot;, &quot;6&quot; to m.result2
+</code></pre><ul><li>Download: <a href=prompter.zip>prompter.zip</a></li></ul><h2 id=zlib>zlib</h2><p>I have found that it is often to my advantage to compress my stray <code>.dbf</code> files that I rarely use. I have written code to detect if my file exists, and if it does not it will fall over to a gzipped version if that is available. To facilitate easy extraction and compression, I searched and found a <code>zlib.dll</code> that will do what I need it to do.</p><p>The code I wrote employs the thermometer class that is part of the FoxPro Foundation Classes. You will certainly need to edit <code>zlib.prg</code> and change it (it was at about line 180) to work for your installation. You will also need to change the path to <code>zlib.dll</code>in the <code>GZDefine()</code> function.</p><pre><code>* Include the zlib routines
+set procedure to zlib.prg additive
+
+* Now you have the three functions from the DLL added
+gzcompress(@dest, @destlen, source, sourcelen)
+gzcompress(@dest, @destlen, source, sourcelen, level)
+gzuncompress(@dest, @destlen, source, sourcelen)
+
+* But, since they can be a pain to call, I&#39;ve added some helper functions
+* For these three functions, COMPR is a string that has the size of
+* the decompressed data, a space, and then the gzipped data.
+compr = compressit(data) &amp;&amp; default compression (level 6)
+compr = compressit(data, level) &amp;&amp; level is from 0 (min) to 9 (max)
+data = decompressit(compr) &amp;&amp; decompresses
+
+* Compress and decompress files.
+* If TALK is ON, you will get a progress bar (thermometer) on the screen.
+* They all return 0 if there was no error.
+gzip(&quot;in.dbf&quot;, &quot;out.dbf.gz&quot;) &amp;&amp; Compresses a file (level 6)
+gzip_nobar(&quot;in.dbf&quot;, &quot;out.dbf.gz&quot;) &amp;&amp; No progress bar
+gzip(&quot;in.dbf&quot;, &quot;out.dbf.gz&quot;, level) &amp;&amp; Pick your own compression level
+* There is no gzip_nobar() that accepts a compression level parameter
+gunzip(&quot;in.dbf.gz&quot;, &quot;out.dbf&quot;) &amp;&amp; Decompresses a file
+gunzip_nobar(&quot;in.dbf.gz&quot;, &quot;out.dbf&quot;) &amp;&amp; Never shows progress bar
+</code></pre><p>I also had to transfer many files across a network. To accomplish this I used <code>psexec</code> from SysInternals to remotely run a compression program on the target Windows server, copy the <code>.dbf</code> file locally and then decompress. It turns out that it was significantly faster to process large files. The FoxPro function is available, but you&#39;ll need to track down some binaries in order to get it to work.</p><ul><li>Download: <a href=zlib.zip>zlib.zip</a></li><li>Download: <a href=compcopy.prg.txt>compcopy.prg.txt</a></li></ul></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

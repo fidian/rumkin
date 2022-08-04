@@ -1,0 +1,1 @@
+"use strict";function Rotate(r,e,t){var o=Tr(e,"\r\n");for((t=Math.floor(t))<1&&(t=1);o.length%t;)e+="X",o+="X";for(var n=new Array(t),a=0;a<t;a++)n[a]="";for(a=0;a<o.length;a++)n[a%t]+=o.charAt(a);if(o="",0<r)for(a=0;a<t;a++)o+=n[t-(a+1)];else for(a=0;a<t;a++)o+=Reverse_String(n[a]);return InsertCRLF(e,o)}document.Rotate_Loaded=1;

@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang=en class="H(100%) Ovy(h)"><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Onloads and Alternatives</title><link rel=stylesheet href=../../../css/reset.css><link rel=stylesheet href=../../../css/atomic.css><link rel=stylesheet href=../../../css/fonts.css><link rel=stylesheet href=../../../css/site.css><link rel=apple-touch-icon sizes=180x180 href=../../../img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=../../../img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=../../../img/favicon/favicon-16x16.png><link rel=manifest href=../../../img/favicon/manifest.json><link rel=mask-icon href=../../../img/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=../../../img/favicon/favicon.ico><meta name=msapplication-config content=../../../img/favicon/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=license href=../../../license></head><body class="H(100%) Ovx(h) Bgc(pageBorderBackground) Bgc(t)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(barBackground) Bgc(t)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(barBorder) H(50px) C(barText) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(sb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../../ >Rumkin.com </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href=../../ >Reference Materials </a><span class="Px(0.3em) Fxs(0)">&gt;</span> <a class="C(barText) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(0) Td(n)--p Tov(e) D(b)" href=../ >Web Reference</a></div></div></nav><div class="Bgc(pageBackground) Bgc(t)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(textColorNormal) P(10px)"><div class="Mx(a) W(100%) Maw(contentWidthMax) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>Onloads and Alternatives</h1><div class=Px(20px)><div class="Bgc(#c5e0f9) Bgc(t)--p Fs(i) Py(4px) Px(8px)">When you have multiple JavaScript programs that both want to start with `window.onload`? Alter them both accordingly so that they will never conflict again. Code this way for all of your `window.onload` needs and remove potential sources of trouble.</div></div></header><div class=contents><p>Let&#39;s just say that you have a script that you want to distribute or that could be loaded with other scripts and you really don&#39;t want them to conflict with each other. If you need an <code>onload</code> event, things can get a bit weird. You&#39;ll maybe wonder why your pull-down menus don&#39;t work and your background changing does work. These snippets of code will help you out.</p><h2 id=overloading-windowonload>Overloading <code>window.onload</code></h2><p>In order to use this, you will need to slightly edit your JavaScript. You&#39;ll likely add these lines at the bottom of your code.</p><pre><code>(function () {
+    var old_onload = window.onload;
+
+    window.onload = function () {
+        // Insert your code here to initialize your program
+        doMyThing();
+
+        // Then, this little bit calls the previous onload function
+        if (old_onload) {
+           old_onload();
+        }
+    }
+
+    window.onload = new_onload;
+}());
+</code></pre><p>With the above code, you can ensure that your JavaScript will not interfere with another person&#39;s JavaScript, especially if yours is loaded after the other person&#39;s code. If the other person&#39;s code is loaded after yours, and they don&#39;t use code like what is above, you can obviously alter their program to do your bidding and make sure it won&#39;t interfere with other things you have going for yourself.</p><p>As a general rule, you should never code JavaScript that sets <code>window.onload</code> unless you handle the scenario where <code>window.onload</code> was already set. Also, using <code>window.onload</code> is now considered the <em>really old way</em>.</p><h2 id=jquery>jQuery</h2><p>jQuery has a great way to run code when you load the page. Pass a function to <code>$</code> and it will be called when <code>window.onload</code> would fire.</p><pre><code>$(function () {
+    // Insert your code here to initialize your program
+});
+</code></pre><h2 id=windowsettimeout><code>window.setTimeout()</code></h2><p>Are you living in a world without jQuery? You can also use <code>window.setTimeout</code> but be warned that your code might run before things are fully loaded.</p><pre><code>(function () {
+    function startup() {
+       // This is your startup function.
+       // You&#39;d do stuff in here.
+    }
+
+    // Set the startup function to run.
+    window.setTimeout(startup, 100);
+}());
+</code></pre><p>If you have external JavaScript files that you need to load before your function runs, you just add a couple lines.</p><h2 id=polling>Polling</h2><p>You can periodically check to see if an element has been loaded in the DOM. Here&#39;s a method that uses <code>document.getElementById</code>.</p><pre><code>// Polling for an element with a specific ID
+(function () {
+    var interval = window.setInterval(function () {
+        if (!document.getElementById(&#39;someIdYouNeed&#39;)) {
+            return;
+        }
+        window.clearInterval(interval);
+        // Do your stuff here
+    });
+}());
+</code></pre><p>You can also see when a script has loaded by checking for a function to be defined.</p><pre><code>// Polling for the existence of a function
+(function () {
+    var interval = window.setInterval(function () {
+        if (!someNecessaryFunction) {
+            return;
+        }
+        window.clearInterval(interval);
+        // Do your stuff here
+    });
+}());
+</code></pre><h2 id=how-about-a-library>How About A Library?</h2><p>This little bit of code will take over the <code>window.onload</code>, and then all you need to do is call <code>onloadAdd()</code> with your function to add more and more behaviors that should be executed when the page loads.</p><pre><code>(function () {
+    var queue = [];
+
+    if (window.onload) {
+        queue.push(window.onload);
+    }
+
+    function runQueue() {
+        var i;
+
+        for (i = 0; i &lt; queue.length; i += 1) {
+            queue[i]();
+        }
+    }
+
+    window.onload = runQueue;
+
+    window.onloadAdd = function (callback) {
+        queue.push(callback);
+    };
+}());
+</code></pre><p>With this, all you need to do is keep calling onloadAdd() and hundreds of things can run without them stepping on each other&#39;s toes.</p><h2 id=yet-another-way>Yet Another Way</h2><p>Sometimes the above code will not work for you or you prefer to use newer techniques to register your onload behavior. The below code is what I came up with. It uses the browser-specific extensions to automatically work with Firefox 2+, IE 7+, or fall back and work with the <code>window.onload</code> that most of the older versions and other browsers support.</p><p>Personally, I like the easier <code>window.onload</code> methods as detailed above. They work splendidly for me, and I only put this up here because people asked nicely. Keep in mind that newer frameworks like jQuery do something a lot more concise and suited for those newer browsers.</p><pre><code>// We use these variables to see if the onload code ran,
+// to possibly store the old window.onload function, and to see
+// if we have been set up.
+// Make sure to change the names in your script to something unique!
+var onload_ran = 0;
+var onload_old = null;
+var onload_init = 0;
+
+// Here is our onload function.  Note:  We can call it multiple times,
+// and that&#39;s why there is that &#39;if&#39; statement right away
+function my_onload() {
+    if (onload_ran) return;
+    onload_ran = 1;
+
+    // Do your other onload stuff here
+    // ...
+    // Now we may need to handle other onloads
+
+    if (onload_old &amp;&amp; onload_old != null) {
+        onload_old();
+    }
+}
+
+// This line is required for the code to work with IE
+document.write(&#39;&amp;lt;script id=&quot;__init_script&quot; defer=&quot;true&quot; src=&quot;//[]&quot;&amp;gt;&amp;lt;\/script&amp;gt;&#39;);
+
+if (document.addEventListener) {
+    // Mozilla
+    document.addEventListener(&quot;DOMContentLoaded&quot;, my_onload, false);
+    onload_init = 1;
+}
+if (! onload_init &amp;&amp; document.getElementById) {
+    // IE
+    var deferScript = document.getElementById(&#39;__init_script&#39;);
+    if (deferScript) {
+        deferScript.onreadystatechange = function() {
+        if (this.readyState == &#39;complete&#39;) {
+            // Needed to add tiny delay for IE
+        window.setTimeout(&#39;my_onload()&#39;, 100);
+        this.onreadystatechange = &#39;&#39;;
+        }
+    };
+
+    // Check if the script has already been completed
+    deferScript.onreadystatechange();
+
+    // Clear reference to prevent IE memory leaks
+    deferScript = null;
+
+    onload_init = 1;
+    }
+}
+if (! onload_init) {
+    // Older and different browsers
+    onload_old = window.onload;
+    window.onload = my_onload;
+    onload_init = 1;
+}
+</code></pre></div></main></div></div></div><footer class="Bgc(barBackground) Bgc(t)--p Bdtw(1px) Bdc(barBorder) C(barText) C(black)--p P(10px) D(f) Fxd(c)--p Jc(sb)"><div class=Fz(0.8em)>&copy; Copyright 2022 Tyler Akins &lt;<a class="Td(n)--p C(barText) C(black)--p" href=mailto:fidian@rumkin.com>fidian@rumkin.com</a>&gt;, last build 2022-08-04T21:27:12.746Z</div><div><a class="D(n)--p Fz(0.8em) C(barText)" href=../../../license/ >License</a> | <a class="D(n)--p Fz(0.8em) C(barText)" href=../../../site/legal/ >Legal</a> <a class="D(n) D(b)--p Td(n) Fz(0.8em)" href=../../../license/ >Site content licensed under a MIT license with a non-advertising clause</a></div></footer></div></body></html>

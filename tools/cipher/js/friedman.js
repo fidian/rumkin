@@ -1,0 +1,1 @@
+"use strict";function Friedman(e,r){var t,a,n,o;for(r=(r=r&&""!=r?r:"ABCDEFGHIJKLMNOPQRSTUVWXYZ").toUpperCase(),t=LetterFrequency(e.toUpperCase()),a=o=n=0;a<r.length;a++){var c=r.charAt(a);n+=(c=(c=t[c])||0)*(c-1),o+=c}return n/=o*(o-1)}document.Friedman_Loaded=1;
