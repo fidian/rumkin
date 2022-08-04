@@ -1,0 +1,40 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        # If you're using actions/checkout@v2 you must set persist-credentials to false
+        # in most cases for the deployment to work correctly.
+        uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+
+      # This example project is built using npm and outputs the result to the 'build'
+      # folder. Replace with the commands required to build your project, or remove
+      # this step entirely if your site is pre-built.
+      #
+      # If there's weird GLIBC issues, double check that the ubuntu-latest environment
+      # matches the wkhtmltopdf environment.
+      #
+      # Github Actions: https://github.com/actions/virtual-environments
+      # Wkhtmltopdf: https://wkhtmltopdf.org/downloads.html#stable
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
