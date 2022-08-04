@@ -25,8 +25,11 @@ module.exports = class Gronsfeld {
         return [
             m("p", m(DirectionSelector, this.direction)),
             m("p", m(KeyedAlphabet, this.alphabet)),
-            m("p", m(TextInput, this.cipherKey)),
-            m("p", this.viewVigenereKey()),
+            m("p", [
+                m(TextInput, this.cipherKey),
+                m('br'),
+                this.viewVigenereKey()
+            ]),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
@@ -42,10 +45,6 @@ module.exports = class Gronsfeld {
     }
 
     viewResult() {
-        if (this.vigenereKey.length === 0) {
-            return m(Result, "A cipher key is required");
-        }
-
         if (this.input.value.trim() === "") {
             return m(Result, "Enter text and see the result here");
         }
