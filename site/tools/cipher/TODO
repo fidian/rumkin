@@ -1,3 +1,6 @@
+* Allow transposition of digits for Columnar Transposition, double columnar transposition
+
+
 Add:
  * Pigpen variations
    http://educ.queensu.ca/~fmc/may2004/diagram.html
@@ -32,7 +35,7 @@ Make a sort of a command-line encoder/decoder.
   - horizontally (already done)
   - vertically
   - spirals (clockwise and counter, inwards and outwards)
-  
+
 * Add a digraph cipher
 * Info at http://www.pbs.org/wgbh/nova/decoding/doubplayfair.html
 * Allow the alphabets to be keyed and possibly shifted.
