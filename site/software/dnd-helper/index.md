@@ -136,10 +136,6 @@ Here's links to everything that is related to D&D for the Palm.
 
 * [DieRoller](http://sourceforge.net/projects/palmdieroller/) (freeware, open source) - Written in Quartus Forth, this die roller lets you roll up to 8 dice at a time and displays the roll results as well as a sum of the dice you want.
 
-* [Gamer's Die Roller](http://palm.dahm.com/roller/roller.html) (freeware) - Roll up to 20 dice at once.  Assign up to 24 custom die rolls, which can test for success or failure against a value or compute AD&D To Hit armor class.
-
-* [Diceman](http://www.freewarepalm.com/games/diceman.shtml) (freeware) - Roll sets of dice for your character.  Define how many dice and what type of dice to roll, then save several dice sets for your character.
-
 
 ### Background / More Information
 
@@ -148,18 +144,12 @@ Here's links to everything that is related to D&D for the Palm.
 * [Zompist.com](http://zompist.com) - Mark Rosenfelder's language site.  He originally wrote a tool called psrGrammar, which took rules and expanded them into words.  This was later refined by Chris Pound.
 
 
-### Other Sites Of Interest
-
-* [RPG Gateway](http://www.rpggateway.com/) - Large collection of links related to role playing games.
-
-
 Also Seen At ...
 ----------------
 
 People have kindly linked to this site.  Below are the ones that I could find.  You may wish to check some of them out because they have independent review systems so you can check out the unedited reviews that others have submitted about this software.
 
 * [D&D Adventures](http://www.dndadventure.com/dnda_dm_resources.html)
-* [FreewarePalm](http://www.freewarepalm.com/games/d&dhelper.shtml)
 * [Palm Gaming World](http://www.palmgamingworld.com/rpg/d&dhelper.shtml)
 * [RPGIndex](http://www.rpgindex.com/Software/Campaign_Managers/D20_Systems/)
 
@@ -171,7 +161,7 @@ Changelog
 ### March 2015
 
 * Due to the lack of interest, I've cleaned up the various programs.  Only the PSR formats of databases are left as they are the easiest to generate.
-* Created PSR-related libraries: [psr-js](https://github.com/fidian/psr-js) and [psr-php](https://github.com/fidian/psr-php).
+* Created PSR-related library, [psr-js](https://github.com/fidian/psr-js).
 * Removed the PSR playground instead of porting it to JavaScript.  If you miss this, go to [psr-js](https://github.com/fidian/psr-js) and file an issue to make a testing area to demonstrate how the software works.
 
 

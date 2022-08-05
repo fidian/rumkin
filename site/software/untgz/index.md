@@ -13,7 +13,7 @@ Features
 * Executables for various Intel x86 flavors:  DOS (really old machines), DOS on 386+ machines (still really old), Win32 for 32-bit Windows (95/98/NT/2000/ME/XP), and a native OS/2 binary.
 * Extracts a `.gz` or `.tgz` and either decompresses it to the single `.tar` or to the separate files inside the `.tar`.
 
-I was looking for a tiny tool that I would put on my boot disk to extract an archive to a ramdisk so I could install more tools than the single floppy would allow.  The method is similar to [Bart's Modular Boot Disk](http://www.nu2.nu/bootdisk/modboot/).  Originally, I used `.zip` archives because I found a 50k unzip program.  Then I switched to `.rar` because I located a 26k unrar program.  I upgraded my Linux machine and found out that the newer version of rar can't be decompressed with my unrar file, so I searched the web again for a standard format that I could create on Linux and decompress on DOS.  I was very fortunate and found untgz.
+I was looking for a tiny tool that I would put on my boot disk to extract an archive to a ramdisk so I could install more tools than the single floppy would allow.  The method is similar to Bart's Modular Boot Disk.  Originally, I used `.zip` archives because I found a 50k unzip program.  Then I switched to `.rar` because I located a 26k unrar program.  I upgraded my Linux machine and found out that the newer version of rar can't be decompressed with my unrar file, so I searched the web again for a standard format that I could create on Linux and decompress on DOS.  I was very fortunate and found untgz.
 
 
 SMALLER!
@@ -64,6 +64,5 @@ Download
 Links
 -----
 
-* [Bart's MODBOOT](http://www.nu2.nu/bootdisk/modboot/) - Modular boot disk that uses a ramdisk and extracts `.cab` files when booting
 * [UNTGZ](http://www.t-st.org/untgz/) - Official Site
 * [UPX](http://upx.sourceforge.net/) - The Ultimate Packer for eXecutables

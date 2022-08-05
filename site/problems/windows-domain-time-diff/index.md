@@ -27,7 +27,7 @@ You need to synchronize your clocks.  For the following examples, replace `%DOMA
 
 * Log in as a local administrator.  If you don't have access to a local administrator account, you can try the following:
   * Unplug the network cable and try to login as you normally would.  The client likely has your credentials cached.
-  * You can download the [Offline NT Password & Registry Editor](http://home.eunet.no/pnordahl/ntpasswd/) floppy or CD image and use it to blank the admin password.
+  * You can download the Offline NT Password & Registry Editor floppy or CD image and use it to blank the admin password.
 * Obtain a command shell with one of these methods:
   * Start -> Run -> `command`
   * Start -> Run -> `cmd`

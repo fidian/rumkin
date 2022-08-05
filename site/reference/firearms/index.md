@@ -127,8 +127,6 @@ Links
 
 * [Bullet Penetration Testing](http://www.hipowersandhandguns.com/Expansion%20and%20Penetration.htm) - Compares newspaper, water, and actual results from a deer.  By viewing many images, you can see the different rounds before and after they were fired into various mediums.
 
-* [Walls Resistant to Bullets](http://www.huts.com/Huts'sBallisticTest.htm) - Thorough testing of wall materials and how they resist various caliber bullets.
-
 * [rec.guns FAQ](http://www.recguns.com/Sources/topOutline.html) - It's always a good idea to know where one should go for answers.
 
 * [Simplified 10% Ordnance Gelatin Preparation and Test Procedure](http://www.firearmstactical.com/tacticalbriefs/volume3/number2/article1.htm) - Very organized instructions with pictures to help out with the steps.
@@ -139,10 +137,6 @@ Links
 
 * [FBI bullet penetration tests, in PHP, sortable](http://apollo.demigod.org/~zak/firearms/fbi-pistol.php) - It's pretty nice to be able to look at the information in this manner.
 
-* [Numbers about bullet lethalness, formulas, etc](http://www.handgunsmag.com/ammunition/fodder_fact_finding/index.html) - A well-written article that shows how proper ballistic gel should be prepared and tested.
-
-* [FBI Penetration Testing](http://www.vyse.com/FBI%20PENETRATION%20TESTING.htm) - Explains how gelatin blocks are used for the FBI's ballistic testing.
-
 
 [Gelita]: http://www.gelita.com
-[Ten Commandments of Firearm Safety]: http://www.remington.com/safety/10comm.htm
+[Ten Commandments of Firearm Safety]: https://www.remington.com/safety-information/safety-first.html

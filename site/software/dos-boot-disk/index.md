@@ -53,12 +53,12 @@ Oh boy.
     * `DRVLOAD.COM` - Load files into high memory after `CONFIG.SYS` has finished, version 1.0 from Rick Knoblaugh. `UPX` compressed.
     * `EDIT.BAT` - Simply runs `NED` for people who are used to using the `EDIT` command.
     * `FDISK.EXE` - Check disk for errors from FreeDOS.
-    * `FINDCD.COM` - Determines if the CD-ROM was found, freeware, version 1.2 from [Bart Lagerweij](http://www.nu2.nu/contact/bart).
+    * `FINDCD.COM` - Determines if the CD-ROM was found, freeware, version 1.2 from Bart Lagerweij.
     * `NANSI.SYS` - New ANSI driver, version 4.0a from [Daniel Kegel](http://www.kegel.com/nansi/).
     * `NC.BAT` - Simply runs `DM` for people who are used to running Norton Commander.
     * `NED.EXE` - Very small editor. Unsure where it was found. `UPX` compressed.
     * `NO.COM` - Great way to exclude files, such as `NO *.PDF DEL *.*`. Written by Charles Petzold.
-    * `NTFSDOS.EXE` - Mount NTFS filesystems under DOS, from [Winternals Software](http://www.winternals.com).
+    * `NTFSDOS.EXE` - Mount NTFS filesystems under DOS, from Winternals Software.
     * `PERUSE.COM` - Screen scrollback buffer, from Bob Flanders and Michael Holmes, version 1.00.
     * `QUICKFMT.BAT` - Tool to format your computer and wipe all files from it. Uses files in `ANSI` for screen prompts. Pretty easy to use.
     * `RECALL.COM` - Command history, from TifaWARE, version 1.2c. `UPX` compressed.

@@ -10,8 +10,7 @@ Command Window Simulator
 
 Did you ever want to distribute an application but keep the command window?  Do you have advanced FoxPro users out there that like to type in their own commands to fix data instead of having them bother IT?  Now, you can have your developer with one licensed copy of FoxPro and distribute your application with this command window emulator.
 
-I found a command window simulator written by Walter Meester and modified
-by Eric den Doop at [Foxite](http://www.foxite.com/downloads/default.aspx?id=11).  I later altered it a bit more to not require the "READ EVENTS" stuff and handle "BROWSE" commands a bit better.  These changes were necessary for the application I was adding it to.  Now, you just need one line to pop open the form and get the command window simulator running.
+I found a command window simulator written by Walter Meester and modified by Eric den Doop at Foxite.  I later altered it a bit more to not require the "READ EVENTS" stuff and handle "BROWSE" commands a bit better.  These changes were necessary for the application I was adding it to.  Now, you just need one line to pop open the form and get the command window simulator running.
 
 * Download: [command.zip](command.zip)
 
@@ -109,7 +108,7 @@ The code has slightly better comments before each function, and explains the dat
 Fuzzy String Matching
 ---------------------
 
-I have expanded the fuzzy string matching for FoxPro to handle two different algorithms, and they are also coded for other languages.  They are explained in detail on my [fuzzy string matching](../../../reference/algorithms/fuzzy-strings/) page.
+I have expanded the fuzzy string matching for FoxPro to handle two different algorithms, and they are also coded for other languages.  They are explained in detail on my [fuzzy string matching](../../../programming/algorithms/fuzzy-strings/) page.
 
 
 GetDate

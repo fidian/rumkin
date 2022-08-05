@@ -211,7 +211,7 @@ number of moves is immediately after the `?` in the URL. Well, there were a lot
 of suggestions that were given to me, and here is a list of the various things
 that can be done to stop those annoying cheaters.
 
-* Use POST instead of GET, that way the user doesn't see the number that is submitted to the CGI. Thanks to Tom Scheper, I was directed to a site that [explains everything](http://www.javaworld.com/javaworld/javatips/jw-javatip34.html) about how to add it to your Java program.  I won't be adding it, but if someone does, I would certainly accept changes.
+* Use POST instead of GET, that way the user doesn't see the number that is submitted to the CGI. Thanks to Tom Scheper, I was directed to a site that explained everything about how to add it to your Java program.  I won't be adding it, but if someone does, I would certainly accept changes.
 
 * Use a simple formula to get a different number, like [moves] * 15 + 23, but then people would figure that out too (I tested this theory in 1998).
 

@@ -3,7 +3,7 @@ title: BURP
 summary: Encrypt a single file with Blowfish encryption. Command-line based, public domain, ported to many platforms.  I have also written a Windows GUI.
 ---
 
-While searching for a good file encryption utility, I decided that I wanted one that was open source, cross-platform, and easy to use.  I wanted versions that would run on Linux, DOS, and Windows (Win32).  [BURP](http://www.geodyssey.com/cryptography/cryptography.html) fits the bill perfectly.  It stands for Blowfish Updated Re-entrant Project.
+While searching for a good file encryption utility, I decided that I wanted one that was open source, cross-platform, and easy to use.  I wanted versions that would run on Linux, DOS, and Windows (Win32).  BURP fits the bill perfectly.  It stands for Blowfish Updated Re-entrant Project.
 
 The only problem was that there was no GUI for Windows.  Not a problem!  I quickly designed one in [AutoIt](http://www.autoitscript.com/), which is a wonderful scripting language.  Now there is BURP-GUI.  I also packed the BURP executables listed below with UPX to make them smaller, which is perfect for keeping them on my rescue CD and on flash drives.
 
@@ -39,7 +39,7 @@ I place BURP-GUI in the public domain, just like how BURP was licensed.  The sof
 Download / Links
 ----------------
 
-You should also check out the [official site](http://www.geodyssey.com/cryptography/cryptography.html) for news and updates to BURP.  You should get the freeware scripting language, [AutoIt](http://www.autoitscript.com/), if you want to recompile the GUI.
+You should get the freeware scripting language, [AutoIt](http://www.autoitscript.com/), if you want to recompile the GUI.
 
 * [burp-gui.zip](burp-gui.zip) - Windows GUI and the AutoIt 3 source code
 * [burp-dos.zip](burp-dos.zip) - DOS executable, UPX compressed

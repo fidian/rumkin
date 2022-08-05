@@ -7,7 +7,6 @@ title: Rumkin.com
 * [Ciphers](tools/cipher/) - Encode or decode secret messages in your browser. Great for geocaching, escape rooms, or simply passing the time.
 * [Phone Uploader](tools/sprint/) - Send new ringtones, images, and Java midlets to your phone with ease.  Works with many phones and providers, and I don't charge a cent!
 * [Mailto Encoder](tools/mailto_encoder/) - A safe way to put your email address on a web page and not have it harvested by spambots.  Packed with features and ways to customize the encoding of the address.
-* [SSH Applet](tools/ssh/) - Need to log into a remote machine, but you don't have an SSH client handy?  On a loaner computer or can't install software?  Just need to SCP that one file?  Here you go!
 * [more ...](tools/)
 
 ### [Fun Stuff](fun/)

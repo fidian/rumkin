@@ -33,7 +33,7 @@ Download all of these at once:  [misc.zip](misc.zip)
 
 * [Business Names](misc/business.pdb) - From the Net Book of Names, List of Businesses <div class="module" psr-sample="misc/business.psr.txt"></div>
 * [Critical Hit](misc/crit-hit.pdb) - Used with permission from D&D Adventures. ([source](http://dndadventure.com/dnda_optional_rules.html)) <div class="module" psr-sample="misc/crit-hit.psr.txt"></div>
-* [Gems](misc/gems.pdb) - One random gen description per gem type. ([source](http://www.systemreferencedocuments.org/index.htm?35/wotc.htm)) <div class="module" psr-sample="misc/gems.psr.txt"></div>
+* [Gems](misc/gems.pdb) - One random gen description per gem type. <div class="module" psr-sample="misc/gems.psr.txt"></div>
 * [Fumble](misc/crit-miss.pdb) - Used with permission from D&D Adventures. ([source](http://dndadventure.com/dnda_optional_rules.html)) <div class="module" psr-sample="misc/crit-miss.psr.txt"></div>
 * [Magic Items](misc/magic-items.pdb) - A fairly decent magic item generator.  Results should still be checked for mismatched attributes, such as a dancing bow or a sap of wounding. ([source](http://www.d20srd.org/indexes/magicItems.htm)) <div class="module" psr-sample="misc/magic-items.psr.txt"></div>
 * [Mundane Items](misc/mundane.pdb) - Generates several mundane items for treasure. ([source](http://www.d20srd.org/srd/treasure.htm)) <div class="module" psr-sample="misc/mundane.psr.txt"></div>
@@ -49,14 +49,14 @@ Need a name for your character?
 
 Download all of these at once:  [names.zip](names.zip)
 
-* [Elvish](names/elf-names.pdb) - From Martin Keegan, posted to the MUD-Devel mailing list. ([source](http://www.kanga.nu/archives/MUD-Dev-L/1997Q2/msg01379.php)) <div class="module" psr-sample="names/elf-names.psr.txt"></div>
+* [Elvish](names/elf-names.pdb) - From Martin Keegan, posted to the MUD-Devel mailing list. <div class="module" psr-sample="names/elf-names.psr.txt"></div>
 * [Fantasy (Pick)](names/fantnames.pdb) - Used with permission from Joseph Dubois (Scooby).  ([source](http://www.miniworld.com/adnd/)) <div class="module" psr-sample="names/fantnames.psr.txt"></div>
 * [Fantasy (Gen)](names/fantna-g.pdb) - Generated using letter frequencies.  Used with permission from Joseph Dubois (Scooby).  ([source](http://www.miniworld.com/adnd/))
-* [US Female First Names (Pick)](names/us-female.pdb) - 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div class="module" psr-sample="names/us-female.psr.txt"></div>
-* [US Female First Names (Gen)](names/us-female-g.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/))
-* [US Last Names](names/us-last.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div class="module" psr-sample="names/us-last.psr.txt"></div>
-* [US Male First Names (Pick)](names/us-male.pdb) - 1990 US Census.  ([source](http://www.census.gov/genealogy/names/)) <div class="module" psr-sample="names/us-male.psr.txt"></div>
-* [US Male First Names (Gen)](names/us-male-g.pdb) - Generated from 1990 US Census.  ([source](http://www.census.gov/genealogy/names/))
+* [US Female First Names (Pick)](names/us-female.pdb) - 1990 US Census. <div class="module" psr-sample="names/us-female.psr.txt"></div>
+* [US Female First Names (Gen)](names/us-female-g.pdb) - Generated from 1990 US Census.
+* [US Last Names](names/us-last.pdb) - Generated from 1990 US Census. <div class="module" psr-sample="names/us-last.psr.txt"></div>
+* [US Male First Names (Pick)](names/us-male.pdb) - 1990 US Census. <div class="module" psr-sample="names/us-male.psr.txt"></div>
+* [US Male First Names (Gen)](names/us-male-g.pdb) - Generated from 1990 US Census.
 
 
 Language Generation
@@ -80,7 +80,7 @@ Download all of these at once:  [languages.zip](languages.zip)
 * [Italian](languages/italian.pdb) - From the Debian package "witalian". ([source](http://packages.debian.org/stable/text/witalian.html))
 * [Norwegian (bokmål)](languages/bokmaal.pdb) - From the Debian package "wnorwegian". ([source](http://packages.debian.org/stable/text/wnorwegian.html))
 * [Norwegian (nynorsk)](languages/nynorsk.pdb) - From the Debian package "wnorwegian". ([source](http://packages.debian.org/stable/text/wnorwegian.html))
-* [Polish](languages/polish.pdb) - From a Polish wordlist. ([source](http://wordlists.cjb.net/))
+* [Polish](languages/polish.pdb) - From a Polish wordlist.
 * [Spanish](languages/spanish.pdb) - From the Debian package "wspanish". ([source](http://packages.debian.org/stable/text/wspanish.html))
 * [Swedish](languages/swedish.pdb) - From the Debian package "wswedish". ([source](http://packages.debian.org/stable/text/wswedish.html))
 
@@ -92,7 +92,7 @@ Files listed here are probably for "advanced" users only.  I link to them for th
 
 * [PHP D&D Helper Class](dnd-helper.inc.txt) - This PHP class is an extender for [PHP-PDB](https://github.com/fidian/php-pdb) (a PHP class to read and write PDB files).  It will assist in writing databases that can be used by D&D Helper.  This class is very slow when dealing with letter pair databases, so you should only write 'Pick' and 'PSR' style databases on the fly, if ever.
 
-* [psr-js](http://github.com/fidian/psr-js) and [psr-php](http://github.com/fidian/psr-php) - JavaScript and PHP versions of the generator that I use for creating the samples on this page.  Very flexible and powerful tools.
+* [psr-js](http://github.com/fidian/psr-js) - JavaScript version of the generator that I use for creating the samples on this page.
 
 * [MenuHack](menuhack.zip) - A HackMaster extension (that works with HackMaster, EVPlugBase, X-Master, etc.) that will let you tap the menu bar of an application to pull down the menu, instead of doing the counter-intuitive action of pressing the menu button for the menu.  Only older Palm handhelds can benefit from this -- the newer ones have this built-in.  This is not required to run the program.  It merely makes life easier.
 

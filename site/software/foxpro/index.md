@@ -40,5 +40,4 @@ Links
 
 Where would I be if I did not list the useful sites out there that had FoxPro code available for public consumption?
 
-* [Ed Leafe's Downloads](http://www.leafe.com/dls/vfp) - Many other forms, applications, and other FoxPro samples are available here.
 * [FoxPro Wiki](http://fox.wikis.com/wc.dll?Wiki~FoxProWiki) - Most likely, someone before you had the same problem that you are facing.  This wiki houses some of the best information available for FoxPro.

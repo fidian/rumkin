@@ -47,20 +47,21 @@ Modified Bots
 
 These are bots that I modified to run faster and be more aggressive.  Some I also fixed a bit.  Code is protected (as they were originally).
 
-* [Cruiser2](cruiser2.pdb) - Originally from [Rudi's Site].  I combined multiple assignments and moved some math into the scan line.
+* [Cruiser2](cruiser2.pdb) - Originally from Rudi's Site.  I combined multiple assignments and moved some math into the scan line.
 * [Death Tank 4](death-tank-4.pdb) - Originally from the [Official Site].  I removed `GOSUB` functions, and made the scan randomly pick the direction to get some robots that would have been missed.
-* [Fleeter 2](fleeter-2.pdb) - Originally from [Rudi's Site].  Very hard to improve on this little guy.  I made it so that it couldn't hurt itself, and I made the first shot come off a little faster.
-* [Lord of the Rings 2](lord-of-the-rings-2.pdb) - Originally from [Rudi's Site].  A very nice robot.  I made it avoid damaging itself, removed `GOSUB` functions, had it initially driven to its starting spot without starting in the center, and sped it up a bit.  Excellent concept!
+* [Fleeter 2](fleeter-2.pdb) - Originally from Rudi's Site.  Very hard to improve on this little guy.  I made it so that it couldn't hurt itself, and I made the first shot come off a little faster.
+* [Lord of the Rings 2](lord-of-the-rings-2.pdb) - Originally from Rudi's Site.  A very nice robot.  I made it avoid damaging itself, removed `GOSUB` functions, had it initially driven to its starting spot without starting in the center, and sped it up a bit.  Excellent concept!
 * [Smack Down 2](smack-down-2.pdb) - Originally from the [Official Site].  I removed the `GOSUB` functions, unnecessary assignments, and made the first shot fire faster.
-* [Sniper 2](sniper-2.pdb) - Originally from [Rudi's Site].  I made it pick a random direction, removed the `WHILE` loop around the program, combined assignments, removed `GOTO`s (which were used like `GOSUB`s), and corrected the program to think that the target is on the other side if a sub-scan missed its mark.  Works great against non-moving drones.
+* [Sniper 2](sniper-2.pdb) - Originally from Rudi's Site.  I made it pick a random direction, removed the `WHILE` loop around the program, combined assignments, removed `GOTO`s (which were used like `GOSUB`s), and corrected the program to think that the target is on the other side if a sub-scan missed its mark.  Works great against non-moving drones.
 
 
 Even More Links
 ---------------
 
 * [Official Site] - You have to go here.
-* [Rudi's Site] - Several tough bots to kill.  Only a few were modified by me to be a bit faster.
 * [Yahoo GarBots Group] - Some messages, some files, some links.  Nothing too fancy, but you have to be a member before you can even see the message archive.
+
+Unfortunately, Rudi's site was taken offline.
 
 
 Bugs
@@ -187,4 +188,3 @@ Code Snippets
 
 
 [Official Site]: http://www.hares.net/bot.htm
-[Rudi's Site]: http://dl3rud.gmxhome.de/garbots.htm

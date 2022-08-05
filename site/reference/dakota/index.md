@@ -142,8 +142,6 @@ Some people report that sending the ground to pin 7 instead of pin 10 works bett
 Links
 -----
 
-[Referend Jim](http://revjim.net/2003/07/30/disposable-digital-camera/) - Lots of information about how the Ritz camera was usably hacked and all about the hardware.
-
 [Windows Software](http://cexx.org/dakota/) and information about the camera.
 
 [Dakota PV2 Series](http://www.cexx.org/dakota/pv2.htm) information (the one with the LCD)

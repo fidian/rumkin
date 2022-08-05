@@ -3,7 +3,7 @@ title: USBStart
 summary: A nice program that will help you automatically run another program on your USB drive.  When that program exits, the drive will be automatically dismounted.  Great for use with Floater.
 ---
 
-USBStart is designed to run with Windows XP SP2's autorun.  It also works well with [APO USB Autorun](http://www.archidune.com/apo/), which is a free program that will add the autorun functionality to any earlier version of Windows that supports flash drives (Windows 98 and up).
+USBStart is designed to run with Windows XP SP2's autorun.  It also works well with APO USB Autorun, which is a free program that will add the autorun functionality to any earlier version of Windows that supports flash drives (Windows 98 and up).
 
 
 Description
@@ -24,7 +24,7 @@ Here are the suggested steps to get your flash drive working like mine.
 3. Copy `deveject.exe`, `USBStart.exe` and `USBStart.ini` (in the `usbstart.zip` file) to the `Utils` folder.
 4. Copy [Floater](../floater/) (just the .exe file) to your `Utils` directory (use Floater-txt).
 5. Set up `Floater.txt` so that when you run Floater, it will show you an acceptable menu.
-6. Set up an `autorun.ini` file in the root directory of your flash drive.  Instructions on this listed below, or you can use the APO Autorun Builder, which comes as part of the [APO Autorun Suite](http://www.archidune.com/apo/).
+6. Set up an `autorun.ini` file in the root directory of your flash drive.  Instructions on this listed below, or you can use the APO Autorun Builder, which comes as part of the APO Autorun Suite.
 
 At this point, you should be able to dismount the drive, then reinsert it and have the autorun start up the floating menu.  When you close the menu, the flash drive should be dismounted automatically and you can remove it safely from the computer.
 

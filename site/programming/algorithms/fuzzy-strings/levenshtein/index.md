@@ -147,8 +147,7 @@ The distance is in the lower right hand corner of the matrix, i.e. 2. This corre
 Source Code, in Three Flavors
 -----------------------------
 
-Religious wars often flare up whenever engineers discuss differences between programming languages. A typical assertion is Allen Holub's claim in a JavaWorld [article](http://www.javaworld.com/javaworld/jw-07-1999/jw-07-toolbox.html) (July 1999): "Visual Basic, for example, isn't in the least bit object-oriented.  Neither is Microsoft Foundation Classes (MFC) or most of the other Microsoft
-technology that claims to be object-oriented."
+Religious wars often flare up whenever engineers discuss differences between programming languages. A typical assertion is Allen Holub's claim in a JavaWorld article (July 1999): "Visual Basic, for example, isn't in the least bit object-oriented.  Neither is Microsoft Foundation Classes (MFC) or most of the other Microsoft technology that claims to be object-oriented."
 
 A salvo from a different direction is Simson Garfinkels's [article](http://www.salon.com/tech/col/garf/2001/01/08/bad_java/index.html) in Salon (Jan. 8, 2001) entitled "Java: Slow, ugly and irrelevant", which opens with the unequivocal words "I hate Java".
 
@@ -521,7 +520,6 @@ References
 Other discussions of Levenshtein distance may be found at:
 
 * [http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Dynamic/Edit.html](http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Dynamic/Edit.html) (Lloyd Allison)
-* [http://www.cut-the-knot.com/do_you_know/Strings.html](http://www.cut-the-knot.com/do_you_know/Strings.html) (Alex Bogomolny)
 * [http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node2.html](http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node2.html) (Thierry Lecroq)
 
 
@@ -533,7 +531,7 @@ The following people have kindly consented to make their implementations of the 
 * Eli Bendersky has written an implementation in [Perl](ldperl.html).
 * Barbara Boehmer has written an implementation in [Oracle PL/SQL](ldplsql.html).
 * Rick Bourner has written an implementation in [Objective-C](ldobjc.html).
-* Joseph Gama has written an implementation in [TSQL](ldtsql.html), as part of a [package of TSQL functions](http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=502&amp;lngWId=5) at [Planet Source Code](http://www.planet-source-code.com/).
+* Joseph Gama has written an implementation in [TSQL](ldtsql.html), as part of a package of TSQL functions.
 * Anders Sewerin Johansen has written an implementation in [C++](ldcpp.html), which is more elegant, better optimized, and more in the spirit of C++ than mine.
 * Lasse Johansen has written an implementation in [C#](ldcsharp.html).
 * Alvaro Jeria Madariaga has written an implementation in [Delphi](lddelphi.html).
@@ -542,11 +540,8 @@ The following people have kindly consented to make their implementations of the 
 
 Other implementations outside these pages include:
 
-* An [Emacs Lisp](http://www.astrogoth.com/~reeses/software/levenshtein.el) implementation by Art Taylor.
 * A [Python](http://www.hetland.org/python/distance.py) implementation by Magnus Lie Hetland.
-* A [Tcl](http://mini.net/tcl/3070) implementation by Richard Suchenwirth (thanks to Stefan Seidler for pointing this out).
 * Lukasz Stilger has written an implementation in [JavaScript](http://www.mgilleland.com/ld/ldjavascript.htm) which illustrates the algorithm in operation (well worth seeing).  Note that "wyraz" is Polish for "word".  A separate page with the source code as text is [here](http://www.mgilleland.com/ld/ldjavascriptsource.htm).
-* [Jorge Mas Trullenque](http://purl.oclc.org/net/jordi/index.html) points out that "the calculation needs O(n) memory, so using a two-dimensional matrix in a practical implementation is wasteful." He has written an implementation in [Perl](http://www.mgilleland.com/ld/ldperl2.htm) that uses only one one-dimensional vector.
+* Jorge Mas Trullenque points out that "the calculation needs O(n) memory, so using a two-dimensional matrix in a practical implementation is wasteful." He has written an implementation in [Perl](http://www.mgilleland.com/ld/ldperl2.htm) that uses only one one-dimensional vector.
 * Joerg F. Wittenberger has written an implementation in [Rscheme](http://www.merriampark.com/ldrscheme.htm).
-* A [PHP](http://www.php.net/manual/en/function.levenshtein.php) implementation (thanks to [Dan Tripp](http://www.dantripp.com/index.html) for pointing this out).
-* A [Scheme](http://www.neilvandyke.org/levenshtein-scm/) implementation by Neil Van Dyke.
+* A [PHP](http://www.php.net/manual/en/function.levenshtein.php) implementation.

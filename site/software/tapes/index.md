@@ -57,4 +57,4 @@ If the tape is labeled, scanning the tape will say that there are a few blocks t
 More Help
 ---------
 
-Beyond what I wrote in this web page, I am not a good source of information.  FTT comes with pretty good documentation, and the source for the simplistic tools that I wrote should get you off to a good start.  Perhaps you can find more help at [http://pcunix.com/Unixart/tapes.html](http://pcunix.com/Unixart/tapes.html).
+Beyond what I wrote in this web page, I am not a good source of information.  FTT comes with pretty good documentation, and the source for the simplistic tools that I wrote should get you off to a good start.

@@ -321,7 +321,6 @@ Thanks to the following sites for their contributions to these house rules:
 
 * [Improved Familiar Feats](http://www.angelfire.com/la/larryadnd/Improved%20Familiar%20Feats.html)
 * [SG's D&D House Rules](http://www.geocities.com/TimesSquare/Cavern/4565/)
-* [woj's page](http://www.magma.ca/~wkozlows/dnd/house-rules.html)
 
 
 [Pathfinder]: http://paizo.com/pathfinderRPG

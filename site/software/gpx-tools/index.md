@@ -298,8 +298,6 @@ that relate to the tools on this web site.</p>
 
 * [GSAK](http://gsak.net) - A very versatile tool that lets you filter, convert, and modify waypoints.  Shareware for Windows.
 
-* [Working with Custom Waypoints](http://www.elsinga.net/208.html) - How to set up custom waypoints for Garmin GPS units.  The article is geared towards geocaching, and shows you how to use `ximage`, step by step.
-
 
 Downloading
 -----------

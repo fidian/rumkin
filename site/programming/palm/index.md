@@ -233,12 +233,10 @@ Off-Site Links
 --------------
 
 
-[Palm OS Development FAQ](http://flippinbits.com/twiki/bin/view/FAQ/WebHome) - Lots of information about programming for the Palm.  If a subject is already covered there, it certainly won't go into this page.
-
 [PalmOpenSource.com](http://www.palmopensource.com/) - Software that is not only free, but it also lets you download and modify the source code in order to make improvements.  Unfortunately, the site is a bit on the small side and doesn't have loads and loads of software.
 
 [PRC-Tools](http://prc-tools.sourceforge.net/) - Open source, free compiler for making Palm OS programs.  This is the alternative to CodeWarrior, and what I use.  I highly recommend it.
 
-[PilRC](http://www.ardiri.com/index.php?redir=palm&cat=pilrc) - Pilot resource compiler.  If you use PRC-Tools to make programs, you will need pilrc to compile your resources for the program.
+[PilRC](http://pilrc.sourceforge.net/) - Pilot resource compiler.  If you use PRC-Tools to make programs, you will need pilrc to compile your resources for the program.
 
 [GLib Shared Libraries](http://www.isaac.cs.berkeley.edu/pilot/GLib/GLib.html) - When you want to share code between multiple programs, you should make it into a library.  This web site explains the benefit of making a GLib style shared library.  You make it with gcc and the PRC-Tools package, so you CodeWarrior people are unable to follow this approach.

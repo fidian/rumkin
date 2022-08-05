@@ -2,7 +2,7 @@
 title: Palm OS Programming - Gotchyas
 ---
 
-This is the text, extracted from a presentation for Palm OS Programming Gotchyas and Pitfalls.  I don't use Adobe and I wanted a textual reference instead of printing out slides, so I did this.  View the original information at [PalmSource](http://www.palmsource.com/about/events/expo/2002/postdev_thu.html), number 106.
+This is the text, extracted from a presentation for Palm OS Programming Gotchyas and Pitfalls.  I don't use Adobe and I wanted a textual reference instead of printing out slides, so I did this.
 
 
 Confusing Form Object IDs with Object Index
@@ -130,7 +130,6 @@ Database Names and Creator Codes
     * Benefits your customers if unique
     * Automates clean-up of device when deleting
     * Register code before coding starts
-    * [www.palmos.com/dev](http://www.palmos.com/dev) web form
 * Database names must be unique
     * Remember, apps are databases also
     * Use form "AppName-Code"
@@ -207,7 +206,6 @@ Suggestions
     * Terrific sample applications with source
 * Palm OS Recipes
     * Step-by-step solutions to common problems
-    * Under Documentation link on [www.palmos.com/dev](http://www.palmos.com/dev)
 * Sample code
     * Use CodeWarrior Find feature, grep, etc.
 * Third-party books

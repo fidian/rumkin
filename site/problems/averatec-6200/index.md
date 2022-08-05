@@ -58,7 +58,6 @@ The keyboard scan codes are Vol- 174, Vol+ 176, Stop/Eject 164, Rew 144, Play/Pa
 References
 ----------
 
-* [Averatec 6200 laptop deconstruction](http://fatpenguinblog.com/scott-rippee/averatec-6200-laptop-deconstruction/)
 * [Continuous ACPI lid events and 100% cpu usage](http://mindspill.net/computing/linux-notes/acpi/continuous-acpi-lid-events-and-100-cpu-usage.html)
 * [Ubuntu Help: Web Browsing Slow](https://help.ubuntu.com/community/WebBrowsingSlowIPv6IPv4)
 * [Gentoo on the Averatec 6800 series](http://forums.gentoo.org/viewtopic-p-2645680.html)

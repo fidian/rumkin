@@ -80,6 +80,5 @@ summary: By using a spinning globe, you can separate the information you have ab
     <A HREF="http://www.fourmilab.ch/">John Walker</A></LI>
     <LI>Satellite data that Earth Viewer uses is from
     <A HREF="http://livingearth.com/">The Living Earth</A></LI>
-    <LI>Positioning on the globe was done with a shareware Windows program,
-    <A HREF="http://www.amiglobe.com/">Amiglobe 99</A> </LI>
+    <LI>Positioning on the globe was done with a shareware Windows program, Amiglobe 99.</LI>
 </div>

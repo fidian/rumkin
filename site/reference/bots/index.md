@@ -25,12 +25,8 @@ I also wrote a crack some time back and I can't find it anymore.  It would decry
 Links
 -----
 
-* [AIForge](http://tpga.virtualave.net/game-links.htm) ([alternate](http://www.gammax.net/aiforge/game-links.htm)) - Listing of different programming games.
 * [C++Robots](http://www.gamerz.net/c++robots/) - Write your bot in C++, play by email, king of the hill competitions.
-* [Google's List](http://directory.google.com/Top/Games/Video_Games/Genres/Simulation/Programming_Games/) - Lots and lots of programming games.
-* [Evolving Virtual Robots](http://www.iit.edu/~wardjon/robots.html) - How one person started to evolve robots.
 * [RealTimeBattle](http://realtimebattle.sourceforge.net/) - Program your robot in whatever language you wish.
-* [Programming Games](http://www.cs.mcgill.ca/~stever/games/) - A list of different programming games with descriptions.
 
 
 [GarBots]: garbots/

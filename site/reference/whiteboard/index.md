@@ -47,8 +47,6 @@ Links
 
 Here is a hand-selected list of web sites that have something to do with whiteboards.  Let me know if I should include a link that you know about, but there is no guarantee that I will add it here.  I'm extremely selective when it comes to linking to other sites.
 
-* [DIY Dry Erase Board](http://www.elephantstaircase.com/wiki/index.php?title=DIYDryEraseBoard) - How to use an acrylic sheet to make a large whiteboard for your wall.  Includes pictures showing how they mounted it directly to the wall.
-
 * [Dry Erase Boards](http://www.dryeraseboard.com/) - Look at their "skins" for inexpensive, yet professional-looking dry erase boards.
 
 * [Shower Board Whiteboards](http://xtronics.com/reference/whiteboard.htm) - Some problems and possible solutions when using tileboard as a whiteboard.

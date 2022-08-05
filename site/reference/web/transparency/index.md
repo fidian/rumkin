@@ -46,9 +46,3 @@ Moving your mouse over this image will make it fade away almost completely.  Mov
     <br>
     Opacity:  <input type=text value="" name=imgopacity size=2>%
 </form>
-
-Links
------
-
-* [Faqts](http://www.faqts.com/knowledge_base/view.phtml/aid/7375/fid/122)
-* [CSS Guide](http://www.macromedia.com/v1/documents/css2/css015.html)

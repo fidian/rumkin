@@ -41,7 +41,7 @@ Remember that creativity is the key when playing against spammers. They eventual
 
 If there is much demand, this program can be further enhanced to do the following neat ideas:
 
--   Work with imagemaps and links better (you can use it now with imagemaps -- see [these instructions](imagemaps/).
+-   Work with imagemaps and links better.
 -   Make the JavaScript put up a link that, when clicked, will pop open a window and automatically roll-over to the right email address. This doesn't appear to have more security than the JavaScript code already in place.
 -   Generate the code necessary for a form button that will take appropriate action when clicked. This also doesn't appear to be better and browsers can have difficulty showing or submitting the form.
 -   Generate code for a Java applet or Flash to display your email address, but Java and Flash are on the way out.
@@ -49,7 +49,4 @@ If there is much demand, this program can be further enhanced to do the followin
 
 ## Links
 
--   [French version](http://www.pascalirma.org/masquage_email.php) - Thanks to Pascal for translating a previous version of this email address encoder!
--   [Email Encoder](http://www.metaprog.com/samples/encoder.htm) - A lot more on using links to call JavaScript functions that take your browser to the email link.
 -   [Experiences with using JavaScript ...](http://www.webmasterworld.com/forum91/492.htm) - Lots of great information. Just don't use `window.navigate();` instead use `window.location.replace()`.
--   [CSS Methods](http://www.emailaddresses.com/forum/showthread.php?threadid=39170) - Alternate methods of hiding an email address, primarily using CSS. They don't make clickable links.

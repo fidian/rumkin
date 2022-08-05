@@ -13,7 +13,7 @@ js:
 
 Marco is a collection of common surveyor calculations intended to assist people in the field, where booting up a laptop to just figure out a couple answers would take far too long.  It is designed to be a powerful calculator that is easy to use, and to supplement your desktop computing environment.
 
-Marco will run on any device that runs Palm OS, such as [Palm Pilots](http://palm.3com.com/).  These little devices are ideal platforms for use in the field.  They require absolutely no boot time, are easily transportable, have a long battery life (especially the black & white ones), and are very reliable.  The processor is easily able to handle accurate calculations, and the screen size means that the program can prompt for information in a way that is useful to people that are unfamiliar with the program.  Palm devices are also becoming quite affordable and are being integrated with cell phones and watches.  With all of these reasons, Palm OS devices are perfect for the job.
+Marco will run on any device that runs Palm OS, such as Palm Pilots.  These little devices are ideal platforms for use in the field.  They require absolutely no boot time, are easily transportable, have a long battery life (especially the black & white ones), and are very reliable.  The processor is easily able to handle accurate calculations, and the screen size means that the program can prompt for information in a way that is useful to people that are unfamiliar with the program.  Palm devices are also becoming quite affordable and are being integrated with cell phones and watches.  With all of these reasons, Palm OS devices are perfect for the job.
 
 
 Manual
@@ -63,18 +63,10 @@ There are two different types of calculators when it comes to how they process n
 
 With regard to how the calculators run on the handheld, there are also two different styles.  Popup calculators will appear "over" the currently running program so that you don't lose your information.  Usually they start with a unique "stroke" of the graffiti pen and are considered "hacks" (add-ons and extensions to the system).  The other kind are just normal programs, like the calculator already on the Palm.  You'll switch to the calculator and then back to Marco.  It can not appear as a window over another program and you will lose anything you entered into Marco except saved points.
 
-Hacks (a.k.a. system extensions) require a hack manager such as [X-Master](http://linkesoft.com/english/xmaster/) or [HackMaster](http://www.daggerware.com/hackmstr.htm), or similar.  With the advent of Palm OS 5 and later, hacks are no longer supported, but some people have converted their software to work with the new system provided.  For the calculators listed below, there will be an annotation of "Hack" if it works with Palm OS 4 and earlier, and "OS5" if it works with Palm OS 5 and later.
+Hacks (a.k.a. system extensions) require a hack manager such as X-Master or [HackMaster](http://www.daggerware.com/hackmstr.htm), or similar.  With the advent of Palm OS 5 and later, hacks are no longer supported, but some people have converted their software to work with the new system provided.  For the calculators listed below, there will be an annotation of "Hack" if it works with Palm OS 4 and earlier, and "OS5" if it works with Palm OS 5 and later.
 
 Many calculators also use MathLib for their math functions.  Marco also requires MathLib, so we share this library and both benefit.
-
-* [Bez Calculator](http://home.a-city.de/franco.bez/palm/bezcalc.html) - Scientific calculator program.  Great if base conversions are not needed and Calcul-8! has buttons that are just too small.  [Infix, Freeware, Open Source]
-
-* [C4](http://www.c4calc.com/) - Advanced color calculator.  Different versions are available.  C4Me is freeware, but the others are shareware.  (Infix, Shareware/Freeware)
-
-* [Calcul-8!](http://www.nutcom.fsnet.co.uk/palm/) - Nice calculator with unit conversion, scientific functions, and base conversions.  (Infix, Freeware)
 
 * [Kalk](http://www.klawitter.de/palm/kalk.html) - Very nice RPN calculator -- one of the better ones available.  Has a fancy version with color buttons and a lite version for people with a limited amount of free memory.  (RPN, Freeware, Open Source)
 
 * [snapCalc](http://www.geocities.com/rnlnero/Palmos.html) - Pops up a calculator window over whatever application is running.  The results of the calculations can be copied back to the current program.  The size of the calculator can be a small moveable one or a large layout that nearly takes up the entire screen.  (Infix, Freeware, Hack, OS5)
-
-* [PopUp Calculator](http://benc.hr/popcalc.htm) and [RPN PopUp Calculator](http://benc.hr/rpnpopcalc.htm) - Alternate pop-up calculator that supports three different calculator form sizes and trig functions.  (Infix or RPN, Shareware, Hack)

@@ -28,4 +28,3 @@ Links
 -----
 
 * [SDIF Format as RDF](http://www.ecma-international.org/publications/standards/Ecma-208.htm) - This binary format is used often for backups.
-* [Novell's Take on Compression Documentation](http://forums.novell.com/group/novell.devsup.smscomp/readerNoFrame.tpt/@thread@179@F@10@S-,D@NONE+179/@article@179) - It isn't likely that they will ever allow the public to know how they decompress the data on their servers.

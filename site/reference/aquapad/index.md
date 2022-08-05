@@ -135,7 +135,7 @@ I won't be revisiting this list, but here are my ideas of where I wanted to take
 * Kill that little mail icon on the tray and reorganize the menus a LOT.  Move a lot of the buttons into the menu to free up taskbar space and to make it seem less cluttered.
 * Change the image that is displayed while booting.  Change the background image.
 * Voice recognition?  That could potentially save lots of typing. [Sphinx](http://cmusphinx.sourceforge.net)
-* Speech synthesis?  That could make the AquaPad read books to you from Project Gutenberg! [Epos](http://epos.ure.cas.cz/) [Festival](http://www.cstr.ed.ac.uk/projects/festival/) [Flite](http://www.speech.cs.cmu.edu/flite/index.html)
+* Speech synthesis?  That could make the AquaPad read books to you from Project Gutenberg! [Festival](http://www.cstr.ed.ac.uk/projects/festival/)
 
 
 Hard Drive Images
@@ -164,8 +164,6 @@ We will make a hard drive image on the computer and then copy it to the CompactF
 * Insert the CompactFlash into the AquaPad and plug in a USB keyboard.  Boot into the BIOS (press Page Up and ignore the message that says to press Del).  Use the automatic configuration to identify the second hard drive, then set the tablet up to boot from the second hard drive.
 * Reboot and you should boot to a command prompt.  If not, you could have a dozen problems.  Your image could be wrong/corrupt, the CompactFlash could be misidentified or have a different number of heads/tracks/cylinders.  Or, what frustrated me to no end, you might not have identified the CompactFlash before saying to boot to the second drive.
 * At this point, you merely need to `mount` the CompactFlash card and copy over whatever files are required for the BIOS update.  They should run by themselves when you power on the AquaPad.
-
-Also, if you want further information about how to create and mount the hard drive image under Linux, make sure to check the [Disk Images Under Linux](http://www.mega-tokyo.com/osfaq2/index.php/Disk%20Images%20Under%20Linux) page.
 
 
 ### Windows 98 Instructions
@@ -309,8 +307,6 @@ Careful when putting your device back together again!
 Knoppix On An Aquapad
 ---------------------
 
-First off, *far better* instructions are at [Knoppix's Site](http://www.knoppix.net/docs/index.php/HdBasedHowTo).  I only have mine here to explain what I did, which was a bit more annoying since the AquaPad doesn't have any floppy disk.
-
 Because the AquaPad certainly supports the 386 instruction set, and because I wanted to get *something* running on the pad as quickly as possible, I tried out [Knoppix](http://www.knoppix.net/) and wanted to get it booting off of the CF card.  This is what I had to do.
 
 It is highly probable that this will work with any Debian live CD distribution, and quite likely that it will work with others that also work on 386 computers.  You want to get a lean, mean distro.  Perhaps [Timo's](http://rescuecd.sourceforge.net) or [Knoppix STD](http://www.knoppix-std.org/).  Heck, build your own.
@@ -338,8 +334,6 @@ Feel free to experiment a bit.  The worst case of messing up the CF card can be 
 
 The same instructions should be usable for nearly any live CD version of Linux.  You want one that is small, since you only have 128 megs of RAM to work with.  Just change the `miniroot.gz` and `vmlinuz` files appropriately.  A splash image can be used with the `boot-bmp.b` boot image, see the lilo documentation for more information.
 
-You might find this page on [Embedding Debian in 32Mb CF](http://linuxdevices.com/articles/AT4540125636.html) an interesting read ... especially since we are trying to do about the same thing.
-
 
 Useful Links
 ------------
@@ -347,19 +341,9 @@ Useful Links
 
 * [FIC AquaPad](http://www.fica.com/site/html/products/internet/detail.asp?cat_id=240000054&C_ID=240000090) - The maker of these fine devices.  Never mind the typo on their main page's title saying AquadPad.
 
-* [FIC AquaPad (Taiwan)](http://www.fic.com.tw/product/mobile/aquapad/) - A different description of the same thing.
-
-* [PCStats Review - FIC AquaPad](http://www.pcstats.com/articleview.cfm?articleid=958) - A detailed look at the machine.  Nicely written.
-
-* [TransmetaZone.com - Extensive Review](http://www.transmetazone.com/articleview.cfm?articleid=958) - An extremely nice review on the AquaPad, delving into most aspects about the tablet computer.  A good read.
-
 * [Patching the AquaPad](http://www.geocities.com/ptkatch/aquapad.htm) - Useful information on how to upgrade the CompactFlash in the unit to hold tons more data, and how to add more programs to the device.
 
 * [PenMount Drivers](http://www.salt.com.tw/down_2_1_2.php) - Drivers for the PenMount DMC9000 touchscreen.
-
-* [Booting from External CF](http://www.aquapad.org/modules.php?op=modload&name=Forums&file=index&action=viewtopic&topic=24&forum=1&6">) - Aquapad.org's forum.
-
-* [Upgrading 2000 to Midori](http://www.aquapad.org/modules.php?op=modload&name=Forums&file=index&action=viewtopic&topic=91&forum=2&3) - Don't forget to flash the BIOS.
 
 
 Tablet Review
@@ -521,7 +505,7 @@ My goals used to be this list:
 * Better USB hotplug support
 * ssh and other useful network tools
 * If I get really creative, perhaps [Linux BIOS](http://linuxbios.org) could speed things up even more!
-* I know that this isn't exactly what I want to do, but it might be fun to play with [BartPE](http://www.nu2.nu/pebuilder/) and see if I can get some version of Windows to work.
+* I know that this isn't exactly what I want to do, but it might be fun to play with BartPE and see if I can get some version of Windows to work.
 
 I ended up installing Gentoo into the microdrive and I compiled enough to get it to boot.  The touchscreen never worked for me.  I left off adding `noapic` to the kernel line and I still needed to install/upgrade many packages.
 

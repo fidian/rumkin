@@ -92,9 +92,3 @@ Shortcomings
 ------------
 
 If you see some problems with qmail-scanner communicating with clamav, re-emerge perl with the perlsuid use flag.
-
-
-References
-----------
-
-[Qmail Rocks On Gentoo](http://gentoo-wiki.com/QmailRocksOnGentoo) - Informative site and what I tried first, but it did not bounce spam upon receipt.  Instead, the emails were accepted by my server and then I got SpamCop reports about sending unsolicited bounce messages.
