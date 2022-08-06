@@ -48,7 +48,7 @@ module.exports = class Vigenere {
         }
 
         const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.vigenere;
+        const module = rumkinCipher.cipher.vigenère;
         const result = module[this.direction.cipher](
             message,
             this.alphabet.value,
