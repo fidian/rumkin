@@ -5,6 +5,7 @@ title: Rumkin.com
 ### [Web-Based Tools](tools/)
 
 * [Ciphers](tools/cipher/) - Encode or decode secret messages in your browser. Great for geocaching, escape rooms, or simply passing the time.
+* [Die Roll Stats](tools/die-stats/) - Useful to visualize the odds of many different types of dice producing results in a variety of combinations.
 * [Phone Uploader](tools/sprint/) - Send new ringtones, images, and Java midlets to your phone with ease.  Works with many phones and providers, and I don't charge a cent!
 * [Mailto Encoder](tools/mailto_encoder/) - A safe way to put your email address on a web page and not have it harvested by spambots.  Packed with features and ways to customize the encoding of the address.
 * [more ...](tools/)
