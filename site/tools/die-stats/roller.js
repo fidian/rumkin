@@ -136,8 +136,9 @@ module.exports = class Roller {
         result = result.consolidate();
 
         while (rollsArray.length) {
-            result = result.mergeWith(rollsArray.shift());
-            result = result.consolidate();
+            let next = rollsArray.shift();
+            next = next.consolidate();
+            result = result.mergeWith(next);
         }
 
         return result;
@@ -160,7 +161,8 @@ module.exports = class Roller {
 
     completeResults() {
         // Generate stats and combine
-        const rolls = this.combineRolls(this.results);
+        let rolls = this.combineRolls(this.results);
+        rolls = rolls.consolidate();
         let sum = 0;
         let minRolls = Number.POSITIVE_INFINITY;
         let maxRolls = Number.NEGATIVE_INFINITY;

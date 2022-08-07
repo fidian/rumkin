@@ -6,7 +6,7 @@ module.exports = class Rolls {
 
     add(rolls, count) {
         const keyArray = rolls.slice();
-        keyArray.sort().map(n => n.toString());
+        keyArray.sort((a, b) => a - b).map((n) => n.toString());
         const key = keyArray.join(",");
 
         this.map.set(key, count + (this.map.get(key) || 0));
@@ -18,7 +18,7 @@ module.exports = class Rolls {
 
     forEach(cb) {
         for (const [k, v] of this.map.entries()) {
-            const rolls = k.split(',').map(n => +n);
+            const rolls = k.split(",").map((n) => +n);
             cb(rolls, v);
         }
     }
@@ -40,7 +40,7 @@ module.exports = class Rolls {
     }
 
     adjustBonus(n) {
-        this.bonus += (+n || 0);
+        this.bonus += +n || 0;
     }
 
     getBonus() {
@@ -59,7 +59,10 @@ module.exports = class Rolls {
 
         this.forEach((thisValues, thisCount) => {
             other.forEach((otherValues, otherCount) => {
-                merged.add([...thisValues, ...otherValues], thisCount * otherCount);
+                merged.add(
+                    [...thisValues, ...otherValues],
+                    thisCount * otherCount
+                );
             });
         });
 
@@ -80,5 +83,12 @@ module.exports = class Rolls {
         });
 
         return consolidated;
+    }
+
+    snapshot() {
+        return {
+            bonus: this.bonus,
+            map: Object.fromEntries(this.map)
+        };
     }
 };
