@@ -7,19 +7,48 @@ module.exports = class AdvancedInputArea {
         const attrs = vnode.attrs;
         const removeActions = [
             {
-                label: 'non-letters',
+                label: "letters",
                 callback: () => {
-                    const message = new rumkinCipher.util.Message(attrs.value);
-                    attrs.value = message.separate(attrs.alphabet.value).toString();
+                    let result = "";
+
+                    for (const c of attrs.value.split("")) {
+                        if (!attrs.alphabet.value.isLetter(c)) {
+                            result += c;
+                        }
+                    }
+
+                    attrs.value = result;
                 },
                 remove: !attrs.alphabet
+            },
+            {
+                label: "non-letters",
+                callback: () => {
+                    const message = new rumkinCipher.util.Message(attrs.value);
+                    attrs.value = message
+                        .separate(attrs.alphabet.value)
+                        .toString();
+                },
+                remove: !attrs.alphabet
+            },
+            {
+                label: "numbers",
+                callback: () => {
+                    attrs.value = attrs.value.replace(/[\d]/g, "");
+                }
+            },
+            {
+                label: "whitespace",
+                callback: () => {
+                    attrs.value = attrs.value.replace(/[\s]/g, "");
+                }
             }
         ];
 
         return [
             m(InputArea, attrs),
-            m('br'),
-            this.viewActions('Remove', removeActions)
+            m("br"),
+            this.viewActions("Remove", removeActions)
         ];
     }
 
@@ -28,18 +57,24 @@ module.exports = class AdvancedInputArea {
 
         for (const action of actions) {
             if (actionsConverted.length) {
-                actionsConverted.push(', ');
+                actionsConverted.push(", ");
             }
 
             if (!action.remove) {
-                actionsConverted.push(m('a', {
-                    href: '#',
-                    onclick: () => {
-                        action.callback();
+                actionsConverted.push(
+                    m(
+                        "a",
+                        {
+                            href: "#",
+                            onclick: () => {
+                                action.callback();
 
-                        return true;
-                    }
-                }, action.label));
+                                return true;
+                            }
+                        },
+                        action.label
+                    )
+                );
             }
         }
 
@@ -47,10 +82,6 @@ module.exports = class AdvancedInputArea {
             return null;
         }
 
-        return [
-            m('br'),
-            `${label}: `,
-            actionsConverted
-        ];
+        return [m("br"), `${label}: `, actionsConverted];
     }
 };
