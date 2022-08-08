@@ -23,12 +23,16 @@ module.exports = class PopulationIndex {
         return [
             m(
                 "p",
-                "Select a country or region in order to see its estimated population."
+                "Select a country or region in order to see details on its estimated population."
             ),
             m("h2", "Regions"),
-            m("ul", this.regionList(this.loaded.regions)),
+            m("ul", {
+                class: "Colm(2) Colm(1)--s"
+            }, this.regionList(this.loaded.regions)),
             m("h2", "Countries"),
-            m("ul", this.regionList(this.loaded.countries))
+            m("ul", {
+                class: "Colm(2) Colm(1)--s"
+            }, this.regionList(this.loaded.countries))
         ];
     }
 
@@ -36,7 +40,10 @@ module.exports = class PopulationIndex {
         return regions.map((region) =>
             m("li", [
                 m(m.route.Link, { href: `/${region.I}` }, region.L),
-                ` (${region.population.toLocaleString()})`
+                m('br'),
+                m('span', {
+                    class: "Pstart(2em)"
+                }, region.population.toLocaleString())
             ])
         );
     }
