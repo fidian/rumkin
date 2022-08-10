@@ -1,1 +1,0 @@
-"use strict";function Ubchi(e,n,l,r){var o,r=MakeColumnKey(r,l),s=Tr(l," "),s=l.length-s.length+1;if(0<e){for(o=ColTrans(e,n,r);s--;)o+="Z";o=ColTrans(e,o,r)}else o=(o=ColTrans(e,n,r)).slice(0,o.length-s),o=ColTrans(e,o,r);return o}document.Ubchi_Loaded=1;
