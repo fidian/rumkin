@@ -5,6 +5,11 @@ const Dropdown = require("../../js/mithril/dropdown");
 module.exports = class DirectionSelector {
     constructor(vnode) {
         const attrs = vnode.attrs;
+
+        if (!attrs.value) {
+            attrs.value = 'ENCRYPT';
+        }
+
         this.d = {
             options: {
                 ENCRYPT: "Encrypt",
