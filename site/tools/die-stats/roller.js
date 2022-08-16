@@ -162,7 +162,7 @@ module.exports = class Roller {
     completeResults() {
         // Generate stats and combine
         let rolls = this.combineRolls(this.results);
-        rolls = rolls.consolidate();
+        rolls = rolls.consolidate(true); // Final consolidation, include bonus
         let sum = 0;
         let minRolls = Number.POSITIVE_INFINITY;
         let maxRolls = Number.NEGATIVE_INFINITY;

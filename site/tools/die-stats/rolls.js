@@ -69,11 +69,16 @@ module.exports = class Rolls {
         return merged;
     }
 
-    consolidate() {
+    // Only include bonus on the last consolidation
+    consolidate(includeBonus = false) {
         const consolidated = this.fork();
 
         this.forEach((values, count) => {
             let sum = 0;
+
+            if (includeBonus) {
+                sum += this.bonus;
+            }
 
             for (const v of values) {
                 sum += v;
