@@ -71,10 +71,10 @@ module.exports = class Rolls {
 
     // Only include bonus on the last consolidation
     consolidate(includeBonus = false) {
-        const consolidated = this.fork();
+        const consolidated = new Rolls(); // Don't fork, don't inherit bonus
 
         this.forEach((values, count) => {
-            let sum = 0;
+            let sum = this.bonus;
 
             if (includeBonus) {
                 sum += this.bonus;
