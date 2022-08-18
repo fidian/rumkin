@@ -1,0 +1,7 @@
+{
+    "name": "Polish",
+    "sortMethod": "ALPHABETICAL",
+    "description": "",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wpolish"
+}

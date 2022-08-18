@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+cd "${0%/*}" || exit 1
+
+js=("[")
+isFirst=true
+
+for f in *.txt; do
+    if [[ "$isFirst" != "true" ]]; then
+        js[${#js[@]} - 1]="${js[${#js[@]} - 1]},"
+    fi
+
+    isFirst=false
+    basename="${f%.txt}"
+    json="$basename.json"
+    js+=("    {")
+    js+=("        \"filename\": $(echo "$f" | jq -R .),")
+    js+=("        \"name\": $(jq .name "$json"),")
+    js+=("        \"description\": $(jq .description "$json"),")
+    js+=("        \"sortMethod\": $(jq .sortMethod "$json"),")
+    js+=("        \"fileSize\": $(stat -c %s "$f"),")
+    js+=("        \"wordCount\": $(wc -l "$f" | cut -d ' ' -f 1)")
+    js+=("    }")
+done
+
+js+=("]")
+
+(
+    for m in "${js[@]}"; do
+        echo "$m"
+    done
+)

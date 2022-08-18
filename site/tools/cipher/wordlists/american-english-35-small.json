@@ -1,0 +1,7 @@
+{
+    "name": "American English (Small)",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Most frequently used words.",
+    "sourceName": "Scowl",
+    "sourceUrl": "http://wordlist.sourceforge.net/"
+}

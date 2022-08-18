@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# Pipe in a wordlist
+# Pipe out to the final destination
+#
+# To test:  echo -e "monkey-Test\néquipe\ntëuß" | ./process-wordlist
+#
+# Expected result (note capitalized ẞ):
+# EQUIPE
+# ÉQUIPE
+# MONKEY
+# TEST
+# TEUSS
+# TËUẞ
+#
+# If you get errors about invalid multibyte sequence detected, convert the file to UTF-8 first
+# Example for ISO-8859-1: iconv -f ISO-8859-1 -t UTF-8 input.file > output.file
+
+# Converts everything, included accented characters. ß should change to ẞ as of
+# 2017, but isn't handled yet.
+convertToUppercase() {
+    gawk '{print toupper($0)}' | sed 's/ß/ẞ/g'
+}
+
+# Eliminate duplicates by sorting
+deduplicate() {
+    sort -u
+}
+
+# Remove symbols that may exist, keeping letters. To find them in your dictionary,
+# cat dict | LANG=C.UTF-8 sed -e 's/[a-zA-Z]//g' -e 's/./&\n/g' | LC_COLLATE=C sort -u
+desymbol() {
+    sed 's/[-+. 0-9&/@€₂²³]/\n/g'
+}
+
+# Keep only non-empty lines
+keepNonEmpty() {
+    sed '/^\s*$/d'
+}
+
+# Convert entries with accented characters into non-accented versions.
+# This doubles the number of words, changing "gruß" into two lines,
+# "gruß" and "gruss". Also, "ŉQUIPE" becomes "'NQUIPE" and "ŉQUIPE".
+# The first conversion has an apostrophe and should be removed.
+# Català uses middot (·) to separate consonants. Allow both forms of the word,
+# "a·b" becoming both "a·b" and "ab" before the other transliterations are
+# applied.
+transliterate() {
+    cat >> "$tmpdir/original"
+
+    # Català uses middot (·) to separate consonants. Allow both forms of the
+    # word, "a·b" becoming both "a·b" and "ab" before the other
+    # transliterations are applied. Same goes for apostrophes.
+    sed 's/[·'"'"']//g' "$tmpdir/original" > "$tmpdir/punctremove"
+
+    # Combine both and transliterate. When a transliteration produces a "?", it
+    # can't be transliterated, so drop that variation of the word.
+    cat "$tmpdir/original" "$tmpdir/punctremove" | iconv -t ASCII//TRANSLIT - | grep -Fv '?' > "$tmpdir/translit"
+
+    # Write all three to stdout
+    cat "$tmpdir/original" "$tmpdir/punctremove" "$tmpdir/translit"
+}
+
+tmpdir=$(mktemp -d)
+trap 'rm -rf -- "$tmpdir"' EXIT
+desymbol | transliterate | convertToUppercase | keepNonEmpty | deduplicate

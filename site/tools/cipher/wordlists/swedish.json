@@ -1,0 +1,7 @@
+{
+    "name": "Svenska",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Swedish",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wswedish"
+}
