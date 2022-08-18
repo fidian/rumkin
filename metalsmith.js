@@ -21,10 +21,6 @@ metalsmithSite.run(
                         files: "**/*.css"
                     });
                     sugar.use("metalsmith-html-minifier");
-
-                    // Precompress so GitHub Pages will serve minified files
-                    sugar.use("metalsmith-gzip");
-                    sugar.use("metalsmith-brotli");
                 }
             }
         },
