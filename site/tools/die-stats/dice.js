@@ -143,8 +143,8 @@ module.exports = class Dice {
             result.push(
                 m("tr", [
                     m("td", dataColProps, roll),
-                    m("td", dataColProps, count),
-                    m("td", dataColProps, prob),
+                    m("td", dataColProps, count.toLocaleString()),
+                    m("td", dataColProps, prob.toFixed(5)),
                     m(
                         "td",
                         { valign: "center" },
