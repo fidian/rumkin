@@ -5,10 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{title}}</title>
-        <link rel="stylesheet" href="{{rootPath}}css/reset.css" />
-        <link rel="stylesheet" href="{{rootPath}}css/atomic.css" />
-        <link rel="stylesheet" href="{{rootPath}}css/fonts.css" />
-        <link rel="stylesheet" href="{{rootPath}}css/site.css" />
+        <link rel="stylesheet" href="{{rootPath}}css/reset.css?{{buildTime}}" />
+        <link rel="stylesheet" href="{{rootPath}}css/atomic.css?{{buildTime}}" />
+        <link rel="stylesheet" href="{{rootPath}}css/fonts.css?{{buildTime}}" />
+        <link rel="stylesheet" href="{{rootPath}}css/site.css?{{buildTime}}" />
 
         <!-- Favicon generated content from http://realfavicongenerator.net/ -->
         <link
@@ -46,11 +46,11 @@
         {{#liveReload}}
         <script src="http://localhost:35729/livereload.js"></script>
         {{/liveReload}} {{#css}}
-        <link rel="stylesheet" href="{{.}}" />
+        <link rel="stylesheet" href="{{.}}?{{buildTime}}" />
         {{/css}} {{#js}}
-        <script src="{{.}}"></script>
+        <script src="{{.}}?{{buildTime}}"></script>
         {{/js}} {{#if components}}
-        <script src="{{rootPath}}js/mithril/mithril.js"></script>
+        <script src="{{rootPath}}js/mithril/mithril.js?{{buildTime}}"></script>
         <script>
             window.addEventListener('load', function () {
                 let root, attrs;
@@ -71,7 +71,7 @@
             });
         </script>
         {{/if}} {{#if routes}}
-        <script src="{{rootPath}}js/mithril/mithril.js"></script>
+        <script src="{{rootPath}}js/mithril/mithril.js?{{buildTime}}"></script>
         <script>
             window.addEventListener('load', function () {
                 const root = document.getElementsByClassName('module')[0];

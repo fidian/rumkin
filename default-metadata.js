@@ -1,4 +1,5 @@
 const metadata = {
+    buildTime: Date.now(),
     buildDate: new Date().toISOString(),
     buildYear: new Date().getFullYear(),
     layout: "index",
