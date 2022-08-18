@@ -1,0 +1,7 @@
+{
+    "name": "Føroysk",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Faroese",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wfaroese"
+}

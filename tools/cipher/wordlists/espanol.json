@@ -1,0 +1,7 @@
+{
+    "name": "Español (Spanish)",
+    "sortMethod": "ALPHABETICAL",
+    "description": "",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wspanish"
+}

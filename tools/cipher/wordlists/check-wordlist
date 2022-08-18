@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+#
+# Pass wordlist filename on command line
+
+checkAllowedCharacters() {
+    local disallowed
+
+    disallowed=$(LANG=C.UTF-8 sed -e 's/['"'"'·A-ZÀÁÂÄÅÃĄÆĈÇĆČÐĐÈÉÊËĘĜĤÌÍÎÏĴŁÑŃÒÓÔÖÕØŜŚŠŞẞÙÚÛÜŬÝŹŻАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ]//g' -e 's/./&\n/g' "$1")
+
+    if [[ -n "$disallowed" ]]; then
+        echo "Found disallowed characters: $(echo "$disallowed" | sort -u | tr -d "\n")"
+        return 1
+    fi
+}
+
+checkBlankLines() {
+    if grep -qE "^\s*$" "$1"; then
+        echo "Found blank line"
+        return 1
+    fi
+}
+
+checkMeta() {
+    if [[ ! -f "${1%.txt}.json" ]]; then
+        echo "Missing meta file"
+        return 1
+        return 1
+    fi
+}
+
+checkWordlist() {
+    echo -n "$1: "
+
+    checkAllowedCharacters "$1" && checkBlankLines "$1" && checkMeta "$1" && echo "ok"
+}
+
+if [[ -z "$1" ]]; then
+    echo "Specify one or more wordlists on the command line."
+    exit 0
+fi
+
+while [[ "$#" -gt 0 ]]; do
+    checkWordlist "$1"
+    shift
+done
+
+# checkAllowedCharacters "$1"
+# Pipe in a wordlist
+# LANG=C.UTF-8 sed -e 's/[A-ZÀÁÂÄÅÇÈÉÊËÍÎÏÑÓÔÖØÙÚÛÜ]//g' -e 's/./&\n/g' | LC_COLLATE=C sort -u

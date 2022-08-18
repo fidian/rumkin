@@ -1,0 +1,322 @@
+[
+    {
+        "filename": "american-english-35-small.txt",
+        "name": "American English (Small)",
+        "description": "Most frequently used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 386696,
+        "wordCount": 43217
+    },
+    {
+        "filename": "american-english-50-medium.txt",
+        "name": "American English (Medium)",
+        "description": "Commonly used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 812019,
+        "wordCount": 88345
+    },
+    {
+        "filename": "american-english-70-large.txt",
+        "name": "American English (Large)",
+        "description": "A good balance between dictionary size and the number of available words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1429897,
+        "wordCount": 149120
+    },
+    {
+        "filename": "american-english-80-huge.txt",
+        "name": "American English (Huge)",
+        "description": "Includes many uncommon words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 3124730,
+        "wordCount": 309709
+    },
+    {
+        "filename": "american-english-95-insane.txt",
+        "name": "American English (Insane)",
+        "description": "Includes rare and specialty words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5892912,
+        "wordCount": 570865
+    },
+    {
+        "filename": "australian-english-35-small.txt",
+        "name": "Australian English (Small)",
+        "description": "Most frequently used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 389758,
+        "wordCount": 43568
+    },
+    {
+        "filename": "australian-english-50-medium.txt",
+        "name": "Australian English (Medium)",
+        "description": "Commonly used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 812747,
+        "wordCount": 88448
+    },
+    {
+        "filename": "australian-english-70-large.txt",
+        "name": "Australian English (Large)",
+        "description": "A good balance between dictionary size and the number of available words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1433272,
+        "wordCount": 149408
+    },
+    {
+        "filename": "australian-english-80-huge.txt",
+        "name": "Australian English (Huge)",
+        "description": "Includes many uncommon words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 3134810,
+        "wordCount": 310454
+    },
+    {
+        "filename": "australian-english-95-insane.txt",
+        "name": "Australian English (Insane)",
+        "description": "Includes rare and specialty words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5909744,
+        "wordCount": 572090
+    },
+    {
+        "filename": "bokmaal.txt",
+        "name": "Bokmål (Norwegian)",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 15475801,
+        "wordCount": 1105904
+    },
+    {
+        "filename": "brazilian.txt",
+        "name": "Brazilian Portuguese",
+        "description": "Portuguese words with Brazilian spellings.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 3723266,
+        "wordCount": 328759
+    },
+    {
+        "filename": "british-english-35-small.txt",
+        "name": "British English (Small)",
+        "description": "Most frequently used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 393357,
+        "wordCount": 43779
+    },
+    {
+        "filename": "british-english-50-medium.txt",
+        "name": "British English (Medium)",
+        "description": "Commonly used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 823263,
+        "wordCount": 89168
+    },
+    {
+        "filename": "british-english-70-large.txt",
+        "name": "British English (Large)",
+        "description": "A good balance between dictionary size and the number of available words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1460704,
+        "wordCount": 151491
+    },
+    {
+        "filename": "british-english-80-huge.txt",
+        "name": "British English (Huge)",
+        "description": "Includes many uncommon words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 3205902,
+        "wordCount": 315976
+    },
+    {
+        "filename": "british-english-95-insane.txt",
+        "name": "British English (Insane)",
+        "description": "Includes rare and specialty words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 6002992,
+        "wordCount": 579311
+    },
+    {
+        "filename": "bulgarian.txt",
+        "name": "Bulgarian",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 18467027,
+        "wordCount": 866705
+    },
+    {
+        "filename": "canadian-35-small.txt",
+        "name": "Canadian English (Small)",
+        "description": "Most frequently used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 387402,
+        "wordCount": 43281
+    },
+    {
+        "filename": "canadian-50-medium.txt",
+        "name": "Canadian English (Medium)",
+        "description": "Commonly used words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 809236,
+        "wordCount": 88046
+    },
+    {
+        "filename": "canadian-70-large.txt",
+        "name": "Canadian English (Large)",
+        "description": "A good balance between dictionary size and the number of available words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1429979,
+        "wordCount": 149049
+    },
+    {
+        "filename": "canadian-80-huge.txt",
+        "name": "Canadian English (Huge)",
+        "description": "Includes many uncommon words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 3132319,
+        "wordCount": 310222
+    },
+    {
+        "filename": "canadian-95-insane.txt",
+        "name": "Canadian English (Insane)",
+        "description": "Includes rare and specialty words.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5906305,
+        "wordCount": 571803
+    },
+    {
+        "filename": "catalan.txt",
+        "name": "Català",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 8859906,
+        "wordCount": 772020
+    },
+    {
+        "filename": "danish.txt",
+        "name": "Danish",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 4950568,
+        "wordCount": 387475
+    },
+    {
+        "filename": "deutsch-traditionelles.txt",
+        "name": "Deutsch (Traditionelles)",
+        "description": "Uses the traditional German orthography (de-DE-1901).",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 4647090,
+        "wordCount": 348874
+    },
+    {
+        "filename": "deutsch.txt",
+        "name": "Deutsch (German)",
+        "description": "Uses the new German orthography (de-DE-1996), which is used since 1998-08-01 and which is obligatory as of 2005-08-01.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5755110,
+        "wordCount": 430774
+    },
+    {
+        "filename": "dutch.txt",
+        "name": "Dutch",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 4984519,
+        "wordCount": 406716
+    },
+    {
+        "filename": "espanol.txt",
+        "name": "Español (Spanish)",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1019126,
+        "wordCount": 102990
+    },
+    {
+        "filename": "esperanto.txt",
+        "name": "Esperanto",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 14898979,
+        "wordCount": 1214112
+    },
+    {
+        "filename": "faroese.txt",
+        "name": "Føroysk",
+        "description": "Faroese",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 8562852,
+        "wordCount": 683355
+    },
+    {
+        "filename": "french.txt",
+        "name": "French",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5368520,
+        "wordCount": 467384
+    },
+    {
+        "filename": "galician-minimos.txt",
+        "name": "Galician (minimos)",
+        "description": "Uses the minimos standard.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 7382222,
+        "wordCount": 615220
+    },
+    {
+        "filename": "italian.txt",
+        "name": "Italian",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1186822,
+        "wordCount": 113302
+    },
+    {
+        "filename": "nynorsk.txt",
+        "name": "Nynorsk (Norwegian)",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 9543294,
+        "wordCount": 750160
+    },
+    {
+        "filename": "polish.txt",
+        "name": "Polish",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 85865146,
+        "wordCount": 6191690
+    },
+    {
+        "filename": "portuguese.txt",
+        "name": "Portuguese",
+        "description": "Portuguese words with European spellings.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5892218,
+        "wordCount": 500176
+    },
+    {
+        "filename": "swedish.txt",
+        "name": "Svenska",
+        "description": "Swedish",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 1754164,
+        "wordCount": 160910
+    },
+    {
+        "filename": "swiss.txt",
+        "name": "Swiss (German)",
+        "description": "Uses the new German orthography (de-CH-1996), which is used since 1998-08-01 and which is obligatory as of 2008-08-01.",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 5688593,
+        "wordCount": 426556
+    },
+    {
+        "filename": "ukrainian.txt",
+        "name": "Ukranian",
+        "description": "",
+        "sortMethod": "ALPHABETICAL",
+        "fileSize": 34227815,
+        "wordCount": 1540771
+    }
+]

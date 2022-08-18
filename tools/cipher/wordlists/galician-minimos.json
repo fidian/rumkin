@@ -1,0 +1,7 @@
+{
+    "name": "Galician (minimos)",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Uses the minimos standard.",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wgalician-minimos"
+}

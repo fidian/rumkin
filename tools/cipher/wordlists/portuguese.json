@@ -1,0 +1,7 @@
+{
+    "name": "Portuguese",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Portuguese words with European spellings.",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wportuguese"
+}

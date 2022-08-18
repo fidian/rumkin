@@ -1,0 +1,7 @@
+{
+    "name": "American English (Large)",
+    "sortMethod": "ALPHABETICAL",
+    "description": "A good balance between dictionary size and the number of available words.",
+    "sourceName": "Scowl",
+    "sourceUrl": "http://wordlist.sourceforge.net/"
+}

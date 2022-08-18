@@ -1,0 +1,1 @@
+"use strict";var p="cryptogramSolver.",s=sessionStorage;module.exports={get cipherText(){return s.getItem("".concat(p,"cipherText"))||""},set cipherText(t){s.setItem("".concat(p,"cipherText"),t)},get wordlist(){return s.getItem("".concat(p,"wordlist"))||"american-50-medium.txt"},set wordlist(t){s.setItem("".concat(p,"wordlist"),t)}};
