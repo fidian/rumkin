@@ -44,12 +44,67 @@ module.exports = class AdvancedInputArea {
                 }
             }
         ];
+        const changeActions = [
+            {
+                label: 'lowercase',
+                callback: () => {
+                    attrs.value = this.lowercase(attrs.value);
+                }
+            },
+            {
+                label: 'Natural case',
+                callback: () => {
+                    attrs.value = this.lowercase(attrs.value).replace(/(^|\n|[.?!])\s*\S/g, (matches) => this.uppercase(matches));
+                }
+            },
+            {
+                label: 'Title Case',
+                callback: () => {
+                    attrs.value = this.lowercase(attrs.value).replace(/(^|\n|\s)\s*\S/g, (matches) => this.uppercase(matches));
+                }
+            },
+            {
+                label: 'UPPERCASE',
+                callback: () => {
+                    attrs.value = this.uppercase(attrs.value);
+                }
+            },
+            {
+                label: "swap case",
+                callback: () => {
+                    attrs.value = attrs.value.split('').map(c => {
+                        const u = this.uppercase(c);
+
+                        if (c === u) {
+                            return this.lowercase(c);
+                        }
+
+                        return u;
+                    }).join('');
+                }
+            },
+            {
+                label: "reverse",
+                callback: () => {
+                    attrs.value = attrs.value.split('').reverse().join('');
+                }
+            }
+        ];
 
         return [
             m(InputArea, attrs),
             m("br"),
-            this.viewActions("Remove", removeActions)
+            this.viewActions("Remove", removeActions),
+            this.viewActions("Change", changeActions)
         ];
+    }
+
+    lowercase(str) {
+        return str.toLowerCase().replace(/ẞ/g, 'ß');
+    }
+
+    uppercase(str) {
+        return str.toUpperCase().replace(/ß/g, 'ẞ');
     }
 
     viewActions(label, actions) {

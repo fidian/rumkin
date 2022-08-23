@@ -1,5 +1,6 @@
 /* global m, window */
 
+const BarChart = require("../../js/mithril/bar-chart");
 const Parser = require("./parser");
 const parser = new Parser();
 const Roller = require("./roller");
@@ -116,45 +117,51 @@ module.exports = class Dice {
                 m("br"),
                 `Standard Deviation: ${this.result.stdDev}`
             ]),
-            m("table", [
-                m("tr", [
-                    m("th", "Roll"),
-                    m("th", "Freq"),
-                    m("th", "Prob"),
-                    m("th", "Bar")
-                ]),
-                ...this.viewRolls(this.result.rolls)
-            ])
+            m(BarChart, {
+                columns: [
+                    {
+                        label: "Roll",
+                        property: "roll",
+                        attrs: {
+                            align: "right"
+                        }
+                    },
+                    {
+                        label: "Freq",
+                        property: "freq",
+                        attrs: {
+                            align: "right"
+                        }
+                    },
+                    {
+                        label: "Prob",
+                        property: "probStr",
+                        attrs: {
+                            align: "right"
+                        }
+                    },
+                    {
+                        label: "Bar",
+                        property: "prob",
+                        barChart: true
+                    }
+                ],
+                data: this.reformatRollsAsBarChart()
+            })
         ];
     }
 
-    viewRolls() {
-        const dataColProps = {
-            width: "1%",
-            align: "right"
-        };
+    reformatRollsAsBarChart() {
         const result = [];
 
         this.result.rolls.forEach((rollsArray, count) => {
-            const roll = rollsArray[0];
             const prob = count / this.result.totalRolls;
-            const percentOfMax = (100 * count) / this.result.maxCount;
-
-            result.push(
-                m("tr", [
-                    m("td", dataColProps, roll),
-                    m("td", dataColProps, count.toLocaleString()),
-                    m("td", dataColProps, prob.toFixed(5)),
-                    m(
-                        "td",
-                        { valign: "center" },
-                        m("div", {
-                            class: "Bgc(blue) H(0.8em)",
-                            style: `width: ${percentOfMax.toFixed(2)}%`
-                        })
-                    )
-                ])
-            );
+            result.push({
+                roll: rollsArray[0],
+                freq: count,
+                prob: prob,
+                probStr: prob.toFixed(5)
+            });
         });
 
         return result;

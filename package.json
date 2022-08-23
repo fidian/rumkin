@@ -7,7 +7,7 @@
         ]
     },
     "scripts": {
-        "build": "node metalsmith.js",
+        "build": "(cd site/tools/cipher/ && ./character-properties.js) && node metalsmith.js",
         "clean": "rm -rf node_modules/ package-lock.json build",
         "fastbuild": "FAST=true node metalsmith.js",
         "reinstall": "rm -rf package-lock.json node_modules/ && npm install",
@@ -40,6 +40,7 @@
         "polyfill-crypto.getrandomvalues": "^1.0.0",
         "psr": "^0.0.1",
         "tablesorter": "^2.31.3",
-        "tai-password-strength": "^1.1.3"
+        "tai-password-strength": "^1.1.3",
+        "ucd-full": "^14.0.0"
     }
 }
