@@ -2,4 +2,4 @@
 
 "use strict";
 
-window.Gronsfeld = require('./gronsfeld');
+window.Gronsfeld = require("./gronsfeld");
