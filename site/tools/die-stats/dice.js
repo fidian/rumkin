@@ -1,6 +1,7 @@
 /* global m, window */
 
 const BarChart = require("../../js/mithril/bar-chart");
+const conduitEvents = require("../../js/module/conduit-events");
 const Parser = require("./parser");
 const parser = new Parser();
 const Roller = require("./roller");
@@ -21,16 +22,22 @@ module.exports = class Dice {
         window.diceInstance = this;
     }
 
+
     oninit() {
-        this.input = m.route.param("dice") || "";
+        this.input = "";
         this.update();
+        this.unsubscribe = conduitEvents.on('dice', (str) => {
+            this.input = str || "";
+            this.update();
+        });
+    }
+
+    onbeforeremove() {
+        this.unsubscribe();
     }
 
     update() {
         const input = (this.input || "").replace(/[^-+0-9dDP,()]/g, "");
-        m.route.set("/", {
-            dice: input.trim()
-        });
         this.isEmpty = false;
         this.isWorking = false;
         this.isInvalid = false;
