@@ -1,0 +1,1 @@
+"use strict";function getTitle(){var e=document.getElementsByTagName("title");return e.length?e[0].innerText:""}function getUrl(){return(window.location.pathName||"/")+"?r="+encodeURIComponent(document.referrer)}(window.location.search||"").indexOf("r=")<0&&window.history.replaceState("",getTitle(),getUrl());

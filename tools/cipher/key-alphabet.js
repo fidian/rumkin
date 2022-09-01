@@ -1,0 +1,1 @@
+"use strict";module.exports=function(e){return e.value.keyWord(e.alphabetKey||"",{useLastInstance:e.useLastInstance,reverseKey:e.reverseKey,reverseAlphabet:e.reverseAlphabet,keyAtEnd:e.keyAtEnd})};
