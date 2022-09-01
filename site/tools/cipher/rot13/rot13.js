@@ -2,6 +2,8 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const Result = require("../result");
 
 module.exports = class Rot13 {
@@ -13,6 +15,7 @@ module.exports = class Rot13 {
             alphabet: this.alphabet,
             value: ""
         };
+        cipherConduitSetup(this, "rot13");
     }
 
     view() {
@@ -31,15 +34,18 @@ module.exports = class Rot13 {
             );
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const result = rumkinCipher.cipher.caesar.encipher(
-            message,
-            this.alphabet.value,
-            {
+        if (!this.input.value.trim().length) {
+            return m(Result, "Enter text to see it encoded or decoded here");
+        }
+
+        return m(CipherResult, {
+            name: "caesar",
+            direction: "ENCRYPT",
+            message: this.input.value,
+            alphabet: this.alphabet.value,
+            options: {
                 shift: this.alphabet.value.letterOrder.upper.length / 2
             }
-        );
-
-        return m(Result, result.toString());
+        });
     }
 };

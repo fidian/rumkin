@@ -2,6 +2,8 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const ErrorMessage = require("../error-message");
 const NumericInput = require("../../../js/mithril/numeric-input");
@@ -27,6 +29,7 @@ module.exports = class Affine {
             alphabet: this.alphabet,
             value: ""
         };
+        cipherConduitSetup(this, "affine");
     }
 
     modifyA(direction) {
@@ -90,8 +93,10 @@ module.exports = class Affine {
     }
 
     viewAlphabet() {
-        const upperAndLower = this.alphabet.value.letterOrder.upper && this.alphabet.value.letterOrder.lower;
-        const upperAndLowerText = upperAndLower ? ' and lowercase' : '';
+        const upperAndLower =
+            this.alphabet.value.letterOrder.upper &&
+            this.alphabet.value.letterOrder.lower;
+        const upperAndLowerText = upperAndLower ? " and lowercase" : "";
 
         return [
             m(AlphabetSelector, this.alphabet),
@@ -110,7 +115,7 @@ module.exports = class Affine {
             return null;
         }
 
-        return [' (also these are translated: ', keys.join(''), ')'];
+        return [" (also these are translated: ", keys.join(""), ")"];
     }
 
     viewB() {
@@ -126,24 +131,23 @@ module.exports = class Affine {
         const b = this.b.value || 0;
 
         if (a < 1) {
-            return m(
-                ErrorMessage,
-                ["The value of ", m("tt", "a"), " must be greater than zero."]
-            );
+            return m(ErrorMessage, [
+                "The value of ",
+                m("tt", "a"),
+                " must be greater than zero."
+            ]);
         }
 
         if (Math.floor(a) !== a) {
-            return m(
-                ErrorMessage,
-                ["The value of ", m("tt", "b"), " must be an integer."]
-            );
+            return m(ErrorMessage, [
+                "The value of ",
+                m("tt", "b"),
+                " must be an integer."
+            ]);
         }
 
         if (
-            !rumkinCipher.util.coprime(
-                this.a.value,
-                this.alphabet.value.length
-            )
+            !rumkinCipher.util.coprime(this.a.value, this.alphabet.value.length)
         ) {
             return m(ErrorMessage, [
                 "The value of ",
@@ -153,25 +157,26 @@ module.exports = class Affine {
         }
 
         if (Math.floor(b) !== b) {
-            return m(ErrorMessage, ["The value of ", m("tt", b), " must be an integer."]);
+            return m(ErrorMessage, [
+                "The value of ",
+                m("tt", b),
+                " must be an integer."
+            ]);
         }
 
-        if (this.input.value.trim() === '') {
+        if (this.input.value.trim() === "") {
             return m(Result, "Enter text to see it encoded here");
         }
 
-        return this.viewEncodeDecode();
-    }
-
-    viewEncodeDecode() {
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.affine;
-        const options = {
-            multiplier: this.a.value,
-            shift: this.b.value
-        };
-        const result = module[this.direction.cipher](message, this.alphabet.value, options);
-
-        return m(Result, result.toString());
+        return m(CipherResult, {
+            name: "affine",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: this.alphabet.value,
+            options: {
+                multiplier: this.a.value,
+                shift: this.b.value
+            }
+        });
     }
 };

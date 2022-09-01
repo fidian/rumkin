@@ -1,19 +1,19 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
+const AlphabetSelector = require("../alphabet-selector");
 const baconianApplier = require("./baconian-applier");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
 const Result = require("../result");
 
 module.exports = class Baconian {
     constructor() {
-        this.alphabetInstance = new rumkinCipher.alphabet.English();
         this.alphabet = {
-            value: this.alphabetInstance
+            value: new rumkinCipher.alphabet.English()
         };
-        this.lastAlphabet = this.alphabetInstance;
-        this.lastResult = "";
         this.condensingOptions = {
             label: "Alphabet style",
             options: {
@@ -41,11 +41,23 @@ module.exports = class Baconian {
             label: "Embed your message in this text",
             value: ""
         };
+        cipherConduitSetup(this, "baconian");
+    }
+
+    adjustAlphabet() {
+        let alphabet = this.alphabet.value;
+
+        if (this.condensingOptions.value === "CONDENSED") {
+            alphabet = alphabet.collapse("J", "I").collapse("V", "U");
+        }
+
+        return alphabet;
     }
 
     view() {
         return [
             m("p", m(DirectionSelector, this.direction)),
+            m("p", m(AlphabetSelector, this.alphabet)),
             m("p", m(Dropdown, this.condensingOptions)),
             m("p", m(AdvancedInputArea, this.input)),
             this.viewSwapAB(),
@@ -55,7 +67,7 @@ module.exports = class Baconian {
     }
 
     viewEmbed() {
-        if (!this.direction.obfuscate) {
+        if (this.direction.value !== "ENCRYPT") {
             return [];
         }
 
@@ -81,9 +93,13 @@ module.exports = class Baconian {
             classes = "Fw(b) Fs(i)";
         }
 
+        const message = new rumkinCipher.util.Message(this.input.value);
+        const result = rumkinCipher.code.baconian
+            .encode(message, this.adjustAlphabet())
+            .toString();
         const applied = baconianApplier(
-            this.lastAlphabet,
-            this.lastResult,
+            this.alphabet.value,
+            result,
             this.embeddingText.value,
             classes
         );
@@ -110,19 +126,12 @@ module.exports = class Baconian {
             return m(Result, "Enter text to see it encoded here");
         }
 
-        this.lastAlphabet = this.alphabet.value;
-
-        if (this.condensingOptions.value === "CONDENSED") {
-            this.lastAlphabet = this.lastAlphabet
-                .collapse("J", "I")
-                .collapse("V", "U");
-        }
-
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.code.baconian;
-        this.lastResult = module[this.direction.code](message, this.lastAlphabet).toString();
-
-        return m(Result, this.lastResult);
+        return m(CipherResult, {
+            name: "baconian",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: this.adjustAlphabet()
+        });
     }
 
     viewSwapAB() {

@@ -2,7 +2,10 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const Checkbox = require("../../../js/mithril/checkbox");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
+const keyAlphabet = require("../key-alphabet");
 const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 const ShowHide = require("../show-hide");
@@ -14,7 +17,6 @@ module.exports = class Gronsfeld {
         this.alphabet = {
             value: new rumkinCipher.alphabet.English()
         };
-        this.alphabet.alphabet = this.alphabet.value;
         this.autokey = {
             label: 'Use "autokey" variant to extend the key with plaintext (not typical for Gronsfeld)',
             value: false
@@ -28,6 +30,7 @@ module.exports = class Gronsfeld {
             label: "Message to encode or decode",
             value: ""
         };
+        cipherConduitSetup(this, "gronsfeld");
     }
 
     view() {
@@ -53,18 +56,20 @@ module.exports = class Gronsfeld {
     }
 
     viewVigenereKey() {
+        const keyedAlphabet = keyAlphabet(this.alphabet);
         this.vigenereKey = this.cipherKey.value
             .replace(/[^0-9]/g, "")
-            .replace(/[0-9]/g, (match) => this.alphabet.value.letterOrder.upper.charAt(+match));
+            .replace(/[0-9]/g, (match) =>
+                keyedAlphabet.letterOrder.upper.charAt(+match)
+            );
 
         return `Vigenère equivalent key: ${this.vigenereKey}`;
     }
 
     viewTableau() {
-        // Keyed alphabet
+        const keyedAlphabet = keyAlphabet(this.alphabet);
         const keyedAlphabetDoubled = (
-            this.alphabet.value.letterOrder.upper +
-            this.alphabet.value.letterOrder.upper
+            keyedAlphabet.letterOrder.upper + keyedAlphabet.letterOrder.upper
         ).split("");
         const rows = this.tableauRows();
 
@@ -100,12 +105,13 @@ module.exports = class Gronsfeld {
             return defaultRows;
         }
 
-        return cipherKey.split("").map(n => +n);
+        return cipherKey.split("").map((n) => +n);
     }
 
     viewTableauHeader() {
+        const keyedAlphabet = keyAlphabet(this.alphabet);
         // Keyed alphabet
-        const letters = this.alphabet.value.letterOrder.upper.split("");
+        const letters = keyedAlphabet.letterOrder.upper.split("");
 
         return m("tr", [
             m("th"),
@@ -118,17 +124,15 @@ module.exports = class Gronsfeld {
             return m(Result, "Enter text and see the result here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.vigenère;
-        const result = module[this.direction.cipher](
-            message,
-            this.alphabet.value,
-            {
+        return m(CipherResult, {
+            name: "vigenère", // NOT gronsfeld
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: keyAlphabet(this.alphabet),
+            options: {
                 key: this.vigenereKey,
                 autokey: this.autokey.value
             }
-        );
-
-        return m(Result, result.toString());
+        });
     }
 };

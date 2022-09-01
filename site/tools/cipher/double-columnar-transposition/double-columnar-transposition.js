@@ -3,13 +3,16 @@
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
 const Checkbox = require("../../../js/mithril/checkbox");
+const cipherConduitSetup = require("../cipher-conduit-setup");
 const DirectionSelector = require("../direction-selector");
 const Result = require("../result");
 const TextInput = require("../../../js/mithril/text-input");
 
 module.exports = class DoubleColumnarTransposition {
     constructor() {
-        this.direction = {};
+        this.direction = {
+            value: "ENCRYPT"
+        };
         this.columnOrder = {
             value: false,
             label: "Use the key as a column order instead of column labels"
@@ -35,6 +38,7 @@ module.exports = class DoubleColumnarTransposition {
         };
         this.firstColumnKey = null;
         this.secondColumnKey = null;
+        cipherConduitSetup(this, "doubleColumnarTransposition");
     }
 
     view() {
@@ -88,24 +92,14 @@ module.exports = class DoubleColumnarTransposition {
 
         const message = new rumkinCipher.util.Message(this.input.value);
         const module = rumkinCipher.cipher.columnarTransposition;
-        const intermediate = module[this.direction.cipher](
-            message,
-            this.alphabet.value,
-            {
-                columnKey: this.direction.obfuscate
-                    ? this.firstColumnKey
-                    : this.secondColumnKey
-            }
-        );
-        const result = module[this.direction.cipher](
-            intermediate,
-            this.alphabet.value,
-            {
-                columnKey: this.direction.obfuscate
-                    ? this.secondColumnKey
-                    : this.firstColumnKey
-            }
-        );
+        const isEncrypt = this.direction.value === "ENCRYPT";
+        const method = isEncrypt ? "encipher" : "decipher";
+        const intermediate = module[method](message, this.alphabet.value, {
+            columnKey: isEncrypt ? this.firstColumnKey : this.secondColumnKey
+        });
+        const result = module[method](intermediate, this.alphabet.value, {
+            columnKey: isEncrypt ? this.secondColumnKey : this.firstColumnKey
+        });
 
         return m(Result, result.toString());
     }

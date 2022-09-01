@@ -21,7 +21,7 @@ module.exports = class CryptogramSolve {
         this.parsed = null;
         this.letterMap = new Map();
         this.bestGuessStatus = -1;
-        this.bestGuessProgress = '';
+        this.bestGuessProgress = "";
         wordlists.getWordlists().then((wordlistsMeta) => {
             for (const wordlist of wordlistsMeta) {
                 if (wordlist.filename === this.wordlist) {
@@ -164,7 +164,7 @@ module.exports = class CryptogramSolve {
 
     makePattern(chars, letterMap) {
         const currentlyMapped = [...this.letterMap.values()].join("");
-        const notUsedLetters = currentlyMapped ? `[^${currentlyMapped}]` : '.';
+        const notUsedLetters = currentlyMapped ? `[^${currentlyMapped}]` : ".";
         const pattern = chars
             .split("")
             .map((c) => letterMap.get(c) || notUsedLetters)
@@ -182,25 +182,29 @@ module.exports = class CryptogramSolve {
 
     startBestGuess() {
         // Sort by worst words first because we use pop/push instead of shift/unshift.
-        const parsedSorted = this.parsed.filter(item => item.isLetter).sort((a, b) => {
-            // Worst = fewest distinct letters
-            const aLetterCode = Math.max(...a.key.split('').map(x => x.charCodeAt(0)));
-            const bLetterCode = Math.max(...b.key.split('').map(x => x.charCodeAt(0)));
-            const codeDiff = aLetterCode - bLetterCode;
+        const parsedSorted = this.parsed
+            .filter((item) => item.isLetter)
+            .sort((a, b) => {
+                // Worst = fewest distinct letters
+                const aLetterCode = Math.max(
+                    ...a.key.split("").map((x) => x.charCodeAt(0))
+                );
+                const bLetterCode = Math.max(
+                    ...b.key.split("").map((x) => x.charCodeAt(0))
+                );
+                const codeDiff = aLetterCode - bLetterCode;
 
-            if (codeDiff) {
-                return codeDiff;
-            }
+                if (codeDiff) {
+                    return codeDiff;
+                }
 
-            // Worst = more dictionary entries
-            const aMatches = a.availableMatches.length;
-            const bMatches = b.availableMatches.length;
-            const matchesDiff = bMatches - aMatches;
+                // Worst = more dictionary entries
+                const aMatches = a.availableMatches.length;
+                const bMatches = b.availableMatches.length;
+                const matchesDiff = bMatches - aMatches;
 
-            return matchesDiff;
-        });
-
-        console.log(parsedSorted.map(x => `${x.key} ${x.availableMatches.length}`));
+                return matchesDiff;
+            });
 
         for (const item of parsedSorted) {
             item.hits = new Set();
@@ -208,7 +212,7 @@ module.exports = class CryptogramSolve {
 
         const first = parsedSorted.pop();
         const state = {
-            current: this.makeCurrentState(first, '', ''),
+            current: this.makeCurrentState(first, "", ""),
             earlier: [],
             next: parsedSorted
         };
@@ -237,7 +241,10 @@ module.exports = class CryptogramSolve {
         const start = Date.now();
 
         while (start + 200 > Date.now()) {
-            if (state.current.index >= state.current.item.availableMatches.length) {
+            if (
+                state.current.index >=
+                state.current.item.availableMatches.length
+            ) {
                 // Pop state
                 state.next.push(state.current.item);
                 state.current = state.earlier.pop();
@@ -250,21 +257,37 @@ module.exports = class CryptogramSolve {
 
                 state.current.index += 1;
             } else {
-                while (state.current.index < state.current.item.availableMatches.length && !state.current.item.availableMatches[state.current.index].match(state.current.pattern)) {
+                while (
+                    state.current.index <
+                        state.current.item.availableMatches.length &&
+                    !state.current.item.availableMatches[
+                        state.current.index
+                    ].match(state.current.pattern)
+                ) {
                     state.current.index += 1;
                 }
 
-                if (state.current.index < state.current.item.availableMatches.length) {
+                if (
+                    state.current.index <
+                    state.current.item.availableMatches.length
+                ) {
                     if (state.next.length) {
                         // Push state
                         const transition = state.current;
                         state.earlier.push(transition);
                         const item = state.next.pop();
-                        state.current = this.makeCurrentState(item, transition.map, transition.item.chars, transition.item.availableMatches[transition.index]);
+                        state.current = this.makeCurrentState(
+                            item,
+                            transition.map,
+                            transition.item.chars,
+                            transition.item.availableMatches[transition.index]
+                        );
                     } else {
                         // Matched all words
                         for (const stateItem of state.earlier) {
-                            stateItem.item.hits.add(stateItem.item.availableMatches[stateItem.index]);
+                            stateItem.item.hits.add(
+                                stateItem.item.availableMatches[stateItem.index]
+                            );
                         }
 
                         state.current.index += 1;
@@ -288,15 +311,19 @@ module.exports = class CryptogramSolve {
             parts.push(`[${x.index}/${x.item.availableMatches.length}]`);
         }
 
-        parts.push(`[${state.current.index}/${state.current.item.availableMatches.length}]`);
+        parts.push(
+            `[${state.current.index}/${state.current.item.availableMatches.length}]`
+        );
 
-        return parts.join(' ');
+        return parts.join(" ");
     }
 
     finishBestGuess(parsedSorted) {
         for (const item of parsedSorted) {
             if (item.hits.size) {
-                item.availableMatches = item.availableMatches.filter(x => item.hits.has(x));
+                item.availableMatches = item.availableMatches.filter((x) =>
+                    item.hits.has(x)
+                );
             }
 
             delete item.hits;
@@ -330,7 +357,10 @@ module.exports = class CryptogramSolve {
         }
 
         if (this.bestGuessStatus === 0) {
-            return m("p", `Working on eliminating conflicting words ... ${this.bestGuessProgress}`);
+            return m(
+                "p",
+                `Working on eliminating conflicting words ... ${this.bestGuessProgress}`
+            );
         }
 
         return m("p", [

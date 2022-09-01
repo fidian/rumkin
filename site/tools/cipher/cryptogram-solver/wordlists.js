@@ -7,7 +7,7 @@ module.exports = {
         if (!requestPromise) {
             requestPromise = m.request({
                 extract: (x) => JSON.parse(x.responseText),
-                url: '../wordlists/wordlists.json'
+                url: "../wordlists/wordlists.json"
             });
         }
 

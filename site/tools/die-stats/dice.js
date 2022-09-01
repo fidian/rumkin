@@ -22,11 +22,10 @@ module.exports = class Dice {
         window.diceInstance = this;
     }
 
-
     oninit() {
         this.input = "";
         this.update();
-        this.unsubscribe = conduitEvents.on('dice', (str) => {
+        this.unsubscribe = conduitEvents.on("dice", (str) => {
             this.input = str || "";
             this.update();
         });

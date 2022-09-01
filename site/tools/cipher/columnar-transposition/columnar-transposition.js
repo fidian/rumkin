@@ -3,13 +3,17 @@
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
 const Checkbox = require("../../../js/mithril/checkbox");
+const CipherResult = require("../cipher-result");
+const cipherConduitSetup = require("../cipher-conduit-setup");
 const DirectionSelector = require("../direction-selector");
 const Result = require("../result");
 const TextInput = require("../../../js/mithril/text-input");
 
 module.exports = class ColumnarTransposition {
     constructor() {
-        this.direction = {};
+        this.direction = {
+            value: "ENCRYPT"
+        };
         this.columnOrder = {
             value: false,
             label: "Use the key as a column order instead of column labels"
@@ -30,6 +34,7 @@ module.exports = class ColumnarTransposition {
             value: ""
         };
         this.columnKey = null;
+        cipherConduitSetup(this, "columnarTransposition");
     }
 
     view() {
@@ -79,16 +84,14 @@ module.exports = class ColumnarTransposition {
             return m(Result, "Enter text and see the result here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.columnarTransposition;
-        const result = module[this.direction.cipher](
-            message,
-            this.alphabet.value,
-            {
+        return m(CipherResult, {
+            name: "columnarTransposition",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: this.alphabet.value,
+            options: {
                 columnKey: this.columnKey
             }
-        );
-
-        return m(Result, result.toString());
+        });
     }
 };

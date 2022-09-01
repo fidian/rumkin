@@ -3,6 +3,7 @@
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
 const Checkbox = require("../../../js/mithril/checkbox");
+const cipherConduitSetup = require("../cipher-conduit-setup");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
 const Result = require("../result");
@@ -10,11 +11,13 @@ const TextInput = require("../../../js/mithril/text-input");
 
 module.exports = class Ubchi {
     constructor() {
-        this.direction = {};
+        this.direction = {
+            value: "ENCRYPT"
+        };
         this.alphabet = {
             value: new rumkinCipher.alphabet.English(),
             onchange: () => {
-                this.setPadCharacter();
+                this.setPadCharacterOptions();
             }
         };
         this.columnOrder = {
@@ -34,18 +37,41 @@ module.exports = class Ubchi {
             value: ""
         };
         this.padCharacter = {
-            label: "Charcter to use when padding the message"
+            label: "Charcter to use when padding the message",
+            value: ""
         };
-        this.columnKeyParsed = null;
-        this.setPadCharacter();
+        this.setPadCharacterOptions();
+        cipherConduitSetup(this, "ubchi", () => {
+            this.setPadCharacterOptions();
+        });
     }
 
-    setPadCharacter() {
+    parseColumnKey() {
+        return rumkinCipher.util.columnKey(
+            this.alphabet.value,
+            this.columnKey.value,
+            {
+                columnOrder: this.columnOrder.value,
+                dupesBackwards: this.dupesBackwards.value
+            }
+        );
+    }
+
+    setPadCharacterOptions() {
         this.padCharacter.options = {};
+        let found = false;
 
         for (const letter of this.alphabet.value.letterOrder.upper.split("")) {
             this.padCharacter.options[letter] = letter;
-            this.padCharacter.value = letter;
+
+            if (this.padCharacter.value === letter) {
+                found = true;
+            }
+        }
+
+        if (!found) {
+            this.padCharacter.value =
+                this.alphabet.value.letterOrder.upper.substr(-1, 1);
         }
     }
 
@@ -64,19 +90,12 @@ module.exports = class Ubchi {
     }
 
     viewKey() {
-        this.columnKeyParsed = rumkinCipher.util.columnKey(
-            this.alphabet.value,
-            this.columnKey.value,
-            {
-                columnOrder: this.columnOrder.value,
-                dupesBackwards: this.dupesBackwards.value
-            }
-        );
+        const columnKeyParsed = this.parseColumnKey();
 
-        if (this.columnKeyParsed.length > 1) {
+        if (columnKeyParsed.length > 1) {
             return m(
                 "p",
-                `The resulting columnar key: ${this.columnKeyParsed
+                `The resulting columnar key: ${columnKeyParsed
                     .map((x) => x + 1)
                     .join(" ")}`
             );
@@ -86,7 +105,9 @@ module.exports = class Ubchi {
     }
 
     viewResult() {
-        if (this.columnKeyParsed.length < 2) {
+        const columnKeyParsed = this.parseColumnKey();
+
+        if (columnKeyParsed.length < 2) {
             return m(
                 Result,
                 "You need at least two columns in order to encode anything"
@@ -98,19 +119,24 @@ module.exports = class Ubchi {
         }
 
         const columnOptions = {
-            columnKey: this.columnKeyParsed
+            columnKey: columnKeyParsed
         };
         const message = new rumkinCipher.util.Message(this.input.value);
         const module = rumkinCipher.cipher.columnarTransposition;
+        const isEncrypt = this.direction.value === "ENCRYPT";
 
-        if (this.direction.value === 'ENCRYPT') {
-            const intermediate = module[this.direction.cipher](
+        if (isEncrypt) {
+            const intermediate = module.encipher(
                 message,
                 this.alphabet.value,
                 columnOptions
             );
-            intermediate.append(new rumkinCipher.util.MessageChunk(this.padCharacter.value, [-1]));
-            const result = module[this.direction.cipher](
+            intermediate.append(
+                new rumkinCipher.util.MessageChunk(this.padCharacter.value, [
+                    -1
+                ])
+            );
+            const result = module.encipher(
                 intermediate,
                 this.alphabet.value,
                 columnOptions
@@ -119,13 +145,15 @@ module.exports = class Ubchi {
             return m(Result, result.toString());
         }
 
-        const intermediate = module[this.direction.cipher](
+        const intermediate = module.decipher(
             message,
             this.alphabet.value,
             columnOptions
         );
-        const withoutLastLetter = intermediate.filter((chunk, index) => index < intermediate.length - 1);
-        const result = module[this.direction.cipher](
+        const withoutLastLetter = intermediate.filter(
+            (chunk, index) => index < intermediate.length - 1
+        );
+        const result = module.decipher(
             withoutLastLetter,
             this.alphabet.value,
             columnOptions

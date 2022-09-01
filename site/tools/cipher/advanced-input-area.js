@@ -2,6 +2,25 @@
 
 const InputArea = require("../../js/mithril/input-area");
 
+/**
+ * Attributes
+ * @typedef {AdvancedInputAreaAttributes}
+ * @property {AlphabetValue} alphabet
+ * @property {string=} label
+ * @property {AdvancedInputAreaOninput=} oninput
+ * @property {boolean} value
+ */
+
+/**
+ * @typedef {AlphabetValue}
+ * @property {Alphabet} value
+ */
+
+/**
+ * @callback AdvancedInputAreaOninput
+ * @param {Event} event
+ */
+
 module.exports = class AdvancedInputArea {
     view(vnode) {
         const attrs = vnode.attrs;
@@ -46,25 +65,31 @@ module.exports = class AdvancedInputArea {
         ];
         const changeActions = [
             {
-                label: 'lowercase',
+                label: "lowercase",
                 callback: () => {
                     attrs.value = this.lowercase(attrs.value);
                 }
             },
             {
-                label: 'Natural case',
+                label: "Natural case",
                 callback: () => {
-                    attrs.value = this.lowercase(attrs.value).replace(/(^|\n|[.?!])\s*\S/g, (matches) => this.uppercase(matches));
+                    attrs.value = this.lowercase(attrs.value).replace(
+                        /(^|\n|[.?!])\s*\S/g,
+                        (matches) => this.uppercase(matches)
+                    );
                 }
             },
             {
-                label: 'Title Case',
+                label: "Title Case",
                 callback: () => {
-                    attrs.value = this.lowercase(attrs.value).replace(/(^|\n|\s)\s*\S/g, (matches) => this.uppercase(matches));
+                    attrs.value = this.lowercase(attrs.value).replace(
+                        /(^|\n|\s)\s*\S/g,
+                        (matches) => this.uppercase(matches)
+                    );
                 }
             },
             {
-                label: 'UPPERCASE',
+                label: "UPPERCASE",
                 callback: () => {
                     attrs.value = this.uppercase(attrs.value);
                 }
@@ -72,21 +97,24 @@ module.exports = class AdvancedInputArea {
             {
                 label: "swap case",
                 callback: () => {
-                    attrs.value = attrs.value.split('').map(c => {
-                        const u = this.uppercase(c);
+                    attrs.value = attrs.value
+                        .split("")
+                        .map((c) => {
+                            const u = this.uppercase(c);
 
-                        if (c === u) {
-                            return this.lowercase(c);
-                        }
+                            if (c === u) {
+                                return this.lowercase(c);
+                            }
 
-                        return u;
-                    }).join('');
+                            return u;
+                        })
+                        .join("");
                 }
             },
             {
                 label: "reverse",
                 callback: () => {
-                    attrs.value = attrs.value.split('').reverse().join('');
+                    attrs.value = attrs.value.split("").reverse().join("");
                 }
             }
         ];
@@ -100,11 +128,11 @@ module.exports = class AdvancedInputArea {
     }
 
     lowercase(str) {
-        return str.toLowerCase().replace(/ẞ/g, 'ß');
+        return str.toLowerCase().replace(/ẞ/g, "ß");
     }
 
     uppercase(str) {
-        return str.toUpperCase().replace(/ß/g, 'ẞ');
+        return str.toUpperCase().replace(/ß/g, "ẞ");
     }
 
     viewActions(label, actions) {

@@ -7,7 +7,9 @@ module.exports = class EventEmitter {
 
     emit(name, ...args) {
         for (const callback of this.listeners.get(name) || []) {
-            callback(...args);
+            try {
+                callback(...args);
+            } catch (ignore) {}
         }
     }
 

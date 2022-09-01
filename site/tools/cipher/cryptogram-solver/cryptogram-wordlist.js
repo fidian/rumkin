@@ -1,14 +1,14 @@
 /* global m */
 
-const cryptogramShared = require('./cryptogram-shared');
-const Dropdown = require('../../../js/mithril/dropdown');
-const session = require('./session');
-const wordlists = require('./wordlists');
+const cryptogramShared = require("./cryptogram-shared");
+const Dropdown = require("../../../js/mithril/dropdown");
+const session = require("./session");
+const wordlists = require("./wordlists");
 
 module.exports = class CryptogramWordlist {
     constructor() {
         this.wordlists = {
-            label: 'Wordlist',
+            label: "Wordlist",
             value: session.wordlist,
             options: {}
         };
@@ -48,14 +48,14 @@ module.exports = class CryptogramWordlist {
     view() {
         return [
             cryptogramShared.viewCipherText(),
-            m('p', this.viewWordlist()),
-            m('p', this.viewButtons())
+            m("p", this.viewWordlist()),
+            m("p", this.viewButtons())
         ];
     }
 
     viewWordlist() {
         if (!this.ready) {
-            return 'Loading list of wordlists';
+            return "Loading list of wordlists";
         }
 
         return m(Dropdown, this.wordlists);
@@ -63,18 +63,26 @@ module.exports = class CryptogramWordlist {
 
     viewButtons() {
         return [
-            m('button', {
-                onclick: () => {
-                    m.route.set('/');
-                }
-            }, 'Go back'),
-            m('button', {
-                disabled: !this.ready,
-                onclick: () => {
-                    session.wordlist = this.wordlists.value;
-                    m.route.set('/solve');
-                }
-            }, 'Next step')
+            m(
+                "button",
+                {
+                    onclick: () => {
+                        m.route.set("/");
+                    }
+                },
+                "Go back"
+            ),
+            m(
+                "button",
+                {
+                    disabled: !this.ready,
+                    onclick: () => {
+                        session.wordlist = this.wordlists.value;
+                        m.route.set("/solve");
+                    }
+                },
+                "Next step"
+            )
         ];
     }
 };

@@ -13,7 +13,7 @@ routes:
       component: CryptogramSolve
 ---
 
-Do you have a cryptogram, also known as a cryptoquip or a simple letter substitution cipher?  Just type it in here and perhaps this will solve it right away. If not, it should allow you to work towards a solution by offering solutions for each word and tying the letters together throughout the entire cipher. It happens entirely in your browser, which is why we have to download a wordlist in order to solve the cipher.
+Do you have a cryptogram, also known as a cryptoquip or a simple letter substitution cipher? Just type it in here and perhaps this will solve it right away. If not, it should allow you to work towards a solution by offering solutions for each word and tying the letters together throughout the entire cipher. It happens entirely in your browser, which is why we have to download a wordlist in order to solve the cipher.
 
 > WARNING: The dictionaries used for this tool are not censored. If you want to provide dictionaries without offensive words, contact me.
 

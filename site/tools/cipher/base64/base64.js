@@ -1,16 +1,21 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const Result = require("../result");
 
 module.exports = class Base64 {
     constructor() {
-        this.direction = {};
+        this.direction = {
+            code: true
+        };
         this.input = {
             label: "Message to encode or decode",
             value: ""
         };
+        cipherConduitSetup(this, "base64");
     }
 
     view() {
@@ -23,13 +28,16 @@ module.exports = class Base64 {
 
     viewResult() {
         if (!this.input.value) {
-            return m(Result, "Enter your text and see the convered message here");
+            return m(
+                Result,
+                "Enter your text and see the convered message here"
+            );
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.code.base64;
-        const result = module[this.direction.code](message).toString();
-
-        return m(Result, result);
+        return m(CipherResult, {
+            name: "base64",
+            direction: this.direction.value,
+            message: this.input.value
+        });
     }
 };

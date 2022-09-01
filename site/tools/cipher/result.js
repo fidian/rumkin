@@ -1,5 +1,9 @@
 /* global m */
 
+/**
+ * No attributes
+ */
+
 module.exports = class Result {
     view(vnode) {
         return m(
@@ -7,9 +11,7 @@ module.exports = class Result {
             {
                 class: "Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"
             },
-            [
-                m("tt", vnode.children)
-            ]
+            [m("tt", vnode.children)]
         );
     }
 };

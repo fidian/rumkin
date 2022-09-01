@@ -1,8 +1,21 @@
 /* global m */
 
+/**
+ * Attributes
+ * @typedef {NumericInputAttributes}
+ * @property {string=} label
+ * @property {NumericInputOninput=} oninput
+ * @property {number} value
+ */
+
+/**
+ * @callback NumericInputOninput
+ * @param {Event} event
+ */
+
 module.exports = class NumericInput {
     constructor(vnode) {
-        this.value = vnode.attrs.value || '';
+        this.value = vnode.attrs.value || "";
     }
 
     viewLabel(text) {

@@ -33,40 +33,40 @@ for (const [k, v] of Object.entries(characterPropertiesJson)) {
 }
 
 const printableChar = {
-    0: 'NUL',
-    1: 'SOH',
-    2: 'STX',
-    3: 'ETX',
-    4: 'EOT',
-    5: 'ENQ',
-    6: 'ACK',
-    7: 'BEL',
-    8: 'BS',
-    9: 'TAB',
-    10: 'LF',
-    11: 'VT',
-    12: 'FF',
-    13: 'CR',
-    14: 'SO',
-    15: 'SI',
-    16: 'DLE',
-    17: 'DC1',
-    18: 'DC2',
-    19: 'DC3',
-    20: 'DC4',
-    21: 'NAK',
-    22: 'SYN',
-    23: 'ETB',
-    24: 'CAN',
-    25: 'EM',
-    26: 'SUB',
-    27: 'ESC',
-    28: 'FS',
-    29: 'GS',
-    30: 'RS',
-    31: 'US',
-    32: 'SP',
-    127: 'DEL'
+    0: "NUL",
+    1: "SOH",
+    2: "STX",
+    3: "ETX",
+    4: "EOT",
+    5: "ENQ",
+    6: "ACK",
+    7: "BEL",
+    8: "BS",
+    9: "TAB",
+    10: "LF",
+    11: "VT",
+    12: "FF",
+    13: "CR",
+    14: "SO",
+    15: "SI",
+    16: "DLE",
+    17: "DC1",
+    18: "DC2",
+    19: "DC3",
+    20: "DC4",
+    21: "NAK",
+    22: "SYN",
+    23: "ETB",
+    24: "CAN",
+    25: "EM",
+    26: "SUB",
+    27: "ESC",
+    28: "FS",
+    29: "GS",
+    30: "RS",
+    31: "US",
+    32: "SP",
+    127: "DEL"
 };
 
 module.exports = class Analyze {
@@ -122,16 +122,15 @@ module.exports = class Analyze {
 
     viewExpandableSections(tabulated) {
         return [...tabulated.values()]
-            .sort((a, b) =>
-                a.key.localeCompare(
-                    b.key
-                )
-            )
+            .sort((a, b) => a.key.localeCompare(b.key))
             .map((entry) => this.viewExpandableSection(entry));
     }
 
     viewExpandableSection(entry) {
-        const header = [m("b", entry.key), ` (${entry.count} occurrences, ${entry.matches.size} distinct)`];
+        const header = [
+            m("b", entry.key),
+            ` (${entry.count} occurrences, ${entry.matches.size} distinct)`
+        ];
 
         return [
             m(
@@ -142,9 +141,12 @@ module.exports = class Analyze {
                 m(
                     "a",
                     {
-                        href: '#',
+                        href: "#",
                         onclick: () => {
-                            this.showDetail.set(entry.key, !this.showDetail.get(entry.key));
+                            this.showDetail.set(
+                                entry.key,
+                                !this.showDetail.get(entry.key)
+                            );
                         }
                     },
                     [this.showDetail.get(entry.key) ? "▼ " : "▲ ", header]
@@ -175,7 +177,7 @@ module.exports = class Analyze {
     viewExpandableFrequency(entry) {
         // Sort by frequency
         const data = [...entry.matches]
-            .map(e => this.viewDataEntry(e[0], e[1]))
+            .map((e) => this.viewDataEntry(e[0], e[1]))
             .sort((a, b) => {
                 const d = b.n - a.n;
 
@@ -216,7 +218,10 @@ module.exports = class Analyze {
         for (const range of entry.characterProperties.ranges) {
             for (let i = range[0]; i <= range[1]; i += 1) {
                 const c = String.fromCharCode(i);
-                const dataEntry = this.viewDataEntry(c, entry.matches.get(c) || 0);
+                const dataEntry = this.viewDataEntry(
+                    c,
+                    entry.matches.get(c) || 0
+                );
 
                 if (i === dataEntry.cc) {
                     if (queue.length >= 10) {
@@ -243,14 +248,16 @@ module.exports = class Analyze {
 
         return m("div", [
             this.viewExpandableHeader(entry.key),
-            dataLists.map(data => this.viewBarChart(data.map(x => x.dataEntry)))
+            dataLists.map((data) =>
+                this.viewBarChart(data.map((x) => x.dataEntry))
+            )
         ]);
     }
 
     viewExpandableMatches(entry) {
         // Only the letters that were represented
         const data = [...entry.matches]
-            .map(e => this.viewDataEntry(e[0], e[1]))
+            .map((e) => this.viewDataEntry(e[0], e[1]))
             .sort((a, b) => {
                 return a.cc - b.cc;
             });

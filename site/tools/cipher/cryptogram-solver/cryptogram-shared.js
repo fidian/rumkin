@@ -1,6 +1,6 @@
 /* global m */
 
-const session = require('./session');
+const session = require("./session");
 
 module.exports = {
     viewCipherText() {
@@ -9,15 +9,12 @@ module.exports = {
 
         for (const ct of cipherText.split(/\r?\n/)) {
             if (result.length) {
-                result.push(m('br'));
+                result.push(m("br"));
             }
 
             result.push(ct);
         }
 
-        return [
-            m('p', m('b', 'Cipher text:')),
-            m('p', m('tt', result))
-        ];
+        return [m("p", m("b", "Cipher text:")), m("p", m("tt", result))];
     }
 };

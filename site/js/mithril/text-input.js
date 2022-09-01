@@ -1,5 +1,18 @@
 /* global m */
 
+/**
+ * Attributes
+ * @typedef {TextInputAttributes}
+ * @property {string=} label
+ * @property {TextInputOninput=} oninput
+ * @property {boolean} value
+ */
+
+/**
+ * @callback TextInputOninput
+ * @param {Event} event
+ */
+
 module.exports = class TextInput {
     viewLabel(text) {
         if (text) {

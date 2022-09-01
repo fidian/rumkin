@@ -1,8 +1,11 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
+const keyAlphabet = require("../key-alphabet");
 const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 
@@ -10,7 +13,6 @@ module.exports = class Caesar {
     constructor() {
         this.direction = {};
         this.alphabet = {
-            alphabet: new rumkinCipher.alphabet.English(),
             value: new rumkinCipher.alphabet.English(),
             onchange: () => {
                 this.updateN();
@@ -25,6 +27,7 @@ module.exports = class Caesar {
             value: ""
         };
         this.updateN();
+        cipherConduitSetup(this, "caesar");
     }
 
     updateN() {
@@ -49,8 +52,8 @@ module.exports = class Caesar {
     }
 
     viewAlphabet() {
-        const input = this.alphabet.alphabet.letterOrder.upper;
-        const keyed = this.alphabet.value.letterOrder.upper;
+        const input = this.alphabet.value.letterOrder.upper;
+        const keyed = keyAlphabet(this.alphabet).letterOrder.upper;
         const encoded =
             keyed.substr(+this.n.value) + keyed.substr(0, +this.n.value);
 
@@ -73,16 +76,14 @@ Encoded: ${encoded}`
             return m(Result, "Enter text to see the result here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.caesar;
-        const result = module[this.direction.cipher](
-            message,
-            this.alphabet.value,
-            {
+        return m(CipherResult, {
+            name: "caesar",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: keyAlphabet(this.alphabet),
+            options: {
                 shift: +this.n.value
             }
-        );
-
-        return m(Result, result.toString());
+        });
     }
 };

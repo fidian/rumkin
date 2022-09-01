@@ -3,25 +3,22 @@
 /* Columns with "barChart: true" are automatically scaled to the highest
  * number. The numbers associated with the bar chart do not need to be within
  * any specific range.
- *
- * m(BarChart, {
- *     columns: [
- *         {
- *             label: 'Count',
- *             property: 'count'
- *         },
- *         {
- *             label: 'Bar',
- *             property: 'probability',
- *             barChart: true
- *         }
- *     ],
- *     data: [
- *         { count: 23, probability: 0.7 },
- *         { count: 11, probability: 0.3 }
- *     ]
- * })
  */
+
+/**
+ * Attributes
+ * @typedef {BarChartAttributes}
+ * @property {BarCharColumn[]} columns
+ * @property {Object.<number,string>[]} data
+ */
+
+/**
+ * @typedef {BarCharColumn}
+ * @property {string} label
+ * @property {string} property Matches the property in the data records
+ * @property {boolean=false} barChart
+ */
+
 module.exports = class BarChart {
     findMaximum(property, data) {
         let max = Number.NEGATIVE_INFINITY;

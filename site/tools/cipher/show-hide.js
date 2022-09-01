@@ -1,5 +1,13 @@
 /* global m */
 
+/**
+ * Attributes
+ * @typedef {ShowHideAttributes}
+ * @property {*} content What to show when the accordion is expanded
+ * @property {string} label
+ * @property {boolean} show
+ */
+
 module.exports = class ShowHide {
     constructor(vnode) {
         this.isShowing = !!vnode.attrs.show;

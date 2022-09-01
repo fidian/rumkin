@@ -1,5 +1,9 @@
 /* global m */
 
+/**
+ * No attributes
+ */
+
 module.exports = class ErrorMessage {
     view(vnode) {
         return m(

@@ -2,6 +2,8 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
 const NumericInput = require("../../../js/mithril/numeric-input");
@@ -11,23 +13,25 @@ module.exports = class RailFence {
     constructor() {
         this.direction = {};
         this.alphabet = {
-            alphabet: new rumkinCipher.alphabet.English(),
             value: new rumkinCipher.alphabet.English()
         };
         this.rails = {
-            label: 'Number of rails',
+            label: "Number of rails",
             value: 5,
             onchange: () => this.updateOffset()
         };
         this.offset = {
-            label: 'Offset',
-            value: '0'
+            label: "Offset",
+            value: "0"
         };
         this.input = {
             alphabet: this.alphabet,
-            value: ''
+            value: ""
         };
         this.updateOffset();
+        cipherConduitSetup(this, "railFence", () => {
+            this.updateOffset();
+        });
     }
 
     updateOffset() {
@@ -61,17 +65,15 @@ module.exports = class RailFence {
             return m(Result, "Enter text to see the result here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.railFence;
-        const result = module[this.direction.cipher](
-            message,
-            this.alphabet.value,
-            {
+        return m(CipherResult, {
+            name: "railFence",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: this.alphabet.value,
+            options: {
                 rails: +this.rails.value,
                 offset: +this.offset.value
             }
-        );
-
-        return m(Result, result.toString());
+        });
     }
 };

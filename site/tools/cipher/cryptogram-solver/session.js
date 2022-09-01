@@ -1,11 +1,11 @@
 /* global sessionStorage */
 
-const p = 'cryptogramSolver.';
+const p = "cryptogramSolver.";
 const s = sessionStorage;
 
 module.exports = {
     get cipherText() {
-        return s.getItem(`${p}cipherText`) || '';
+        return s.getItem(`${p}cipherText`) || "";
     },
 
     set cipherText(v) {
@@ -13,7 +13,7 @@ module.exports = {
     },
 
     get wordlist() {
-        return s.getItem(`${p}wordlist`) || 'american-50-medium.txt';
+        return s.getItem(`${p}wordlist`) || "american-50-medium.txt";
     },
 
     set wordlist(v) {

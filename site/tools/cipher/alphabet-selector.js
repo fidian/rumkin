@@ -2,6 +2,18 @@
 
 const Dropdown = require("../../js/mithril/dropdown");
 
+/**
+ * Attributes
+ * @typedef {AlphabetSelectorAttributes}
+ * @property {AlphabetSelectorOnchange=} onchange
+ * @property {Alphabet} value
+ */
+
+/**
+ * @callback AlphabetSelectorOnchange
+ * @param {Event} event
+ */
+
 const options = {};
 
 for (const name of Object.keys(rumkinCipher.alphabet)) {
@@ -28,7 +40,9 @@ module.exports = class AlphabetSelector {
         this.d = d;
     }
 
-    view() {
+    view(vnode) {
+        this.d.value = vnode.attrs.value.name;
+
         return m(Dropdown, this.d);
     }
 };

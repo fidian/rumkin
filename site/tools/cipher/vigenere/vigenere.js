@@ -2,7 +2,10 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const Checkbox = require("../../../js/mithril/checkbox");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
+const keyAlphabet = require("../key-alphabet");
 const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 const ShowHide = require("../show-hide");
@@ -10,11 +13,12 @@ const TextInput = require("../../../js/mithril/text-input");
 
 module.exports = class Vigenere {
     constructor() {
-        this.direction = {};
+        this.direction = {
+            value: "ENCRYPT"
+        };
         this.alphabet = {
             value: new rumkinCipher.alphabet.English()
         };
-        this.alphabet.alphabet = this.alphabet.value;
         this.cipherKey = {
             label: "Cipher key",
             value: ""
@@ -27,6 +31,7 @@ module.exports = class Vigenere {
             alphabet: this.alphabet,
             value: ""
         };
+        cipherConduitSetup(this, "vigenere");
     }
 
     view() {
@@ -48,21 +53,19 @@ module.exports = class Vigenere {
     }
 
     viewTableau() {
-        // Keyed alphabet
+        const keyedAlphabet = keyAlphabet(this.alphabet);
         const keyedAlphabetDoubled = (
-            this.alphabet.value.letterOrder.upper +
-            this.alphabet.value.letterOrder.upper
+            keyedAlphabet.letterOrder.upper + keyedAlphabet.letterOrder.upper
         ).split("");
         const rows = this.tableauRows();
 
         return m("table", [
             this.viewTableauHeader(),
             ...rows.map((letter) => {
-                // Keyed alphabet
-                const index = this.alphabet.value.toIndex(letter);
+                const index = keyedAlphabet.toIndex(letter);
                 const shiftedAlphabet = keyedAlphabetDoubled.slice(
                     index,
-                    index + this.alphabet.value.letterOrder.upper.length
+                    index + keyedAlphabet.letterOrder.upper.length
                 );
 
                 return m("tr", [
@@ -78,7 +81,7 @@ module.exports = class Vigenere {
 
     tableauRows() {
         // Unkeyed alphabet for easier lookups
-        const alphabet = this.alphabet.alphabet;
+        const alphabet = this.alphabet.value;
 
         if (this.autokey.value) {
             return alphabet.letterOrder.upper.split("");
@@ -95,8 +98,8 @@ module.exports = class Vigenere {
     }
 
     viewTableauHeader() {
-        // Keyed alphabet
-        const letters = this.alphabet.value.letterOrder.upper.split("");
+        const keyedAlphabet = keyAlphabet(this.alphabet);
+        const letters = keyedAlphabet.letterOrder.upper.split("");
 
         return m("tr", [
             m("th"),
@@ -113,17 +116,15 @@ module.exports = class Vigenere {
             return m(Result, "Enter words to see it encoded or decoded here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.vigenère;
-        const result = module[this.direction.cipher](
-            message,
-            this.alphabet.value,
-            {
+        return m(CipherResult, {
+            name: "vigenère",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: keyAlphabet(this.alphabet),
+            options: {
                 key: this.cipherKey.value,
                 autokey: this.autokey.value
             }
-        );
-
-        return m(Result, result.toString());
+        });
     }
 };

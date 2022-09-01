@@ -1,16 +1,20 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
+const keyAlphabet = require("../key-alphabet");
 const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 
 module.exports = class Bifid {
     constructor() {
         this.direction = {};
+        const english = new rumkinCipher.alphabet.English();
         this.alphabet = {
-            value: new rumkinCipher.alphabet.English(),
+            value: english,
             onchange: () => this.resetTranslations()
         };
         this.input = {
@@ -19,14 +23,28 @@ module.exports = class Bifid {
             value: ""
         };
         this.resetTranslations();
+        cipherConduitSetup(this, "bifid", (msg) => {
+            this.resetTranslations();
+            const translations = msg.translations || "";
+            let index = 0;
+            for (const fromTo of translations.split(" ")) {
+                const dest = this.translations[index];
+
+                if (dest) {
+                    dest.from = fromTo[0];
+                    dest.to = fromTo[1];
+                }
+
+                index += 1;
+            }
+        });
     }
 
     resetTranslations() {
-        let alphabet = this.alphabet.value;
+        let alphabet = keyAlphabet(this.alphabet);
         const squareSize = Math.floor(Math.sqrt(alphabet.length));
         const desiredAlphabetSize = squareSize * squareSize;
-        const necessaryTranslations =
-            this.alphabet.value.length - desiredAlphabetSize;
+        const necessaryTranslations = alphabet.length - desiredAlphabetSize;
         this.translations = [];
 
         while (this.translations.length < necessaryTranslations) {
@@ -48,7 +66,7 @@ module.exports = class Bifid {
     }
 
     updateAlphabet() {
-        let alphabet = this.alphabet.value;
+        let alphabet = keyAlphabet(this.alphabet);
 
         for (const translation of this.translations) {
             const indexFrom = alphabet.toIndex(translation.from);
@@ -93,11 +111,12 @@ module.exports = class Bifid {
             return m(Result, "Enter text to see it encoded here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.bifid;
-        const result = module[this.direction.cipher](message, this.alphabetInstance);
-
-        return m(Result, result.toString());
+        return m(CipherResult, {
+            name: "bifid",
+            direction: this.direction.value,
+            message: this.input.value,
+            alphabet: this.alphabetInstance
+        });
     }
 
     viewTableau() {
@@ -107,8 +126,7 @@ module.exports = class Bifid {
 
         for (let row = 0; row < size; row += 1) {
             for (let col = 0; col < size; col += 1) {
-                letters +=
-                    alphabet.toLetter(row * size + col) + " ";
+                letters += alphabet.toLetter(row * size + col) + " ";
             }
 
             letters = letters.trim() + "\n";

@@ -2,6 +2,8 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const cipherConduitSetup = require("../cipher-conduit-setup");
+const CipherResult = require("../cipher-result");
 const Result = require("../result");
 
 module.exports = class Atbash {
@@ -13,25 +15,27 @@ module.exports = class Atbash {
             alphabet: this.alphabet,
             value: ""
         };
+        cipherConduitSetup(this, "atbash");
     }
 
     view() {
         return [
-            m('p', m(AlphabetSelector, this.alphabet)),
-            m('p', m(AdvancedInputArea, this.input)),
-            m('p', this.viewResult())
+            m("p", m(AlphabetSelector, this.alphabet)),
+            m("p", m(AdvancedInputArea, this.input)),
+            m("p", this.viewResult())
         ];
     }
 
     viewResult() {
-        if (this.input.value.trim() === '') {
+        if (this.input.value.trim() === "") {
             return m(Result, "Enter text to see it encoded here");
         }
 
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const module = rumkinCipher.cipher.atbash;
-        const result = module.encipher(message, this.alphabet.value);
-
-        return m(Result, result.toString());
+        return m(CipherResult, {
+            name: "atbash",
+            // No need for a direction - encode is the same as decode
+            message: this.input.value,
+            alphabet: this.alphabet.value
+        });
     }
 };

@@ -5,12 +5,18 @@ const baconianApplier = require("./baconian-applier");
 const alphabet = new rumkinCipher.alphabet.English();
 
 module.exports = class BaconianExample {
-    view(vnode) {
+    constructor(vnode) {
         const attrs = vnode.attrs;
+        this.code = attrs["data-code"];
+        this.message = attrs["data-message"];
+        this.bClasses = attrs["b-classes"];
+    }
 
+    view() {
         return m(
             Result,
-            baconianApplier(alphabet, attrs["data-code"], attrs["data-message"], attrs["data-b-classes"]).result
+            baconianApplier(alphabet, this.code, this.message, this.bClasses)
+                .result
         );
     }
 };

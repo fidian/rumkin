@@ -1,17 +1,24 @@
 /* global m */
 
-const Dropdown = require('../../../js/mithril/dropdown');
+const Dropdown = require("../../../js/mithril/dropdown");
 
 module.exports = class CryptogramWord {
     remapWord(w, lm) {
-        return w.split('').map(c => lm.get(c) || '?').join('');
+        return w
+            .split("")
+            .map((c) => lm.get(c) || "?")
+            .join("");
     }
 
     view(vnode) {
         const d = vnode.attrs.data;
 
         if (d.isLetter) {
-            return this.viewWord(d, vnode.attrs.letterMap, vnode.attrs.setLetters);
+            return this.viewWord(
+                d,
+                vnode.attrs.letterMap,
+                vnode.attrs.setLetters
+            );
         }
 
         const chars = d.chars.split(/\r?\n/);
@@ -20,9 +27,11 @@ module.exports = class CryptogramWord {
         for (const chunk of chars) {
             if (result.length) {
                 // Can't use <br> because of D(f) in parent
-                result.push(m('div', {
-                    class: 'W(100%) H(0px)'
-                }));
+                result.push(
+                    m("div", {
+                        class: "W(100%) H(0px)"
+                    })
+                );
             }
 
             result.push(this.viewNonWord(chunk));
@@ -36,23 +45,27 @@ module.exports = class CryptogramWord {
             return null;
         }
 
-        return m('div', [
+        return m("div", [
             this.viewChars(chars),
-            m('br'),
+            m("br"),
             this.viewChars(chars)
         ]);
     }
 
     viewChars(chars) {
-        return m('tt', {
-            class: 'Whs(p)'
-        }, chars);
+        return m(
+            "tt",
+            {
+                class: "Whs(p)"
+            },
+            chars
+        );
     }
 
     viewWord(d, lm, setLetters) {
-        return m('div', [
+        return m("div", [
             this.viewChars(d.chars),
-            m('br'),
+            m("br"),
             this.viewWordLower(d, lm, setLetters)
         ]);
     }
@@ -71,26 +84,30 @@ module.exports = class CryptogramWord {
         const currentSolutionWithMatches = `${currentSolution} (${d.availableMatches.length})`;
 
         if (d.isLoaded === null) {
-            return 'Loading';
+            return "Loading";
         }
 
         if (!d.isLoaded) {
-            return m('a', {
-                href: '#',
-                onclick: () => {
-                    d.isLoaded = null;
-                    setTimeout(() => {
-                        d.isLoaded = true;
-                        m.redraw();
-                    });
+            return m(
+                "a",
+                {
+                    href: "#",
+                    onclick: () => {
+                        d.isLoaded = null;
+                        setTimeout(() => {
+                            d.isLoaded = true;
+                            m.redraw();
+                        });
 
-                    return false;
-                }
-            }, currentSolutionWithMatches);
+                        return false;
+                    }
+                },
+                currentSolutionWithMatches
+            );
         }
 
         const options = {
-            '': currentSolutionWithMatches
+            "": currentSolutionWithMatches
         };
 
         for (const w of d.availableMatches) {
