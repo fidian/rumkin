@@ -11,7 +11,9 @@ function getTitle() {
 }
 
 function getUrl() {
-    return (window.location.pathName || '') + '?referer=' + encodeURIComponent(document.referrer);
+    return (window.location.pathName || '/') + '?r=' + encodeURIComponent(document.referrer);
 }
 
-window.history.replaceState('', getTitle(), getUrl())
+if ((window.location.search || '').indexOf('r=') < 0) {
+    window.history.replaceState('', getTitle(), getUrl());
+}
