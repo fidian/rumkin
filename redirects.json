@@ -371,5 +371,9 @@
     "site/legal/index.html": "/reference/site/legal/",
     "tools/cipher/railfence/index.html": "../rail-fence/",
     "tools/cipher/letter-frequency-analysis/index.html": "../analyze/",
-    "tools/cipher/text-manipulator/index.html": "../analyze/"
+    "tools/cipher/text-manipulator/index.html": "../analyze/",
+    ":region/index.html": "/",
+    "wordlist/index.html": "/",
+    "solve/index.html": "/",
+    "test/:id/index.html": "/"
 }
