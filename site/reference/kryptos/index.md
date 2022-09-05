@@ -1,8 +1,15 @@
 ---
-title: Kryptos Solver Tool
+title: Kryptos Tools and Notes
 summary: A tool I wrote for Elonka.
 ---
 
-I was asked politely to make a tool in order to help solve Kryptos. I am unsure if it has helped much so far, but here's the link. It's a self-contained HTML file with embedded JavaScript. It should work anywhere you have a web browser.
+## Tools
 
-* [Elonka's Vigenere Cipher](elonka.html)
+* [Online Cipher Tools](../../tools/cipher/) - A collection of cipher tools that work in your browser. Nothing is sent to my server.
+* [Elonka's Vigenère Cipher](elonka.html) - A self-contained Vigenère tool I created. You can save it locally and work offline on parts of Kryptos.
+
+## The Cipher
+
+I love that Jim Sanborn created an encoded cipher and he has given out clues to help get it solved, even going so far as to give out his [encryption sheets](https://kryptools.com/Sheets/sheets.htm).
+
+{{> list-children}}
