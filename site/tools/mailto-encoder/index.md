@@ -1,5 +1,6 @@
 ---
 title: Email Address (Mailto:) Encoder
+summary: Hide an email address, along with extra features. Makes it harder for bots to gather email addresses.
 js:
     - mailto-encoder-module.js
 components:
@@ -25,9 +26,11 @@ Not all fields work well with all combinations of browsers and email clients. It
 
 <div class="moduleCustom"></div>
 
+If you are interested in using this tool to create the base HTML that you modify and you still want to have the HTML encoded so it isn't very visible in the source of the website, check out the [HTML Encoder](../html-encoder/) on this site.
+
 ## About The Encoder
 
-These tools do not steal your email addresses. Nothing is sent back to my server, and everything runs in JavaScript in your browser. If you don't believe me, check out this [independent review](http://www.dslreports.com/forum/remark,7309390~root=spam~mode=flat) of a mirror the tools provided here.
+These tools do not steal your email addresses. Nothing is sent back to the server, and everything runs in JavaScript in your browser. If you don't believe me, check out this [independent review](http://www.dslreports.com/forum/remark,7309390~root=spam~mode=flat) of a mirror the tools provided here.
 
 Keep in mind that this is not the end-all. There are other solutions out there, such as:
 

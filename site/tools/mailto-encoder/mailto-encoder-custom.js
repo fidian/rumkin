@@ -34,7 +34,14 @@ module.exports = class MailtoEncoderCustom {
         this.linkText = {
             label: "HTML label (only works when creating an HTML link)",
             class: "W(100%)",
-            value: ""
+            value: "",
+            placeholder: "This defaults to the email address"
+        };
+        this.linkExtra = {
+            label: ["Extra link attributes (like ", m("tt", "class"), " or ", m("tt", "id"), "; only works when creating an HTML link)"],
+            class: "W(100%)",
+            value: "",
+            placeholder: "This defaults to the email address"
         };
         this.encoding = {
             label: "Method of encoding",
@@ -64,6 +71,7 @@ module.exports = class MailtoEncoderCustom {
             m("p", m(TextInput, this.body)),
             m("p", m(Dropdown, this.encoding)),
             m("p", m(TextInput, this.linkText)),
+            m("p", m(TextInput, this.linkExtra)),
             m("p", m(Dropdown, this.obfuscation)),
             this.viewResult()
         ];
@@ -81,7 +89,12 @@ module.exports = class MailtoEncoderCustom {
             subject: this.subject.value,
             body: this.body.value,
             encoding: this.encoding.value,
-            linkText: this.linkText.value,
+            linkText:
+                this.linkText.value ||
+                this.to.value ||
+                this.cc.value ||
+                this.bcc.value,
+            linkExtra: this.linkExtra.value,
             obfuscation: this.obfuscation.value
         });
 

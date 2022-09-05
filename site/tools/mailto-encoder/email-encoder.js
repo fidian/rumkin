@@ -137,7 +137,9 @@ function makeLink(encoderOpts) {
         url += `?${query.join("&")}`;
     }
 
-    return `<a href="mailto:${url}">${htmlencode(
+    const opts = encoderOpts.linkExtra ? `${encoderOpts.linkExtra} ` : '';
+
+    return `<a ${opts}href="mailto:${url}">${htmlencode(
         encoderOpts.linkText || ""
     )}</a>`;
 }
