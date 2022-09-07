@@ -34,7 +34,7 @@ module.exports = class MailtoEncoderSimple {
         }
 
         const encoded = emailEncoder({
-            to: this.email,
+            to: this.email.value,
             encoding: "html",
             linkText: this.linkText.value || this.email.value,
             obfuscation: "shuffled"
