@@ -1,6 +1,7 @@
 /* global m, rumkinCipher */
 
 const InputArea = require("../../js/mithril/input-area");
+const NumericInput = require("../../js/mithril/numeric-input");
 
 /**
  * Attributes
@@ -22,6 +23,61 @@ const InputArea = require("../../js/mithril/input-area");
  */
 
 module.exports = class AdvancedInputArea {
+    constructor() {
+        this.group = {
+            class: 'W(3em)',
+            value: 5
+        };
+        this.split = {
+            class: 'W(3em)',
+            value: 10
+        };
+    }
+
+    applyGroups(attrs) {
+        const groupNum = Math.floor(this.group.value);
+        const splitNum = Math.floor(this.split.value);
+
+        let s = attrs.value.replace(/[\s]/g, "");
+
+        if (groupNum < 1) {
+            attrs.value = s;
+
+            return;
+        }
+
+        const o = [];
+
+        while (s.length) {
+            o.push(s.substr(0, this.group.value));
+            s = s.substr(this.group.value);
+        }
+
+        if (splitNum < 0) {
+            attrs.value = o.join(' ');
+
+            return;
+        }
+
+        while (o.length) {
+            if (s.length) {
+                s += "\n";
+            }
+
+            for (let i = 0; i < this.split.value; i += 1) {
+                if (i) {
+                    s += " ";
+                }
+
+                s += o.shift() || '';
+            }
+        }
+
+        attrs.value = s;
+
+        return;
+    }
+
     view(vnode) {
         const attrs = vnode.attrs;
         const removeActions = [
@@ -123,7 +179,8 @@ module.exports = class AdvancedInputArea {
             m(InputArea, attrs),
             m("br"),
             this.viewActions("Remove", removeActions),
-            this.viewActions("Change", changeActions)
+            this.viewActions("Change", changeActions),
+            this.viewGrouping(attrs)
         ];
     }
 
@@ -166,5 +223,26 @@ module.exports = class AdvancedInputArea {
         }
 
         return [m("br"), `${label}: `, actionsConverted];
+    }
+
+    viewGrouping(attrs) {
+        return [
+            m("br"),
+            m("a", {
+                href: "#",
+                onclick: () => {
+                    this.applyGroups(attrs);
+
+                    return true;
+                }
+            },
+            "Make groups"
+            ),
+            " of ",
+            m(NumericInput, this.group),
+            " and next line after ",
+            m(NumericInput, this.split),
+            " groups"
+        ];
     }
 };
