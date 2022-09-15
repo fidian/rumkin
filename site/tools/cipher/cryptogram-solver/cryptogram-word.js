@@ -63,7 +63,9 @@ module.exports = class CryptogramWord {
     }
 
     viewWord(d, lm, setLetters) {
-        return m("div", [
+        return m("div", {
+            class: 'Pb(0.5em)'
+        }, [
             this.viewChars(d.chars),
             m("br"),
             this.viewWordLower(d, lm, setLetters)
@@ -71,6 +73,10 @@ module.exports = class CryptogramWord {
     }
 
     viewWordLower(d, lm, setLetters) {
+        if (!d.isLetter) {
+            return this.viewChars(d.chars);
+        }
+
         if (d.selectedWord) {
             return this.viewChars(d.selectedWord);
         }

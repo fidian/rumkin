@@ -7,8 +7,6 @@ js:
 routes:
     - path: /
       component: CryptogramStart
-    - path: /wordlist
-      component: CryptogramWordlist
     - path: /solve
       component: CryptogramSolve
 ---

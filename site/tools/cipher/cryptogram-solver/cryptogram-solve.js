@@ -32,16 +32,17 @@ module.exports = class CryptogramSolve {
                 }
             }
 
-            m.route.set("/wordlist");
+            m.route.set("/");
         });
     }
 
     // Pass in capital letters only
     keyWord(w) {
         let letterNumber = 65;
+        let letterCount = 0;
         const m = new Map();
 
-        return w
+        const key = w
             .split("")
             .map((l) => {
                 let n = m.get(l);
@@ -50,23 +51,29 @@ module.exports = class CryptogramSolve {
                     n = letterNumber;
                     m.set(l, n);
                     letterNumber += 1;
+                    letterCount += 1;
                 }
 
                 return String.fromCharCode(n);
             })
             .join("");
+
+        return {
+            key,
+            letterCount
+        };
     }
 
     keyWordlist(words) {
         const result = {};
 
         for (const word of words) {
-            const keyed = this.keyWord(word);
-            let a = result[keyed];
+            const { key } = this.keyWord(word);
+            let a = result[key];
 
             if (!a) {
                 a = [];
-                result[keyed] = a;
+                result[key] = a;
             }
 
             a.push(word);
@@ -104,8 +111,12 @@ module.exports = class CryptogramSolve {
         }
 
         for (const item of result) {
-            item.key = this.keyWord(item.chars);
-            item.rawMatches = allWordsKeyed[item.key] || [];
+            if (item.isLetter) {
+                const { key, letterCount } = this.keyWord(item.chars);
+                item.key = key;
+                item.letterCount = letterCount;
+                item.rawMatches = allWordsKeyed[item.key] || [];
+            }
         }
 
         return result;
@@ -113,14 +124,22 @@ module.exports = class CryptogramSolve {
 
     reset() {
         for (const item of this.parsed) {
-            item.availableMatches = [...item.rawMatches];
-            item.selectedWord = "";
-            item.isLoaded = false;
+            if (item.isLetter) {
+                item.availableMatches = [...item.rawMatches];
+                item.selectedWord = "";
+                item.isLoaded = false;
+            }
         }
 
         this.letterMap = new Map();
-        this.bestGuessStatus = -1;
+        this.bestGuessStatus = 1;
         this.deduce([]);
+
+        for (const item of this.parsed) {
+            if (!item.selectedWord && item.isLetter) {
+                this.bestGuessStatus = -1;
+            }
+        }
     }
 
     loadWordlist() {
@@ -186,16 +205,10 @@ module.exports = class CryptogramSolve {
             .filter((item) => item.isLetter)
             .sort((a, b) => {
                 // Worst = fewest distinct letters
-                const aLetterCode = Math.max(
-                    ...a.key.split("").map((x) => x.charCodeAt(0))
-                );
-                const bLetterCode = Math.max(
-                    ...b.key.split("").map((x) => x.charCodeAt(0))
-                );
-                const codeDiff = aLetterCode - bLetterCode;
+                const letterCountDiff = a.letterCount - b.letterCount;
 
-                if (codeDiff) {
-                    return codeDiff;
+                if (letterCountDiff) {
+                    return letterCountDiff;
                 }
 
                 // Worst = more dictionary entries
@@ -205,6 +218,7 @@ module.exports = class CryptogramSolve {
 
                 return matchesDiff;
             });
+
 
         for (const item of parsedSorted) {
             item.hits = new Set();
@@ -319,17 +333,37 @@ module.exports = class CryptogramSolve {
     }
 
     finishBestGuess(parsedSorted) {
+        let wordsTested = 0;
+        let modifiedWords = 0;
+        let failedWords = 0;
+        let possibilitiesRemoved = 0;
+
         for (const item of parsedSorted) {
+            wordsTested += 1;
+
             if (item.hits.size) {
+                modifiedWords += 1;
+                const sizeBefore = item.availableMatches.length;
                 item.availableMatches = item.availableMatches.filter((x) =>
                     item.hits.has(x)
                 );
+                const sizeAfter = item.availableMatches.length;
+                possibilitiesRemoved = sizeBefore - sizeAfter;
+            } else {
+                failedWords += 1;
             }
 
             delete item.hits;
         }
 
         this.bestGuessStatus = 1;
+
+        if (failedWords === wordsTested) {
+            this.bestGuessProgress = 'The words in this dictionary are unable to decode this message. Try a larger dictionary or perhaps attempt to pick words yourself to find a solution.';
+        } else {
+            this.bestGuessProgress = `Updated ${modifiedWords} out of ${wordsTested} words and removed ${possibilitiesRemoved} possibilities.`;
+        }
+
         this.deduce([]);
     }
 
@@ -353,7 +387,7 @@ module.exports = class CryptogramSolve {
 
     viewBestGuess() {
         if (this.bestGuessStatus > 0 || !this.parsed || !this.parsed.length) {
-            return null;
+            return m("p", this.bestGuessProgress);
         }
 
         if (this.bestGuessStatus === 0) {
@@ -375,7 +409,7 @@ module.exports = class CryptogramSolve {
                 },
                 "Eliminate Bad Combinations"
             ),
-            " This can take a significant amount of time. Removes words from the lists that can not work with other cipher words. This will often help you find the deciphered text much quicker, but the entire cipher text must be dictionary words."
+            " This can take a significant amount of time. Removes words from the lists that can not work with other cipher words. This will often help you find the deciphered text much quicker, but the entire cipher text consist of dictionary words."
         ]);
     }
 
@@ -414,15 +448,6 @@ module.exports = class CryptogramSolve {
                 {
                     onclick: () => {
                         m.route.set("/");
-                    }
-                },
-                "Start Over"
-            ),
-            m(
-                "button",
-                {
-                    onclick: () => {
-                        m.route.set("/wordlist");
                     }
                 },
                 "Go Back"
