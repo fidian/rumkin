@@ -2,17 +2,16 @@
 title: One Time Pad
 summary: A virtually uncrackable cipher that relies heavily upon a random source for an encryption key.
 cipher: true
+js:
+    - ../rumkin-cipher.js
+    - ./one-time-pad-module.js
+components:
+    - className: module
+      component: OneTimePad
 ---
 
-### Temporarily Broken
+It is said that the one-time pad is the best cipher anywhere.  It is uncrackable as long as you keep the messages short, use shorthand and abbreviations, remove unnecessary letters, never reuse a pad, and have a good enough random source for data.
 
-> **September 2022:** I'm busy and haven't gotten to this one yet. I will. In
-> the last month, I've added many ciphers: rail fence, Übchi, Vigenère
-> (including keyed and autokey Vigenère), ROT13. I've also added a text
-> analyzer, cryptogram solver, examples to all of the ciphers, visible
-> tableaus, and extra actions for the text input. Please feel free to email me
-> about changes you want to see.
->
-> **August 2022:** I have to switch web hosting providers. This page will be
-> rewritten in the upcoming weeks, but is not yet ready. Sorry, I don't have
-> lots of free time to make this change happen faster.
+This implementation will take the letters (and letters only) from the pad and encrypt the letters from your message.  It leaves spaces, newlines (enters / returns), punctuation, numbers, and all of the things that aren't A-Z alone.  Make sure that your pad is at least as long as the number of characters in your message, otherwise your message will not be encoded.
+
+<div class="module"></div>
