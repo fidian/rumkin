@@ -1,5 +1,6 @@
-/* global m */
+/* global m, rumkinCipher */
 const AdvancedInputArea = require("../advanced-input-area");
+const AlphabetSelector = require("../alphabet-selector");
 const BarChart = require("../../../js/mithril/bar-chart");
 const characterPropertiesJson = require("../character-properties.json");
 const characterProperties = [];
@@ -71,7 +72,11 @@ const printableChar = {
 
 module.exports = class Analyze {
     constructor() {
+        this.alphabet = {
+            value: new rumkinCipher.alphabet.English()
+        };
         this.input = {
+            alphabet: this.alphabet,
             value: ""
         };
         this.showDetail = new Map();
@@ -79,7 +84,11 @@ module.exports = class Analyze {
     }
 
     view() {
-        return [m(AdvancedInputArea, this.input), this.viewProperties()];
+        return [
+            m(AlphabetSelector, this.alphabet),
+            m(AdvancedInputArea, this.input),
+            this.viewProperties()
+        ];
     }
 
     viewProperties() {
@@ -117,7 +126,17 @@ module.exports = class Analyze {
     }
 
     viewCalculated() {
-        return m("p", `Length: ${this.input.value.length}`);
+        const message = new rumkinCipher.util.Message(this.input.value);
+        const kappa = rumkinCipher.util.kappaPlaintext(message);
+        const ic = rumkinCipher.util.indexOfCoincidence(message, this.alphabet.value);
+
+        return m("p", [
+            `Length: ${this.input.value.length}`,
+            m("br"),
+            `Kappa plaintext: ${kappa.toLocaleString()}`,
+            m("br"),
+            `Friedman index of coincidence: ${ic.toLocaleString()}`
+        ]);
     }
 
     viewExpandableSections(tabulated) {

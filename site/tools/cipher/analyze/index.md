@@ -3,6 +3,7 @@ title: Analyze
 summary: Shows how often certain letters appear in your text.  Used primarily to assist in decryption.
 tool: true
 js:
+    - ../rumkin-cipher.js
     - analyze-module.js
 components:
     - className: module
