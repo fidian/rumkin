@@ -8,6 +8,7 @@
 // * availableMatches - Copy of array of words that can still be used
 // * selectedWord - Empty string or the selected word
 // * isLoaded - If the drop-down list is loaded (false, true, null = loading)
+// * showingIndex - Index of the item we're showing in availableMatches
 
 const cryptogramShared = require("./cryptogram-shared");
 const CryptogramWord = require("./cryptogram-word");
@@ -22,6 +23,7 @@ module.exports = class CryptogramSolve {
         this.letterMap = new Map();
         this.bestGuessStatus = -1;
         this.bestGuessProgress = "";
+        this.showList = 0;
         wordlists.getWordlists().then((wordlistsMeta) => {
             for (const wordlist of wordlistsMeta) {
                 if (wordlist.filename === this.wordlist) {
@@ -92,6 +94,24 @@ module.exports = class CryptogramSolve {
         );
     }
 
+    incrementShowingIndex(list) {
+        let index = list.length - 1;
+
+        while (index >= 0) {
+            const item = list[index];
+            item.showingIndex += 1;
+
+            if (item.showingIndex >= item.availableMatches.length) {
+                item.showingIndex = 0;
+                index -= 1;
+            } else {
+                return true;
+            }
+        }
+
+        return false
+    }
+
     parseWords(allWordsKeyed) {
         const result = [];
         let last = null;
@@ -116,6 +136,7 @@ module.exports = class CryptogramSolve {
                 item.key = key;
                 item.letterCount = letterCount;
                 item.rawMatches = allWordsKeyed[item.key] || [];
+                item.showingIndex = 0;
             }
         }
 
@@ -199,26 +220,32 @@ module.exports = class CryptogramSolve {
         );
     }
 
+    sortParsedWords() {
+        return (
+            this.parsed
+                .filter((item) => item.isLetter)
+                // Sort by worst words first because we use pop/push instead of
+                // shift/unshift.
+                .sort((a, b) => {
+                    // Worst = fewest distinct letters
+                    const letterCountDiff = a.letterCount - b.letterCount;
+
+                    if (letterCountDiff) {
+                        return letterCountDiff;
+                    }
+
+                    // Worst = more dictionary entries
+                    const aMatches = a.availableMatches.length;
+                    const bMatches = b.availableMatches.length;
+                    const matchesDiff = bMatches - aMatches;
+
+                    return matchesDiff;
+                })
+        );
+    }
+
     startBestGuess() {
-        // Sort by worst words first because we use pop/push instead of shift/unshift.
-        const parsedSorted = this.parsed
-            .filter((item) => item.isLetter)
-            .sort((a, b) => {
-                // Worst = fewest distinct letters
-                const letterCountDiff = a.letterCount - b.letterCount;
-
-                if (letterCountDiff) {
-                    return letterCountDiff;
-                }
-
-                // Worst = more dictionary entries
-                const aMatches = a.availableMatches.length;
-                const bMatches = b.availableMatches.length;
-                const matchesDiff = bMatches - aMatches;
-
-                return matchesDiff;
-            });
-
+        const parsedSorted = this.sortParsedWords();
 
         for (const item of parsedSorted) {
             item.hits = new Set();
@@ -359,7 +386,8 @@ module.exports = class CryptogramSolve {
         this.bestGuessStatus = 1;
 
         if (failedWords === wordsTested) {
-            this.bestGuessProgress = 'The words in this dictionary are unable to decode this message. Try a larger dictionary or perhaps attempt to pick words yourself to find a solution.';
+            this.bestGuessProgress =
+                "The words in this dictionary are unable to decode this message. Try a larger dictionary or perhaps attempt to pick words yourself to find a solution.";
         } else {
             this.bestGuessProgress = `Updated ${modifiedWords} out of ${wordsTested} words and removed ${possibilitiesRemoved} possibilities.`;
         }
@@ -373,7 +401,8 @@ module.exports = class CryptogramSolve {
             m("p", this.viewWordlist()),
             this.viewBestGuess(),
             this.viewParsed(),
-            m("p", this.viewButtons())
+            m("p", this.viewButtons()),
+            this.viewList()
         ];
     }
 
@@ -455,7 +484,10 @@ module.exports = class CryptogramSolve {
             m(
                 "button",
                 {
-                    disabled: !this.parsed || !this.parsed.length,
+                    disabled:
+                        !this.parsed ||
+                        !this.parsed.length ||
+                        this.bestGuessStatus === 0,
                     onclick: () => {
                         this.reset();
                     }
@@ -463,5 +495,107 @@ module.exports = class CryptogramSolve {
                 "Reset Options"
             )
         ];
+    }
+
+    viewList() {
+        if (!this.parsed || this.bestGuessStatus === 0) {
+            return [];
+        }
+
+        let max = 1;
+
+        for (const item of this.parsed) {
+            if (item.isLetter) {
+                max *= item.availableMatches.length;
+            }
+        }
+
+        if (max > 1000000) {
+            return m(
+                "p",
+                "There are too many possibilities. Viewing the options has been disabled until you can narrow down the options."
+            );
+        }
+
+        return [this.viewListWords(), this.viewListButton(max)];
+    }
+
+    viewListWords() {
+        if (!this.showList) {
+            return [];
+        }
+
+        for (const item of this.parsed) {
+            item.showingIndex = 0;
+        }
+
+        const sorted = this.sortParsedWords();
+
+        let showing = 0;
+        const result = [];
+
+        while (showing < this.showList) {
+            result.push(this.viewSingleListEntry());
+            showing += 1;
+
+            if (!this.incrementShowingIndex(sorted)) {
+                return result;
+            }
+        }
+
+        return result;
+    }
+
+    viewSingleListEntry() {
+        const entry = this.parsed.map((item) => {
+            if (!item.isLetter) {
+                return item.chars;
+            }
+
+            if (item.selectedWord) {
+                return item.selectedWord;
+            }
+
+            return item.availableMatches[item.showingIndex];
+        });
+
+        return m("div", { class: "My(0.25em)" }, entry.join(""));
+    }
+
+    viewListButton(max) {
+        if (max <= this.showList) {
+            return m("p", "No further solutions exist with this dictionary.");
+        }
+
+        const chunkSize = 1000;
+
+        return m(
+            "p",
+            m(
+                "button",
+                {
+                    onclick: () => {
+                        this.showList += chunkSize;
+                    }
+                },
+                this.viewListButtonLabel(max, chunkSize)
+            )
+        );
+    }
+
+    viewListButtonLabel(max, chunkSize) {
+        if (this.showList === 0 && chunkSize >= max) {
+            return `Show all ${max.toLocaleString()} solutions`;
+        }
+
+        if (this.showList + chunkSize > max) {
+            return `Show remaining ${(max - this.showList).toLocaleString()} solutions`;
+        }
+
+        if (this.showList === 0) {
+            return `Show first ${chunkSize.toLocaleString()} solutions out of ${max.toLocaleString()}`;
+        }
+
+        return `Show next ${chunkSize.toLocaleString()} solutions out of ${max.toLocaleString()}`;
     }
 };
