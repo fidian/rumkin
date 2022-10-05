@@ -13,12 +13,7 @@ components:
 ---
 
 
-https://kryptosfan.wordpress.com/k3/k3-solution-3/
-
-This cipher is pretty simple.  Basically, you would write all of the
-letters in a grid, then rotate the grid 90&deg; and read the characters back
-out.  I first heard of this method when Mike posted to the Kryptos Group mailing list.
-I liked the method and decided to write up a neat little encoder, which can be used to decode K3.
+This cipher is pretty simple.  Basically, you would write all of the letters in a grid, then rotate the grid 90&deg; and read the characters back out.  I first heard of this method when Mike posted to the Kryptos Group mailing list.  I liked the method and decided to write up a neat little encoder, which can be used to decode K3.
 
 To decode K3, press the button to insert the text and do the initial rotate. Copy the result and paste it into the input area and change the width to 8 and you will see the secret message.
 
