@@ -19,6 +19,8 @@ To decode K3, press the button to insert the text and do the initial rotate. Cop
 
 Only letters are rotated. Extra padding will be added if the width of the table doesn't divide evenly into the number of letters.
 
+Examples:
+
 - <span class="conduit" data-label="Kryptos K3" data-topic="rotate" data-payload-direction="CLOCKWISE" data-payload-alphabet="English" data-payload-width="24" data-payload-input="ENDyaHrOHNLSRHEOCPTEOIBIDYSHNAIA
 CHTNREYULDSLLSLLNOHSNOSMRWXMNE
 TPRNGATIHNRARPESLNNELEBLPIIACAE

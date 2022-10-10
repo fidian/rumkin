@@ -2,17 +2,33 @@
 title: Skip
 summary: To decode this, you count N characters, write down the letter, count forward N characters, write down the letter, etc.  It is used for section 3 of the Kryptos.
 cipher: true
+js:
+    - ../rumkin-cipher.js
+    - skip-module.js
+components:
+    - className: module
+      component: Skip
+    - className: conduit
+      component: Conduit
 ---
 
-### Temporarily Broken
+Ok, I admit that I don't know of an "official" name for this algorithm.  I did hear that it is the same method as what a scytale (pronounced `ˈsitᵊl(ˌ)ē `, like "Sit-a lee") employs.  Basically, if you are given the encrypted text, you start at a given letter and then count N letters (wrapping around from the end to the beginning) forward to the next letter.  It can be used for the third part of the Kryptos sculpture.
 
-> **September 2022:** I'm busy and haven't gotten to this one yet. I will. In
-> the last month, I've added many ciphers: rail fence, Übchi, Vigenère
-> (including keyed and autokey Vigenère), ROT13. I've also added a text
-> analyzer, cryptogram solver, examples to all of the ciphers, visible
-> tableaus, and extra actions for the text input. Please feel free to email me
-> about changes you want to see.
->
-> **August 2022:** I have to switch web hosting providers. This page will be
-> rewritten in the upcoming weeks, but is not yet ready. Sorry, I don't have
-> lots of free time to make this change happen faster.
+If you do use this for decoding Kryptos, you will see that you need to just count every 192<sup>nd</sup> letter.  The "y", "a", and "r" are the three letters that are offset from the rest of the text. Also, the question mark at the end needs to count as a letter, so I changed it to "z". The first example encodes with a skip of 191 (to get every 192<sup>nd</sup> letter) and the second example decodes using a skip of 250 - the same result, showing that this algorithm can be used to encode and decode similarly.
+
+Examples:
+
+- <span class="conduit" data-label="Kryptos K3" data-topic="skip" data-payload-direction="ENCRYPT" data-payload-alphabet="English" data-payload-skip="191" data-payload-offset="191" data-payload-input="ENDyaHrOHNLSRHEOCPTEOIBIDYSHNAIA
+CHTNREYULDSLLSLLNOHSNOSMRWXMNE
+TPRNGATIHNRARPESLNNELEBLPIIACAE
+WMTWNDITEENRAHCTENEUDRETNHAEOE
+TFOLSEDTIWENHAEIOYTEYQHEENCTAYCR
+EIFTBRSPAMHHEWENATAMATEGYEERLB
+TEEFOASFIOTUETUAEOTOARMAEERTNRTI
+BSEDDNIAAHTTMSTEWPIEROAGRIEWFEB
+AECTDDHILCEIHSITEGOEAOSDDRYDLORIT
+RKLMLEHAGTDHARDPNEOHMGFMFEUHE
+ECDMRIPFEIMEHNLSSTTRTVDOHWz"></span>
+- <span class="conduit" data-label="Kryptos K3 With Spaces" data-topic="skip" data-payload-direction="DECRYPT" data-payload-alphabet="English" data-payload-skip="250" data-payload-offset="250" data-payload-input="ENDYAH ROHNLSRHEO CPTEOI BID YSHNAIA CH TNREYUL DSLLSL LNOH SNOSMRWXMN ETP RNGAT IHNR AR PES LNNELEB LPI IACAEWM TWND ITEENRAHC TENEU D RETN H AEOE TFOLSE DT IWE NHAEI OYTE YQHE ENCTAY CRE IFTB RSPAMHHE WEN ATAM A TEGYEE R LBTEEFOA SFI OTUETU AEO TOARMA EE RTN RTI BSE DDNIAAHT TMST EWP IEROAGR IEWFEB AEC TDDHI LC EIHSITE GOE AOSDDRYDL ORITRKL ML EHA GTDH ARDPNE OHMGFMF EUHE ECD MRIP F EIM EHN LSS TTRTVDOH W (z)"></span>
+
+<div class="module"></div>
