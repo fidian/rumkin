@@ -6,7 +6,6 @@ module.exports = {
     getWordlists() {
         if (!requestPromise) {
             requestPromise = m.request({
-                extract: (x) => JSON.parse(x.responseText),
                 url: "../wordlists/wordlists.json"
             });
         }

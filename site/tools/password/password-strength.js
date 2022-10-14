@@ -12,14 +12,12 @@ module.exports = class PasswordStrength {
         this.filesLoading = 2;
 
         m.request({
-            extract: (x) => JSON.parse(x.responseText),
             url: "common-passwords.json"
         }).then((data) => {
             this.passwordStrength.addCommonPasswords(data);
             this.filesLoading -= 1;
         });
         m.request({
-            extract: (x) => JSON.parse(x.responseText),
             url: "trigraphs.json"
         }).then((data) => {
             this.passwordStrength.addTrigraphMap(data);

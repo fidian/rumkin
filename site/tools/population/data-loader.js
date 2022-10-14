@@ -14,28 +14,14 @@ class DataLoader {
     }
 
     loadData() {
-        function extract(x) {
-            try {
-                return JSON.parse(x.responseText);
-            } catch (e) {
-                console.error(e);
-                console.error(x);
-            }
-
-            return {};
-        }
-
         return Promise.all([
             m.request({
-                extract,
                 url: "populations.json"
             }),
             m.request({
-                extract,
                 url: "regions-rename.json"
             }),
             m.request({
-                extract,
                 url: "stats-start-date.json"
             })
         ]).then(([rawData, regionsRename, statsStartDate]) => {

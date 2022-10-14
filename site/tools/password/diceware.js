@@ -19,7 +19,6 @@ module.exports = class Diceware {
         };
 
         m.request({
-            extract: (x) => JSON.parse(x.responseText),
             url: "diceware-wordlists.json"
         }).then((wordlists) => {
             this.loadingIndex = false;
@@ -31,7 +30,6 @@ module.exports = class Diceware {
                 this.wordlistSelect.options[item.uri] = `${item.code} - ${item.description}`;
 
                 if (defaultWordlist === null || item.default) {
-                    console.log('set default', item);
                     defaultWordlist = item.uri;
                 }
             }
