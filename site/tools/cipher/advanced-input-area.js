@@ -41,7 +41,7 @@ module.exports = class AdvancedInputArea {
         let s = attrs.value.replace(/[\s]/g, "");
 
         if (groupNum < 1) {
-            attrs.value = s;
+            this.updateValue(attrs, s);
 
             return;
         }
@@ -54,7 +54,7 @@ module.exports = class AdvancedInputArea {
         }
 
         if (splitNum < 0) {
-            attrs.value = o.join(' ');
+            this.updateValue(attrs, o.join(' '));
 
             return;
         }
@@ -73,9 +73,25 @@ module.exports = class AdvancedInputArea {
             }
         }
 
-        attrs.value = s;
+        this.updateValue(attrs, s);
 
         return;
+    }
+
+    updateValue(attrs, value) {
+        if (attrs.value === value) {
+            return;
+        }
+
+        attrs.value = value;
+
+        if (attrs.oninput) {
+            attrs.oninput(null);
+        }
+
+        if (attrs.onchange) {
+            attrs.onchange(null);
+        }
     }
 
     view(vnode) {
@@ -92,7 +108,7 @@ module.exports = class AdvancedInputArea {
                         }
                     }
 
-                    attrs.value = result;
+                    this.updateValue(attrs, result);
                 },
                 remove: !attrs.alphabet
             },
@@ -100,22 +116,22 @@ module.exports = class AdvancedInputArea {
                 label: "non-letters",
                 callback: () => {
                     const message = new rumkinCipher.util.Message(attrs.value);
-                    attrs.value = message
+                    this.updateValue(attrs, message
                         .separate(attrs.alphabet.value)
-                        .toString();
+                        .toString());
                 },
                 remove: !attrs.alphabet
             },
             {
                 label: "numbers",
                 callback: () => {
-                    attrs.value = attrs.value.replace(/[\d]/g, "");
+                    this.updateValue(attrs, attrs.value.replace(/[\d]/g, ""));
                 }
             },
             {
                 label: "whitespace",
                 callback: () => {
-                    attrs.value = attrs.value.replace(/[\s]/g, "");
+                    this.updateValue(attrs, attrs.value.replace(/[\s]/g, ""));
                 }
             }
         ];
@@ -123,37 +139,37 @@ module.exports = class AdvancedInputArea {
             {
                 label: "lowercase",
                 callback: () => {
-                    attrs.value = this.lowercase(attrs.value);
+                    this.updateValue(attrs, this.lowercase(attrs.value));
                 }
             },
             {
                 label: "Natural case",
                 callback: () => {
-                    attrs.value = this.lowercase(attrs.value).replace(
+                    this.updateValue(attrs, this.lowercase(attrs.value).replace(
                         /(^|\n|[.?!])\s*\S/g,
                         (matches) => this.uppercase(matches)
-                    );
+                    ));
                 }
             },
             {
                 label: "Title Case",
                 callback: () => {
-                    attrs.value = this.lowercase(attrs.value).replace(
+                    this.updateValue(attrs, this.lowercase(attrs.value).replace(
                         /(^|\n|\s)\s*\S/g,
                         (matches) => this.uppercase(matches)
-                    );
+                    ));
                 }
             },
             {
                 label: "UPPERCASE",
                 callback: () => {
-                    attrs.value = this.uppercase(attrs.value);
+                    this.updateValue(attrs, this.uppercase(attrs.value));
                 }
             },
             {
                 label: "swap case",
                 callback: () => {
-                    attrs.value = attrs.value
+                    this.updateValue(attrs, attrs.value
                         .split("")
                         .map((c) => {
                             const u = this.uppercase(c);
@@ -164,13 +180,13 @@ module.exports = class AdvancedInputArea {
 
                             return u;
                         })
-                        .join("");
+                        .join(""));
                 }
             },
             {
                 label: "reverse",
                 callback: () => {
-                    attrs.value = attrs.value.split("").reverse().join("");
+                    this.updateValue(attrs, attrs.value.split("").reverse().join(""));
                 }
             }
         ];
