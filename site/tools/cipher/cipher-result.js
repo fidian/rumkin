@@ -44,16 +44,13 @@ module.exports = class CipherResult {
         const alphabet = attrs.alphabet;
         const options = attrs.options || undefined;
         const result = cryptModule[method](message, alphabet, options);
-        const resultStr = result.toString();
-        const preserveSpaces = resultStr.split(/ {2}/);
-        const output = [preserveSpaces.shift()];
+        // CAUTION - this is not a space!
+        const nbsp = String.fromCharCode(160);
+        const resultStr = result
+            .toString()
+            .replace(/ {2}/g, `${nbsp} `)
+            .replace(/^ | $/g, nbsp);
 
-        while (preserveSpaces.length) {
-            output.push(m.trust("&nbsp; "));
-            output.push(preserveSpaces.shift());
-        }
-        console.log(output);
-
-        return m(Result, output);
+        return m(Result, resultStr);
     }
 };

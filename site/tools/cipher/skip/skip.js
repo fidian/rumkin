@@ -2,6 +2,7 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const Checkbox = require("../../../js/mithril/checkbox");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
@@ -26,6 +27,10 @@ module.exports = class Rotate {
         };
         this.input = {
             value: ""
+        };
+        this.moveAllCharacters = {
+            label: "Encode whitespace, symbols, and everything",
+            value: false
         };
         cipherConduitSetup(this, "skip");
     }
@@ -58,9 +63,13 @@ module.exports = class Rotate {
     }
 
     view() {
-        const messageLength = new rumkinCipher.util.Message(
-            this.input.value
-        ).separate(this.alphabet.value).length;
+        let messageLength = this.input.value.length;
+
+        if (!this.moveAllCharacters) {
+            messageLength = new rumkinCipher.util.Message(
+                this.input.value
+            ).separate(this.alphabet.value).length;
+        }
 
         if (this.skip.value < 0) {
             this.skip.value = 0;
@@ -68,6 +77,7 @@ module.exports = class Rotate {
 
         return [
             m("p", m(DirectionSelector, this.direction)),
+            m("p", m(Checkbox, this.moveAllCharacters)),
             m("p", m(AlphabetSelector, this.alphabet)),
             m("p", [
                 m(NumericInput, this.skip),
@@ -92,7 +102,9 @@ module.exports = class Rotate {
             name: "skip",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.alphabet.value,
+            alphabet: this.moveAllCharacters.value
+                ? new rumkinCipher.alphabet.Generic()
+                : this.alphabet.value,
             options: {
                 offset: this.offset.value,
                 skip: this.skip.value
