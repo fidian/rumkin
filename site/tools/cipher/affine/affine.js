@@ -26,7 +26,6 @@ module.exports = class Affine {
         };
         this.direction = {};
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         cipherConduitSetup(this, "affine");

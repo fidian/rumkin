@@ -18,7 +18,6 @@ module.exports = class Bifid {
             onchange: () => this.resetTranslations()
         };
         this.input = {
-            alphabet: this.alphabet,
             label: "The message to encipher or decipher",
             value: ""
         };

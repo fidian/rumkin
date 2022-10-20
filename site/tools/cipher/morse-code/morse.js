@@ -1,7 +1,6 @@
 /* global m, rumkinCipher */
 
 const AdvancedInputArea = require("../advanced-input-area");
-const AlphabetSelector = require("../alphabet-selector");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
@@ -10,11 +9,10 @@ const Result = require("../result");
 module.exports = class Morse {
     constructor() {
         this.alphabet = {
-            value: new rumkinCipher.alphabet.English()
+            value: new rumkinCipher.alphabet.Generic()
         };
         this.direction = {};
         this.input = {
-            alphabet: this.alphabet,
             label: "The text to encode or decode",
             value: ""
         };
@@ -24,7 +22,6 @@ module.exports = class Morse {
     view() {
         return [
             m("p", m(DirectionSelector, this.direction)),
-            m("p", m(AlphabetSelector, this.alphabet)),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewAdditionalActions()),
             m("p", this.viewResult())

@@ -28,7 +28,6 @@ module.exports = class Vigenere {
             value: false
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         cipherConduitSetup(this, "vigenere");

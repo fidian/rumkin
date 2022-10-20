@@ -30,7 +30,6 @@ module.exports = class Rotate {
             label: "Pad character"
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.updatePadCharacter();

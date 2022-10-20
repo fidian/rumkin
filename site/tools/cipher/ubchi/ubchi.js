@@ -33,7 +33,6 @@ module.exports = class Ubchi {
             value: ""
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.padCharacter = {

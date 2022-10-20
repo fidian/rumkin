@@ -26,7 +26,6 @@ module.exports = class Gronsfeld {
             value: ""
         };
         this.input = {
-            alphabet: this.alphabet,
             label: "Message to encode or decode",
             value: ""
         };

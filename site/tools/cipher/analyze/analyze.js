@@ -76,7 +76,6 @@ module.exports = class Analyze {
             value: new rumkinCipher.alphabet.English()
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.showDetail = new Map();

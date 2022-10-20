@@ -2,6 +2,7 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const Checkbox = require("../../../js/mithril/checkbox");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
@@ -25,10 +26,13 @@ module.exports = class RailFence {
             value: "0"
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.updateOffset();
+        this.moveAllCharacters = {
+            label: "Encode whitespace, symbols, and everything",
+            value: false
+        };
         cipherConduitSetup(this, "railFence", () => {
             this.updateOffset();
         });
@@ -53,6 +57,7 @@ module.exports = class RailFence {
         return [
             m("p", m(DirectionSelector, this.direction)),
             m("p", m(NumericInput, this.rails)),
+            m("p", m(Checkbox, this.moveAllCharacters)),
             m("p", m(Dropdown, this.offset)),
             m("p", m(AlphabetSelector, this.alphabet)),
             m("p", m(AdvancedInputArea, this.input)),
@@ -69,7 +74,9 @@ module.exports = class RailFence {
             name: "railFence",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.alphabet.value,
+            alphabet: this.moveAllCharacters.value
+                ? new rumkinCipher.alphabet.Generic()
+                : this.alphabet.value,
             options: {
                 rails: +this.rails.value,
                 offset: +this.offset.value

@@ -44,7 +44,16 @@ module.exports = class CipherResult {
         const alphabet = attrs.alphabet;
         const options = attrs.options || undefined;
         const result = cryptModule[method](message, alphabet, options);
+        const resultStr = result.toString();
+        const preserveSpaces = resultStr.split(/ {2}/);
+        const output = [preserveSpaces.shift()];
 
-        return m(Result, result.toString());
+        while (preserveSpaces.length) {
+            output.push(m.trust("&nbsp; "));
+            output.push(preserveSpaces.shift());
+        }
+        console.log(output);
+
+        return m(Result, output);
     }
 };

@@ -6,15 +6,9 @@ const NumericInput = require("../../js/mithril/numeric-input");
 /**
  * Attributes
  * @typedef {AdvancedInputAreaAttributes}
- * @property {AlphabetValue} alphabet
  * @property {string=} label
  * @property {AdvancedInputAreaOninput=} oninput
  * @property {boolean} value
- */
-
-/**
- * @typedef {AlphabetValue}
- * @property {Alphabet} value
  */
 
 /**
@@ -100,38 +94,25 @@ module.exports = class AdvancedInputArea {
             {
                 label: "letters",
                 callback: () => {
-                    let result = "";
-
-                    for (const c of attrs.value.split("")) {
-                        if (!attrs.alphabet.value.isLetter(c)) {
-                            result += c;
-                        }
-                    }
-
-                    this.updateValue(attrs, result);
-                },
-                remove: !attrs.alphabet
-            },
-            {
-                label: "non-letters",
-                callback: () => {
-                    const message = new rumkinCipher.util.Message(attrs.value);
-                    this.updateValue(attrs, message
-                        .separate(attrs.alphabet.value)
-                        .toString());
-                },
-                remove: !attrs.alphabet
+                    this.updateValue(attrs, attrs.value.replace(/[\p{L}]/gu, ""));
+                }
             },
             {
                 label: "numbers",
                 callback: () => {
-                    this.updateValue(attrs, attrs.value.replace(/[\d]/g, ""));
+                    this.updateValue(attrs, attrs.value.replace(/[\d]/gu, ""));
                 }
             },
             {
                 label: "whitespace",
                 callback: () => {
-                    this.updateValue(attrs, attrs.value.replace(/[\s]/g, ""));
+                    this.updateValue(attrs, attrs.value.replace(/[\s]/gu, ""));
+                }
+            },
+            {
+                label: "other things",
+                callback: () => {
+                    this.updateValue(attrs, attrs.value.replace(/[^\p{L}\s\d]/gu, ""));
                 }
             }
         ];

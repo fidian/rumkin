@@ -30,7 +30,6 @@ module.exports = class ColumnarTransposition {
             value: false
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.columnKey = null;

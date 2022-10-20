@@ -27,7 +27,6 @@ module.exports = class OneTimePad {
             value: ""
         };
         this.input = {
-            alphabet: this.alphabet,
             label: "Text to encode or decode",
             value: ""
         };

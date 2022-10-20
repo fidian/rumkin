@@ -12,7 +12,6 @@ module.exports = class Rot13 {
             value: new rumkinCipher.alphabet.English()
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         cipherConduitSetup(this, "rot13");

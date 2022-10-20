@@ -33,7 +33,6 @@ module.exports = class DoubleColumnarTransposition {
             value: false
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.firstColumnKey = null;

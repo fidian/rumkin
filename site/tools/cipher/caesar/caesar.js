@@ -23,7 +23,6 @@ module.exports = class Caesar {
             value: "3"
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         this.updateN();

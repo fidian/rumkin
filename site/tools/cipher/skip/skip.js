@@ -25,7 +25,6 @@ module.exports = class Rotate {
             label: "Number of letters to skip"
         };
         this.input = {
-            alphabet: this.alphabet,
             value: ""
         };
         cipherConduitSetup(this, "skip");
