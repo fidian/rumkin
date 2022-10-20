@@ -2,22 +2,31 @@
 title: Morse Code
 summary: Once used to transmit messages around the world, this system can still be used in certain situations to send messages effectively when alternate mediums are not available.
 cipher: true
+js:
+    - ../rumkin-cipher.js
+    - morse-module.js
+components:
+    - className: module
+      component: Morse
+    - className: morseTable
+      component: MorseTable
+    - className: conduit
+      component: Conduit
 ---
 
-### Temporarily Broken
+Morse Code, created by Samuel Morse, was designed to transmit letters across telegrams.  He wanted frequently used letters to have short codes and less frequently used letters to have longer codes to make transmission faster.  It has since been used in many other situations.  For a lot more information, visit [Wikipedia](http://www.wikipedia.org/wiki/Morse_code).
 
-> **October 2022:** I'm down to only 4 pages left to convert. These were saved
-> for last because they received the smallest amount of traffic. If I'm holding
-> you up, please email me so I know these pages are actually used. My goal is
-> to finish this month.
->
-> **September 2022:** I'm busy and haven't gotten to this one yet. I will. In
-> the last month, I've added many ciphers: rail fence, Übchi, Vigenère
-> (including keyed and autokey Vigenère), ROT13. I've also added a text
-> analyzer, cryptogram solver, examples to all of the ciphers, visible
-> tableaus, and extra actions for the text input. Please feel free to email me
-> about changes you want to see.
->
-> **August 2022:** I have to switch web hosting providers. This page will be
-> rewritten in the upcoming weeks, but is not yet ready. Sorry, I don't have
-> lots of free time to make this change happen faster.
+When you encode messages, typically one will leave out punctuation. When decoding, only periods and hyphens will be decoded and the rest will be left as-is. This site uses International Morse Code with some additional enhancements. There's also a few tools to help you decode snippets you find by allowing you to reverse the input (flipping the text backwards) and swapping periods and hyphens.
+
+One of the more famous places that utilizes Morse Code is the Kryptos statue. Check out [photos of the sculpture](http://www.voynich.net/Kryptos/). This sculpture has several messages that can be entered into this decoder. <span class="conduit" data-label="SOS" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input="... --- ..."></span> (this is sent as the [prosign](https://en.wikipedia.org/wiki/Prosigns_for_Morse_code)), <span class="conduit" data-label="RQ" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input=".-. --.-"></span>, <span class="conduit" data-label="SHADOW FORCES" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input=". / . / ... .... .- -.. --- .-- / . / .
+..-. --- .-. -.-. . ... / . / . / . / . / ."></span>, <span class="conduit" data-label="VIRTUALLY INVISIBLE" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input=". / . / ...- .. .-. - ..- .- .-.. .-.. -.-- .
+. / . / . / . / . / .. -. ...- .. ... .. -... .-.. . /"></span> (the extra E at the end of VIRTUALLY doesn't have a large enough gap to make it a separate word), <span class="conduit" data-label="...T IS YOUR POSITION" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input="- / .. ... / -.-- --- ..- .-.
+.--. --- ... .. - .. --- -. / ."></span>, <span class="conduit" data-label="DIGETAL INTERPRETATIT" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input=". / -.. .. --. . / - .- .-.. / . / . / .
+.. -. - . .-. .--. .-. . - .- - .. -"></span>, and <span class="conduit" data-label="LUCID MEMORY" data-topic="morse" data-payload-alphabet="English" data-payload-direction="DECRYPT" data-payload-input=".-.. ..- -.-. .. -.. / . / . / .
+/ -- . -- --- .-. -.-- / . /"></span>. If this thing interests you, there's an [expanded page](../../../reference/kryptos/k0/) with more info.
+
+<div class="module"></div>
+
+Here are all of the letters I understand, followed by all of the prosigns and more complicated meanings.
+
+<div class="morseTable"></div>

@@ -162,7 +162,7 @@ The next line is `RWOQ T`, again with the note that `T` could be just the beginn
 .. -. - . .-. .--. .-. . - .- - ..-
 </tt></div>
 
-The first line literally reads `E DIGE TAL E E E`. The extra space after the `E` in `DIGE`, when taken literally, indicates that this is the end of a word. However, it has enough of a gap to nicely put in another dit, which would make the message `E DIGITAL E E E`.
+The first line literally reads `E DIGE TAL E E E`. The extra space after the `E` in `DIGE`, when taken literally, indicates that this is the end of a letter. However, it has enough of a gap to nicely put in another dit, which would make the message `E DIGITAL E E E`. Is this error intentional?
 
 The second say `INTERPRETATI` and is cut off. It looks like just enough metal is left after the final `I` to indicate that there's a gap as opposed to another code that starts with a dah, such as N (code `-.`).
 
