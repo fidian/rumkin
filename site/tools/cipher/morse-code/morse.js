@@ -31,7 +31,15 @@ module.exports = class Morse {
     viewAdditionalActions() {
         return m("a", {
                 href: "#",
-                onclick: () => {}
+                onclick: () => {
+                    const noDots = this.input.value.split('.');
+
+                    for (let i = 0; i < noDots.length; i += 1) {
+                        noDots[i] = noDots[i].split('-').join('.');
+                    }
+
+                    this.input.value = noDots.join('-');
+                }
             }, "Swap dits and dahs");
     }
 
