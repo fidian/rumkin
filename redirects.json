@@ -293,6 +293,7 @@
     "tools/mailto_encoder/thoughts.php/index.html": "../../mailto-encoder/",
     "tools/marquee/index.php/index.html": "../",
     "tools/password/diceware.php/index.html": "../",
+    "tools/password/diceware.php/diceware.php/index.html": "../",
     "tools/password/index.php/index.html": "../",
     "tools/password/md5.php/index.html": "../",
     "tools/password/passchk.html": "../",

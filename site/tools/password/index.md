@@ -1,6 +1,6 @@
 ---
 title: Passwords
-summary: Find out if your password is strong enough to prevent unauthorized access.
+summary: Find out if your password is strong enough to prevent unauthorized access. Generate new, secure passwords.
 components:
     -
         className: diceware
@@ -15,7 +15,6 @@ components:
         className: password-strength
         component: PasswordStrength
 js:
-    - ../../js/browser/md5.js
     - password-module.js
 ---
 
