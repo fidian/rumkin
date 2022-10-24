@@ -23,7 +23,7 @@ module.exports = class LetterNumbers {
         this.delimiterOptions = {
             value: "-",
             options: {
-                "-": "-",
+                "-": "Hyphen",
                 " ": "Space",
                 "": "None"
             },

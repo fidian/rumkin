@@ -6,8 +6,8 @@ cipher: true
 
 ### Temporarily Broken
 
-> **October 2022:** I'm down to only ~4~ ~3~ 2 pages left to convert. These were saved
-> for last because they received the smallest amount of traffic. If I'm holding
+> **October 2022:** I'm down to only ~4~ ~3~ ~2 pages~ this one page left to convert. It was saved
+> for last because it received the smallest amount of traffic. If I'm holding
 > you up, please email me so I know these pages are actually used. My goal is
 > to finish this month.
 >

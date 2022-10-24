@@ -17,9 +17,7 @@ const Dropdown = require("../../js/mithril/dropdown");
 const options = {};
 
 for (const name of Object.keys(rumkinCipher.alphabet)) {
-    if (name !== 'Generic') {
-        options[name] = name;
-    }
+    options[name] = name;
 }
 
 module.exports = class AlphabetSelector {

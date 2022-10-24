@@ -9,7 +9,7 @@ const keyAlphabet = require("../key-alphabet");
 const KeyedAlphabet = require("../keyed-alphabet");
 const Result = require("../result");
 
-module.exports = class Bifid {
+module.exports = class Playfair {
     constructor() {
         this.direction = {};
         this.alphabet = {
@@ -20,8 +20,18 @@ module.exports = class Bifid {
             label: "The message to encipher or decipher",
             value: ""
         };
+        this.doubles = {
+            label: "How to handle double letters",
+            value: "PAD",
+            options: {
+                PAD: "Pad the string by inserting a letter between them",
+                DOWN_RIGHT: "Encode by moving right one column and down one row",
+                UNCHANGED: "Leave the double letters unchanged",
+                REPLACE: "Replace the second letter with a padding letter"
+            }
+        };
         this.resetTranslations();
-        cipherConduitSetup(this, "bifid", (msg) => {
+        cipherConduitSetup(this, "playfair", (msg) => {
             this.resetTranslations();
             const translations = msg.translations || "";
             let index = 0;
@@ -100,6 +110,7 @@ module.exports = class Bifid {
             m("p", m(KeyedAlphabet, this.alphabet)),
             this.viewTranslations(),
             this.viewTableau(),
+            m("p", m(Dropdown, this.doubles)),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
@@ -111,10 +122,13 @@ module.exports = class Bifid {
         }
 
         return m(CipherResult, {
-            name: "bifid",
+            name: "playfair",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.alphabetInstance
+            alphabet: this.alphabetInstance,
+            options: {
+                doubles: this.doubles.value
+            }
         });
     }
 
