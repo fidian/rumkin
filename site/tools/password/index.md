@@ -1,6 +1,6 @@
 ---
 title: Passwords
-summary: Find out if your password is strong enough to prevent unauthorized access. Generate new, secure passwords.
+summary: Find out if your password is strong enough to prevent unauthorized access. Generate new, secure passwords with Diceware or a random password generator.
 components:
     -
         className: diceware
