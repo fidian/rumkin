@@ -2,6 +2,7 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const Checkbox = require("../../../js/mithril/checkbox");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const Result = require("../result");
@@ -10,6 +11,10 @@ module.exports = class Rot13 {
     constructor() {
         this.alphabet = {
             value: new rumkinCipher.alphabet.English()
+        };
+        this.rot5 = {
+            label: "Also ROT5 digits",
+            value: false
         };
         this.input = {
             value: ""
@@ -20,6 +25,7 @@ module.exports = class Rot13 {
     view() {
         return [
             m("p", m(AlphabetSelector, this.alphabet)),
+            m("p", m(Checkbox, this.rot5)),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
@@ -38,12 +44,12 @@ module.exports = class Rot13 {
         }
 
         return m(CipherResult, {
-            name: "caesar",
+            name: "rot13",
             direction: "ENCRYPT",
             message: this.input.value,
             alphabet: this.alphabet.value,
             options: {
-                shift: this.alphabet.value.letterOrder.upper.length / 2
+                rot5Numbers: this.rot5.value
             }
         });
     }
