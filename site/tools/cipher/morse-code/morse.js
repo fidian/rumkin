@@ -8,9 +8,6 @@ const Result = require("../result");
 
 module.exports = class Morse {
     constructor() {
-        this.alphabet = {
-            value: new rumkinCipher.alphabet.Generic()
-        };
         this.direction = {};
         this.input = {
             label: "The text to encode or decode",
@@ -52,7 +49,7 @@ module.exports = class Morse {
             name: "morse",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.alphabet.value
+            alphabet: null
         });
     }
 };

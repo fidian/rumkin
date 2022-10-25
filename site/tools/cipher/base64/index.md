@@ -1,7 +1,7 @@
 ---
 title: Base64
 summary: This is typically used to make binary data safe to transport as strictly text.
-cipher: true
+code: true
 js:
     - ../rumkin-cipher.js
     - base64-module.js

@@ -1,7 +1,7 @@
 ---
 title: Letter Numbers
 summary: Replace each letter with the number of its position in the alphabet.  A simple replacment method that is usually the first one taught to children and is still an effective way to obscure your message.
-cipher: true
+code: true
 js:
     - ../rumkin-cipher.js
     - letter-numbers-module.js

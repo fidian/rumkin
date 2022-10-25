@@ -1,7 +1,7 @@
 ---
 title: Morse Code
 summary: Once used to transmit messages around the world, this system can still be used in certain situations to send messages effectively when alternate mediums are not available.
-cipher: true
+code: true
 js:
     - ../rumkin-cipher.js
     - morse-module.js

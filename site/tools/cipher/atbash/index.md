@@ -1,7 +1,7 @@
 ---
 title: Atbash
 summary: A very simplistic cipher where you change A to Z, B to Y, and so on.
-cipher: true
+code: true
 js:
     - ../rumkin-cipher.js
     - atbash-module.js

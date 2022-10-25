@@ -1,7 +1,7 @@
 ---
 title: ROT13
 summary: A popular method of hiding text so that only people who actually take the time to decode it can actually read it.  You swap letters; A becomes N, and N becomes A.  It was quite popular on bulletin board systems and Usenet newsgroups.  You can do it with the cryptogram solver also, if you make A=N, B=O, C=P, etc.
-cipher: true
+code: true
 js:
     - ../rumkin-cipher.js
     - rot13-module.js
