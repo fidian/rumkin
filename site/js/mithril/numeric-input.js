@@ -40,6 +40,7 @@ module.exports = class NumericInput {
                 Object.assign({}, attrs, {
                     value: this.value,
                     type: "number",
+                    placeholder: "0",
                     oninput: (e) => {
                         const v = e.target.value;
                         this.value = v;
