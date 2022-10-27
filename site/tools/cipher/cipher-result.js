@@ -48,8 +48,8 @@ module.exports = class CipherResult {
         const nbsp = String.fromCharCode(160);
         const resultStr = result
             .toString()
-            .replace(/ {2}/g, `${nbsp} `)
-            .replace(/^ | $/g, nbsp);
+            .replace(/ {2}/g, ` ${nbsp}`)
+            .replace(/^ | $/gm, nbsp);
 
         return m(Result, resultStr);
     }

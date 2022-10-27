@@ -376,5 +376,6 @@
     ":region/index.html": "/",
     "wordlist/index.html": "/",
     "solve/index.html": "/",
-    "test/:id/index.html": "/"
+    "test/:id/index.html": "/",
+    "tools/cipher/substitution/index.html": "../"
 }

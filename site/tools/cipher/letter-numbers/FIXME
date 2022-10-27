@@ -1,1 +1,0 @@
-When encoding with options that could make the output invalid, show a warming that the same message decoded may not work as expected.

@@ -1,13 +1,13 @@
 ---
-title: Substitution
-summary: Substitute your plaintext letters with other letters, images, or codes.  Includes two common pigpen ciphers and the Sherlock Holmes' Dancing Men cipher.
-cipher: true
+title: Dancing Men
+summary: FIXME
+code: false
 js:
     - ../rumkin-cipher.js
-    - substitution-module.js
+    - dancing-men-module.js
 components:
     - className: module
-      component: Substitution
+      component: DancingMen
 ---
 
 Words!

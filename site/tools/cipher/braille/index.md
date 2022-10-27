@@ -1,15 +1,15 @@
 ---
-title: Substitution
-summary: Substitute your plaintext letters with other letters, images, or codes.  Includes two common pigpen ciphers and the Sherlock Holmes' Dancing Men cipher.
-cipher: true
+title: Braille
+summary: FIXME
+code: false
 js:
     - ../rumkin-cipher.js
-    - substitution-module.js
+    - braille-module.js
 components:
     - className: module
-      component: Substitution
+      component: Braille
 ---
 
-Words!
+FIXME
 
 <div class="module"></div>

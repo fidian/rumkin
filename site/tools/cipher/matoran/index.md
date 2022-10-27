@@ -1,13 +1,13 @@
 ---
-title: Substitution
-summary: Substitute your plaintext letters with other letters, images, or codes.  Includes two common pigpen ciphers and the Sherlock Holmes' Dancing Men cipher.
+title: Matoran
+summary: This is the letters used by Lego Bionicle
 cipher: true
 js:
     - ../rumkin-cipher.js
-    - substitution-module.js
+    - matoran-module.js
 components:
     - className: module
-      component: Substitution
+      component: Matoran
 ---
 
 Words!

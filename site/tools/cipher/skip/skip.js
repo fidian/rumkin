@@ -18,7 +18,7 @@ module.exports = class Rotate {
             value: new rumkinCipher.alphabet.English()
         };
         this.offset = {
-            value: 1,
+            value: 0,
             label: "Number of letters to bypass before starting"
         };
         this.skip = {
@@ -75,6 +75,10 @@ module.exports = class Rotate {
             this.skip.value = 0;
         }
 
+        if (this.offset.value < 0) {
+            this.offset.value = 0;
+        }
+
         return [
             m("p", m(DirectionSelector, this.direction)),
             m("p", m(Checkbox, this.moveAllCharacters)),
@@ -98,13 +102,15 @@ module.exports = class Rotate {
             );
         }
 
+        if (!this.input.value.trim()) {
+            return m(Result, "Enter text and see it encoded or decoded here");
+        }
+
         return m(CipherResult, {
             name: "skip",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.moveAllCharacters.value
-                ? new rumkinCipher.alphabet.Generic()
-                : this.alphabet.value,
+            alphabet: this.moveAllCharacters.value ? null : this.alphabet.value,
             options: {
                 offset: this.offset.value,
                 skip: this.skip.value
