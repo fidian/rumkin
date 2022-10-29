@@ -1,19 +1,10 @@
 /* global m */
 
 const AdvancedInputArea = require("../advanced-input-area");
-const Dropdown = require("../../../js/mithril/dropdown");
 const Result = require("../result");
 
-module.exports = class Pigpen {
+module.exports = class Asl {
     constructor() {
-        this.options = {
-            label: "Pigpen variant",
-            value: "pigpen-hhxx",
-            options: {
-                "pigpen-hhxx": "Original Version",
-                "pigpen-hxhx": "Modified Version",
-            }
-        };
         this.input = {
             label: "The text to encode",
             value: ""
@@ -22,7 +13,6 @@ module.exports = class Pigpen {
 
     view() {
         return [
-            m("p", m(Dropdown, this.options)),
             m("p", this.viewButtons()),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
@@ -41,6 +31,13 @@ module.exports = class Pigpen {
                     class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
                 },
                 this.viewButtonList("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            ),
+            m(
+                "div",
+                {
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
+                },
+                this.viewButtonList("0123456789")
             )
         ];
     }
@@ -60,7 +57,7 @@ module.exports = class Pigpen {
             m(
                 "span",
                 {
-                    class: this.options.value
+                    class: "gallaudet"
                 },
                 c
             )
@@ -77,7 +74,7 @@ module.exports = class Pigpen {
             m(
                 "span",
                 {
-                    class: this.options.value
+                    class: "gallaudet"
                 },
                 this.input.value
             )

@@ -4,14 +4,15 @@ const AdvancedInputArea = require("../advanced-input-area");
 const Dropdown = require("../../../js/mithril/dropdown");
 const Result = require("../result");
 
-module.exports = class Pigpen {
+module.exports = class LegoBionicle {
     constructor() {
-        this.options = {
-            label: "Pigpen variant",
-            value: "pigpen-hhxx",
+        this.language = {
+            label: "Which language to use",
+            value: "metrumatoran",
             options: {
-                "pigpen-hhxx": "Original Version",
-                "pigpen-hxhx": "Modified Version",
+                metrumatoran: "Metru Nui and Mata Nui",
+                voyamatoran: "Voya Nui and Mahri Nui",
+                okoto: "Okoto"
             }
         };
         this.input = {
@@ -22,7 +23,7 @@ module.exports = class Pigpen {
 
     view() {
         return [
-            m("p", m(Dropdown, this.options)),
+            m("p", m(Dropdown, this.language)),
             m("p", this.viewButtons()),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
@@ -41,6 +42,13 @@ module.exports = class Pigpen {
                     class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
                 },
                 this.viewButtonList("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            ),
+            m(
+                "div",
+                {
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
+                },
+                this.viewButtonList("0123456789")
             )
         ];
     }
@@ -60,7 +68,7 @@ module.exports = class Pigpen {
             m(
                 "span",
                 {
-                    class: this.options.value
+                    class: this.language.value
                 },
                 c
             )
@@ -77,7 +85,7 @@ module.exports = class Pigpen {
             m(
                 "span",
                 {
-                    class: this.options.value
+                    class: this.language.value
                 },
                 this.input.value
             )

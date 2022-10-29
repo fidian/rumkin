@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Semaphore";
+    src: url(semaphore.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.semaphore {
+    font-family: "Semaphore", "Ubuntu", sans-serif;
+    font-size: 4em;
+}

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Gallaudet";
+    src: url(gallaudet.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.gallaudet {
+    font-family: "Gallaudet", "Ubuntu", sans-serif;
+    font-size: 7em;
+    line-height: 1;
+}

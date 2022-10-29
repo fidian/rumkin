@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "Metrumatoran";
+    src: url(metrumatoran.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.metrumatoran {
+    font-family: "Metrumatoran", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
+
+@font-face {
+    font-family: "Voyamatoran";
+    src: url(voyamatoran.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.voyamatoran {
+    font-family: "Voyamatoran", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
+
+@font-face {
+    font-family: "Okoto";
+    src: url(okoto2016.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.okoto {
+    font-family: "Okoto", "Ubuntu", sans-serif;
+    font-size: 2em;
+}

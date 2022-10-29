@@ -1,13 +1,13 @@
 ---
-title: Telephone
-summary: FIXME ... keypad
+title: Decimal
+summary: FIXME
 code: false
 js:
     - ../rumkin-cipher.js
-    - telephone-module.js
+    - decimal-module.js
 components:
     - className: module
-      component: Telephone
+      component: Decimal
 ---
 
 Words!

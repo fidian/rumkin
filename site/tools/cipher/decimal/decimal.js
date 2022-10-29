@@ -1,6 +1,6 @@
 /* global m */
 
-module.exports = class Matoran {
+module.exports = class Decimal {
     view() {
         return [
             m('div', 'ok')

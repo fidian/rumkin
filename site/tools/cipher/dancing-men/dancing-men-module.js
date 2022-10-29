@@ -2,4 +2,5 @@
 
 "use strict";
 
+window.Conduit = require("../../../js/mithril/conduit");
 window.DancingMen = require("./dancing-men");
