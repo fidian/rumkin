@@ -1,6 +1,6 @@
 ---
 title: Ciphers and Codes
-summary: Simpler, "pen and paper" style ciphers and simpler codes - all automated and running in your browser.
+summary: Simpler, "pen and paper" style ciphers and substitution-style codes - all automated and running in your browser.
 ---
 
 Let's say that you need to send your friend a message, but you don't want another person to know what it is. You can use a full-blown encryption tool, such as PGP. If the message isn't that important or if it is intended to be decrypted by hand, you should use a simpler tool. This is a page dedicated to simple text manipulation tools, which all can be replicated with just paper and pencil.
