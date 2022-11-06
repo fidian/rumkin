@@ -7,7 +7,6 @@ const LetterMapping = require("./letter-mapping");
 module.exports = class Cryptogram {
     constructor() {
         this.input = {
-            alphabet: this.alphabet,
             value: "",
             oninput: () => {
                 this.buildLetterMaps();

@@ -1,5 +1,5 @@
 ---
-title: Cryptogram
+title: Cryptogram Assistant
 summary: This helps you manually solve simple ciphers, which are methods where you replace one letter with another.
 tool: true
 js:
