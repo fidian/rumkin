@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@babel/preset-env": "^7.18.10",
+        "@fidian/acss-live": "^0.0.5",
         "@fidian/metalsmith-clean-css": "^6.2.2",
         "@fidian/metalsmith-site": "^1.2.4",
         "@fidian/rumkin-cipher": "^0.15.1",
