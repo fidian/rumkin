@@ -3,7 +3,7 @@ title: 7 Inch Laptop
 summary: Installing Linux and overcoming hardware issues with a cheap and small laptop.
 ---
 
-I purchased a [7" laptop from Amazon](https://smile.amazon.com/gp/product/B09CQ22335/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&th=1) because I wanted a very portable device that would work when I needed to fix other people's computers. It is also handier to lug around when doing presentations. There's no brand on the box, just the words "Pocket Book" and the manual (if you can call a single, poorly copied piece of paper a manual) listed Shenzhen Firstdream Technology Co., Ltd. Amazon lists the laptop's brand as ZWYING, with the model number of P7. Booting it up, I see "American Megatrends" as the logo shown by the BIOS.
+I purchased a [7" laptop from Amazon](https://smile.amazon.com/gp/product/B09CQ22335/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&th=1) because I wanted a very portable device that would work when I needed to fix other people's computers. It is also handier to lug around when doing presentations. There's no brand on the box, just the words "Pocket Book" and the manual (if you can call a single, poorly copied piece of paper a manual) listed Shenzhen Firstdream Technology Co., Ltd. Amazon lists the laptop's brand as ZWYING, with the model number of P7. Booting it up, I see "American Megatrends" as the logo shown by the BIOS. Linux-Hardware.org says the device is a Mediacom GTZS.
 
 The specs are modest, but one doesn't expect a lot from something this small. It has a 7" touchscreen at 1024 x 600; a 4 core, 1.5 GHz (2.3 Ghz burst) Celeron J3455 processor; 8GB of 2.3GHZ DDR3L RAM; 512 GB SSD, most likely m.2 but not yet confirmed. It comes with WiFi, Bluetooth, 2 x USB 3 ports, 1 Micro SD port, a headphone jack, webcam, and a mini HDMI port. All of that fits in a package that is 185 x 141 x 20 mm, weighs 0.65 kg, including the internal 4500 mAh battery, which provides 4-6 hours of runtime.
 
@@ -49,7 +49,7 @@ This will work, but you won't have any network connectivity. Also, the left-clic
 Step 3: Fix Wireless
 --------------------
 
-For this step, you'll need a spare WiFi dongle or an Ethernet adapter. You'll have to get on the internet in order to fix the WiFi issues.
+For this step, you'll need a spare WiFi dongle or a USB Ethernet adapter. You'll have to get on the internet in order to fix the WiFi issues.
 
 The wireless device, when seen using `lsusb`, appears something like this:
 
@@ -69,7 +69,7 @@ Reboot and you're done.
 Step 4: Fix Mouse
 -----------------
 
-The future looks bleak for fixing the mouse buttons. Even in Windows, they don't work as expected. The left click button seems to do nothing and the right-click button is the same as pressing the Menu key. It would be really handy to have this work in case using a mouse is not practical, so I will still see if there's a way to map these keyboard events to mouse events.
+The future looks bleak for fixing the mouse buttons. Even in Windows, they don't work as expected. The left click button seems to do nothing and the right-click button is the same as pressing the Menu key. It would be really handy to have this work in case using a mouse is not practical.
 
 First, let's look at `dmesg` output.
 
@@ -109,7 +109,7 @@ So, how does one easily map these keys to mouse events? [Key Mapper](https://git
     KP Begin -> h(BTN_LEFT)
     Menu -> h(BTN_RIGHT)
 
-Apply when done. I'd suggest autoloading this configuration too, and possibly donating to the project if you find it useful.
+Apply when done. I'd suggest autoloading this configuration too, and possibly donating to the project if you find it useful. I did specifically for this laptop.
 
 
 Step 5: Sound (NOT FIXED)
@@ -123,7 +123,7 @@ The best solution might be to wait for SOF [to get updated](https://github.com/t
 Step 6: The Fan (NOT POSSIBLE?)
 -------------------------------
 
-It's always on. How frustrating.
+It's always on. How frustrating and a waste of power when not doing any real work.
 
     echo coretemp | sudo tee -a /etc/modules
 
