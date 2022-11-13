@@ -19,6 +19,8 @@ To turn it on, hold the power button for 2 to 3 seconds.
 
 My system's specs are uploaded to [Linux-Hardware.org](https://linux-hardware.org/?probe=a2a881793d).
 
+By the way, brightness keys are labeled backwards, so the full sun icon makes the screen darker and the eclipsed sun makes the screen brighter.
+
 
 Step 1: Backup
 --------------
