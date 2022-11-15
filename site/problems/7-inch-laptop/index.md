@@ -120,7 +120,7 @@ Apply when done. I'd suggest autoloading this configuration too, and possibly do
 Step 5: Sound (NOT FIXED)
 -------------------------
 
-Yeah, it looks like this doesn't have sound. Weird. Or does it maybe have sound and we didn't identify the sound card correctly? The kernel is using `snd_hda_intel` and trying `snd_soc_skl` or `snd_sof_pci_intel_apl` don't work out of the box either. Seems to be the same problem that [other people](https://askubuntu.com/questions/1351816/intel-j3455-dummy-sound-issue-snd-intel) [have](https://forum.mxlinux.org/viewtopic.php?t=66187).
+I am not sure how well this supports sound. Ubuntu 22.04 detected nothing, 22.10 found the card but nothing plays. Maybe it didn't identify the sound card correctly? The kernel is using `snd_hda_intel` and trying `snd_soc_skl` or `snd_sof_pci_intel_apl` don't work out of the box either. Seems to be the same problem that [other people](https://askubuntu.com/questions/1351816/intel-j3455-dummy-sound-issue-snd-intel) [have](https://forum.mxlinux.org/viewtopic.php?t=66187).
 
 The best solution might be to wait for SOF [to get updated](https://github.com/thesofproject/linux/pull/2962) in the Linux kernel. After that, a kernel option might need to be added in order to pick the right driver.
 
