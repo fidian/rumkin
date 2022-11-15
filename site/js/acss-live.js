@@ -1,25 +1,25 @@
 /* global window */
+
 window.acssLiveConfig = {
     atRules: {
-        csd: "@media (prefers-color-scheme: dark)",
-        csl: "@media (prefers-color-scheme: light)",
-        // Order matters here - largest to smallest
-        l: "@media screen and (max-width: 992px)",
-        m: "@media screen and (max-width: 768px)",
-        s: "@media screen and (max-width: 575px)",
-        p: "@media print"
+        l: "@media (min-width: 769px) and (max-width: 992px)",
+        m: "@media (min-width: 576px) and (max-width: 768px)",
+        s: "@media (max-width: 575px)",
+        sm: "@media (max-width: 768px)" // Small + Medium
     },
-    values: {
+    colors: {
         barBackground: "#347DBE",
         barBorder: "#015CAE",
         barText: "#fafafa",
-        contentWidthMax: "1150px",
         pageBackground: "white",
         pageBorderBackground: "gray",
         prevNextBackground: "#c6dee4",
         searchBackground: "#eee",
         searchTextColor: "black",
         textColorNormal: "black"
+    },
+    values: {
+        contentWidthMax: "1150px"
     },
     classes: {
         Cc: ["column-count:$0"],

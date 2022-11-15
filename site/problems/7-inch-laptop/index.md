@@ -58,12 +58,17 @@ The wireless device, when seen using `lsusb`, appears something like this:
 These instructions are based on ones found on [StackExchange](https://askubuntu.com/questions/1303035/rtl8821cu-wifi-bluetooth-usb-0bdac820)
 
     sudo apt update
-    sudo apt install git dkms
-    git clone https://github.com/brektrou/rtl8821cu.git
-    cd rtl8821cu
-    sudo ./dkms-install.sh
+    sudo apt install build-essential git dkms
+    git clone https://github.com/morrownr/8821cu-20210118
+    cd 8821cu-20210118
+    sudo ./install-driver.sh
 
-Reboot and you're done.
+Reboot and you're done. When you update the kernel, run these while you are connected to the internet.
+
+    cd 8821cu-20210118
+    git pull
+    sudo ./remove-driver.sh
+    sudo ./install-driver.sh
 
 
 Step 4: Fix Mouse
