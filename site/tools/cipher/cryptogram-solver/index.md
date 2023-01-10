@@ -1,6 +1,6 @@
 ---
 title: Cryptogram Solver
-summary: If you have a plain text message, this will help find possible solutions in a matter of seconds.  It works with simple substitution ciphers in plain English only.
+summary: If you have a plain text message, this will help find possible solutions in a matter of seconds.  It works with simple substitution ciphers only.
 tool: true
 js:
     - cryptogram-solver-module.js

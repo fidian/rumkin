@@ -74,9 +74,7 @@ module.exports = class RailFence {
             name: "railFence",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.moveAllCharacters.value
-                ? new rumkinCipher.alphabet.Generic()
-                : this.alphabet.value,
+            alphabet: this.moveAllCharacters.value ? null : this.alphabet.value,
             options: {
                 rails: +this.rails.value,
                 offset: +this.offset.value

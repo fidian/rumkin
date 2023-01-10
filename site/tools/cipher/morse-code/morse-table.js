@@ -40,7 +40,7 @@ module.exports = class MorseTable {
             m(
                 "ul",
                 {
-                    class: "Cc(5) Cc(4)--l Cc(3)--m Cc(2)--s"
+                    class: "Colmc(5) Colmc(4)--l Colmc(3)--m Colmc(2)--s"
                 },
                 morseData.map((item) =>
                     // "CH" is two letters
@@ -50,7 +50,7 @@ module.exports = class MorseTable {
             m(
                 "ul",
                 {
-                    class: "Cc(2) Cc(1)--m"
+                    class: "Colmc(2) Colmc(1)--sm"
                 },
                 morseData.map((item) =>
                     this.viewItem(item, (text) => text.length > 2)

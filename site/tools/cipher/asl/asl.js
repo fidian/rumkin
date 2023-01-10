@@ -28,14 +28,14 @@ module.exports = class Asl {
             m(
                 "div",
                 {
-                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm"
                 },
                 this.viewButtonList("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
             ),
             m(
                 "div",
                 {
-                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm"
                 },
                 this.viewButtonList("0123456789")
             )

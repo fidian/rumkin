@@ -38,7 +38,7 @@ module.exports = class Pigpen {
             m(
                 "div",
                 {
-                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--m"
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm"
                 },
                 this.viewButtonList("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
             )

@@ -387,7 +387,7 @@ module.exports = class CryptogramSolve {
 
         if (failedWords === wordsTested) {
             this.bestGuessProgress =
-                "The words in this dictionary are unable to decode this message. Try a larger dictionary or perhaps attempt to pick words yourself to find a solution.";
+                "The words in this dictionary are unable to fully decode this message. Try a larger dictionary or attempt to pick words yourself to find a solution.";
         } else {
             this.bestGuessProgress = `Updated ${modifiedWords} out of ${wordsTested} words and removed ${possibilitiesRemoved} possibilities.`;
         }
@@ -438,7 +438,7 @@ module.exports = class CryptogramSolve {
                 },
                 "Eliminate Bad Combinations"
             ),
-            " This can take a significant amount of time. Removes words from the lists that can not work with other cipher words. This will often help you find the deciphered text much quicker, but the entire cipher text consist of dictionary words."
+            " This can take a significant amount of time. Removes words from the lists that can not work with other cipher words. This will often help you find the deciphered text quicker, but limits you to using only dictionary words."
         ]);
     }
 
