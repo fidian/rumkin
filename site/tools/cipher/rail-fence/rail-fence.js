@@ -2,13 +2,13 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
-const Checkbox = require("../../../js/mithril/checkbox");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const Dropdown = require("../../../js/mithril/dropdown");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
+const TranspositionOperatingMode = require("../transposition-operating-mode");
 
 module.exports = class RailFence {
     constructor() {
@@ -29,9 +29,8 @@ module.exports = class RailFence {
             value: ""
         };
         this.updateOffset();
-        this.moveAllCharacters = {
-            label: "Encode whitespace, symbols, and everything",
-            value: false
+        this.transpositionOperatingMode = {
+            value: "NORMAL"
         };
         cipherConduitSetup(this, "railFence", () => {
             this.updateOffset();
@@ -57,9 +56,12 @@ module.exports = class RailFence {
         return [
             m("p", m(DirectionSelector, this.direction)),
             m("p", m(NumericInput, this.rails)),
-            m("p", m(Checkbox, this.moveAllCharacters)),
             m("p", m(Dropdown, this.offset)),
             m("p", m(AlphabetSelector, this.alphabet)),
+            m(
+                "p",
+                m(TranspositionOperatingMode, this.transpositionOperatingMode)
+            ),
             m("p", m(AdvancedInputArea, this.input)),
             this.viewResult()
         ];
@@ -74,10 +76,15 @@ module.exports = class RailFence {
             name: "railFence",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.moveAllCharacters.value ? null : this.alphabet.value,
+            alphabet:
+                this.transpositionOperatingMode.value === "ALL_CHARS"
+                    ? null
+                    : this.alphabet.value,
             options: {
-                rails: +this.rails.value,
-                offset: +this.offset.value
+                keepCapitalization:
+                    this.transpositionOperatingMode.value === "MOVE_CAPS",
+                offset: +this.offset.value,
+                rails: +this.rails.value
             }
         });
     }

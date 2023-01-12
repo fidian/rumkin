@@ -2,11 +2,13 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
+const Checkbox = require("../../../js/mithril/checkbox");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const Dropdown = require("../../../js/mithril/dropdown");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
+// Can't use TranspositionOperatingMode because this requires a pad character
 
 module.exports = class Rotate {
     constructor() {
@@ -16,7 +18,7 @@ module.exports = class Rotate {
                 CLOCKWISE: "Clockwise (to the right)",
                 COUNTER_CLOCKWISE: "Counter-clockwise (to the left)"
             },
-            label: "Operating mode"
+            label: "Direction of rotation"
         };
         this.alphabet = {
             value: new rumkinCipher.alphabet.English(),
@@ -31,6 +33,10 @@ module.exports = class Rotate {
         };
         this.input = {
             value: ""
+        };
+        this.moveCaps = {
+            label: "Move capitalization with the transposed letter",
+            value: false
         };
         this.updatePadCharacter();
         cipherConduitSetup(this, "rotate");
@@ -53,6 +59,7 @@ module.exports = class Rotate {
             m("p", m(AlphabetSelector, this.alphabet)),
             m("p", m(NumericInput, this.width)),
             m("p", m(Dropdown, this.padCharacter)),
+            m("p", m(Checkbox, this.moveCaps)),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
@@ -72,6 +79,7 @@ module.exports = class Rotate {
             alphabet: this.alphabet.value,
             options: {
                 clockwise: this.direction.value === "CLOCKWISE",
+                keepCapitalization: this.moveCaps.value,
                 width: this.width.value
             }
         });

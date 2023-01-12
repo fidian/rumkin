@@ -8,6 +8,7 @@ const cipherConduitSetup = require("../cipher-conduit-setup");
 const DirectionSelector = require("../direction-selector");
 const Result = require("../result");
 const TextInput = require("../../../js/mithril/text-input");
+const TranspositionOperatingMode = require("../transposition-operating-mode");
 
 module.exports = class ColumnarTransposition {
     constructor() {
@@ -32,6 +33,9 @@ module.exports = class ColumnarTransposition {
         this.input = {
             value: ""
         };
+        this.transpositionOperatingMode = {
+            value: "NORMAL"
+        };
         this.columnKey = null;
         cipherConduitSetup(this, "columnarTransposition");
     }
@@ -44,6 +48,10 @@ module.exports = class ColumnarTransposition {
             m("p", m(Checkbox, this.dupesBackwards)),
             m("p", this.viewKey()),
             m("p", m(Checkbox, this.columnOrder)),
+            m(
+                "p",
+                m(TranspositionOperatingMode, this.transpositionOperatingMode)
+            ),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
         ];
@@ -87,9 +95,14 @@ module.exports = class ColumnarTransposition {
             name: "columnarTransposition",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.alphabet.value,
+            alphabet:
+                this.transpositionOperatingMode.value === "ALL_CHARS"
+                    ? null
+                    : this.alphabet.value,
             options: {
-                columnKey: this.columnKey
+                columnKey: this.columnKey,
+                keepCapitalization:
+                    this.transpositionOperatingMode.value === "MOVE_CAPS"
             }
         });
     }

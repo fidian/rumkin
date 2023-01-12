@@ -2,15 +2,16 @@
 
 const AdvancedInputArea = require("../advanced-input-area");
 const AlphabetSelector = require("../alphabet-selector");
-const Checkbox = require("../../../js/mithril/checkbox");
 const cipherConduitSetup = require("../cipher-conduit-setup");
 const CipherResult = require("../cipher-result");
 const DirectionSelector = require("../direction-selector");
 const NumericInput = require("../../../js/mithril/numeric-input");
 const Result = require("../result");
+const TranspositionOperatingMode = require("../transposition-operating-mode");
 
 module.exports = class Rotate {
     constructor() {
+        this.displayAllowedValues = false;
         this.direction = {
             value: "ENCRYPT"
         };
@@ -28,9 +29,8 @@ module.exports = class Rotate {
         this.input = {
             value: ""
         };
-        this.moveAllCharacters = {
-            label: "Encode whitespace, symbols, and everything",
-            value: false
+        this.transpositionOperatingMode = {
+            value: "NORMAL"
         };
         cipherConduitSetup(this, "skip");
     }
@@ -65,7 +65,7 @@ module.exports = class Rotate {
     view() {
         let messageLength = this.input.value.length;
 
-        if (!this.moveAllCharacters) {
+        if (this.transpositionOperatingMode.value !== "ALL_CHARS") {
             messageLength = new rumkinCipher.util.Message(
                 this.input.value
             ).separate(this.alphabet.value).length;
@@ -81,17 +81,56 @@ module.exports = class Rotate {
 
         return [
             m("p", m(DirectionSelector, this.direction)),
-            m("p", m(Checkbox, this.moveAllCharacters)),
             m("p", m(AlphabetSelector, this.alphabet)),
             m("p", [
                 m(NumericInput, this.skip),
                 this.changeSkipButton("+", 1, messageLength),
-                this.changeSkipButton("-", -1, messageLength)
+                this.changeSkipButton("-", -1, messageLength),
+                m("br"),
+                "Message length: ",
+                messageLength.toString(),
+                m("br"),
+                this.viewAllowedSkipValues(messageLength)
             ]),
             m("p", m(NumericInput, this.offset)),
+            m(
+                "p",
+                m(TranspositionOperatingMode, this.transpositionOperatingMode)
+            ),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult(messageLength))
         ];
+    }
+
+    viewAllowedSkipValues(messageLength) {
+        const result = [
+            m(
+                "button",
+                {
+                    onclick: () =>
+                        (this.displayAllowedValues = !this.displayAllowedValues)
+                },
+                `${this.displayAllowedValues ? "Hide" : "Show"} allowed skip values`
+            )
+        ];
+
+        if (this.displayAllowedValues) {
+            const allowed = [];
+
+            for (let i = 1; i < messageLength; i += 1) {
+                if (this.isSkipValid(i, messageLength)) {
+                    allowed.push(i.toString());
+                }
+            }
+
+            if (allowed.length) {
+                result.push(m("div", allowed.join(", ")));
+            } else {
+                result.push(m("div", "None."));
+            }
+        }
+
+        return result;
     }
 
     viewResult(messageLength) {
@@ -110,8 +149,13 @@ module.exports = class Rotate {
             name: "skip",
             direction: this.direction.value,
             message: this.input.value,
-            alphabet: this.moveAllCharacters.value ? null : this.alphabet.value,
+            alphabet:
+                this.transpositionOperatingMode.value === "ALL_CHARS"
+                    ? null
+                    : this.alphabet.value,
             options: {
+                keepCapitalization:
+                    this.transpositionOperatingMode.value === "MOVE_CAPS",
                 offset: this.offset.value,
                 skip: this.skip.value
             }
