@@ -11,7 +11,7 @@ const TranspositionOperatingMode = require("../transposition-operating-mode");
 
 module.exports = class Rotate {
     constructor() {
-        this.displayAllowedValues = false;
+        this.displayEveryPossibility = false;
         this.direction = {
             value: "ENCRYPT"
         };
@@ -85,12 +85,7 @@ module.exports = class Rotate {
             m("p", [
                 m(NumericInput, this.skip),
                 this.changeSkipButton("+", 1, messageLength),
-                this.changeSkipButton("-", -1, messageLength),
-                m("br"),
-                "Message length: ",
-                messageLength.toString(),
-                m("br"),
-                this.viewAllowedSkipValues(messageLength)
+                this.changeSkipButton("-", -1, messageLength)
             ]),
             m("p", m(NumericInput, this.offset)),
             m(
@@ -98,35 +93,31 @@ module.exports = class Rotate {
                 m(TranspositionOperatingMode, this.transpositionOperatingMode)
             ),
             m("p", m(AdvancedInputArea, this.input)),
-            m("p", this.viewResult(messageLength))
+            m("p", this.viewResult(messageLength)),
+            m("p", this.viewAllSkipValues(messageLength))
         ];
     }
 
-    viewAllowedSkipValues(messageLength) {
+    viewAllSkipValues(messageLength) {
         const result = [
             m(
                 "button",
                 {
                     onclick: () =>
-                        (this.displayAllowedValues = !this.displayAllowedValues)
+                        (this.displayEveryPossibility = !this.displayEveryPossibility)
                 },
-                `${this.displayAllowedValues ? "Hide" : "Show"} allowed skip values`
+                `${this.displayEveryPossibility ? "Hide" : "Show"} every possible outcome`
             )
         ];
 
-        if (this.displayAllowedValues) {
-            const allowed = [];
-
+        if (this.displayEveryPossibility) {
             for (let i = 1; i < messageLength; i += 1) {
                 if (this.isSkipValid(i, messageLength)) {
-                    allowed.push(i.toString());
+                    result.push(m("p", [
+                        m("b", `Skip ${i}:`),
+                        this.viewResultForSkip(i)
+                    ]));
                 }
-            }
-
-            if (allowed.length) {
-                result.push(m("div", allowed.join(", ")));
-            } else {
-                result.push(m("div", "None."));
             }
         }
 
@@ -145,6 +136,10 @@ module.exports = class Rotate {
             return m(Result, "Enter text and see it encoded or decoded here");
         }
 
+        return this.viewResultForSkip(this.skip.value);
+    }
+
+    viewResultForSkip(skip) {
         return m(CipherResult, {
             name: "skip",
             direction: this.direction.value,
@@ -157,7 +152,7 @@ module.exports = class Rotate {
                 keepCapitalization:
                     this.transpositionOperatingMode.value === "MOVE_CAPS",
                 offset: this.offset.value,
-                skip: this.skip.value
+                skip
             }
         });
     }
