@@ -1,20 +1,10 @@
 /* global m */
 
 const AdvancedInputArea = require("../advanced-input-area");
-const Dropdown = require("../../../js/mithril/dropdown");
 const Result = require("../result");
 
-module.exports = class LegoBionicle {
+module.exports = class Wingdings {
     constructor() {
-        this.language = {
-            label: "Which language to use",
-            value: "metrumatoran",
-            options: {
-                metrumatoran: "Metru Nui and Mata Nui",
-                voyamatoran: "Voya Nui and Mahri Nui",
-                okoto: "Okoto"
-            }
-        };
         this.input = {
             label: "The text to encode",
             value: ""
@@ -23,7 +13,6 @@ module.exports = class LegoBionicle {
 
     view() {
         return [
-            m("p", m(Dropdown, this.language)),
             m("p", this.viewButtons()),
             m("p", m(AdvancedInputArea, this.input)),
             m("p", this.viewResult())
@@ -41,14 +30,33 @@ module.exports = class LegoBionicle {
                 {
                     class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm Py(0.25em)"
                 },
-                ["Letters: ", this.viewButtonList("ABCDEFGHIJKLMNOPQRSTUVWXYZ")]
+                ["Uppercase: ",
+                this.viewButtonList("ABCDEFGHIJKLMNOPQRSTUVWXYZ")]
             ),
             m(
                 "div",
                 {
                     class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm Py(0.25em)"
                 },
-                ["Numbers: ", this.viewButtonList("0123456789")]
+                ["Lowercase: ",
+                this.viewButtonList("abcdefghijklmnopqrstuvwxyz")]
+            ),
+            m(
+                "div",
+                {
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm Py(0.25em)"
+                },
+                ["Numbers: ",
+                this.viewButtonList("0123456789")]
+            ),
+            m(
+                "div",
+                {
+                    class: "D(f) Fxw(w) Ai(c) Jc(c) Px(3em) Px(0)--sm Py(0.25em)"
+                },
+                ["Other: ",
+                this.viewButtonList("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ ¡¢£¥§¨©ª«¬®¯°±´µ¶·¸º»¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜßàáâãäåæçèéêëìíîïñòóôõö÷øùúûüÿıŒœŸƒˆˇ˘˙˚˛˜˝ΔΩπ–—‘’‚“”„†‡•…‰‹›⁄€™∂")]
+
             )
         ];
     }
@@ -68,7 +76,7 @@ module.exports = class LegoBionicle {
             m(
                 "span",
                 {
-                    class: this.language.value
+                    class: "wingdings"
                 },
                 c
             )
@@ -85,7 +93,7 @@ module.exports = class LegoBionicle {
             m(
                 "span",
                 {
-                    class: this.language.value
+                    class: "wingdings"
                 },
                 this.input.value
             )

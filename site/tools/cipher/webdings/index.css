@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Webdings";
+    src: url(webdings.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.webdings {
+    font-family: "Webdings", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
