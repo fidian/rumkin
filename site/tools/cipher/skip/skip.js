@@ -93,7 +93,6 @@ module.exports = class Rotate {
                 m(TranspositionOperatingMode, this.transpositionOperatingMode)
             ),
             m("p", m(AdvancedInputArea, this.input)),
-            this.viewWarning(),
             m("p", this.viewResult(messageLength)),
             m("p", this.viewAllSkipValues(messageLength))
         ];
@@ -156,42 +155,5 @@ module.exports = class Rotate {
                 skip
             }
         });
-    }
-
-    viewWarning() {
-        const method = this.direction.value === "ENCRYPT" ? "encipher" : "decipher";
-        const module = rumkinCipher.cipher.skip;
-        const message = new rumkinCipher.util.Message(this.input.value);
-        const alphabet = this.transpositionOperatingMode.value === "ALL_CHARS" ? null : this.alphabet.value;
-        const options = {
-            // Can disregard keepCapitalization - only care about spaces
-            offset: this.offset.value,
-            skip: this.skip.value
-        };
-        const result = module[method](message, alphabet, options).toString();
-        const problems = [];
-
-        if (result.match(/^ /m)) {
-            problems.push("Leading spaces in output");
-        }
-
-        if (result.match(/ $/m)) {
-            problems.push("Trailing spaces in output");
-        }
-
-        if (result.match(/ {2,}/)) {
-            problems.push("Two or more consecutive spaces in output");
-        }
-
-        if (problems.length === 0) {
-            return [];
-        }
-
-        return m("div", {
-            class: "Bdw(1px) Bgc(#ebb) P(0.5em) My(0.5em)"
-        }, [
-            "The following problems have been detected and may be hard to spot.",
-            m("ul", problems.map(p => m("li", p)))
-        ]);
     }
 };

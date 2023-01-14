@@ -43,14 +43,53 @@ module.exports = class CipherResult {
         const message = new rumkinCipher.util.Message(attrs.message);
         const alphabet = attrs.alphabet;
         const options = attrs.options || undefined;
-        const result = cryptModule[method](message, alphabet, options);
+        const resultStr = cryptModule[method](
+            message,
+            alphabet,
+            options
+        ).toString();
         // CAUTION - this is not a space!
         const nbsp = String.fromCharCode(160);
-        const resultStr = result
-            .toString()
+        const resultDisplay = resultStr
             .replace(/ {2}/g, ` ${nbsp}`)
             .replace(/^ | $/gm, nbsp);
 
-        return m(Result, resultStr);
+        return [this.viewWarnings(resultStr), m(Result, resultDisplay)];
+    }
+
+    viewWarnings(resultStr) {
+        const warnings = [];
+
+        if (resultStr.match(/^ /m)) {
+            warnings.push("Found a leading space in output");
+        }
+
+        if (resultStr.match(/ $/m)) {
+            warnings.push("Found a trailing space in output");
+        }
+
+        if (resultStr.match(/ {2,}/)) {
+            warnings.push("Two or more consecutive spaces in output");
+        }
+
+        if (warnings.length === 0) {
+            return [];
+        }
+
+        return m(
+            "div",
+            {
+                class: "Bdw(1px) Bgc(#faa) P(0.5em) Whs(pl) My(0.5em)"
+            },
+            [
+                warnings.length > 1
+                    ? "The following problems have been detected."
+                    : "The following problem has been detected.",
+                m(
+                    "ul",
+                    warnings.map((p) => m("li", p))
+                )
+            ]
+        );
     }
 };
