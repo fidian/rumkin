@@ -9,8 +9,7 @@ module.exports = class Result {
         return m(
             "div",
             {
-                class: "Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)",
-                style: "overflow-wrap: anywhere"
+                class: "Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em) Ovw(an)"
             },
             [m("tt", vnode.children)]
         );
