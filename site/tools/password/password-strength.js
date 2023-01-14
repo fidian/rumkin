@@ -80,14 +80,14 @@ module.exports = class PasswordStrength {
 
     viewResult() {
         if (!this.password) {
-            return m("p", "Enter a password or passphrase to analyze");
+            return m("div", { class: "Py(0.5em" }, "Enter a password or passphrase to analyze");
         }
 
         const result = [];
         const s = this.strengthScore;
 
         if (s.commonPassword) {
-            result.push(m("p", "WARNING: This is a common password!"));
+            result.push("WARNING: This is a common password!");
         }
 
         const bitsOfEntropy = ` ${Math.floor(s.trigraphEntropyBits)} bits of entropy.`;
@@ -95,43 +95,43 @@ module.exports = class PasswordStrength {
         switch (s.strengthCode) {
             case "VERY_STRONG":
                 result.push(
-                    m("p", [
+                    [
                         "This password is very strong, with about",
                         bitsOfEntropy
-                    ])
+                    ]
                 );
                 break;
 
             case "STRONG":
                 result.push(
-                    m("p", [
+                    [
                         "You have a strong password, which provides approximately",
                         bitsOfEntropy
-                    ])
+                    ]
                 );
                 break;
 
             case "REASONABLE":
                 result.push(
-                    m("p", [
+                    [
                         "Your password seems to be fairly good, and has",
                         bitsOfEntropy
-                    ])
+                    ]
                 );
                 break;
 
             case "WEAK":
                 result.push(
-                    m("p", [
+                    [
                         "Your password is weak and can be cracked or guessed easily. It provides",
                         bitsOfEntropy
-                    ])
+                    ]
                 );
                 break;
 
             default:
                 result.push(
-                    m("p", [
+                    [
                         m(
                             "span",
                             {
@@ -141,19 +141,23 @@ module.exports = class PasswordStrength {
                         ),
                         " There are only",
                         bitsOfEntropy
-                    ])
+                    ]
                 );
                 break;
         }
 
         result.push(
-            m("p", [
+            [
                 "Suggestions for improvement:",
-                m("ul", this.viewSuggestions())
-            ])
+                m("ul", {
+                    class: "Py(0) My(0)"
+                }, this.viewSuggestions())
+            ]
         );
 
-        return result;
+        return result.map(item => m("div", {
+            class: "Py(0.5em)"
+        }, item));
     }
 
     viewSuggestions() {

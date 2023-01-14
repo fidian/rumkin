@@ -2,7 +2,6 @@
 title: WCN Config Generator
 summary: Creates a Zip file for transferring WiFi info using "Windows Connect Now"
 js:
-    - ../../js/browser/file-saver.js
     - ../../js/browser/jszip.js
     - ../../js/browser/jszip-utils.js
     - wcn-module.js

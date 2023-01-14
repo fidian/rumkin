@@ -44,7 +44,7 @@ The second thing you need to get over is specifying lots of little classes on an
 </div>
 ```
 
-Notice that the `class` property on the one `<div>` element has a bunch of classes. This type of notation is picked up by the Atomizer tool so I don't need to generate CSS. You don't need to follow the same convention, but a similar one would be useful. The generated CSS for this would look like the following:
+Notice that the `class` property on the one `<div>` element has a bunch of classes. This type of notation is picked up by [Atomizer] or by [acss-live] so I don't need to generate CSS. You don't need to follow the same convention, but a similar one would be useful. The generated CSS for this would look like the following:
 
 ```
 .Ai\(c\) {
@@ -80,7 +80,7 @@ Notice that the `class` property on the one `<div>` element has a bunch of class
 }
 ```
 
-I bet once you looked at the first few rules that were listed, the rest seemed obvious. One can even specify pseudo-selectors and parent/child relationships, as well as specifying the ever-repulsive `!important` flag. Let's go through a couple of these that are special - `Start(0)` and `End(0)`. This is done on purpose with Atomizer in order to be able to flip the site from a left-to-right reading order into the reverse.
+I bet once you looked at the first few rules that were listed, the rest seemed obvious. One can even specify pseudo-selectors and parent/child relationships, as well as specifying the ever-repulsive `!important` flag. Let's go through a couple of these that are special - `Start(0)` and `End(0)`. This is done on purpose with [Atomizer] and is optional with [acss-live] in order to be able to flip the site from a left-to-right reading order into the reverse.
 
 
 Downsides
@@ -90,9 +90,9 @@ You'll feel weird adding *lots* of CSS classes to HTML elements. The good news i
 
 The CSS file looks bad because it appears that it's highly redundant. In reality, it will likely be smaller than your normal CSS file because any property that is repeated will be listed once.
 
-The HTML looks bloated. Yeah, not much I can do here, but the good news is with a build tool (Atomizer for the win!), you are able to only edit HTML and can completely skip CSS.
+The HTML looks bloated. Yeah, not much I can do here, but the good news is with a build tool ([Atomizer] / [acss-live] for the win!), you are able to only edit HTML and can completely skip CSS.
 
-Specificity. Normally this is a good thing to have the selectors have a specificity of 0,0,1,0 but sometimes you need to override CSS from other libraries and this won't easily do that, but you can always turn `D(f)` into `D(f)!` to have the CSS rule append `!important` to it.
+On the topic of specificity: Normally this is a good thing to have the selectors have a specificity of 0,0,1,0 but sometimes you need to override CSS from other libraries and this won't easily do that, but you can always turn `D(f)` into `D(f)!` to have the CSS rule append `!important` to it.
 
 Coding tables and grids by hand will cause some Atomic CSS to be repeated.
 
@@ -117,6 +117,7 @@ Nearly all of the sites that I write now won't include hand-written CSS. Everyth
 Give it a try.
 
 
+[acss-live]: https://github.com/fidian/acss-live/
 [atomizer]: https://acss.io/guides/atomizer.html
 [Challenging CSS Best Practices]: http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/
 [Less]: http://lesscss.org/
