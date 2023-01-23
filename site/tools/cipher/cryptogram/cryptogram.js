@@ -77,9 +77,10 @@ module.exports = class Cryptogram {
     }
 
     viewTranslation() {
-        return m('div', {
+        return this.input.value.split(/\r\n?|\n|\v/).map((line) =>
+        m('div', {
             class: 'D(f) Fxw(w) Jc(c)'
-        }, this.input.value.split(/[ \t]/).map(w => this.viewTranslationWord(w)));
+        }, line.split(/[ \t]/).map(w => this.viewTranslationWord(w))));
     }
 
     viewTranslationWord(w) {
@@ -91,12 +92,6 @@ module.exports = class Cryptogram {
     viewTranslationLetter(c) {
         const letterMapping = this.letterMaps[c];
         const to = letterMapping.to;
-
-        if (to === '\r' || to === '\n' || to === '\v') {
-            return m('div', {
-                class: 'W(100%) H(0px)'
-            });
-        }
 
         return m('div', {
             class: 'D(f) Fxd(c) Ai(c)'
