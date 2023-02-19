@@ -109,7 +109,7 @@ When running `xev`, the left click and right click generate `KeyPress` instead o
         XLookupString gives 0 bytes:
         XFilterEvent returns: False
 
-So, how does one easily map these keys to mouse events? [Key Mapper](https://github.com/sezanzeb/key-mapper/) to the rescue! Download, install, then run the program. Set the device to "AT Translated Set 2 keyboard", then make two mappings.
+So, how does one easily map these keys to mouse events? [Input Remapper](https://github.com/sezanzeb/input-remapper/) to the rescue! Download, install, then run the program. Set the device to "AT Translated Set 2 keyboard", then make two mappings.
 
     KP Begin -> h(BTN_LEFT)
     Menu -> h(BTN_RIGHT)
