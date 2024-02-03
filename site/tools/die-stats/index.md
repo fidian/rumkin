@@ -21,6 +21,10 @@ This analyzer will run through all possibilities fairly quickly and tally the re
 - <span class="conduit" data-label="4d8P1" data-topic="dice" data-payload="4d8P1"></span> - 4d8 and drop the highest. Unusual and generates a much wider range of numbers.
 - <span class="conduit" data-label="1d4,1d6,1d8" data-topic="dice" data-payload="1d4,1d6,1d8"></span> - Roll three different sizes of dice. Shows how you can combine and generate stats.
 
+## Statistics Generator
+
+<div class="module"></div>
+
 ## Syntax
 
 If you are familiar with [ABNF Form](https://tools.ietf.org/html/rfc5234), here is the syntax. There's an explanation below. Spaces are ignored.
@@ -33,10 +37,6 @@ If you are familiar with [ABNF Form](https://tools.ietf.org/html/rfc5234), here 
     BONUS    =  ("+" / "-") 1*DIGIT
 
 A roll is made up of one or more dice groups. Each group is separated by commas. A group can be a single die roll or another roll that's wrapped in parentheses. A group may also have an optional number of dice to drop, a number of high dice removed as a penalty, and a bonus that's added or subtracted from the result of the group.
-
-## Statistics Generator
-
-<div class="module"></div>
 
 ## Additional Reading
 
