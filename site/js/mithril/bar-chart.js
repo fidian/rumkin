@@ -49,7 +49,7 @@ module.exports = class BarChart {
         const data = vnode.attrs.data;
         const maximums = this.findMaximums(cols, data);
 
-        return m("table", [
+        return m("table", { style: vnode.attrs.style }, [
             this.viewHeader(cols),
             this.viewData(cols, data, maximums)
         ]);

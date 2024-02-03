@@ -124,6 +124,7 @@ module.exports = class Dice {
                 `Standard Deviation: ${this.result.stdDev}`
             ]),
             m(BarChart, {
+                style: 'max-width: 580px;',
                 columns: [
                     {
                         label: "Roll",
