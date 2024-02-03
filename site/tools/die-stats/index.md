@@ -19,7 +19,7 @@ This analyzer will run through all possibilities fairly quickly and tally the re
 - <span class="conduit" data-label="4d6D1" data-topic="dice" data-payload="4d6D1"></span> - Roll 4d6 and drop the lowest.
 - <span class="conduit" data-label="(4d5+1)D1" data-topic="dice" data-payload="(4d5+1)D1"></span> - Roll 4d6, drop the lowest, and reroll ones. When you reroll ones with <span class="conduit" data-label="4d6" data-topic="dice" data-payload="4d6"></span>, it is the same as <span class="conduit" data-label="4d5+1" data-topic="dice" data-payload="4d5+1"></span>.
 - <span class="conduit" data-label="4d8P1" data-topic="dice" data-payload="4d8P1"></span> - 4d8 and drop the highest. Unusual and generates a much wider range of numbers.
-- <span class="conduit" data-label="2d4,1d6-3" data-topic="dice" data-payload="2d4,1d6-3"></span> - Roll 2d4 and 1d6, then subtract 3. Shows how you can combine and generate stats for different types of dice.
+- <span class="conduit" data-label="1d4,1d6,1d8" data-topic="dice" data-payload="1d4,1d6,1d8"></span> - Roll three different sizes of dice. Shows how you can combine and generate stats.
 
 ## Syntax
 

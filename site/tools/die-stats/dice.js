@@ -166,7 +166,7 @@ module.exports = class Dice {
                 roll: rollsArray[0],
                 freq: count,
                 prob: prob,
-                probStr: prob.toFixed(5)
+                probStr: (prob * 100).toFixed(5) + "%"
             });
         });
 
