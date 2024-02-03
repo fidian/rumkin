@@ -36,7 +36,23 @@ module.exports = class Lz77 {
 (`;
 
         if (!this.ascii) {
-            result += '(';
+            result += `(c => {
+                const o = [];
+
+                while (c.length > 1) {
+                    o.push(c.shift() << 2 | c[0] >> 4);
+
+                    if (c.length > 1) {
+                        o.push((c.shift() << 4 | c[0] >> 2) & 0xff);
+                    }
+
+                    if (c.length > 1) {
+                        o.push((c.shift() << 6 | c.shift()) & 0xff);
+                    }
+                }
+
+                return o;
+            })((`;
         }
 
         while (data.length > this.encodedBytesPerLine) {
@@ -49,7 +65,7 @@ module.exports = class Lz77 {
 
         if (!this.ascii) {
             result += `
-).split('').map(function (c) { return c.charCodeAt(0); })`;
+).split('').map(l => "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".indexOf(l)).filter(c => c !== -1))`;
         }
 
         result += `))`;
