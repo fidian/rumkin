@@ -17,7 +17,7 @@ This analyzer will run through all possibilities fairly quickly and tally the re
 - <span class="conduit" data-label="4d4+2" data-topic="dice" data-payload="4d4+2"></span> - A little more "average".
 - <span class="conduit" data-label="6d3" data-topic="dice" data-payload="6d3"></span> - Much more consistent and slightly higher than average.
 - <span class="conduit" data-label="4d6D1" data-topic="dice" data-payload="4d6D1"></span> - Roll 4d6 and drop the lowest.
-- <span class="conduit" data-label="(4d5+1)D1" data-topic="dice" data-payload="(4d5+1)D1"></span> - Roll 4d6, drop the lowest, and reroll ones. When you reroll ones with <span class="conduit" data-label="4d6" data-topic="dice" data-payload="4d6"></span>, it is the same as <span class="conduit" data-label="4d5+1" data-topic="dice" data-payload="4d5+1"></span>.
+- <span class="conduit" data-label="4d5D1+1" data-topic="dice" data-payload="(4d5+1)D1"></span> - Roll 4d6, drop the lowest, and reroll ones. When you reroll ones with <span class="conduit" data-label="4d6" data-topic="dice" data-payload="4d6"></span>, it is the same as <span class="conduit" data-label="4d5+1" data-topic="dice" data-payload="4d5+1"></span>.
 - <span class="conduit" data-label="4d8P1" data-topic="dice" data-payload="4d8P1"></span> - 4d8 and drop the highest. Unusual and generates a much wider range of numbers.
 - <span class="conduit" data-label="1d4,1d6,1d8" data-topic="dice" data-payload="1d4,1d6,1d8"></span> - Roll three different sizes of dice. Shows how you can combine and generate stats.
 
@@ -42,10 +42,10 @@ A roll is made up of one or more dice groups. Each group is separated by commas.
 
 Besides the examples above, I have also seen the following ideas for role playing game attributes. Only some of these can be modeled with this tool.
 
--  <span class="conduit" data-label="4d6" data-topic="dice" data-payload="4d6"></span>, drop lowest, reroll if max is less than 14 or reroll if the sum of the modifiers is less than 1.
+- <span class="conduit" data-label="4d6" data-topic="dice" data-payload="4d6"></span>, drop lowest, reroll if max is less than 14 or reroll if the sum of the modifiers is less than 1.
 - <span class="conduit" data-label="5d6D2" data-topic="dice" data-payload="5d6D2"></span> - 5d6, drop the two lowest rolls
--   Roll up 12 characters using the <span class="conduit" data-label="3d6" data-topic="dice" data-payload="3d6"></span> method, then pick the best character
--  <span class="conduit" data-label="(3d6,3d6,3d6,3d6,3d6,3d6)D5" data-topic="dice" data-payload="(3d6,3d6,3d6,3d6,3d6,3d6)D5"></span> - Make a pool of results by rolling <span class="conduit" data-label="3d6" data-topic="dice" data-payload="3d6"></span> six times, then pick the best result by dropping 5 of them. Roll each attribute in order; do not assign numbers to stats as you see fit.
--   Roll a pool of 12 scores using <span class="conduit" data-label="3d6" data-topic="dice" data-payload="3d6"></span>, pick the best 6 scores. My tool can't model a scenaro like this easily.
+- Roll up 12 characters using the <span class="conduit" data-label="3d6" data-topic="dice" data-payload="3d6"></span> method, then pick the best character
+- <span class="conduit" data-label="(3d6,3d6,3d6,3d6,3d6,3d6)D5" data-topic="dice" data-payload="(3d6,3d6,3d6,3d6,3d6,3d6)D5"></span> - Make a pool of results by rolling <span class="conduit" data-label="3d6" data-topic="dice" data-payload="3d6"></span> six times, then pick the best result by dropping 5 of them. Roll each attribute in order; do not assign numbers to stats as you see fit.
+- Roll a pool of 12 scores using <span class="conduit" data-label="3d6" data-topic="dice" data-payload="3d6"></span>, pick the best 6 scores. My tool can't model a scenario like this easily.
 
 I have also been contacted about making some stats that would be useful for Legend of the Five Rings (L5R). In there, you have a stat and a skill. When you roll, you keep a number of 10-sided dice equal to your stat. You can also "roll up" by rolling again when you roll a ten and adding the new roll to the ten. You can continue rolling up as long as you keep rolling tens. I can get close by picking the highest roll out of a set of d10 dice: <span class="conduit" data-label="1d10" data-topic="dice" data-payload="1d10"></span>, <span class="conduit" data-label="2d10" data-topic="dice" data-payload="2d10"></span>, <span class="conduit" data-label="3d10" data-topic="dice" data-payload="3d10"></span>, and so on through <span class="conduit" data-label="10d10" data-topic="dice" data-payload="10d10"></span>.
