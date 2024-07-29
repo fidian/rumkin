@@ -20,7 +20,7 @@
         "@fidian/acss-live": "^2.0.5",
         "@fidian/metalsmith-clean-css": "^6.2.2",
         "@fidian/metalsmith-site": "^2.1.2",
-        "@fidian/rumkin-cipher": "^0.17.3",
+        "@fidian/rumkin-cipher": "^0.17.4",
         "@fidian/rumkin-compression": "^1.1.2",
         "blueimp-md5": "^2.19.0",
         "browserify": "^17.0.0",
