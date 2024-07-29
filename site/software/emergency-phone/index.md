@@ -38,12 +38,14 @@ More than just a handy reference for common problems, this app also provides che
 * [Google Play](https://play.google.com/store/apps/details?id=com.cube.arc.fa)
 
 
-## Army Knife for Android
+## Be Prepared
 
-Flashlight, compass, magnifying glass, and more. Optimized for size and simplicity. The only downside is this hasn't been kept up to date with the latest Android APIs and is starting to produce warnings when being installed.
+Several useful and small utilities stuck into a simple application. Optimized for size and simplicity. This is a PWA, so to install it you will need to visit the page and use your menu to install the application. It operates entirely offline and will update only when you run it (such is the life of PWA apps). Free and open source. Works for desktops, Android, and iOS/Apple.
 
-* [Website](http://www.digital-and-dreams.net/main/?page_id=38)
-* [Google Play](https://play.google.com/store/apps/details?id=com.digital_and_dreams.android.android_army_knife)
+Included tools: flashlight, front light (white screen), magnifier, compass, GPS location, barcode and QR code reader, sun and moon information. Coordinates are shown in several formats; nearest large city's name, distance, and direction; saving, loading, and sharing waypoints via QR code.
+
+* [Live App](https://be-prepared.github.io/)
+* [Source Code](https://github.com/be-Prepared/Be-Prepared.github.io/)
 
 
 ## Additional Tips
@@ -57,7 +59,7 @@ In order to make your device easier to use, I would recommend these steps:
 * Install only apps you believe you will need in case of an emergency.
 * Turn on airplane mode. Turn off Bluetooth, NFC, WiFi, and other wireless services.
 * Charge the battery fully, then power off the phone.
-* If possible, remove the battery from the phone.
+* If possible, remove the battery from the phone when storing it.
 * Store the device safely where the battery doesn't get hot and doesn't get below freezing.
 * For the extra paranoid, wrap with foil or use other EMP-shielding countermeasures.
 * Set a schedule to recharge and check on the phone every few months or every year. Remember to update apps, review any ebooks on the phone, and download updated maps to use them offline.
