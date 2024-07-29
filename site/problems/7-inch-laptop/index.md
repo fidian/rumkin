@@ -59,13 +59,13 @@ These instructions are based on ones found on [StackExchange](https://askubuntu.
 
     sudo apt update
     sudo apt install build-essential git dkms
-    git clone https://github.com/morrownr/8821cu-20210118
-    cd 8821cu-20210118
+    git clone https://github.com/morrownr/8821cu-20210916
+    cd 8821cu-20210916
     sudo ./install-driver.sh
 
 Reboot and you're done. When you update the kernel, run these while you are connected to the internet.
 
-    cd 8821cu-20210118
+    cd 8821cu-20210916
     git pull
     sudo ./remove-driver.sh
     sudo ./install-driver.sh
