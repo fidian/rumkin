@@ -1,1 +1,1 @@
-"use strict";$(function(){$(".contents table").tablesorter()});
+$(function(){$(".contents table").tablesorter()});

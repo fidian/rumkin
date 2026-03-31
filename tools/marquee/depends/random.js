@@ -1,1 +1,1 @@
-"use strict";module.exports=function(t){return Math.random()*t};
+module.exports=function(n){return Math.random()*n};

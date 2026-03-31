@@ -1,1 +1,1 @@
-"use strict";module.exports=function(r,t){for(var e=0,o="";e<t;)o+=r,e+=1;return o};
+module.exports=function(r,o){for(var e=0,n="";e<o;)n+=r,e+=1;return n};
