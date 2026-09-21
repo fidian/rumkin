@@ -6,3 +6,4 @@ import '../dice/die-stats.ts';
 import './small-tools.ts';
 import './compression.ts';
 import './mailto-encoder.ts';
+import './decision-tree.ts';

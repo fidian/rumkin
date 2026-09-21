@@ -31,6 +31,7 @@
         "buffer": "^6.0.3",
         "check-html-links": "^0.2.4",
         "fudgel": "^4.0.0",
+        "marked": "^18.0.13",
         "prettier": "^3.8.1",
         "prettier-plugin-astro": "^0.14.1",
         "typescript": "^5.9.3"
