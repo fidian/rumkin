@@ -1,0 +1,202 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+import surfaces from "@/data/whiteboard-surfaces.json";
+
+export const title = "Make a Whiteboard";
+export const summary =
+    "Reviews of surfaces you can write on with whiteboard markers, scored for how well they erase and what they cost.";
+
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Reference Materials", href: "/reference/" },
+    { name: "Whiteboards", href: "/reference/whiteboard/" },
+];
+
+interface Surface {
+    name: string;
+    score: string | number;
+    price: string | number;
+    notes: string;
+    description?: string[];
+}
+
+const rows = surfaces as Surface[];
+
+/** Anchors are not in the data, so derive a stable one from the name. */
+const slug = (name: string) =>
+    name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+---
+
+<script>
+    import "@/assets/sortable-table.ts";
+</script>
+
+<DefaultLayout title={title} summary={summary} breadcrumbs={breadcrumbs}>
+    <p>
+        I have tried numerous types of surfaces in order to find one that is
+        cheap and easy for people to use. My findings may help you decide what
+        you'd like to try. This is a section of my <a href="../">whiteboards</a
+        >{" "}reference. You can also find interesting ways to <a href="../cleaners/"
+            >clean your whiteboard</a
+        > to a bright and beautiful blank slate.
+    </p>
+
+    <p>
+        With each surface comes advantages and disadvantages. Some methods are
+        broken down by use; you have different needs if you want one large
+        whiteboard instead of twenty small whiteboards. I've attempted to rate
+        how well the surfaces perform and how expensive they are.
+    </p>
+
+    <p>
+        I rated the surfaces on their ability to be erased with whiteboard
+        markers only. Ghosting, residue, and difficulty wiping away the marks
+        all lead to a worse score. I also try to use new surfaces because the
+        wear on a whiteboard can cause it to become a worse surface. I had a
+        commercial whiteboard that has seen its share of use and it was worse
+        than using a shower board!
+    </p>
+
+    <p>
+        The price factor reflects the approximate cost to cover a wall in the
+        material, or essentially the cost for the surface area. Most commercial
+        whiteboards would get a very poor price rating even though they operate
+        very well.
+    </p>
+
+    <p>
+        Try to keep in mind that the quality of the marker and how it works with
+        the surface is also a key factor in judging a surface. If it doesn't
+        work for you, but I say it works well, try a different brand of marker
+        and hope for the best.
+    </p>
+
+    <p>
+        If your company manufactures a whiteboard surface, you can send me a
+        test sample for me to try. I'll put your product up here and I'll give
+        you a review. However, you are not guaranteed to have a positive review
+        if it just doesn't work. My reviews are honest and I don't withhold
+        negative comments.
+    </p>
+
+    <h2>Summary</h2>
+
+    <p>
+        Here's a quick run-down of uses for whiteboards and some methods that
+        work best.
+    </p>
+
+    <ul>
+        <li>
+            Coating walls
+            <ul>
+                <li>MB4000W - This can also keep the original wall color</li>
+                <li>Evergreen Dry Erase Film</li>
+            </ul>
+        </li>
+        <li>
+            Personal boards
+            <ul>
+                <li>Laminated sheets - Really convenient for schools</li>
+                <li>Plastic, page protectors</li>
+                <li>Polycoated cardboard</li>
+                <li>Contact paper</li>
+            </ul>
+        </li>
+        <li>
+            Roll-up surface
+            <ul>
+                <li>Avery "Write-On Cling Sheets"</li>
+                <li>Plastic, sheets</li>
+            </ul>
+        </li>
+        <li>
+            Tables and desks
+            <ul>
+                <li>MB4000W</li>
+                <li>Contact paper</li>
+            </ul>
+        </li>
+        <li>
+            Temporary surface on wall
+            <ul>
+                <li>Avery "Write-On Cling Sheets"</li>
+                <li>Carolina Pad "Write On/Wipe Off Poster Board"</li>
+                <li>Tatco Whiteboard Sheets</li>
+            </ul>
+        </li>
+        <li>
+            Whiteboard resurfacing
+            <ul>
+                <li>MB4000w - This is what it was designed to do</li>
+                <li>Rain-X / Hard Surface Protectant</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>
+        This is a table with a quick comparison of surfaces. The higher the
+        score, the better it works with whiteboard markers. The lower the price,
+        the more economical it is (ie. it saves more money as the score goes
+        up). A "?" means I did not test this product yet. Click a heading to
+        sort.
+    </p>
+
+    <sortable-table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Material</th>
+                    <th align="center">Score</th>
+                    <th align="center">Price</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    rows.map((surface) => (
+                        <tr>
+                            <td>
+                                <a href={`#${slug(surface.name)}`}>
+                                    {surface.name}
+                                </a>
+                            </td>
+                            <td align="center">{surface.score}</td>
+                            <td align="center">{surface.price}</td>
+                            <td>{surface.notes}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
+    </sortable-table>
+
+    <h2>Reviews of Surfaces</h2>
+
+    <p>
+        Some of these reviews also have instructions for how to turn this
+        material into a useful whiteboard.
+    </p>
+
+    {
+        rows.map((surface) => (
+            <section>
+                <h3 id={slug(surface.name)}>{surface.name}</h3>
+                <ul>
+                    <li>
+                        <strong>Score:</strong> {surface.score}
+                    </li>
+                    <li>
+                        <strong>Price:</strong> {surface.price}
+                    </li>
+                </ul>
+                {(surface.description ?? []).map((paragraph) => (
+                    <p set:html={paragraph} />
+                ))}
+            </section>
+        ))
+    }
+</DefaultLayout>

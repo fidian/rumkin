@@ -200,7 +200,7 @@ zlib
 
 I have found that it is often to my advantage to compress my stray `.dbf` files that I rarely use.  I have written code to detect if my file exists, and if it does not it will fall over to a gzipped version if that is available.  To facilitate easy extraction and compression, I searched and found a `zlib.dll` that will do what I need it to do.
 
-The code I wrote employs the thermometer class that is part of the FoxPro Foundation Classes.  You will certainly need to edit `zlib.prg` and change it (it was at about line 180) to work for your installation.  You will also need to change the path to `zlib.dll`in the `GZDefine()` function.
+The code I wrote employs the thermometer class that is part of the FoxPro Foundation Classes.  You will certainly need to edit `zlib.prg` and change it (it was at about line 180) to work for your installation.  You will also need to change the path to `zlib.dll` in the `GZDefine()` function.
 
     * Include the zlib routines
     set procedure to zlib.prg additive

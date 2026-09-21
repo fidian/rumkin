@@ -201,3 +201,33 @@ button, select {
 textarea {
     padding: 0.2em 0.4em;
 }
+
+/* <sortable-table> column headings. Replaces the tablesorter stylesheet. */
+.sortable-table-header {
+    cursor: pointer;
+    padding-inline-end: 1.2em;
+    position: relative;
+    white-space: normal;
+}
+
+.sortable-table-header::after {
+    content: "\2195";
+    inset-inline-end: 0.3em;
+    opacity: 0.35;
+    position: absolute;
+}
+
+.sortable-table-asc::after {
+    content: "\2191";
+    opacity: 1;
+}
+
+.sortable-table-desc::after {
+    content: "\2193";
+    opacity: 1;
+}
+
+.sortable-table-header:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+}

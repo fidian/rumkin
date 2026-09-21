@@ -6,15 +6,18 @@
         "node": ">=22.12.0"
     },
     "scripts": {
-        "build": "npm run build-dist && npm run build-sitemap && npm run verify-internal-links",
+        "build": "npm run build-dist && npm run build-sitemap && npm run verify-internal-links && npm run verify-spacing",
         "build-dist": "astro build",
         "build-sitemap": "node build-sitemap.mjs",
         "preview": "astro preview",
         "reinstall": "rm -rf node_modules package-lock.json && npm install",
         "start": "astro dev --open --host",
-        "test": "npm run build && npm run verify-external-links && npm run verify-internal-links",
+        "test": "npm run test-unit && npm run build && npm run verify-external-links",
+        "test-unit": "vitest run",
+        "test-watch": "vitest",
         "verify-external-links": "checklinks -a",
-        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '❌' )"
+        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '\u274c' )",
+        "verify-spacing": "node tools/check-spacing.mjs"
     },
     "dependencies": {
         "@fidian/acss-live": "^3.1.0",

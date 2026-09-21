@@ -1,0 +1,230 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+import cleaners from "@/data/whiteboard-cleaners.json";
+
+export const title = "Cleaning Whiteboards";
+export const summary =
+    "Thirty whiteboard cleaners put to the test, scored for how well they remove dry erase, permanent marker, crayon and ink.";
+
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Reference Materials", href: "/reference/" },
+    { name: "Whiteboards", href: "/reference/whiteboard/" },
+];
+
+interface Cleaner {
+    anchor: string;
+    name: string;
+    brand: string;
+    extreme: number;
+    typical: number;
+    notes: string;
+    imageList?: { thumbnail: string; full?: string }[];
+    details?: string[];
+}
+
+const rows = cleaners as Cleaner[];
+---
+
+<script>
+    import "@/assets/sortable-table.ts";
+</script>
+
+<DefaultLayout title={title} summary={summary} breadcrumbs={breadcrumbs}>
+    <div class="Fl(end)">
+        <a href="board-big.jpg"><img src="board-small.jpg" alt="The test whiteboard" /></a>
+    </div>
+
+    <p>
+        People have all sorts of different tricks that they used to clean a
+        whiteboard. Some things work well for whiteboard markers. Other methods
+        are better for marks by markers that are not dry erase. I decided to
+        finally put all the rumors and tips to the test. This is just one page
+        of my <a href="../">whiteboards</a> reference. Another great section to visit
+        is how to <a href="../surfaces/">create a whiteboard</a> using various surfaces
+        you may have available.
+    </p>
+
+    <p>
+        I took several higher-quality photos during the test. You can view the <a
+            href="https://plus.google.com/photos/100011361216949115069/albums/6080979911880611553?authkey=CJHR_MTshuaXFA"
+            >whiteboard testing photo album</a
+        > for better versions of the images below.
+    </p>
+
+    <h2>Test Preparation</h2>
+
+    <p>
+        I sacrificed my large, commercial whiteboard and coated it with the
+        following materials:
+    </p>
+
+    <ul>
+        <li>Dry erase marker (three different brands, various colors)</li>
+        <li>Wet erase marker (one brand)</li>
+        <li>Permanent marker (four different brands, various colors)</li>
+        <li>Crayon (one brand, several colors)</li>
+        <li>Pencil (standard #2 and colored pencils)</li>
+        <li>Ink (stamping pad refill ink)</li>
+        <li>UV permanent marker (one brand)</li>
+    </ul>
+
+    <p>
+        To make the test really difficult for the cleaners, I let the whiteboard
+        sit for over a month with the test marks on it. I have to admit that
+        most cleaners wiped away the dry erase and wet erase marker without
+        problems. The permanent markers and UV marker didn't come off in most
+        tests, and the stamping pad ink seeped into the board and would not come
+        entirely off with anything. However, if you decide to not let the ink
+        sit as long as I did, then you will likely not have the permanent
+        discoloration when you use the cleaners suggested below.
+    </p>
+
+    <h2>Testing Procedure</h2>
+
+    <p>
+        The cleaner was applied, two minutes elapsed, then wipe 20 times with a
+        clean cotton cloth. For cleaners that did not follow the rules, we did
+        our best. The Mr. Clean Magic Eraser, dry cloth, and wet cloth were not
+        left on the surface for two minutes before use. The clear tape was left
+        on for two minutes before being pulled off. Markers (both dry and wet)
+        were applied, two minutes elapsed, then a dry or wet cloth was used to
+        wipe 20 times.
+    </p>
+
+    <p>
+        We used a limited number of wipes because we didn't want to sit and
+        scrub with each cleaner. One could scratch the finish off if an abrasive
+        cleaner was used, and it would be all nice and white. However, the next
+        time you try to write on it, you wouldn't be able to erase it. The goal
+        is to find the best cleaner that makes you wipe as little as possible
+        that is completely safe for your board surface.
+    </p>
+
+    <h2>Scoring</h2>
+
+    <p>
+        We marked down scores when more scrubbing effort was required. More
+        points may be lost if the product left a film since we really only want
+        to clean the board once and we don't want to clean off a residue after
+        cleaning off the markers.
+    </p>
+
+    <p>
+        The <em>Extreme</em> score is how well the cleaner performed on all marks
+        that were on the board and <em>Typical</em> score rates how well just the
+        whiteboard markers were removed. This way you can pick the best cleaner for
+        your particular application.
+    </p>
+
+    <h2>Result Summary</h2>
+
+    <p>
+        Click a heading to sort. Scores range from 1 to 5, with 5 being the
+        best. Each cleaner has a longer description below.
+    </p>
+
+    <sortable-table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cleaner</th>
+                    <th>Brand</th>
+                    <th align="center">Extreme</th>
+                    <th align="center">Typical</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    rows.map((cleaner) => (
+                        <tr>
+                            <td>
+                                <a href={`#${cleaner.anchor}`}>{cleaner.name}</a>
+                            </td>
+                            <td>
+                                <a href={`#${cleaner.anchor}`}>{cleaner.brand}</a>
+                            </td>
+                            <td align="center">{cleaner.extreme}</td>
+                            <td align="center">{cleaner.typical}</td>
+                            <td>{cleaner.notes}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
+    </sortable-table>
+
+    <h2>Untested Ideas</h2>
+
+    <p>
+        The readers of this site often suggest alternative ways to clean
+        whiteboards. Here's a collection of things that were not tested.
+    </p>
+
+    <ul>
+        <li>Barbasol shaving cream</li>
+        <li>Hydrogen Peroxide</li>
+        <li>
+            Magic Eraser - I've used this but I don't recommend it because it is
+            slightly abrasive and that will slowly ruin the finish.
+        </li>
+        <li>Quick N' Brite</li>
+        <li>
+            SPF 30+ sunblock or sunscreen, especially aerosol spray versions
+        </li>
+        <li>Scrubbing Bubbles bathroom cleaner</li>
+        <li>Tilex Mold and Mildew Cleaner</li>
+        <li>
+            WD40 to remove the offending marks and Awesome cleaner to remove
+            WD40 residue
+        </li>
+        <li>Windex window cleaner</li>
+    </ul>
+
+    <h2>Individual Cleaner Write-Ups</h2>
+
+    <p>
+        I attempted to take photos of the results of each cleaner during my
+        testing.
+    </p>
+
+    {
+        rows.map((cleaner) => (
+            <section>
+                <h3 id={cleaner.anchor}>
+                    {cleaner.name} - {cleaner.brand}
+                </h3>
+
+                {cleaner.imageList && cleaner.imageList.length > 0 && (
+                    <div class="Fl(end)">
+                        {cleaner.imageList.map((image) =>
+                            image.full ? (
+                                <a href={image.full}>
+                                    <img
+                                        src={image.thumbnail}
+                                        alt={`${cleaner.name} test result`}
+                                    />
+                                </a>
+                            ) : (
+                                <img
+                                    src={image.thumbnail}
+                                    alt={`${cleaner.name} test result`}
+                                />
+                            )
+                        )}
+                    </div>
+                )}
+
+                <ul>
+                    <li>Extreme Test Score: {cleaner.extreme} / 5</li>
+                    <li>Typical Test Score: {cleaner.typical} / 5</li>
+                </ul>
+
+                {(cleaner.details ?? []).map((paragraph) => (
+                    <p>{paragraph}</p>
+                ))}
+            </section>
+        ))
+    }
+</DefaultLayout>
