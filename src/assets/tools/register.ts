@@ -3,3 +3,4 @@
  * A page stays as Markdown and drops in the element it wants.
  */
 import '../dice/die-stats.ts';
+import './small-tools.ts';
