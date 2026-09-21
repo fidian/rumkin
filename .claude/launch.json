@@ -3,8 +3,8 @@
     "configurations": [
         {
             "name": "rumkin",
-            "runtimeExecutable": "npx",
-            "runtimeArgs": ["astro", "preview", "--port", "4321"],
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "preview", "--", "--port", "4321"],
             "port": 4321
         }
     ]
