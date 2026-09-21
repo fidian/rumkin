@@ -17,5 +17,6 @@ import './baconian-cipher.ts';
 import './baconian-example.ts';
 import './analyze-text.ts';
 import './cryptogram-tool.ts';
+import './cryptogram-solver-tool.ts';
 import './caesar-cipher.ts';
 import './morse-table.ts';
