@@ -1,13 +1,12 @@
 ---
+layout: "@/layouts/tool-layout.astro"
 title: Email Address (Mailto:) Encoder
 summary: Hide an email address, along with extra features. Makes it harder for bots to gather email addresses.
-js:
-    - mailto-encoder-module.js
-components:
-    - className: moduleSimple
-      component: MailtoEncoderSimple
-    - className: moduleCustom
-      component: MailtoEncoderCustom
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
 ---
 
 Junk email (a.k.a. spam) is a part of everyone's life if they ever put their email address on the web. For HTML authors, site admins, and for people who want a little credit on the page that they put online, it is a constant problem. You want to include your email address on the page, but you don't want your email address to be harvested by spambots.
@@ -16,7 +15,7 @@ The best thing you can do is encode your email address so that browsers can see 
 
 ## Simple Email Encoder
 
-<div class="moduleSimple"></div>
+<mailto-simple></mailto-simple>
 
 ## Custom Email Encoder
 
@@ -24,7 +23,7 @@ Did you need a bit more control? This one is far fancier, but that means it is a
 
 Not all fields work well with all combinations of browsers and email clients. It is best if you only use the "To" field, but the others are available.
 
-<div class="moduleCustom"></div>
+<mailto-custom></mailto-custom>
 
 If you are interested in using this tool to create the base HTML that you modify and you still want to have the HTML encoded so it isn't very visible in the source of the website, check out the [HTML Encoder](../html-encoder/) on this site.
 
