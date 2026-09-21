@@ -1,47 +1,32 @@
 {
-    "name": "Rumkin.com",
+    "name": "rumkin",
+    "type": "module",
     "private": true,
-    "ava": {
-        "files": [
-            "site/**/*.spec.js"
-        ]
+    "engines": {
+        "node": ">=22.12.0"
     },
     "scripts": {
-        "build": "(cd site/tools/cipher/ && ./character-properties.js) && node metalsmith.js",
-        "clean": "rm -rf node_modules/ package-lock.json build",
-        "fastbuild": "FAST=true node metalsmith.js",
-        "reinstall": "rm -rf package-lock.json node_modules/ && npm install",
-        "start": "SERVE=true LIVE_RELOAD=true node metalsmith.js",
-        "test": "ava -v",
-        "watch": "ava -v --watch"
+        "build": "npm run build-dist && npm run build-sitemap && npm run verify-internal-links",
+        "build-dist": "astro build",
+        "build-sitemap": "node build-sitemap.mjs",
+        "preview": "astro preview",
+        "reinstall": "rm -rf node_modules package-lock.json && npm install",
+        "start": "astro dev --open --host",
+        "test": "npm run build && npm run verify-external-links && npm run verify-internal-links",
+        "verify-external-links": "checklinks -a",
+        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '\u274c' )"
     },
     "dependencies": {
-        "@babel/preset-env": "^7.29.2",
         "@fidian/acss-live": "^3.1.0",
-        "@fidian/metalsmith-clean-css": "^6.5.0",
-        "@fidian/metalsmith-site": "^2.9.0",
-        "@fidian/rumkin-cipher": "^0.17.4",
-        "@fidian/rumkin-compression": "^1.1.2",
-        "blueimp-md5": "^2.19.0",
-        "browserify": "^17.0.1",
-        "clean-css": "^5.3.3",
-        "file-saver": "^2.0.5",
-        "jquery": "^4.0.0",
-        "jszip": "^3.10.1",
-        "jszip-utils": "^0.1.0",
-        "marked": "^17.0.5",
-        "metalsmith-babel": "^5.1.0",
-        "metalsmith-brotli": "^2.0.0",
-        "metalsmith-browserify-alt": "^2.0.0",
-        "metalsmith-gzip": "^2.0.0",
-        "metalsmith-html-minifier": "^4.0.1",
-        "metalsmith-mathjax": "^0.0.8",
-        "metalsmith-uglify": "^2.4.4",
-        "mithril": "^2.3.8",
-        "polyfill-crypto.getrandomvalues": "^1.0.0",
-        "psr": "^0.0.1",
-        "tablesorter": "^2.32.0",
-        "tai-password-strength": "^1.1.3",
-        "ucd-full": "^17.0.0"
+        "@johnwargo/link-checker": "^0.0.9",
+        "@literals/rollup-plugin-html-css-minifier": "^4.0.0",
+        "@rollup/plugin-yaml": "^4.1.2",
+        "@types/node": "^25.5.0",
+        "astro": "^6.1.2",
+        "check-html-links": "^0.2.4",
+        "fudgel": "^3.3.0",
+        "prettier": "^3.8.1",
+        "prettier-plugin-astro": "^0.14.1",
+        "typescript": "^5.9.3"
     }
 }

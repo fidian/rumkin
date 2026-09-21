@@ -1,0 +1,664 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Programming Topics", href: "/programming/" },
+    { name: "Algorithms", href: "/programming/algorithms/" },
+    {
+        name: "Fuzzy String Matching",
+        href: "/programming/algorithms/fuzzy-strings/",
+    },
+    ];
+---
+
+<script>
+import "@/assets/levenshtein.ts";
+</script>
+
+<DefaultLayout
+    title="Levenshtein Distance, in Three Flavors"
+    breadcrumbs={breadcrumbs}
+>
+    <p>by Michael Gilleland, Merriam Park Software</p>
+
+    <p>
+        The purpose of this short essay is to describe the Levenshtein distance
+        algorithm and show how it can be implemented in three different
+        programming languages.
+    </p>
+
+    <h2>What is Levenshtein Distance?</h2>
+
+    <p>
+        Levenshtein distance (LD) is a measure of the similarity between two
+        strings, which we will refer to as the source string (s) and the target
+        string (t). The distance is the number of deletions, insertions, or
+        substitutions required to transform s into t. For example,
+    </p>
+
+    <ul>
+        <li>
+            If s is "test" and t is "test", then LD(s,t) = 0, because no
+            transformations are needed. The strings are already identical.
+        </li>
+        <li>
+            If s is "test" and t is "tent", then LD(s,t) = 1, because one
+            substitution (change "s" to "n") is sufficient to transform s into
+            t.
+        </li>
+    </ul>
+    <p>
+        The greater the Levenshtein distance, the more different the strings
+        are.
+    </p><p>
+        Levenshtein distance is named after the Russian scientist Vladimir
+        Levenshtein, who devised the algorithm in 1965. If you can't spell or
+        pronounce Levenshtein, the metric is also sometimes called edit
+        distance.
+    </p>
+    <p>The Levenshtein distance algorithm has been used in:</p>
+    <ul>
+        <li>Spell checking</li>
+        <li>Speech recognition</li>
+        <li>DNA analysis</li>
+        <li>Plagiarism detection</li>
+    </ul>
+    <h2>Demonstration</h2>
+    <p>
+        The following simple JavaScript demo allows you to experiment with
+        different strings and compute their Levenshtein distance:
+    </p>
+    <levenshtein-distance></levenshtein-distance>
+    <h2>The Algorithm</h2>
+    <ol>
+        <li>
+            <p>
+                Set n to be the length of s.<br />
+                Set m to be the length of t.<br />
+                If n = 0, return m and exit.<br />
+                If m = 0, return n and exit.<br />
+                Construct a matrix containing 0..m rows and 0..n columns.
+            </p>
+        </li>
+        <li>
+            <p>
+                Initialize the first row to 0..n.<br />
+                Initialize the first column to 0..m.
+            </p>
+        </li>
+        <li>
+            <p>Examine each character of s (i from 1 to n).</p>
+        </li>
+        <li>
+            <p>Examine each character of t (j from 1 to m).</p>
+        </li>
+        <li>
+            <p>
+                If s[i] equals t[j], the cost is 0.<br />
+                If s[i] doesn't equal t[j], the cost is 1.
+            </p>
+        </li>
+        <li>
+            <p>
+                Set cell d[i,j] of the matrix equal to the minimum of:<br />
+                a. The cell immediately above plus 1: d[i-1,j] + 1.<br />
+                b. The cell immediately to the left plus 1: d[i,j-1] + 1.<br />
+                c. The cell diagonally above and to the left plus the cost: d[i-1,j-1]
+                + cost.
+            </p>
+        </li>
+        <li>
+            <p>
+                After the iteration steps (3, 4, 5, 6) are complete, the
+                distance is found in cell d[n,m].
+            </p>
+        </li>
+    </ol>
+    <h2>Example</h2>
+    <p>
+        This section shows how the Levenshtein distance is computed when the
+        source string is "GUMBO" and the target string is "GAMBOL".
+    </p>
+    <h3>Steps 1 and 2</h3>
+    <pre><code>  GUMBO
+ 012345
+G1
+A2
+M3
+B4
+O5
+L6 </code></pre>
+    <h3>Steps 3 to 6 When i = 1</h3>
+    <pre><code>  GUMBO
+ 012345
+G10
+A21
+M32
+B43
+O54
+L65 </code></pre>
+    <h3>Steps 3 to 6 When i = 2</h3>
+    <pre><code>  GUMBO
+ 012345
+G101
+A211
+M322
+B433
+O544
+L655 </code></pre>
+    <h3>Steps 3 to 6 When i = 3</h3>
+    <pre><code>  GUMBO
+ 012345
+G1012
+A2112
+M3221
+B4332
+O5443
+L6554 </code></pre>
+    <h3>Steps 3 to 6 When i = 4</h3>
+    <pre><code>  GUMBO
+ 012345
+G10123
+A21123
+M32212
+B43321
+O54432
+L65543 </code></pre>
+    <h3>Steps 3 to 6 When i = 5</h3>
+    <pre><code>  GUMBO
+ 012345
+G101234
+A211234
+M322123
+B433212
+O544321
+L655432 </code></pre>
+    <h3>Step 7</h3>
+    <p>
+        The distance is in the lower right hand corner of the matrix, i.e. 2.
+        This corresponds to our intuitive realization that "GUMBO" can be
+        transformed into "GAMBOL" by substituting "A" for "U" and adding "L"
+        (one substitution and 1 insertion = 2 changes).
+    </p>
+    <h2>Source Code, in Three Flavors</h2>
+    <p>
+        Religious wars often flare up whenever engineers discuss differences
+        between programming languages. A typical assertion is Allen Holub's
+        claim in a JavaWorld article (July 1999): "Visual Basic, for example,
+        isn't in the least bit object-oriented. Neither is Microsoft Foundation
+        Classes (MFC) or most of the other Microsoft technology that claims to
+        be object-oriented."
+    </p>
+    <p>
+        A salvo from a different direction is Simson Garfinkels's <a
+            href="http://www.salon.com/tech/col/garf/2001/01/08/bad_java/index.html"
+            >article</a
+        > in Salon (Jan. 8, 2001) entitled "Java: Slow, ugly and irrelevant", which
+        opens with the unequivocal words "I hate Java".
+    </p>
+    <p>
+        We prefer to take a neutral stance in these religious wars. As a
+        practical matter, if a problem can be solved in one programming
+        language, you can usually solve it in another as well. A good programmer
+        is able to move from one language to another with relative ease, and
+        learning a completely new language should not present any major
+        difficulties, either. A programming language is a means to an end, not
+        an end in itself.
+    </p>
+    <p>
+        As a modest illustration of this principle of neutrality, we present
+        source code which implements the Levenshtein distance algorithm in the
+        following programming languages:
+    </p>
+    <ul>
+        <li>Java</li>
+        <li>C++</li>
+        <li>Visual Basic</li>
+    </ul>
+    <h2>Java</h2>
+    <pre><code>public class Distance &lcub;
+  //****************************
+  // Get minimum of three values
+  //****************************
+
+  private int Minimum (int a, int b, int c) &lcub;
+    int mi;
+
+    mi = a;
+
+    if (b &lt; mi) &lcub;
+      mi = b;
+    }
+
+    if (c &lt; mi) &lcub;
+      mi = c;
+    }
+
+    return mi;
+  }
+
+  //*****************************
+  // Compute Levenshtein distance
+  //*****************************
+
+  public int LD (String s, String t) &lcub;
+    int d[][]; // matrix
+    int n; // length of s
+    int m; // length of t
+    int i; // iterates through s
+    int j; // iterates through t
+    char s_i; // ith character of s
+    char t_j; // jth character of t
+    int cost; // cost
+
+    // Step 1
+
+    n = s.length ();
+    m = t.length ();
+
+    if (n == 0) &lcub;
+      return m;
+    }
+
+    if (m == 0) &lcub;
+      return n;
+    }
+
+    d = new int[n+1][m+1];
+
+    // Step 2
+
+    for (i = 0; i &lt;= n; i++) &lcub;
+      d[i][0] = i;
+    }
+
+    for (j = 0; j &lt;= m; j++) &lcub;
+      d[0][j] = j;
+    }
+
+    // Step 3
+
+    for (i = 1; i &lt;= n; i++) &lcub;
+      s_i = s.charAt (i - 1);
+
+      // Step 4
+
+      for (j = 1; j &lt;= m; j++) &lcub;
+        t_j = t.charAt (j - 1);
+
+        // Step 5
+
+        if (s_i == t_j) &lcub;
+          cost = 0;
+        } else &lcub;
+          cost = 1;
+        }
+
+        // Step 6
+
+        d[i][j] = Minimum (d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1] + cost);
+      }
+    }
+
+    // Step 7
+
+    return d[n][m];
+  }
+}</code></pre>
+    <h2>C++</h2>
+    <p>
+        In C++, the size of an array must be a constant, and this code fragment
+        causes an error at compile time:
+    </p>
+    <pre><code>int sz = 5;
+int arr[sz]; </code></pre>
+    <p>
+        This limitation makes the following C++ code slightly more complicated
+        than it would be if the matrix could simply be declared as a
+        two-dimensional array, with a size determined at run-time.
+    </p>
+    <p>Here is the <strong>definition</strong> of the class (distance.h):</p>
+    <pre><code>class Distance
+&lcub;
+  public:
+    int LD (char const *s, char const *t);
+  private:
+    int Minimum (int a, int b, int c);
+    int *GetCellPointer (int *pOrigin, int col, int row, int nCols);
+    int GetAt (int *pOrigin, int col, int row, int nCols);
+    void PutAt (int *pOrigin, int col, int row, int nCols, int x);
+}; </code></pre>
+    <p>
+        Here is the <strong>implementation</strong> of the class (distance.cpp):
+    </p>
+    <pre><code>#include "distance.h"
+#include &lt;string.h&gt;
+#include &lt;malloc.h&gt;
+
+//****************************
+// Get minimum of three values
+//****************************
+
+int Distance::Minimum (int a, int b, int c)
+&lcub;
+  int mi;
+
+  mi = a;
+
+  if (b &lt; mi) &lcub;
+    mi = b;
+  }
+
+  if (c &lt; mi) &lcub;
+    mi = c;
+  }
+
+  return mi;
+}
+
+//**************************************************
+// Get a pointer to the specified cell of the matrix
+//**************************************************
+
+int *Distance::GetCellPointer (int *pOrigin, int col, int row, int nCols)
+&lcub;
+  return pOrigin + col + (row * (nCols + 1));
+}
+
+//*****************************************************
+// Get the contents of the specified cell in the matrix
+//*****************************************************
+
+int Distance::GetAt (int *pOrigin, int col, int row, int nCols)
+&lcub;
+  int *pCell;
+
+  pCell = GetCellPointer (pOrigin, col, row, nCols);
+
+  return *pCell;
+}
+
+//*******************************************************
+// Fill the specified cell in the matrix with the value x
+//*******************************************************
+
+void Distance::PutAt (int *pOrigin, int col, int row, int nCols, int x)
+&lcub;
+  int *pCell;
+
+  pCell = GetCellPointer (pOrigin, col, row, nCols);
+  *pCell = x;
+}
+
+//*****************************
+// Compute Levenshtein distance
+//*****************************
+
+int Distance::LD (char const *s, char const *t)
+&lcub;
+  int *d; // pointer to matrix
+  int n; // length of s
+  int m; // length of t
+  int i; // iterates through s
+  int j; // iterates through t
+  char s_i; // ith character of s
+  char t_j; // jth character of t
+  int cost; // cost
+  int result; // result
+  int cell; // contents of target cell
+  int above; // contents of cell immediately above
+  int left; // contents of cell immediately to left
+  int diag; // contents of cell immediately above and to left
+  int sz; // number of cells in matrix
+
+  // Step 1
+
+  n = strlen (s);
+  m = strlen (t);
+
+  if (n == 0) &lcub;
+    return m;
+  }
+
+  if (m == 0) &lcub;
+    return n;
+  }
+
+  sz = (n+1) * (m+1) * sizeof (int);
+  d = (int *) malloc (sz);
+
+  // Step 2
+
+  for (i = 0; i &lt;= n; i++) &lcub;
+    PutAt (d, i, 0, n, i);
+  }
+
+  for (j = 0; j &lt;= m; j++) &lcub;
+    PutAt (d, 0, j, n, j);
+  }
+
+  // Step 3
+
+  for (i = 1; i &lt;= n; i++) &lcub;
+    s_i = s[i-1];
+
+    // Step 4
+
+    for (j = 1; j &lt;= m; j++) &lcub;
+      t_j = t[j-1];
+
+      // Step 5
+
+      if (s_i == t_j) &lcub;
+        cost = 0;
+      } else &lcub;
+        cost = 1;
+      }
+
+      // Step 6
+
+      above = GetAt (d,i-1,j, n);
+      left = GetAt (d,i, j-1, n);
+      diag = GetAt (d, i-1,j-1, n);
+      cell = Minimum (above + 1, left + 1, diag + cost);
+      PutAt (d, i, j, n, cell);
+    }
+  }
+
+  // Step 7
+
+  result = GetAt (d, n, m, n);
+  free (d);
+  return result;
+} </code></pre>
+    <h2>Visual Basic</h2>
+    <pre><code>'*******************************
+'*** Get minimum of three values
+'*******************************
+
+Private Function Minimum(ByVal a As Integer, _
+                         ByVal b As Integer, _
+                         ByVal c As Integer) As Integer
+  Dim mi As Integer
+
+  mi = a
+  If b &lt; mi Then
+    mi = b
+  End If
+  If c &lt; mi Then
+    mi = c
+  End If
+
+  Minimum = mi
+
+End Function
+
+'********************************
+'*** Compute Levenshtein Distance
+'********************************
+
+Public Function LD(ByVal s As String, ByVal t As String) As Integer
+  Dim d() As Integer ' matrix
+  Dim m As Integer ' length of t
+  Dim n As Integer ' length of s
+  Dim i As Integer ' iterates through s
+  Dim j As Integer ' iterates through t
+  Dim s_i As String ' ith character of s
+  Dim t_j As String ' jth character of t
+  Dim cost As Integer ' cost
+
+  ' Step 1
+
+  n = Len(s)
+  m = Len(t)
+  If n = 0 Then
+    LD = m
+    Exit Function
+  End If
+  If m = 0 Then
+    LD = n
+    Exit Function
+  End If
+  ReDim d(0 To n, 0 To m) As Integer
+
+  ' Step 2
+
+  For i = 0 To n
+    d(i, 0) = i
+  Next i
+
+  For j = 0 To m
+    d(0, j) = j
+  Next j
+
+  ' Step 3
+
+  For i = 1 To n
+    s_i = Mid$(s, i, 1)
+
+    ' Step 4
+
+    For j = 1 To m
+      t_j = Mid$(t, j, 1)
+
+      ' Step 5
+
+      If s_i = t_j Then
+        cost = 0
+      Else
+        cost = 1
+      End If
+
+      ' Step 6
+
+      d(i, j) = Minimum(d(i - 1, j) + 1, d(i, j - 1) + 1, d(i - 1, j - 1) + cost)
+    Next j
+  Next i
+
+  ' Step 7
+
+  LD = d(n, m)
+  Erase d
+End Function </code></pre>
+    <h2>References</h2><p>
+        Other discussions of Levenshtein distance may be found at:
+    </p><ul>
+        <li>
+            <a
+                href="http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Dynamic/Edit.html"
+                >http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Dynamic/Edit.html</a
+            > (Lloyd Allison)
+        </li><li>
+            <a href="http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node2.html"
+                >http://www-igm.univ-mlv.fr/~lecroq/seqcomp/node2.html</a
+            > (Thierry Lecroq)
+        </li>
+    </ul><h2>Other Flavors</h2><p>
+        The following people have kindly consented to make their implementations
+        of the Levenshtein Distance Algorithm in various languages available
+        here:
+    </p><ul>
+        <li>
+            Eli Bendersky has written an implementation in <a href="ldperl.html"
+                >Perl</a
+            >.
+        </li><li>
+            Barbara Boehmer has written an implementation in <a
+                href="ldplsql.html">Oracle PL/SQL</a
+            >.
+        </li><li>
+            Rick Bourner has written an implementation in <a href="ldobjc.html"
+                >Objective-C</a
+            >.
+        </li><li>
+            Joseph Gama has written an implementation in <a href="ldtsql.html"
+                >TSQL</a
+            >, as part of a package of TSQL functions.
+        </li><li>
+            Anders Sewerin Johansen has written an implementation in <a
+                href="ldcpp.html">C++</a
+            >, which is more elegant, better optimized, and more in the spirit
+            of C++ than mine.
+        </li><li>
+            Lasse Johansen has written an implementation in <a
+                href="ldcsharp.html">C#</a
+            >.
+        </li><li>
+            Alvaro Jeria Madariaga has written an implementation in <a
+                href="lddelphi.html">Delphi</a
+            >.
+        </li><li>
+            Lorenzo Seidenari has written an implementation in <a
+                href="ldc.html">C</a
+            >.
+        </li><li>
+            Steve Southwell has written an implementation in <a
+                href="ldprogress.html">Progress 4gl</a
+            >.
+        </li>
+        <li>
+            Fredrik Svensson and Adam Lindberg have written an implementation in <a
+                href="lderlang.html">Erlang</a
+            >.
+        </li>
+        <li>
+            Chas Emerick has written an implementation in <a href="ldjava.html"
+                >Java</a
+            >, which is modified to use two single-dimensional arrays.
+        </li>
+        <li>
+            * Joerg F. Wittenberger has written an implementation in <a
+                href="ldrscheme.html">Rscheme</a
+            >.
+        </li>
+    </ul><p>Other implementations outside these pages include:</p><ul>
+        <li>
+            A <a href="http://www.hetland.org/python/distance.py">Python</a> implementation
+            by Magnus Lie Hetland.
+        </li><li>
+            Lukasz Stilger has written an implementation in <a
+                href="http://www.mgilleland.com/ld/ldjavascript.htm"
+                >JavaScript</a
+            > which illustrates the algorithm in operation (well worth seeing). Note
+            that "wyraz" is Polish for "word". A separate page with the source code
+            as text is <a
+                href="http://www.mgilleland.com/ld/ldjavascriptsource.htm"
+                >here</a
+            >.
+        </li><li>
+            Jorge Mas Trullenque points out that "the calculation needs O(n)
+            memory, so using a two-dimensional matrix in a practical
+            implementation is wasteful." He has written an implementation in <a
+                href="http://www.mgilleland.com/ld/ldperl2.htm">Perl</a
+            > that uses only one one-dimensional vector.
+        </li><li>
+            Joerg F. Wittenberger has written an implementation in <a
+                href="http://www.merriampark.com/ldrscheme.htm">Rscheme</a
+            >.
+        </li><li>
+            A <a href="http://www.php.net/manual/en/function.levenshtein.php"
+                >PHP</a
+            > implementation.
+        </li>
+    </ul>
+</DefaultLayout>

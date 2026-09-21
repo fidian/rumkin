@@ -1,0 +1,10 @@
+{
+    "siteUrl": "http://localhost:4321/",
+    "internalLinksOnly": false,
+    "concurrentRequests": 10,
+    "timeoutValue": 5000,
+    "outputOptions": ["OK", "BROKEN", "SKIPPED"],
+    "saveToFile": true,
+    "outputFile": "link-checker-results",
+    "outputType": 1
+}

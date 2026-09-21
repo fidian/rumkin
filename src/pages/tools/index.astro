@@ -1,0 +1,27 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+import ChildPages from "@/components/child-pages.astro";
+
+export const title = "Web-Based Tools";
+
+const breadcrumbs = [{ name: "Rumkin.com", href: "/" }];
+---
+
+<DefaultLayout title={title} breadcrumbs={breadcrumbs}>
+    <p>
+        Lots of little tools that run in your browser. I hope you find something
+        interesting that helps you solve problems.
+    </p>
+
+    <ChildPages
+        base="/tools/"
+        extra={[
+            {
+                url: "/tools/tiddlywiki/",
+                title: "TiddlyWiki",
+                summary:
+                    "A couple plugins I modified or created for the older versions of Tiddly Wiki.",
+            },
+        ]}
+    />
+</DefaultLayout>

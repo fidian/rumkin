@@ -1,0 +1,6 @@
+tabWidth: 4
+arrowParens: always
+endOfLine: lf
+singleQuote: false
+plugins:
+    - prettier-plugin-astro

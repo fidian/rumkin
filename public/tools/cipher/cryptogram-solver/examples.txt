@@ -1,0 +1,7 @@
+Examples of phrases where "Eliminate Bad Combinations" won't work. All use the American English (Small) dictionary.
+
+anpzup rnpzup - Should not show "artist" but can show "barter".
+
+Only dictionary words are provided in the drop-down lists, but it is possible that misspelled words, names, and other things can still be decoded. - Should be able to find entire phrase except "things" since there's only one G in the text.
+
+select an option to assign it as the correct word and the rest of the cryptogram will inherit those letters and reduce the number of available options for words - "Eliminate Bad Options" button is not needed.

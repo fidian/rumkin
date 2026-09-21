@@ -1,0 +1,18 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Fun Stuff", href: "/fun/" },
+];
+---
+
+<script>
+    import "@/assets/tests/module.ts";
+</script>
+<DefaultLayout
+    title="Personality Tests"
+    summary="Probably mostly meaningless, but entertaining. You won't need to enter your email address or register to get the results because that would be silly."
+    breadcrumbs={breadcrumbs}
+>
+    <tests-introduction></tests-introduction>
+</DefaultLayout>

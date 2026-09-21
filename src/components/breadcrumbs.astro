@@ -1,0 +1,36 @@
+---
+interface Props {
+    breadcrumbs: { href: string; name: string }[];
+}
+
+const { breadcrumbs } = Astro.props;
+const lastBreadcrumb = breadcrumbs.pop() || { href: "/", name: "Rumkin.com" };
+---
+
+<nav
+    class="Bgc(--bar-background) Bgc(tr)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(--bar-border) H(50px) C(--bar-text) C(black)--p Px(10px) Z(1)"
+>
+    <div class="W(100%) D(f) H(100%) Jc(spb) Ai(c) Ov(h)">
+        <div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)">
+            {
+                breadcrumbs.map((item) => (
+                    <>
+                        <a
+                            class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)"
+                            href={item.href}
+                        >
+                            {item.name}
+                        </a>
+                        <span class="Px(0.3em) Fxs(0)">&gt;</span>
+                    </>
+                ))
+            }
+            <a
+                href={lastBreadcrumb.href}
+                class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Ov(H)"
+            >
+                {lastBreadcrumb.name}
+            </a>
+        </div>
+    </div>
+</nav>
