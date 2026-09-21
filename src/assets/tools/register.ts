@@ -8,3 +8,6 @@ import './compression.ts';
 import './mailto-encoder.ts';
 import './decision-tree.ts';
 import './password-tools.ts';
+import './population-counter.ts';
+import './wcn-generator.ts';
+import '../marquee/marquee-generator.ts';

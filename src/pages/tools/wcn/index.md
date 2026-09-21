@@ -1,14 +1,12 @@
 ---
+layout: "@/layouts/tool-layout.astro"
 title: WCN Config Generator
-summary: Creates a Zip file for transferring WiFi info using "Windows Connect Now"
-js:
-    - ../../js/browser/jszip.js
-    - ../../js/browser/jszip-utils.js
-    - wcn-module.js
-components:
-    -
-        className: module
-        component: Wcn
+summary: "Creates a Zip file for transferring WiFi info using \"Windows Connect Now\""
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
 ---
 
 Windows Connect Now (WCN), or Windows Rally, is a way to make network setup easier.  This standard was created by Microsoft and it basically is just a set of files that are put onto a USB drive.  You share this jump drive with others so they can quickly get on networks without typing in huge passwords.  It also works for some networked devices, like a printer I owned.
@@ -21,4 +19,4 @@ Inside the zip file that you will download, there is the `setupSNK.exe` program 
 
 The best bit is that this generates the file inside your browser using the magic of JavaScript.  Your private network settings never leave your computer.
 
-<div class="module"></div>
+<wcn-generator></wcn-generator>
