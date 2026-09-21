@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Flag Semaphore
 summary: Signaling messages using flags, often from ship to ship.
 code: true
-css:
-    - index.css
-js:
-    - ../rumkin-cipher.js
-    - flag-semaphore-module.js
-components:
-    - className: module
-      component: FlagSemaphore
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 Semaphore is an evolution of the [optical telegraph](https://en.wikipedia.org/wiki/Optical_telegraph), which was used to send messages across vast distances.
@@ -20,4 +20,4 @@ These images show the sender, and need to be reversed when you are the transmitt
 
 The font is a modified version of [Semaphore Pramuka](https://www.whatfontis.com/FF_Semaphore-Pramuka.font). This version uses "!" for error/attention, a space for the rest symbol and to split double letters, tilde or slashes for cancel.
 
-<div class="module"></div>
+<font-code rows='[{"label": "", "chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}, {"label": "", "chars": "0123456789#!"}]' font="semaphore"></font-code>

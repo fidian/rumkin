@@ -3,7 +3,9 @@
  * loaded by cipher-layout.astro, so a page only has to drop the element it
  * wants into its Markdown.
  */
+import './fonts.css';
 import './cipher-example.ts';
+import './font-code.ts';
 import './simple-code.ts';
 import './caesar-cipher.ts';
 import './morse-table.ts';

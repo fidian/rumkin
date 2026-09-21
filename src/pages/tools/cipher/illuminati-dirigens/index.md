@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Illuminati Dirigens
 summary: Secret written communications the Illuminati used to use.
 code: true
-css:
-    - index.css
-js:
-    - ../rumkin-cipher.js
-    - illuminati-dirigens-module.js
-components:
-    - className: module
-      component: IlluminatiDirigens
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 
@@ -19,4 +19,4 @@ Due to its age and the way information spread at the time, there are many variat
 
 Use "&#x2A;" for the symbol <span class="illuminati">&#x2A;</span>, which means "Order" and was never written in full.
 
-<div class="module"></div>
+<font-code rows='[{"label": "", "chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}, {"label": "", "chars": "abcdefghijklmnopqrstuvwxyz"}, {"label": "", "chars": "0123456789*,.;:?!~"}]' font="illuminati"></font-code>

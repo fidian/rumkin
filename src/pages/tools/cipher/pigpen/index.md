@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Pigpen
 summary: Old substitution cipher, said to be used by Hebrew rabbis and the Knights Templar.
 code: true
-css:
-    - index.css
-js:
-    - ../rumkin-cipher.js
-    - pigpen-module.js
-components:
-    - className: module
-      component: Pigpen
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 Pigpen places letters in  "#" and "X" diagrams, then uses the nearby lines and dots as the symbol for the encoded letter. This comes in two main varieties.
@@ -161,4 +161,4 @@ Modified Version<br />
 </div>
 </div>
 
-<div class="module"></div>
+<font-code rows='[{"label": "", "chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}]' variants='[{"font": "pigpen-hhxx", "label": "Original Version"}, {"font": "pigpen-hxhx", "label": "Modified Version"}]' variant-label="Pigpen variant"></font-code>

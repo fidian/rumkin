@@ -1,17 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Dancing Men
 summary: Sherlock Holmes solved a mystery that used a stick man cipher.
 code: true
-css:
-    - index.css
-js:
-    - ../rumkin-cipher.js
-    - dancing-men-module.js
-components:
-    - className: module
-      component: DancingMen
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 Mr. Hilton Cubitt of Ridling Thorp Manor was baffled by a series of stick figures, yet the amazing Sherlock Holmes was up to the challenge in [The Adventure of the Dancing Men](https://www.gutenberg.org/files/108/108-h/108-h.htm#chap03)
@@ -36,15 +34,15 @@ Note that they do not agree on the 7 missing letters, so both are included here 
 
 Examples:
 
-* <span class="conduit" data-label="A through Z" data-topic="dancingMen" data-payload-input="ABCDEFGHIJKLMNOPQRSTUVWXYZ"></span> - All letters without flags.
-* <span class="conduit" data-label="With Flags" data-topic="dancingMen" data-payload-input="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "></span> - All letters with flags
-* <span class="conduit" data-label="Not In Story" data-topic="dancingMen" data-payload-input="fjkquwxz"></span> - Just the letters that do not appear in a cipher in the story.
-* <span class="conduit" data-label="All Messages" data-topic="dancingMen" data-payload-input="AM HERE ABE SLANEY
+* <cipher-example label="A through Z" topic="dancingMen" payload-input="ABCDEFGHIJKLMNOPQRSTUVWXYZ"></cipher-example> - All letters without flags.
+* <cipher-example label="With Flags" topic="dancingMen" payload-input="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "></cipher-example> - All letters with flags
+* <cipher-example label="Not In Story" topic="dancingMen" payload-input="fjkquwxz"></cipher-example> - Just the letters that do not appear in a cipher in the story.
+* <cipher-example label="All Messages" topic="dancingMen" payload-input="AM HERE ABE SLANEY
 AT ELRIGES
 COME ELSIE
 NEVEB
 ELSIE PREPARE TO MEET THY GOD
-COME HERE AT ONCE"></span> - All of the messages from the story. Note that "NEVEB" is probably "NEVER", though the cipher in the text uses a B. [More information](https://www.arthur-conan-doyle.com/index.php?title=Dancing_Men_Alphabet) about these codes.
+COME HERE AT ONCE"></cipher-example> - All of the messages from the story. Note that "NEVEB" is probably "NEVER", though the cipher in the text uses a B. [More information](https://www.arthur-conan-doyle.com/index.php?title=Dancing_Men_Alphabet) about these codes.
 
 
-<div class="module"></div>
+<font-code rows='[{"label": "", "chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}, {"label": "", "chars": "0123456789 "}]' variants='[{"font": "dancing-men-gl", "label": "Gutenberg Labo"}, {"font": "dancing-men-ars", "label": "Aage Rieck Sørensen"}]' variant-label="Dancing men variant"></font-code>
