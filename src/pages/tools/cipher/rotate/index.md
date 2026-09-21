@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Rotate
-summary: This acts as though you are writing the letters in a rectangular grid and then rotating the grid to the left or right 90°
+summary: "This acts as though you are writing the letters in a rectangular grid and then rotating the grid to the left or right 90°"
 cipher: true
-js:
-    - ../rumkin-cipher.js
-    - rotate-module.js
-components:
-    - className: module
-      component: Rotate
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 
@@ -21,7 +21,7 @@ By default, only letters are rotated. Extra padding will be added if the width o
 
 Examples:
 
-- <span class="conduit" data-label="Kryptos K3" data-topic="rotate" data-payload-direction="CLOCKWISE" data-payload-alphabet="English" data-payload-width="24" data-payload-move-caps="false" data-payload-input="ENDyaHrOHNLSRHEOCPTEOIBIDYSHNAIA
+- <cipher-example label="Kryptos K3" topic="rotate" payload-direction="CLOCKWISE" payload-alphabet="English" payload-width="24" payload-move-caps="false" payload-input="ENDyaHrOHNLSRHEOCPTEOIBIDYSHNAIA
 CHTNREYULDSLLSLLNOHSNOSMRWXMNE
 TPRNGATIHNRARPESLNNELEBLPIIACAE
 WMTWNDITEENRAHCTENEUDRETNHAEOE
@@ -31,7 +31,7 @@ TEEFOASFIOTUETUAEOTOARMAEERTNRTI
 BSEDDNIAAHTTMSTEWPIEROAGRIEWFEB
 AECTDDHILCEIHSITEGOEAOSDDRYDLORIT
 RKLMLEHAGTDHARDPNEOHMGFMFEUHE
-ECDMRIPFEIMEHNLSSTTRTVDOHW?"></span>
-- <span class="conduit" data-label="Kryptos K3 With Spaces" data-topic="rotate" data-payload-direction="CLOCKWISE" data-payload-alphabet="English" data-payload-width="24" data-payload-move-caps="false" data-payload-input="ENDYAH ROHNLSRHEO CPTEOI BID YSHNAIA CH TNREYUL DSLLSL LNOH SNOSMRWXMN ETP RNGAT IHNR AR PES LNNELEB LPI IACAEWM TWND ITEENRAHC TENEU D RETN H AEOE TFOLSE DT IWE NHAEI OYTE YQHE ENCTAY CRE IFTB RSPAMHHE WEN ATAM A TEGYEE R LBTEEFOA SFI OTUETU AEO TOARMA EE RTN RTI BSE DDNIAAHT TMST EWP IEROAGR IEWFEB AEC TDDHI LC EIHSITE GOE AOSDDRYDL ORITRKL ML EHA GTDH ARDPNE OHMGFMF EUHE ECD MRIP F EIM EHN LSS TTRTVDOH W (?)"></span>
+ECDMRIPFEIMEHNLSSTTRTVDOHW?"></cipher-example>
+- <cipher-example label="Kryptos K3 With Spaces" topic="rotate" payload-direction="CLOCKWISE" payload-alphabet="English" payload-width="24" payload-move-caps="false" payload-input="ENDYAH ROHNLSRHEO CPTEOI BID YSHNAIA CH TNREYUL DSLLSL LNOH SNOSMRWXMN ETP RNGAT IHNR AR PES LNNELEB LPI IACAEWM TWND ITEENRAHC TENEU D RETN H AEOE TFOLSE DT IWE NHAEI OYTE YQHE ENCTAY CRE IFTB RSPAMHHE WEN ATAM A TEGYEE R LBTEEFOA SFI OTUETU AEO TOARMA EE RTN RTI BSE DDNIAAHT TMST EWP IEROAGR IEWFEB AEC TDDHI LC EIHSITE GOE AOSDDRYDL ORITRKL ML EHA GTDH ARDPNE OHMGFMF EUHE ECD MRIP F EIM EHN LSS TTRTVDOH W (?)"></cipher-example>
 
-<div class="module"></div>
+<rotate-cipher></rotate-cipher>

@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Columnar Transposition
 summary: Write a message as a long column and then swap around the columns.  Read the message going down the columns. A simple cypher, but one that is featured on the Kryptos sculpture at the CIA headquarters.
 cipher: true
-js:
-    - ../rumkin-cipher.js
-    - columnar-transposition-module.js
-components:
-    - className: module
-      component: ColumnarTransposition
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 A columnar transposition, also known as a row-column transpose, is a very simple cipher to perform by hand. First, you write your message in columns. Then, you just rearrange the columns. For example. I have the message, "Which wristwatches are Swiss wristwatches." You convert everything to upper case and write it without spaces. When you write it down, make sure to put it into columns and number them. Let's use five columns.
@@ -49,7 +49,7 @@ The column key can be a list of numbers or an alphabetic keyword/keyphrase.
 
 Examples:
 
--   <span class="conduit" data-label="My Example" data-topic="columnarTransposition" data-payload-direction="ENCRYPT" data-payload-alphabet="English" data-payload-key="4 2 5 3 1" data-payload-dupes-backwards="false" data-payload-column-order="false" data-payload-transposition-operating-mode="NORMAL" data-payload-input="Which wristwatches are Swiss wristwatches."></span>
--   <span class="conduit" data-label="Wikipedia" data-topic="columnarTransposition" data-payload-direction="DECRYPT" data-payload-alphabet="English" data-payload-key="ZEBRAS" data-payload-dupes-backwards="false" data-payload-column-order="false" data-payload-transposition-operating-mode="NORMAL" data-payload-input="EVLNE ACDTK ESEAQ ROFOJ DEECU WIREE"></span> - There are garbage characters at the end to make a complete row.
+-   <cipher-example label="My Example" topic="columnarTransposition" payload-direction="ENCRYPT" payload-alphabet="English" payload-key="4 2 5 3 1" payload-dupes-backwards="false" payload-column-order="false" payload-transposition-operating-mode="NORMAL" payload-input="Which wristwatches are Swiss wristwatches."></cipher-example>
+-   <cipher-example label="Wikipedia" topic="columnarTransposition" payload-direction="DECRYPT" payload-alphabet="English" payload-key="ZEBRAS" payload-dupes-backwards="false" payload-column-order="false" payload-transposition-operating-mode="NORMAL" payload-input="EVLNE ACDTK ESEAQ ROFOJ DEECU WIREE"></cipher-example> - There are garbage characters at the end to make a complete row.
 
-<div class="module"></div>
+<columnar-transposition-cipher></columnar-transposition-cipher>

@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Rail Fence
 summary: A mildly complicated one where you align letters on different rows and then squish the letters together in order to create your ciphertext.
 cipher: true
-js:
-    - ../rumkin-cipher.js
-    - rail-fence-module.js
-components:
-    - className: module
-      component: RailFence
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 When you rearrange your text in a "wave" sort of pattern (moving down, then up, then down, etc.), it is called a rail fence. Take the text "WAFFLES FOR BREAKFAST" and arrange them in waves like the diagram below. Note that spaces are removed because they often get in the way.
@@ -39,8 +39,8 @@ The default settings preserve the original spaces and punctuation and will not m
 
 Examples:
 
--   <span class="conduit" data-label="My Example" data-topic="railFence" data-payload-direction="ENCRYPT" data-payload-alphabet="English" data-payload-rails="5" data-payload-offset="0" data-payload-input="WAFFLES FOR BREAKFAST" data-payload-transposition-operating-mode="NORMAL"></span> - "Waffles for breakfast", as is shown above
--   <span class="conduit" data-label="Battlefield" data-topic="railFence" data-payload-direction="DECRYPT" data-payload-alphabet="English" data-payload-rails="5" data-payload-offset="0" data-payload-input="LLEOILUANVE TMSGES AINUTE" data-payload-transposition-operating-mode="NORMAL"></span> - This is the reversed form of the morse code message "ETUNIASEGSMTEVNAULIOELL".
--   <span class="conduit" data-label="Spaces Problem" data-topic="railFence" data-payload-direction="ENCRYPT" data-payload-alphabet="English" data-payload-rails="5" data-payload-offset="0" data-payload-input="Look for the spaces. Can you see any issues?" data-payload-transposition-operating-mode="ALL_CHARS"></span> - Shows off how difficult it can be to decode messages with multiple spaces. Try to find the spaces _after_ the encoded text. If you use the option to encode all characters, please make sure you test how the recipient can view and decode the message.
+-   <cipher-example label="My Example" topic="railFence" payload-direction="ENCRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="WAFFLES FOR BREAKFAST" payload-transposition-operating-mode="NORMAL"></cipher-example> - "Waffles for breakfast", as is shown above
+-   <cipher-example label="Battlefield" topic="railFence" payload-direction="DECRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="LLEOILUANVE TMSGES AINUTE" payload-transposition-operating-mode="NORMAL"></cipher-example> - This is the reversed form of the morse code message "ETUNIASEGSMTEVNAULIOELL".
+-   <cipher-example label="Spaces Problem" topic="railFence" payload-direction="ENCRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="Look for the spaces. Can you see any issues?" payload-transposition-operating-mode="ALL_CHARS"></cipher-example> - Shows off how difficult it can be to decode messages with multiple spaces. Try to find the spaces _after_ the encoded text. If you use the option to encode all characters, please make sure you test how the recipient can view and decode the message.
 
-<div class="module"></div>
+<rail-fence-cipher></rail-fence-cipher>

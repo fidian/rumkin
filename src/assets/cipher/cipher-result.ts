@@ -14,6 +14,11 @@ export interface CipherRequest {
     direction: Direction;
     message: string;
     alphabet: AlphabetSelection;
+    /**
+     * Some transpositions move every character rather than working within
+     * an alphabet, and the library wants no alphabet at all for those.
+     */
+    noAlphabet?: boolean;
     options?: Record<string, unknown>;
 }
 
@@ -78,7 +83,7 @@ export const runCipher = (request: CipherRequest): CipherOutcome => {
         const text = String(
             module[method](
                 new rumkinCipher.util.Message(message),
-                buildAlphabet(request.alphabet),
+                request.noAlphabet ? null : buildAlphabet(request.alphabet),
                 options ?? undefined
             )
         );
