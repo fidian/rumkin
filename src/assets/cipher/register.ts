@@ -13,5 +13,7 @@ import './rot13-cipher.ts';
 import './keyed-ciphers.ts';
 import './square-cipher.ts';
 import './transposition-ciphers.ts';
+import './baconian-cipher.ts';
+import './baconian-example.ts';
 import './caesar-cipher.ts';
 import './morse-table.ts';
