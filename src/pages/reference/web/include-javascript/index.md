@@ -1,6 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Including JavaScript Dynamically
-summary: If you have the desire to load JavaScript files dynamically and even know when they have loaded, this page is for you!
+summary: "If you have the desire to load JavaScript files dynamically and even know when they have loaded, this page is for you!"
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 I wanted a way to make individual files for JavaScript classes and have them automatically load their parents without the web page having to know in advance all of the JavaScript includes that needed to be made.

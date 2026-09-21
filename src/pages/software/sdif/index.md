@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: SDIF Data Extraction (Novell)
 summary: Retrieves SDIF-wrapped files from a Novell backup.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 Novell systems are pretty cool.  They compress data in the background, and when you run a backup on a Novell server, it just sends the data off the disk to the backup software.  This means that you don't need to compress the data - it is already compressed.

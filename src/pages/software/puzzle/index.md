@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Java Puzzle Applet
-summary: Want a free puzzle that you can stick in your web pages?  Try this one out!  It is small, fast, very compatible, and takes almost all work out of putting up a puzzle site of your own.
+summary: "Want a free puzzle that you can stick in your web pages?  Try this one out!  It is small, fast, very compatible, and takes almost all work out of putting up a puzzle site of your own."
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 Did you ever want to play a puzzle on your web page, or put one on to entertain others? This applet is probably just what you want. It was inspired by a CGI script which essentially did the same thing, but not nearly as fast (especially on a 14.4 modem). Right now, people who play the puzzle only have to download the applet (only about 14k), download the image, and download any optional sound to play when you solve the puzzle.

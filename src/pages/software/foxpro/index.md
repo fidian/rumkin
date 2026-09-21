@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: FoxPro
-summary: Useful things that I have written.  Maybe it could help you out too?
+summary: "Useful things that I have written.  Maybe it could help you out too?"
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 FoxPro is a wonderful database system that lets you get away with basically anything.  It can access external `DLL` files, can be compiled into (almost) standalone executables, has a simple and powerful language, and has a command window where fluent developers can get things done quickly.

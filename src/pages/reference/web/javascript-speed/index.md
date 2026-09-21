@@ -1,6 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: JavaScript Speed Enhancements
 summary: If you code it right and use these tips, your program will eek out the last drop of speed from the browser.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 Programmers should strive to make their code run fast when possible.  The exact same result in JavaScript can take vastly different amounts of time when achieved by different means.

@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: SalangMenu
 summary: Tiny little menu system that is completely configurable through parameter tags.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 <applet code="SalangMenu.class" archive="salang-menu.jar" width="300" height="30" class="center">

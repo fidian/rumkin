@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Floater
 summary: A floating menu for Windows, complete with source.  Also has an altered version that works well on a flash drive.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 If you use your flash drive a lot, like I do, you will want to have a menu so that you can run programs easier.  I searched for one that was free and freely distributable.  One that was small, quick, and simple.  I found "Floater 1.0" by Daniel Werner.  To operate it, you just make a directory called `Items/` in the same directory as `Floater.exe` and fill it up with shortcuts to the programs you want in the menu.  When you run Floater, it will create a bar in the lower left corner, above the Start button, and it will have icons in it, one for each program you put in the `Items/` folder.

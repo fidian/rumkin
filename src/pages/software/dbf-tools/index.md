@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: DBF Tools
-summary: Some utilities I whipped up to boil down a `.dbf` file by aggregating the records and another to concatenate multiple database files together.
+summary: "Some utilities I whipped up to boil down a `.dbf` file by aggregating the records and another to concatenate multiple database files together."
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 At one point I dealt with `.dbf` files.  A lot of them.  In order to process them faster, I wrote a couple tools that others may enjoy.  They are GPL v3 and I don't support them any longer.

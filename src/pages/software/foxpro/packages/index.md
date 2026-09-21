@@ -1,5 +1,13 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: FoxPro Packages
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
+    - name: FoxPro
+      href: /software/foxpro/
 ---
 
 These FoxPro packages are all zip files that typically contain a form and a library that will perform the given task.  I also have more [FoxPro stuff](../).

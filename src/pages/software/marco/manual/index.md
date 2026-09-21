@@ -1,5 +1,13 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Marco User Manual
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
+    - name: Marco
+      href: /software/marco/
 ---
 
 This is the manual for [Marco](../), PalmOS based surveyor software.  [Find out more ...](../)

@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Emergency Phone Software
 summary: A list of applications you can install on a spare phone that are usefulin case of an emergency.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 Almost everyone has a cell phone. In fact, most people have had more than one device. What do you do with the old one?

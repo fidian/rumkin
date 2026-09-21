@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: GPX Tools for Geocaching
 summary: Command-line utilities that will alter the GPX files retrieved from a geocaching pocket query.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 This is a collection of free tools that will manipulate a GPX file that you can get from [Geocaching.com](http://www.geocaching.com) when you are a premium member.  You can create "Pocket Queries" and get a listing of caches all bundled into a GPX file.

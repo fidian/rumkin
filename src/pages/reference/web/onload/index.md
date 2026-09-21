@@ -1,6 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Onloads and Alternatives
-summary: When you have multiple JavaScript programs that both want to start with `window.onload`?  Alter them both accordingly so that they will never conflict again.  Code this way for all of your `window.onload` needs and remove potential sources of trouble.
+summary: "When you have multiple JavaScript programs that both want to start with `window.onload`?  Alter them both accordingly so that they will never conflict again.  Code this way for all of your `window.onload` needs and remove potential sources of trouble."
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 Let's just say that you have a script that you want to distribute or that could be loaded with other scripts and you really don't want them to conflict with each other.  If you need an `onload` event, things can get a bit weird.  You'll maybe wonder why your pull-down menus don't work and your background changing does work.  These snippets of code will help you out.

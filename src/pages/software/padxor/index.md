@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: One Time Pad XOR
 summary: Encrypt a file with a one-time pad, which is the only unbreakable cipher in existence.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 Need a secure method to encrypt files?  Want it to be quick, easy, and unbreakable as long as you take care with it?  This is the tool for you!  For information on the technique and the tools, I suggest you go to [Unbreakable Encryption Using One Time Pads][Unbreakable].

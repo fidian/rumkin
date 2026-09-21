@@ -1,6 +1,12 @@
 ---
-title: D&D Helper
+layout: "@/layouts/default-layout.astro"
+title: "D&D Helper"
 summary: Palm OS program that is designed to help out DMs and characters.  It tries to speed up the game by rolling large amounts of dice and performing time-consuming calculations.  It can also look up information and generate various things.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 <div class="Fl(end) Bdw(1px) M(4px)"><img src="dnd-helper.gif"/></div>

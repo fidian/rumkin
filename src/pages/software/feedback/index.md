@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Feedback Box
 summary: A live feedback system.  This can power a chat box that you can include on pages, giving visitors the ability to chat with each other and you can also monitor it for early problem detection with your site.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 I once wrote a live chat system that was featured at the bottom of the pages on my site.  It included bad word filtering and rate limiting.  The PHP source is available in [feedback.zip](feedback.zip).

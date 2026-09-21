@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Miscellaneous Tools
 summary: Little things that I don't know where else to put.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 When I come across problems and I write something useful, I like to share

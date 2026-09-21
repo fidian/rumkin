@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: BURP
 summary: Encrypt a single file with Blowfish encryption. Command-line based, public domain, ported to many platforms.  I have also written a Windows GUI.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 While searching for a good file encryption utility, I decided that I wanted one that was open source, cross-platform, and easy to use.  I wanted versions that would run on Linux, DOS, and Windows (Win32).  BURP fits the bill perfectly.  It stands for Blowfish Updated Re-entrant Project.

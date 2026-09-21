@@ -1,6 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Favicon
 summary: A shortcut icon or favicon is a little image that shows up in the address bar of your browser.  These instructions show how to set one.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 A "favicon" is a type of icon used for shortcuts.  This little image is usually shown in the address bar when you are visiting a website and sometimes in bookmarks or favorites.  It is a good idea to always have a favicon defined so your web server isn't pummeled for hits for a nonexistent image.

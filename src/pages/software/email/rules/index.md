@@ -1,5 +1,13 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Email Validation RFC Rules
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
+    - name: Email Validation Done Right
+      href: /software/email/
 ---
 
 These rule govern email addresses.  I made sure [my validators](../) were correct by reading through the actual rules governing the internet.

@@ -1,5 +1,13 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Developer Information
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
+    - name: "D&D Helper"
+      href: /software/dnd-helper/
 ---
 
 If you do not write Palm programs, you might want to head over to the [main D&D Helper page](../) now.  This information gets quite technical.

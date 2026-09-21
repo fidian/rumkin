@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: DOS Boot Disk
 summary: Copies of my old 1.44 MiB floppy disk image that I used to save so many different systems.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 I remember the days of DOS and the limitations that came with it. You had to deal with high memory, load CDROM drivers, and were limited to very short filenames.

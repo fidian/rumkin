@@ -1,6 +1,12 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Palm OS Software
 summary: A local copy of several Palm programs, all of which are free to use.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 When finding software for my handhelds (Palm IIIx, Palm m100, and a Visor Prism), I usually spend a good deal of time searching the net for exactly what I want. These programs and links have been found to be the most helpful for me. Beside each link is a description of the software or of the site that I am linking to.

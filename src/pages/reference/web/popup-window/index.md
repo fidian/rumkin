@@ -1,6 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Passing Data To/From Popup Window
 summary: How to open a popup window and pass data back and forth with JavaScript.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 The time may come when you want to open up some sort of popup window, pass data into it, and pass data out of it back to the window opener.  This task can be accomplished in three easy steps.
