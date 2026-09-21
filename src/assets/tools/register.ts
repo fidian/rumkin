@@ -7,3 +7,4 @@ import './small-tools.ts';
 import './compression.ts';
 import './mailto-encoder.ts';
 import './decision-tree.ts';
+import './password-tools.ts';
