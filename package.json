@@ -28,5 +28,10 @@
         "prettier": "^3.8.1",
         "prettier-plugin-astro": "^0.14.1",
         "typescript": "^5.9.3"
+    },
+    "devDependencies": {
+        "@vitest/browser-playwright": "^5.0.1",
+        "playwright": "^1.63.0",
+        "vitest": "^5.0.1"
     }
 }
