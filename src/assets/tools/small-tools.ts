@@ -7,7 +7,10 @@ import {
     convertBase,
     encodeAsScript,
     formatDegrees,
+    rainbow,
+    rainbowHtml,
 } from './conversions.ts';
+import { describeEvent, EVENT_TYPES } from './keyboard-events.ts';
 
 const SHARED = css`
     :host {
@@ -238,6 +241,157 @@ component(
         setInput(event: Event) {
             const text = (event.target as HTMLTextAreaElement).value;
             this.output = text ? encodeAsScript(text) : '';
+        }
+    }
+);
+
+/* ------------------------------------------------------------------ */
+
+component(
+    'rainbow-text',
+    {
+        style: css`
+            :host {
+                display: block;
+            }
+
+            input {
+                font: inherit;
+                width: 100%;
+            }
+
+            .preview {
+                background-color: #114;
+                font-weight: bold;
+                padding: 1em 0.3em;
+            }
+
+            code {
+                background-color: #ddd;
+                border: 1px solid;
+                display: block;
+                font-size: 0.8em;
+                overflow-wrap: anywhere;
+                padding: 0.5em;
+            }
+        `,
+        template: html`
+            <input
+                type="text"
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off"
+                @input="setInput($event)"
+            />
+            <p>This is the result:</p>
+            <p class="preview">
+                <span *for="letter of letters" style="color: {{letter.colour}}"
+                    >{{letter.character}}</span
+                >
+            </p>
+            <p>And here is the HTML for your use:</p>
+            <code>{{markup}}</code>
+        `,
+    },
+    class {
+        letters = rainbow('Enter text to see it here!');
+        markup = rainbowHtml('Enter text to see it here!');
+
+        setInput(event: Event) {
+            const text =
+                (event.target as HTMLInputElement).value.trim() ||
+                'Enter text to see it here!';
+            this.letters = rainbow(text);
+            this.markup = rainbowHtml(text);
+        }
+    }
+);
+
+/* ------------------------------------------------------------------ */
+
+component(
+    'keyboard-event-tester',
+    {
+        style: css`
+            :host {
+                display: block;
+            }
+
+            input {
+                font: inherit;
+                width: 100%;
+            }
+
+            .log div {
+                margin: 0.5em 0;
+            }
+        `,
+        template: html`
+            <p><b>Your browser:</b> {{userAgent}}</p>
+
+            <ul>
+                <li *for="type of types">
+                    <label>
+                        <input
+                            type="checkbox"
+                            .checked="isEnabled(type, enabled)"
+                            @change="toggle(type)"
+                        />
+                        Log on{{type}} events
+                    </label>
+                </li>
+            </ul>
+
+            <div>
+                <input
+                    type="text"
+                    spellcheck="false"
+                    autocapitalize="off"
+                    autocomplete="off"
+                    autocorrect="off"
+                    @change="record('change', $event)"
+                    @input="record('input', $event)"
+                    @keydown="record('keydown', $event)"
+                    @keypress="record('keypress', $event)"
+                    @keyup="record('keyup', $event)"
+                />
+            </div>
+
+            <p><button type="button" @click="clear()">Clear the log</button></p>
+
+            <div class="log">
+                <div *for="line of log">{{line}}</div>
+            </div>
+        `,
+    },
+    class {
+        types = EVENT_TYPES;
+        enabled: string[] = [...EVENT_TYPES];
+        log: string[] = [];
+        userAgent = navigator.userAgent;
+        private started = Date.now();
+
+        isEnabled(type: string, enabled: string[]) {
+            return enabled.includes(type);
+        }
+
+        toggle(type: string) {
+            this.enabled = this.enabled.includes(type)
+                ? this.enabled.filter((t) => t !== type)
+                : [...this.enabled, type];
+        }
+
+        record(type: string, event: Event) {
+            if (!this.enabled.includes(type)) return;
+            this.log = [
+                describeEvent(type, event as never, Date.now() - this.started),
+                ...this.log,
+            ];
+        }
+
+        clear() {
+            this.log = [];
         }
     }
 );

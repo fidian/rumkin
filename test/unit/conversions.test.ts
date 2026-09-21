@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+    escapeHtml,
+    rainbow,
+    rainbowHtml,
     characterCodes,
     convertBase,
     encodeAsScript,
@@ -142,5 +145,56 @@ describe('encodeAsScript', () => {
         const script = encodeAsScript('a<b');
         const letters = script.match(/\("([^"]*)"/)![1];
         expect(letters.endsWith('<')).toBe(true);
+    });
+});
+
+describe('rainbow', () => {
+    it('gives every character a colour', () => {
+        const letters = rainbow('abc');
+        expect(letters).toHaveLength(3);
+        for (const letter of letters) {
+            expect(letter.colour).toMatch(/^#[0-9a-f]{6}$/);
+        }
+    });
+
+    it('marks whitespace so it stays uncoloured', () => {
+        expect(rainbow('a b').map((l) => l.blank)).toEqual([false, true, false]);
+    });
+
+    it('sweeps through the spectrum rather than repeating one colour', () => {
+        const colours = new Set(rainbow('abcdefgh').map((l) => l.colour));
+        expect(colours.size).toBeGreaterThan(4);
+    });
+
+    it('handles a single character without dividing by zero', () => {
+        expect(rainbow('a')[0].colour).toMatch(/^#[0-9a-f]{6}$/);
+    });
+
+    it('handles empty text', () => {
+        expect(rainbow('')).toEqual([]);
+    });
+});
+
+describe('escapeHtml', () => {
+    it('escapes the characters that would break out of the markup', () => {
+        expect(escapeHtml('<a href="x">&</a>')).toBe(
+            '&lt;a href=&quot;x&quot;&gt;&amp;&lt;/a&gt;'
+        );
+    });
+});
+
+describe('rainbowHtml', () => {
+    it('wraps each character in a coloured span', () => {
+        expect(rainbowHtml('ab')).toMatch(
+            /^<span style="color: #[0-9a-f]{6}">a<\/span><span style="color: #[0-9a-f]{6}">b<\/span>$/
+        );
+    });
+
+    it('leaves spaces outside the spans', () => {
+        expect(rainbowHtml('a b')).toContain('</span> <span');
+    });
+
+    it('escapes the text it colours', () => {
+        expect(rainbowHtml('<')).toContain('>&lt;<');
     });
 });

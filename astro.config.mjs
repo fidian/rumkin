@@ -25,5 +25,11 @@ export default defineConfig({
     ],
     vite: {
         plugins: [literalsHtmlCssMinifier(), yaml()],
+        // @fidian/rumkin-compression is written against Node's Buffer, which
+        // browserify used to shim for it. src/assets/tools/compression.ts
+        // installs the npm "buffer" polyfill before importing it.
+        optimizeDeps: {
+            include: ['buffer', '@fidian/rumkin-compression'],
+        },
     },
 });

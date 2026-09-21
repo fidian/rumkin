@@ -161,3 +161,56 @@ const defaultShuffle = (letters: string[]) =>
         }))
         .sort((a, b) => a.rank - b.rank)
         .map((entry) => entry.letter);
+
+/* ------------------------------------------------------------------ */
+/* Rainbow text                                                        */
+/* ------------------------------------------------------------------ */
+
+export interface RainbowLetter {
+    character: string;
+    colour: string;
+    /** Whitespace carries no colour; it is emitted as it is. */
+    blank: boolean;
+}
+
+const channel = (length: number, index: number, offset: number) => {
+    // Three sine waves a third of a turn apart, squared so they stay
+    // positive, sweep through the spectrum across the length of the text.
+    const position = index / (length / Math.PI) + offset * (Math.PI / 3);
+    const wave = Math.sin(position);
+    return `00${Math.floor(wave * wave * 255).toString(16)}`.slice(-2);
+};
+
+export const rainbow = (text: string): RainbowLetter[] => {
+    const letters = [...text];
+
+    return letters.map((character, index) => ({
+        character,
+        blank: character.trim() === '',
+        colour: `#${channel(letters.length, index, 1)}${channel(
+            letters.length,
+            index,
+            0
+        )}${channel(letters.length, index, -1)}`,
+    }));
+};
+
+const ESCAPES: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+};
+
+export const escapeHtml = (text: string) =>
+    text.replace(/[&<>"]/g, (c) => ESCAPES[c]);
+
+/** The markup for the coloured text, for pasting into a page. */
+export const rainbowHtml = (text: string) =>
+    rainbow(text)
+        .map((letter) =>
+            letter.blank
+                ? letter.character
+                : `<span style="color: ${letter.colour}">${escapeHtml(letter.character)}</span>`
+        )
+        .join('');
