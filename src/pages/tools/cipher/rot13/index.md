@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Rot13
 summary: Swap letters from the beginning of the alphabet with the letters at the end of the alphabet. Encoding is the same as decoding.
 code: true
-js:
-    - ../rumkin-cipher.js
-    - rot13-module.js
-components:
-    - className: module
-      component: Rot13
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 "Rot13" was a popular method of hiding text so only the people who take the time to decode it can read it, but it's such a simple code that everyone should be able to decode it. Swap letters so A becomes N, B becomes O, C changes into P, etc. It also mirrors, so N switches into A. Encoding and decoding is the same. This technique was popular on bulletin board systems and Usenet groups. You can still see it on Geocaching.com and other places to obscure spoilers and hints. The algorithm gets its name by adding 13 to a letter's value, then if you go off the end, you continue counting at the beginning of the alphabet.
@@ -20,9 +20,9 @@ I also made a "rotN" encoder, also called a [Caesarian Shift](../caesar/). This 
 
 Examples:
 
--   <span class="conduit" data-label="Geocaching 101" data-topic="rot13" data-payload-alphabet="English" data-payload-input="Abegu Sbegl Gjb
-    Gjragl Rvtug qbg Frira Avar Mreb
-    Jrfg Mreb Rvtugl Guerr
-    Guvegrra qbg Gjb Gjragl Gjb"></span>
+-   <cipher-example label="Geocaching 101" topic="rot13" payload-alphabet="English" payload-input="Abegu Sbegl Gjb
+Gjragl Rvtug qbg Frira Avar Mreb
+Jrfg Mreb Rvtugl Guerr
+Guvegrra qbg Gjb Gjragl Gjb"></cipher-example>
 
-<div class="module"></div>
+<rot13-cipher></rot13-cipher>

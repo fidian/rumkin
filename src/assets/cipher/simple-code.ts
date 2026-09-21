@@ -61,7 +61,7 @@ component(
 
             <cipher-output
                 .outcome="outcome"
-                .placeholder="placeholderText"
+                placeholder="{{placeholderText}}"
             ></cipher-output>
         `,
     },

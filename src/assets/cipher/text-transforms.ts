@@ -84,3 +84,10 @@ export const makeGroups = (text: string, group: number, split: number) => {
 
     return lines.join('\n');
 };
+
+/**
+ * Swap every 0 for a 1 and every 1 for a 0, for a binary transcription that
+ * was read with the light and dark the wrong way round.
+ */
+export const swapZerosAndOnes = (text: string) =>
+    text.replace(/[01]/g, (c) => (c === '0' ? '1' : '0'));

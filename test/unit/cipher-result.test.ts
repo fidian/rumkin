@@ -5,6 +5,7 @@ import {
     visibleSpacing,
 } from '@/assets/cipher/cipher-result.ts';
 import { defaultAlphabet, parseAlphabetSpec } from '@/assets/cipher/alphabet.ts';
+import { swapZerosAndOnes } from '@/assets/cipher/text-transforms.ts';
 
 const plain = defaultAlphabet();
 
@@ -140,5 +141,13 @@ describe('runCipher', () => {
             'RFP'
         );
         expect(shiftOne(plain)).toBe('LFZ');
+    });
+});
+
+describe('binary swap', () => {
+    it('inverts the bits and leaves everything else alone', () => {
+        expect(swapZerosAndOnes('0100 1001')).toBe('1011 0110');
+        expect(swapZerosAndOnes('no bits here')).toBe('no bits here');
+        expect(swapZerosAndOnes(swapZerosAndOnes('0101'))).toBe('0101');
     });
 });

@@ -7,5 +7,8 @@ import './fonts.css';
 import './cipher-example.ts';
 import './font-code.ts';
 import './simple-code.ts';
+import './binary-code.ts';
+import './letter-numbers-code.ts';
+import './rot13-cipher.ts';
 import './caesar-cipher.ts';
 import './morse-table.ts';
