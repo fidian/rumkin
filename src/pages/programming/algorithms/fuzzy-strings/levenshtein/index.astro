@@ -9,6 +9,250 @@ const breadcrumbs = [
         href: "/programming/algorithms/fuzzy-strings/",
     },
     ];
+
+// Code samples live here rather than in the markup so their braces are
+// not read as Astro expressions.
+const source1 = `public class Distance {
+  //****************************
+  // Get minimum of three values
+  //****************************
+
+  private int Minimum (int a, int b, int c) {
+    int mi;
+
+    mi = a;
+
+    if (b < mi) {
+      mi = b;
+    }
+
+    if (c < mi) {
+      mi = c;
+    }
+
+    return mi;
+  }
+
+  //*****************************
+  // Compute Levenshtein distance
+  //*****************************
+
+  public int LD (String s, String t) {
+    int d[][]; // matrix
+    int n; // length of s
+    int m; // length of t
+    int i; // iterates through s
+    int j; // iterates through t
+    char s_i; // ith character of s
+    char t_j; // jth character of t
+    int cost; // cost
+
+    // Step 1
+
+    n = s.length ();
+    m = t.length ();
+
+    if (n == 0) {
+      return m;
+    }
+
+    if (m == 0) {
+      return n;
+    }
+
+    d = new int[n+1][m+1];
+
+    // Step 2
+
+    for (i = 0; i <= n; i++) {
+      d[i][0] = i;
+    }
+
+    for (j = 0; j <= m; j++) {
+      d[0][j] = j;
+    }
+
+    // Step 3
+
+    for (i = 1; i <= n; i++) {
+      s_i = s.charAt (i - 1);
+
+      // Step 4
+
+      for (j = 1; j <= m; j++) {
+        t_j = t.charAt (j - 1);
+
+        // Step 5
+
+        if (s_i == t_j) {
+          cost = 0;
+        } else {
+          cost = 1;
+        }
+
+        // Step 6
+
+        d[i][j] = Minimum (d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1] + cost);
+      }
+    }
+
+    // Step 7
+
+    return d[n][m];
+  }
+}`;
+
+const source2 = `class Distance
+{
+  public:
+    int LD (char const *s, char const *t);
+  private:
+    int Minimum (int a, int b, int c);
+    int *GetCellPointer (int *pOrigin, int col, int row, int nCols);
+    int GetAt (int *pOrigin, int col, int row, int nCols);
+    void PutAt (int *pOrigin, int col, int row, int nCols, int x);
+}; `;
+
+const source3 = `#include "distance.h"
+#include <string.h>
+#include <malloc.h>
+
+//****************************
+// Get minimum of three values
+//****************************
+
+int Distance::Minimum (int a, int b, int c)
+{
+  int mi;
+
+  mi = a;
+
+  if (b < mi) {
+    mi = b;
+  }
+
+  if (c < mi) {
+    mi = c;
+  }
+
+  return mi;
+}
+
+//**************************************************
+// Get a pointer to the specified cell of the matrix
+//**************************************************
+
+int *Distance::GetCellPointer (int *pOrigin, int col, int row, int nCols)
+{
+  return pOrigin + col + (row * (nCols + 1));
+}
+
+//*****************************************************
+// Get the contents of the specified cell in the matrix
+//*****************************************************
+
+int Distance::GetAt (int *pOrigin, int col, int row, int nCols)
+{
+  int *pCell;
+
+  pCell = GetCellPointer (pOrigin, col, row, nCols);
+
+  return *pCell;
+}
+
+//*******************************************************
+// Fill the specified cell in the matrix with the value x
+//*******************************************************
+
+void Distance::PutAt (int *pOrigin, int col, int row, int nCols, int x)
+{
+  int *pCell;
+
+  pCell = GetCellPointer (pOrigin, col, row, nCols);
+  *pCell = x;
+}
+
+//*****************************
+// Compute Levenshtein distance
+//*****************************
+
+int Distance::LD (char const *s, char const *t)
+{
+  int *d; // pointer to matrix
+  int n; // length of s
+  int m; // length of t
+  int i; // iterates through s
+  int j; // iterates through t
+  char s_i; // ith character of s
+  char t_j; // jth character of t
+  int cost; // cost
+  int result; // result
+  int cell; // contents of target cell
+  int above; // contents of cell immediately above
+  int left; // contents of cell immediately to left
+  int diag; // contents of cell immediately above and to left
+  int sz; // number of cells in matrix
+
+  // Step 1
+
+  n = strlen (s);
+  m = strlen (t);
+
+  if (n == 0) {
+    return m;
+  }
+
+  if (m == 0) {
+    return n;
+  }
+
+  sz = (n+1) * (m+1) * sizeof (int);
+  d = (int *) malloc (sz);
+
+  // Step 2
+
+  for (i = 0; i <= n; i++) {
+    PutAt (d, i, 0, n, i);
+  }
+
+  for (j = 0; j <= m; j++) {
+    PutAt (d, 0, j, n, j);
+  }
+
+  // Step 3
+
+  for (i = 1; i <= n; i++) {
+    s_i = s[i-1];
+
+    // Step 4
+
+    for (j = 1; j <= m; j++) {
+      t_j = t[j-1];
+
+      // Step 5
+
+      if (s_i == t_j) {
+        cost = 0;
+      } else {
+        cost = 1;
+      }
+
+      // Step 6
+
+      above = GetAt (d,i-1,j, n);
+      left = GetAt (d,i, j-1, n);
+      diag = GetAt (d, i-1,j-1, n);
+      cell = Minimum (above + 1, left + 1, diag + cost);
+      PutAt (d, i, j, n, cell);
+    }
+  }
+
+  // Step 7
+
+  result = GetAt (d, n, m, n);
+  free (d);
+  return result;
+} `;
 ---
 
 <script>
@@ -216,95 +460,7 @@ L655432 </code></pre>
         <li>Visual Basic</li>
     </ul>
     <h2>Java</h2>
-    <pre><code>public class Distance &lcub;
-  //****************************
-  // Get minimum of three values
-  //****************************
-
-  private int Minimum (int a, int b, int c) &lcub;
-    int mi;
-
-    mi = a;
-
-    if (b &lt; mi) &lcub;
-      mi = b;
-    }
-
-    if (c &lt; mi) &lcub;
-      mi = c;
-    }
-
-    return mi;
-  }
-
-  //*****************************
-  // Compute Levenshtein distance
-  //*****************************
-
-  public int LD (String s, String t) &lcub;
-    int d[][]; // matrix
-    int n; // length of s
-    int m; // length of t
-    int i; // iterates through s
-    int j; // iterates through t
-    char s_i; // ith character of s
-    char t_j; // jth character of t
-    int cost; // cost
-
-    // Step 1
-
-    n = s.length ();
-    m = t.length ();
-
-    if (n == 0) &lcub;
-      return m;
-    }
-
-    if (m == 0) &lcub;
-      return n;
-    }
-
-    d = new int[n+1][m+1];
-
-    // Step 2
-
-    for (i = 0; i &lt;= n; i++) &lcub;
-      d[i][0] = i;
-    }
-
-    for (j = 0; j &lt;= m; j++) &lcub;
-      d[0][j] = j;
-    }
-
-    // Step 3
-
-    for (i = 1; i &lt;= n; i++) &lcub;
-      s_i = s.charAt (i - 1);
-
-      // Step 4
-
-      for (j = 1; j &lt;= m; j++) &lcub;
-        t_j = t.charAt (j - 1);
-
-        // Step 5
-
-        if (s_i == t_j) &lcub;
-          cost = 0;
-        } else &lcub;
-          cost = 1;
-        }
-
-        // Step 6
-
-        d[i][j] = Minimum (d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1] + cost);
-      }
-    }
-
-    // Step 7
-
-    return d[n][m];
-  }
-}</code></pre>
+    <pre><code set:text={source1} /></pre>
     <h2>C++</h2>
     <p>
         In C++, the size of an array must be a constant, and this code fragment
@@ -318,159 +474,11 @@ int arr[sz]; </code></pre>
         two-dimensional array, with a size determined at run-time.
     </p>
     <p>Here is the <strong>definition</strong> of the class (distance.h):</p>
-    <pre><code>class Distance
-&lcub;
-  public:
-    int LD (char const *s, char const *t);
-  private:
-    int Minimum (int a, int b, int c);
-    int *GetCellPointer (int *pOrigin, int col, int row, int nCols);
-    int GetAt (int *pOrigin, int col, int row, int nCols);
-    void PutAt (int *pOrigin, int col, int row, int nCols, int x);
-}; </code></pre>
+    <pre><code set:text={source2} /></pre>
     <p>
         Here is the <strong>implementation</strong> of the class (distance.cpp):
     </p>
-    <pre><code>#include "distance.h"
-#include &lt;string.h&gt;
-#include &lt;malloc.h&gt;
-
-//****************************
-// Get minimum of three values
-//****************************
-
-int Distance::Minimum (int a, int b, int c)
-&lcub;
-  int mi;
-
-  mi = a;
-
-  if (b &lt; mi) &lcub;
-    mi = b;
-  }
-
-  if (c &lt; mi) &lcub;
-    mi = c;
-  }
-
-  return mi;
-}
-
-//**************************************************
-// Get a pointer to the specified cell of the matrix
-//**************************************************
-
-int *Distance::GetCellPointer (int *pOrigin, int col, int row, int nCols)
-&lcub;
-  return pOrigin + col + (row * (nCols + 1));
-}
-
-//*****************************************************
-// Get the contents of the specified cell in the matrix
-//*****************************************************
-
-int Distance::GetAt (int *pOrigin, int col, int row, int nCols)
-&lcub;
-  int *pCell;
-
-  pCell = GetCellPointer (pOrigin, col, row, nCols);
-
-  return *pCell;
-}
-
-//*******************************************************
-// Fill the specified cell in the matrix with the value x
-//*******************************************************
-
-void Distance::PutAt (int *pOrigin, int col, int row, int nCols, int x)
-&lcub;
-  int *pCell;
-
-  pCell = GetCellPointer (pOrigin, col, row, nCols);
-  *pCell = x;
-}
-
-//*****************************
-// Compute Levenshtein distance
-//*****************************
-
-int Distance::LD (char const *s, char const *t)
-&lcub;
-  int *d; // pointer to matrix
-  int n; // length of s
-  int m; // length of t
-  int i; // iterates through s
-  int j; // iterates through t
-  char s_i; // ith character of s
-  char t_j; // jth character of t
-  int cost; // cost
-  int result; // result
-  int cell; // contents of target cell
-  int above; // contents of cell immediately above
-  int left; // contents of cell immediately to left
-  int diag; // contents of cell immediately above and to left
-  int sz; // number of cells in matrix
-
-  // Step 1
-
-  n = strlen (s);
-  m = strlen (t);
-
-  if (n == 0) &lcub;
-    return m;
-  }
-
-  if (m == 0) &lcub;
-    return n;
-  }
-
-  sz = (n+1) * (m+1) * sizeof (int);
-  d = (int *) malloc (sz);
-
-  // Step 2
-
-  for (i = 0; i &lt;= n; i++) &lcub;
-    PutAt (d, i, 0, n, i);
-  }
-
-  for (j = 0; j &lt;= m; j++) &lcub;
-    PutAt (d, 0, j, n, j);
-  }
-
-  // Step 3
-
-  for (i = 1; i &lt;= n; i++) &lcub;
-    s_i = s[i-1];
-
-    // Step 4
-
-    for (j = 1; j &lt;= m; j++) &lcub;
-      t_j = t[j-1];
-
-      // Step 5
-
-      if (s_i == t_j) &lcub;
-        cost = 0;
-      } else &lcub;
-        cost = 1;
-      }
-
-      // Step 6
-
-      above = GetAt (d,i-1,j, n);
-      left = GetAt (d,i, j-1, n);
-      diag = GetAt (d, i-1,j-1, n);
-      cell = Minimum (above + 1, left + 1, diag + cost);
-      PutAt (d, i, j, n, cell);
-    }
-  }
-
-  // Step 7
-
-  result = GetAt (d, n, m, n);
-  free (d);
-  return result;
-} </code></pre>
+    <pre><code set:text={source3} /></pre>
     <h2>Visual Basic</h2>
     <pre><code>'*******************************
 '*** Get minimum of three values

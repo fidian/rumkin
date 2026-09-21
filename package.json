@@ -14,7 +14,7 @@
         "start": "astro dev --open --host",
         "test": "npm run build && npm run verify-external-links && npm run verify-internal-links",
         "verify-external-links": "checklinks -a",
-        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '\u274c' )"
+        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '❌' )"
     },
     "dependencies": {
         "@fidian/acss-live": "^3.1.0",
@@ -22,9 +22,9 @@
         "@literals/rollup-plugin-html-css-minifier": "^4.0.0",
         "@rollup/plugin-yaml": "^4.1.2",
         "@types/node": "^25.5.0",
-        "astro": "^6.1.2",
+        "astro": "^7.3.3",
         "check-html-links": "^0.2.4",
-        "fudgel": "^3.3.0",
+        "fudgel": "^4.0.0",
         "prettier": "^3.8.1",
         "prettier-plugin-astro": "^0.14.1",
         "typescript": "^5.9.3"

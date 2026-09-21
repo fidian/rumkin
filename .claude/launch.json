@@ -1,0 +1,11 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "name": "rumkin",
+            "runtimeExecutable": "npx",
+            "runtimeArgs": ["astro", "preview", "--port", "4321"],
+            "port": 4321
+        }
+    ]
+}
