@@ -16,11 +16,12 @@
         "test-unit": "vitest run",
         "test-watch": "vitest",
         "verify-external-links": "checklinks -a",
-        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '\u274c' )",
+        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '❌' )",
         "verify-spacing": "node tools/check-spacing.mjs"
     },
     "dependencies": {
         "@fidian/acss-live": "^3.1.0",
+        "@fidian/rumkin-cipher": "^0.17.4",
         "@johnwargo/link-checker": "^0.0.9",
         "@literals/rollup-plugin-html-css-minifier": "^4.0.0",
         "@rollup/plugin-yaml": "^4.1.2",
