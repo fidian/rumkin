@@ -54,7 +54,7 @@ edited. Both are true; they are different targets.
 
 ## Page layouts
 
-Four layouts, each loading one bundle of elements, so a page stays as
+Five layouts, each loading one bundle of elements, so a page stays as
 Markdown and drops in the element it wants:
 
 | Layout | Bundle |
