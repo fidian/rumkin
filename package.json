@@ -6,8 +6,9 @@
         "node": ">=22.12.0"
     },
     "scripts": {
-        "build": "npm run build-dist && npm run build-sitemap && npm run verify-internal-links && npm run verify-spacing",
+        "build": "npm run build-dist && npm run verify-internal-links && npm run verify-spacing && npm run build-sitemap && npm run build-redirects",
         "build-dist": "astro build",
+        "build-redirects": "node tools/build-redirects.mjs",
         "build-sitemap": "node build-sitemap.mjs",
         "preview": "astro preview",
         "reinstall": "rm -rf node_modules package-lock.json && npm install",
@@ -16,7 +17,7 @@
         "test-unit": "vitest run",
         "test-watch": "vitest",
         "verify-external-links": "checklinks -a",
-        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '❌' )",
+        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'image.php/**' 'js/keymaker.js' 'css/base.css' 'css/normal.css' 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '\u274c' )",
         "verify-spacing": "node tools/check-spacing.mjs"
     },
     "dependencies": {
@@ -36,6 +37,7 @@
         "marked": "^18.0.13",
         "prettier": "^3.8.1",
         "prettier-plugin-astro": "^0.14.1",
+        "psr": "^0.0.1",
         "tai-password-strength": "^1.1.3",
         "typescript": "^5.9.3"
     },

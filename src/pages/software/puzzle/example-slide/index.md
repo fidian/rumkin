@@ -1,11 +1,16 @@
 ---
+layout: "@/layouts/software-layout.astro"
 title: Java Puzzle Applet - Success
-js: ../../../js/search-scope.js
-module: searchScope
-controller: searchScope
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
+    - name: Java Puzzle Applet
+      href: /software/puzzle/
 ---
 
-You solved it in {{search.moves}} moves!
+You solved it in <puzzle-moves></puzzle-moves> moves!
 
 Back to the [main puzzle page](../).
 

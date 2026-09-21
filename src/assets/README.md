@@ -52,6 +52,21 @@ edited. Both are true; they are different targets.
 `prop` is the one to declare when a whole object is being passed, as with
 `<keyed-alphabet .selection="alphabet">`.
 
+## Page layouts
+
+Four layouts, each loading one bundle of elements, so a page stays as
+Markdown and drops in the element it wants:
+
+| Layout | Bundle |
+| --- | --- |
+| `default-layout.astro` | none |
+| `cipher-layout.astro` | `src/assets/cipher/register.ts` |
+| `tool-layout.astro` | `src/assets/tools/register.ts` |
+| `software-layout.astro` | `src/assets/software/register.ts` |
+| `reference-layout.astro` | `src/assets/reference/register.ts` |
+
+A new element goes in the matching `register.ts`.
+
 ## Cipher pages
 
 `cipher/register.ts` is the bundle `cipher-layout.astro` loads, so a page

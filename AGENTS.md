@@ -1,8 +1,8 @@
 # AGENTS.md
 
-Rumkin.com, mid-way through a conversion from Metalsmith to Astro. This file
-is for anyone — person or agent — picking the conversion up. The rules for
-writing browser-side components are in `src/assets/README.md`.
+Rumkin.com, built with Astro. The conversion from Metalsmith is finished;
+this file is what was learned doing it. The rules for writing browser-side
+components are in `src/assets/README.md`.
 
 ## Commands
 
@@ -16,8 +16,12 @@ npm start           # dev server
 ```
 
 `npm run build` is the gate. It fails on a broken internal link and on the
-two silent-markup problems described below. Do not weaken those checks to get
-a build through.
+silent-markup problems described below. Do not weaken those checks to get a
+build through.
+
+Order matters in that script: the 377 redirect stubs are written last, after
+the link check and the sitemap, because they point at historical URLs and
+two dozen of those were removed from the site years ago.
 
 ## Layout
 
@@ -29,31 +33,19 @@ a build through.
 - `src/layouts/`, `src/components/` — Astro-side layout and build-time pieces.
 - `src/data/` — JSON a page renders at build time.
 - `public/` — everything served as-is, mirroring its URL path.
-- `legacy/` — the Mithril sources still to be ported. **Delete a directory
-  once its page is converted.** When `legacy/` is empty the port is done.
-- `metalsmith/` — the old build. Deleted at the end; its `TODO` has real
-  content that should be moved out first.
-- `tools/` — the conversion's own scripts.
+- `tools/` — the build's own scripts, and the ones the conversion used.
+  `redirects.json` is data the site has accumulated since the 1990s.
 
-## Where the conversion stands
+## Where things stand
 
-Run this for the current count:
+Every page is converted: 176 pages, 39 of them ciphers, 15 tools, and 435
+tests. Nothing Mithril, jQuery or Metalsmith is left.
 
-```bash
-for f in $(find src/pages -name '*.md'); do grep -q '^layout:' "$f" || echo "$f"; done | wc -l
-```
-
-A markdown page with no `layout:` frontmatter has not been converted; it
-renders with no title, no breadcrumbs and no styling.
-
-Cipher pages: 25 of 39 done. Remaining are bifid, playfair, ubchi,
-double-columnar-transposition, baconian, the three apps (analyze, cryptogram,
-cryptogram-solver), and six stubs.
-
-**Six cipher pages are stubs upstream** — braille, decimal, hexadecimal,
-octal, t9 and telephone each render the literal string `ok` and carry
-`summary: FIXME`. They are placeholders on the live site, not conversion
-damage. Ask before inventing implementations for them.
+**Six cipher pages are placeholders** — braille, decimal, hexadecimal,
+octal, t9 and telephone. They were never written; upstream they rendered
+the literal string `ok` under the word "Words!". They now say so plainly.
+Building them means writing new ciphers, since the library has no base-N
+letter code. Ask before inventing them.
 
 ## Checking the work
 
@@ -67,15 +59,28 @@ node tools/compare-to-live.mjs diff           # summary
 node tools/compare-to-live.mjs diff --show /tools/cipher/caesar/
 ```
 
-Differences it still reports on converted pages are deliberate content edits
-made during the conversion. Read one before assuming it is a regression, and
-read the live page before assuming the live page works.
+119 of 182 pages match the live site exactly. The rest are deliberate edits
+made during the conversion, the smart typography Astro applies, and a
+handful of places where the live site is simply wrong. Read a difference
+before assuming it is a regression, and read the live page before assuming
+the live page works.
 
-**The live site is not a correctness oracle.** Several pages are broken in
-production: the whiteboard cleaners table is shifted a column with
-uninterpolated `{{anchor}}` in it, the rail fence example button does
-nothing, and `image.html` needs a PHP backend that no longer exists. When
-the conversion and the live site disagree, check which one is right.
+**The live site is not a correctness oracle.** A good deal of it is broken
+in production, and the conversion fixed rather than reproduced it:
+
+- The whiteboard cleaners table is shifted a column, with uninterpolated
+  `{{anchor}}` in the markup.
+- The rail fence example button does nothing.
+- The mailto encoder's "break up strings" option writes the address with
+  commas in it.
+- Picking Backspace, Explode or Fly Off in the marquee generator throws.
+- The twelve Levenshtein pages have an empty `<title>`.
+- `image.html` wants a PHP backend that is long gone, and
+  `quagmires.html` points at `/tools/quagmires/`, which is a 404.
+- Two dozen redirects lead to sections that were removed years ago;
+  `npm run build-redirects` lists them every build.
+
+When the conversion and the live site disagree, check which one is right.
 
 ## Converting a cipher page
 

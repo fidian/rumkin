@@ -231,3 +231,33 @@ textarea {
     outline: 2px solid currentColor;
     outline-offset: -2px;
 }
+
+/*
+ * Lifegenesis cell colours. These live here rather than in the component
+ * because the page's legend uses the same classes outside it.
+ */
+.cell {
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+}
+
+.cell-fixed {
+    display: inline-block;
+}
+
+.state0 {
+    background-color: yellow;
+}
+
+.state1 {
+    background-color: green;
+}
+
+.state2 {
+    background-color: blue;
+}
+
+.state3 {
+    background-color: purple;
+}

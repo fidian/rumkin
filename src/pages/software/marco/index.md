@@ -1,12 +1,12 @@
 ---
+layout: "@/layouts/software-layout.astro"
 title: Marco
 summary: Surveyor software for the Palm Pilot and other Palm OS devices.  Designed to be a tool for quick calculations and small amounts of number crunching.  Not a complete solution for surveying, but a fast and quick reference and calculator.
-components:
-    -
-        className: module
-        component: Register
-js:
-    - ./register-module.js
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 **Notice:** Marco is considered "End of Life" software and will no longer be supported.  It is still available for download and this site will now generate registration codes for free.
@@ -51,7 +51,7 @@ Marco used to be shareware, but now it is not supported.  I have opened up the r
 4. Enter the code into the area below to get your unlock code.
 5. Enter the unlock code into Marco.
 
-<p class="module"></p>
+<marco-register></marco-register>
 
 
 Other Calculators

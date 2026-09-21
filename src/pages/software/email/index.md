@@ -1,13 +1,12 @@
 ---
+layout: "@/layouts/software-layout.astro"
 title: Email Validation Done Right
 summary: Javascript and PHP code that will verify that an email address at least appears valid and should pass RFC checks.
-js:
-    - is-valid-email.js
-    - valid-email-module.js
-components:
-    -
-        className: module
-        component: ValidEmail
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Software Projects
+      href: /software/
 ---
 
 I have a problem with most email validators on the web.  They let through things that are completely wrong.  They mark good email addresses as invalid.
@@ -20,7 +19,7 @@ Try It Yourself
 
 Enter an email below and it will validate the email address as you type.
 
-<div class="module"></div>
+<email-validator></email-validator>
 
 
 See a mistake?  First, confirm with [the rules](rules/) and see where I have gone wrong, then email me!  Be forewarned: the rules can be a bit overwhelming.

@@ -1,7 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Geographic Navigation
-js: geonav.js
 summary: By using a spinning globe, you can separate the information you have about the world into groups by continent.  Spinning globe is provided by JavaScript and a series of images.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 <div style="background-color: black; width: 350px; float: right">
@@ -82,3 +89,5 @@ summary: By using a spinning globe, you can separate the information you have ab
     <A HREF="http://livingearth.com/">The Living Earth</A></LI>
     <LI>Positioning on the globe was done with a shareware Windows program, Amiglobe 99.</LI>
 </div>
+
+<script src="geonav.js"></script>

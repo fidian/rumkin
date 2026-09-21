@@ -1,14 +1,14 @@
 ---
+layout: "@/layouts/reference-layout.astro"
 title: Scoreboard
-js:
-    - scoreboard-module.js
-css:
-    - scoreboard.css
-components:
-    -
-        className: module
-        component: Scoreboard
 summary: A sample scoreboard for a geocacher in my area.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 King Boreas' Hall of Fame
@@ -23,4 +23,4 @@ Last Updated: April 7<sup>th</sup>, 2013 with number 196
 [9Key Hall of Fame]: http://www.9key.com/hall_of_fame.asp
 [Licensing Info]: ../../../license/
 
-<div class="module My(1em)"></div>
+<score-board></score-board>

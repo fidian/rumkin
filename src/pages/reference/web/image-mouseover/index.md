@@ -1,7 +1,14 @@
 ---
+layout: "@/layouts/default-layout.astro"
 title: Mouseover Example
-js: index.js
 summary: Swapping images with a mouseover.  This also displays textual descriptions and can put a message in the status bar.
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Reference Materials
+      href: /reference/
+    - name: Web Reference
+      href: /reference/web/
 ---
 
 Move your mouse over an image to see the description.  Works on IE 4+, Netscape 3+ and newer, Firefox, Mozilla, and Opera.
@@ -13,3 +20,5 @@ This example does several tricks.  It preloads images for a faster button-switch
 <FORM NAME="Form1">
 <P><INPUT TYPE="text" SIZE="40" NAME="Text1"></P>
 </form>
+
+<script src="index.js"></script>
