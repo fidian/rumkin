@@ -5,11 +5,20 @@
  * No DOM here, so all of it is tested under Node.
  */
 
-// German sharp s is the one letter whose case change JavaScript gets wrong
-// for this purpose: "ß".toUpperCase() is "SS", which changes the length of
-// the message and so changes the cipher text. Swap in capital sharp s
-// BEFORE uppercasing - the Mithril version did it after, by which point
-// there was no "ß" left to match and the guard never fired.
+// A cipher must not change the length of the message, or every letter after
+// the change is shifted along. German sharp s is the one letter that
+// threatens that: today "ß".toUpperCase() is "SS", two characters where
+// there was one.
+//
+// The Mithril version uppercased first and mapped any surviving "ß" to "ẞ"
+// afterwards, which was right when it was written - browsers then returned
+// "ß" unchanged from toUpperCase(), so the ones that survived were exactly
+// the ones to map. Engines have since moved to Unicode's default case
+// mapping, the expansion happens first, and the replacement finds nothing
+// left to match.
+//
+// Swapping in capital sharp s before the case change holds under both
+// behaviours, because "ẞ" is already upper case and lowers back cleanly.
 export const lower = (text: string) =>
     text.replace(/ẞ/g, 'ß').toLowerCase();
 export const upper = (text: string) =>

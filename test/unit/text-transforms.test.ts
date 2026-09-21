@@ -20,8 +20,10 @@ describe('case conversion', () => {
     });
 
     it('keeps the German sharp s a single character', () => {
-        // "ß".toUpperCase() is "SS", which would lengthen the message and so
-        // change the cipher text. Capital sharp s keeps the length.
+        // "ß".toUpperCase() is "SS" in current engines, which would lengthen
+        // the message and shift every letter after it. Capital sharp s keeps
+        // the length. Older browsers returned "ß" unchanged here, which is
+        // why the original code got away with mapping it afterwards.
         expect(upper('straße')).toBe('STRAẞE');
         expect(upper('straße')).toHaveLength('straße'.length);
         expect(lower('STRAẞE')).toBe('straße');
