@@ -1,0 +1,25 @@
+---
+// The cipher and code pages are mostly prose, so they stay as Markdown and
+// drop the custom elements straight into the body. This layout is what puts
+// the elements on the page; a page opts in with:
+//
+//     layout: "@/layouts/cipher-layout.astro"
+import DefaultLayout from "@/layouts/default-layout.astro";
+
+interface Props {
+    breadcrumbs?: { name: string; href: string }[];
+    summary?: string;
+    title: string;
+}
+
+const { breadcrumbs, summary, title } =
+    (Astro.props.frontmatter as Props) || Astro.props;
+---
+
+<script>
+    import "@/assets/cipher/register.ts";
+</script>
+
+<DefaultLayout title={title} summary={summary} breadcrumbs={breadcrumbs}>
+    <slot />
+</DefaultLayout>
