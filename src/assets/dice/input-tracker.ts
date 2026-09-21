@@ -1,4 +1,4 @@
-module.exports = class InputTracker {
+export default class InputTracker {
     constructor(input) {
         this.input = input;
         this.index = 0;

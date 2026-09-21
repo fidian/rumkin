@@ -1,4 +1,4 @@
-module.exports = class Rolls {
+export default class Rolls {
     constructor() {
         this.map = new Map();
         this.bonus = 0;

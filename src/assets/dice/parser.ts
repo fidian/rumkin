@@ -1,6 +1,6 @@
-const InputTracker = require("./input-tracker");
+import InputTracker from './input-tracker.ts';
 
-module.exports = class Parser {
+export default class Parser {
     parse(input) {
         const tracker = new InputTracker(input);
 

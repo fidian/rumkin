@@ -1,6 +1,6 @@
-const Rolls = require("./rolls");
+import Rolls from './rolls.ts';
 
-module.exports = class Roller {
+export default class Roller {
     constructor() {
         this.callback = null;
         this.statusCallback = null;
