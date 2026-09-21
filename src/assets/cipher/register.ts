@@ -11,5 +11,7 @@ import './binary-code.ts';
 import './letter-numbers-code.ts';
 import './rot13-cipher.ts';
 import './keyed-ciphers.ts';
+import './square-cipher.ts';
+import './transposition-ciphers.ts';
 import './caesar-cipher.ts';
 import './morse-table.ts';

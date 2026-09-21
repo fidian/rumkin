@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Playfair
 summary: This cipher uses pairs of letters and a 5x5 grid to encode a message.  It is fairly strong for a pencil and paper style code.
 cipher: true
-js:
-    - ../rumkin-cipher.js
-    - playfair-module.js
-components:
-    - className: module
-      component: Playfair
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 The Playfair cipher is a digraph substitution cipher.  It employs a table where one letter of the alphabet is omitted, and the letters are arranged in a 5x5 grid.  Typically, the J is removed from the alphabet and an I takes its place in the text that is to be encoded.  Below is an unkeyed grid.
@@ -35,6 +35,6 @@ The resulting message is now "KC NV MP OT CZ" or "KCNVMPOTCZ" if you remove the 
 This encoder will do all of the lookups for you. It also preserves punctuation and whitespace, but it starts to get a bit weird when inserting letters between repeats or when adding a letter at the end. For example, the message "HEY!" would chage to "KCZ!X". If you don't want that to happen, include the padding characters manually.
 
 This particular cipher was used by the future U.S. President, John F.
-Kennedy, Sr.  He sent a <span class="conduit" data-label="message" data-topic="playfair" data-payload-alphabet="English alphabetKey:ROYALNEWZEALANDNAVY useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false" data-payload-direction="DECRYPT" data-payload-translations="JI" data-payload-doubles="UNCHANGED" data-payload-input="KX JEYU REB EZW EHEW RYTU HE YFSKRE HE GOYFIWTT TUOLKS YCA JPOBO TE IZONTX BYBW T GONE YC UZWRGD S ONSXBOU YWR HEBAAHYUSED Q"></span> about a boat going down.
+Kennedy, Sr.  He sent a <cipher-example label="message" topic="playfair" payload-alphabet="English alphabetKey:ROYALNEWZEALANDNAVY useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false" payload-direction="DECRYPT" payload-translations="JI" payload-doubles="UNCHANGED" payload-input="KX JEYU REB EZW EHEW RYTU HE YFSKRE HE GOYFIWTT TUOLKS YCA JPOBO TE IZONTX BYBW T GONE YC UZWRGD S ONSXBOU YWR HEBAAHYUSED Q"></cipher-example> about a boat going down.
 
-<div class="module"></div>
+<square-cipher code="playfair" topic="playfair" with-doubles></square-cipher>

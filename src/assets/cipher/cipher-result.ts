@@ -19,6 +19,11 @@ export interface CipherRequest {
      * an alphabet, and the library wants no alphabet at all for those.
      */
     noAlphabet?: boolean;
+    /**
+     * A prepared alphabet to use instead of building one from `alphabet`.
+     * Bifid and Playfair collapse theirs to a square first.
+     */
+    squareAlphabet?: unknown;
     options?: Record<string, unknown>;
 }
 
@@ -83,7 +88,9 @@ export const runCipher = (request: CipherRequest): CipherOutcome => {
         const text = String(
             module[method](
                 new rumkinCipher.util.Message(message),
-                request.noAlphabet ? null : buildAlphabet(request.alphabet),
+                request.noAlphabet
+                    ? null
+                    : (request.squareAlphabet ?? buildAlphabet(request.alphabet)),
                 options ?? undefined
             )
         );

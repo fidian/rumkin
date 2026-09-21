@@ -1,15 +1,15 @@
 ---
+layout: "@/layouts/cipher-layout.astro"
 title: Bifid
-summary: Breaks information for each letter up and spreads it out in the encoded message. An easy and fairly secure pencil & paper cipher.
+summary: "Breaks information for each letter up and spreads it out in the encoded message. An easy and fairly secure pencil & paper cipher."
 cipher: true
-js:
-    - ../rumkin-cipher.js
-    - bifid-module.js
-components:
-    - className: module
-      component: Bifid
-    - className: conduit
-      component: Conduit
+breadcrumbs:
+    - name: Rumkin.com
+      href: /
+    - name: Web-Based Tools
+      href: /tools/
+    - name: Ciphers and Codes
+      href: /tools/cipher/
 ---
 
 The Bifid cipher is considered a more secure cipher because it breaks the message apart into two separate streams and then recombines them. This spreads the information out to multiple letters, increasing security. It uses a table with one letter of the alphabet omitted. Often the J is removed and people just use an I instead. Below is an unkeyed grid.
@@ -32,6 +32,6 @@ All non-letters are ignored and not encoded. The one skipped letter will be auto
 
 Examples:
 
--   <span class="conduit" data-label="Wikipedia" data-topic="bifid" data-payload-alphabet="English alphabetKey:BGWKZQPNDSIOAXEFCLUMTHYVR useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false" data-payload-direction="DECRYPT" data-payload-input="UAEOLWRINS" data-payload-translations="JI"></span>
+-   <cipher-example label="Wikipedia" topic="bifid" payload-alphabet="English alphabetKey:BGWKZQPNDSIOAXEFCLUMTHYVR useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false" payload-direction="DECRYPT" payload-input="UAEOLWRINS" payload-translations="JI"></cipher-example>
 
-<div class="module"></div>
+<square-cipher code="bifid" topic="bifid"></square-cipher>
