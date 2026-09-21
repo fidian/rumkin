@@ -135,6 +135,11 @@ left an element with an empty palette and nothing in the console. Entity-
 escape it; `npm run verify-spacing` parses every JSON attribute in `dist` and
 fails the build on a broken one.
 
+**`key` and `value` are reserved `*for` loop variables.** `*for="key of keys"`
+collides with the index Fudgel already provides, and every `{{key.something}}`
+in the loop renders empty - no error, just blank boxes. Name the loop variable
+something else.
+
 **Astro's `compressHTML: 'jsx'` strips whitespace at a line boundary next to a
 tag.** A link wrapped onto the next line in an `.astro` source renders as
 `whiteboards</a>reference`. Separate them with `{" "}`. The same check catches
