@@ -27,6 +27,9 @@ export default defineConfig({
                 },
             },
             {
+                // rumkin-cipher is CommonJS; pre-bundling it up front keeps
+                // Vite from re-optimizing mid-run and reloading the suite.
+                optimizeDeps: { include: ['@fidian/rumkin-cipher'] },
                 test: {
                     name: 'browser',
                     include: ['test/browser/**/*.test.ts'],
