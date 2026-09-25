@@ -17,7 +17,8 @@ npm start           # dev server
 
 `npm run build` is the gate. It fails on a broken internal link and on the
 silent-markup problems described below. Do not weaken those checks to get a
-build through.
+build through. CI runs `test-unit` and then `build` on every push and pull
+request, and deploys only from master.
 
 Order matters in that script: the 360 redirect stubs are written last, after
 the link check and the sitemap, because they point at historical URLs and
@@ -35,6 +36,10 @@ reports a dead end if that ever stops being true.
   `src/assets/README.md` before writing one.
 - `src/layouts/`, `src/components/` — Astro-side layout and build-time pieces.
 - `src/data/` — JSON a page renders at build time.
+- `src/images/` — photographs a page wants Astro to optimise. Anything in
+  `public/` is served byte for byte, so a camera original stays a camera
+  original; a file under `src/images/` referenced from Markdown as
+  `![alt](../../../images/...)` comes out as a webp srcset instead.
 - `public/` — everything served as-is, mirroring its URL path.
 - `tools/` — the build's own scripts, and the ones the conversion used.
   `redirects.json` is data the site has accumulated since the 1990s.
@@ -45,10 +50,9 @@ Every page is converted: 177 pages, 40 of them ciphers, 15 tools, and 435
 tests. Nothing Mithril, jQuery or Metalsmith is left.
 
 **Six cipher pages are placeholders** — braille, decimal, hexadecimal,
-octal, t9 and telephone. They were never written; upstream they rendered
-the literal string `ok` under the word "Words!". They now say so plainly.
-Building them means writing new ciphers, since the library has no base-N
-letter code. Ask before inventing them.
+octal, t9 and telephone — and Quagmire is the one cipher page that does not
+use `@fidian/rumkin-cipher`. `CIPHERS-TODO.md` has both, with what each one
+needs and roughly how long it takes. Ask before inventing a cipher.
 
 ## Checking the work
 
@@ -172,6 +176,26 @@ this.
 **Astro 7's compiler does not auto-close tags** and rejects a bare `}` in
 markup. Long code samples belong in the frontmatter as template literals
 rendered with `set:text`, not escaped with `&lcub;`.
+
+## Photographs
+
+A photograph in `public/` is served exactly as it sits on disk, which for
+this site meant five camera originals totalling 4.1 MB on one page. Move it
+to `src/images/`, reference it from the Markdown with `![alt](relative/path)`,
+and wrap it in `<div class="Ta(c) photo">` with blank lines around the image
+so the Markdown inside still parses:
+
+```markdown
+<div class="Ta(c) photo">
+
+![Final design of desiccant bag](../../../images/reference/desiccant/pict1294b.jpg)
+
+</div>
+```
+
+Astro then emits a webp srcset, and `.photo img` in `src/assets/styles.css`
+keeps it to 40vw/40vh. `reference/desiccant/` is the worked example; the
+`TODO` file lists the pages that still need it.
 
 ## Style
 

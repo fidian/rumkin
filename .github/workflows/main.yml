@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - master
+    pull_request:
 
 jobs:
     build-and-deploy:
@@ -18,12 +19,23 @@ jobs:
                   node-version: 22
                   cache: npm
 
-            - name: Install and build
-              run: |
-                  npm ci
-                  npm run build
+            - name: Install
+              run: npm ci
 
+            # The browser project runs the custom elements in real Chromium,
+            # so the binary has to be fetched before vitest starts.
+            - name: Install Chromium
+              run: npx playwright install chromium --with-deps
+
+            - name: Test
+              run: npm run test-unit
+
+            - name: Build
+              run: npm run build
+
+            # Pull requests get the tests and the build; only master ships.
             - name: Deploy
+              if: github.ref == 'refs/heads/master'
               uses: JamesIves/github-pages-deploy-action@v4
               with:
                   branch: gh-pages

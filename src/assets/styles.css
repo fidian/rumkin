@@ -261,3 +261,16 @@ textarea {
 .state3 {
     background-color: purple;
 }
+
+/*
+ * A photograph dropped into a page's prose. Astro's image pipeline emits a
+ * srcset from the camera original, so the cap here is about how much of the
+ * page a photo takes up, not about file size.
+ *
+ * Cap the width only. Astro's constrained layout sets "width: 100%" on the
+ * image, so a max-height would squash it rather than scale it, and setting
+ * "width: auto" collapses it to nothing before the srcset resolves.
+ */
+.photo img {
+    max-width: 40vw;
+}

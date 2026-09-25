@@ -4,21 +4,29 @@ https://diy.smartkids123.com/wig-wag-signals-and-wigwagging/
 https://search.google.com/test/mobile-friendly
 Must serve over HTTPS
 
-THINGS NEEDED TO GET DONE AND WERE SKIPPED DURING REVAMP
-* Jasmine tests for tools/mailto-encoder/
-* manually test the marquee generator and its angular changes
-* manually test the decision tree - it now loads JSON
-* Update the JS in reference/dnd/diestats/ and include tests
-* Should rewrite metalsmith-hbt-md to use marked (same as metalsmith-layout) so I can register a directory of partials to use in the markdown.
-    * Make a subpage listing partial.  reference/problems software tools/trinkets
-* Pull images out of Google Plus for whiteboard testing photo album.  Include in site.
+THINGS SKIPPED DURING THE REVAMP
+Settled by the Astro conversion, kept here only so nobody re-opens them:
+the mailto encoder, marquee generator, die stats, table sorter and cipher
+textareas are all converted and tested; metalsmith-hbt-md and the "make it
+Angular" items died with Metalsmith and Mithril.
+
+Still open:
+* The decision tree is converted but has no test.  It is the one tool of any
+  size without one.
+* Pull images out of Google Plus for whiteboard testing photo album.  Include
+  in site.
     * Should use some sort of gallery plugin or renderer.
-* Table sorter could be made into Angular instead of jQuery.
 * Make table sorter CSS more atomic.
 * Email rules may have changed since RFC 2822 is now obsolete.
 * programming/atomic-css needs expansion
-* Cryptogram page should scan for characters in the plaintext and produce a table from it, or at least without skipping some characters.
-* Cipher entry textareas should have `autocorrect="off" autocapitalize="off" spellcheck="false"` when entering ciphertext.
+* Cryptogram page should scan for characters in the plaintext and produce a
+  table from it, or at least without skipping some characters.
+* Six cipher pages are placeholders.  See CIPHERS-TODO.md.
+* 14 camera originals still sit in public/ and are served at full size.
+  reference/desiccant/ shows the pattern that fixes it: move the file under
+  src/images/, reference it from the Markdown with ![](...), and wrap it in
+  <div class="Ta(c) photo">.  Remaining: reference/kryptos/k0 and k4,
+  reference/whiteboard/cleaners.
 
 Cipher analysis tools
 * http://bionsgadgets.appspot.com/gadget_forms/acarefstats.html

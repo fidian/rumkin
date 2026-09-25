@@ -11,6 +11,13 @@ export default defineConfig({
         // "page.html" for "page.md". Keep both so old URLs stay valid.
         format: 'preserve',
     },
+    image: {
+        // Photographs on content pages are megapixel camera originals. A
+        // constrained layout emits a srcset so the browser fetches a variant
+        // near the size it will actually display.
+        layout: 'constrained',
+        responsiveStyles: true,
+    },
     fonts: [
         {
             provider: fontProviders.google(),

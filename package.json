@@ -9,7 +9,7 @@
         "build": "npm run build-dist && npm run verify-internal-links && npm run verify-spacing && npm run build-sitemap && npm run build-redirects",
         "build-dist": "astro build",
         "build-redirects": "node tools/build-redirects.mjs",
-        "build-sitemap": "node build-sitemap.mjs",
+        "build-sitemap": "node tools/build-sitemap.mjs",
         "preview": "astro preview",
         "reinstall": "rm -rf node_modules package-lock.json && npm install",
         "start": "astro dev --open --host",

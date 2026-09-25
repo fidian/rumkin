@@ -43,7 +43,11 @@ But really, the stuff is pretty darn safe, otherwise I would certainly not use i
 Materials Needed
 ----------------
 
-<div class="Ta(c)"><a href="pict1294b.jpg"><img class="Maw(40vw) Mah(40vh)" src="pict1294b.jpg" alt="Final design of desiccant bag" /></a></div>
+<div class="Ta(c) photo">
+
+![Final design of desiccant bag](../../../images/reference/desiccant/pict1294b.jpg)
+
+</div>
 
 These instructions tell you how to create a desiccant bag.  Other tips are listed below in case you want a container or something else.  The bag made in this process has a vinyl side so you can see the indicator crystals and know when you need to "recharge" your reusable bag.
 
@@ -59,11 +63,19 @@ These instructions tell you how to create a desiccant bag.  Other tips are liste
 Create a Pocket and Fill It
 ---------------------------
 
-<div class="Ta(c)"><a href="pict1295b.jpg"><img class="Maw(40vw) Mah(40vh)" src="pict1295b.jpg" alt="Creating a pocket" /></a></div>
+<div class="Ta(c) photo">
+
+![Creating a pocket](../../../images/reference/desiccant/pict1295b.jpg)
+
+</div>
 
 You want to make a pocket.  It's really simple.  Just take two squares, rectangles, circles, or whatever shape you like.  I used squares.  Next, sew it on three sides.  You want a large enough opening to be able to flip the pocket inside out and to fill it with silica.  If you have a pattern on the fabric, or a "finished side" you want to see, make sure that the finished side is on the INSIDE of the pocket.
 
-<div class="Ta(c)"><a href="pict1296b.jpg"><img class="Maw(40vw) Mah(40vh)" src="pict1296b.jpg" alt="Pinning the pocket" /></a></div>
+<div class="Ta(c) photo">
+
+![Pinning the pocket](../../../images/reference/desiccant/pict1296b.jpg)
+
+</div>
 
 Turn the pocket right side out.  The vinyl may make this difficult, but I am sure you can do it.
 
@@ -75,11 +87,19 @@ Fold in your top side and pin it shut.  Sew.
 Finished Product
 ----------------
 
-<div class="Ta(c)"><a href="pict1297b.jpg"><img class="Maw(40vw) Mah(40vh)" src="pict1297b.jpg" alt="Completed desiccant bag" /></a></div>
+<div class="Ta(c) photo">
+
+![Completed desiccant bag](../../../images/reference/desiccant/pict1297b.jpg)
+
+</div>
 
 I made this packet that has cloth on one side and vinyl on the other.  It is going into a geocache and I just don't want to have to worry about kids eating the thing, so I put the warning messages on both sides.  If you get the enlarged version of the vinyl side, you can maybe see these tiny blue specks in the white particles, which will turn pink by the next time I see them.
 
-<div class="Ta(c)"><a href="pict1298b.jpg"><img class="Maw(40vw) Mah(40vh)" src="pict1298b.jpg" alt="Completed desiccant bag" /></a></div>
+<div class="Ta(c) photo">
+
+![Completed desiccant bag](../../../images/reference/desiccant/pict1298b.jpg)
+
+</div>
 
 
 Other Tips
