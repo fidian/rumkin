@@ -56,13 +56,19 @@ The cipher method probably doesn't involve math. Sanborn admitted he's bad at ma
 
 ## Threads
 
-<div class="Ta(c)"><a href="compass.jpg"><img src="compass-small.jpg" alt="Compass"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![Compass](../../../../images/reference/kryptos/k4/compass.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 `EASTNORTHEAST` is the same direction as the compass etched into a stone located in the same area as the bent metal shape that most consider to be Kryptos. Sanborn considers the whole installment to be Kryptos.
 
-<div class="Ta(c)"><a href="berlin-clock.jpg"><img src="berlin-clock-small.jpg" alt="Berlin Clock"/></a>
-<br/>Images by Muritatis, public domain, mirrored from [Wikipedia](https://commons.wikimedia.org/w/index.php?curid=4474854).</div>
+<div class="Ta(c) photo">
+
+![Berlin Clock](../../../../images/reference/kryptos/k4/berlin-clock.jpg)
+
+Images by Muritatis, public domain, mirrored from [Wikipedia](https://commons.wikimedia.org/w/index.php?curid=4474854).</div>
 
 The clock in Berlin is a special clock that inspired Sanborn. It shows the time using lights in base-5. When asked about this clock, Sanborn said, "There are several really interesting clocks in Berlin." He added, "You’d better delve into that particular clock."
 

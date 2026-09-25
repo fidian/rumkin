@@ -10,31 +10,18 @@
  */
 import { component, css, html } from 'fudgel';
 import { marked } from 'marked';
-
-interface TreeNode {
-    text: string;
-    answers?: Record<string, string>;
-}
-
-interface TreeData {
-    title: string;
-    start: string;
-    tree: Record<string, TreeNode>;
-}
+import {
+    buildHash,
+    parseHash,
+    resolveNodeId,
+    type TreeData,
+    type TreeNode,
+} from './decision-tree-navigation.ts';
 
 const TREES = [
     { name: 'diablo-ii', label: 'Diablo II', file: 'diablo-ii.json' },
     { name: 'uploader', label: 'Phone Uploader', file: 'uploader.json' },
 ];
-
-/** "#diablo-ii/start" -> { tree, node } */
-export const parseHash = (hash: string) => {
-    const [tree = '', node = ''] = hash.replace(/^#\/?/, '').split('/');
-    return { tree, node };
-};
-
-export const buildHash = (tree: string, node?: string) =>
-    node ? `#${tree}/${node}` : `#${tree}`;
 
 component(
     'decision-tree',
@@ -160,8 +147,7 @@ component(
             const data = this.data;
             if (!data) return;
 
-            // An unknown id, including none at all, starts at the top.
-            const nodeId = data.tree[id] ? id : data.start;
+            const nodeId = resolveNodeId(data, id);
             if (nodeId !== id) {
                 location.hash = buildHash(this.treeName, nodeId);
                 return;

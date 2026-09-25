@@ -211,7 +211,7 @@
         "AdditionalHelp": {
             "text": "Sorry, you have reached the end of this troubleshooter.\n\nFor additional help on this issue, please first check the FAQ to make sure your question was not already answered.  Next, email me and describe your problem in detail.  Include information about your phone, your provider, and the file that you are trying to upload.  Describe the type and size of the file, and provide a link to it if you can.  Also, describe the links you went through in this problem solver so I am able to expand this database of information in the hopes that others will find an answer."
         },
-        "CanNotFileOrUseFile": {
+        "CanNotFindOrUseFile": {
             "text": "I need to narrow the problem down even further.  Please pick what type of issue you are experiencing.",
             "answers": {
                 "CanNotFind": "Can't Find File After Download",
@@ -219,7 +219,7 @@
                 "AnimatedGif": "My Animated GIF Doesn't Work",
                 "Download-ImageSize": "Image is resized incorrectly",
                 "AppDoesNotRun": "Game or Application Does Not Run",
-                "AdditonalHelp": "Other / Not Listed"
+                "AdditionalHelp": "Other / Not Listed"
             }
         },
         "CanNotFind": {

@@ -11,8 +11,6 @@ textareas are all converted and tested; metalsmith-hbt-md and the "make it
 Angular" items died with Metalsmith and Mithril.
 
 Still open:
-* The decision tree is converted but has no test.  It is the one tool of any
-  size without one.
 * Pull images out of Google Plus for whiteboard testing photo album.  Include
   in site.
     * Should use some sort of gallery plugin or renderer.
@@ -21,12 +19,10 @@ Still open:
 * programming/atomic-css needs expansion
 * Cryptogram page should scan for characters in the plaintext and produce a
   table from it, or at least without skipping some characters.
-* Six cipher pages are placeholders.  See CIPHERS-TODO.md.
-* 14 camera originals still sit in public/ and are served at full size.
-  reference/desiccant/ shows the pattern that fixes it: move the file under
-  src/images/, reference it from the Markdown with ![](...), and wrap it in
-  <div class="Ta(c) photo">.  Remaining: reference/kryptos/k0 and k4,
-  reference/whiteboard/cleaners.
+* Wordlists under public/tools/cipher/ are 282 MB, most of the deployed
+  site.  The cryptogram solver and T9 both fetch from them.  Trimming to the
+  lists people use would be the single biggest saving available.
+* See CIPHERS-TODO.md for what is left around the ciphers themselves.
 
 Cipher analysis tools
 * http://bionsgadgets.appspot.com/gadget_forms/acarefstats.html

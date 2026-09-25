@@ -274,3 +274,11 @@ textarea {
 .photo img {
     max-width: 40vw;
 }
+
+/*
+ * Several photographs side by side sharing one caption. They stay on one
+ * line, so they get a share of the width rather than 40vw each.
+ */
+.photo-row img {
+    max-width: 30%;
+}

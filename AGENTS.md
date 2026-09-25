@@ -46,13 +46,18 @@ reports a dead end if that ever stops being true.
 
 ## Where things stand
 
-Every page is converted: 177 pages, 40 of them ciphers, 15 tools, and 435
+Every page is converted: 177 pages, 40 of them ciphers, 15 tools, and 483
 tests. Nothing Mithril, jQuery or Metalsmith is left.
 
-**Six cipher pages are placeholders** — braille, decimal, hexadecimal,
-octal, t9 and telephone — and Quagmire is the one cipher page that does not
-use `@fidian/rumkin-cipher`. `CIPHERS-TODO.md` has both, with what each one
-needs and roughly how long it takes. Ask before inventing a cipher.
+Every cipher page goes through `@fidian/rumkin-cipher`. No page carries its
+own cipher code, and nothing is left under `public/tools/cipher/js/`.
+`CIPHERS-TODO.md` records what is deliberately not done — Grade 2 braille,
+ranked T9 candidates — and the loose ends in the library.
+
+**The site needs `@fidian/rumkin-cipher` 0.18.0**, which adds the Quagmire
+cipher and the braille, decimal, hexadecimal, octal, t9 and telephone codes.
+Until that version is published, `npm ci` cannot resolve it; the source is in
+`~/Rumkin/rumkin-cipher` and its tests pass there.
 
 ## Checking the work
 
@@ -194,8 +199,15 @@ so the Markdown inside still parses:
 ```
 
 Astro then emits a webp srcset, and `.photo img` in `src/assets/styles.css`
-keeps it to 40vw/40vh. `reference/desiccant/` is the worked example; the
-`TODO` file lists the pages that still need it.
+keeps it to 40vw. Cap the width only: Astro's constrained layout sets
+`width: 100%`, so a `max-height` squashes the image rather than scaling it,
+and `width: auto` collapses it to nothing before the srcset resolves. Several
+photographs sharing one caption go on consecutive lines inside
+`<div class="Ta(c) photo photo-row">`, which puts them on one row at 30% each.
+
+An `.astro` page does this with `astro:assets` directly —
+`reference/whiteboard/cleaners/` imports one photograph by name and reaches
+the rest through `import.meta.glob`, because their paths come from JSON.
 
 ## Style
 

@@ -1,6 +1,8 @@
 ---
 layout: "@/layouts/cipher-layout.astro"
 title: Hexadecimal
+summary: Write each character as its code point in base 16.
+code: true
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -10,8 +12,19 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-This tool has not been written yet. The page exists so the address
-keeps working, but there is nothing here to encode or decode with.
+Hexadecimal is base 16, counting `0` to `9` and then `A` to `F`.
+It is how character codes are usually written down, because one byte is
+always exactly two hexadecimal digits.
 
-Have a look at the [ciphers and codes](/tools/cipher/) that are
-finished in the meantime.
+That makes the codes two digits wide with nothing between them - a capital `A`
+is `41`. Writing always uses capitals, but reading accepts either case, so a
+lower case `z` comes out as `7A` and both `7A` and `7a` read back as `z`.
+
+The same idea in other bases: [binary](../binary/), [decimal](../decimal/) and
+[octal](../octal/).
+
+Examples:
+
+-   <cipher-example label="Hello!" topic="hexadecimal" payload-direction="DECRYPT" payload-input="48656C6C6F21"></cipher-example>
+
+<simple-code code="hexadecimal" topic="hexadecimal" label="Message to encode or decode"></simple-code>

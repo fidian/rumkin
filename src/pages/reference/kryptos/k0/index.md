@@ -36,8 +36,11 @@ There are a couple places where the Morse code could be interpreted as having an
 
 ## SOS
 
-<div class="Ta(c)"><a href="sos.jpg"><img src="sos-small.jpg" alt="SOS"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![SOS](../../../../images/reference/kryptos/k0/sos.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 ...---...
@@ -56,8 +59,11 @@ This is a palindrome and there's no backwards interpretation of these letters.
 
 ## RQ / YR
 
-<div class="Ta(c)"><a href="rq.jpg"><img src="rq-small.jpg" alt="RQ"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![RQ](../../../../images/reference/kryptos/k0/rq.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 .-. --.-
@@ -82,8 +88,11 @@ When read the other direction, this produces `YR`. Again, the code for `Y` could
 
 ## LUCID MEMORY
 
-<div class="Ta(c)"><a href="lucid-memory.jpg"><img src="lucid-memory-small.jpg" alt="LUCID MEMORY"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![LUCID MEMORY](../../../../images/reference/kryptos/k0/lucid-memory.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 .-.. ..- -.-. .. -.. / . / . / .<br/>
@@ -109,8 +118,11 @@ Reading the other line backwards produces `E E E UIÄDF`. Instead of `Ä`, the c
 
 ## SHADOW FORCES
 
-<div class="Ta(c)"><a href="shadow-forces.jpg"><img src="shadow-forces-small.jpg" alt="SHADOW FORCES"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![SHADOW FORCES](../../../../images/reference/kryptos/k0/shadow-forces.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 . / . / ... .... .- -.. --- .-- / . / .<br/>
@@ -135,8 +147,11 @@ The second line would change from `E E SHADOW E E` to `E E GOUNHS E E`.
 
 ## WHAT IS YOUR POSITION
 
-<div class="Ta(c)"><a href="what-is-your-position.jpg"><img src="what-is-your-position-small.jpg" alt="WHAT IS YOUR POSITION"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![WHAT IS YOUR POSITION](../../../../images/reference/kryptos/k0/what-is-your-position.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 - / .. ... / -.-- --- --. .-.<br/>
@@ -162,8 +177,11 @@ The next line is `RWOQ T`, again with the note that `T` could be just the beginn
 ## DIGITAL INTERPRETATION
 
 
-<div class="Ta(c)"><a href="digital-interpretation.jpg"><img src="digital-interpretation-small.jpg" alt="DIGITAL INTERPRETATION"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo">
+
+![DIGITAL INTERPRETATION](../../../../images/reference/kryptos/k0/digital-interpretation.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 . / -.. .. --. . / - .- .-.. / . / . / .<br/>
@@ -189,15 +207,19 @@ The second line would be `E E E FNT EWIU E`. If we add the dit that is assumed t
 
 ## VIRTUALLY INVISIBLE
 
-<div class="Ta(c)">
-<a href="virtually-invisible-left.jpg"><img src="virtually-invisible-left-small.jpg" alt="VIRTUALLY INVISIBLE (left)"/></a>
-<a href="virtually-invisible-middle.jpg"><img src="virtually-invisible-middle-small.jpg" alt="VIRTUALLY INVISIBLE (middle)"/></a>
-<a href="virtually-invisible-right.jpg"><img src="virtually-invisible-right-small.jpg" alt="VIRTUALLY INVISIBLE (right)"/></a>
-<br/>Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+<div class="Ta(c) photo photo-row">
 
-<div class="Ta(c)">
-<a href="virtually-invisible-stitched.jpg"><img src="virtually-invisible-stitched-small.jpg" alt="VIRTUALLY INVISIBLE"/></a>
-<br/>This one image is the other three stitched together.</div>
+![VIRTUALLY INVISIBLE (left)](../../../../images/reference/kryptos/k0/virtually-invisible-left.jpg)
+![VIRTUALLY INVISIBLE (middle)](../../../../images/reference/kryptos/k0/virtually-invisible-middle.jpg)
+![VIRTUALLY INVISIBLE (right)](../../../../images/reference/kryptos/k0/virtually-invisible-right.jpg)
+
+Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
+
+<div class="Ta(c) photo">
+
+![VIRTUALLY INVISIBLE](../../../../images/reference/kryptos/k0/virtually-invisible-stitched.jpg)
+
+This one image is the other three stitched together.</div>
 
 This cipher message is cut into two plates and is the only one that reads *towards* the rock. The rest are read away from the rock and do not span any gaps. This cipher transcription uses a vertical bar to show where the gaps are in the Morse code, but this reads nicely when you join the plates together as though the gap isn't there.
 

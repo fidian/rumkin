@@ -37,8 +37,8 @@
         "MissingStormDll": {
             "text": "The \"Missing Storm.DLL\" error only appears when you are trying to run D2Loader and it isn't installed correctly.\n\nAre you certain that you installed D2Loader to your main Diablo II directory?  (If you installed it with the Hack Pack, it was installed to the correct location.)",
             "answers": {
-                "InstalleldD2LoaderCorrectly": "Yes, I am certain",
-                "TryInstallinlgD2LoaderInRightSpot": "No, I am not completely positive"
+                "InstalledD2LoaderCorrectly": "Yes, I am certain",
+                "TryInstallingD2LoaderInRightSpot": "No, I am not completely positive"
             }
         },
         "BigErrorHere": {
