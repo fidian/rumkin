@@ -19,9 +19,12 @@ npm start           # dev server
 silent-markup problems described below. Do not weaken those checks to get a
 build through.
 
-Order matters in that script: the 377 redirect stubs are written last, after
+Order matters in that script: the 360 redirect stubs are written last, after
 the link check and the sitemap, because they point at historical URLs and
-two dozen of those were removed from the site years ago.
+should not be crawled as site content or listed in the sitemap.
+
+Every redirect now lands on a page that exists; `npm run build-redirects`
+reports a dead end if that ever stops being true.
 
 ## Layout
 
@@ -38,7 +41,7 @@ two dozen of those were removed from the site years ago.
 
 ## Where things stand
 
-Every page is converted: 176 pages, 39 of them ciphers, 15 tools, and 435
+Every page is converted: 177 pages, 40 of them ciphers, 15 tools, and 435
 tests. Nothing Mithril, jQuery or Metalsmith is left.
 
 **Six cipher pages are placeholders** — braille, decimal, hexadecimal,
@@ -75,12 +78,28 @@ in production, and the conversion fixed rather than reproduced it:
   commas in it.
 - Picking Backspace, Explode or Fly Off in the marquee generator throws.
 - The twelve Levenshtein pages have an empty `<title>`.
-- `image.html` wants a PHP backend that is long gone, and
-  `quagmires.html` points at `/tools/quagmires/`, which is a 404.
-- Two dozen redirects lead to sections that were removed years ago;
-  `npm run build-redirects` lists them every build.
+- `image.html` wanted a PHP backend that is long gone; it was a dev
+  harness with 214 broken links and has been deleted.
+- `quagmires.html` is shadowed by a redirect to `/tools/quagmires/`, a
+  destination that was never built. See below.
 
 When the conversion and the live site disagree, check which one is right.
+
+**Quagmires is the clearest example.** The page was never missing content:
+its 208 lines and its Quagmire I-IV implementation both work. Three
+separate things were wrong. `redirects.json` held
+`tools/cipher/quagmires.html -> ../quagmires/`, and Metalsmith wrote that
+stub over the real file, so live serves a pointer to a page that was never
+created. `js/keymaker.js` had been lost from the repo and was recovered
+from commit `9ea7d450`. Two `<link>` tags pointed at `css/base.css` and
+`css/normal.css`, which lived under `inc/css/` in the PHP era and were
+never at that path. The page is now `src/pages/tools/cipher/quagmires.astro`
+and the redirect is gone.
+
+**geonav does animate.** An earlier pass reported the spinning globe as
+dead on both sites. That was a sampling error: it spins through 28 frames
+in about 840ms and stops back on `na.jpg`, so a check at 1500ms sees the
+image it started with. Sample it every 30ms from page load.
 
 ## Converting a cipher page
 

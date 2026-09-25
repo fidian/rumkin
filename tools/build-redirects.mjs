@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //
-// Writes the 378 redirects the site has accumulated over the years.
+// Writes the 360 redirects the site has accumulated over the years.
 //
 // Astro's `redirects` config would emit these too, but it wants them in the
 // config file and they are data, not configuration. They are also relative
