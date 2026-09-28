@@ -37,9 +37,16 @@ them - the digits are on the keys already. Decoding understands all three.
 ## Loose ends in the library
 
 **`code-tree/binary-encode.js` stops at 254.** Its loop is `i < 255`, so
-`0xFF` has no code. The base-N trees added for decimal, hexadecimal and octal
-use `i < 256` and are otherwise the same file. Folding binary into
-`code/base-n.js` would fix the off-by-one and remove the duplication, but it
+`0xFF` has no code and passes through unencoded:
+
+```js
+binary.encode("\u00FF")      // "ÿ"          - wrong
+hexadecimal.encode("\u00FF") // "FF"         - right
+```
+
+The base-N trees added for decimal, hexadecimal and octal use `i < 256` and
+are otherwise the same file. Folding binary into `code/base-n.js` with radix 2
+and width 8 would fix the off-by-one and remove the duplication, but it
 changes what an existing, tested module produces, so it wants doing
 deliberately rather than as a side effect.
 
@@ -58,8 +65,12 @@ alphabet is renamed, so `rumkinCipher.alphabet.Deutsche` is now
 `Object.keys(rumkinCipher.alphabet)` - so the only visible change is the
 corrected spelling in the dropdown.
 
-Worth remembering that the other unexported modules in that library may be in
-the same state.
+Nothing else in the library is in that state - no other exported function has
+an empty body, and everything meant to be exported is. What is missing is
+tests rather than code: `util/message.js`, `util/message-chunk.js` and
+`util/default-options.js` are the classes every cipher is built on and none
+has a test file of its own. They are exercised hard but only through the
+ciphers, so a change to them fails somewhere else.
 
 ## Not done on purpose
 
