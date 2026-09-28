@@ -54,9 +54,9 @@ own cipher code, and nothing is left under `public/tools/cipher/js/`.
 `CIPHERS-TODO.md` records what is deliberately not done — Grade 2 braille,
 ranked T9 candidates — and the loose ends in the library.
 
-**The site needs `@fidian/rumkin-cipher` 1.0.0**, which adds the Quagmire
+**The site needs `@fidian/rumkin-cipher` 1.0.1**, which adds the Quagmire
 cipher and the braille, decimal, hexadecimal, octal, t9 and telephone codes.
-It is 1.0.0 rather than 0.18.0 because `alphabet.Deutsche` became
+It went to 1.0.0 rather than 0.18.0 because `alphabet.Deutsche` became
 `alphabet.Deutsch`, which 0.x does not describe. Until that version is
 published, `npm ci` cannot resolve it; the source is in
 `~/Rumkin/rumkin-cipher` and its tests pass there.

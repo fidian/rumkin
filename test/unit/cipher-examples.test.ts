@@ -157,3 +157,19 @@ describe('quagmire', () => {
         );
     });
 });
+
+describe('binary', () => {
+    // Both code trees stopped at 254, so 0xFF had no code and came back
+    // through the encoder as the character itself.
+    it('codes the whole byte', () => {
+        expect(encode('binary', '\u0000\u00FF')).toBe('0000000011111111');
+        expect(decode('binary', '0000000011111111')).toBe('\u0000\u00FF');
+    });
+
+    it('agrees with the other bases', () => {
+        expect(encode('binary', 'A')).toBe('01000001');
+        expect(encode('octal', 'A')).toBe('101');
+        expect(encode('hexadecimal', 'A')).toBe('41');
+        expect(encode('decimal', 'A')).toBe('065');
+    });
+});

@@ -36,19 +36,12 @@ them - the digits are on the keys already. Decoding understands all three.
 
 ## Loose ends in the library
 
-**`code-tree/binary-encode.js` stops at 254.** Its loop is `i < 255`, so
-`0xFF` has no code and passes through unencoded:
-
-```js
-binary.encode("\u00FF")      // "ÿ"          - wrong
-hexadecimal.encode("\u00FF") // "FF"         - right
-```
-
-The base-N trees added for decimal, hexadecimal and octal use `i < 256` and
-are otherwise the same file. Folding binary into `code/base-n.js` with radix 2
-and width 8 would fix the off-by-one and remove the duplication, but it
-changes what an existing, tested module produces, so it wants doing
-deliberately rather than as a side effect.
+**Binary and base-N are the same code twice.** `code-tree/binary-encode.js`
+and `code-tree/binary-decode.js` are `code-tree/base-n.js` with radix 2 and
+width 8 written out longhand. Since 1.0.1 fixed binary's off-by-one they
+produce identical output for all 256 characters, checked one by one, so
+`code/binary.js` could become `require("./base-n")(2)` and the two code-tree
+files could go. Nothing would change behaviour; it is duplication, not a bug.
 
 **Three bugs were fixed in `code/telephone.js` while finishing it**, all of
 them in code that had never run: a duplicated `letters["3"]` assignment in the
