@@ -46,7 +46,7 @@ reports a dead end if that ever stops being true.
 
 ## Where things stand
 
-Every page is converted: 177 pages, 40 of them ciphers, 15 tools, and 483
+Every page is converted: 186 pages, 49 of them ciphers, 15 tools, and 522
 tests. Nothing Mithril, jQuery or Metalsmith is left.
 
 Every cipher page goes through `@fidian/rumkin-cipher`. No page carries its
@@ -135,6 +135,11 @@ Pick the element by shape:
 | Symbol font with a character palette | `<font-code>` |
 | Settings plus an options mapping | `defineCipher()` in `keyed-ciphers.ts` |
 | Anything genuinely its own thing | Its own component |
+
+A cipher that only needs a few text, number or checkbox fields is a
+`defineCipher()` declaration and no new component at all - ADFGX, Trifid, the
+straddling checkerboard and wig-wag are each about thirty lines in
+`keyed-ciphers.ts`.
 
 Keep the `code` / `cipher` / `tool` frontmatter flag. The cipher index groups
 its 39 children by it.

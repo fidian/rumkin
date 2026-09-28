@@ -8,6 +8,7 @@
  * are covered by the distributions its author worked out by hand.
  */
 import { component, css, html } from 'fudgel';
+import './roll-histogram.ts';
 import Parser from './parser.ts';
 import Roller from './roller.ts';
 
@@ -88,6 +89,8 @@ component(
                     Standard Deviation: {{deviation}}
                 </p>
 
+                <roll-histogram .tallies="tallies"></roll-histogram>
+
                 <table>
                     <thead>
                         <tr>
@@ -122,6 +125,7 @@ component(
         average = 0;
         deviation = 0;
         rows: Row[] = [];
+        tallies: { roll: number; freq: number }[] = [];
 
         private stopListening?: () => void;
 
@@ -204,6 +208,10 @@ component(
             this.rows = rows.map((row) => ({
                 ...row,
                 percent: largest > 0 ? (row.percent / largest) * 100 : 0,
+            }));
+            this.tallies = rows.map((row) => ({
+                roll: row.roll,
+                freq: row.freq,
             }));
             this.hasResult = true;
         }
