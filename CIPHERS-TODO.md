@@ -38,7 +38,7 @@ them - the digits are on the keys already. Decoding understands all three.
 
 **Binary and base-N are the same code twice.** `code-tree/binary-encode.js`
 and `code-tree/binary-decode.js` are `code-tree/base-n.js` with radix 2 and
-width 8 written out longhand. Since 1.0.1 fixed binary's off-by-one they
+width 8 written out longhand. Now that binary's off-by-one is fixed they
 produce identical output for all 256 characters, checked one by one, so
 `code/binary.js` could become `require("./base-n")(2)` and the two code-tree
 files could go. Nothing would change behaviour; it is duplication, not a bug.
