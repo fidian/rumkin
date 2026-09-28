@@ -17,7 +17,7 @@
         "test-unit": "vitest run",
         "test-watch": "vitest",
         "verify-external-links": "checklinks -a",
-        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '\u274c' )",
+        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '❌' )",
         "verify-spacing": "node tools/check-spacing.mjs"
     },
     "dependencies": {
