@@ -46,9 +46,20 @@ deliberately rather than as a side effect.
 **Three bugs were fixed in `code/telephone.js` while finishing it**, all of
 them in code that had never run: a duplicated `letters["3"]` assignment in the
 Español branch that clobbered key 4, a loop in `getCodeList()` that started
-one past the end of its array, and a `case "Deutsch":` that never matched
-because the alphabet calls itself `Deutsche`. Worth remembering that the other
-unexported modules in that library may be in the same state.
+one past the end of its array, and a German keypad that could never be
+reached, because the code switched on `"Deutsch"` while the alphabet called
+itself `"Deutsche"`.
+
+That last one was the alphabet's fault rather than the keypad's: the class was
+already `AlphabetDeutsch`, and the rule in `util/alphabet.js` is that an
+alphabet is named in its own language, where the language is Deutsch. The
+alphabet is renamed, so `rumkinCipher.alphabet.Deutsche` is now
+`rumkinCipher.alphabet.Deutsch`. Nothing here names it - the picker lists
+`Object.keys(rumkinCipher.alphabet)` - so the only visible change is the
+corrected spelling in the dropdown.
+
+Worth remembering that the other unexported modules in that library may be in
+the same state.
 
 ## Not done on purpose
 
