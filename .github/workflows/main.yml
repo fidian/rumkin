@@ -6,8 +6,21 @@ on:
             - master
     pull_request:
 
+# What actions/deploy-pages needs: write access to Pages and a token it can
+# prove itself with. Everything else stays read-only.
+permissions:
+    contents: read
+    id-token: write
+    pages: write
+
+# A deploy that is already running is allowed to finish rather than being
+# cancelled part way through publishing.
+concurrency:
+    group: pages
+    cancel-in-progress: false
+
 jobs:
-    build-and-deploy:
+    build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -30,10 +43,21 @@ jobs:
             - name: Build
               run: npm run build
 
-            # Pull requests get the tests and the build; only master ships.
-            - name: Deploy
+            - name: Upload artifact
               if: github.ref == 'refs/heads/master'
-              uses: JamesIves/github-pages-deploy-action@v4
+              uses: actions/upload-pages-artifact@v3
               with:
-                  branch: gh-pages
-                  folder: dist
+                  path: dist
+
+    # Pull requests get the tests and the build; only master ships.
+    deploy:
+        needs: build
+        if: github.ref == 'refs/heads/master'
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v5
