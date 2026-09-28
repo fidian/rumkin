@@ -2,7 +2,7 @@
 layout: "@/layouts/cipher-layout.astro"
 title: Baconian
 summary: Used to hide a message within another message by using different typefaces or other distinguishing characteristics.
-cipher: true
+code: true
 breadcrumbs:
     - name: Rumkin.com
       href: /

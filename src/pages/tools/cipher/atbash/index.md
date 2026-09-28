@@ -2,7 +2,7 @@
 layout: "@/layouts/cipher-layout.astro"
 title: Atbash
 summary: A very simplistic cipher where you change A to Z, B to Y, and so on.
-code: true
+cipher: true
 breadcrumbs:
     - name: Rumkin.com
       href: /

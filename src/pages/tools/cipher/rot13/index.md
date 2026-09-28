@@ -2,7 +2,7 @@
 layout: "@/layouts/cipher-layout.astro"
 title: Rot13
 summary: Swap letters from the beginning of the alphabet with the letters at the end of the alphabet. Encoding is the same as decoding.
-code: true
+cipher: true
 breadcrumbs:
     - name: Rumkin.com
       href: /
