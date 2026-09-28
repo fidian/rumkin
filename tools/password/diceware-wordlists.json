@@ -1,0 +1,157 @@
+[
+    {
+        "author": "Marcel Hernandez",
+        "code": "CA",
+        "description": "Catalan",
+        "source": "http://world.std.com/~reinhold/diceware_wordlist_cz.txt",
+        "uri": "diceware/ca-wordlist.txt"
+    },
+    {
+        "author": "Vladimír Sedmík",
+        "code": "CZ",
+        "description": "Česká",
+        "source": "http://world.std.com/~reinhold/diceware_wordlist_cz.txt",
+        "uri": "diceware/cz-wordlist.txt"
+    },
+    {
+        "author": "Povl Falk-Jensen",
+        "code": "DA",
+        "description": "Dansk",
+        "source": "https://pastebin.com/rFatW8up",
+        "uri": "diceware/ca-wordlist.txt"
+    },
+    {
+        "author": "Benjamin Tenne",
+        "code": "DE",
+        "description": "Deutsch",
+        "source": "http://world.std.com/~reinhold/diceware_german.txt",
+        "uri": "diceware/de-wordlist.txt"
+    },
+    {
+        "author": "Alan Beale",
+        "code": "EN",
+        "description": "English (Blale)",
+        "source": "http://world.std.com/~reinhold/diceware.html",
+        "uri": "diceware/en-beale-wordlist.txt"
+    },
+    {
+        "author": "Electronic Frontier Foundation",
+        "code": "EN",
+        "default": true,
+        "description": "English (EFF)",
+        "source": "https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases",
+        "uri": "diceware/en-eff-wordlist.txt"
+    },
+    {
+        "author": "Arnold G. Reinhold",
+        "code": "EN",
+        "description": "English (Original)",
+        "source": "http://diceware.com/",
+        "uri": "diceware/en-original-wordlist.txt"
+    },
+    {
+        "author": "Makis Diras",
+        "code": "EO",
+        "description": "Esperanton",
+        "source": "https://sites.google.com/site/esperantajxo/Dajsvara%20Vortlisto%20v20140626.pdf",
+        "uri": "diceware/eo-wordlist.txt"
+    },
+    {
+        "author": "Manuel Pala",
+        "code": "ES",
+        "description": "Español",
+        "source": "http://world.std.com/~reinhold/diceware_espanol/listas_diceware_en_espanol.htm",
+        "uri": "diceware/es-wordlist.txt"
+    },
+    {
+        "author": "Aitor Fraile Azcue",
+        "code": "EU",
+        "description": "Euskal",
+        "source": "http://world.std.com/~reinhold/diceware-eu.txt",
+        "uri": "diceware/eu-wordlist.txt"
+    },
+    {
+        "author": "Kai Puolamaki",
+        "code": "FI",
+        "description": "Suomalainen",
+        "source": "http://users.ics.aalto.fi/kaip/noppaware/",
+        "uri": "diceware/fi-wordlist.txt"
+    },
+    {
+        "author": "Christophe-Marie Duquesne",
+        "code": "FR",
+        "description": "Français (Duquesne)",
+        "source": "https://github.com/chmduquesne/diceware-fr",
+        "uri": "diceware/fr-duquesne-wordlist.txt"
+    },
+    {
+        "author": "Matthieu Weber",
+        "code": "FR",
+        "description": "Français (Weber)",
+        "source": "http://weber.fi.eu.org/index.shtml.en#projects",
+        "uri": "diceware/fr-weber-wordlist.txt"
+    },
+    {
+        "author": "Tarin Gamberini",
+        "code": "IT",
+        "description": "Italiano",
+        "source": "http://www.taringamberini.com/download/diceware_it_IT/word_list_diceware_in_italiano.txt",
+        "uri": "diceware/it-wordlist.txt"
+    },
+    {
+        "author": "J Greely",
+        "code": "JP",
+        "description": "日本語(ローマ字)",
+        "source": "http://s3.amazonaws.com/dotclue.org/diceware_jp.txt",
+        "uri": "diceware/jp-wordlist.txt"
+    },
+    {
+        "author": "Rangi Kemara",
+        "code": "MI",
+        "description": "Maori",
+        "source": "https://github.com/Taipo/MaoriDiceware/blob/master/diceware_maori.txt",
+        "uri": "diceware/mi-wordlist.txt"
+    },
+    {
+        "author": "Willy T. Koch",
+        "code": "NO",
+        "description": "Norsk",
+        "source": "https://0101.no/diceware/diceware_nb_NO.txt",
+        "uri": "diceware/no-wordlist.txt"
+    },
+    {
+        "author": "Bart Van den Eynde",
+        "code": "NL",
+        "description": "Nederlands",
+        "source": "http://theworld.com/~reinhold/DicewareDutch.txt",
+        "uri": "diceware/nl-wordlist.txt"
+    },
+    {
+        "author": "Piotr Tarnowski",
+        "code": "PL",
+        "description": "Polskie",
+        "source": "https://web.archive.org/web/20130420042549/http://drfugazi.eu.org/sites/drfugazi.eu.org/files/dicelist-pl.txt",
+        "uri": "diceware/pl-wordlist.txt"
+    },
+    {
+        "author": "Patxi Pierce",
+        "code": "PT",
+        "description": "Português",
+        "source": "https://gist.github.com/patxipierce/3a96b1927b844ce47c04a242651bafc2",
+        "uri": "diceware/pt-wordlist.txt"
+    },
+    {
+        "author": "Magnus Bodin",
+        "code": "SV",
+        "description": "Svenska",
+        "source": "http://x42.com/diceware/",
+        "uri": "diceware/sv-wordlist.txt"
+    },
+    {
+        "author": "Mert Dirik",
+        "code": "TK",
+        "description": "Türk",
+        "source": "https://web.archive.org/web/20110716063648/http://dicewaretr.110mb.com/diceware_tr.txt",
+        "uri": "diceware/tr-wordlist.txt"
+    }
+]

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en" class="H(100%) Ovy(h)"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face{font-family:Ubuntu-e0cccab4f2696d74;src:url("/_astro/fonts/4af9aeedb82f7b63.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:Ubuntu-e0cccab4f2696d74;src:url("/_astro/fonts/4900cede8328fcb6.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"Ubuntu-e0cccab4f2696d74 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:italic;size-adjust:98.6988%;ascent-override:94.4287%;descent-override:19.1492%;line-gap-override:2.8369%;}@font-face{font-family:"Ubuntu-e0cccab4f2696d74 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:98.6988%;ascent-override:94.4287%;descent-override:19.1492%;line-gap-override:2.8369%;}:root{--font-ubuntu:Ubuntu-e0cccab4f2696d74,"Ubuntu-e0cccab4f2696d74 fallback: Arial",sans-serif;}</style><style>@font-face{font-family:"Anonymous Pro-384df8a6d1de024f";src:url("/_astro/fonts/e9d94eea0f9913ab.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f";src:url("/_astro/fonts/15fead8747ceb35e.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:italic;size-adjust:122.4535%;ascent-override:66.7904%;descent-override:14.8733%;line-gap-override:0%;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:122.4535%;ascent-override:66.7904%;descent-override:14.8733%;line-gap-override:0%;}:root{--font-anonymous-pro:"Anonymous Pro-384df8a6d1de024f","Anonymous Pro-384df8a6d1de024f fallback: Arial",sans-serif;}</style><title>Levenshtein Distance Algorithm: Perl Implementation</title><script type="module" src="/_astro/default-layout.astro_astro_type_script_index_0_lang.DYUAk69k.js"></script><!-- Favicon generated content from http://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"><link rel="manifest" href="/img/favicon/manifest.json"><link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5"><link rel="shortcut icon" href="/img/favicon/favicon.ico"><meta name="msapplication-config" content="/img/favicon/browserconfig.xml"><meta name="theme-color" content="#ffffff"><!-- End of favicon generated content --><link rel="license" href="/license/"><!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-H1S197ZSNH"></script><script type="module">window.dataLayer=window.dataLayer||[];function e(){dataLayer.push(arguments)}e(`js`,new Date),e(`config`,`G-H1S197ZSNH`);</script><!-- End of Google Analytics --><link rel="stylesheet" href="/_astro/default-layout.B5JWhXyE.css"></head><body class="H(100%) Ovx(h) Bgc(--page-border-background) Bgc(tr)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(--bar-background) Bgc(tr)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(--bar-border) H(50px) C(--bar-text) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(spb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/">Rumkin.com</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/programming/">Programming Topics</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/programming/algorithms/">Algorithms</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a href="/programming/algorithms/fuzzy-strings/" class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Ov(H)">Fuzzy String Matching</a></div></div></nav><div class="Bgc(--page-background) Bgc(tr)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(--text-color-normal) P(10px)"><div class="Mx(a) W(100%) Maw(--content-width-max) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>Levenshtein Distance Algorithm: Perl Implementation</h1><div class="contents"><p>by Eli Bendersky</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>#!/usr/local/bin/perl -w</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>use strict;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>($#ARGV == 1) or die "Usage: $0 &amp;lt;string1&amp;gt; &amp;lt;string2&amp;gt;\n";</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>my ($s1, $s2) = (@ARGV);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>print "The Levenshtein distance between $s1 and $s2 is: " . levenshtein($s1, $s2) . "\n";</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># Return the Levenshtein distance (also called Edit distance)</span></span>
+<span class="line"><span># between two strings</span></span>
+<span class="line"><span>#</span></span>
+<span class="line"><span># The Levenshtein distance (LD) is a measure of similarity between two</span></span>
+<span class="line"><span># strings, denoted here by s1 and s2. The distance is the number of</span></span>
+<span class="line"><span># deletions, insertions or substitutions required to transform s1 into</span></span>
+<span class="line"><span># s2. The greater the distance, the more different the strings are.</span></span>
+<span class="line"><span>#</span></span>
+<span class="line"><span># The algorithm employs a proximity matrix, which denotes the distances</span></span>
+<span class="line"><span># between substrings of the two given strings. Read the embedded comments</span></span>
+<span class="line"><span># for more info. If you want a deep understanding of the algorithm, print</span></span>
+<span class="line"><span># the matrix for some test strings and study it</span></span>
+<span class="line"><span>#</span></span>
+<span class="line"><span># The beauty of this system is that nothing is magical - the distance</span></span>
+<span class="line"><span># is intuitively understandable by humans</span></span>
+<span class="line"><span>#</span></span>
+<span class="line"><span># The distance is named after the Russian scientist Vladimir</span></span>
+<span class="line"><span># Levenshtein, who devised the algorithm in 1965</span></span>
+<span class="line"><span>#</span></span>
+<span class="line"><span>sub levenshtein</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>    # $s1 and $s2 are the two strings</span></span>
+<span class="line"><span>    # $len1 and $len2 are their respective lengths</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    my ($s1, $s2) = @_;</span></span>
+<span class="line"><span>    my ($len1, $len2) = (length $s1, length $s2);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # If one of the strings is empty, the distance is the length</span></span>
+<span class="line"><span>    # of the other string</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    return $len2 if ($len1 == 0);</span></span>
+<span class="line"><span>    return $len1 if ($len2 == 0);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    my %mat;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # Init the distance matrix</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    # The first row to 0..$len1</span></span>
+<span class="line"><span>    # The first column to 0..$len2</span></span>
+<span class="line"><span>    # The rest to 0</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    # The first row and column are initialized so to denote distance</span></span>
+<span class="line"><span>    # from the empty string</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    for (my $i = 0; $i &lt;= $len1; ++$i)</span></span>
+<span class="line"><span>    {</span></span>
+<span class="line"><span>        for (my $j = 0; $j &lt;= $len2; ++$j)</span></span>
+<span class="line"><span>        {</span></span>
+<span class="line"><span>            $mat{$i}{$j} = 0;</span></span>
+<span class="line"><span>            $mat{0}{$j} = $j;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        $mat{$i}{0} = $i;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # Some char-by-char processing is ahead, so prepare</span></span>
+<span class="line"><span>    # array of chars from the strings</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    my @ar1 = split(//, $s1);</span></span>
+<span class="line"><span>    my @ar2 = split(//, $s2);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    for (my $i = 1; $i &lt;= $len1; ++$i)</span></span>
+<span class="line"><span>    {</span></span>
+<span class="line"><span>        for (my $j = 1; $j &lt;= $len2; ++$j)</span></span>
+<span class="line"><span>        {</span></span>
+<span class="line"><span>            # Set the cost to 1 iff the ith char of $s1</span></span>
+<span class="line"><span>            # equals the jth of $s2</span></span>
+<span class="line"><span>            #</span></span>
+<span class="line"><span>            # Denotes a substitution cost. When the char are equal</span></span>
+<span class="line"><span>            # there is no need to substitute, so the cost is 0</span></span>
+<span class="line"><span>            #</span></span>
+<span class="line"><span>            my $cost = ($ar1[$i-1] eq $ar2[$j-1]) ? 0 : 1;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>            # Cell $mat{$i}{$j} equals the minimum of:</span></span>
+<span class="line"><span>            #</span></span>
+<span class="line"><span>            # - The cell immediately above plus 1</span></span>
+<span class="line"><span>            # - The cell immediately to the left plus 1</span></span>
+<span class="line"><span>            # - The cell diagonally above and to the left plus the cost</span></span>
+<span class="line"><span>            #</span></span>
+<span class="line"><span>            # We can either insert a new char, delete a char or</span></span>
+<span class="line"><span>            # substitute an existing char (with an associated cost)</span></span>
+<span class="line"><span>            #</span></span>
+<span class="line"><span>            $mat{$i}{$j} = min([$mat{$i-1}{$j} + 1,</span></span>
+<span class="line"><span>                                $mat{$i}{$j-1} + 1,</span></span>
+<span class="line"><span>                                $mat{$i-1}{$j-1} + $cost]);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # Finally, the Levenshtein distance equals the rightmost bottom cell</span></span>
+<span class="line"><span>    # of the matrix</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    # Note that $mat{$x}{$y} denotes the distance between the substrings</span></span>
+<span class="line"><span>    # 1..$x and 1..$y</span></span>
+<span class="line"><span>    #</span></span>
+<span class="line"><span>    return $mat{$len1}{$len2};</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># minimal element of a list</span></span>
+<span class="line"><span>#</span></span>
+<span class="line"><span>sub min</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>    my @list = @{$_[0]};</span></span>
+<span class="line"><span>    my $min = $list[0];</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    foreach my $i (@list)</span></span>
+<span class="line"><span>    {</span></span>
+<span class="line"><span>        $min = $i if ($i &lt; $min);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    return $min;</span></span>
+<span class="line"><span>}</span></span></code></pre>
+</div></header></main></div></div></div><footer class="Bgc(--bar-background) Bgc(tr)--p Bdtw(1px) Bdc(--bar-border) C(--bar-text) C(black)--p P(10px) D(f) Fxd(c)--p Jc(spb)"><div class="Fz(0.8em)">&copy; Copyright 2026 Tyler Akins &lt;<a class="Td(n)--p C(--bar-text) C(black)--p" href="mailto:fidian@rumkin.com">fidian@rumkin.com</a>&gt;, last build 2026-09-28T21:39:33.845Z</div><div><a class="D(n)--p Fz(0.8em) C(--bar-text)" href="/license/">MIT License</a> |<a class="D(n)--p Fz(0.8em) C(--bar-text)" href="/reference/site/legal/">Legal</a></div></footer></div></body></html>

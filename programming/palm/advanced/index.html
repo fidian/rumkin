@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="en" class="H(100%) Ovy(h)"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face{font-family:Ubuntu-e0cccab4f2696d74;src:url("/_astro/fonts/4af9aeedb82f7b63.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:Ubuntu-e0cccab4f2696d74;src:url("/_astro/fonts/4900cede8328fcb6.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"Ubuntu-e0cccab4f2696d74 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:italic;size-adjust:98.6988%;ascent-override:94.4287%;descent-override:19.1492%;line-gap-override:2.8369%;}@font-face{font-family:"Ubuntu-e0cccab4f2696d74 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:98.6988%;ascent-override:94.4287%;descent-override:19.1492%;line-gap-override:2.8369%;}:root{--font-ubuntu:Ubuntu-e0cccab4f2696d74,"Ubuntu-e0cccab4f2696d74 fallback: Arial",sans-serif;}</style><style>@font-face{font-family:"Anonymous Pro-384df8a6d1de024f";src:url("/_astro/fonts/e9d94eea0f9913ab.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f";src:url("/_astro/fonts/15fead8747ceb35e.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:italic;size-adjust:122.4535%;ascent-override:66.7904%;descent-override:14.8733%;line-gap-override:0%;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:122.4535%;ascent-override:66.7904%;descent-override:14.8733%;line-gap-override:0%;}:root{--font-anonymous-pro:"Anonymous Pro-384df8a6d1de024f","Anonymous Pro-384df8a6d1de024f fallback: Arial",sans-serif;}</style><title>Palm OS Programming - Advanced UI Elements</title><script type="module" src="/_astro/default-layout.astro_astro_type_script_index_0_lang.DYUAk69k.js"></script><!-- Favicon generated content from http://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"><link rel="manifest" href="/img/favicon/manifest.json"><link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5"><link rel="shortcut icon" href="/img/favicon/favicon.ico"><meta name="msapplication-config" content="/img/favicon/browserconfig.xml"><meta name="theme-color" content="#ffffff"><!-- End of favicon generated content --><link rel="license" href="/license/"><!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-H1S197ZSNH"></script><script type="module">window.dataLayer=window.dataLayer||[];function e(){dataLayer.push(arguments)}e(`js`,new Date),e(`config`,`G-H1S197ZSNH`);</script><!-- End of Google Analytics --><link rel="stylesheet" href="/_astro/default-layout.B5JWhXyE.css"></head><body class="H(100%) Ovx(h) Bgc(--page-border-background) Bgc(tr)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(--bar-background) Bgc(tr)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(--bar-border) H(50px) C(--bar-text) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(spb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/">Rumkin.com</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/programming/">Programming Topics</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a href="/programming/palm/" class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Ov(H)">Palm OS Programming</a></div></div></nav><div class="Bgc(--page-background) Bgc(tr)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(--text-color-normal) P(10px)"><div class="Mx(a) W(100%) Maw(--content-width-max) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>Palm OS Programming - Advanced UI Elements</h1><div class="contents"><p>This is the text, extracted from a presentation for Palm OS Programming Advanced UI elements.  The gotchyas and pitfalls were skipped because I already had that in a <a href="../gotchyas/">separate page</a>.  I don’t use Adobe and I wanted a textual reference instead of printing out slides, so I did this.</p>
+<h2 id="anatomy-of-the-stock-event-loop">Anatomy of the Stock Event Loop</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>EventType event;</span></span>
+<span class="line"><span>do {</span></span>
+<span class="line"><span>    EvtGetEvent(&amp;event, evtWaitForever);</span></span>
+<span class="line"><span>    if (! SysHandleEvent(&amp;event))</span></span>
+<span class="line"><span>        if (! MenuHandleEvent(0, &amp;event, &amp;error))</span></span>
+<span class="line"><span>            if (! AppHandleEvent(&amp;event))</span></span>
+<span class="line"><span>                FrmDispatchEvent(&amp;event);</span></span>
+<span class="line"><span>} while (event.eType != appStopEvent);</span></span></code></pre>
+<ul>
+<li><code>FrmDispatchEvent</code> passes the event FIRST to the handler that was registered (usually by <code>AppHandleEvent</code>)</li>
+<li>If the event wasn’t handled (i.e. the handler returns <code>false</code>) it flows to <code>FrmHandleEvent</code>, where it receives default handling
+<ul>
+<li>Keystrokes flow into fields</li>
+<li><code>FrmUpdateEvent</code> calls <code>FrmDrawForm()</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="opaque-ui-structures">Opaque UI Structures</h2>
+<ul>
+<li>Myth:
+<ul>
+<li>UI structures are documented so you can edit their contents.</li>
+</ul>
+</li>
+<li>Reality:
+<ul>
+<li>UI structures are documented to help debugging.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usable-and-visible">Usable and Visible</h2>
+<ul>
+<li>Myth:
+<ul>
+<li>Applications can control which form objects draw by setting the “visible” bit.</li>
+</ul>
+</li>
+<li>Reality:
+<ul>
+<li>The “visible” bit is actually state information, not something you should be setting.</li>
+<li>Use <code>FrmShowObject()</code> and <code>FrmHideObject()</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="clipboard">Clipboard</h2>
+<ul>
+<li>Myth:
+<ul>
+<li>The clipboard is just for boring text.</li>
+</ul>
+</li>
+<li>Reality:
+<ul>
+<li>
+<p>You can put bitmaps on the clipboard, too!</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>  ClipboardAddItem(clipboardBitmap, bitmapP, MemPtrSize(bitmapP));</span></span></code></pre>
+</li>
+<li>
+<p>Text and bitmap clipboards are separate; one doesn’t overwrite the other</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="custom-fonts">Custom Fonts</h2>
+<ul>
+<li>Myth:
+<ul>
+<li>Custom fonts aren’t supported.</li>
+</ul>
+</li>
+<li>Reality:
+<ul>
+<li>Custom fonts ARE supported. We don’t make it easy (yet)..</li>
+</ul>
+</li>
+</ul>
+<h2 id="creating-a-custom-font">Creating a Custom Font</h2>
+<ul>
+<li>Fonts are NFNT resources (well, almost)
+<ul>
+<li>Slight differences in header</li>
+<li>Glyphs contain space</li>
+</ul>
+</li>
+<li>No support in Constructor for creating fonts</li>
+<li>But there are various third-party tools for creating and importing fonts
+<ul>
+<li>xFont</li>
+<li>PilRC</li>
+<li>ResEdit (Macintosh)</li>
+</ul>
+</li>
+</ul>
+<h2 id="adding-a-font-to-your-project-pc">Adding a Font to your Project (PC)</h2>
+<ul>
+<li>
+<p>Use xFont (freeware) to make a font in PilRC format</p>
+<ul>
+<li>Call it something like “myFont.pfn”</li>
+<li>Or create font directly in PilRC format - See PilRC Manual for details</li>
+</ul>
+</li>
+<li>
+<p>Install <a href="http://www.calliopeinc.com/pilrcplugin.html">PilRC CodeWarrior plugin</a></p>
+</li>
+<li>
+<p>Add a .rcp file to project with this line in it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>  Font 'FONT' FONTID 128 "myFont.pfn"</span></span></code></pre>
+</li>
+<li>
+<p>Compile and get a .r file containing a “NFNT” resource</p>
+<ul>
+<li>data ‘NFNT’ (20052) means Resource ID is 20052</li>
+</ul>
+</li>
+</ul>
+<h2 id="installing-a-custom-font">Installing a Custom Font</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>MemHandle fontH;</span></span>
+<span class="line"><span>FontType* fontP;</span></span>
+<span class="line"><span>fontH = DmGetResource(fontResource, 25002);</span></span>
+<span class="line"><span>fontP = (FontType*) MemHandleLock(fontH);</span></span>
+<span class="line"><span>FntDefineFont(fntAppFontCustomBase, fontP);</span></span>
+<span class="line"><span>MemHandleUnlock(fontH);</span></span>
+<span class="line"><span>DmReleaseResource(fontH);</span></span></code></pre>
+<ul>
+<li><code>fntAppFontCustomBase</code> is the first ID available
+<ul>
+<li>add an offset when defining multiple fonts</li>
+</ul>
+</li>
+</ul>
+<h2 id="using-a-custom-font">Using a Custom Font</h2>
+<ul>
+<li><code>WinDrawChars</code> will now use this font
+<ul>
+<li>if you call <code>FntSetFont(fntAppFontCustomBase)</code></li>
+</ul>
+</li>
+<li><code>LstGlueSetFont</code>, <code>FrmGlueSetLabelFont</code>, <code>CtlGlueSetFont</code>, <code>TblSetItemFont</code> can then take <code>fntAppFontCustomBase</code> to set the list, form, control or table font to the new custom font</li>
+</ul>
+<h2 id="high-resolution-font-families">High Resolution Font Families</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>LowRes</span></span>
+<span class="line"><span>NFNT 2000  ----&gt;      Constructor</span></span>
+<span class="line"><span>                          or             ----&gt;   Family</span></span>
+<span class="line"><span>  HiRes    ----&gt;  tfnf resource defines         NFNT 4000</span></span>
+<span class="line"><span>NFNT 3000          font family members</span></span></code></pre>
+<ul>
+<li>Use only on Palm OS 5 and later
+<ul>
+<li>Not backwards compatible (check OS version!)</li>
+</ul>
+</li>
+<li><code>DmGetResource('nfnt', myFontFamilyID);</code></li>
+<li>From there use same as “old style” custom font</li>
+</ul>
+<h2 id="tables">Tables</h2>
+<ul>
+<li>Myth:
+<ul>
+<li>Tables are Complicated</li>
+</ul>
+</li>
+<li>Reality:
+<ul>
+<li>Tables are Very Complicated</li>
+</ul>
+</li>
+</ul>
+<h2 id="do-you-really-need-a-table">Do You Really Need a Table?</h2>
+<ul>
+<li>Tables are ideal when:
+<ul>
+<li>You need UI widgets embedded in a table
+<ul>
+<li>fields, checkboxes, or anything that accepts input</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Consider alternatives when:
+<ul>
+<li>You simply want to display data in a multi-column format</li>
+<li>You require scrolling
+<ul>
+<li>Tables have no inherent scrolling functionality!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="alternatives-to-tables">Alternatives to Tables</h2>
+<ul>
+<li>Lists
+<ul>
+<li>Can have multiple columns when drawn by callback</li>
+<li>Great when rows can select together</li>
+</ul>
+</li>
+<li>Fields + Scrollbar
+<ul>
+<li>Great for text-only data</li>
+</ul>
+</li>
+<li>Gadgets
+<ul>
+<li>Most flexible, most work</li>
+<li>Get a rectangle that receives hits</li>
+<li>Implement only the functionality you need</li>
+</ul>
+</li>
+</ul>
+<h2 id="attention-manager">Attention Manager</h2>
+<ul>
+<li>Myth:
+<ul>
+<li>The Attention Manager is a 4.0 replacement for the Alarm Manager.</li>
+</ul>
+</li>
+<li>Reality:
+<ul>
+<li>The Attention Manager is a central UI repository for attention getting messages from all applications.</li>
+</ul>
+</li>
+</ul>
+<h2 id="step-1-call-the-attention-manager">Step 1: Call the Attention Manager</h2>
+<ul>
+<li>
+<p>Often in response to an Alarm or Notification</p>
+<p>AttnGetAttention(cardNo, dbID, userData, NULL,
+kAttlLevelSubtle, kAttnFlagsUseUserSettings, 5, 2);</p>
+<p>// Handle the launch code sysAppLaunchCmdAttention</p>
+<p>case sysAppLaunchCmdAttention:
+HandleAttention((AttnLaunchCodeArgsType*)cmdPBP);</p>
+</li>
+</ul>
+<h2 id="step-2-draw-the-attention-ui">Step 2: Draw the Attention UI</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>switch (cmdPBP-&gt;command)</span></span>
+<span class="line"><span>    case kAttnCommandDrawList:</span></span>
+<span class="line"><span>        // Draw the item in the list</span></span>
+<span class="line"><span>    case kAttnCommandDrawDetail:</span></span>
+<span class="line"><span>        // Draw the detail screen</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/// Code to help you out</span></span>
+<span class="line"><span>x = cmdPBP-&gt;commandArgsP-&gt;drawList.bounds.topLeft.x;</span></span>
+<span class="line"><span>y = cmdPBP-&gt;commandArgsP-&gt;drawList.bounds.topLeft.y;</span></span>
+<span class="line"><span>WinDrawBitmap(iconP, x, y);</span></span>
+<span class="line"><span>x += kAttnListTextOffset;</span></span>
+<span class="line"><span>WinDrawChars(theStr, StrLen(theStr), x, y);</span></span></code></pre>
+<h2 id="step-3-extras">Step 3: Extras</h2>
+<ul>
+<li><code>case kAttnCommandPlaySound</code>
+<ul>
+<li>Chance to play a custom sound</li>
+<li>Sent if requested in <code>AttnGetAttention()</code> call</li>
+</ul>
+</li>
+<li><code>case kAttnCommandCustomEffect</code>
+<ul>
+<li>Chance to do any other custom effect</li>
+</ul>
+</li>
+</ul>
+<h2 id="step-4-handle-users-choice">Step 4: Handle User’s Choice</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>case kAttnCommandGotIt:</span></span>
+<span class="line"><span>    // Selected the OK button</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>case kAttnCommandSnooze:</span></span>
+<span class="line"><span>    // Selected the Snooze button</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>case kAttnCommandGoThere:</span></span>
+<span class="line"><span>    // Selected the Go To button</span></span>
+<span class="line"><span>    AttnForgetIt(cardNo, dbID, cmdPBP-&gt;userData);</span></span>
+<span class="line"><span>    buf = (UInt32*) MemPtrNew(sizeof(UInt32));</span></span>
+<span class="line"><span>    MemPtrSetOwner(buf, 0);</span></span>
+<span class="line"><span>    *buf = paramP-&gt;userData;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    SysUIAppSwitch(cardNo, dbID,</span></span>
+<span class="line"><span>                   sysAppLaunchCmdCustomBase, buf);</span></span>
+<span class="line"><span>    // Handle sysAppLaunchCmdCustomBase in PalmMain()</span></span></code></pre>
+<h2 id="step-5-update-the-attention-manager">Step 5: Update the Attention Manager</h2>
+<ul>
+<li><code>AttnForgetIt</code> – when something in the attention manager is no longer relevant</li>
+<li><code>AttnIterate</code> – Iterates through everything that belongs to your app and gives your callback a chance to handle each one
+<ul>
+<li>Update all attentions</li>
+<li>Erase all attentions</li>
+</ul>
+</li>
+<li><code>AttnUpdate</code> – Update specific attention</li>
+<li><code>AttnGetCounts</code> – Use to find out how many attentions you have pending</li>
+</ul>
+</div></header></main></div></div></div><footer class="Bgc(--bar-background) Bgc(tr)--p Bdtw(1px) Bdc(--bar-border) C(--bar-text) C(black)--p P(10px) D(f) Fxd(c)--p Jc(spb)"><div class="Fz(0.8em)">&copy; Copyright 2026 Tyler Akins &lt;<a class="Td(n)--p C(--bar-text) C(black)--p" href="mailto:fidian@rumkin.com">fidian@rumkin.com</a>&gt;, last build 2026-09-28T21:39:33.864Z</div><div><a class="D(n)--p Fz(0.8em) C(--bar-text)" href="/license/">MIT License</a> |<a class="D(n)--p Fz(0.8em) C(--bar-text)" href="/reference/site/legal/">Legal</a></div></footer></div></body></html>

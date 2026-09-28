@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Pigpen HXHX";
+    src: url(pigpen-hxhx.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.pigpen-hxhx {
+    font-family: "Pigpen HXHX", "Ubuntu", sans-serif;
+    font-size: 3em;
+}
+
+@font-face {
+    font-family: "Pigpen HHXX";
+    src: url(pigpen-hhxx.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.pigpen-hhxx {
+    font-family: "Pigpen HHXX", "Ubuntu", sans-serif;
+    font-size: 3em;
+}

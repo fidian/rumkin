@@ -1,0 +1,94 @@
+# Critical Misses
+# PSR rules generated from Fumble Table for 3E at
+#  http://www.dndadventure.com/
+# Special permission to use the table was granted by Al Sousa for including
+# it into D&D Helper.
+#
+# Comments start with a # at the beginning of a line
+# Blank lines are ignored
+# Initial key should have a * before it and can be followed by spaces
+# Keys should be in [brackets]
+# Key names with a ^ in front are capitalized (see the only line in ELFNAME)
+# Case matters
+# First key is the main rule
+# Spaces at beginning and end are removed
+# Rules can have a number followed by a colon prepended to have a chance
+# associated with it.
+
+* FUMBLE
+97:[CRITICAL]
+1:[CRITICAL]\n[CRITICAL]
+1:[CRITICAL]\n[CRITICAL]\n[CRITICAL]
+1:[SEVERE_CRITICAL]
+
+* SEVERE_CRITICAL
+99:[CRITICAL]\n[CRITICAL]\n[CRITICAL]
+1:[CRITICAL]\n[CRITICAL]\n[CRITICAL]\n[CRITICAL]\n[CRITICAL]
+
+* CRITICAL
+25:Trip, roll Dex check (DC 12) or fall.
+14:Fall, roll Dex check (DC 12) or drop primary weapon.
+11:Fall and drop primary weapon.  Roll Dex check (DC 12) or be stunned \
+for 1 round.
+3:Fall and become stunned for 1 round.
+4:Fall, drop primary weapon, and be stunned for 1 round.
+2:Fall and become stunned for [D4_ROUNDS].
+1:Fall, drop primary weapon, and be stunned for [D4_ROUNDS].
+1:Fall, knocked head on floor, knocked out for [D4_ROUNDS].
+1:Weapon disarmed by opponent and thrown [D20_FEET] in random direction.
+3:Weapon breaks or appendage is broken.
+2:Twist ankle, 1/2 move.
+2:Twist knee, 1/4 move.
+1:Twist wrist, weapon arm incapacitated, drop weapon.
+1:Opponent steps on foot, go last next round.
+1:Helm twists, blind until end of next round.  Roll again if no helm.
+2:Wrong move, opponent's next attack is at +4 to hit.
+2:Knuckles hit, -4 to hit until end of next round.
+3:Armor piece knocked off, strap cut, belt cut, clothes torn, lose 2 AC \
+until fixed.
+1:Opponent's parry hits groin, 1/2 move, -4 to hit for 3 rounds.
+1:Opponent's parry hits funny bone in weapon arm, -2 damage for 3 rounds.
+1:Dirt blinds one eye, -1 to hit until cleaned.
+1:Dirt blinds two eyes, -3 to hit until cleaned.
+4:Hit [SELF_FRIEND], normal damage.
+1:Hit self, normal damage and stunned for 1 round.
+1:Hit friend, normal damage and friend stunned for 1 round.
+4:Hit [SELF_FRIEND], double damage.
+1:Hit self, double damage and stunned for 1 round.
+1:Hit friend, double damage and friend stunned for 1 round.
+2:Hit [SELF_FRIEND], critical hit.
+
+
+* SELF_FRIEND
+self
+friend
+* D4_ROUNDS
+1 round
+2 rounds
+3 rounds
+4 rounds
+
+* D20_FEET
+1:1 foot
+19:[2_20] feet
+
+* 2_20
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20

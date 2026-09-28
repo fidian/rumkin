@@ -1,0 +1,398 @@
+/* SIDF Data Extractor
+ *
+ * A Novell Netware system was backed up.  The job was restored on another
+ * machine.  After searching the net for information, I found out that the
+ * files were SIDF files.  As long as the file that was backed up is not
+ * compressed, this has a fairly good chance of extracting the data stream.
+ *
+ * The restore files have a file header of 0E 02 A5 5A 0E 00
+ *
+ * I do not know the compression method for any files marked as compressed,
+ * so they will not be written.  Also, any files that seem to be invalid
+ * are likewise skipped.
+ *
+ * Good files have the file path in the header, and will be restored in
+ * an appropriate directory structure.  For instance, a Novell Netware file
+ * that says it was backed up from "SYS:PATH/TO/FILE.BIN" will be saved as
+ * "SYS/PATH/TO/FILE.BIN", preserving case and translating all : into /.
+ *
+ * To run this, you add the SIDF file to the command line:
+ *    ./extract_sidf_data file.sidf
+ *
+ * This has only been tested on Linux and Win32, but can likely be made
+ * to work on other systems.
+ *
+ * SIDF format as PDF:
+ *   http://www.ecma-international.org/publications/standards/Ecma-208.htm
+ *
+ * There is no public documentation on how to decompress any compressed
+ * files, so if the file described in the SDIF file is marked as compressed,
+ * this program won't ever read it.  More info on Novell's forums:
+ *   http://forums.novell.com/group/novell.devsup.smscomp/readerNoFrame.tpt/@thread@179@F@10@S-,D@NONE+179/@article@179
+ */
+
+/* If you have issues restoring your files, you can try recompiling with
+ * this tweak.  It will add a CR (0x0D) right before any LF (0x0A)
+ * characters in the data stream.  That way, if your newlines got messed
+ * up, you can fix them.  When compiled with this tweak, I strongly suggest
+ * you only use it on corrupted text files!
+ */
+
+/* #define TWEAK_ADD_CR_TO_LF */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
+/* Thanks to Andrea Manzini for testing on Win32 */
+#ifdef WIN32
+#include <direct.h>
+#define mkdir(a,b) _mkdir(a)
+#endif
+
+
+char gPath[256];
+
+
+void MakeDirectory(void)
+{
+    struct stat s;
+
+    if (stat(gPath, &s) != 0)
+    {
+        if (mkdir(gPath, 01777))
+        {
+            fprintf(stderr, "Unable to create directory %s\n",
+                    gPath);
+            exit(-1);
+        }
+        return;
+    }
+    if (s.st_mode & S_IFDIR)
+        return;
+    if (mkdir(gPath, 01777))
+    {
+        fprintf(stderr, "Unable to create directory %s\n",
+                gPath);
+        exit(-1);
+    }
+}
+
+
+void WriteToFile(FILE *in, long bytes_to_read)
+{
+    int ch;
+    size_t c;
+    FILE *out;
+
+    // make directory tree if needed
+    for (c = 0; c < strlen(gPath); c ++)
+    {
+        if (gPath[c] == '/')
+        {
+            gPath[c] = '\0';
+            MakeDirectory();
+            gPath[c] = '/';
+        }
+    }
+
+    // Open output file
+    out = fopen(gPath, "wb");
+    if (out == NULL)
+    {
+        fprintf(stderr, "Unable to create file %s\n", gPath);
+        exit(-1);
+    }
+
+    while (bytes_to_read --)
+    {
+        ch = fgetc(in);
+#ifdef TWEAK_ADD_CR_TO_LF
+        if (ch == 0x0A)
+        {
+            fputc(0x0D, out);
+            bytes_to_read --;
+        }
+#endif
+        fputc(ch, out);
+    }
+
+    fclose(out);
+
+    if (fgetc(in) != 0x1E)
+    {
+        fprintf(stderr, "Stream footer not found!\n");
+        exit(-1);
+    }
+}
+
+
+int ReadVariableBytes(FILE *fp)
+{
+    int c;
+
+    c = fgetc(fp);
+    if (c & 0x80)
+    {
+        // Bigger than 1 byte
+        fprintf(stderr, "Unable to handle multi-byte lengths.\n");
+        exit(-1);
+    }
+
+    return c;
+}
+
+
+void ReadSDIF80(FILE *fp)
+{
+    int c;
+    int bytes;
+    long expanded_size;
+
+    c = fgetc(fp);
+    switch (c)
+    {
+        case 0x05:
+            // Stream Compress Type
+            bytes = ReadVariableBytes(fp);
+            fprintf(stderr, "Unknown compression method:  ");
+            while (bytes --)
+                fprintf(stderr, " %02x", fgetc(fp));
+            fprintf(stderr, "\n");
+            break;
+
+        case 0x06:
+            // Stream Expanded Size
+            bytes = ReadVariableBytes(fp);
+            expanded_size = 0;
+            fread(&expanded_size, 1, bytes, fp);
+            fprintf(stderr, "Expanded size:  %ld\n", expanded_size);
+            break;
+
+        default:
+            fprintf(stderr, "Unknown byte series:  80 %02x\n", c);
+            exit(-1);
+    }
+}
+
+
+void ReadSDIF81EF(FILE *fp)
+{
+    int c;
+
+    c = fgetc(fp);
+    switch (c)
+    {
+        case 0xE6:
+            // Can't Compress Data
+            fgetc(fp);
+            break;
+
+        default:
+            fprintf(stderr, "Unknown byte series:  81 EF %02x\n", c);
+            exit(-1);
+    }
+}
+
+
+void ReadSDIF81(FILE *fp)
+{
+    int c;
+    int bytes;
+
+    c = fgetc(fp);
+    switch (c)
+    {
+        case 0x17:  // Deprecated:  Archiver Name
+        case 0x19:  // Deprecated:  Owner Name
+        case 0x20:  // Deprecated:  Modifier Name
+            bytes = ReadVariableBytes(fp);
+            while (bytes --)
+                fgetc(fp);
+            break;
+
+        case 0x52:
+            // Depreciated:  Inherited Rights Mask
+            fgetc(fp);
+            fgetc(fp);
+            fgetc(fp);
+            fgetc(fp);
+            break;
+
+        case 0xEF:
+            ReadSDIF81EF(fp);
+            break;
+
+        default:
+            fprintf(stderr, "Unknown byte series:  81 %02x\n", c);
+            exit(-1);
+    }
+}
+
+
+void ReadSDIF(FILE *fp)
+{
+    int c, c2;
+    int bytes;
+    long offset;
+    long bytes_to_read = 0;
+
+    while (1)
+    {
+        c = fgetc(fp);
+        switch (c)
+        {
+            // Skip these variable length tags
+            case 0x01:  // Offset to end
+            case 0x0b:  // File chunk size
+            case 0x0E:  // Source File Header
+            case 0x10:  // Path - Just a CRC - skip
+            case 0x11:  // Name Space
+            case 0x13:  // Characteristics
+            case 0x22:  // Stream CRC
+            case 0x27:  // Name Positions -- skip
+            case 0x28:  // Separator Positions -- skip
+                bytes = ReadVariableBytes(fp);
+                while (bytes --)
+                    fgetc(fp);
+                break;
+
+            case 0x12:
+                // Path name
+                bytes = ReadVariableBytes(fp);
+                offset = 0;
+                while (bytes --)
+                {
+                    c2 = fgetc(fp);
+                    if (c2 == ':')
+                        c2 = '/';
+                    if (c2 != '/' ||
+                            (offset > 0 && gPath[offset - 1] != '/'))
+                        gPath[offset ++] = c2;
+                }
+                gPath[offset] = '\0';
+                break;
+
+            case 0x1D:
+                // Stream Header
+                bytes = ReadVariableBytes(fp);
+                if (bytes == 0 && bytes_to_read)
+                {
+                    WriteToFile(fp, bytes_to_read);
+                    return;
+                }
+                else
+                {
+                    while (bytes --)
+                        fgetc(fp);
+                }
+                bytes_to_read = 0;
+                break;
+
+            case 0x20:  // Stream Size
+                bytes = ReadVariableBytes(fp);
+                bytes_to_read = 0;
+                fread(&bytes_to_read, 1, bytes, fp);
+                break;
+
+            case 0x21: // Stream is invalid
+                bytes = fgetc(fp);
+                if (bytes & 0x01)
+                    fprintf(stderr, "OS deemed that stream is invalid\n");
+                break;
+
+            case 0x2b:
+                // Stream Type
+                bytes = ReadVariableBytes(fp);
+                if (bytes != 1)
+                {
+                    fprintf(stderr, "Unhandled stream bytes (!= 1)\n");
+                    exit(-1);
+                }
+                if (fgetc(fp) != 00)
+                {
+                    fprintf(stderr, "Unhandled stream type (not zero)\n");
+                    exit(-1);
+                }
+                break;
+
+            case 0x2c:
+                // Stream Format
+                bytes = ReadVariableBytes(fp);
+                if (bytes != 1)
+                {
+                    fprintf(stderr, "Unhandled stream format bytes (!= 1)\n");
+                    exit(-1);
+                }
+                bytes = fgetc(fp);
+                switch (bytes)
+                {
+                    case 0x00:
+                        // clear data
+                        break;
+
+                    case 0x02:
+                        // compressed data
+                        fprintf(stderr, "Warn:  Compressed stream\n");
+                        break;
+
+                    default:
+                        fprintf(stderr, "Unhanded stream format\n");
+                        exit(-1);
+                }
+                break;
+
+            case 0x16:  // Needs Archive
+            case 0x50:  // Path Fully Qualified
+                fgetc(fp);
+                break;
+
+            case 0x44:  // Access Time
+            case 0x54:  // Archive Time
+            case 0x64:  // Creation Time
+            case 0x74:  // Modified Time
+                for (bytes = 0; bytes < 16; bytes ++)
+                    fgetc(fp);
+                break;
+
+            case 0x80:
+                ReadSDIF80(fp);
+                break;
+
+            case 0x81:
+                ReadSDIF81(fp);
+                break;
+
+            default:
+                fprintf(stderr, "Unknown byte %02X at offset %lX\n",
+                        c, ftell(fp));
+                exit(-1);
+        }
+    }
+}
+
+
+int main(int argc, char **argv)
+{
+    FILE *fp;
+
+    if (argc < 2)
+    {
+        printf("syntax:  tiff_fix filename\n");
+        exit(-1);
+    }
+
+    fp = fopen(argv[1], "rb");
+    if (! fp)
+    {
+        fprintf(stderr, "Can not open file.\n");
+        exit(-1);
+    }
+
+    ReadSDIF(fp);
+
+    fclose(fp);
+    return 0;
+}

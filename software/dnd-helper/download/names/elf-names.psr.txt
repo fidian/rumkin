@@ -1,0 +1,65 @@
+# Elf names
+# PSR rules initially based on ones at
+#  http://www.kanga.nu/archives/MUD-Dev-L/1997Q2/msg01379.php
+# From Martin Keegan <martin@cam.sri.com>
+#
+# Comments start with a # at the beginning of a line
+# Blank lines are ignored
+# Initial key should have a * before it and can be followed by spaces
+# Keys should be in [brackets]
+# Key names with a ^ in front are capitalized (see the only line in ELFNAME)
+# Case matters
+# First key is the main rule
+# Spaces at beginning and end are removed
+# Rules can have a number followed by a colon prepended to have a chance
+# associated with it.
+
+* ELFNAME
+[^ELFSTART][ELFENDING]
+
+* ELFSTART
+[VOCALIC_START]
+[START_SYLLABLE]
+
+* VOCALIC_START
+[LIGHTVOWEL][VSTARTCLUSTER]
+
+* VSTARTCLUSTER
+l
+r
+ss
+st
+str
+nn
+lm
+nd
+
+* START_SYLLABLE
+[INITIAL_CONSONANT][LIGHTVOWEL][VSTARTCLUSTER]
+
+* INITIAL_CONSONANT
+p
+b
+l
+m
+n
+s
+sp
+pr
+gl
+g
+cl
+
+* ELFENDING
+arion
+ion
+iel
+ar
+ir
+er
+is
+
+* LIGHTVOWEL
+i
+e
+a

@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en" class="H(100%) Ovy(h)"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face{font-family:Ubuntu-e0cccab4f2696d74;src:url("/_astro/fonts/4af9aeedb82f7b63.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:Ubuntu-e0cccab4f2696d74;src:url("/_astro/fonts/4900cede8328fcb6.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"Ubuntu-e0cccab4f2696d74 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:italic;size-adjust:98.6988%;ascent-override:94.4287%;descent-override:19.1492%;line-gap-override:2.8369%;}@font-face{font-family:"Ubuntu-e0cccab4f2696d74 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:98.6988%;ascent-override:94.4287%;descent-override:19.1492%;line-gap-override:2.8369%;}:root{--font-ubuntu:Ubuntu-e0cccab4f2696d74,"Ubuntu-e0cccab4f2696d74 fallback: Arial",sans-serif;}</style><style>@font-face{font-family:"Anonymous Pro-384df8a6d1de024f";src:url("/_astro/fonts/e9d94eea0f9913ab.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f";src:url("/_astro/fonts/15fead8747ceb35e.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:italic;size-adjust:122.4535%;ascent-override:66.7904%;descent-override:14.8733%;line-gap-override:0%;}@font-face{font-family:"Anonymous Pro-384df8a6d1de024f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:122.4535%;ascent-override:66.7904%;descent-override:14.8733%;line-gap-override:0%;}:root{--font-anonymous-pro:"Anonymous Pro-384df8a6d1de024f","Anonymous Pro-384df8a6d1de024f fallback: Arial",sans-serif;}</style><title>Email Validation RFC Rules</title><script type="module" src="/_astro/default-layout.astro_astro_type_script_index_0_lang.DYUAk69k.js"></script><!-- Favicon generated content from http://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"><link rel="manifest" href="/img/favicon/manifest.json"><link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5"><link rel="shortcut icon" href="/img/favicon/favicon.ico"><meta name="msapplication-config" content="/img/favicon/browserconfig.xml"><meta name="theme-color" content="#ffffff"><!-- End of favicon generated content --><link rel="license" href="/license/"><!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-H1S197ZSNH"></script><script type="module">window.dataLayer=window.dataLayer||[];function e(){dataLayer.push(arguments)}e(`js`,new Date),e(`config`,`G-H1S197ZSNH`);</script><!-- End of Google Analytics --><link rel="stylesheet" href="/_astro/default-layout.B5JWhXyE.css"></head><body class="H(100%) Ovx(h) Bgc(--page-border-background) Bgc(tr)--p"><div class="Maw(1002px) H(100%) W(100%) D(f) Fxd(c) Maw(100%)--p Mx(a) Mx(0)--p"><nav class="Bgc(--bar-background) Bgc(tr)--p Pos(a) Pos(s)--p T(0) Start(0) End(0) Bdbw(1px) Bdc(--bar-border) H(50px) C(--bar-text) C(black)--p Px(10px) Z(1)"><div class="W(100%) D(f) H(100%) Jc(spb) Ai(c) Ov(h)"><div class="D(f) Whs(nw) Ai(c) Fxs(1) Ov(h) Pend(12px)"><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/">Rumkin.com</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Tov(e) Ov(h) Fxs(1) Td(n)--p Tov(e) D(b)" href="/software/">Software Projects</a><span class="Px(0.3em) Fxs(0)">&gt;</span><a href="/software/email/" class="C(--bar-text) C(black)--p Fz(1.4em) Fw(b) Ov(H)">Email Validation Done Right</a></div></div></nav><div class="Bgc(--page-background) Bgc(tr)--p Fxg(1)"><div class="Mt(50px) Mt(0)--p C(--text-color-normal) P(10px)"><div class="Mx(a) W(100%) Maw(--content-width-max) Maw(100%)--p D(f) Px(10px) Pstart(0)"><main class="D(tbc) Va(t) W(100%)"><header><h1>Email Validation RFC Rules</h1><div class="contents"><p>These rule govern email addresses.  I made sure <a href="../">my validators</a> were correct by reading through the actual rules governing the internet.</p>
+<h2 id="in-summary">In Summary</h2>
+<p>Just in case you can’t read the odd syntax for the rules and the rest of the RFCs (and I certainly don’t blame you), here are the rules as I interpret them.</p>
+<ul>
+<li>All email addresses are in 7-bit US ASCII.  (RFC 2822, section 2.2)</li>
+<li>Email addresses consist of a local part, the <code>@</code> symbol, and the domain.  (RFC 2822, section 3.4.1)</li>
+<li>The local part can be unquoted, quoted in its entirety, or quoted on a per-label basis.  (RFC 2822, sections 3.4.1 and 4.4)</li>
+<li>Unquoted local parts can consist of TEXT, optionally separated by periods.  No periods can start or end the local part.  Two periods together is invalid.  (RFC 2822, section 3.4.1)</li>
+<li>TEXT can contain alphabetic, numeric, and these symbols:  ``!#$%’*+-/=?^_{|}~` (RFC 2822, section 3.4.1)</li>
+<li>The quoted local part starts with a quotation mark, ends with a quotation mark. (RFC 2822, section 3.4.1)</li>
+<li>The contents of a quoted local part can not contain characters 9 (TAB), 10 (LF), 13 (CR), 32 (space), 34 (<code>"</code>), 91-94 (<code>[\]^</code>).  (RFC 2822, section 3.4.1)</li>
+<li>If the quoted local part has a backslash, the following character is escaped and must not be 10 (LF), 13 (CR).  This supersedes the previous rule, allowing spaces and quotation marks in the email address as long as they are escaped.  (RFC 2822, section 3.4.1)</li>
+<li>If an email is using the obsolete quoting on a per-label basis, then the email address consists of unquoted or quoted chunks separated by periods.  (RFC 2822, section 4.4)</li>
+<li>The domain can be bracketed or plain.  (RFC 2822, section 3.4.1)</li>
+<li>A plain domain consists of labels separated with periods.  No period can start or end a domain name.  No two periods in succession can be in a domain name.  (RFC 1035, section 2.3.4)</li>
+<li>The maximum length of a label is 63 characters.  (RFC 1035, section 2.3.4)</li>
+<li>A label may contain hyphens, but no two hyphens in a row.  A label must not start nor end with a hyphen.  (RFC 1035, section 2.3.4)</li>
+<li>Bracketed domains must start with <code>[</code>, end with <code>]</code>, and must not contain characters 9 (TAB), 10 (LF), 13 (CR), 32 (space), 91-94 (<code>[\]^</code>).  (RFC 2822, section 3.4.1)</li>
+<li>The contents of a bracketed domain can have a <code>\</code> precede a character to escape it, and the following character must not be 10 (LF) or 13 (CR).  This allows spaces in the domain as long as they are escaped.  (RFC2822, section 3.4.1)</li>
+<li>The maximum length of the local part is 64 characters.  (RFC 2821, section 4.5.3.1)</li>
+<li>Domains must resolve with either an A or MX record.  (RFC 2821, section 3.6)</li>
+<li>The maximum length of a domain must be 255 characters when being transmitted over the wire (for DNS lookups), thus the maximum length of the domain (the normal domain or the contents of the bracketed domain) is 253 characters.  (RFC 1034, section 3.1)</li>
+<li>Any domain label can be at most 63 characters long.  (RFC 1034, section 2.3.1)</li>
+<li>The maximum length of a “useful” email address is 255 characters.  (RFC 2821, section 4.5.3.1)</li>
+<li>The maximum allowable length of an email address is 320 characters.  (RFC 3696)</li>
+<li>The top level domain must be all alphabetic.  (RFC 3696, section 2)</li>
+</ul>
+<h2 id="rfc-2822">RFC 2822</h2>
+<p>This RFC supersedes RFC 822, which governs email exchange through SMTP.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>addr-spec       =       local-part "@" domain</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>local-part      =       dot-atom / quoted-string / obs-local-part</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>domain          =       dot-atom / domain-literal / obs-domain</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>domain-literal  =       [CFWS] "[" *([FWS] dcontent) [FWS] "]" [CFWS]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>dcontent        =       dtext / quoted-pair</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>dtext           =       NO-WS-CTL /     ; Non white space controls</span></span>
+<span class="line"><span>                        %d33-90 /       ; The rest of the US-ASCII</span></span>
+<span class="line"><span>                        %d94-126        ;  characters not including "[",</span></span>
+<span class="line"><span>                                        ;  "]", or "\"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters</span></span>
+<span class="line"><span>                        %d11 /          ;  that do not include the</span></span>
+<span class="line"><span>                        %d12 /          ;  carriage return, line feed,</span></span>
+<span class="line"><span>                        %d14-31 /       ;  and white space characters</span></span>
+<span class="line"><span>                        %d127</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>quoted-pair     =       ("\" text) / obs-qp</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>text            =       %d1-9 /         ; Characters excluding CR and LF</span></span>
+<span class="line"><span>                        %d11 /</span></span>
+<span class="line"><span>                        %d12 /</span></span>
+<span class="line"><span>                        %d14-127 /</span></span>
+<span class="line"><span>                        obs-text</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>FWS             =       ([*WSP CRLF] 1*WSP) /   ; Folding white space</span></span>
+<span class="line"><span>                        obs-FWS</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>CRLF            =       %d13.10</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>CFWS            =       *([FWS] comment) (([FWS] comment) / FWS)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>comment         =       "(" *([FWS] ccontent) [FWS] ")"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>ccontent        =       ctext / quoted-pair / comment</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>ctext           =       NO-WS-CTL /     ; Non white space controls</span></span>
+<span class="line"><span>                        %d33-39 /       ; The rest of the US-ASCII</span></span>
+<span class="line"><span>                        %d42-91 /       ;  characters not including "(",</span></span>
+<span class="line"><span>                        %d93-126        ;  ")", or "\"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>dot-atom        =       [CFWS] dot-atom-text [CFWS]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>dot-atom-text   =       1*atext *("." 1*atext)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>atext           =       ALPHA / DIGIT / ; Any character except controls,</span></span>
+<span class="line"><span>                        "!" / "#" /     ;  SP, and specials.</span></span>
+<span class="line"><span>                        "$" / "%" /     ;  Used for atoms</span></span>
+<span class="line"><span>                        "&amp;amp;" / "'" /</span></span>
+<span class="line"><span>                        "*" / "+" /</span></span>
+<span class="line"><span>                        "-" / "/" /</span></span>
+<span class="line"><span>                        "=" / "?" /</span></span>
+<span class="line"><span>                        "^" / "_" /</span></span>
+<span class="line"><span>                        "`" / "{" /</span></span>
+<span class="line"><span>                        "|" / "}" /</span></span>
+<span class="line"><span>                        "~"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>ALPHA           =       %x41-5A / %x61-7A   ; A-Z / a-z</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>DIGIT           =       %x30-39  ; 0-9</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>quoted-string   =       [CFWS]</span></span>
+<span class="line"><span>                        DQUOTE *([FWS] qcontent) [FWS] DQUOTE</span></span>
+<span class="line"><span>                        [CFWS]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>DQUOTE          =       %x22  ; " (Double Quote)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>qcontent        =       qtext / quoted-pair</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>qtext           =       NO-WS-CTL /     ; Non white space controls</span></span>
+<span class="line"><span>                        %d33 /          ; The rest of the US-ASCII</span></span>
+<span class="line"><span>                        %d35-91 /       ;  characters not including "\"</span></span>
+<span class="line"><span>                        %d93-126        ;  or the quote character</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>obs-local-part  =       word *("." word)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>obs-domain      =       atom *("." atom)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>obs-FWS         =       1*WSP *(CRLF 1*WSP)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>obs-qp          =       "\" (%d0-127)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>obs-text        =       *LF *CR *(obs-char *LF *CR)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>CFWS            =       *([FWS] comment) (([FWS] comment) / FWS)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>WSP             =       SP / HTAB  ; white space</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>atom            =       [CFWS] 1*atext [CFWS]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>word            =       atom / quoted-string</span></span></code></pre>
+<h2 id="rfc-1035-section-231">RFC 1035, section 2.3.1</h2>
+<p>RFC 1123 relaxed the definition of “label”, reflected below.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>domain          =       subdomain / " "</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>subdomain       =       *(label ".") label</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>label           =       *let-dig-hyp 1*let-dig</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let-dig-hyp     =       1*let-dig "-"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let-dig         =       ALPHA / DIGIT</span></span></code></pre>
+<h2 id="rfc-3696">RFC 3696</h2>
+<p>RFC 3696 doesn’t appear to agree with RFC 1034.  It appears that one says the maximum domain length is 255 characters and the other says 253 characters when transmitted over the wire.  The good news is that the domain portion in the email can have brackets surrounding it, thus making the length 255 characters.</p>
+<h2 id="thats-a-lot">That’s a LOT!</h2>
+<p>Yep.  The easiest thing I can do is summarize the rules.</p>
+<ul>
+<li>Email addresses are 7-bit ascii; each character has a value from 1 to 127</li>
+<li>The email has a localpart on the left of an <code>@</code>, the domain on the right.  Neither the localpart nor the domain may be empty.</li>
+<li>The localpart must be 64 characters or less.</li>
+<li>The localpart can consist of labels separated by dots but there can not be two successive dots, nor can it start or end with a dot.</li>
+<li>Labels can either be quoted or unquoted.
+<ul>
+<li>Unquoted labels must have at least one character.
+<ul>
+<li>This can only contain <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, or any of ``!#$%&amp;’*+-/=?^_{|}~`.</li>
+</ul>
+</li>
+<li>Quoted labels have a <code>"</code> at the beginning and end.
+<ul>
+<li>There does not need to be anything between the quotes.  (Weird.)</li>
+<li>Tab, CR, LF, “, [, , ^ must not exist in the email address unescaped.</li>
+<li>Only CR and LF can’t be escaped with a \ before the character.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The domain can be bracketed, unbracketed, or an IP address..
+<ul>
+<li>An unbracketed domain consists of labels separated by periods and less than 253 characters.  No domain can start with a period, end with a period, or have two successive periods.
+<ul>
+<li>Labels consist of <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, or one of ``!#$%&amp;’*+-/=?^_{|}~`.</li>
+<li>Labels must be less than 63 characters.</li>
+<li>Labels must not start with a hyphen, end with a hyphen, or contain two successive hyphens.</li>
+<li>The right-most label must be all alphabetic.</li>
+</ul>
+  </ul>
+</li>
+<li>A bracketed domain starts with <code>[</code>, ends with <code>]</code> and the contents (after unescaping) must be less than 245 characters.
+<ul>
+<li>CR, LF, <code>{</code>, <code>}</code>, <code>|</code>, and <code>^</code> are not allowed unescaped.</li>
+<li>If there is a <code>\</code>, any character except CR or LF is allowed.</li>
+<li>Labels must be less than 63 characters.</li>
+<li>Labels must not start with a hyphen, end with a hyphen, or contain two successive hyphens.</li>
+<li>The right-most label must be all alphabetic.</li>
+</ul>
+</li>
+<li>IP addresses can be specified as <code>123.45.67.89</code> or <code>73f0:2bba::0562:0011</code> (IPv4 or IPv6).</li>
+</ul>
+</li>
+</ul>
+<p>It is not a lot better, but hopefully the rewording can help you understand the rules.</p>
+</div></header></main></div></div></div><footer class="Bgc(--bar-background) Bgc(tr)--p Bdtw(1px) Bdc(--bar-border) C(--bar-text) C(black)--p P(10px) D(f) Fxd(c)--p Jc(spb)"><div class="Fz(0.8em)">&copy; Copyright 2026 Tyler Akins &lt;<a class="Td(n)--p C(--bar-text) C(black)--p" href="mailto:fidian@rumkin.com">fidian@rumkin.com</a>&gt;, last build 2026-09-28T21:39:34.030Z</div><div><a class="D(n)--p Fz(0.8em) C(--bar-text)" href="/license/">MIT License</a> |<a class="D(n)--p Fz(0.8em) C(--bar-text)" href="/reference/site/legal/">Legal</a></div></footer></div></body></html>

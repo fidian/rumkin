@@ -1,0 +1,7 @@
+{
+    "name": "Brazilian Portuguese",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Portuguese words with Brazilian spellings.",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wbrazilian"
+}

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Wingdings";
+    src: url(wingdings.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.wingdings {
+    font-family: "Wingdings", "Ubuntu", sans-serif;
+    font-size: 2em;
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Deutsch (Traditionelles)",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Uses the traditional German orthography (de-DE-1901).",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wngerman"
+}

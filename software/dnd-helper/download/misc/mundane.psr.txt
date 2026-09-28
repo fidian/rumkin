@@ -1,0 +1,173 @@
+# Mundane Items
+# From Table 3-8 (DMG 56), 7-11 (DMG 222), 7-12 (DMG 222), 7-13 (DMG 223)
+# Made into PSR format by Tyler Akins
+#
+# Comments start with a # at the beginning of a line
+# Blank lines are ignored
+# Initial key should have a * before it and can be followed by spaces
+# Keys should be in [brackets]
+# Key names with a ^ in front are capitalized (see the only line in ELFNAME)
+# Case matters
+# First key is the main rule
+# Spaces at beginning and end are removed
+# Rules can have a number followed by a colon prepended to have a chance
+# associated with it.
+
+* MUNDANE_ITEMS
+17:[ALCHEMICAL]
+32:[ARMOR] [SMALL_OR_MEDOUM]
+33:[WEAPONS]
+26:[TOOLS_GEAR]
+
+* ALCHEMICAL
+alchemist's fire ([1D4] flask(s), 20 gp each)
+acid ([2D4] flask(s), 10 gp each)
+smokesticks ([1D4] stick(s), 20 gp each)
+holy water ([1D4] flask(s), 25 gp each)
+antitoxin ([1D4] doses, 50 gp each)
+everburning torch
+tanglefoot bags ([1D4] bag(s), 50 gp each)
+thunderstones ([1D4] stone(s), 50 gp each)
+
+* SMALL_OR_MEDOUM
+9:(medium)
+1:(small)
+
+* ARMOR
+12:chain shirt (100 gp)
+6:masterwork studded leather (175 gp)
+8:breastplate (200 gp)
+8:banded mail (250 gp)
+20:half-plate (600 gp)
+26:full plate (1,500 gp)
+5:darkwood buckler (205 gp)
+5:darkwood shield (257 gp)
+10:masterwork [MASTERWORK_SHIELD]
+
+* MASTERWORK_SHIELD
+17:buckler (165 gp)
+23:light wooden shield (153 gp)
+20:light steel shield (159 gp)
+23:heavy wooden shield (157 gp)
+17:heavy steel shield (170 gp)
+
+* WEAPONS
+50:masterwork [COMMON_MELEE_WEAPON_MASTERWORK]
+30:masterwork [UNCOMMON_MELEE_WEAPON_MASTERWORK]
+20:masterwork [COMMON_RANGED_WEAPON_MASTERWORK]
+
+* TOOLS_GEAR
+3:backpack, empty (2 gp)
+3:crowbar (2 gp)
+5:lantern, bullseye (12 gp)
+4:lock, simple (20 gp)
+5:lock, average (40 gp)
+7:lock, good (80 gp)
+7:lock, superior (150 gp)
+5:manacles, masterwork (50 gp)
+3:mirror, small steel (10 gp)
+3:rope, silk (50 ft.) (10 gp)
+7:spyglass (1,000 gp)
+5:artisan's tools, masterwork (55 gp)
+5:climber's kit (80 gp)
+5:disguise kit (50 gp)
+5:healer's kit (50 gp)
+4:holy symbol, silver (25 gp)
+4:hourglass (25 gp)
+7:magnifying glass (100 gp)
+7:musical instrument, masterwork (100 gp)
+5:thieves' tools, masterwork (50 gp)
+
+* 1D4
+1
+2
+3
+4
+
+* 2D4
+1:2
+2:3
+3:4
+4:5
+3:6
+2:7
+1:8
+
+* COMMON_MELEE_WEAPON_MASTERWORK
+4:dagger (302 gp)
+10:greataxe (320 gp)
+10:greatsword (350 gp)
+4:kama (302 gp)
+13:longsword (315 gp)
+4:mace, light (305 gp)
+5:mace, heavy (312 gp)
+4:nunchaku (302 gp)
+3:quarterstaff (600 gp)
+4:rapier (320 gp)
+5:scimitar (315 gp)
+4:shortspear (302 gp)
+4:siangham (303 gp)
+10:sword, bastard (335 gp)
+5:sword, short (310 gp)
+11:waraxe, dwarven (330 gp)
+
+* UNCOMMON_MELEE_WEAPON_MASTERWORK
+3:axe, orc double (660 gp)
+4:battleaxe (310 gp)
+3:chain, spiked (325 gp)
+2:club (300 gp)
+4:crossbow, hand (400 gp)
+3:crossbow, repeating (550 gp)
+2:dagger, punching (302 gp)
+2:falchion (375 gp)
+3:flail, dire (690 gp)
+5:flail, heavy (315 gp)
+4:flail, light (308 gp)
+2:gauntlet (302 gp)
+2:gauntlet, spiked (305 gp)
+2:glaive (308 gp)
+2:greatclub (305 gp)
+2:guisarme (309 gp)
+3:halberd (310 gp)
+3:halfspear (301 gp)
+3:hammer, gnome hooked (620 gp)
+2:hammer, light (301 gp)
+2:handaxe (306 gp)
+3:kukri (308 gp)
+3:lance (310 gp)
+3:longspear (305 gp)
+3:morningstar (308 gp)
+2:net (320 gp)
+2:pick, heavy (308 gp)
+2:pick, light (304 gp)
+2:ranseur (310 gp)
+2:sap (301 gp)
+2:scythe (318 gp)
+2:shuriken (301 gp)
+2:sickle (306 gp)
+3:sword, two-bladed (700 gp)
+2:trident (315 gp)
+3:urgrosh, dwarven (650 gp)
+3:warhammer (312 gp)
+3:whip (301 gp)
+
+* COMMON_RANGED_WEAPON_MASTERWORK
+5:arrows (50) (350 gp)
+3:bolts, crossbow (50) (350 gp)
+2:bullets, sling (50) (350 gp)
+5:axe, throwing (308 gp)
+10:crossbow, heavy (350 gp)
+10:crossbow, light (335 gp)
+4:dart (300.5 gp)
+2:javelin (301 gp)
+5:shortbow (330 gp)
+5:shortbow, composite (+0 Str bonus) (375 gp)
+5:shortbow, composite (+1 Str bonus) (450 gp)
+5:shortbow, composite (+2 Str bonus) (525 gp)
+4:sling (300 gp)
+10:longbow (375 gp)
+5:longbow, composite (+0 Str bonus) (400 gp)
+5:longbow, composite (+1 Str bonus) (500 gp)
+5:longbow, composite (+2 Str bonus) (600 gp)
+5:longbow, composite (+3 Str bonus) (700 gp)
+5:longbow, composite (+4 Str bonus) (800 gp)

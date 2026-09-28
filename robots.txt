@@ -1,0 +1,4 @@
+# Welcome!
+User-agent: *
+
+Sitemap: https://rumkin.com/sitemap.xml

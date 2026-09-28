@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Dancing Men ARS";
+    src: url(dancing-men-ars.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.dancing-men-ars {
+    font-family: "Dancing Men ARS", "Ubuntu", sans-serif;
+    font-size: 3em;
+    line-height: 1;
+}
+
+@font-face {
+    font-family: "Dancing Men GL";
+    src: url(dancing-men-gl.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.dancing-men-gl {
+    font-family: "Dancing Men GL", "Ubuntu", sans-serif;
+    font-size: 3em;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    padding-left: 0.2em;
+}

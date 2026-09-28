@@ -1,0 +1,7 @@
+{
+    "name": "Deutsch (German)",
+    "sortMethod": "ALPHABETICAL",
+    "description": "Uses the new German orthography (de-DE-1996), which is used since 1998-08-01 and which is obligatory as of 2005-08-01.",
+    "sourceName": "Debian package repository",
+    "sourceUrl": "https://packages.debian.org/sid/wngerman"
+}

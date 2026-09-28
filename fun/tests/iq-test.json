@@ -1,0 +1,134 @@
+{
+    "title": "How Smart Are You?",
+    "summary": "Quickly take this quiz, if you dare, and find out!",
+    "questions": [
+        {
+            "text": "Is there a 4th of July in England?",
+            "answerText": "It comes after the third of July, just like every other month.",
+            "answers": {
+                "Yes": "Correct.",
+                "No": "Incorrect."
+            }
+        },
+        {
+            "text": "How many birthdays does the average person have?",
+            "answerText": "Everyone was born on just one day. What people celebrate are the anniversaries of their birthdays.",
+            "answers": {
+                "1": "Correct.",
+                "2-5": "Incorrect.",
+                "6-10": "Incorrect.",
+                "11-20": "Incorrect.",
+                "21-30": "Incorrect.",
+                "31-40": "Incorrect.",
+                "41-50": "Incorrect.",
+                "51-60": "Incorrect.",
+                "61 or more": "Incorrect."
+            }
+        },
+        {
+            "text": "Some months have 31 days. How many have 28?",
+            "answerText": "All months have at least 28 days.",
+            "answers": {
+                "I Don't Know": "Incorrect:  All months have 28 days.",
+                "1": "Incorrect.",
+                "2": "Incorrect.",
+                "3": "Incorrect.",
+                "4": "Incorrect.",
+                "6": "Incorrect.",
+                "9": "Incorrect.",
+                "12": "Correct."
+            }
+        },
+        {
+            "text": "How many outs are there in an inning of baseball?",
+            "answerText": "There are 6; 3 for each side.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "2": "Incorrect.",
+                "3": "Incorrect.",
+                "6": "Correct.",
+                "8": "Incorrect."
+            }
+        },
+        {
+            "text": "Is it legal for a man in California to marry his widow's sister?",
+            "answerText": "The man must be dead because his wife is a widow. If the man was alive and the woman was dead, he would be called a widower instead.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "Yes": "Incorrect.",
+                "No": "Correct."
+            }
+        },
+        {
+            "text": "Divide 30 by ½ and add 10.  What is the answer?",
+            "answerText": "30 divided by ½ is 60. Add 10 to get 70.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "10": "Incorrect.",
+                "25": "Incorrect.",
+                "35": "Incorrect.",
+                "50": "Incorrect.",
+                "70": "Correct."
+            }
+        },
+        {
+            "text": "If there are 3 apples and you take away 2, how many apples do you have?",
+            "answerText": "If you took 2, you have 2 apples.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "0": "Incorrect.",
+                "1": "Incorrect.",
+                "2": "Correct.",
+                "3": "Incorrect.",
+                "4": "Incorrect."
+            }
+        },
+        {
+            "text": "A doctor gives you three pills, telling you to take one pill every half hour.  How many minutes would the pills last?",
+            "answerText": "Start with the first pill. 30 minutes later you take the second. Another 30 minutes later and you would take the third.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "20": "Incorrect.",
+                "30": "Incorrect.",
+                "40": "Incorrect.",
+                "60": "Correct.",
+                "90": "Incorrect."
+            }
+        },
+        {
+            "text": "A farmer has 17 sheep, and all but 9 die.  How many are left?",
+            "answerText": "When all but 9 die, that means 9 are still alive.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "1": "Incorrect.",
+                "3": "Incorrect.",
+                "5": "Incorrect.",
+                "7": "Incorrect.",
+                "9": "Correct."
+            }
+        },
+        {
+            "text": "How many animals of each gender did Moses take on the ark?",
+            "answerText": "Moses didn't have an ark. Noah did.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "0": "Correct.",
+                "1": "Incorrect.",
+                "2": "Incorrect.",
+                "3": "Incorrect."
+            }
+        },
+        {
+            "text": "How many two cent stamps are there in a dozen?",
+            "answerText": "There are 12 or anything in a dozen.",
+            "answers": {
+                "I Don't Know": "Incorrect.",
+                "1": "Incorrect.",
+                "3": "Incorrect.",
+                "6": "Incorrect.",
+                "9": "Incorrect.",
+                "12": "Correct."
+            }
+        }
+    ]
+}

@@ -1,0 +1,2 @@
+import{i as e,t}from"./fudgel.DJhU_d4Q.js";t(`random-tip`,{attr:[`href`,`label`],template:e`<div class="Ta(c)"><span>{{tip}}</span></div><div class="Ta(c)"><button @click="changeTip()">{{label}}</button></div>`},class{href=``;label=``;tip=`Loading ...`;tips=[];onInit(){fetch(this.href).then(e=>e.text()).then(e=>{this.tips=e.split(`
+`).map(e=>e.trim()).filter(e=>!!e),this.changeTip()})}changeTip(){this.tip=this.tips[Math.floor(Math.random()*this.tips.length)]}});
