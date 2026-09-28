@@ -77,6 +77,15 @@ appears under on the cipher index, so they have to survive conversion.
 `tools/convert-cipher-page.mjs` does the mechanical rewrite of a page's
 frontmatter and its two bits of embedded markup.
 
+`runCipher()` warns about leading, trailing and doubled spaces in the output,
+but only for the ciphers. A code substitutes one thing for another and hands
+your spacing back untouched, so the only way it could report a trailing space
+is if you typed one, and saying so in a red box is wrong. A cipher rearranges
+text - a transposition set to move every character turns "attack at dawn"
+into "a wtkaantctda " - and there the space is a character's worth of
+position. The split comes from whether the module is in `rumkinCipher.cipher`
+or `rumkinCipher.code`, so a new one is covered without being listed.
+
 A JSON-valued attribute has to be entity-escaped. The wingdings palette
 contains both `'` and `"` among its symbols, and an unescaped copy ends the
 attribute early, leaving an element with nothing in it and no visible error.

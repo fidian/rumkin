@@ -112,7 +112,7 @@ describe('runCipher', () => {
         expect(back.text).toBe('Hello, World!');
     });
 
-    it('carries the spacing warnings through', () => {
+    it('carries the spacing warnings through for a cipher', () => {
         const result = runCipher({
             name: 'caesar',
             direction: 'ENCRYPT',
@@ -122,6 +122,50 @@ describe('runCipher', () => {
         });
         expect(result.warnings).toContain(
             'Two or more consecutive spaces in output'
+        );
+    });
+
+    // Where the warning earns its keep: a transposition told to move every
+    // character puts a space somewhere the reader never typed one, and that
+    // space is a character's worth of position.
+    it('warns when a transposition invents the spacing', () => {
+        const result = runCipher({
+            name: 'railFence',
+            direction: 'ENCRYPT',
+            message: 'attack at dawn',
+            alphabet: plain,
+            noAlphabet: true,
+            options: { rails: 4 },
+        });
+
+        expect(result.text).toBe('a wtkaantctda ');
+        expect(result.warnings).toContain(
+            'Found a trailing space in output'
+        );
+    });
+
+    // A code hands your own spacing straight back, so the only way it can
+    // report a trailing space is if you typed one. That is not a problem and
+    // is not worth a red box.
+    it('says nothing about spacing for a code', () => {
+        for (const name of ['braille', 'cherokee', 'goldBug', 'runes']) {
+            const result = runCipher({
+                name,
+                direction: 'ENCRYPT',
+                message: 'hello ',
+                alphabet: plain,
+            });
+
+            expect(result.text.endsWith(' ')).toBe(true);
+            expect(result.warnings).toEqual([]);
+        }
+    });
+
+    // The check itself is unchanged; it is only the codes that stop being
+    // asked.
+    it('still spots the spacing when asked directly', () => {
+        expect(spacingWarnings('hello ')).toContain(
+            'Found a trailing space in output'
         );
     });
 

@@ -42,6 +42,14 @@ const NBSP = String.fromCharCode(160);
 /**
  * Spacing in cipher text is easy to lose by accident when copying, so it is
  * called out rather than left for the reader to discover.
+ *
+ * This is for the ciphers, and particularly for a transposition set to move
+ * every character: there a space is a character's worth of position, and
+ * "attack at dawn" comes out of a four-rail fence as "a wtkaantctda " with a
+ * trailing space the reader never typed. Lose it and the message will not
+ * decode.
+ *
+ * The codes are exempt - see runCipher below.
  */
 export const spacingWarnings = (text: string): string[] => {
     const warnings: string[] = [];
@@ -98,7 +106,13 @@ export const runCipher = (request: CipherRequest): CipherOutcome => {
         return {
             text,
             display: visibleSpacing(text),
-            warnings: spacingWarnings(text),
+            // A code substitutes one thing for another and hands your own
+            // spacing back untouched, so the only way it can report a
+            // trailing space is if you typed one. Telling you that is not
+            // news, and a red box calling it a problem is wrong. Ciphers
+            // rearrange text and can genuinely produce spacing you did not
+            // write, so they keep the check.
+            warnings: cipher ? spacingWarnings(text) : [],
         };
     } catch (e) {
         // A bad key or an alphabet the cipher cannot use ends up here. Say
