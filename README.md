@@ -1,25 +1,16 @@
-Rumkin.com Web Site
-===================
+# Rumkin.com
 
+The source for [rumkin.com](https://rumkin.com): ciphers, tools, reference
+material and old software, built with [Astro](https://astro.build/).
 
-Building
---------
+```bash
+npm install
+npm start           # dev server
+npm run build       # build, sitemap, link and markup checks
+npm test            # the above plus unit and browser tests
+```
 
-First, get the prerequisites.
-
-    npm install
-
-Next, you simply run the `build` script.
-
-    npm run build
-
-There are some environment variables you can supply that control some settings during build.
-
-    # Produce unminified files
-    UNMINIFIED=true npm run build
-
-    # Debug the generation of some files by writing JSON of metadata in build/
-    JSON="somefile.js folder/another-file.html" npm run build
-
-    # Show timing information
-    DEBUG=metalsmith-timer npm run build
+The site is mid-way through a conversion from Metalsmith. See
+[AGENTS.md](AGENTS.md) for where that stands, how to convert a page, and the
+handful of things that fail silently. Component conventions are in
+[src/assets/README.md](src/assets/README.md).

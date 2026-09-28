@@ -1,0 +1,28 @@
+---
+// The tool pages, like the cipher pages, are mostly prose with one custom
+// element dropped into the body, so they stay as Markdown and this layout
+// brings the elements with it:
+//
+//     layout: "@/layouts/tool-layout.astro"
+//
+// One bundle for all the tools, the same arrangement the 39 cipher pages
+// use. They are small, and a page that needs two of them gets both.
+import DefaultLayout from "@/layouts/default-layout.astro";
+
+interface Props {
+    breadcrumbs?: { name: string; href: string }[];
+    summary?: string;
+    title: string;
+}
+
+const { breadcrumbs, summary, title } =
+    (Astro.props.frontmatter as Props) || Astro.props;
+---
+
+<script>
+    import "@/assets/tools/register.ts";
+</script>
+
+<DefaultLayout title={title} summary={summary} breadcrumbs={breadcrumbs}>
+    <slot />
+</DefaultLayout>

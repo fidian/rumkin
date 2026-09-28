@@ -1,0 +1,177 @@
+/*
+ * The symbol fonts the cipher pages render their output in.
+ *
+ * Gathered from the per-page stylesheets Metalsmith linked with the "css"
+ * frontmatter key. Declaring a font costs nothing until something on the
+ * page actually uses it, so one sheet for all the cipher pages is fine.
+ */
+
+/* asl */
+@font-face {
+    font-family: "Gallaudet";
+    src: url("/tools/cipher/asl/gallaudet.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.gallaudet {
+    font-family: "Gallaudet", "Ubuntu", sans-serif;
+    font-size: 7em;
+    line-height: 1;
+}
+
+/* dancing-men */
+@font-face {
+    font-family: "Dancing Men ARS";
+    src: url("/tools/cipher/dancing-men/dancing-men-ars.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.dancing-men-ars {
+    font-family: "Dancing Men ARS", "Ubuntu", sans-serif;
+    font-size: 3em;
+    line-height: 1;
+}
+
+@font-face {
+    font-family: "Dancing Men GL";
+    src: url("/tools/cipher/dancing-men/dancing-men-gl.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.dancing-men-gl {
+    font-family: "Dancing Men GL", "Ubuntu", sans-serif;
+    font-size: 3em;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    padding-left: 0.2em;
+}
+
+/* flag-semaphore */
+@font-face {
+    font-family: "Semaphore";
+    src: url("/tools/cipher/flag-semaphore/semaphore.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.semaphore {
+    font-family: "Semaphore", "Ubuntu", sans-serif;
+    font-size: 4em;
+}
+
+/* illuminati-dirigens */
+@font-face {
+    font-family: "Illuminati";
+    src: url("/tools/cipher/illuminati-dirigens/illluminati-dirigens-berlin.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.illuminati {
+    font-family: "Illuminati", sans-serif;
+    font-size: 4em;
+    line-height: 1em;
+}
+
+/* lego-bionicle */
+@font-face {
+    font-family: "Metrumatoran";
+    src: url("/tools/cipher/lego-bionicle/metrumatoran.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.metrumatoran {
+    font-family: "Metrumatoran", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
+
+@font-face {
+    font-family: "Voyamatoran";
+    src: url("/tools/cipher/lego-bionicle/voyamatoran.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.voyamatoran {
+    font-family: "Voyamatoran", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
+
+@font-face {
+    font-family: "Okoto";
+    src: url("/tools/cipher/lego-bionicle/okoto2016.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.okoto {
+    font-family: "Okoto", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
+
+/* pigpen */
+@font-face {
+    font-family: "Pigpen HXHX";
+    src: url("/tools/cipher/pigpen/pigpen-hxhx.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.pigpen-hxhx {
+    font-family: "Pigpen HXHX", "Ubuntu", sans-serif;
+    font-size: 3em;
+}
+
+@font-face {
+    font-family: "Pigpen HHXX";
+    src: url("/tools/cipher/pigpen/pigpen-hhxx.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.pigpen-hhxx {
+    font-family: "Pigpen HHXX", "Ubuntu", sans-serif;
+    font-size: 3em;
+}
+
+/* webdings */
+@font-face {
+    font-family: "Webdings";
+    src: url("/tools/cipher/webdings/webdings.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.webdings {
+    font-family: "Webdings", "Ubuntu", sans-serif;
+    font-size: 2em;
+}
+
+/* wingdings */
+@font-face {
+    font-family: "Wingdings";
+    src: url("/tools/cipher/wingdings/wingdings.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.wingdings {
+    font-family: "Wingdings", "Ubuntu", sans-serif;
+    font-size: 2em;
+}

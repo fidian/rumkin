@@ -1,0 +1,100 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+
+export const title = "Caesar";
+export const summary =
+    "A Caesar cipher lets you add an arbitrary value, shifting each letter forwards or backwards. Traditionally, the offset is 3, making A into D, B into E, etc.";
+export const cipher = true;
+
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Web-Based Tools", href: "/tools/" },
+    { name: "Ciphers and Codes", href: "/tools/cipher/" },
+];
+---
+
+<script>
+    import "@/assets/cipher/cipher-example.ts";
+    import "@/assets/cipher/caesar-cipher.ts";
+</script>
+
+<DefaultLayout title={title} summary={summary} breadcrumbs={breadcrumbs}>
+    <p>
+        This is a standard Caesarian Shift cipher encoder, also known as a
+        rot-N encoder. It's a style of substitution cipher where you can add
+        one, two, or any number up to 25 to your string and see how it changes.
+        This is an offshoot of the <a href="../rot13/">rot13</a>{" "}encoder. To
+        perform this shift by hand, you could just write the alphabet on two
+        strips of paper. Line them up so the top strip's A matches the bottom
+        strip's D (for example) and then you can encode. A simple test to see
+        how this works would be to use the alphabet as the input and see the
+        output while changing the value of <code>N</code>.
+    </p>
+
+    <p>
+        This sort of cipher can also be known as a wheel cipher. This is where
+        an inner wheel has the alphabet around the outside, and that is placed
+        upon an outer wheel, also with the alphabet going around it. You can
+        rotate the wheels so that ABC lines up with any series of letters, such
+        as BCD or even a match much further of QRS. Caesar originally shifted
+        by 3 letters, so A -&gt; D, B -&gt; E, and so on, which was good enough
+        for that time.
+    </p>
+
+    <p>
+        To encode something, just pick an <code>N</code> and type in your
+        message. To decode something, subtract the encryption <code>N</code> from
+        26 and it should be decoded for you. Alternately, the <a
+            href="../cryptogram-solver/">cryptogram solver</a
+        >{" "}can manually help you solve ciphers using this method.
+    </p>
+
+    <p>
+        You can make the cipher more complicated by shuffling the alphabet by
+        using a key. Performing this by hand would be nearly the same as a
+        Caesar alphabet, but you would write the scrambled alphabet instead of
+        a sorted alphabet on both the outer and inner wheel rings (or top and
+        bottom pieces of paper).
+    </p>
+
+    <p>Examples:</p>
+
+    <ul>
+        <li>
+            <cipher-example
+                topic="caesar"
+                label="Wikipedia"
+                payload-alphabet="English alphabetKey: useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false"
+                payload-direction="ENCRYPT"
+                payload-input="THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
+                payload-n="23"></cipher-example>
+        </li>
+        <li>
+            <cipher-example
+                topic="caesar"
+                label="Cicada 3301"
+                payload-alphabet="English alphabetKey: useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false"
+                payload-direction="DECRYPT"
+                payload-input="lxxt>33m2mqkyv2gsq3q=w]O2ntk"
+                payload-n="4"></cipher-example>
+        </li>
+    </ul>
+
+    <p>
+        That last one is the first step of the Cicada 3301 puzzle of January
+        2012. The image posted to 4chan had this text stuck on the end of the
+        file, under the heading <q>TIBERIVS CLAVDIVS CAESAR says</q>, which is
+        about as broad a hint as a puzzle ever gives.
+    </p>
+
+    <p>
+        The letters come out as a URL and the punctuation does not, because
+        3301 rotated an alphabet that included the digits and the symbols. A
+        Caesar shift works on whatever alphabet you agree on beforehand; this
+        page rotates the letters and leaves everything else alone, which is
+        the usual convention and is why <code>://</code> is still
+        <code>&gt;33</code> at the end.
+    </p>
+
+    <caesar-cipher></caesar-cipher>
+</DefaultLayout>

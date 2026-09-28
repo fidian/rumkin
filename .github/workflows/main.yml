@@ -1,40 +1,42 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
+    pull_request:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        # If you're using actions/checkout@v2 you must set persist-credentials to false
-        # in most cases for the deployment to work correctly.
-        uses: actions/checkout@v2.3.4
-        with:
-          persist-credentials: false
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      # This example project is built using npm and outputs the result to the 'build'
-      # folder. Replace with the commands required to build your project, or remove
-      # this step entirely if your site is pre-built.
-      #
-      # If there's weird GLIBC issues, double check that the ubuntu-latest environment
-      # matches the wkhtmltopdf environment.
-      #
-      # Github Actions: https://github.com/actions/virtual-environments
-      # Wkhtmltopdf: https://wkhtmltopdf.org/downloads.html#stable
-      - name: Install and Build 🔧
-        run: |
-          npm ci
-          npm run build
+            - name: Set up Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+            - name: Install
+              run: npm ci
+
+            # The browser project runs the custom elements in real Chromium,
+            # so the binary has to be fetched before vitest starts.
+            - name: Install Chromium
+              run: npx playwright install chromium --with-deps
+
+            - name: Test
+              run: npm run test-unit
+
+            - name: Build
+              run: npm run build
+
+            # Pull requests get the tests and the build; only master ships.
+            - name: Deploy
+              if: github.ref == 'refs/heads/master'
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  branch: gh-pages
+                  folder: dist

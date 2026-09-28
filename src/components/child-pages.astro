@@ -1,0 +1,79 @@
+---
+// Lists the pages directly below `base`, the way Metalsmith's `list-children`
+// partial used to. Index pages stay accurate as pages are added or converted.
+//
+// Markdown children are described by their frontmatter. Astro children export
+// the same names from their frontmatter script:
+//
+//     export const title = "Caesar";
+//     export const summary = "...";
+//     export const cipher = true;
+interface Props {
+    /** URL directory to list, with both slashes: "/tools/cipher/". */
+    base: string;
+    /** Only list children whose metadata has this key set to a truthy value. */
+    flag?: string;
+    /** "title" reads best; "path" reproduces the old Metalsmith ordering. */
+    sort?: "title" | "path";
+    /**
+     * Children that are not Astro pages, such as a self-contained app served
+     * straight from public/. They cannot be discovered, so name them here.
+     */
+    extra?: { url: string; title: string; summary?: string }[];
+}
+
+const { base, flag, sort = "title", extra = [] } = Astro.props;
+
+const modules = import.meta.glob<Record<string, unknown>>(
+    "/src/pages/**/index.{md,astro}",
+    { eager: true },
+);
+
+const children = Object.entries(modules)
+    .map(([file, mod]) => {
+        const url = file
+            .replace(/^\/src\/pages/, "")
+            .replace(/index\.(md|astro)$/, "");
+        // Markdown exposes `frontmatter`; .astro pages use named exports.
+        const meta = (mod.frontmatter ?? mod) as Record<string, unknown>;
+        return { url, meta };
+    })
+    // Direct children only: exactly one path segment past the base.
+    .filter(
+        ({ url }) =>
+            url.startsWith(base) && /^[^/]+\/$/.test(url.slice(base.length)),
+    )
+    .filter(({ meta }) => !flag || meta[flag])
+    .map(({ url, meta }) => ({
+        url,
+        title: String(meta.title ?? url),
+        summary: typeof meta.summary === "string" ? meta.summary : "",
+    }))
+    .concat(
+        flag ? [] : extra.map((e) => ({ summary: "", ...e })),
+    )
+    .sort((a, b) =>
+        sort === "path"
+            ? a.url.localeCompare(b.url)
+            : a.title.localeCompare(b.title),
+    );
+
+if (children.length === 0) {
+    throw new Error(
+        `<ChildPages base="${base}"${flag ? ` flag="${flag}"` : ""}> matched no pages.`,
+    );
+}
+---
+
+<ul>
+    {
+        children.map((child) => (
+            <li>
+                <p>
+                    <a href={child.url}>{child.title}</a>
+                    {child.summary && ` - ${child.summary}`}
+                </p>
+            </li>
+        ))
+    }
+</ul>

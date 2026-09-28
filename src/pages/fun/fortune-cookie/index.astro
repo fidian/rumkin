@@ -1,0 +1,28 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Fun Stuff", href: "/fun/" },
+];
+---
+
+<script>
+    import "@/assets/fortune-cookie.ts";
+</script>
+<DefaultLayout
+    title="Fortune Cookie"
+    summary="Did you just eat a meal and now you need a fortune?  I collect mine and randomly give them back out to website visitors."
+    breadcrumbs={breadcrumbs}
+>
+    <p>
+        I collect fortune cookie sayings whenever I find them. Here's one that
+        has been picked just for you.
+    </p>
+
+    <fortune-cookie></fortune-cookie>
+
+    <p>
+        If you would prefer, you are allowed to just change the fortune cookie
+        yourself. It's editable. Click on the fortune cookie and start typing!
+    </p>
+</DefaultLayout>

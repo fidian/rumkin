@@ -1,0 +1,23 @@
+---
+import DefaultLayout from "@/layouts/default-layout.astro";
+import ChildPages from "@/components/child-pages.astro";
+
+export const title = "Web Reference";
+export const summary =
+    "How to do some interesting things with dynamic HTML, CSS, JavaScript, and maybe even some plain HTML.";
+
+const breadcrumbs = [
+    { name: "Rumkin.com", href: "/" },
+    { name: "Reference Materials", href: "/reference/" },
+];
+---
+
+<DefaultLayout title={title} summary={summary} breadcrumbs={breadcrumbs}>
+    <p>
+        This is a collection of little tidbits regarding web development. They
+        come from many years of coding, so some examples are quite dated. I hope
+        that you find some useful stuff here.
+    </p>
+
+    <ChildPages base="/reference/web/" />
+</DefaultLayout>

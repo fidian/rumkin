@@ -1,0 +1,284 @@
+/*************/
+/* Variables */
+/*************/
+
+:root {
+    --bar-background: #347DBE;
+    --bar-border: #015CAE;
+    --bar-text: #fafafa;
+    --page-background: white;
+    --page-border-background: gray;
+    --text-color-normal: black;
+    --content-width-max: 1150px;
+}
+
+
+/*****************/
+/* Minimal reset */
+/*****************/
+
+/* Specificity: 0, 0, 0, 0 */
+* {
+    border: 0 solid #000000;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    zoom: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    padding-left: 40px;
+}
+
+input, textarea {
+    border: 2px inset;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Ubuntu", sans-serif;
+    line-height: 1.4;
+}
+
+code, tt, pre {
+    font-family: "Anonymous Pro Regular", monospace;
+}
+
+p, ol, ul {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+hr {
+    border: 1px inset black;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+pre {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+
+/************************/
+/* Site-Specific Styles */
+/************************/
+
+code {
+    background-color: #ddd;
+}
+
+pre {
+    background-color: #ddd;
+    padding: 10px;
+    overflow: auto;
+    max-height: 75vh;
+}
+
+pre > code {
+    background-color: transparent;
+}
+
+li > p:first-child,
+li > ul:first-child,
+li > ol:first-child,
+li > pre:first-child,
+li > table:first-child,
+li > blockquote:first-child {
+    margin-top: 0;
+}
+
+hr {
+    border: 1px inset black;
+}
+
+h1 {
+    margin-bottom: 0.6em;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+table,
+table tr,
+table td,
+table th {
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #347dbe;
+}
+
+table th,
+table td {
+    padding: 4px;
+    border: 1px solid #347dbe;
+    border-bottom-color: #015cae;
+}
+
+table th {
+    border-color: #015cae;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #c5e0f9;
+}
+
+blockquote {
+    border-left: 4px solid #347dbe;
+    padding-left: 8px;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+}
+
+@media print {
+    table th {
+        background-color: transparent;
+    }
+
+    table th,
+    table td {
+        padding: 4px;
+        border: 1px solid #7a7a7a;
+        border-bottom-color: #595959;
+    }
+
+    table th {
+        border-color: #595959;
+        color: black;
+    }
+
+    table tr:nth-child(even) {
+        background-color: transparent;
+    }
+
+    blockquote {
+        border-left-color: #777;
+    }
+}
+
+button, select {
+    margin: 0.2em;
+    padding: 0.3em;
+    border: 1px solid #333;
+}
+
+.output {
+    margin-top: 1.2em;
+    background-color: #ddf;
+    padding: 0.3em 0.6em;
+}
+
+.output > p:first-child,
+.output > ul:first-child,
+.output > ol:first-child,
+.output > pre:first-child,
+.output > table:first-child,
+.output > blockquote:first-child,
+.output > textarea:first-child {
+    margin-top: 0;
+}
+
+textarea {
+    padding: 0.2em 0.4em;
+}
+
+/* <sortable-table> column headings. Replaces the tablesorter stylesheet. */
+.sortable-table-header {
+    cursor: pointer;
+    padding-inline-end: 1.2em;
+    position: relative;
+    white-space: normal;
+}
+
+.sortable-table-header::after {
+    content: "\2195";
+    inset-inline-end: 0.3em;
+    opacity: 0.35;
+    position: absolute;
+}
+
+.sortable-table-asc::after {
+    content: "\2191";
+    opacity: 1;
+}
+
+.sortable-table-desc::after {
+    content: "\2193";
+    opacity: 1;
+}
+
+.sortable-table-header:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+}
+
+/*
+ * Lifegenesis cell colours. These live here rather than in the component
+ * because the page's legend uses the same classes outside it.
+ */
+.cell {
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+}
+
+.cell-fixed {
+    display: inline-block;
+}
+
+.state0 {
+    background-color: yellow;
+}
+
+.state1 {
+    background-color: green;
+}
+
+.state2 {
+    background-color: blue;
+}
+
+.state3 {
+    background-color: purple;
+}
+
+/*
+ * A photograph dropped into a page's prose. Astro's image pipeline emits a
+ * srcset from the camera original, so the cap here is about how much of the
+ * page a photo takes up, not about file size.
+ *
+ * Cap the width only. Astro's constrained layout sets "width: 100%" on the
+ * image, so a max-height would squash it rather than scale it, and setting
+ * "width: auto" collapses it to nothing before the srcset resolves.
+ */
+.photo img {
+    max-width: 40vw;
+}
+
+/*
+ * Several photographs side by side sharing one caption. They stay on one
+ * line, so they get a share of the width rather than 40vw each.
+ */
+.photo-row img {
+    max-width: 30%;
+}
