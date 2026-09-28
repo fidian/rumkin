@@ -6,12 +6,9 @@ on:
             - master
     pull_request:
 
-# What actions/deploy-pages needs: write access to Pages and a token it can
-# prove itself with. Everything else stays read-only.
+# Read-only by default. The deploy job asks for more, and only it gets it.
 permissions:
     contents: read
-    id-token: write
-    pages: write
 
 # A deploy that is already running is allowed to finish rather than being
 # cancelled part way through publishing.
@@ -54,6 +51,14 @@ jobs:
         needs: build
         if: github.ref == 'refs/heads/master'
         runs-on: ubuntu-latest
+        # What actions/deploy-pages needs: write access to Pages and a token
+        # it can prove itself with. This job runs nothing but that action.
+        # The build job installs and runs a tree of third-party packages, so
+        # it is deliberately left unable to publish or to mint a token.
+        permissions:
+            contents: read
+            id-token: write
+            pages: write
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
