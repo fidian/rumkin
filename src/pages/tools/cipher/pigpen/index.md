@@ -14,6 +14,8 @@ breadcrumbs:
 
 Pigpen places letters in  "#" and "X" diagrams, then uses the nearby lines and dots as the symbol for the encoded letter. This comes in two main varieties.
 
+It goes by a lot of names - the [Rosicrucian cipher](../rosicrucian/), the Freemason's cipher, the Napoleon cipher, the tic-tac-toe cipher - and they are all this one cipher.
+
 <div class="D(f) Fxw(w)">
 <div class="D(f) Fxd(c) Mx(a) Jc(c) Ai(c) W(45%) W(90%)--s">
 Original Version<br />
@@ -162,3 +164,8 @@ Modified Version<br />
 </div>
 
 <font-code rows='[{"label": "", "chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}]' variants='[{"font": "pigpen-hhxx", "label": "Original Version"}, {"font": "pigpen-hxhx", "label": "Modified Version"}]' variant-label="Pigpen variant"></font-code>
+
+The Knights Templar get the credit too, but the cipher attributed to them is
+a different one: twenty-five symbols cut out of a cross pattee rather than
+out of grids. It is not on this site, because the charts that circulate for
+it disagree with each other and none of them traces to a medieval source.

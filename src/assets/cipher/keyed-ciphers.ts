@@ -202,3 +202,113 @@ defineCipher({
         keepCapitalization: s.transpositionOperatingMode === 'MOVE_CAPS',
     }),
 });
+
+defineCipher({
+    tag: 'adfgx-cipher',
+    code: 'adfgx',
+    topic: 'adfgx',
+    alphabet: true,
+    fields: [
+        {
+            name: 'digits',
+            type: 'checkbox',
+            label: 'ADFGVX - a 6x6 square with room for the digits',
+        },
+        {
+            name: 'square',
+            type: 'text',
+            label: 'Square, in reading order (leave blank to key the alphabet)',
+        },
+        { name: 'key', type: 'text', label: 'Keyword for the square' },
+        {
+            name: 'transpositionKey',
+            type: 'text',
+            label: 'Keyword for the transposition',
+        },
+    ],
+    options: (s) => ({
+        digits: s.digits,
+        key: s.key,
+        square: s.square,
+        transpositionKey: s.transpositionKey,
+    }),
+});
+
+defineCipher({
+    tag: 'trifid-cipher',
+    code: 'trifid',
+    topic: 'trifid',
+    alphabet: true,
+    fields: [
+        {
+            name: 'square',
+            type: 'text',
+            label: 'Cube, 27 characters in reading order (leave blank to key the alphabet)',
+        },
+        { name: 'key', type: 'text', label: 'Keyword for the cube' },
+        {
+            name: 'padCharacter',
+            type: 'text',
+            label: 'Twenty-seventh character',
+            value: '+',
+        },
+        { name: 'period', type: 'number', label: 'Period', value: 5, min: 2 },
+    ],
+    options: (s) => ({
+        key: s.key,
+        padCharacter: s.padCharacter,
+        period: Number(s.period),
+        square: s.square,
+    }),
+});
+
+defineCipher({
+    tag: 'straddling-checkerboard-code',
+    code: 'straddlingCheckerboard',
+    topic: 'straddlingCheckerboard',
+    verbs: 'code',
+    fields: [
+        {
+            name: 'topRow',
+            type: 'text',
+            label: 'Top row, one digit a letter',
+            value: 'ETAONRIS',
+        },
+        {
+            name: 'labels',
+            type: 'text',
+            label: 'The two empty columns, which label the rows below',
+            value: '26',
+        },
+        {
+            name: 'lowerRows',
+            type: 'text',
+            label: 'The rows below, two digits a character',
+            value: 'BCDFGHJKLMPQ/UVWXYZ.',
+        },
+    ],
+    options: (s) => ({
+        labels: String(s.labels ?? '')
+            .replace(/[^0-9]/g, '')
+            .split('')
+            .map(Number),
+        lowerRows: s.lowerRows,
+        topRow: s.topRow,
+    }),
+});
+
+defineCipher({
+    tag: 'wigwag-code',
+    code: 'wigwag',
+    topic: 'wigwag',
+    verbs: 'code',
+    fields: [
+        {
+            name: 'endOfMessage',
+            type: 'checkbox',
+            label: 'Finish with the end of message signal, 333',
+            value: true,
+        },
+    ],
+    options: (s) => ({ endOfMessage: s.endOfMessage }),
+});

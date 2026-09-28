@@ -69,7 +69,32 @@ const breadcrumbs = [
                 payload-input="THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
                 payload-n="23"></cipher-example>
         </li>
+        <li>
+            <cipher-example
+                topic="caesar"
+                label="Cicada 3301"
+                payload-alphabet="English alphabetKey: useLastInstance:false reverseKey:false reverseAlphabet:false keyAtEnd:false"
+                payload-direction="DECRYPT"
+                payload-input="lxxt>33m2mqkyv2gsq3q=w]O2ntk"
+                payload-n="4"></cipher-example>
+        </li>
     </ul>
+
+    <p>
+        That last one is the first step of the Cicada 3301 puzzle of January
+        2012. The image posted to 4chan had this text stuck on the end of the
+        file, under the heading <q>TIBERIVS CLAVDIVS CAESAR says</q>, which is
+        about as broad a hint as a puzzle ever gives.
+    </p>
+
+    <p>
+        The letters come out as a URL and the punctuation does not, because
+        3301 rotated an alphabet that included the digits and the symbols. A
+        Caesar shift works on whatever alphabet you agree on beforehand; this
+        page rotates the letters and leaves everything else alone, which is
+        the usual convention and is why <code>://</code> is still
+        <code>&gt;33</code> at the end.
+    </p>
 
     <caesar-cipher></caesar-cipher>
 </DefaultLayout>

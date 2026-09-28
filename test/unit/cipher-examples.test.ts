@@ -173,3 +173,126 @@ describe('binary', () => {
         expect(encode('decimal', 'A')).toBe('065');
     });
 });
+
+describe('ADFGX and ADFGVX', () => {
+    // Wikipedia's worked examples, which are the page's two buttons.
+    it('reads the ADFGX example', () => {
+        expect(
+            decode('adfgx', 'FAXDF ADDDG DGFFF AFAX AFAFX', {
+                square: 'BTALPDHOZKQFVSNGICUXMREWY',
+                transpositionKey: 'CARGO',
+            })
+        ).toBe('ATTACKATONCE');
+    });
+
+    it('reads the ADFGVX example, digits and all', () => {
+        expect(
+            decode('adfgx', 'DGDD DAGD DGAF ADDF DADV DVFA ADVX', {
+                digits: true,
+                square: 'NA1C3H8TB2OME5WRPD4F6G7I9J0KLQSUVXYZ',
+                transpositionKey: 'PRIVACY',
+            })
+        ).toBe('ATTACKAT1200AM');
+    });
+});
+
+describe('trifid', () => {
+    const square = 'FELIXMARDSTBCGHJKNOPQUVWYZ+';
+
+    it("reads Delastelle's own example", () => {
+        expect(
+            decode('trifid', 'FMJFV OISSU FTFPU FEQQC', { period: 5, square })
+        ).toBe('AIDETOILECIELTAIDERA');
+    });
+
+    // The period is part of the key. The same cube and a different period is
+    // a different cipher.
+    it('gives a different answer at a different period', () => {
+        expect(
+            decode('trifid', 'FMJFV OISSU FTFPU FEQQC', { period: 10, square })
+        ).not.toBe('AIDETOILECIELTAIDERA');
+    });
+});
+
+describe('the straddling checkerboard', () => {
+    it('reads the page example', () => {
+        expect(decode('straddlingCheckerboard', '3113212731223655')).toBe(
+            'ATTACKATDAWN'
+        );
+    });
+
+    // The eight commonest letters cost one digit, everything else two.
+    it('spends fewer digits on common letters', () => {
+        expect(encode('straddlingCheckerboard', 'ETAONRIS')).toHaveLength(8);
+        expect(encode('straddlingCheckerboard', 'BCDFGHJK')).toHaveLength(16);
+    });
+});
+
+describe('baudot', () => {
+    // The published values from the Coldplay sleeve are what pin the bit
+    // order down: bit 1 first, so the string reads back to front from the
+    // code's value.
+    it('reads the X&Y sleeve', () => {
+        expect(decode('baudot', '10111 11011 01011 11111 10101')).toBe('X&Y');
+    });
+
+    it('needs five columns for a three character title', () => {
+        expect(encode('baudot', 'X&Y').split(' ')).toHaveLength(5);
+    });
+
+    it('sends one shift for a run of digits', () => {
+        expect(decode('baudot', encode('baudot', 'CALL 911'))).toBe('CALL 911');
+    });
+});
+
+describe('wigwag', () => {
+    it('reads the page example', () => {
+        expect(
+            decode('wigwag', '22 2 2 22 121 2121 3 22 2 3 222 22 1121 11 333')
+        ).toBe('ATTACK AT DAWN');
+    });
+
+    // The codes are not prefix free, so the space between letters is not
+    // decoration.
+    it('tells IT from E only by the pause', () => {
+        expect(decode('wigwag', '1 2 333')).toBe('IT');
+        expect(decode('wigwag', '12 333')).toBe('E');
+    });
+});
+
+describe('runes', () => {
+    it('reads the page example', () => {
+        expect(decode('runes', '\u16a6\u16d6 \u16e3\u16c1\u16dc')).toBe(
+            'THE KING'
+        );
+    });
+
+    // Thorn and ing are one rune each, so this is five runes and not seven.
+    it('writes TH and NG as single runes', () => {
+        expect(encode('runes', 'THE KING').replace(' ', '')).toHaveLength(5);
+    });
+
+    // Futhorc has no v, x or z, and Unicode's dedicated runic letters keep
+    // the mapping reversible.
+    it('round trips every letter', () => {
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        expect(decode('runes', encode('runes', letters))).toBe(letters);
+    });
+});
+
+describe('cherokee', () => {
+    it('reads the page examples', () => {
+        expect(decode('cherokee', '\u13e3\u13b3\u13a9')).toBe('TSALAGI');
+        expect(decode('cherokee', '\u13a3\u13cf\u13f2')).toBe('OSIYO');
+    });
+
+    it('writes a syllable as one character', () => {
+        expect(encode('cherokee', 'TSALAGI')).toHaveLength(3);
+    });
+
+    // It is a syllabary for Cherokee, not a cipher for English, so a letter
+    // that is not part of a syllable is left alone.
+    it('leaves English where it is', () => {
+        expect(encode('cherokee', 'hello')).toBe('\u13ael\u13b6');
+    });
+});
