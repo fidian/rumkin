@@ -46,6 +46,10 @@ component(
                 text-align: right;
             }
 
+            th {
+                text-align: center;
+            }
+
             .bar {
                 width: 100%;
             }
@@ -127,6 +131,8 @@ component(
         rows: Row[] = [];
         tallies: { roll: number; freq: number }[] = [];
 
+        // The roll the page is showing, or still working out.
+        private notation = '';
         private stopListening?: () => void;
 
         onInit() {
@@ -153,6 +159,12 @@ component(
             // rather than something to complain about.
             const notation = this.input.replace(/[^-+0-9dDP,()]/g, '');
 
+            // The same roll again: an example button clicked twice, or a
+            // space typed into the box. The answer on the page, or the one
+            // on its way, is already the answer to this.
+            if (notation === this.notation) return;
+
+            this.notation = notation;
             this.problem = '';
             this.working = false;
 
@@ -170,6 +182,10 @@ component(
                 return;
             }
 
+            // Take the last answer down before starting. Left up, it sits
+            // under "Calculating" looking like the answer to the roll that
+            // was just asked for, and a big roll can take several seconds.
+            this.hasResult = false;
             this.working = true;
             this.progress = 'Initial setup';
 
