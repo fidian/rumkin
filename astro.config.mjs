@@ -23,11 +23,19 @@ export default defineConfig({
             provider: fontProviders.google(),
             name: 'Ubuntu',
             cssVariable: '--font-ubuntu',
+            // Only 400 comes by default. Every heading, table heading and
+            // the name in the bar is bold, and without a 700 face the
+            // browser thickens the regular one instead of using a real bold.
+            weights: [400, 700],
         },
         {
             provider: fontProviders.google(),
             name: 'Anonymous Pro',
             cssVariable: '--font-anonymous-pro',
+            // The default stand-in is a sans-serif. Until this arrives, or
+            // if it never does, code and cipher grids still need columns
+            // that line up.
+            fallbacks: ['monospace'],
         },
     ],
     vite: {

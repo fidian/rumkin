@@ -45,12 +45,17 @@ html {
 body {
     height: 100%;
     overflow-x: hidden;
-    font-family: "Ubuntu", sans-serif;
+    font-family: var(--font-ubuntu), sans-serif;
     line-height: 1.4;
 }
 
+/*
+ * The layout's <Font> declares both families under generated names, so a
+ * font-family that spells out "Ubuntu" matches nothing the page defines and
+ * only works on a machine with Ubuntu installed. The variables are the way in.
+ */
 code, tt, pre {
-    font-family: "Anonymous Pro Regular", monospace;
+    font-family: var(--font-anonymous-pro), monospace;
 }
 
 p, ol, ul {

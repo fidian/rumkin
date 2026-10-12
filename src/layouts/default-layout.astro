@@ -1,6 +1,14 @@
 ---
 import Breadcrumbs from "@/components/breadcrumbs.astro";
 import { Font } from "astro:assets";
+// Nearly all of the layout is atomic classes, and ACSS-Live writes the rules
+// for them in the browser. Astro bundles any script it processes as a module,
+// and a module is deferred: the page was painted bare first and styled a
+// moment later. So ask for the address of the file as published instead, and
+// load it below as a plain script. That runs before the body is parsed, and
+// its MutationObserver is called back before the browser paints whatever the
+// parser has added.
+import acssLive from "@fidian/acss-live/acss-live.min.js?url";
 
 interface Props {
     breadcrumbs?: { name: string; href: string }[];
@@ -12,6 +20,19 @@ interface Props {
 const { breadcrumbs, summary, title } = Astro.props.frontmatter || Astro.props;
 const buildYear = new Date().getFullYear();
 const buildDate = new Date().toISOString();
+
+// Fetch the faces the top of every page is set in alongside the stylesheet,
+// rather than once the browser has laid the page out and found it needs
+// them. They then tend to be there for the first paint; left to themselves
+// they arrive after it, and the text is drawn in Arial and then redrawn.
+// Italic is the summary box, so it is only worth asking for when there is
+// one. A preloaded font that goes unused is a wasted download and a console
+// warning.
+const ubuntuPreload = [
+    { weight: 400, style: "normal" },
+    { weight: 700, style: "normal" },
+    ...(summary ? [{ weight: 400, style: "italic" }] : []),
+];
 ---
 
 <!doctype html>
@@ -20,13 +41,13 @@ const buildDate = new Date().toISOString();
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Font cssVariable="--font-ubuntu" />
+        <Font cssVariable="--font-ubuntu" preload={ubuntuPreload} />
         <Font cssVariable="--font-anonymous-pro" />
         <title>{title}</title>
         <style is:global>
             @import url("../assets/styles.css");
         </style>
-        <script src="@fidian/acss-live/acss-live.js"></script>
+        <script is:inline src={acssLive}></script>
 
         <!-- Favicon generated content from http://realfavicongenerator.net/ -->
         <link
