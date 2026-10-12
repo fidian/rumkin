@@ -10,18 +10,26 @@
  */
 import { component, css, html } from 'fudgel';
 import './advanced-input-area.ts';
+import './word-choice.ts';
 import {
     applySearch,
+    createListing,
     createSearch,
     currentPlaintext,
     deduce,
     keyWordlist,
+    listingProgress,
+    listingSummary,
+    MAX_COMBINATIONS,
     parseWords,
     resetSegments,
     searchProgress,
+    stepListing,
     stepSearch,
+    type ListingState,
     type Segment,
 } from './cryptogram-solver.ts';
+import type { WordChoiceView } from './word-choice.ts';
 
 interface WordlistMeta {
     filename: string;
@@ -30,20 +38,18 @@ interface WordlistMeta {
     wordCount: number;
 }
 
-interface WordView {
+interface WordView extends WordChoiceView {
     index: number;
-    isWord: boolean;
     cipher: string;
-    plain: string;
-    open: boolean;
-    choices: string[];
-    tooMany: number;
+    /** False for the text between words, and for a word nothing fits. */
+    pickable: boolean;
 }
+
+/** A search runs in slices; this is which one, so Stop sits beside it. */
+type Job = '' | 'eliminate' | 'list';
 
 const STORE = 'cryptogramSolver.';
 const DEFAULT_LIST = 'american-english-50-medium.txt';
-/** Rendering thousands of options locks the page up; offer a slice. */
-const MAX_CHOICES = 200;
 
 const remember = (key: string, value: string) => {
     try {
@@ -79,40 +85,31 @@ component(
             }
 
             .word {
-                margin: 0 0.3em 0.4em 0;
+                margin: 0 0.3em 0.6em 0;
             }
 
+            /*
+             * Padded like the drop-down beneath it, so a cipher letter sits
+             * over the plain letter it stands for.
+             */
             .word tt {
+                border: 0 solid transparent;
+                border-width: 0 1px;
                 display: block;
                 font-family: var(--font-anonymous-pro), monospace;
+                font-size: max(1em, 16px);
+                padding: 0 0.3em;
                 white-space: pre;
             }
 
-            .word button {
-                background: none;
-                border: 0;
-                cursor: pointer;
-                font: inherit;
-                padding: 0;
-                text-align: start;
+            /* A word with no drop-down still lines up with those that have. */
+            .word tt.plain-word {
+                border-width: 1px;
+                padding: 0.3em;
             }
 
-            .word button tt {
-                text-decoration: underline;
-            }
-
-            .choices {
-                border: 1px solid;
-                margin: 0.25em 0;
-                max-height: 12em;
-                overflow-y: auto;
-                padding: 0.25em;
-            }
-
-            .choices button {
-                display: block;
-                text-decoration: none;
-                width: 100%;
+            .combinations {
+                font-family: var(--font-anonymous-pro), monospace;
             }
 
             .plain {
@@ -157,6 +154,7 @@ component(
                 <p>
                     <button
                         type="button"
+                        class="solve"
                         @click="start()"
                         .disabled="!listsLoaded || !cipherText"
                     >
@@ -173,39 +171,33 @@ component(
                 <p *if="loading">Loading dictionary...</p>
 
                 <div *if="!loading">
-                    <p class="plain">{{plaintext}}</p>
+                    <p class="plain so-far">{{plaintext}}</p>
 
                     <div class="words">
                         <div *for="word of words" class="word">
-                            <div *if="!word.isWord">
-                                <tt>{{word.cipher}}</tt>
-                                <tt>{{word.plain}}</tt>
-                            </div>
-                            <div *if="word.isWord">
-                                <button
-                                    type="button"
-                                    @click="toggle(word.index)"
-                                >
-                                    <tt>{{word.cipher}}</tt>
-                                    <tt>{{word.plain}}</tt>
-                                </button>
-                                <div class="choices" *if="word.open">
-                                    <button
-                                        *for="choice of word.choices"
-                                        type="button"
-                                        @click="choose(word.index, choice)"
-                                    >
-                                        {{choice}}
-                                    </button>
-                                    <p class="note" *if="word.tooMany">
-                                        and {{word.tooMany}} more
-                                    </p>
-                                </div>
-                            </div>
+                            <tt>{{word.cipher}}</tt>
+                            <tt class="plain-word" *if="!word.pickable"
+                                >{{word.plain}}</tt
+                            >
+                            <word-choice
+                                *if="word.pickable"
+                                .view="word"
+                                .disabled="searching"
+                                @word-pick="choose(word.index, $event)"
+                            ></word-choice>
                         </div>
                     </div>
 
-                    <p>{{progress}}</p>
+                    <p>
+                        {{progress}}
+                        <button
+                            type="button"
+                            *if="job === 'eliminate'"
+                            @click="stop()"
+                        >
+                            Stop
+                        </button>
+                    </p>
 
                     <p>
                         <button
@@ -223,11 +215,40 @@ component(
                     </p>
 
                     <p>
+                        <button
+                            type="button"
+                            class="list-all"
+                            @click="listAll()"
+                            .disabled="searching"
+                        >
+                            Show All Combinations
+                        </button>
+                        Lists every way the words can be read together, up to
+                        {{limit}}, starting from the first option for each
+                        word. The words you have picked stay as they are.
+                    </p>
+
+                    <p>
                         <button type="button" @click="reset()">Reset</button>
                         <button type="button" @click="back()">
                             Start over
                         </button>
                     </p>
+
+                    <p class="list-status">
+                        {{listStatus}}
+                        <button
+                            type="button"
+                            *if="job === 'list'"
+                            @click="stop()"
+                        >
+                            Stop
+                        </button>
+                    </p>
+                    <p class="note stale" *if="listStale">
+                        This list was made before your last change.
+                    </p>
+                    <ol class="combinations" #ref="listEl"></ol>
                 </div>
             </div>
         `,
@@ -243,11 +264,15 @@ component(
         words: WordView[] = [];
         plaintext = '';
         progress = '';
+        job: Job = '';
+        searching = false;
+        listStatus = '';
+        listStale = false;
+        limit = MAX_COMBINATIONS.toLocaleString('en-US');
+        listEl?: HTMLOListElement;
 
         private segments: Segment[] = [];
-        private letterMap = new Map<string, string>();
-        private open = new Set<number>();
-        searching = false;
+        private listing?: ListingState;
         private searchTimer?: ReturnType<typeof setTimeout>;
 
         onDestroy() {
@@ -291,6 +316,7 @@ component(
             this.screen = 'solve';
             this.loading = true;
             this.progress = '';
+            this.clearList();
             this.wordlistName =
                 this.lists.find((l) => l.filename === this.wordlist)?.name ?? '';
 
@@ -298,7 +324,7 @@ component(
                 const response = await fetch(`../wordlists/${this.wordlist}`);
                 const words = (await response.text()).trim().split(/[\r\n]+/);
                 this.segments = parseWords(this.cipherText, keyWordlist(words));
-                this.runDeduction();
+                this.rebuild();
             } catch {
                 this.progress = 'Could not load that wordlist.';
             }
@@ -307,31 +333,26 @@ component(
         }
 
         back() {
+            this.halt();
             this.screen = 'start';
         }
 
         reset() {
+            this.halt();
             resetSegments(this.segments);
-            this.letterMap = new Map();
-            this.open.clear();
             this.progress = '';
-            this.runDeduction();
-        }
-
-        toggle(index: number) {
-            if (this.open.has(index)) this.open.delete(index);
-            else this.open.add(index);
+            this.clearList();
             this.rebuild();
         }
 
-        choose(index: number, word: string) {
+        /** A word picked from its list, or '' to leave it open again. */
+        choose(index: number, event: CustomEvent<string>) {
             const segment = this.segments[index];
-            if (!segment) return;
+            if (!segment || this.job) return;
 
-            segment.selectedWord = word;
-            segment.availableMatches = [word];
-            this.open.delete(index);
-            this.runDeduction([[segment.chars, word]]);
+            segment.selectedWord = event.detail;
+            this.listStale = !!this.listStatus;
+            this.rebuild();
         }
 
         /**
@@ -340,62 +361,141 @@ component(
          * long as it takes, with no way to tell whether it is working.
          */
         eliminate() {
-            if (this.searching) return;
+            if (this.job) return;
 
-            this.searching = true;
             const state = createSearch(this.segments);
 
-            const slice = () => {
-                if (stepSearch(state)) {
-                    const outcome = applySearch(state);
-                    this.searching = false;
-                    this.progress = outcome.hopeless
-                        ? 'The words in this dictionary are unable to fully decode this message. Try a larger dictionary or attempt to pick words yourself to find a solution.'
-                        : `Updated ${outcome.narrowedWords} out of ${outcome.wordsTested} words and removed ${outcome.possibilitiesRemoved} possibilities.`;
-                    this.runDeduction();
-                    return;
+            this.run('eliminate', () => {
+                if (!stepSearch(state)) {
+                    this.progress = `Working on eliminating conflicting words ... ${searchProgress(state)}`;
+                    return false;
                 }
 
-                this.progress = `Working on eliminating conflicting words ... ${searchProgress(state)}`;
-                this.searchTimer = setTimeout(slice, 1);
-            };
-
-            slice();
+                const outcome = applySearch(state);
+                this.progress = outcome.hopeless
+                    ? 'The words in this dictionary are unable to fully decode this message. Try a larger dictionary or attempt to pick words yourself to find a solution.'
+                    : `Updated ${outcome.narrowedWords} out of ${outcome.wordsTested} words and removed ${outcome.possibilitiesRemoved} possibilities.`;
+                this.listStale = !!this.listStatus;
+                this.rebuild();
+                return true;
+            });
         }
 
-        private runDeduction(initialQueue: [string, string][] = []) {
-            const { letterMap } = deduce(
-                this.segments,
-                this.letterMap,
-                initialQueue
-            );
-            this.letterMap = letterMap;
-            this.rebuild();
+        /**
+         * The list goes up as it is found rather than all at the end, so a
+         * long search shows what it has and Stop keeps it. It is built by
+         * hand for the same reason the drop-downs are: ten thousand lines
+         * is too many to give a scope and a binding each.
+         */
+        listAll() {
+            if (this.job) return;
+
+            const state = createListing(this.segments);
+            let shown = 0;
+
+            this.clearList();
+            this.listing = state;
+
+            this.run('list', () => {
+                const finished = stepListing(state);
+                const lines = document.createDocumentFragment();
+
+                for (; shown < state.found.length; shown += 1) {
+                    const line = document.createElement('li');
+                    line.textContent = state.found[shown];
+                    lines.append(line);
+                }
+
+                this.listEl?.append(lines);
+                this.listStatus = finished
+                    ? listingSummary(state)
+                    : `Looking for combinations, ${shown.toLocaleString('en-US')} so far ... ${listingProgress(state)}`;
+                return finished;
+            });
+        }
+
+        stop() {
+            const stopped = this.job;
+            this.halt();
+
+            if (stopped === 'eliminate') {
+                this.progress = 'Stopped. No words were removed.';
+            } else if (stopped === 'list' && this.listing) {
+                this.listStatus = listingSummary(this.listing, true);
+            }
+        }
+
+        /** Run `slice` until it reports that it has finished. */
+        private run(job: Job, slice: () => boolean) {
+            this.job = job;
+            this.searching = true;
+
+            const turn = () => {
+                if (slice()) this.halt();
+                else this.searchTimer = setTimeout(turn, 1);
+            };
+
+            turn();
+        }
+
+        private halt() {
+            clearTimeout(this.searchTimer);
+            this.job = '';
+            this.searching = false;
+        }
+
+        private clearList() {
+            this.listing = undefined;
+            this.listStatus = '';
+            this.listStale = false;
+            this.listEl?.replaceChildren();
         }
 
         private rebuild() {
-            this.plaintext = currentPlaintext(this.segments, this.letterMap);
+            const { letterMap, candidates } = deduce(this.segments);
+            this.plaintext = currentPlaintext(this.segments, letterMap);
 
-            this.words = this.segments.map((segment, index) => {
+            const views = this.segments.map((segment, index) => {
+                const matches = candidates[index];
+                const picked = !!segment.selectedWord;
+                // The space around punctuation is dropped: the words are
+                // already set apart, and a row of them that wraps should
+                // start at the margin rather than a space in from it.
+                const cipher = segment.chars.trim();
                 const plain = segment.isWord
                     ? [...segment.chars]
-                          .map((c) => this.letterMap.get(c) ?? '?')
+                          .map((c) => letterMap.get(c) ?? '?')
                           .join('')
-                    : segment.chars;
+                    : cipher;
 
                 return {
                     index,
-                    isWord: segment.isWord,
-                    cipher: segment.chars,
+                    cipher,
                     plain,
-                    open: this.open.has(index),
-                    choices: segment.availableMatches.slice(0, MAX_CHOICES),
-                    tooMany: Math.max(
-                        0,
-                        segment.availableMatches.length - MAX_CHOICES
-                    ),
+                    pickable: matches.length > 0,
+                    label: `Plain text for ${segment.chars}`,
+                    value: matches.length === 1 ? matches[0] : '',
+                    picked,
+                    choices: () =>
+                        picked ? this.alternatives(index) : matches,
                 };
             });
+
+            this.words = views.filter((view) => view.cipher);
+        }
+
+        /**
+         * What a picked word could be instead: everything that fits the
+         * other picks, worked out as though this one had not been made.
+         * Only done when its list opens, since it costs a whole deduction.
+         */
+        private alternatives(index: number) {
+            const picked = this.segments[index].selectedWord;
+            const others = deduce(this.segments, index).candidates[index];
+
+            // Another pick may since have ruled this one out. It is still
+            // what the word is set to, so it still has to be in its list.
+            return others.includes(picked) ? others : [picked, ...others];
         }
     }
 );

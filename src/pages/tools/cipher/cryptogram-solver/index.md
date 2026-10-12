@@ -18,6 +18,6 @@ Do you have a cryptogram, also known as a cryptoquip or a simple letter substitu
 
 Only dictionary words are provided in the drop-down lists, but it is possible that misspelled words, names, and other things can still be decoded.
 
-Click on links to load options for that word. Larger lists take much more time to render in the browser. When you have options shown, select an option to assign it as the correct word and the rest of the cryptogram will inherit those letters and reduce the number of available options for words.
+Each word has a drop-down list holding every dictionary word that still fits. Pick one to assign it as the correct word and the rest of the cryptogram will inherit those letters and reduce the number of available options for words. You can change your mind by picking a different word from the same list, or pick "(clear)" at the top of the list to leave that word undecided again. A word shown in bold is one you picked; the others were worked out from the letters you fixed.
 
 <cryptogram-solver></cryptogram-solver>
