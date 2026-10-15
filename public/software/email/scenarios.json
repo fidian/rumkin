@@ -22,7 +22,7 @@
     {
         "email": "someone@3com.com",
         "valid": true,
-        "reason": "RFC 1123 superceded RFC RFC 1035, which would have forbade this domain"
+        "reason": "RFC 1123 lets a label start with a digit; RFC 1035 did not"
     },
     {
         "email": "testing@somewhere",
@@ -65,14 +65,9 @@
         "reason": "Some are fooled by localhost"
     },
     {
-        "email": "joe@123.45.67.89",
+        "email": "sam@com",
         "valid": true,
-        "reason": "IPv4 addresses are valid"
-    },
-    {
-        "email": "joe@2001:0db8::1428:57ab",
-        "valid": true,
-        "reason": "IPv6 addresses are valid"
+        "reason": "Strangely, the rules allow for a top-level domain to receive email"
     },
     {
         "email": "hello world@example.com",
@@ -82,7 +77,7 @@
     {
         "email": "moose@example com",
         "valid": false,
-        "reason": "Domains with spaces must have brackets"
+        "reason": "Domains can not have spaces"
     },
     {
         "email": "bird@test example.com",
@@ -117,7 +112,7 @@
     {
         "email": "abc@def@example.com",
         "valid": false,
-        "reason": "Two @ symbols not allowed without brackets or quoting"
+        "reason": "Two @ symbols not allowed without quoting"
     },
     {
         "email": "one\\@two@example.com",
@@ -133,21 +128,6 @@
         "email": "one\\.two@example.com",
         "valid": false,
         "reason": "Escaping not allowed without quoting"
-    },
-    {
-        "email": "joe@123.456.7.89",
-        "valid": false,
-        "reason": "This is not a valid IP address"
-    },
-    {
-        "email": "mike@9472:0f6e::1bg0:9876",
-        "valid": false,
-        "reason": "Invalid IPv6 address"
-    },
-    {
-        "email": "mike@9472:0f6e::1b810:9876",
-        "valid": false,
-        "reason": "Invalid IPv6 address"
     },
     {
         "email": "\"woo.yay\"@example.com",
@@ -195,11 +175,6 @@
         "reason": "Proper quoting"
     },
     {
-        "email": "\"first\".second@employs.allowable.trick",
-        "valid": true,
-        "reason": "Uses the obsolete, yet valid form"
-    },
-    {
         "email": "\"Tyler \\\"The Man\\\" A.\"@example.com",
         "valid": true,
         "reason": "Quoted localparts can have escaped quotes"
@@ -223,6 +198,16 @@
         "email": "\"two..dot\"@example.com",
         "valid": true,
         "reason": "Double periods are allowed in a quoted localpart"
+    },
+    {
+        "email": "\"[bracket]\"@example.com",
+        "valid": true,
+        "reason": "Square brackets are fine inside quotes"
+    },
+    {
+        "email": "\"first\".second@employs.obsolete.trick",
+        "valid": false,
+        "reason": "Quoting only part of the local part is obsolete, and SMTP will not take it"
     },
     {
         "email": "\"quote@example.com",
@@ -257,7 +242,22 @@
     {
         "email": "\"first.\"second@bad-quoting.info",
         "valid": false,
-        "reason": "If the quote and the period were swapped, this would be valid."
+        "reason": "The quotes must surround the whole local part"
+    },
+    {
+        "email": "\"tab\there\"@example.com",
+        "valid": false,
+        "reason": "SMTP does not allow tabs, even in quotes"
+    },
+    {
+        "email": "\"a\u0001b\"@example.com",
+        "valid": false,
+        "reason": "Control characters are not allowed, even in quotes"
+    },
+    {
+        "email": "\"\\é\"@example.com",
+        "valid": false,
+        "reason": "Only ASCII characters can be escaped"
     },
     {
         "email": "testingAVeryLongEmailAddressAgainstTheParser.ThisOneShouldBeGood@e.ca",
@@ -278,6 +278,26 @@
         "email": "x@superduperlonglinewaymorethansixtythreecharactersforsureblahblah.com",
         "valid": false,
         "reason": "Domain label is one character too long"
+    },
+    {
+        "email": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd.com",
+        "valid": true,
+        "reason": "254 characters is the longest an address can be"
+    },
+    {
+        "email": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.dddddddddddddddddddddddddddddddddddddddddddddddddddddddddd.com",
+        "valid": false,
+        "reason": "One character over the 254 limit"
+    },
+    {
+        "email": "éééééééééééééééééééééééééééééééé@example.com",
+        "valid": true,
+        "reason": "64 bytes of local part, since each é takes two"
+    },
+    {
+        "email": "ééééééééééééééééééééééééééééééééé@example.com",
+        "valid": false,
+        "reason": "The 64-character limit counts bytes, and é takes two"
     },
     {
         "email": "@example.com",
@@ -322,12 +342,12 @@
     {
         "email": "user@???",
         "valid": false,
-        "reason": "Top level domain must be all alphabetic"
+        "reason": "A domain only has letters, digits, and hyphens"
     },
     {
         "email": "user@domain.c0m",
         "valid": false,
-        "reason": "Top level domain must be all alphabetic"
+        "reason": "A top-level domain is all letters, or an xn-- label"
     },
     {
         "email": "user@-example.com",
@@ -355,6 +375,16 @@
         "reason": "Internationalized domains are encoded with a leading xn--"
     },
     {
+        "email": "user@example.xn--p1ai",
+        "valid": true,
+        "reason": "Internationalized top-level domains are xn-- labels too"
+    },
+    {
+        "email": "user@ab--cd.example",
+        "valid": true,
+        "reason": "IDNA reserves hyphens in the third and fourth places, but SMTP still delivers"
+    },
+    {
         "email": "user@exa!mple.com",
         "valid": false,
         "reason": "Domain labels can only have letters, digits, and hyphens"
@@ -370,64 +400,139 @@
         "reason": "Quoting the localpart does not loosen the rules for the domain"
     },
     {
-        "email": "test@[example.com]",
+        "email": "josé@example.com",
         "valid": true,
-        "reason": "Bracketed domain"
+        "reason": "SMTPUTF8 allows UTF-8 in the local part"
+    },
+    {
+        "email": "用户@例子.广告",
+        "valid": true,
+        "reason": "Chinese in both parts"
+    },
+    {
+        "email": "δοκιμή@παράδειγμα.δοκιμή",
+        "valid": true,
+        "reason": "Greek in both parts"
+    },
+    {
+        "email": "user@bücher.example",
+        "valid": true,
+        "reason": "A Unicode label, which DNS stores as xn--bcher-kva"
+    },
+    {
+        "email": "user@ab--ü.example",
+        "valid": false,
+        "reason": "IDNA does not allow -- in the third and fourth places of a Unicode label"
+    },
+    {
+        "email": "user@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaü.example",
+        "valid": false,
+        "reason": "This label is 59 bytes, but 65 once it is encoded as xn--"
+    },
+    {
+        "email": "joe@123.45.67.89",
+        "valid": false,
+        "reason": "An IP address must be in brackets"
+    },
+    {
+        "email": "joe@[123.45.67.89]",
+        "valid": true,
+        "reason": "An IPv4 address in brackets"
+    },
+    {
+        "email": "joe@[10.0.0.1]",
+        "valid": true,
+        "reason": "Zero is a valid IPv4 number"
+    },
+    {
+        "email": "joe@[010.001.000.001]",
+        "valid": true,
+        "reason": "SMTP's grammar allows leading zeros in an IPv4 literal"
+    },
+    {
+        "email": "joe@[123.456.7.89]",
+        "valid": false,
+        "reason": "456 is out of range for IPv4"
+    },
+    {
+        "email": "joe@[1.2.3]",
+        "valid": false,
+        "reason": "An IPv4 literal needs four numbers"
+    },
+    {
+        "email": "joe@2001:0db8::1428:57ab",
+        "valid": false,
+        "reason": "An IPv6 address must be in brackets, tagged IPv6:"
+    },
+    {
+        "email": "joe@[2001:db8::1428:57ab]",
+        "valid": false,
+        "reason": "IPv6 literals need the IPv6: tag"
+    },
+    {
+        "email": "joe@[IPv6:2001:db8::1428:57ab]",
+        "valid": true,
+        "reason": "A compressed IPv6 literal"
+    },
+    {
+        "email": "joe@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]",
+        "valid": true,
+        "reason": "A full IPv6 literal"
+    },
+    {
+        "email": "joe@[ipv6:2001:db8::1]",
+        "valid": true,
+        "reason": "The IPv6: tag is not case-sensitive"
+    },
+    {
+        "email": "joe@[IPv6:::1]",
+        "valid": true,
+        "reason": "The loopback address"
+    },
+    {
+        "email": "joe@[IPv6:::ffff:192.0.2.1]",
+        "valid": true,
+        "reason": "IPv6 can end in an IPv4 address"
+    },
+    {
+        "email": "joe@[IPv6:1:2:3:4:5:6:7]",
+        "valid": false,
+        "reason": "A full IPv6 address has eight groups"
+    },
+    {
+        "email": "joe@[IPv6:1:2:3:4:5:6:7::8]",
+        "valid": false,
+        "reason": "With ::, at most six other groups can appear"
+    },
+    {
+        "email": "joe@[IPv6:1::2::3]",
+        "valid": false,
+        "reason": "Only one :: is allowed"
+    },
+    {
+        "email": "mike@[IPv6:9472:0f6e::1bg0:9876]",
+        "valid": false,
+        "reason": "g is not a hex digit"
+    },
+    {
+        "email": "mike@[IPv6:9472:0f6e::1b810:9876]",
+        "valid": false,
+        "reason": "Each IPv6 group has at most four hex digits"
+    },
+    {
+        "email": "joe@[future:anything]",
+        "valid": false,
+        "reason": "IPv6 is the only registered address literal tag"
+    },
+    {
+        "email": "test@[example.com]",
+        "valid": false,
+        "reason": "Brackets hold an IP address, not a domain name"
     },
     {
         "email": "example@[hello world.com]",
-        "valid": true,
-        "reason": "Bracketed domains can contain spaces"
-    },
-    {
-        "email": "example@[hello\\ world.com]",
-        "valid": true,
-        "reason": "Bracketed domains can have escaped characters"
-    },
-    {
-        "email": "matt@[test--valid.tld]",
-        "valid": true,
-        "reason": "Bracketed domains follow the same hyphen rules, so two in a row is fine"
-    },
-    {
-        "email": "matt@[-host.tld]",
         "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
-    },
-    {
-        "email": "matt@[host-.tld]",
-        "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
-    },
-    {
-        "email": "matt@[test.-host.tld]",
-        "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
-    },
-    {
-        "email": "matt@[example..com]",
-        "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
-    },
-    {
-        "email": "matt@[.example.com]",
-        "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
-    },
-    {
-        "email": "matt@[example.com.]",
-        "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
-    },
-    {
-        "email": "matt@[numeric.tld.l33t]",
-        "valid": false,
-        "reason": "TLDs must be alphabetic, not numeric"
-    },
-    {
-        "email": "test@[hello@world.com]",
-        "valid": true,
-        "reason": "Yes, domains can have an @ symbol"
+        "reason": "Brackets hold an IP address, not a domain name"
     },
     {
         "email": "cat@[example].com",
@@ -437,7 +542,7 @@
     {
         "email": "mouse@[test example].com",
         "valid": false,
-        "reason": "Spaces are not allowed in brackets"
+        "reason": "The brackets must hold the whole domain"
     },
     {
         "email": "dog@[example.com",
@@ -447,11 +552,6 @@
     {
         "email": "ant@[test\\ example].com",
         "valid": false,
-        "reason": "Escaping not allowed in brackets"
-    },
-    {
-        "email": "sam@com",
-        "valid": true,
-        "reason": "Strangely, the rules allow for a top-level domain to receive email"
+        "reason": "The brackets must hold the whole domain"
     }
 ]

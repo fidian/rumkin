@@ -2,113 +2,310 @@
 /* is_valid_email_regexp is dual licensed under the GNU GPL v3 (or later) and
  * under the MIT license.
  *
- * is_valid_email_regexp is available from http://rumkin.com/software/email/
+ * is_valid_email_regexp is available from https://rumkin.com/software/email/
  *
  * is_valid_email_regexp uses PHP and regular expressions to determine if
- * an email appears to be valid.
+ * SMTP could deliver to an email address:  it follows RFC 5321, including
+ * the internationalized addresses that RFC 6531 (SMTPUTF8) adds.  Pass the
+ * address as UTF-8.  The rules, and which RFCs they come from, are at
+ * https://rumkin.com/software/email/rules/
  */
-define('EMAIL_PATTERN_QTEXT', '[\\x01-\\x08\\x0B\\x0C\\x0E-\\x21\\x23-\\x5A\\x5E-\\x7F]');
-define('EMAIL_PATTERN_QTEXTMORE', '[\\x01-\\x09\\x0B\\x0C\\x0E-\\x7F]');
-define('EMAIL_PATTERN_TEXT', '[\\x21\\x23-\\x27\\x2A-\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x41-\\x5A\\x5E-\\x7E]');
-define('EMAIL_PATTERN_QUOTE', '(' . EMAIL_PATTERN_QTEXT . '|\\\\' . EMAIL_PATTERN_QTEXTMORE . ')');
-define('EMAIL_PATTERN_TEXT_OR_QUOTE', '(' . EMAIL_PATTERN_TEXT . '+|"' . EMAIL_PATTERN_QUOTE . '*")');
-define('EMAIL_PATTERN_LOCALPART', EMAIL_PATTERN_TEXT_OR_QUOTE . '(\\.' . EMAIL_PATTERN_TEXT_OR_QUOTE . ')*');
-// Hyphens may run together inside a label, as in xn--, but never end one
-define('EMAIL_PATTERN_DOMAIN_LABEL', '[0-9A-Za-z](-*[0-9A-Za-z])*');
-define('EMAIL_PATTERN_DOMAIN_LABEL_TLD', '[A-Za-z]+');
-define('EMAIL_PATTERN_DOMAIN_NORMAL', '(' . EMAIL_PATTERN_DOMAIN_LABEL . '\\.)*' . EMAIL_PATTERN_DOMAIN_LABEL_TLD);
-define('EMAIL_PATTERN_DOMAIN_QTEXT', '[\\x01-\\x08\\x0B\\x0C\\x0E-\\x21\\x23-\\x2C\\x2E-\\x5A\\x5E-\\x7F]');
-define('EMAIL_PATTERN_DOMAIN_QUOTE', '(' . EMAIL_PATTERN_DOMAIN_QTEXT . '(-*' . EMAIL_PATTERN_DOMAIN_QTEXT . ')*|\\\\' . EMAIL_PATTERN_QTEXTMORE . ')');
-define('EMAIL_PATTERN_DOMAIN_BRACKET', '\\[' . EMAIL_PATTERN_DOMAIN_QUOTE . '*\\]');
-define('EMAIL_PATTERN_DOMAIN_IPV6', '[0-9a-f]{4}:[0-9a-f]{4}::[0-9a-f]{4}:[0-9a-f]{4}');
-define('EMAIL_PATTERN_DOMAIN_IPV4', '([012]?[0-9]{1,2}\\.){3}[012]?[0-9]?[0-9]');
-define('EMAIL_PATTERN_DOMAIN_IP', '(' . EMAIL_PATTERN_DOMAIN_IPV4 . '|' . EMAIL_PATTERN_DOMAIN_IPV6 . ')');
+
+// atext from RFC 5322, section 3.2.3, which RFC 5321 builds its atoms from,
+// plus anything outside of ASCII under RFC 6531.  These patterns are used
+// with the u modifier, so [^\x00-\x7F] is one whole character.
+define('EMAIL_PATTERN_ATEXT', '[A-Za-z0-9!#$%&\'*+\\-\\/=?^_`{|}~]|[^\\x00-\\x7F]');
+
+// Local-part from RFC 5321, section 4.1.2, is a Dot-string or one
+// Quoted-string around the whole thing.  RFC 5322 also accepts an obsolete
+// form that quotes each piece on its own, like "first".second, but SMTP
+// does not, so neither does this.
+define('EMAIL_PATTERN_DOT_STRING', '(?:' . EMAIL_PATTERN_ATEXT . ')+(?:\\.(?:' . EMAIL_PATTERN_ATEXT . ')+)*');
+
+// qtextSMTP is printable ASCII and the space, except " and \, plus anything
+// outside of ASCII.  quoted-pairSMTP escapes printable ASCII or a space;
+// RFC 6531 leaves that alone, so other characters can not be escaped.
+define('EMAIL_PATTERN_QUOTED_STRING', '"(?:[\\x20\\x21\\x23-\\x5B\\x5D-\\x7E]|[^\\x00-\\x7F]|\\\\[\\x20-\\x7E])*"');
+
+// A label of letters, digits, and hyphens that does not start or end with a
+// hyphen (RFC 5321, section 4.1.2).  Hyphens can run together inside one,
+// which internationalized domains rely on.
+define('EMAIL_PATTERN_LDH_LABEL', '[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?');
+
+// The same, allowing anything outside of ASCII, for the U-labels RFC 6531
+// adds.  Which Unicode characters a U-label may use is a long table in
+// RFC 5892; that is not checked here.
+define('EMAIL_PATTERN_U_CHAR', '(?:[A-Za-z0-9]|[^\\x00-\\x7F])');
+define('EMAIL_PATTERN_U_LABEL', EMAIL_PATTERN_U_CHAR . '(?:(?:[A-Za-z0-9-]|[^\\x00-\\x7F])*' . EMAIL_PATTERN_U_CHAR . ')?');
+
+// Snum from RFC 5321, section 4.1.3:  0 to 255 in one to three digits, so
+// leading zeros are allowed
+define('EMAIL_PATTERN_SNUM', '(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])');
+define('EMAIL_PATTERN_IPV4', EMAIL_PATTERN_SNUM . '(?:\\.' . EMAIL_PATTERN_SNUM . '){3}');
+define('EMAIL_PATTERN_IPV6_HEX', '[0-9A-Fa-f]{1,4}');
 
 
 function is_valid_email_regexp($email) {
-    $email = trim($email);
-
-    // Some quick checks
-    if (strpos($email, "\t") !== false || strpos($email, "\r") !== false || strpos($email, "\n") !== false) {
+    if (! is_string($email)) {
         return false;
     }
 
-    if ($email == '') {
-        return true;
-    }
+    // Spaces around the address are forgiven, since they are easy to paste
+    // into a form by accident.  The rules handle any inside.
+    $email = trim($email, " \t\r\n");
 
-    if (strlen($email) > 320) {
+    // The u modifier makes PCRE fail on anything that is not valid UTF-8
+    if (! preg_match('//u', $email)) {
         return false;
     }
 
-    if (! preg_match('/^' . EMAIL_PATTERN_LOCALPART . '@/', $email, $matches)) {
+    // RFC 5321, section 4.5.3.1.3:  a path is at most 256 octets, and two of
+    // those are the angle brackets around the address
+    if (strlen($email) > 254) {
         return false;
     }
 
-    if (strlen($matches[0]) > 65) {
-        // 64 character max for the local part + 1 character for @
+    // An @ can only appear in the local part inside quotes, and never in
+    // the domain, so the last one is the separator
+    $atIndex = strrpos($email, '@');
+
+    if ($atIndex === false) {
         return false;
     }
 
-    $domain = substr($email, strlen($matches[0]));
+    $localPart = substr($email, 0, $atIndex);
+    $domain = substr($email, $atIndex + 1);
 
-    if (! preg_match('/^' . EMAIL_PATTERN_DOMAIN_NORMAL . '$/', $domain)) {
-        if (preg_match('/^' . EMAIL_PATTERN_DOMAIN_IP . '$/', $domain)) {
-            return true;
-        }
-
-        if (preg_match('/^' . EMAIL_PATTERN_DOMAIN_BRACKET . '$/', $domain)) {
-            $domain = trim(substr($domain, 1, strlen($domain) - 2));
-        } else {
-            return false;
-        }
-    }
-
-    if (strlen($domain) > 253) {
+    // RFC 5321, section 4.5.3.1.1
+    if (strlen($localPart) > 64) {
         return false;
     }
 
-    $labels = array();
-    $thisLabel = '';
-    $domainSplit = str_split($domain);
+    if (! preg_match('/\\A(?:' . EMAIL_PATTERN_DOT_STRING . '|' . EMAIL_PATTERN_QUOTED_STRING . ')\\z/u', $localPart)) {
+        return false;
+    }
 
-    while (count($domainSplit)) {
-        if ($domainSplit[0] == '.') {
-            array_shift($domainSplit);
+    if (preg_match('/\\A\\[([\\x21-\\x7E]*)\\]\\z/', $domain, $matches)) {
+        return is_valid_email_regexp_address_literal($matches[1]);
+    }
 
-            if ($thisLabel == '') {
+    return is_valid_email_regexp_domain($domain);
+}
+
+
+/* Domain from RFC 5321, section 4.1.2, with the U-labels from RFC 6531 */
+function is_valid_email_regexp_domain($domain) {
+    $labels = explode('.', $domain);
+
+    // The periods between the labels
+    $length = count($labels) - 1;
+
+    foreach ($labels as $label) {
+        if (preg_match('/\\A' . EMAIL_PATTERN_LDH_LABEL . '\\z/', $label)) {
+            // RFC 1035, section 2.3.4
+            if (strlen($label) > 63) {
                 return false;
             }
 
-            $labels[] = $thisLabel;
-            $thisLabel = '';
-        } else {
-            if ($domainSplit[0] == '\\') {
-                $thisLabel .= array_shift($domainSplit);
+            $length += strlen($label);
+        } elseif (preg_match('/\\A' . EMAIL_PATTERN_U_LABEL . '\\z/u', $label)) {
+            // RFC 5891, section 4.2.3.1.  The same shape is allowed in an
+            // ASCII label, since SMTP does not run IDNA on those.
+            if (preg_match('/\\A..--/su', $label)) {
+                return false;
             }
 
-            $thisLabel .= array_shift($domainSplit);
-        }
-    }
+            // RFC 5890, section 2.3.2.1:  the A-label has to fit
+            $aLabel = 'xn--' . is_valid_email_regexp_punycode($label);
 
-    if ($thisLabel == '') {
-        return false;
-    }
+            if (strlen($aLabel) > 63) {
+                return false;
+            }
 
-    if (! preg_match('/^[a-zA-Z]{1,63}$/', $thisLabel)) {
-        return false;
-    }
-
-    foreach ($labels as $label) {
-        if (strlen($label) > 63) {
+            $length += strlen($aLabel);
+        } else {
+            // An empty label means a period at either end or two together
             return false;
         }
+    }
 
-        if (substr($label, 0, 1) == '-' || substr($label, - 1) == '-') {
+    // RFC 1034, section 3.1:  255 octets, which includes a length byte for
+    // every label and one for the root.  That leaves 253 as text.
+    if ($length > 253) {
+        return false;
+    }
+
+    // A top-level domain is never all digits (RFC 3696, section 2), and every
+    // one that exists is either all letters or an xn-- label
+    $tld = end($labels);
+
+    if (preg_match('/[^\\x00-\\x7F]/u', $tld)) {
+        return true;
+    }
+
+    return preg_match('/\\A(?:[A-Za-z]+|[Xx][Nn]--[A-Za-z0-9-]+)\\z/', $tld) === 1;
+}
+
+
+/* address-literal from RFC 5321, section 4.1.3.  Brackets hold an IP
+ * address, not a name:  [192.0.2.1], or [IPv6:2001:db8::1].  Other tags are
+ * possible in the grammar, but a tag has to be registered with IANA, and
+ * IPv6 is the only one that is. */
+function is_valid_email_regexp_address_literal($literal) {
+    // Strings in ABNF are not case-sensitive (RFC 5234, section 2.3)
+    if (preg_match('/\\AIPv6:(.*)\\z/is', $literal, $matches)) {
+        return is_valid_email_regexp_ipv6($matches[1]);
+    }
+
+    return preg_match('/\\A' . EMAIL_PATTERN_IPV4 . '\\z/', $literal) === 1;
+}
+
+
+/* IPv6-addr from RFC 5321, section 4.1.3.  Groups are one to four hex
+ * digits.  Without "::" there are exactly eight of them.  "::" stands for at
+ * least two groups of zeros, so it leaves room for six more.  An IPv4
+ * address can take the place of the last two groups, which is what the
+ * IPv6v4 forms of the grammar say. */
+function is_valid_email_regexp_ipv6($text) {
+    if (preg_match('/\\A(.*:)' . EMAIL_PATTERN_IPV4 . '\\z/s', $text, $matches)) {
+        $text = $matches[1] . '0:0';
+    }
+
+    $halves = explode('::', $text);
+
+    if (count($halves) > 2) {
+        return false;
+    }
+
+    $groups = array();
+
+    foreach ($halves as $half) {
+        if ($half !== '') {
+            $groups = array_merge($groups, explode(':', $half));
+        }
+    }
+
+    if (count($halves) == 1 ? count($groups) != 8 : count($groups) > 6) {
+        return false;
+    }
+
+    foreach ($groups as $group) {
+        if (! preg_match('/\\A' . EMAIL_PATTERN_IPV6_HEX . '\\z/', $group)) {
             return false;
         }
     }
 
     return true;
+}
+
+
+/* Punycode from RFC 3492.  It turns a Unicode label into the ASCII that
+ * follows "xn--" in the A-label DNS actually stores, which has to fit in
+ * 63 octets. */
+function is_valid_email_regexp_punycode($label) {
+    $points = array();
+
+    foreach (preg_split('//u', $label, -1, PREG_SPLIT_NO_EMPTY) as $char) {
+        $bytes = strlen($char);
+        $code = ord($char[0]);
+
+        if ($bytes > 1) {
+            $code &= 0xFF >> ($bytes + 1);
+
+            for ($i = 1; $i < $bytes; $i ++) {
+                $code = ($code << 6) | (ord($char[$i]) & 0x3F);
+            }
+        }
+
+        $points[] = $code;
+    }
+
+    $output = '';
+
+    foreach ($points as $code) {
+        if ($code < 0x80) {
+            $output .= chr($code);
+        }
+    }
+
+    $basic = strlen($output);
+    $handled = $basic;
+
+    if ($basic) {
+        $output .= '-';
+    }
+
+    $n = 128;
+    $delta = 0;
+    $bias = 72;
+
+    while ($handled < count($points)) {
+        $next = PHP_INT_MAX;
+
+        foreach ($points as $code) {
+            if ($code >= $n && $code < $next) {
+                $next = $code;
+            }
+        }
+
+        $delta += ($next - $n) * ($handled + 1);
+        $n = $next;
+
+        foreach ($points as $code) {
+            if ($code < $n) {
+                $delta ++;
+            }
+
+            if ($code == $n) {
+                $q = $delta;
+
+                for ($k = 36; true; $k += 36) {
+                    if ($k <= $bias) {
+                        $t = 1;
+                    } elseif ($k >= $bias + 26) {
+                        $t = 26;
+                    } else {
+                        $t = $k - $bias;
+                    }
+
+                    if ($q < $t) {
+                        break;
+                    }
+
+                    $output .= is_valid_email_regexp_punycode_digit($t + ($q - $t) % (36 - $t));
+                    $q = intdiv($q - $t, 36 - $t);
+                }
+
+                $output .= is_valid_email_regexp_punycode_digit($q);
+                $bias = is_valid_email_regexp_punycode_adapt($delta, $handled + 1, $handled == $basic);
+                $delta = 0;
+                $handled ++;
+            }
+        }
+
+        $delta ++;
+        $n ++;
+    }
+
+    return $output;
+}
+
+
+function is_valid_email_regexp_punycode_digit($value) {
+    return chr($value < 26 ? $value + 97 : $value + 22);
+}
+
+
+function is_valid_email_regexp_punycode_adapt($delta, $count, $first) {
+    $delta = $first ? intdiv($delta, 700) : intdiv($delta, 2);
+    $delta += intdiv($delta, $count);
+    $steps = 0;
+
+    while ($delta > 455) {
+        $delta = intdiv($delta, 35);
+        $steps += 36;
+    }
+
+    return $steps + intdiv(36 * $delta, $delta + 38);
 }
 
