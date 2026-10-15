@@ -7,6 +7,7 @@
  */
 import { component, css, html } from 'fudgel';
 import { Buffer as BufferPolyfill } from 'buffer';
+import { type Codec, compressText } from './compression-output.ts';
 
 // The compression library is written against Node's Buffer. Browserify used
 // to supply one; put the browser polyfill where the library will look before
@@ -17,35 +18,6 @@ globals.Buffer ??= BufferPolyfill;
 const { default: rumkinCompression } = await import(
     '@fidian/rumkin-compression'
 );
-
-/** How the result compares to what went in, in words. */
-export const describeRatio = (before: number, after: number) => {
-    if (!before) return '';
-
-    const percent = ((after / before) * 100).toFixed(2);
-    const verb = after <= before ? 'removing' : 'adding';
-    const difference = Math.abs(before - after);
-
-    return `${before} → ${after} bytes, using ${percent}% of the uncompressed size by ${verb} ${difference} bytes.`;
-};
-
-/** Wrap compressed data in the decompressor that reads it. */
-export const withDecompressor = (
-    decompressTiny: unknown,
-    data: string,
-    bytesPerLine = 60
-) => {
-    const chunks: string[] = [];
-    let rest = data;
-
-    while (rest.length > bytesPerLine) {
-        chunks.push(JSON.stringify(rest.slice(0, bytesPerLine)));
-        rest = rest.slice(bytesPerLine);
-    }
-    chunks.push(JSON.stringify(rest));
-
-    return `((${String(decompressTiny)})\n((${chunks.join('+\n')}))`;
-};
 
 const SHARED = css`
     :host {
@@ -69,10 +41,7 @@ const SHARED = css`
 
 const NO_ASSIST = `spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"`;
 
-const compressor = (
-    tag: string,
-    codec: { compressSync: (input: string) => string; decompressTiny: unknown }
-) =>
+const compressor = (tag: string, codec: Codec) =>
     component(
         tag,
         {
@@ -124,16 +93,9 @@ const compressor = (
                     return;
                 }
 
-                // The codec reads its input as a binary string, one byte
-                // per character, so the text is encoded to UTF-8 first.
-                const bytes = new TextEncoder().encode(this.text);
-                const binary = String.fromCharCode(...bytes);
-                const compressed = codec.compressSync(binary);
-
-                this.output = this.includeJs
-                    ? withDecompressor(codec.decompressTiny, compressed)
-                    : compressed;
-                this.ratio = describeRatio(bytes.length, this.output.length);
+                const result = compressText(codec, this.text, this.includeJs);
+                this.output = result.output;
+                this.ratio = result.ratio;
             }
         }
     );
