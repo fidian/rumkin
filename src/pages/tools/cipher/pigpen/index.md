@@ -12,7 +12,7 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-Pigpen places letters in  "#" and "X" diagrams, then uses the nearby lines and dots as the symbol for the encoded letter. This comes in two main varieties.
+Pigpen places letters in "#" and "X" diagrams, then uses the lines and dots surrounding each letter as its symbol. This comes in two main varieties.
 
 It goes by a lot of names - the [Rosicrucian cipher](../rosicrucian/), the Freemason's cipher, the Napoleon cipher, the tic-tac-toe cipher - and they are all this one cipher.
 

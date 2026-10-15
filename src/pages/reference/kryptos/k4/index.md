@@ -20,12 +20,12 @@ VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR</tt></div>
 
 Sanborn has mentioned that the length is indeed 97 characters in [an interview](https://www.npr.org/2020/01/30/801323608/a-new-and-final-clue-to-kryptos-a-long-standing-puzzle). He's also given [several clues](https://elonka.com/kryptos/) and confirmed that the letters [directly map](http://numberworld.blogspot.com/2018/07/kryptos-cipher-part-3.html) from the cipher text to the plain text. From this, we know the following letters are correct in the message. Perhaps this is to cut down on the number of people mailing him thousands of incorrect solutions.
 
-It is possible that the first `EAST` in the plain text isn't correct. Sanborn did confirm it, but it's possible that it was confirmed out of hand as opposed to being intentional. He previously leaked `NORTHEAST` and a member of the Kryptos group asked him about `EASTNORTHEAST` being in a specific location and Sandborn confirmed it.
-
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>___________________________....
 .................EASTNORTHEAST.
 ............................BER
 LINCLOCK.......................</tt></div>
+
+It is possible that the first `EAST` in the plain text isn't correct. Sanborn did confirm it, but it's possible that it was confirmed out of hand as opposed to being intentional. He previously leaked `NORTHEAST`, and when a member of the Kryptos group asked him about `EASTNORTHEAST` being in a specific location, Sanborn confirmed it.
 
 If we trust Sanborn, then we can assume this is not a transposition cipher, though perhaps that's [not right](https://kryptools.com/hints.htm).
 
@@ -42,7 +42,7 @@ If we trust Sanborn, then we can assume this is not a transposition cipher, thou
 > and that BERLIN is plaintext that starts at exactly the 64th character, but
 > he wouldn't go further than that.
 
-The cipher method probably doesn't involve math. Sanborn admitted he's bad at math during [an interview](https://www.npr.org/2020/01/30/801323608/a-new-and-final-clue-to-kryptos-a-long-standing-puzzle), and had this to say at a different interview.
+The cipher method probably doesn't involve math. Sanborn admitted he's bad at math during [an interview](https://www.npr.org/2020/01/30/801323608/a-new-and-final-clue-to-kryptos-a-long-standing-puzzle), and had this to say in a different interview.
 
 > And Ed basically gave me—he gave me a primer of ancient encoding systems. And
 > he also gave me some ideas for contemporary coding systems, more
@@ -62,7 +62,7 @@ The cipher method probably doesn't involve math. Sanborn admitted he's bad at ma
 
 Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.voynich.net/Kryptos/).</div>
 
-`EASTNORTHEAST` is the same direction as the compass etched into a stone located in the same area as the bent metal shape that most consider to be Kryptos. Sanborn considers the whole installment to be Kryptos.
+`EASTNORTHEAST` is the direction indicated by the compass etched into a stone located in the same area as the bent metal shape that most consider to be Kryptos. Sanborn considers the whole installation to be Kryptos.
 
 <div class="Ta(c) photo">
 

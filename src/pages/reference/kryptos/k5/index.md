@@ -51,7 +51,7 @@ Sanborn has also confirmed that K5 can't be solved until K4 is solved. More is r
 >
 > Sanborn: Mr. Scheidt basically gave me an outline of historic and contemporary ... encoding systems that have been formally used by the agency and were still used by the agency and other people (in 1990). He gave me a whole variety of possible systems to use and ways to modify all of those systems. But as a visual artist, I like to rely on systems that include visual (material) as well as digital material that can be deciphered by machines. It's also well-known that I did use some matrix codes Ed gave me, and I have also designed visual systems for encoding, which are much harder for cryptographers to crack because they're individualistic.
 >
-> WN: *But it's still basically code systems that Scheidt gave you, right? I mean he could decipher *Kryptos if he wanted to, correct?
+> WN: But it's still basically code systems that Scheidt gave you, right? I mean he could decipher *Kryptos* if he wanted to, correct?
 >
 > Sanborn: No, he doesn't know the solution. I made that very clear that I didn't want him to be able to decipher what's going on ... that I'd be modifying systems and developing my own, which would make it virtually impossible for him to decipher all of it. I intended the 80 percent (of the text) that's been deciphered to be deciphered and to be deciphered in stages and relatively quickly. The final part is obviously the, you know, the apex of the pyramid there.
 
@@ -71,7 +71,7 @@ It continues with ...
 >
 > WN: So you did something, but they knew about it?
 >
-> Sanborn:: No, I didn't say that, either.
+> Sanborn: No, I didn't say that, either.
 >
 > WN: There is someone who says he thinks he knows how the last section should be decrypted. John Wilson says that section three from Howard Carter's diary is giving instructions to the reader for what they should do with the text in the last section in order to decipher it. For example, when it describes Carter putting the candle through the hole, Wilson says it's an instruction for what to do with the text. So Wilson placed the word candle into the text. Is he on to something or off track?
 >
@@ -87,7 +87,7 @@ It continues with ...
 >
 > WN: The CIA required you to write down the solution to the sculpture and give it to Webster. Webster has said that he forgot the solution. Did he ever actually know the answer?
 >
-Sanborn: Well, you know, I wasn't completely truthful with the man. And I'm sure he realizes that. I mean that's part of tradecraft, isn't it? Deception is everywhere. I had to leave an envelope at the agency saying what was on the (sculpture). I gave it to William Webster at the dedication ceremony with a wax seal on it, but in fact I really didn't tell him the whole story. I definitely didn't give him the last section, which has never been deciphered.
+> Sanborn: Well, you know, I wasn't completely truthful with the man. And I'm sure he realizes that. I mean that's part of tradecraft, isn't it? Deception is everywhere. I had to leave an envelope at the agency saying what was on the (sculpture). I gave it to William Webster at the dedication ceremony with a wax seal on it, but in fact I really didn't tell him the whole story. I definitely didn't give him the last section, which has never been deciphered.
 >
 > WN: But he thinks you did give him the solution.
 >
@@ -111,9 +111,9 @@ Sanborn: Well, you know, I wasn't completely truthful with the man. And I'm sure
 >
 > WN: You haven't left it in your will?
 >
-> Sanborn:: Well, actually I have. I think it's important that whoever says that they cracked it will in fact find out whether they actually did. So from that standpoint, there does have to be some sort of historic record of what it says.
+> Sanborn: Well, actually I have. I think it's important that whoever says that they cracked it will in fact find out whether they actually did. So from that standpoint, there does have to be some sort of historic record of what it says.
 
-Also, while talking [at a dinner](https://interred2.rssing.com/chan-1312950/all_p3.html), additional information was discussed.
+Also, additional information came out during a conversation [at a dinner](https://interred2.rssing.com/chan-1312950/all_p3.html).
 
 > It was asked if K4 was a “one-off”. Some discussion ensued about the definition of “one-off”, but Ed looked to Jim and said “well Jim, how are we going to answer that one?”. To which Jim simply replied “we don’t answer it”.
 >

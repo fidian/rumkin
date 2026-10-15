@@ -21,7 +21,7 @@ You want to use qmail or netqmail on Gentoo.  Unfortunately, the guides out ther
 Solution
 --------
 
-The solution presented will be succinct.  I won't go into how you set up use flags nor dependencies too much.  Feel free to alter my instructions to fit your needs.
+The solution presented will be succinct.  I won't go into how you set up use flags or dependencies too much.  Feel free to alter my instructions to fit your needs.
 
 1. Remove other MTAs - `emerge -C ssmtp sendmail postfix`
 2. Tweak your use flags
@@ -40,13 +40,13 @@ The solution presented will be succinct.  I won't go into how you set up use fla
     * pyzor - Spam scanner
     * dcc - Spam scanner
     * clamav - Antivirus
-    * zip, zoo, lha, rar, unrar (optional) - for scanning attachments
+    * zip, zoo, lha, rar, unrar (optional) - For scanning attachments
     * bitdefender-console - Antivirus
     * f-prot - Antivirus
     * ripmime, tnef - Attachment extractor
     * qmail-scanner - Message scanner
 4. Configure qmail
-    * Set up Qmail's certificate.  I already have certificates, so I just copied those in.
+    * Set up qmail's certificate.  I already have certificates, so I just copied those in.
             cp rumkin.pem /var/qmail/control/servercert.pem
             chown root:qmail /var/qmail/control/servercert.pem
             chmod 644 /var/qmail/control/servercert.pem
@@ -55,7 +55,7 @@ The solution presented will be succinct.  I won't go into how you set up use fla
     * Set up common system aliases
             cd /var/qmail/alias/
             echo SOME_ADDRESS > .qmail-root
-            for F in postmaster webaster mailer-daemon anonymous; do ln -s .qmail-root .qmail-${F}; done
+            for F in postmaster webmaster mailer-daemon anonymous; do ln -s .qmail-root .qmail-${F}; done
             chmod 644 .qmail-*
     * List machines whose email you are allowed to receive - /var/qmail/control/locals
             YOUR_MACHINE'S_HOST_NAME
@@ -67,7 +67,7 @@ The solution presented will be succinct.  I won't go into how you set up use fla
     * Start qmail - `/etc/init.d/svscan start`
 5. Test qmail
     * First off, `emerge telnet` if you don't have it or use `nc` if you prefer
-    * Replace the stuff like _yourdomain.com_ in the transcript below and there is an intentional blank line so be careful
+    * Replace the stuff like _yourdomain.com_ in the transcript below.  There is an intentional blank line, so be careful.
             telnet localhost smtp
             HELO yourdomain.com
             MAIL FROM: your.email@yourdomain.com
@@ -89,7 +89,7 @@ The solution presented will be succinct.  I won't go into how you set up use fla
 7. Install qmail-scanner
     * Edit `/etc/tcprules.d/tcp.qmail-*` and change the allow line
             :allow,QMAILQUEUE="/var/qmail/bin/qmail-scanner-queue"
-    * Rebuild tcpfules as per "Install relay-ctrl" section
+    * Rebuild the tcprules as per the "Install relay-ctrl" section
 
 With luck, problem solved.
 

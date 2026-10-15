@@ -9,9 +9,9 @@ breadcrumbs:
       href: /problems/
 ---
 
-I purchased a [7" laptop from Amazon](https://smile.amazon.com/gp/product/B09CQ22335/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&th=1) because I wanted a very portable device that would work when I needed to fix other people's computers. It is also handier to lug around when doing presentations. There's no brand on the box, just the words "Pocket Book" and the manual (if you can call a single, poorly copied piece of paper a manual) listed Shenzhen Firstdream Technology Co., Ltd. Amazon lists the laptop's brand as ZWYING, with the model number of P7. Booting it up, I see "American Megatrends" as the logo shown by the BIOS.
+I purchased a [7" laptop from Amazon](https://smile.amazon.com/gp/product/B09CQ22335/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&th=1) because I wanted a very portable device that would work when I needed to fix other people's computers. It is also handier to lug around when doing presentations. There's no brand on the box, just the words "Pocket Book," and the manual (if you can call a single, poorly copied piece of paper a manual) listed Shenzhen Firstdream Technology Co., Ltd. Amazon lists the laptop's brand as ZWYING, with the model number P7. Booting it up, I see "American Megatrends" as the logo shown by the BIOS.
 
-The specs are modest, but one doesn't expect a lot from something this small. It has a 7" touchscreen at 1024 x 600; a 4 core, 1.5 GHz (2.3 Ghz burst) Celeron J3455 processor; 8GB of 2.3GHZ DDR3L RAM; 512 GB SSD, most likely m.2 but not yet confirmed. It comes with WiFi, Bluetooth, 2 x USB 3 ports, 1 Micro SD port, a headphone jack, webcam, and a mini HDMI port. All of that fits in a package that is 185 x 141 x 20 mm, weighs 0.65 kg, including the internal 4500 mAh battery, which provides 4-6 hours of runtime.
+The specs are modest, but one doesn't expect a lot from something this small. It has a 7" touchscreen at 1024 x 600; a 4-core, 1.5 GHz (2.3 GHz burst) Celeron J3455 processor; 8GB of 2.3GHz DDR3L RAM; and a 512 GB SSD, most likely m.2 but not yet confirmed. It comes with WiFi, Bluetooth, 2 x USB 3 ports, 1 Micro SD port, a headphone jack, webcam, and a mini HDMI port. All of that fits in a package that is 185 x 141 x 20 mm and weighs 0.65 kg, including the internal 4500 mAh battery, which provides 4-6 hours of runtime.
 
 My goal is to have a dual-boot system or one that runs VirtualBox in Linux, depending on the speed.
 
@@ -31,10 +31,10 @@ Step 1: Backup
 
 Before I do anything to a computer, I first boot a Linux OS and make an image of the original contents of the drive. This way I can restore it if necessary.
 
-1. Download and install [Ventoy](https://www.ventoy.net/en/download.html) to a blank USB drive. This lets you drop on ISO files, then pick one to boot. It's fantastic. I have a single USB with almost a dozen different ISO files on it and can pick which one I want as the computer starts up. The only problem is that the ISO files must not be fragmented and apparently only Windows can defragment drives. Using Linux only, your best bet is to delete all files from the drive and then copy over ISO files one by one to ensure they get copied without fragmentation.
+1. Download and install [Ventoy](https://www.ventoy.net/en/download.html) to a blank USB drive. This lets you drop ISO files on it, then pick one to boot. It's fantastic. I have a single USB with almost a dozen different ISO files on it and can pick which one I want as the computer starts up. The only problem is that the ISO files must not be fragmented and apparently only Windows can defragment drives. If you only use Linux, your best bet is to delete all files from the drive and then copy over ISO files one by one to ensure they get copied without fragmentation.
 2. Download [Clonezilla](https://clonezilla.org/downloads.php) and drop the ISO on your Ventoy USB drive.
 3. Find another USB drive and format it. USB3 would be good for this one.
-4. Plug in the Ventoy drive to the computer and boot. Pick Clonezilla. Go through the menus to eventually pick "device-image" and plug in the second USB drive.
+4. Plug the Ventoy drive into the computer and boot. Pick Clonezilla. Go through the menus to eventually pick "device-image" and plug in the second USB drive.
 5. Keep following the menus and use Basic mode to image the drive to the USB you plugged in.
 
 Wait a very long time while the backup happens. When done, shut down the laptop.
@@ -46,8 +46,8 @@ Step 2: Install Linux
 My chosen flavor is Ubuntu Mate for this little device. It boots much faster than Ubuntu. If you'd prefer another OS, just replace Ubuntu Mate with the one you desire, such as Lubuntu.
 
 1. Download [Ubuntu Mate](https://ubuntu-mate.org/) and copy it to your Ventoy USB drive.
-2. Plug in the Ventoy USB drive to the laptop and boot from it.
-3. Pick the downloaded ISO and complete the install. If you want to dual-boot or use the whole drive, that choice is up to you. Use the touchscreen or plug in an external mouse.
+2. Plug the Ventoy USB drive into the laptop and boot from it.
+3. Pick the downloaded ISO and complete the install. Whether you dual-boot or use the whole drive is up to you. Use the touchscreen or plug in an external mouse.
 
 This will work, but you won't have any network connectivity. Also, the left-click on the laptop doesn't work and right-click does something like the menu key. We'll have to get to those in a bit. Just do an offline installation for now.
 
@@ -61,7 +61,7 @@ The wireless device, when seen using `lsusb`, appears something like this:
 
     Bus 002 Device 003: ID 0bda:c820 Realtek Semiconductor Corp.
 
-These instructions are based on ones found on [StackExchange](https://askubuntu.com/questions/1303035/rtl8821cu-wifi-bluetooth-usb-0bdac820)
+These instructions are based on ones found on [StackExchange](https://askubuntu.com/questions/1303035/rtl8821cu-wifi-bluetooth-usb-0bdac820).
 
     sudo apt update
     sudo apt install build-essential git dkms
@@ -80,7 +80,7 @@ Reboot and you're done. When you update the kernel, run these while you are conn
 Step 4: Fix Mouse
 -----------------
 
-The future looks bleak for fixing the mouse buttons. Even in Windows, they don't work as expected. The left click button seems to do nothing and the right-click button is the same as pressing the Menu key. It would be really handy to have this work in case using a mouse is not practical, so I will still see if there's a way to map these keyboard events to mouse events.
+The future looks bleak for fixing the mouse buttons. Even in Windows, they don't work as expected. The left-click button seems to do nothing and the right-click button is the same as pressing the Menu key. It would be really handy to have this work in case using a mouse is not practical, so I will still see if there's a way to map these keyboard events to mouse events.
 
 First, let's look at `dmesg` output.
 
@@ -126,7 +126,7 @@ Apply when done. I'd suggest autoloading this configuration too, and possibly do
 Step 5: Sound (NOT FIXED)
 -------------------------
 
-I am not sure how well this supports sound. Ubuntu 22.04 detected nothing, 22.10 found the card but nothing plays. Maybe it didn't identify the sound card correctly? The kernel is using `snd_hda_intel` and trying `snd_soc_skl` or `snd_sof_pci_intel_apl` don't work out of the box either. Seems to be the same problem that [other people](https://askubuntu.com/questions/1351816/intel-j3455-dummy-sound-issue-snd-intel) [have](https://forum.mxlinux.org/viewtopic.php?t=66187).
+I am not sure how well this supports sound. Ubuntu 22.04 detected nothing; 22.10 found the card, but nothing plays. Maybe it didn't identify the sound card correctly? The kernel is using `snd_hda_intel`, and trying `snd_soc_skl` or `snd_sof_pci_intel_apl` doesn't work out of the box either. Seems to be the same problem that [other people](https://askubuntu.com/questions/1351816/intel-j3455-dummy-sound-issue-snd-intel) [have](https://forum.mxlinux.org/viewtopic.php?t=66187).
 
 The best solution might be to wait for SOF [to get updated](https://github.com/thesofproject/linux/pull/2962) in the Linux kernel. After that, a kernel option might need to be added in order to pick the right driver.
 
@@ -138,6 +138,6 @@ It's always on. How frustrating.
 
     echo coretemp | sudo tee -a /etc/modules
 
-Now I can read the temperatures by using `cat /sys/class/thermal/thermal_zone*/temp` but it looks like the `fancontrol` package can not control the fan.
+Now I can read the temperatures by using `cat /sys/class/thermal/thermal_zone*/temp`, but it looks like the `fancontrol` package cannot control the fan.
 
 I'm starting to think that it's not possible to control the fan. I've played with the BIOS a bit and even booted Windows to see if it turned off the fan when idle for minutes. No luck.

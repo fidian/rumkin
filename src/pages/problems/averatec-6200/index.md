@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: Linux on Averatec 6200
-summary: Notes about getting this laptop to boot Linux and resolve some of the hardware issues.
+summary: Notes about getting this laptop to boot Linux and resolving some of the hardware issues.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -9,7 +9,7 @@ breadcrumbs:
       href: /problems/
 ---
 
-I had purchased an Averatec 6200 series laptop.  The very first thing I did when I received it was to stick in a Linux boot CD and attempt to wipe off Windows.  Sadly, it had a problem during booting.
+I purchased an Averatec 6200 series laptop.  The very first thing I did when I received it was to stick in a Linux boot CD and attempt to wipe off Windows.  Sadly, it had a problem during booting.
 
 
 Symptoms
@@ -22,7 +22,7 @@ Symptoms
 Causes
 ------
 
-* Broken APCI.
+* Broken ACPI.
 
 
 Solution
@@ -36,7 +36,7 @@ Problem solved.
 Shortcomings
 ------------
 
-Ubuntu also seems to have problems with 8.04 Hardy Heron.  In order to install Ubuntu 8.04, you will need to use the alternate boot cd.  Once that is done, you will need to edit /etc/default/acpi-support and change `SAVE_VBA_STATE=true` to `SAVE_VBA_STATE=false` before the system will boot properly.  The good news is that the rt2x00 drivers work great with the wireless, sound is flawless, and everything else just works.
+This laptop also seems to have problems with Ubuntu 8.04 Hardy Heron.  In order to install Ubuntu 8.04, you will need to use the alternate boot CD.  Once that is done, you will need to edit /etc/default/acpi-support and change `SAVE_VBE_STATE=true` to `SAVE_VBE_STATE=false` before the system will boot properly.  The good news is that the rt2x00 drivers work great with the wireless, sound is flawless, and everything else just works.
 
 The hardware doesn't support a 3D accelerated X server, so don't go trying to find something that will speed up your graphics-intensive screensaver.
 
@@ -44,13 +44,13 @@ The hardware doesn't support a 3D accelerated X server, so don't go trying to fi
 Additional Information
 ----------------------
 
-The Linux kernel has a problem with ACPI producing continuous lid events when the laptop is closed and with a 2.6.1x kernel (possibly others).  If you are compiling Linux yourself, edit drivers/acpi/button.c, line 77.  Just remove the PNP0C0D, save, compile.
+A 2.6.1x kernel (possibly others) has a problem with ACPI producing continuous lid events when the laptop is closed.  If you are compiling Linux yourself, edit drivers/acpi/button.c, line 77.  Just remove the PNP0C0D, save, and compile.
 
-To get sound to work, you may need to edit /etc/modules.d/alsa.  Also look at removing the audio plugin (`rmmod i810_audio`) and then `/etc/init.d/alsasound start` to make it all work well.
+To get sound to work, you may need to edit /etc/modules.d/alsa.  Also look at removing the audio plugin (`rmmod i810_audio`) and then running `/etc/init.d/alsasound start` to make it all work well.
 
-In the kernel config, the IDE controller is sIs5513.  If you use Gentoo, add `USE=-ipv6` to your make.conf and add `blacklist ipv6` to /etc/modprobe.d/blacklist, and turn off IPV6 in the kernel config (Networking -> TCP/IP networking -> The IPv6 protocol).  With IPv6 turned off, more things (like the networking) will work better.  This might have been fixed since the Linux kernel that I tried.
+In the kernel config, the IDE controller is SiS5513.  If you use Gentoo, add `USE=-ipv6` to your make.conf and add `blacklist ipv6` to /etc/modprobe.d/blacklist, and turn off IPv6 in the kernel config (Networking -> TCP/IP networking -> The IPv6 protocol).  With IPv6 turned off, more things (like networking) will work better.  This might have been fixed in Linux kernels newer than the one I tried.
 
-The keyboard scan codes are Vol- 174, Vol+ 176, Stop/Eject 164, Rew 144, Play/Pause 162, Fwd 153, Menu 237, On/Off (no code).  You can copy the text below and put it into ~/.Xmodmap, then add `/usr/bin/xmodmap ~/.Xmodmap &` and `/usr/bin/xbindkeys &` to your X startup file (IceWM is `.icewm/startup`).
+The keyboard scan codes are Vol- 174, Vol+ 176, Stop/Eject 164, Rew 144, Play/Pause 162, Fwd 153, Menu 237, On/Off (no code).  You can copy the text below and put it into ~/.Xmodmap, then add `/usr/bin/xmodmap ~/.Xmodmap &` and `/usr/bin/xbindkeys &` to your X startup file (for IceWM, it's `.icewm/startup`).
 
     keycode 174 = XF86AudioLowerVolume
     keycode 176 = XF86AudioRaiseVolume

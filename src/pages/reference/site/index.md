@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: About This Site
-summary: How did I pick the name "Rumkin", legal information, and other boring stuff.
+summary: How I picked the name "Rumkin", legal information, and other boring stuff.
 breadcrumbs:
     - name: Rumkin.com
       href: /

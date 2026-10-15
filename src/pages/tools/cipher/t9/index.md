@@ -18,10 +18,10 @@ and let the phone work out the word. `43556` is `hello`.
 
 The catch is that `43556` is also `gekko`, `idjjm` and a great many strings that
 are not words at all. A phone resolved that with a dictionary, and so does this.
-Pick a word list below and any code that matches a word will come back as that
+Pick a word list below, and any code that matches a word will come back as that
 word; where several words match, all of them are offered.
 
-With no dictionary the best anyone can do is read the first letter printed on
+With no dictionary, the best anyone can do is read the first letter printed on
 each key, which turns `43556` into `gdjjm`. That is what you get for a code no
 word matches.
 

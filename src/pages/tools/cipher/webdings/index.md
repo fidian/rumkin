@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/cipher-layout.astro"
 title: Webdings
-summary: See your message in a set of symbols
+summary: See your message in a set of symbols.
 code: true
 breadcrumbs:
     - name: Rumkin.com

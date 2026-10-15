@@ -12,9 +12,9 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-Mr. Hilton Cubitt of Ridling Thorp Manor was baffled by a series of stick figures, yet the amazing Sherlock Holmes was up to the challenge in [The Adventure of the Dancing Men](https://www.gutenberg.org/files/108/108-h/108-h.htm#chap03)
+Mr. Hilton Cubitt of Ridling Thorp Manor was baffled by a series of stick figures, yet the amazing Sherlock Holmes was up to the challenge in [The Adventure of the Dancing Men](https://www.gutenberg.org/files/108/108-h/108-h.htm#chap03).
 
-The story did not include all of the letters - only 17 out of the possible 26. Because of the gaps, other people have filled in the missing symbols with stick figures of their own creation. This encoder can produce results using either version.
+The story did not include all of the letters - only 18 out of the possible 26. Because of the gaps, other people have filled in the missing symbols with stick figures of their own creation. This encoder can produce results using either of the two versions below.
 
 Gutenberg Labo has made a font that mirrors the text closely.
 
@@ -23,19 +23,19 @@ Gutenberg Labo<br />
 <span class="dancing-men-gl">dancinGmen</span>
 </div>
 
-Aage Rieck Sørensen, a true Holmes enthusiast, discovered a hidden pattern in the script and created one version of the font.
+Aage Rieck Sørensen, a true Holmes enthusiast, discovered a hidden pattern in the script and created his own version of the font.
 
 <div class="D(f) Fxd(c) Ai(c) Jc(c)">
 Aage Rieck Sørensen<br />
 <span class="dancing-men-ars">dancinGmen</span>
 </div>
 
-Note that they do not agree on the 7 missing letters, so both are included here for completeness as they are both commonly found with internet searches.
+Note that the two do not agree on the 8 missing letters, so both are included here for completeness, as both are commonly found in internet searches.
 
 Examples:
 
 * <cipher-example label="A through Z" topic="dancingMen" payload-input="ABCDEFGHIJKLMNOPQRSTUVWXYZ"></cipher-example> - All letters without flags.
-* <cipher-example label="With Flags" topic="dancingMen" payload-input="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "></cipher-example> - All letters with flags
+* <cipher-example label="With Flags" topic="dancingMen" payload-input="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "></cipher-example> - All letters with flags.
 * <cipher-example label="Not In Story" topic="dancingMen" payload-input="fjkquwxz"></cipher-example> - Just the letters that do not appear in a cipher in the story.
 * <cipher-example label="All Messages" topic="dancingMen" payload-input="AM HERE ABE SLANEY
 AT ELRIGES

@@ -10,7 +10,7 @@ breadcrumbs:
       href: /programming/palm/
 ---
 
-This is the text, extracted from a presentation for Palm OS Programming Advanced UI elements.  The gotchyas and pitfalls were skipped because I already had that in a [separate page](../gotchyas/).  I don't use Adobe and I wanted a textual reference instead of printing out slides, so I did this.
+This is the text extracted from a presentation on Palm OS Programming Advanced UI Elements.  The gotchyas and pitfalls were skipped because I already had those on a [separate page](../gotchyas/).  I don't use Adobe, and I wanted a textual reference instead of printing out slides, so I did this.
 
 
 Anatomy of the Stock Event Loop
@@ -27,7 +27,7 @@ Anatomy of the Stock Event Loop
 
 
 * `FrmDispatchEvent` passes the event FIRST to the handler that was registered (usually by `AppHandleEvent`)
-* If the event wasn't handled (i.e. the handler returns `false`) it flows to `FrmHandleEvent`, where it receives default handling
+* If the event wasn't handled (i.e. the handler returns `false`), it flows to `FrmHandleEvent`, where it receives default handling
     * Keystrokes flow into fields
     * `FrmUpdateEvent` calls `FrmDrawForm()`
 
@@ -70,7 +70,7 @@ Custom Fonts
 * Myth:
     * Custom fonts aren't supported.
 * Reality:
-    * Custom fonts ARE supported. We don't make it easy (yet)..
+    * Custom fonts ARE supported. We don't make it easy (yet).
 
 
 Creating a Custom Font
@@ -91,14 +91,14 @@ Adding a Font to your Project (PC)
 
 * Use xFont (freeware) to make a font in PilRC format
     * Call it something like "myFont.pfn"
-    * Or create font directly in PilRC format - See PilRC Manual for details
-* Install [PilRC CodeWarrior plugin](http://www.calliopeinc.com/pilrcplugin.html)
-* Add a .rcp file to project with this line in it:
+    * Or create the font directly in PilRC format - see the PilRC Manual for details
+* Install the [PilRC CodeWarrior plugin](http://www.calliopeinc.com/pilrcplugin.html)
+* Add a .rcp file to the project with this line in it:
 
         Font 'FONT' FONTID 128 "myFont.pfn"
 
-* Compile and get a .r file containing a "NFNT" resource
-    * data 'NFNT' (20052) means Resource ID is 20052
+* Compile and get a .r file containing an "NFNT" resource
+    * data 'NFNT' (20052) means the Resource ID is 20052
 
 
 Installing a Custom Font
@@ -113,14 +113,14 @@ Installing a Custom Font
     DmReleaseResource(fontH);
 
 * `fntAppFontCustomBase` is the first ID available
-    * add an offset when defining multiple fonts
+    * Add an offset when defining multiple fonts
 
 
 Using a Custom Font
 -------------------
 
 * `WinDrawChars` will now use this font
-    * if you call `FntSetFont(fntAppFontCustomBase)`
+    * If you call `FntSetFont(fntAppFontCustomBase)`
 * `LstGlueSetFont`, `FrmGlueSetLabelFont`, `CtlGlueSetFont`, `TblSetItemFont` can then take `fntAppFontCustomBase` to set the list, form, control or table font to the new custom font
 
 
@@ -136,7 +136,7 @@ High Resolution Font Families
 * Use only on Palm OS 5 and later
     * Not backwards compatible (check OS version!)
 * `DmGetResource('nfnt', myFontFamilyID);`
-* From there use same as "old style" custom font
+* From there, use it the same as an "old style" custom font
 
 
 Tables
@@ -165,7 +165,7 @@ Alternatives to Tables
 
 * Lists
     * Can have multiple columns when drawn by callback
-    * Great when rows can select together
+    * Great when rows are selected as a whole
 * Fields + Scrollbar
     * Great for text-only data
 * Gadgets
@@ -180,7 +180,7 @@ Attention Manager
 * Myth:
     * The Attention Manager is a 4.0 replacement for the Alarm Manager.
 * Reality:
-    * The Attention Manager is a central UI repository for attention getting messages from all applications.
+    * The Attention Manager is a central UI repository for attention-getting messages from all applications.
 
 
 Step 1: Call the Attention Manager
@@ -219,7 +219,7 @@ Step 3: Extras
 
 * `case kAttnCommandPlaySound`
     * Chance to play a custom sound
-    * Sent if requested in `AttnGetAttention()` call
+    * Sent if requested in the `AttnGetAttention()` call
 * `case kAttnCommandCustomEffect`
     * Chance to do any other custom effect
 
@@ -248,9 +248,9 @@ Step 4: Handle User's Choice
 Step 5: Update the Attention Manager
 ------------------------------------
 
-* `AttnForgetIt` -- when something in the attention manager is no longer relevant
+* `AttnForgetIt` -- When something in the attention manager is no longer relevant
 * `AttnIterate` -- Iterates through everything that belongs to your app and gives your callback a chance to handle each one
     * Update all attentions
     * Erase all attentions
-* `AttnUpdate` -- Update specific attention
+* `AttnUpdate` -- Update a specific attention
 * `AttnGetCounts` -- Use to find out how many attentions you have pending

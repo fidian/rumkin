@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from "@/layouts/default-layout.astro";
 import surfaces from "@/data/whiteboard-surfaces.json";
+import { marked } from "marked";
 
 export const title = "Make a Whiteboard";
 export const summary =
@@ -45,41 +46,41 @@ const slug = (name: string) =>
     </p>
 
     <p>
-        With each surface comes advantages and disadvantages. Some methods are
+        With each surface come advantages and disadvantages. Some methods are
         broken down by use; you have different needs if you want one large
         whiteboard instead of twenty small whiteboards. I've attempted to rate
         how well the surfaces perform and how expensive they are.
     </p>
 
     <p>
-        I rated the surfaces on their ability to be erased with whiteboard
-        markers only. Ghosting, residue, and difficulty wiping away the marks
-        all lead to a worse score. I also try to use new surfaces because the
-        wear on a whiteboard can cause it to become a worse surface. I had a
-        commercial whiteboard that has seen its share of use and it was worse
-        than using a shower board!
+        I rated the surfaces only on how easily whiteboard markers could be
+        erased from them. Ghosting, residue, and difficulty wiping away the
+        marks all lead to a worse score. I also try to use new surfaces because
+        the wear on a whiteboard can cause it to become a worse surface. I had
+        a commercial whiteboard that had seen its share of use, and it was
+        worse than using a shower board!
     </p>
 
     <p>
         The price factor reflects the approximate cost to cover a wall in the
-        material, or essentially the cost for the surface area. Most commercial
-        whiteboards would get a very poor price rating even though they operate
-        very well.
+        material, or essentially the cost per unit of surface area. Most
+        commercial whiteboards would get a very poor price rating even though
+        they perform very well.
     </p>
 
     <p>
         Try to keep in mind that the quality of the marker and how it works with
-        the surface is also a key factor in judging a surface. If it doesn't
+        the surface are also key factors in judging a surface. If it doesn't
         work for you, but I say it works well, try a different brand of marker
         and hope for the best.
     </p>
 
     <p>
         If your company manufactures a whiteboard surface, you can send me a
-        test sample for me to try. I'll put your product up here and I'll give
-        you a review. However, you are not guaranteed to have a positive review
-        if it just doesn't work. My reviews are honest and I don't withhold
-        negative comments.
+        test sample to try. I'll put your product up here and I'll give you a
+        review. However, you are not guaranteed a positive review if it just
+        doesn't work. My reviews are honest and I don't withhold negative
+        comments.
     </p>
 
     <h2>Summary</h2>
@@ -131,7 +132,7 @@ const slug = (name: string) =>
         <li>
             Whiteboard resurfacing
             <ul>
-                <li>MB4000w - This is what it was designed to do</li>
+                <li>MB4000W - This is what it was designed to do</li>
                 <li>Rain-X / Hard Surface Protectant</li>
             </ul>
         </li>
@@ -139,10 +140,10 @@ const slug = (name: string) =>
 
     <p>
         This is a table with a quick comparison of surfaces. The higher the
-        score, the better it works with whiteboard markers. The lower the price,
-        the more economical it is (ie. it saves more money as the score goes
-        up). A "?" means I did not test this product yet. Click a heading to
-        sort.
+        score, the better it works with whiteboard markers. The higher the price
+        rating, the more economical it is (i.e., it saves more money as the
+        rating goes up). A "?" means I did not test this product yet. Click a
+        heading to sort.
     </p>
 
     <sortable-table>
@@ -177,7 +178,7 @@ const slug = (name: string) =>
     <h2>Reviews of Surfaces</h2>
 
     <p>
-        Some of these reviews also have instructions for how to turn this
+        Some of these reviews also have instructions for how to turn the
         material into a useful whiteboard.
     </p>
 
@@ -193,8 +194,9 @@ const slug = (name: string) =>
                         <strong>Price:</strong> {surface.price}
                     </li>
                 </ul>
+                {/* Markdown links and a little inline HTML; marked passes the HTML through. */}
                 {(surface.description ?? []).map((paragraph) => (
-                    <p set:html={paragraph} />
+                    <p set:html={marked.parseInline(paragraph)} />
                 ))}
             </section>
         ))

@@ -9,8 +9,8 @@ breadcrumbs:
       href: /tools/
 ---
 
-This JavaScript marquee generator will create the JavaScript for you to include into your web pages. It is fairly painless. Just select your method and fill in the boxes. When you press "Generate" it will show you the results and also demonstrate the marquee in your browser.
+This JavaScript marquee generator will create the JavaScript for you to include in your web pages. It is fairly painless. Just select your method and fill in the boxes. When you press "Generate", it will show you the results and also demonstrate the marquee in your browser.
 
-The places you can send the marquee are an element, any input area, the window's title or the status bar of the window. Currently the status bar is pretty much obsolete and browsers do not let you change it, but the others work.
+The marquee can be sent to an element, any input area, the window's title, or the window's status bar. Currently, the status bar is pretty much obsolete and browsers do not let you change it, but the others work.
 
 <marquee-generator></marquee-generator>

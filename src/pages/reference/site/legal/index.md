@@ -13,7 +13,7 @@ breadcrumbs:
 Just to cover as many bases as I can, here's all of the legal information
 for the pages on the site.
 
-* All opinions expresses are my own, unless otherwise noted.
+* All opinions expressed are my own, unless otherwise noted.
 * All trademarks and copyrights are owned by their respective owners.  For example ...
     * Windows, Microsoft Office, SQL Server, and others are owned by the Microsoft Corporation.
     * Sprint, Sprint PCS, Sprint PCS Vision, and others are owned by Sprint Communications Company

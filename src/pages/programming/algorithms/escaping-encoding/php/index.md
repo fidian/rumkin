@@ -18,7 +18,7 @@ I write a lot of PHP code and often have to generate strings for use inside othe
 PHP to HTML
 -----------
 
-This is built into the language.  You may see `htmlspecialchars()`, but it is now preferred to use `htmlentities()` to convert a string that is to be embedded in HTML.  Here's how one can use this when you mix HTML and PHP.
+This is built into the language.  You may see `htmlspecialchars()`, but it is now preferred to use `htmlentities()` to convert a string that is to be embedded in HTML.  Here's how to use this when you mix HTML and PHP.
 
     <p>My name is
     <?php
@@ -40,9 +40,9 @@ The standard way is to use the built-in function `urlencode()`.  It works well.
 PHP to JavaScript
 -----------------
 
-[php-to-js.php](php-to-js.php.txt) contains a function that will let you write out a string that is safe to embed into JavaScript.  It handles all sorts of escaping as well as worrying about splitting `<script>` tags.
+[php-to-js.php](php-to-js.php.txt) contains a function that will let you write out a string that is safe to embed into JavaScript.  It handles all sorts of escaping and also takes care of splitting `<script>` tags.
 
-To use this glorious function, you need to merely pass it a string and optionally use the `$SkipQuotes` parameter.  Here are a few examples of PHP writing some JavaScript inside of your HTML markup.  By default, this will add quotes surrounding the string.  If you plan on doing that yourself you can pass `true` as a second parameter.
+To use this glorious function, you merely need to pass it a string and optionally use the `$SkipQuotes` parameter.  Here are a few examples of PHP writing some JavaScript inside of your HTML markup.  By default, this will add quotes surrounding the string.  If you plan on doing that yourself, you can pass `true` as the second parameter.
 
     <script>
     var myJavaScriptString = <?php
@@ -63,4 +63,4 @@ JSON encoding is very similar to JavaScript.  It differs in only a few ways:
 * Only double-quoted strings are allowed.
 * Only properly escaped text is permitted.
 
-The easy way to convert anything into JSON is with `json_encode()`, but that will fail you if you try to encode strings that are not UTF encoded.  For that reason, you should first detect if the string is in UTF-8.  If not, encode it and you now may may safely call `json_encode()` on the result.
+The easy way to convert anything into JSON is with `json_encode()`, but that will fail you if you try to encode strings that are not UTF-8 encoded.  For that reason, you should first detect whether the string is in UTF-8.  If not, encode it as UTF-8, and you may now safely call `json_encode()` on the result.

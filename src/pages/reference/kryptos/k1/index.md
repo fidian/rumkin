@@ -28,7 +28,7 @@ ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE
 DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP
 DQUMEBEDMHDAFMJGZNUPLGEWJLLAETG</tt></div>
 
-The first clue to decrypting this message is on the other side of the statue. There's a tableau of letters, which looks like a normal tableau with the alphabet keyed with "KRYPTOS". If you decode this as a [Vigenère cipher](../../../tools/cipher/vigenere/) and set the alphabet key as "KRYPTOS", then the next hard part is to figure out the cipher key. Well, it turns out that a statistical analysis of the letter frequencies indicate a cipher key of 8 letters. If you kept at it, you would find that [K2](../k2/) would be decoded first and the top two rows of text would not decode correctly.
+The first clue to decrypting this message is on the other side of the statue. There's a tableau of letters, which looks like a normal tableau with the alphabet keyed with "KRYPTOS". If you decode this as a [Vigenère cipher](../../../tools/cipher/vigenere/) and set the alphabet key as "KRYPTOS", then the next hard part is to figure out the cipher key. Well, it turns out that a statistical analysis of the letter frequencies indicates a cipher key of 8 letters. If you kept at it, you would find that [K2](../k2/) would be decoded first and the top two rows of text would not decode correctly.
 
 Separating the top two lines from [K2](../k2/), you get this.
 
@@ -49,9 +49,9 @@ Sanborn has indicated to Elonka that the misspelled character in "illusion" is i
 
 ## Threads
 
-`PALIMPSEST` is writing material where the original writing was scraped away in order to be used again, but where traces of the original writing remain.
+A `PALIMPSEST` is writing material where the original writing was scraped away so it could be used again, but where traces of the original writing remain.
 
 
 ## Open Questions
 
-* Why is "illusion" misspelled as "ilqlusion"? Should the cipher text look like <tt>YQTQUXQBQVYUVLLTREVJYQTM<b>W</b>YRDMFD</tt>?
+* Why is "illusion" misspelled as "iqlusion"? Should the cipher text look like <tt>YQTQUXQBQVYUVLLTREVJYQTM<b>W</b>YRDMFD</tt>?

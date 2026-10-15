@@ -27,7 +27,7 @@ Mix in a little JavaScript.
         document.ghost.submit();<br>
     }
 
-Now you can use `window.opener` to get back to the parent.  Set whatever data you want, like the JavaScript example I have below.  I used it when I pressed a "Save" style of button to send the reformatted text back to the original form.
+Now you can use `window.opener` to get back to the parent.  Set whatever data you want, like in the JavaScript example I have below.  I used it when I pressed a "Save"-style button to send the reformatted text back to the original form.
 
     window.opener.document.other_form.text_area.value = "altered state";
     window.opener.focus();

@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/software-layout.astro"
 title: Email Validation Done Right
-summary: Javascript and PHP code that will verify that an email address at least appears valid and should pass RFC checks.
+summary: JavaScript and PHP code that will verify that an email address at least appears valid and should pass RFC checks.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -28,7 +28,7 @@ See a mistake?  First, confirm with [the rules](rules/) and see where I have gon
 Download
 --------
 
-Here's the email validation rules as source code.  Licensing information
+Here are the email validation rules as source code.  Licensing information
 for each one is included at the top of the file.
 
 * [JavaScript](is-valid-email.js) - What this page uses for the live form.

@@ -9,13 +9,13 @@ breadcrumbs:
       href: /problems/
 ---
 
-While working on a Windows Domain, there were some computers that didn't behave well.  In particular, they didn't keep their time correctly.  When I attempted to log in with my domain credentials, a message would show up and I would not be allowed access.  This particular problem makes it very hard to log into a computer and fix the problem.
+While I was working on a Windows Domain, there were some computers that didn't behave well.  In particular, they didn't keep their time correctly.  When I attempted to log in with my domain credentials, a message would show up and I would not be allowed access.  This particular problem makes it very hard to log into a computer and fix the problem.
 
 
 Symptoms
 --------
 
-When logging into a computer that is on a domain, or if you try to access a computer that is on a domain, you get one of the following error messages:
+When you log into a computer that is on a domain, or if you try to access a computer that is on a domain, you get the following error message:
 
     There is a time difference between the client and server.
 
@@ -29,16 +29,16 @@ The clock on the machine that you are trying to log into is reporting a differen
 Solution
 --------
 
-You need to synchronize your clocks.  For the following examples, replace `%DOMAIN%` with your domain name and `%WORKSTATION%` with the name of any computer on the domain.  `%USERNAME%` refers to your network logon user id.
+You need to synchronize your clocks.  For the following examples, replace `%DOMAIN%` with your domain name and `%WORKSTATION%` with the name of any computer on the domain.  `%USERNAME%` refers to your network logon user ID.
 
 * Log in as a local administrator.  If you don't have access to a local administrator account, you can try the following:
-  * Unplug the network cable and try to login as you normally would.  The client likely has your credentials cached.
+  * Unplug the network cable and try to log in as you normally would.  The client likely has your credentials cached.
   * You can download the Offline NT Password & Registry Editor floppy or CD image and use it to blank the admin password.
 * Obtain a command shell with one of these methods:
   * Start -> Run -> `command`
   * Start -> Run -> `cmd`
 * Sync the time with this command: `net time /domain:%DOMAIN% /set`
-  * If that does not work, open a remote computer by `start \\%WORKSTATION%`
+  * If that does not work, open a remote computer with `start \\%WORKSTATION%`
   * Log in with the username `%DOMAIN%\%USERNAME%` and your domain password.
   * Go back to the command prompt and type in `net time \\%WORKSTATION% /set`
 * Type in `exit` to leave the command shell.

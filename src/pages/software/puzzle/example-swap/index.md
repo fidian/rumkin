@@ -18,4 +18,4 @@ Back to the [main puzzle page](../).
 
 ![Mickey Mouse](/software/puzzle/example-swap/mickey.jpg)
 
-</span>
+</div>

@@ -9,12 +9,8 @@ breadcrumbs:
       href: /tools/
 ---
 
+Decision trees are useful ways to categorize items, solve problems, and classify data.  With a series of questions, you can narrow down possibilities very quickly.
 
-    <p>
-        Decision trees are useful ways to categorize items, solve problems, and classify data.  With a series of questions, you can narrow down possibilities very quickly.
-    </p>
-    <p>
-        This is a quick implementation of decision trees in JavaScript so that I could write a problem solving tree for people having issues playing Diablo II or having problems with my phone uploader.
-
+This is a quick implementation of decision trees in JavaScript so that I could write a problem-solving tree for people having issues playing Diablo II or having problems with my phone uploader.
 
 <decision-tree></decision-tree>

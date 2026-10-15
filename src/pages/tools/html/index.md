@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/tool-layout.astro"
 title: HTML Code Tester
-summary: Try a snippet of HTMl live in your browser.
+summary: Try a snippet of HTML live in your browser.
 breadcrumbs:
     - name: Rumkin.com
       href: /

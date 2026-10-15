@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: Palm OS Programming
-summary: This is the older, Palm OS 3.x style of devices.  Hints, tips and tricks to get your Palm application working more smoothly.
+summary: This is for the older, Palm OS 3.x style of devices.  Hints, tips and tricks to get your Palm application working more smoothly.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -20,9 +20,9 @@ When using these tips, know these facts:
 Presentations
 -------------
 
-* [Palm OS Programming Gotchyas and Pitfalls](gotchyas/) - A slide show converted to text, then to HTML.  Easier to print out this way.  Lots of good ideas and information is summed up.
+* [Palm OS Programming Gotchyas and Pitfalls](gotchyas/) - A slide show converted to text, then to HTML.  Easier to print out this way.  Lots of good ideas and information are summed up.
 
-* [Advanced UI Topics](advanced/) - A great look at that's going on inside the palm.  Another slide show that was converted to a web page.
+* [Advanced UI Topics](advanced/) - A great look at what's going on inside the Palm.  Another slide show that was converted to a web page.
 
 
 PilRC
@@ -37,7 +37,7 @@ If you want to use a scrollbar, the easiest way to get it to be the correct widt
 C Code
 ------
 
-To save space, you should go against all of the examples for your form's event loop and return true/false as soon as you know it.  It also speeds up your program a *very* minor amount.  Lastly, 'if' statements are compiled to a smaller amount of code than a switch/case method.
+To save space, you should go against all of the examples for your form's event loop and return true/false as soon as you know it.  It also speeds up your program a *very* minor amount.  Lastly, 'if' statements are compiled to a smaller amount of code than a switch/case statement.
 
     // Bad example
     Boolean BadFormEventHandler(EventPtr event) {
@@ -116,7 +116,7 @@ Some people will put an 'else' right after a 'return' statement.  This is silly.
     // ... insert code here ...
     return false;
 
-Along the same lines, if you return from the 'else' and not the 'if' section, rewrite it so that the 'else' part is first, then return from the 'if' section.
+Along the same lines, if you return from the 'else' and not the 'if' section, rewrite it so that the 'else' part becomes the 'if' section, and return from there.
 
     // Bad
     if (A < 0.5) {
@@ -230,19 +230,19 @@ Events
 Books
 -----
 
-Palm OS Programming Bible - Fairly good book.  I like it.  It has tons of examples, and they seem to cover everything.  There are minor things that it misses, such as the fact that you should return true if you have a custom draw function for a popup list and you need to set the trigger's label, but overall it is a good book.  The only downfall is that it is quite expensive.
+Palm OS Programming Bible - Fairly good book.  I like it.  It has tons of examples, and they seem to cover everything.  There are minor things that it misses, such as the fact that you should return true if you have a custom draw function for a popup list and you need to set the trigger's label, but overall it is a good book.  The only downside is that it is quite expensive.
 
-Palm Programming, The Developer's Guide (O'Reilly) - First off, let me mention that I don't like O'Reilly books.  Not my style.  This book is certainly no exception.  It has typographical errors, poor code, and skips over topics that I want information about.  If I didn't buy this book, I could have spent it on something useful ... like gas money.
+Palm Programming, The Developer's Guide (O'Reilly) - First off, let me mention that I don't like O'Reilly books.  Not my style.  This book is certainly no exception.  It has typographical errors, poor code, and skips over topics that I want information about.  If I hadn't bought this book, I could have spent the money on something useful ... like gas money.
 
 
 Off-Site Links
 --------------
 
 
-[PalmOpenSource.com](http://www.palmopensource.com/) - Software that is not only free, but it also lets you download and modify the source code in order to make improvements.  Unfortunately, the site is a bit on the small side and doesn't have loads and loads of software.
+[PalmOpenSource.com](http://www.palmopensource.com/) - Software that is not only free but also lets you download and modify the source code in order to make improvements.  Unfortunately, the site is a bit on the small side and doesn't have loads and loads of software.
 
 [PRC-Tools](http://prc-tools.sourceforge.net/) - Open source, free compiler for making Palm OS programs.  This is the alternative to CodeWarrior, and what I use.  I highly recommend it.
 
 [PilRC](http://pilrc.sourceforge.net/) - Pilot resource compiler.  If you use PRC-Tools to make programs, you will need pilrc to compile your resources for the program.
 
-[GLib Shared Libraries](http://www.isaac.cs.berkeley.edu/pilot/GLib/GLib.html) - When you want to share code between multiple programs, you should make it into a library.  This web site explains the benefit of making a GLib style shared library.  You make it with gcc and the PRC-Tools package, so you CodeWarrior people are unable to follow this approach.
+[GLib Shared Libraries](http://www.isaac.cs.berkeley.edu/pilot/GLib/GLib.html) - When you want to share code between multiple programs, you should make it into a library.  This web site explains the benefit of making a GLib-style shared library.  You make it with gcc and the PRC-Tools package, so you CodeWarrior people are unable to follow this approach.

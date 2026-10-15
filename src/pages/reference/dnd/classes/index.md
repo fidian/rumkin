@@ -13,7 +13,7 @@ breadcrumbs:
 Prestige Classes
 ----------------
 
-* [Arcanist](arcanist/) - A spellcaster that is able to work with any kind of magic, but trades everything else in their pursuit for these powers.
+* [Arcanist](arcanist/) - A spellcaster that is able to work with any kind of magic, but trades everything else in their pursuit of these powers.
 
 * [Artificer](artificer/) - A magic user that excels at creating magical items and constructs.
 
@@ -23,4 +23,4 @@ Prestige Classes
 Build Your Own
 --------------
 
-There is a [class construction kit](classconstruction.pdf) that could be used as a guide to help you make your own 3rd Edition prestige classes.
+There is a [class construction kit](classconstruction.pdf) that can be used as a guide to help you make your own 3rd Edition prestige classes.

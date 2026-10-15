@@ -54,7 +54,7 @@ breadcrumbs:
 Introduction
 ------------
 
-Since I am unable to locate the actual author(s) of this neat little applet, I decided to write up some documentation myself.  If you do find the actual author(s) of this applet, please let me know.  Until the real webpage can be found, this might be an adequate replacement.  If you want to download it, you can get a [jar archive](salang-menu.jar) of the `.class` files.  I would suggest saving this web page file to disk so that you have the documentation with the `.class` files when you need it.
+Since I am unable to locate the actual author(s) of this neat little applet, I decided to write up some documentation myself.  If you do find the actual author(s) of this applet, please let me know.  Until the real webpage can be found, this might be an adequate replacement.  If you want to download it, you can get a [jar archive](salang-menu.jar) of the `.class` files.  I would suggest saving this web page to disk so that you have the documentation with the `.class` files when you need it.
 
 From what I have been able to tell, this applet is freeware (all the sites that list it only list it as freeware).  It is one of the smallest Java menu applets I have found, totaling only about 10k uncompressed or a mere 5.6k as a Jar.
 
@@ -70,7 +70,7 @@ Explanation Of Options
 
 * `applet archive="salang-menu.jar" code="SalangMenu.class" width="300" height="30"` - Make sure that it is wide enough and tall enough for your use.
 
-* `param name="copyright" value="jzs club"` - Must be in here.  Sad, really, since searching for "jzs club" on the web results in nothing.  It would be better if the jzs club had a web page.
+* `param name="copyright" value="jzs club"` - Must be in here.  Sad, really, since searching for "jzs club" on the web turns up nothing.  It would be better if the jzs club had a web page.
 
 * `param name="batangcolor" value="255,255,255"` - Background color, from what I can gather.
 
@@ -88,12 +88,12 @@ Explanation Of Options
 
 * `param name="pullnum" value="2"` - Number of items in the main menu.  Keep this number below ten to avoid problems with it later in life.
 
-* `param name="sbgcolor1" value="166,188,100"` and `param name="sfgcolor1" value="0,0,0"` and `param name="popbgcolor1" value="90,194,240"` and `param name="popfgcolor1" value="0,0,0"` - Color setup for the menu when selected and the selected popup menu.  Notice how everything has a 1 after it?  You repeat this section for every menu option.
+* `param name="sbgcolor1" value="166,188,100"` and `param name="sfgcolor1" value="0,0,0"` and `param name="popbgcolor1" value="90,194,240"` and `param name="popfgcolor1" value="0,0,0"` - Color setup for the menu when selected and for the selected popup menu.  Notice how everything has a 1 after it?  You repeat this section for every menu option.
 
 * `param name="pull1" value="Introduction"` and `param name="pullurl1" value="#Intro"` and `param name="popnum1" value="0"` - Name of the first item in the menu, the URL it should go to, and the number of sub-menu items.  Again, everything has a 1 after it, indicating that this is for the first menu option.  You repeat this for each menu option.
 
-* `param name="pop21" value="How To Include"` and `param name="popurl21" value="index.php#HowInclude"` - The name and the URL for the sub menu option.  The "21" means it is for menu option 2, submenu option 1.  Now you might guess why you want less than 10 options in your main menu and in each submenu.  Again, repeat this format for each menu option.
+* `param name="pop21" value="How To Include"` and `param name="popurl21" value="index.php#HowInclude"` - The name and the URL for the sub-menu option.  The "21" means it is for menu option 2, sub-menu option 1.  Now you might guess why you want fewer than 10 options in your main menu and in each sub-menu.  Again, repeat this format for each menu option.
 
 * `/applet` - Done.
 
-You can add other options and other submenus by adding param tags and changing the names appropriately.
+You can add other options and other sub-menus by adding param tags and changing the names appropriately.

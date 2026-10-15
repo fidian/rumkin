@@ -12,7 +12,7 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-The Lego Bionicle universe has a few written languages and they are simply a substitution cipher that replaces letters with symbols. The Matoran language can be written using circles or hexagons, depending on where they are used.
+The Lego Bionicle universe has a few written languages, and each is simply a substitution cipher that replaces letters with symbols. The Matoran language can be written using circles or hexagons, depending on where it is used.
 
 <div class="D(f) Ai(c) Fxd(c)">
 Metru Nui and Mata Nui<br />
@@ -24,7 +24,7 @@ Voya Nui and Mahri Nui<br />
 <span class="voyamatoran">Bionicle</span>
 </div>
 
-There's also the Okotan symbols used on Okoto.
+There are also the Okotan symbols used on Okoto.
 
 <div class="D(f) Ai(c) Fxd(c)">
 Okoto<br />

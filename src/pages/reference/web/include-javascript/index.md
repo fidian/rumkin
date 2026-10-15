@@ -13,7 +13,7 @@ breadcrumbs:
 
 I wanted a way to make individual files for JavaScript classes and have them automatically load their parents without the web page having to know in advance all of the JavaScript includes that needed to be made.
 
-I failed.  But just for the class inheritance.  I did write code that worked in the major browsers, which included JavaScript files dynamically.  They also fired onload events so I could tell when everything was finally loaded.  Don't worry, there are other solutions out there, such as RequireJS.  Take a look at them if you need some serious on-demand loading of files.
+I failed.  But just at the class inheritance part.  I did write code that included JavaScript files dynamically and worked in the major browsers.  It also fired onload events so I could tell when everything was finally loaded.  Don't worry, there are other solutions out there, such as RequireJS.  Take a look at them if you need some serious on-demand loading of files.
 
 I used a lot of information from [Stoyan's blog](http://www.phpied.com/javascript-include-ready-onload/) to make the onload event work.
 

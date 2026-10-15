@@ -18,7 +18,7 @@ always exactly two hexadecimal digits.
 
 That makes the codes two digits wide with nothing between them - a capital `A`
 is `41`. Writing always uses capitals, but reading accepts either case, so a
-lower case `z` comes out as `7A` and both `7A` and `7a` read back as `z`.
+lowercase `z` comes out as `7A` and both `7A` and `7a` read back as `z`.
 
 The same idea in other bases: [binary](../binary/), [decimal](../decimal/) and
 [octal](../octal/).

@@ -11,7 +11,7 @@ breadcrumbs:
 
 As is covered elsewhere on the net, Ritz is selling a "Dakota Digital Single-Use Camera" for about $11, and they want you to return it for processing (and they keep the camera at this point) for another $11.  You get a CD with the images and a printed index.
 
-To be able to download the photos yourself would be very nice, so wonderful people have put together many sites on the subject.  This one will just show the steps required to stick a mini-USB port in the camera with as little modifications as possible.  With the USB port, you can use [this software](dakota-software.zip) to download the pictures from your camera and erase them from the camera's memory.
+To be able to download the photos yourself would be very nice, so wonderful people have put together many sites on the subject.  This one will just show the steps required to stick a mini-USB port in the camera with as few modifications as possible.  With the USB port, you can use [this software](dakota-software.zip) to download the pictures from your camera and erase them from the camera's memory.
 
 <img src="in-box.jpg" alt="In The Box" />
 
@@ -33,9 +33,9 @@ Specs
 Things I Have Done
 ------------------
 
-I have taken the information from other places on the web and just took it a tiny step further.  I altered a set of cameras to have a standard mini-USB port on it, then sealed the deal in epoxy to make it a solid, durable, cheap camera.  This thing is great for kids, espeically since everything costs under $20 and the kids can download pictures on their own.
+I have taken the information from other places on the web and just taken it a tiny step further.  I altered a set of cameras to have a standard mini-USB port on each, then sealed the deal in epoxy to make each one a solid, durable, cheap camera.  This thing is great for kids, especially since everything costs under $20 and the kids can download pictures on their own.
 
-From here on, I'll be instructing you to do the same thing as what I've done.
+From here on, I'll be instructing you to do the same thing I've done.
 
 
 Step 1: Get The Equipment
@@ -48,10 +48,10 @@ You will require the following parts:
 * *USB Mini-B Receptacle* - This is what the USB cable will plug into.
 * *Mini-USB Cable* - Standard end on one side, mini-USB plug on the other.  (See below)
 * *Epoxy* - Something that bonds with metal and plastic.  Super Glue's
-Plastic-Fusion works great, but try to get some slow setting stuff if you
+Plastic-Fusion works great, but try to get some slow-setting stuff if you
 can.
 
-If you don't have the Mini-USB cable already, don't get one from a major retailer.  I suggest searching line or in an electronics store.
+If you don't have the Mini-USB cable already, don't get one from a major retailer.  I suggest searching online or in an electronics store.
 
 Step 2:  Take Pictures
 ----------------------
@@ -61,7 +61,7 @@ Take a couple pictures.  They will be needed when you have the camera apart and 
 Step 3:  Prepare Camera
 -----------------------
 
-Disassemble the camera.  I'd even suggest you unsolder the wire from the battery compartment so you don't need to worry about it flopping around when you work.  It won't be needed until you put the camera back together again.  Put a little solder on the gold contacts that you will be using (see the schematic below).  If the solder won't stick, you should scuff up the gold contacts a bit.  Just scratch them with a sharp piece of metal, or rub fine grain sandpaper on them.  You only need to create a small bit of texture so the solder will stick to the metal.  Alternatively, I have read that you can use some conductive silver paint.
+Disassemble the camera.  I'd even suggest you unsolder the wire from the battery compartment so you don't need to worry about it flopping around when you work.  It won't be needed until you put the camera back together again.  Put a little solder on the gold contacts that you will be using (see the schematic below).  If the solder won't stick, you should scuff up the gold contacts a bit.  Just scratch them with a sharp piece of metal, or rub fine-grain sandpaper on them.  You only need to create a small bit of texture so the solder will stick to the metal.  Alternatively, I have read that you can use some conductive silver paint.
 
 <img src="inside.jpg" alt="Inside" />
 
@@ -71,7 +71,7 @@ Disassemble the camera.  I'd even suggest you unsolder the wire from the battery
 Step 4: Prepare the Receptacle
 ------------------------------
 
-You can just rip out the unused pin so you don't need to worry about accidentally soldering stuff to it.  Doing so will give you more space for soldering the other wires.  It is pin 4 on the receptacle.  See the diagram near the bottom of this page or the photo below to determine which wire to rip out.  Take your time with this step.  Do not pull out the wrong wire!  If you are a bit timid, you can bend the wire out of the way, solder the rest, and once it works you can choose pull out the wire then, or just leave it as is.  Also, this is the time to dab a bit of solder on the leads for the receptacle to make the next step go a bit faster.
+You can just rip out the unused pin so you don't need to worry about accidentally soldering stuff to it.  Doing so will give you more space for soldering the other wires.  It is pin 4 on the receptacle.  See the diagram near the bottom of this page or the photo below to determine which wire to rip out.  Take your time with this step.  Do not pull out the wrong wire!  If you are a bit timid, you can bend the wire out of the way, solder the rest, and once it works you can choose to pull out the wire then, or just leave it as is.  Also, this is the time to dab a bit of solder on the leads for the receptacle to make the next step go a bit faster.
 
 <img src="pin-to-pull.jpg" alt="Pin to Pull" />
 
@@ -79,7 +79,7 @@ You can just rip out the unused pin so you don't need to worry about accidentall
 Step 5:  Solder
 ---------------
 
-Time to solder the wires onto the other parts.  Cut, strip, put a bit of solder on the ends, then press the wire to the USB lead or the gold contact, heat and pray that it works.  With the different wires that I have tried, ribbon cable seems to work the best.  The stranded wire is very flexible and sucks up solder readily.  Refer to the wiring diagram to make sure you get the wires going to the right spots on the camera.
+Time to solder the wires onto the other parts.  Cut, strip, put a bit of solder on the ends, then press the wire to the USB lead or the gold contact, heat, and pray that it works.  Of the different wires that I have tried, ribbon cable seems to work the best.  The stranded wire is very flexible and sucks up solder readily.  Refer to the wiring diagram to make sure you get the wires going to the right spots on the camera.
 
 <img src="soldered-cable.jpg" alt="Soldered Cable" />
 
@@ -89,7 +89,7 @@ Time to solder the wires onto the other parts.  Cut, strip, put a bit of solder 
 Step 6:  Test
 -------------
 
-Hook it up to your computer.  Get [the software](dakota-software.zip) running.  The zip file has necessary Windows drivers and software.  If it doesn't work, then you did something wrong and should double check your solders.  Refer again to the wiring diagram, make sure that the wires did not come off of the camera, and make sure you soldered the USB receptacle correctly.  It took me forever to get this stuff soldered properly.  (Not sure if I should admit that.)  Most of the time a wire came off the itty bitty USB receptacle.
+Hook it up to your computer.  Get [the software](dakota-software.zip) running.  The zip file has the necessary Windows drivers and software.  If it doesn't work, then you did something wrong and should double-check your soldering.  Refer again to the wiring diagram, make sure that the wires did not come off of the camera, and make sure you soldered the USB receptacle correctly.  It took me forever to get this stuff soldered properly.  (Not sure if I should admit that.)  Most of the time a wire came off the itty-bitty USB receptacle.
 
 
 Step 7:  Modify Battery Case
@@ -117,9 +117,9 @@ Any receptacle on a device can go through tons of stress.  I securely epoxied my
 Step 10:  Done?
 ---------------
 
-Test again, and you may be out of luck if it does not work.  Try to test while the epoxy has not yet set, so if it does not work, you can rip the parts out as fast as possible.  (I already lost 1 camera at this step.)
+Test again; if it does not work, you may be out of luck.  Try to test while the epoxy has not yet set, so that if it does not work, you can rip the parts out as fast as possible.  (I already lost 1 camera at this step.)
 
-Assuming it works, then just wait and finish the reassembly.
+Assuming it works, just wait and finish the reassembly.
 
 
 Wiring Diagram

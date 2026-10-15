@@ -34,7 +34,7 @@ You can cut your header information in half, since your struct only needs to sto
 
 Yep, that's right.  A doubly-linked list with just the space for one pointer.  How do you do it?  Well, it's not that hard, but first let's get into the "Why".
 
-I have programmed for limited environments, such as for Palm OS back in the day.  I like to code in C and tweak things until they are faster, smaller, and better.  I also would like to see perhaps a Linux kernel option to have memory-efficient doubly linked lists (among other things) if possible because I want to get various devices (Aquapad? Rasberry pi? My router?) running a lean, mean, optimized kernel.  For these reasons, at times memory is a concern.  For those times, this version of a doubly-linked list could be beneficial.  Most of the time it will not be the smartest, especially if you absolutely need the most speed you can squeeze out of the machine.  That isn't to say that the memory efficient technique is slow; it just consumes a tiny bit of more CPU cycles.  Tiny.  How many?  Let's find out.
+I have programmed for limited environments, such as for Palm OS back in the day.  I like to code in C and tweak things until they are faster, smaller, and better.  I also would like to see a Linux kernel option to have memory-efficient doubly linked lists (among other things), if possible, because I want to get various devices (Aquapad? Raspberry Pi? My router?) running a lean, mean, optimized kernel.  For these reasons, at times memory is a concern.  For those times, this version of a doubly-linked list could be beneficial.  Most of the time it will not be the smartest, especially if you absolutely need the most speed you can squeeze out of the machine.  That isn't to say that the memory-efficient technique is slow; it just consumes a tiny bit more CPU cycles.  Tiny.  How many?  Let's find out.
 
 The best way to judge how much time an algorithm takes is to do an analysis of the code.  I'll try to do that for you.  The easiest way is to  torture test a reference implementation.  I'll certainly do that for you too. To do either, I will need a few functions.  Keep in mind that my code isn't optimized for speed or size at this point.  It is just a good working implementation.
 
@@ -80,9 +80,9 @@ This simple function just shows you how to count the number of nodes in a doubly
 
 You can download the [source] and take a look at how you can insert values, delete nodes, and finally peek into my testing program.  There's a little more overhead because we need to track the node we were just at and the current node, then update pointers in more than one node, but the changes are pretty minimal.  There are optimizations that you can use to even get rid of temporary pointers at times, if that's more of a concern to you.
 
-I speculated that the size of the compiled code will be mere bytes larger.  I also believed the actual traversal, insertion, and deletion would operate at 1/2 the speed because we are modifying twice as many variables and performing an XOR with each iteration.
+I speculated that the size of the compiled code would be mere bytes larger.  I also believed the actual traversal, insertion, and deletion would operate at 1/2 the speed because we are modifying twice as many variables and performing an XOR with each iteration.
 
-Now comes the fun part.  Testing.  I wrote a tiny little program that is identical for each list structure.  I've coded the algorithms in separate files.  Download the [source] and you can do the same.  When I compile them and strip them, this is the sizes that I see:
+Now comes the fun part.  Testing.  I wrote a tiny little program that is identical for each list structure.  I've coded the algorithms in separate files.  Download the [source] and you can do the same.  When I compile them and strip them, these are the sizes that I see:
 
     $ for F in countnodes deletenode insertvalue; do gcc -Os -Wall -o ${F}.o ${F}.c; strip ${F}.o; done
 
@@ -96,9 +96,9 @@ Now comes the fun part.  Testing.  I wrote a tiny little program that is identic
     -rw-r--r--  1 root root  580 Jan 22 21:01 deletenode.o
     -rw-r--r--  1 root root  564 Jan 22 21:01 insertvalue.o
 
-As you can see, only very minor changes in size, the largest is a difference of 20 bytes.  However, it all depends on where those bytes are, because if they are in the time-consuming `while` loops, then those extra instructions could consume a lot of time.
+As you can see, there are only very minor changes in size; the largest is a difference of 20 bytes.  However, it all depends on where those bytes are, because if they are in the time-consuming `while` loops, then those extra instructions could consume a lot of time.
 
-I ran my test program five times on each list, alternating between them, and tallied the amount of user time each one took.  I have two tests.  The insert test just seeds the random number generator with a static value, make a node with a random number, and insert the node into the ordered list with the insert function above.  The delete function just inserts a bunch of numerically descending values (very fast to insert them) and deletes the Nth node, determined "randomly" using the statically seeded random number generator.  I ran each test for both versions with 10,000, 20,000, and 30,000 inserts and deletes.  The average times are listed below.
+I ran my test program five times on each list, alternating between them, and tallied the amount of user time each one took.  I have two tests.  The insert test just seeds the random number generator with a static value, makes a node with a random number, and inserts the node into the ordered list with the insert function above.  The delete test just inserts a bunch of numerically descending values (very fast to insert them) and deletes the Nth node, determined "randomly" using the statically seeded random number generator.  I ran each test for both versions with 10,000, 20,000, and 30,000 inserts and deletes.  The average times are listed below.
 
 | Iterations | Insert | Delete | Mod Insert | Mod Delete |
 |-----------:|-------:|-------:|-----------:|-----------:|
@@ -106,15 +106,15 @@ I ran my test program five times on each list, alternating between them, and tal
 |     20,000 |  3.566 |  3.834 |      3.244 |      4.312 |
 |     30,000 | 13.988 | 14.092 |     14.282 |     14.124 |
 
-The normal linked list should be faster than the XOR version, but I never thought it would be such a close race.  I tested the program on my web server (the nicest machine I have available to me for testing), and it could be doing stuff in the background.  To compensate, I alternated the tests and ran them several times to average things out.
+The normal linked list should be faster than the XOR version, but I never thought it would be such a close race.  I tested the program on my web server (the nicest machine I have available to me for testing), and it could have been doing stuff in the background.  To compensate, I alternated the tests and ran them several times to average things out.
 
-I don't know why the insertion of 20,000 values for the normal list takes less time than with the XOR version, but it certainly did.  We could mark that up to a fluke, but I ran that test so many times back and forth and it constantly beat the normal version.  The rest all expectedly bigger, but not a straight percentage.  The increase ranges from 0.2% to 26.7% longer for the XOR version.
+I don't know why the insertion of 20,000 values for the XOR list took less time than with the normal version, but it certainly did.  We could chalk that up to a fluke, but I ran that test so many times back and forth and it consistently beat the normal version.  The rest are all bigger, as expected, but not by a straight percentage.  The increase ranges from 0.2% to 26.7% longer for the XOR version.
 
-Anyway, this is a very interesting idea and if you can handle the minor drawback of the extra time, it can save a lot of space.  For about 10% longer, you can have a list of 20,000 entries save you 160k in memory (8 bytes per pointer, 20,000 pointers).  It could also make allocation easier for the OS since you need smaller structures, or worse due to excessive memory fragmentation.
+Anyway, this is a very interesting idea and if you can handle the minor drawback of the extra time, it can save a lot of space.  For about 10% longer, you can have a list of 20,000 entries save you 160k in memory (8 bytes per pointer, 20,000 pointers).  It could also make allocation easier for the OS since you need smaller structures, or make it worse due to excessive memory fragmentation.
 
 There is nothing bad about trying something out to see if it suits your needs better.  I'm not saying this is the end-all best solution.  It just can help out a lot.
 
 * [Download the Code](lists.tar.gz) - Code for all the examples above, the testing program, and list definitions.  Just change to the appropriate directory and issue a "make" command.  This was compiled under Linux, but most other platforms should be able to handle it with minor (if any) changes.
-* [Linux Journal Article](http://www.linuxjournal.com/article/6828) - Where the idea was first described to me.  I felt it didn't describe things adequately, so I expanded a bit on the idea with this page.  Plus tests are good.
+* [Linux Journal Article](http://www.linuxjournal.com/article/6828) - Where the idea was first described to me.  I felt it didn't describe things adequately, so I expanded a bit on the idea with this page.  Plus, tests are good.
 
 [source]: lists.tar.gz

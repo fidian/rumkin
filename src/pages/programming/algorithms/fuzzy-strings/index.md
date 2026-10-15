@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: Fuzzy String Matching
-summary: How to determine the degree of similarity for two different strings.  I cover Levenshtein's and Oliver's methods along with soundex.
+summary: How to determine the degree of similarity for two different strings.  I cover Levenshtein's and Oliver's methods along with SoundEx.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -11,7 +11,7 @@ breadcrumbs:
       href: /programming/algorithms/
 ---
 
-Fuzzy matching and confidence levels is what this exercise is all about.  It is tough to match two strings and say that they are quite similar, but not exact.  There are a few ways you can achieve this goal.
+Fuzzy matching and confidence levels are what this exercise is all about.  It is tough to match two strings and say that they are quite similar, but not exact.  There are a few ways you can achieve this goal.
 
 
 Levenshtein Distance
@@ -19,7 +19,7 @@ Levenshtein Distance
 
 This calculates the minimum number of insertions, deletions, and substitutions necessary to convert one string into another.  A low distance between two strings means that the strings are more similar.  The best site I have found is [Levenshtein Distance, in Three Flavors](levenshtein/), which I mirrored locally because the original site went down.
 
-I have modified their algorithm and created [C](levenshtein.c.txt), [FoxPro](levenshtein.prg.txt) and [JavaScript](levenshtein.js.txt) versions.  My methods do not use a huge matrix and instead merely use a one-dimensional array that's the same length as one of the strings.  They also keep the values in the array incremented by 1 so that the comparisons in the loop do not need to perform additional math.  The goal was to tweak the loop and try to keep math to a minimum in there.
+I have modified their algorithm and created [C](levenshtein.c.txt), [FoxPro](levenshtein.prg.txt), and [JavaScript](levenshtein.js.txt) versions.  My methods do not use a huge matrix and instead merely use a one-dimensional array that's the same length as one of the strings.  They also keep the values in the array incremented by 1 so that the comparisons in the loop do not need to perform additional math.  The goal was to tweak the loop and try to keep math to a minimum in there.
 
 
 Gestalt

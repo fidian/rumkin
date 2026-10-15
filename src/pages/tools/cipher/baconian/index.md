@@ -12,15 +12,15 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-Francis Bacon created this method of hiding one message within another. It is not a true cipher, but just a way to conceal your secret text within plain sight. The way it originally worked is that the writer would use two different typefaces or font styles. One would be the `a` typeface and the other would be `b`. Your message would be written with the two styles intermingled, thus hiding your message within a perfectly normal text.
+Francis Bacon created this method of hiding one message within another. It is not a true cipher, but just a way to conceal your secret text in plain sight. The way it originally worked was that the writer would use two different typefaces or font styles. One would be the `a` typeface and the other would be `b`. The cover text would be written with the two styles intermingled, thus hiding your message within a perfectly normal text.
 
 There are two versions. The first uses the same code for I and J, plus the same code for U and V. The second uses distinct codes for every letter.
 
-For example, let's take the message "Test It" and encode it with the distinct codes for each letter. You get a result like "baabbaabaabaababaabb abaaabaabb". The original message is 6 characters long so the encoded version is 6 &times; 5 = 30 characters. An example of this with a 30-character message, using bolded, emphasized letters for the "B" set, it would look like this:
+For example, let's take the message "Test It" and encode it with the distinct codes for each letter. You get a result like "baabbaabaabaababaabb abaaabaabb". The original message is 6 letters long, so the encoded version is 6 &times; 5 = 30 characters. Hidden in a 30-letter cover message, using bold, emphasized letters for the "b" set, it would look like this:
 
 <baconian-example message="This is a test message with bold for &#39;b&#39;." code="baabbaabaabaababaabb abaaabaabb" style-name="bold-italic"></baconian-example>
 
-When decoding, it will use "0", "A", and "a" as an `a`; "1", "B", and "b" are all equivalent as well. Other letters are ignored.
+When decoding, "0", "A", and "a" are all treated as `a`, and "1", "B", and "b" are all treated as `b`. Other letters are ignored.
 
 Examples:
 

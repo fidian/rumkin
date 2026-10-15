@@ -19,12 +19,12 @@ At one point I dealt with `.dbf` files.  A lot of them.  In order to process the
 
 This program's mission in life is to aggregate data so you have fewer records to parse.  It can sum, produce an average, and do much more.  You pass it the input file (or it can read from standard input), the name of the script to use, and the result database file that should be created.
 
-The magic is primarily in the script file.  You list the different fields in the result `.dbf` file, and only certain data types are allowed for some functions.  The script file is not case sensitive.  It also does not do a lot of checking of output field names, so make sure to not use the same name twice in your results.
+The magic is primarily in the script file.  You list the different fields in the result `.dbf` file, and only certain data types are allowed for some functions.  The script file is not case sensitive.  The program also does not do much checking of output field names, so make sure not to use the same name twice in your results.
 
 
 ### Available Functions
 
-This list is a complete list of functions that you can use in your script file.  The function name is followed by what data types it works with (*C* means it works with character fields, *N* means the function works with numeric fields).  For more information, see the `scripts.txt` file in the archive.
+This is a complete list of the functions that you can use in your script file.  The function name is followed by what data types it works with (*C* means it works with character fields, *N* means the function works with numeric fields).  For more information, see the `scripts.txt` file in the archive.
 
 
 #### `KEY` (C, N)
@@ -34,7 +34,7 @@ When any key field changes, one record is written to the results.  For best resu
 
 #### `SUBKEY` (C, N)
 
-This acts like another grouping, similar to key, but the groups are not written out to disk when a `SUBKEY` changes.  The information just keeps gathering until a `KEY` field changes.  Multiple `SUBKEYS` are allowed.
+This acts like another grouping, similar to `KEY`, but the groups are not written out to disk when a `SUBKEY` changes.  The information just keeps gathering until a `KEY` field changes.  Multiple `SUBKEYS` are allowed.
 
 
 #### `MAX` (N)
@@ -54,7 +54,7 @@ Stores the summed values for the group.  Numeric fields only.
 
 #### `AVG` (N)
 
-Stores the median value (summed values divided by the number of values).  This works only with numeric fields.
+Stores the average value (summed values divided by the number of values).  This works only with numeric fields.
 
 
 #### `MODE` (C, N)
@@ -64,7 +64,7 @@ Stores the value that was encountered the most times in the group.
 
 #### `COUNT`
 
-Returns the number of records that were grouped together as a new field in the resulting table.  Creates a N(9) field, so have no more than 999,999,999 records in a single group (but you can specify a different size if you like).
+Returns the number of records that were grouped together as a new field in the resulting table.  Creates an N(9) field, so have no more than 999,999,999 records in a single group (but you can specify a different size if you like).
 
 
 ### About Aggregation
@@ -89,7 +89,7 @@ The name of the field in the input table.
 
 #### `OUTPUT_FIELD` (optional)
 
-The name that the resulting field should be called in the output file.  If not specified, it defaults to `INPUT_FIELD`.
+The name the resulting field should have in the output file.  If not specified, it defaults to `INPUT_FIELD`.
 
 
 #### `OUTPUT_FIELD_LEN`
@@ -106,9 +106,9 @@ The new precision of the output field.  Useful for averaging and showing additio
 
 **Download:** [dbfcat.zip](dbfcat.zip)
 
-I had to aggregate several databases.  They were so large that they were first broken into chunks, then aggregated.  The down side is that I didn't have a tool to combine them together for further aggregation.  That is, I didn't have a tool until I wrote `dbfcat`.
+I had to aggregate several databases.  They were so large that they were first broken into chunks, then aggregated.  The downside is that I didn't have a tool to combine them for further aggregation.  That is, I didn't have a tool until I wrote `dbfcat`.
 
-`dbfcat` will open and read several `.dbf` files and write out a single, combined `.dbf` file.  You can easily go beyond the 2 gb limit that lots of `.dbf` software has, so keep that in mind.
+`dbfcat` will open and read several `.dbf` files and write out a single, combined `.dbf` file.  You can easily go beyond the 2 GB limit that lots of `.dbf` software has, so keep that in mind.
 
 `dbfcat` is also linked against libz, letting you read directly from a gzipped `.dbf` file (`*.dbf.gz`), saving you disk space and actually speeding up the process.  It's faster because you are not waiting for the disk reads and potentially the network traffic in order to get the information.
 
@@ -132,7 +132,7 @@ The output files are named `out0000.dbf`, `out0001.dbf`, etc.
 
 **Download:** [dbffix.zip](dbffix.zip)
 
-Corrects the file header to list the real amount of records in a file.  Useful if you need to recover a file and you have the beginning or most of a file but it stops abruptly.
+Corrects the file header to list the real number of records in a file.  Useful if you need to recover a file and you have the beginning or most of a file but it stops abruptly.
 
 
 `dbfstats`

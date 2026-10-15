@@ -12,7 +12,7 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-There's a code along the outside rim of the DVD attached to the Mars rover named Spirit. It was a challenge posed with clues given in January 2004.
+There's a code along the outside rim of the DVD attached to the Mars rover named Spirit. It was posed as a challenge, with clues given in January 2004.
 
 <div class="D(f) Jc(c)"><img src="spirit-dvd.jpg" /></div>
 

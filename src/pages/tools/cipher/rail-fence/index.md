@@ -12,7 +12,7 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-When you rearrange your text in a "wave" sort of pattern (moving down, then up, then down, etc.), it is called a rail fence. Take the text "WAFFLES FOR BREAKFAST" and arrange them in waves like the diagram below. Note that spaces are removed because they often get in the way.
+When you rearrange your text in a "wave" sort of pattern (moving down, then up, then down, etc.), it is called a rail fence. Take the text "WAFFLES FOR BREAKFAST" and arrange its letters in waves like the diagram below. Note that spaces are removed because they often get in the way.
 
 <div class="D(f) Ai(c) Jc(c)">
 <tt>
@@ -29,18 +29,18 @@ FSBKT<br>
 FERA<br>
 LE
 </tt>
-</diV>
+</div>
 
-Next, squish together the lines. I added a space between each of the condensed lines.
+Next, squish each line together. I added a space between the condensed lines.
 
 <p><tt>WOA AFRFS FSBKT FERA LE</tt></p>
 
-The default settings preserve the original spaces and punctuation and will not move capitalization with the transposed letter. This means only letters are shuffled and everything else will remain where it was. This can be changed, but try to remember that it is difficult for receivers to decode messages when there are two spaces that happen to encode together. To see what I mean, look at the third example.
+The default settings preserve the original spaces and punctuation and will not move capitalization with the transposed letter. This means only letters are shuffled and everything else will remain where it was. This can be changed, but try to remember that it is difficult for receivers to decode messages when two spaces happen to end up next to each other. To see what I mean, look at the third example.
 
 Examples:
 
--   <cipher-example label="My Example" topic="railFence" payload-direction="ENCRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="WAFFLES FOR BREAKFAST" payload-transposition-operating-mode="NORMAL"></cipher-example> - "Waffles for breakfast", as is shown above
--   <cipher-example label="Battlefield" topic="railFence" payload-direction="DECRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="LLEOILUANVE TMSGES AINUTE" payload-transposition-operating-mode="NORMAL"></cipher-example> - This is the reversed form of the morse code message "ETUNIASEGSMTEVNAULIOELL".
+-   <cipher-example label="My Example" topic="railFence" payload-direction="ENCRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="WAFFLES FOR BREAKFAST" payload-transposition-operating-mode="NORMAL"></cipher-example> - "Waffles for breakfast", as shown above.
+-   <cipher-example label="Battlefield" topic="railFence" payload-direction="DECRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="LLEOILUANVE TMSGES AINUTE" payload-transposition-operating-mode="NORMAL"></cipher-example> - This is the reversed form of the Morse code message "ETUNIASEGSMTEVNAULIOELL".
 -   <cipher-example label="Spaces Problem" topic="railFence" payload-direction="ENCRYPT" payload-alphabet="English" payload-rails="5" payload-offset="0" payload-input="Look for the spaces. Can you see any issues?" payload-transposition-operating-mode="ALL_CHARS"></cipher-example> - Shows off how difficult it can be to decode messages with multiple spaces. Try to find the spaces _after_ the encoded text. If you use the option to encode all characters, please make sure you test how the recipient can view and decode the message.
 
 <rail-fence-cipher></rail-fence-cipher>

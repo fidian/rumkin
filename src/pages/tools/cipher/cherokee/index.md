@@ -14,7 +14,7 @@ breadcrumbs:
 
 Sequoyah finished this in 1821, having worked on it for twelve years without being able to read English or any other script. Within a few years of its adoption the Cherokee Nation had a higher literacy rate than the settlers around it, and by 1828 it had a newspaper.
 
-**This is not a cipher.** It is a syllabary: each of its eighty-six characters is a whole syllable, not a letter. So it transliterates romanised Cherokee into Sequoyah's characters rather than enciphering English. Type `TSALAGI` and you get ᏣᎳᎩ, three syllables and three characters - that is what the Cherokee call themselves. Type `hello` and you get ᎮlᎶ, because *he* and *lo* are syllables and the *l* in the middle is not.
+**This is not a cipher.** It is a syllabary: each of its eighty-six characters is a whole syllable, not a letter. So this tool transliterates romanised Cherokee into Sequoyah's characters rather than enciphering English. Type `TSALAGI` and you get ᏣᎳᎩ, three syllables and three characters - that is what the Cherokee call themselves. Type `hello` and you get ᎮlᎶ, because *he* and *lo* are syllables and the *l* in the middle is not.
 
 The one consonant that stands alone is **s**, Ꮝ, which is why `GAWONISGI` comes out as five characters: *ga-wo-ni-s-gi*.
 

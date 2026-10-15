@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: Onloads and Alternatives
-summary: "When you have multiple JavaScript programs that both want to start with `window.onload`?  Alter them both accordingly so that they will never conflict again.  Code this way for all of your `window.onload` needs and remove potential sources of trouble."
+summary: "Do you have multiple JavaScript programs that all want to start with `window.onload`?  Alter them so that they will never conflict again.  Code this way for all of your `window.onload` needs and remove a potential source of trouble."
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -11,7 +11,7 @@ breadcrumbs:
       href: /reference/web/
 ---
 
-Let's just say that you have a script that you want to distribute or that could be loaded with other scripts and you really don't want them to conflict with each other.  If you need an `onload` event, things can get a bit weird.  You'll maybe wonder why your pull-down menus don't work and your background changing does work.  These snippets of code will help you out.
+Let's just say that you have a script that you want to distribute or that could be loaded with other scripts and you really don't want them to conflict with each other.  If you need an `onload` event, things can get a bit weird.  You might wonder why your pull-down menus don't work but your background changer does.  These snippets of code will help you out.
 
 
 Overloading `window.onload`
@@ -36,7 +36,7 @@ In order to use this, you will need to slightly edit your JavaScript.  You'll li
     }());
 
 
-With the above code, you can ensure that your JavaScript will not interfere with another person's JavaScript, especially if yours is loaded after the other person's code.  If the other person's code is loaded after yours, and they don't use code like what is above, you can obviously alter their program to do your bidding and make sure it won't interfere with other things you have going for yourself.
+With the above code, you can ensure that your JavaScript will not interfere with another person's JavaScript, especially if yours is loaded after the other person's code.  If the other person's code is loaded after yours, and they don't use code like the above, you can obviously alter their program to do your bidding and make sure it won't interfere with other things you have going on.
 
 As a general rule, you should never code JavaScript that sets `window.onload` unless you handle the scenario where `window.onload` was already set.  Also, using `window.onload` is now considered the *really old way*.
 
@@ -54,7 +54,7 @@ jQuery has a great way to run code when you load the page.  Pass a function to `
 `window.setTimeout()`
 ---------------------
 
-Are you living in a world without jQuery?  You can also use `window.setTimeout` but be warned that your code might run before things are fully loaded.
+Are you living in a world without jQuery?  You can also use `window.setTimeout`, but be warned that your code might run before things are fully loaded.
 
     (function () {
         function startup() {
@@ -87,7 +87,7 @@ You can periodically check to see if an element has been loaded in the DOM.  Her
         });
     }());
 
-You can also see when a script has loaded by checking for a function to be defined.
+You can also see when a script has loaded by checking whether a function has been defined.
 
     // Polling for the existence of a function
     (function () {
@@ -128,15 +128,15 @@ This little bit of code will take over the `window.onload`, and then all you nee
         };
     }());
 
-With this, all you need to do is keep calling onloadAdd() and hundreds of things can run without them stepping on each other's toes.
+With this, all you need to do is keep calling `onloadAdd()`, and hundreds of things can run without stepping on each other's toes.
 
 
 Yet Another Way
 ---------------
 
-Sometimes the above code will not work for you or you prefer to use newer techniques to register your onload behavior.  The below code is what I came up with.  It uses the browser-specific extensions to automatically work with Firefox 2+, IE 7+, or fall back and work with the `window.onload` that most of the older versions and other browsers support.
+Sometimes the above code will not work for you, or you may prefer to use newer techniques to register your onload behavior.  The code below is what I came up with.  It uses browser-specific extensions to work automatically with Firefox 2+ and IE 7+, or falls back to the `window.onload` that most older versions and other browsers support.
 
-Personally, I like the easier `window.onload` methods as detailed above.  They work splendidly for me, and I only put this up here because people asked nicely.  Keep in mind that newer frameworks like jQuery do something a lot more concise and suited for those newer browsers.
+Personally, I like the easier `window.onload` methods as detailed above.  They work splendidly for me, and I only put this up here because people asked nicely.  Keep in mind that newer frameworks like jQuery do something a lot more concise and better suited to those newer browsers.
 
     // We use these variables to see if the onload code ran,
     // to possibly store the old window.onload function, and to see

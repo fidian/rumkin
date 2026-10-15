@@ -12,12 +12,12 @@ breadcrumbs:
 
 Here are all of the files you can download to expand [D&D Helper](../), a tool for dungeon masters and game masters (DMs and GMs) to run their campaign.
 
-If you want to start using D&D Helper, I'd suggest you download the zip file first, and then test out the program.  If you like what you see and you want the extra ability to generate names, words, and other things.
+If you want to start using D&D Helper, I'd suggest you download the zip file first, and then test out the program.  If you like what you see and you want the extra ability to generate names, words, and other things, come back for the additional databases below.
 
 * Download D&D Helper version 1.2:  [Zip file](dnd-helper.zip), [Prc file](dnd-helper.prc)
 * Download C source code:  [Tar.gz file](dnd-helper-1.2.tar.gz)
 
-There is also just the die rolling part of D&D Helper in a separate Palm program in case you want to just get numbers.  You do not need to install this in order to have die rolling in D&D Helper.
+There is also just the die-rolling part of D&D Helper as a separate Palm program, in case you just want to get numbers.  You do not need to install this in order to have die rolling in D&D Helper.
 
 * Download Palm Dice version 1.0:  [Zip file](palm-dice.zip), [Prc file](palm-dice.prc)
 * Download C source code:  [Tar.gz file](palm-dice-source.tar.gz)
@@ -25,7 +25,7 @@ There is also just the die rolling part of D&D Helper in a separate Palm program
 
 D&D Helper can use additional databases to generate various things.  They are not required to run D&D Helper; they just provide more tools to the DM or player.
 
-Before you download a file, you should check out sample output from that file.  Just click on the Sample link. The results will be along the same lines that your Palm will give you.
+Before you download a file, you should check out sample output from that file.  Just click on the Sample link. The results will be along the same lines as what your Palm will give you.
 
 
 Miscellaneous Databases
@@ -90,11 +90,11 @@ Download all of these at once:  [languages.zip](languages.zip)
 Other Related Items
 -------------------
 
-Files listed here are probably for "advanced" users only.  I link to them for the odd chance that they might help someone.
+Files listed here are probably for "advanced" users only.  I link to them on the off chance that they might help someone.
 
 * [PHP D&D Helper Class](dnd-helper.inc.txt) - This PHP class is an extender for [PHP-PDB](https://github.com/fidian/php-pdb) (a PHP class to read and write PDB files).  It will assist in writing databases that can be used by D&D Helper.  This class is very slow when dealing with letter pair databases, so you should only write 'Pick' and 'PSR' style databases on the fly, if ever.
 
 * [psr-js](http://github.com/fidian/psr-js) - JavaScript version of the generator that I use for creating the samples on this page.
 
-* [MenuHack](menuhack.zip) - A HackMaster extension (that works with HackMaster, EVPlugBase, X-Master, etc.) that will let you tap the menu bar of an application to pull down the menu, instead of doing the counter-intuitive action of pressing the menu button for the menu.  Only older Palm handhelds can benefit from this -- the newer ones have this built-in.  This is not required to run the program.  It merely makes life easier.
+* [MenuHack](menuhack.zip) - A HackMaster extension (that works with HackMaster, EVPlugBase, X-Master, etc.) that will let you tap the menu bar of an application to pull down the menu, instead of doing the counterintuitive action of pressing the menu button for the menu.  Only older Palm handhelds can benefit from this -- the newer ones have this built-in.  This is not required to run the program.  It merely makes life easier.
 

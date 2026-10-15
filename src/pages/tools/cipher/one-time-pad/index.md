@@ -14,6 +14,6 @@ breadcrumbs:
 
 It is said that the one-time pad is the best cipher anywhere.  It is uncrackable as long as you keep the messages short, use shorthand and abbreviations, remove unnecessary letters, never reuse a pad, and have a good enough random source for data.
 
-This implementation will take the letters (and letters only) from the pad and encrypt the letters from your message.  It leaves spaces, newlines (enters / returns), punctuation, numbers, and all of the things that aren't A-Z alone.  Make sure that your pad is at least as long as the number of characters in your message, otherwise your message will not be encoded.
+This implementation will take the letters (and letters only) from the pad and encrypt the letters from your message.  It leaves alone spaces, newlines (enters / returns), punctuation, numbers, and anything else that isn't A-Z.  Make sure that your pad is at least as long as your message; otherwise, your message will not be encoded.
 
 <one-time-pad-cipher></one-time-pad-cipher>

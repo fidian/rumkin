@@ -20,7 +20,7 @@ breadcrumbs:
 
 * [Nifty One](charsheet.pdf) - Calculates everything for you.  This one is awesome if you have the full version of Adobe Acrobat so you can save your changes and load it up again later.  Appears to be based on the one from Wizards of the Coast.
 
-* [Psionics](psionics.pdf) - The one from the back of the Psionics Handbook.  There is also other sheets based off this one:  [Psychic Warrior](psychic-warrior.pdf).
+* [Psionics](psionics.pdf) - The one from the back of the Psionics Handbook.  There are also other sheets based off this one:  [Psychic Warrior](psychic-warrior.pdf).
 
 If this isn't enough for you, you can check out these sites for more character sheets:
 

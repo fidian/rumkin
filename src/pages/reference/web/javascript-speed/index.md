@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: JavaScript Speed Enhancements
-summary: If you code it right and use these tips, your program will eek out the last drop of speed from the browser.
+summary: If you code it right and use these tips, your program will eke out the last drop of speed from the browser.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -17,7 +17,7 @@ Programmers should strive to make their code run fast when possible.  The exact 
 Dereferencing
 -------------
 
-If you are looking at `document.my_form.some_input_element.value` often, it will be best to store the value to a local variable.  A visitor to my site pointed out that my code would be sped up by a factor of 10 if I used this particular change.  He was absolutely right.
+If you are looking at `document.my_form.some_input_element.value` often, it is best to store the value in a local variable.  A visitor to my site pointed out that my code would be sped up by a factor of 10 if I used this particular change.  He was absolutely right.
 
     // Avoid
     for (var i = 0; i < 100; i ++) {
@@ -40,7 +40,7 @@ Internet Explorer usually provided me with a 20-25x speed increase, but sometime
 String Concatenation
 --------------------
 
-One other tip that I get a lot is that I should avoid lots of little string concatenations.  I also read that string concatenations get worse with the size of the string being concatenated.  Instead, the little substrings should be placed into an array and then joined together to make one big string in the end.
+One other tip that I get a lot is that I should avoid lots of little string concatenations.  I also read that string concatenation gets slower as the string being concatenated grows.  Instead, the little substrings should be placed into an array and then joined together to make one big string in the end.
 
     // Normal concatenation
     a = '';
@@ -63,7 +63,7 @@ One other tip that I get a lot is that I should avoid lots of little string conc
     }
     a = a.join('');
 
-Older versions of Internet Explorer gets another huge boost with this one.  Other browsers run these both equally and Firefox actually may run it slower as an array.  Chrome is faster when you deal with strings directly.  The size of the strings matter greatly and longer strings typically make the speed boost worth something.
+Older versions of Internet Explorer get another huge boost with this one.  Other browsers run both of these about equally, and Firefox may actually run the array version slower.  Chrome is faster when you deal with strings directly.  The size of the strings matters greatly, and longer strings typically make the speed boost worth something.
 
 
 Additional Resources

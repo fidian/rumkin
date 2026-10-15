@@ -16,9 +16,9 @@ breadcrumbs:
 
 ## The Cipher
 
-I love that Jim Sanborn created an encoded cipher and he has given out clues to help get it solved, even going so far as to give out his [encryption sheets](https://kryptools.com/Sheets/sheets.htm).
+I love that Jim Sanborn created an encoded cipher and has given out clues to help get it solved, even going so far as to release his [encryption sheets](https://kryptools.com/Sheets/sheets.htm).
 
-* [K0 - Morse Code](k0/) - Pictures and thoughts about the Morse code on stones around the sculpture
+* [K0 - Morse Code](k0/) - Pictures and thoughts about the Morse code on stones around the sculpture.
 * [K1 - Vigenère (PALIMPSEST)](k1/) - Investigation into the top portion of the Kryptos cipher.
 * [K2 - Vigenère (ABSCISSA)](k2/) - Decrypting the bottom of the top half of Kryptos.
 * [K3 - Two Transpositions](k3/) - Decoding most of the bottom portion of Kryptos.

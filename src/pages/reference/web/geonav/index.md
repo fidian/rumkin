@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: Geographic Navigation
-summary: By using a spinning globe, you can separate the information you have about the world into groups by continent.  Spinning globe is provided by JavaScript and a series of images.
+summary: By using a spinning globe, you can separate the information you have about the world into groups by continent.  The spinning globe is provided by JavaScript and a series of images.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -38,12 +38,12 @@ breadcrumbs:
 </div>
 <div id="geo_info_loading" style="display: none">
     <h1 align=center>Loading ...</h1>
-    <p>Please wait for the world to revolve once so the world gets loaded.</p>
+    <p>Please wait for the world to revolve once so all of its images get loaded.</p>
 </div>
 <div id="geo_info_na" style="display: none">
     <h1 align=center>North America</h1>
     <h2>Navigation</h2>
-    <p>Just click on the globe to the left or the stretched out globe in the
+    <p>Just click on the globe to the left or the stretched-out globe in the
     lower left.  The globe will rotate and this frame will refresh.</p>
     <h2>Download</h2>
     <p>If you use this code, I'd appreciate credit in your JavaScript.
@@ -59,21 +59,21 @@ breadcrumbs:
 </div>
 <div id="geo_info_af" style="display: none">
     <h1 align=center>Africa and Europe</h1>
-    <p>Insert links relative to these areas here.</p>
+    <p>Insert links related to these areas here.</p>
     <p>If you get extremely creative, you could write a program that does a
     bubble-zoom effect on a network of nodes, and use the images that were
     created in here instead of using pictures of a globe.</p>
 </div>
 <div id="geo_info_as" style="display: none">
     <h1 align=center>Asia</h1>
-    <p>Insert links relative to Asia here.</p>
-    <p>I tried using higher quality pictures, but they slowed down the browser
+    <p>Insert links related to Asia here.</p>
+    <p>I tried using higher-quality pictures, but they slowed down the browser
     too much.  I also tried having a path from where you were directly to where
-    you were going, but that was a huge amount of images.</p>
+    you were going, but that was a huge number of images.</p>
 </div>
 <div id="geo_info_au" style="display: none">
     <h1 align=center>Australia</h1>
-    <p>Insert links relative to Australia here.</p>
+    <p>Insert links related to Australia here.</p>
     <p>For added flashiness, you could rewrite this type of idea in Flash.  I
     bet it would be easier if you could make a sphere, put a globe texture on
     it, and then just spin the ball wherever you like.  Zooming, bouncing, and
@@ -88,6 +88,7 @@ breadcrumbs:
     <LI>Satellite data that Earth Viewer uses is from
     <A HREF="http://livingearth.com/">The Living Earth</A></LI>
     <LI>Positioning on the globe was done with a shareware Windows program, Amiglobe 99.</LI>
+    </UL>
 </div>
 
 <script src="geonav.js"></script>

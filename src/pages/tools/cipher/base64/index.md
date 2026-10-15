@@ -12,7 +12,7 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-Base64 translates binary into safe text. It is used for some web servers, sending attachments in email, plus has frequent use elsewhere when a method of transferring data using binary systems is not available.
+Base64 translates binary into safe text. It is used by some web servers and for sending attachments in email, and it is frequently used elsewhere when there is no way to transfer binary data directly.
 
 Examples:
 

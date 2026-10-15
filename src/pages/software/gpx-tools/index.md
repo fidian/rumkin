@@ -11,7 +11,7 @@ breadcrumbs:
 
 This is a collection of free tools that will manipulate a GPX file that you can get from [Geocaching.com](http://www.geocaching.com) when you are a premium member.  You can create "Pocket Queries" and get a listing of caches all bundled into a GPX file.
 
-With these tools you can change the names, descriptions, and symbols for the waypoints in a very flexibile manner.  It is similar to how [GPX Spinner](http://www.gpxspinner.com) and [GSAK](http://gsak.net) will alter waypoints before sending them to your GPS receiver.  You are also able to filter out waypoints to have a certain sizes, types, difficulty, and terrain.  Coupled with [GPSBabel](http://www.gpsbabel.org), you have a powerful system that can narrow waypoints geographically and send them to your GPS receiver as well.
+With these tools you can change the names, descriptions, and symbols for the waypoints in a very flexible manner.  It is similar to how [GPX Spinner](http://www.gpxspinner.com) and [GSAK](http://gsak.net) will alter waypoints before sending them to your GPS receiver.  You are also able to filter waypoints by size, type, difficulty, and terrain.  Coupled with [GPSBabel](http://www.gpsbabel.org), you have a powerful system that can narrow waypoints geographically and send them to your GPS receiver as well.
 
 
 `gpxinfo`
@@ -21,7 +21,7 @@ With these tools you can change the names, descriptions, and symbols for the way
 
     gpxinfo gpx_file_in.gpx
 
-It's pretty self-explanatory.  You can use "-" instead of "gpx_file_in.gpx` to read the GPX file from stdin.  If that sounds too geeky, that's ok.  In the end, you will get something like this:
+It's pretty self-explanatory.  You can use `-` instead of `gpx_file_in.gpx` to read the GPX file from stdin.  If that sounds too geeky, that's ok.  In the end, you will get something like this:
 
     Waypoints:  439
     Available:  439
@@ -93,7 +93,7 @@ Available filters:
     * `L` = Large
     * `V` = Virtual
     * `O` = Other
-* `-type ....` - Keeps only geocaches with the listed container types.  Example to keep only traditionals, multi-caches, and webcams: `-type TMW`
+* `-type ....` - Keeps only geocaches of the listed cache types.  Example to keep only traditionals, multi-caches, and webcams: `-type TMW`
     * `X` = Benchmark
     * `C` = Cache In Trash Out Event
     * `G` = Earthcache
@@ -112,7 +112,7 @@ Available filters:
 `gpxrewrite`
 ------------
 
-Rewrite a GPX file so that you change the name, description, and symbol tags for the caches.  This can provide more information at your fingertips by giving geocaches custom symbols for different sizes and add extra information to the name and description of your geocaches.
+Rewrite a GPX file so that you change the name, description, and symbol tags for the caches.  This can provide more information at your fingertips by giving geocaches custom symbols for different sizes and adding extra information to the name and description of your geocaches.
 
     gpxrewrite settings_file [gpx_in.gpx [gpx_out.gpx]]
 
@@ -121,11 +121,11 @@ Rewrite a GPX file so that you change the name, description, and symbol tags for
 
 `settings_file` - This is where all of the formats, symbols, and other settings are kept.  It is the only parameter that must be specified on the command line.
 
-`gpx_in.gpx` - The source of the data, which must be in the GPX format that is returned from a Geocaching Pocket Query.  Unknown things can happen if you try to reformat a standard GPX file that is lacking the extra groundspeak attributes.  Unknown things are bad.  If you do not specify a file, you can instead pass one in with stdin.  (If you're not sure what that means, just specify the file on the command line.)
+`gpx_in.gpx` - The source of the data, which must be in the GPX format that is returned from a Geocaching Pocket Query.  Unknown things can happen if you try to reformat a standard GPX file that is lacking the extra groundspeak attributes.  Unknown things are bad.  If you do not specify a file, you can instead pass one in via stdin.  (If you're not sure what that means, just specify the file on the command line.)
 
-`gpx_out.gpx` - The rewritten GPX file will be either written out to the file name that you specify or to screen.  If you do specify a filename, it will write without prompting.  It will not even ask if you want to overwrite an existing file, so be careful.  If you do not specify a filename, you can redirect output as you so see fit.
+`gpx_out.gpx` - The rewritten GPX file will be written either to the file name that you specify or to the screen.  If you do specify a filename, it will write without prompting.  It will not even ask if you want to overwrite an existing file, so be careful.  If you do not specify a filename, you can redirect output as you see fit.
 
-The settings file controls every aspect of the rewrite.  In my examples, I have chosen to call it `settings.ini` but you can pick any name you prefer. Settings are specified in a `key=value` pair, one per line.  Keys are case insensitive, and the last one specified in the file is the one that is used.
+The settings file controls every aspect of the rewrite.  In my examples, I have chosen to call it `settings.ini`, but you can pick any name you prefer. Settings are specified as `key=value` pairs, one per line.  Keys are case insensitive, and the last one specified in the file is the one that is used.
 
 * Prefixes for caches are typically single-letter codes assigned for each type of cache.  This is what's used for the `%C` format code.
     * `Benchmark_Prefix`
@@ -141,23 +141,23 @@ The settings file controls every aspect of the rewrite.  In my examples, I have 
     * `Unknown_Prefix`
     * `Virtual_Prefix`
     * `Webcam_Prefix`
-* These format control how the name and description tags are rewritten in the GPX file.  If one is not specified, no change will be made for that one tag.  The name of the waypoint when you load it on your GPS is the `name` tag and that is changed with `Waypoint_Format`.  Likewise, the `Desc_Format` changes the `desc` tag, which is used for the waypoint description in your GPS.  The format layout supports the format codes as detailed below.
-* `Waypoint_Max_Length` and `Desc_Max_Length` will set a maximum size for those two tags.  If not specified, the fields are not trunkated.  Every character counts, including spaces.  That means "ab cd" is 5 characters.
-* `Waypoint_Allowed_Chars` and `Desc_Allowed_Chars` are used to filter out invalid characters.  If not specified, no characters will be excluded.  Lettters, numbers and some symbols (space and period) are always allowed.
-* The yes/no character used for different cache states is able to be changed.  This is what's used when `%a`, `%b` and `%f` are used for format codes.
+* `Waypoint_Format` and `Desc_Format` control how the name and description tags are rewritten in the GPX file.  If one is not specified, no change will be made to that tag.  The name of the waypoint when you load it on your GPS is the `name` tag, and that is changed with `Waypoint_Format`.  Likewise, `Desc_Format` changes the `desc` tag, which is used for the waypoint description in your GPS.  The formats support the format codes detailed below.
+* `Waypoint_Max_Length` and `Desc_Max_Length` will set a maximum size for those two tags.  If not specified, the fields are not truncated.  Every character counts, including spaces.  That means "ab cd" is 5 characters.
+* `Waypoint_Allowed_Chars` and `Desc_Allowed_Chars` are used to filter out invalid characters.  If not specified, no characters will be excluded.  Letters, numbers and some symbols (space and period) are always allowed.
+* The yes/no characters used for different cache states can be changed.  These are what's used by the `%a`, `%b` and `%f` format codes.
     * Active_No
     * Active_Yes
     * Bug_No
     * Bug_Yes
     * Found_No
     * Found_Yes
-* Cache states are also able to be changed with `Found` and `Not_Found`.  If you want geocaches for a specific type to use different strings you may use `TYPE_Found` and `TYPE_Not_Found`.  Likewise, you can break up your codes by type and size: `TYPE_SIZE_Found` and `TYPE_SIZE_Not_Found`.
+* The symbol used for found and not-found caches can be changed with `Found` and `Not_Found`.  If you want geocaches of a specific type to use different strings, you may use `TYPE_Found` and `TYPE_Not_Found`.  Likewise, you can break up your codes by type and size: `TYPE_SIZE_Found` and `TYPE_SIZE_Not_Found`.
     * Types: `Benchmark`, `CITO_Event`, `Earthcache`, `Event`, `Letterbox`, `Locationless`, `Mega`, `Multi`, `Project_APE`, `Traditional`, `Unknown`, `Virtual`, `Webcam`.
     * Sizes: `Large`, `Micro`, `Other`, `Regular`, `Small`, `Unknown`, `Virtual`.
     * Rules are checked from most specific to least specific, so if you have a traditional micro cache that was not yet found, it will check for "Traditional_Micro_Not_Found", then "Traditional_Not_Found" and finally "Not_Found".  If none of those settings are in the settings file, the symbol will not change.
 
 
-Formats for waypoint names and descriptions can use the following special codes.  When you use a % symbol as specified below, you will get it swapped out with a different value.  You can also specify a maximum width or that this field should be automatically resized to fit into the name or description field.  See the Format Examples for an explanation.
+Formats for waypoint names and descriptions can use the following special codes.  When you use a % symbol as specified below, you will get it swapped out with a different value.  You can also specify a maximum width or that this field should be automatically resized to fit into the name or description field.  See the examples below for an explanation.
 
 |     Code    |     Example    | Description                                                                                                           |
 |:-----------:|:--------------:|-----------------------------------------------------------------------------------------------------------------------|
@@ -168,7 +168,7 @@ Formats for waypoint names and descriptions can use the following special codes.
 |     `%d`    |       `4`      | The difficulty of the cache converted to a single digit, 1 - 9.                                                       |
 |     `%f`    |       `N`      | This is replaced by the Found_Yes or Found_No settings if specified, or Y/N otherwise.                                |
 | `%H` / `%h` | `Under bench.` | The hint from the geocache.  Both the uppercase H and the lowercase h will work.                                      |
-|     `%I`    |     `1234`     | The code after the "GC" in the waypoint ID.  If the waypoint doesn\'t start with GC, the entire code remains.         |
+|     `%I`    |     `1234`     | The code after the "GC" in the waypoint ID.  If the waypoint doesn't start with GC, the entire code remains.          |
 |     `%i`    |     `1234`     | The code after the first two characters in the waypoint ID.  Similar to `%I` but always removes first two characters. |
 |     `%L`    |     `FFDFW`    | The first letters of the log types.  This is Found, Found, Didn't find, Found, Wrote note.                            |
 |     `%N`    | `Termiteproof` | The name of the geocache.                                                                                             |
@@ -178,7 +178,7 @@ Formats for waypoint names and descriptions can use the following special codes.
 |     `%S`    |     `Small`    | The size of the container.                                                                                            |
 |     `%s`    |       `S`      | The first letter of the size of the container.                                                                        |
 |     `%T`    |       `3`      | The terrain rating of the geocache, 1 - 5 with decimals.                                                              |
-|     `%t`    |       `5`      | The terrain rating of the cache as a single digit, 1 to 9                                                             |
+|     `%t`    |       `5`      | The terrain rating of the cache as a single digit, 1 to 9.                                                            |
 |     `%Y`    |  `Micro Cache` | The cache type, spelled out.                                                                                          |
 |     `%y`    |       `T`      | The prefix for the cache as determined by the *_Prefix settings.  T is the default for a traditional cache.           |
 |     `%%`    |       `%`      | Adds a literal %.                                                                                                     |
@@ -223,12 +223,12 @@ Below are a few examples so you can understand how things are working with the f
 * `WAYPOINT_FORMAT=%N`<br />`Desc_Format=%a%C %d=%D %t=%T`
     * Name: `Its An Exa`
     * Description: `YT 2=1.5 3=2`
-    * Notes: The apostrophe from the name is removed from the waypoint name because Waypoint_Allowed_Chars is set and does not contain the apostrophe as an allowed character.  It is also truncated to Waypoint_Max_Length characters (10).
+    * Notes: The apostrophe is removed from the waypoint name because Waypoint_Allowed_Chars is set and does not contain the apostrophe as an allowed character.  It is also truncated to Waypoint_Max_Length characters (10).
 
 * `WAYPOINT_FORMAT=%I %Y0 %s`<br />`Desc_Format=%L3 - %%L3 - %L%3`
     * Name: `TEST Tra S`
     * Description: `FFD - %%L3 - FFDFW3`
-    * Notes: The waypoint name has `%Y0`, which means we should try to fit as much of the cache type into the allowed space, and will always display at least 1 character.  In this example, `TEST ` takes 5 characters (one for the space) and ` S` uses up 2 (a leading space).  The maximum length is 10, which leaves at most 3 letters for the cache type.  The description shows three similar formats with three very different results.  `%L3` means to show at most 3 letters from the cache logs.  The double `%%` means to show a literal `%`.  The last example shows how to put a literal number after another format code.
+    * Notes: The waypoint name has `%Y0`, which means we should try to fit as much of the cache type as possible into the allowed space, and it will always display at least 1 character.  In this example, `TEST ` takes 5 characters (one for the space) and ` S` uses up 2 (one for the leading space).  The maximum length is 10, which leaves at most 3 letters for the cache type.  The description shows three similar formats with three very different results.  `%L3` means to show at most 3 letters from the cache logs.  The double `%%` means to show a literal `%`.  The last example shows how to put a literal number after another format code.
 
 * `WAYPOINT_FORMAT=garbage in`<br />`Desc_Format=%G%A%R%B%A%G%E out`
     * Name: `garbage i`
@@ -285,17 +285,7 @@ This is a sample settings file that shows the default settings for all of the op
 Links
 -----
 
-<?php
-
-include '../../functions.inc';
-StandardHeader(array(
-		'title' => 'GPX Tools for Geocaching',
-		'topic' => 'gpx_tools'
-	));
-
-?>
-
-<p>Here are a list of resources that could be useful for geocaching and
+<p>Here is a list of resources that could be useful for geocaching and
 that relate to the tools on this web site.</p>
 
 * [GPSBabel](http://www.gpsbabel.org) - Convert to and from many different types of waypoint files, filter points by advanced filters, and even send your points to a GPS.  Freeware (open source) for Windows, Linux, OS X, others.
@@ -317,9 +307,9 @@ and what you do not like.  Below are the release download links, or you can clon
 Compiling
 ---------
 
-These programs require the `expat` library, but then should compile cleanly by executing your traditional `./configure` followed by `make`.  Running `make install` copies the files to `/usr/local/bin` unless you define an alternate path with the configure command.
+These programs require the `expat` library, but otherwise should compile cleanly by executing your traditional `./configure` followed by `make`.  Running `make install` copies the files to `/usr/local/bin` unless you define an alternate path with the configure command.
 
-There is sometimes a slight hang-up with the `expat` library.  On one of my systems I have to include `expat.h` and the `expat` library (Debian).  On another, I have to include `xmlparse.h` and the `xmlparse` + `xmltok` libraries.  Since I have switched over to the automake system, I have not yet determined if this works well.  If it does not detect the expat library automatically, you should be able to use a configure option to specify where the library is located.
+There is sometimes a slight hang-up with the `expat` library.  On one of my systems (Debian) I have to include `expat.h` and the `expat` library.  On another, I have to include `xmlparse.h` and the `xmlparse` + `xmltok` libraries.  Since I have switched over to the automake system, I have not yet determined if this works well.  If it does not detect the expat library automatically, you should be able to use a configure option to specify where the library is located.
 
 
 License

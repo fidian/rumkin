@@ -196,73 +196,69 @@ Were the ones in the last section too easy?  Let's step this up a notch.  Attemp
 
 63. I wish to wash my Irish wristwatch.
 
-64. If Stu chews shoes, should Stu choose the shoes he chews?
+64. Just think, that sphinx has a sphincter that stinks!
 
-65. Just think, that sphinx has a sphincter that stinks!
+65. Kris Kringle carefully crunched on candy canes.
 
-66. Kris Kringle carefully crunched on candy canes.
+66. Many an anemone sees an enemy anemone.
 
-67. Many an anemone sees an enemy anemone.
+67. My dame hath a lame tame crane.  My dame hath a crane that is lame.
 
-68. My dame hath a lame tame crane.  My dame hath a crane that is lame.
+68. Nine nice night nurses nurse nicely.
 
-69. Nine nice night nurses nurse nicely.
+69. Old oily Ollie oils old oily autos.
 
-70. Old oily Ollie oils old oily autos.
+70. Pick a partner and practice passing, for if you pass proficiently, perhaps you'll play professionally.
 
-71. Pick a partner and practice passing, for if you pass proficiently, perhaps you'll play professionally.
+71. Rhys watched Ross switch his Irish wristwatch for a Swiss wristwatch.
 
-72. Rhys watched Ross switch his Irish wristwatch for a Swiss wristwatch.
+72. Rory the warrior and Roger the worrier were reared wrongly in a rural brewery.
 
-73. Rory the warrior and Roger the worrier were reared wrongly in a rural brewery.
+73. Round the rugged rock the ragged rascal ran.
 
-74. Round the rugged rock the ragged rascal ran.
+74. Sam's shop stocks short spotted socks.
 
-75. Sam's shop stocks short spotted socks.
+75. Sarah saw a shot-silk sash shop full of shot-silk sashes as the sunshine shone on the side of the shot-silk sash shop.
 
-76. Sarah saw a shot-silk sash shop full of shot-silk sashes as the sunshine shone on the side of the shot-silk sash shop.
+76. Seven sleazy shysters in sharkskin suits sold sheared sealskins to seasick sailors.
 
-77. Seven sleazy shysters in sharkskin suits sold sheared sealskins to seasick sailors.
+77. She said she should sit, and so she sat.
 
-78. She said she should sit, and so she sat.
+78. She saw Sheriff's shoes on the sofa.  Was she so sure she saw Sheriff's shoes on the sofa?
 
-79. She saw Sheriff's shoes on the sofa.  Was she so sure she saw Sheriff's shoes on the sofa?
+79. Singing Sammy sang songs on sinking sand.
 
-80. Singing Sammy sang songs on sinking sand.
+80. Six slippery, slimy snails slid silently, slowly seaward.
 
-81. Six slippery, slimy snails slid silently, slowly seaward.
+81. The blue bluebird blinks.
 
-82. The blue bluebird blinks.
+82. The crow flew over the river with a lump of raw liver.
 
-83. The crow flew over the river with a lump of raw liver.
+83. The great Greek grape growers grow great Greek grapes.
 
-84. The great Greek grape growers grow great Greek grapes.
+84. The ochre ogre ogled the poker.
 
-85. The ochre ogre ogled the poker.
+85. The two-twenty-two train tore through the tunnel.
 
-86. The two-twenty-two train tore through the tunnel.
+86. There was a minimum of cinnamon in the aluminum pan.
 
-87. There was a minimum of cinnamon in the aluminum pan.
+87. These six sheep shouldn't sleep in a shack. Sheep should sleep in a shed.
 
-88. These six sheep shouldn't sleep in a shack. Sheep should sleep in a shed.
+88. Twelve twins twirled twelve pigs.
 
-89. Twelve twins twirled twelve pigs.
+89. We shall surely see the sun shine soon.
 
-90. We shall surely see the sun shine soon.
+90. What a shame such a shapely sash should such shabby stitches show.
 
-91. What a shame such a shapely sash should such shabby stitches show.
+91. What time does the wristwatch strap shop shut?
 
-92. What time does the wristwatch strap shop shut?
-
-93. Wow, race winners really want red wine right away!
-
-94. Swan swam over the sea. Swim, swan, swim. Swan swam back again. Well swum, swan!
+92. Wow, race winners really want red wine right away!
 
 
 Verse and Story
 ---------------
 
-This last section is dedicated to the tongue twisters that portray a story or are often recited in a sing-song, rhyming style of verse.  There are numerous variations of many of these and each region seems to have it's own unique way of saying it.
+This last section is dedicated to the tongue twisters that portray a story or are often recited in a sing-song, rhyming style of verse.  There are numerous variations of many of these and each region seems to have its own unique way of saying it.
 
 1. A tutor who tooted the flute<br />
     Tried to tutor two tutors to toot.<br />
@@ -300,7 +296,7 @@ This last section is dedicated to the tongue twisters that portray a story or ar
 
 9. Theophilus, the thistle sifter, while sifting a sifter full of thistles, thrust three thousand thistles through the thick of his thumb.
 
-10. Betty Bottter bought some butter,<br />
+10. Betty Botter bought some butter,<br />
     "But," she said, "the butter's bitter.<br />
     If I put it in my batter,<br />
     It will make my batter better."<br />
@@ -398,7 +394,7 @@ This last section is dedicated to the tongue twisters that portray a story or ar
     And I'll pluck those pheasants until the pheasant plucking's done.
 
 26. I am not the pheasant plucker, I'm the pheasant plucker's mate.<br />
-    I am only plucking pheasants `cause the pheasant plucker's late.
+    I am only plucking pheasants 'cause the pheasant plucker's late.
 
 27. I cannot bear to see a bear bear down upon a hare.<br />
     When bare of hair he strips the hare, right there I cry, "Forbear!"
@@ -420,49 +416,33 @@ This last section is dedicated to the tongue twisters that portray a story or ar
 
 31. If you stick a stock of liquor in your locker, it's slick to stick a lock upon your stock.  Or some stickler who is slicker will stick you of your liquor if you fail to lock your liquor with a lock.
 
-32. Mr. See owned a saw and Mr. Soar owned a seesaw. now See's saw sawed Soar's seesaw before Soar saw See, which made Soar sore.  Had Soar seen See's saw before See sawed Soar's seesaw, See's saw would not have sawed Soar's seesaw.  So See's saw sawed Soar's seesaw, but it was sad to see Soar so sore just because See's saw sawed Soar's seesaw.
+32. Ned Nott was shot and Sam Shott was not.  So it is better to be Shott than Nott.  Some say Nott was not shot, but Shott says he shot Nott.  Either the shot Shott shot at Nott was not shot or Nott was shot.  If the shot Shott shot shot Nott, Nott was shot.  But if the shot Shott shot shot Shott, then Shott was shot, not Nott.  However, the shot Shott shot shot not Shott, but Nott.
 
-33. Ned Nott was shot and Sam Shott was not.  So it is better to be Shott than Nott.  Some say Nott was not shot, but Shott says he shot Nott.  Either the shot Shott shot at Nott was not shot or Nott was shot.  If the shot Shott shot shot Nott, Nott was shot.  But if the shot Shott shot shot Shott, then Shott was shot, not Nott.  However, the shot Shott shot shot not Shott, but Nott.
+33. Of all the felt I ever felt, I never felt a piece of felt which felt as fine as that felt felt when first I felt that felt that's felt.
 
-34. Of all the felt I ever felt, I never felt a piece of felt which felt as fine as that felt felt when first I felt that felt that's felt.
-
-35. On mules we find two legs behind and two we find before.<br />
+34. On mules we find two legs behind and two we find before.<br />
     We stand behind before we find what those behind be for.
 
-36. Once upon a barren moor there dwelt a bear, also a boar.<br />
+35. Once upon a barren moor there dwelt a bear, also a boar.<br />
     The bear could not bear the board.  The boar thought the bear a bore.<br />
     At last the bear could bear no more of that boar that bored him on the moor.<br />
     And so one morn he bored the boar.  That boar will bore the bear no more.
 
-37. Pretty Kitty Creighton had a cotton batten cat.<br />
+36. Pretty Kitty Creighton had a cotton batten cat.<br />
     The cotton batten cat was bitten by a rat.<br />
     The kitten that was bitten had a button for an eye,<br />
-    And biting off the button make the cotten batten fly.
+    And biting off the button made the cotton batten fly.
 
-38. Say this sharply, say this sweetly,<br />
+37. Say this sharply, say this sweetly,<br />
     Say this shortly, say this softly.<br />
     Say this sixteen times in succession.
 
-39. Suddenly swerving, seven small swans swim silently southward, seeing six swift sailboats sailing sedately seaward.
+38. Suddenly swerving, seven small swans swim silently southward, seeing six swift sailboats sailing sedately seaward.
 
-40. Swan swam over the sea.<br />
-    Swim, swan, swim!<br />
-    Swan swam back again.<br />
-    Well swum, swan!
-
-41. There was a young fisher named Fischer<br />
+39. There was a young fisher named Fischer<br />
     Who fished for a fish in a fissure.<br />
     The fish, with a grin,<br />
     Pulled the fisherman in!<br />
     Now they're fishing the fissure for Fischer.
 
-42. While we were talking, we were watching window washers wash Washington's windows with warm washing water.
-
-43. You've no need to light a night-light<br />
-    On a light night like tonight.<br />
-    For a night-light's light's a slight light<br />
-    And tonight's a night that's light.<br />
-    When a night's light, like tonight's light,<br />
-    It is really not quite right<br />
-    To light night-lights with their slight lights<br />
-    On a light night like tonight.
+40. While we were talking, we were watching window washers wash Washington's windows with warm washing water.

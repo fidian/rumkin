@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: Emergency Phone Software
-summary: A list of applications you can install on a spare phone that are usefulin case of an emergency.
+summary: A list of applications you can install on a spare phone that are useful in case of an emergency.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -24,9 +24,9 @@ The following is a list of tools that I recommend to help cover these areas. Sev
 
 ## Organic Maps: Offline Hike, Bike, Trails and Navigation
 
-Uses the crowd-sourced and free OpenStreetMap data and allows you to download areas in advance, so you are never stuck without a handy map. It supports *all* of its features without an internet connection; show roads, find points of interest, look for businesses, and turn by turn navigation can all be done offline.
+Uses the crowd-sourced and free OpenStreetMap data and allows you to download areas in advance, so you are never stuck without a handy map. It supports *all* of its features without an internet connection: showing roads, finding points of interest, looking for businesses, and turn-by-turn navigation can all be done offline.
 
-After downloading, go to the menu and download maps. The maps themselves aren't very large - one of my spare devices only has 2 Gb of free space, which lets me download my state plus the five nearby, which consumes less than 1 Gb total.
+After downloading the app, go to the menu and download maps. The maps themselves aren't very large - one of my spare devices only has 2 GB of free space, which lets me download my state plus the five nearby ones, and that consumes less than 1 GB total.
 
 * [Website](https://organicmaps.app/)
 * [Apple's AppStore](https://apps.apple.com/app/organic-maps/id1567437057)
@@ -46,9 +46,9 @@ More than just a handy reference for common problems, this app also provides che
 
 ## Be Prepared
 
-Several useful and small utilities stuck into a simple application. Optimized for size and simplicity. This is a PWA, so to install it you will need to visit the page and use your menu to install the application. It operates entirely offline and will update only when you run it (such is the life of PWA apps). Free and open source. Works for desktops, Android, and iOS/Apple.
+Several useful and small utilities stuck into a simple application. Optimized for size and simplicity. This is a PWA, so to install it you will need to visit the page and use your browser's menu to install the application. It operates entirely offline and will update only when you run it (such is the life of PWA apps). Free and open source. Works for desktops, Android, and iOS/Apple.
 
-Included tools: flashlight, front light (white screen), magnifier, compass, GPS location, barcode and QR code reader, sun and moon information. Coordinates are shown in several formats; nearest large city's name, distance, and direction; saving, loading, and sharing waypoints via QR code.
+Included tools: flashlight, front light (white screen), magnifier, compass, GPS location, barcode and QR code reader, sun and moon information. Coordinates are shown in several formats, along with the nearest large city's name, distance, and direction, and waypoints can be saved, loaded, and shared via QR code.
 
 * [Live App](https://be-prepared.github.io/)
 * [Source Code](https://github.com/be-Prepared/Be-Prepared.github.io/)
@@ -67,12 +67,12 @@ In order to make your device easier to use, I would recommend these steps:
 * Charge the battery fully, then power off the phone.
 * If possible, remove the battery from the phone when storing it.
 * Store the device safely where the battery doesn't get hot and doesn't get below freezing.
-* For the extra paranoid, wrap with foil or use other EMP-shielding countermeasures.
-* Set a schedule to recharge and check on the phone every few months or every year. Remember to update apps, review any ebooks on the phone, and download updated maps to use them offline.
+* For the extra paranoid, wrap it in foil or use other EMP-shielding countermeasures.
+* Set a schedule to recharge and check on the phone every few months or every year. Remember to update apps, review any e-books on the phone, and download updated maps to use them offline.
 
 If you are looking for tips to extend your battery life, do the following:
 
-* Turn on airplane mode unless you intend to use cellular services. This one is the biggest power drain for devices when the displays are off.
+* Turn on airplane mode unless you intend to use cellular services. Cellular service is the biggest power drain for devices when the display is off.
 * Turn off Bluetooth and WiFi when not in use. Even having the radio enabled will drain energy.
-* Dimming your screen really helps extend your battery..
-* Uninstall any other application that you do not use. They may periodically reach out to servers or process data and you want to save energy.
+* Dimming your screen really helps extend your battery life.
+* Uninstall any other applications that you do not use. They may periodically reach out to servers or process data, and you want to save energy.

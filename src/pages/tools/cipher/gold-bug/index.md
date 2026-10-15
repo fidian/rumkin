@@ -12,9 +12,9 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-Published in 1843, *The Gold-Bug* is a short story from Edgar Allan Poe about a gentleman that was bitten by a gold-colored bug and follows a secret message that would lead to a buried treasure.
+Published in 1843, *The Gold-Bug* is a short story by Edgar Allan Poe about a gentleman who was bitten by a gold-colored bug and follows a secret message that leads to buried treasure.
 
-The "Gold Bug" symbols never had symbols for J, K, Q, W, X, and Z.  In their place, I decided upon the symbols based on others that I saw in the code (there was a ] but not a [ symbol) and what I saw on pictures of old typewriters.  Apparently, I made good choices because this was later copied by [dCode](https://www.dcode.fr/gold-bug-poe).
+The "Gold Bug" cipher never had symbols for J, K, Q, W, X, and Z.  For those, I decided upon symbols based on others that I saw in the code (there was a ] but not a [ symbol) and what I saw in pictures of old typewriters.  Apparently, I made good choices, because this was later copied by [dCode](https://www.dcode.fr/gold-bug-poe).
 
 Examples:
 

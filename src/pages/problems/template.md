@@ -26,7 +26,7 @@ Causes
 Solution
 --------
 
-Solutions go here.  This can be paragraphs or bulleted list.
+Solutions go here.  This can be paragraphs or a bulleted list.
 
 The closing remark should be one of these two as a single sentence:
 

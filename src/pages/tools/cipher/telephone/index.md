@@ -17,10 +17,10 @@ number keys. Each key carried three or four letters, and you pressed it until
 the letter you wanted came up: `2` for `a`, `22` for `b`, `222` for `c`.
 
 Two letters on the same key in a row are a problem, because `2222` could be
-`cab` or it could be `ab`. Phones solved it by waiting a moment, or by offering
+`ca`, `ac`, or `bb`. Phones solved it by waiting a moment, or by offering
 a "next" key. Here that is a `*`, so `cab` is `222*2*22`.
 
-A `#` capitalises the next letter. Two of them switch to number mode, where a
+A `#` capitalizes the next letter. Two of them switch to number mode, where a
 key press is just its own digit, and three turn on caps lock. Another `#`
 switches back.
 

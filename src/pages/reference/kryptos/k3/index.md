@@ -25,7 +25,7 @@ AECTDDHILCEIHSITEGOEAOSDDRYDLORIT
 RKLMLEHAGTDHARDPNEOHMGFMFEUHE
 ECDMRIPFEIMEHNLSSTTRTVDOHW?</tt></div>
 
-This can completely be decoded using a [double columnar transposition](../../../tools/cipher/double-columnar-transposition/) cipher, where you arrange the cipher text into lines that are 21 characters long and read down the columns, starting from the right and working towards the left. Then you do it again by arranging the rows into lines 28 characters long and again read down the columns from the right to the left.
+This can be completely decoded using a [double columnar transposition](../../../tools/cipher/double-columnar-transposition/) cipher, where you arrange the cipher text into lines that are 21 characters long and read down the columns, starting from the right and working towards the left. Then you do it again by arranging the result into lines 28 characters long and again reading down the columns from the right to the left.
 
 When decoded, you will see this message.
 
@@ -45,7 +45,7 @@ Adding spaces and punctuation will produce this paragraph. Note that "desperatel
 
 > Slowly, desparatly slowly the remains of passage debris that encumbered the lower part of the doorway was removed. With trembling hands, I made a tiny breach in the upper left-hand corner and then, widening the hole a little, inserted the candle and peered in. The hot air escaping from the chamber caused the flame to flicker, but presently details of the room within emerged from the mist. X Can you see anything Q ?
 
-What I don't like about it is "Kryptos" isn't used during the deciphering. Also, the NSA solution says the text was encoded by a keyed columnar transposition technique with an incompletely filled matrix size 4 x 86. [Another source](https://web.archive.org/web/20090605075608/http://www.cryptofone.com/kryptos3.html) uses the word `KRYPTOS` as a columnar transposition key, but first reverses text, splits into chunks, stacks the chunks, then applies the columnar transposition. If I were to bet, my money would be on this last solution - I think it's either close or the same as what Sanborn used.
+What I don't like about it is that "Kryptos" isn't used during the deciphering. Also, the NSA solution says the text was encoded by a keyed columnar transposition technique with an incompletely filled matrix of size 4 x 86. [Another source](https://web.archive.org/web/20090605075608/http://www.cryptofone.com/kryptos3.html) uses the word `KRYPTOS` as a columnar transposition key, but first reverses the text, splits it into chunks, stacks the chunks, then applies the columnar transposition. If I were to bet, my money would be on this last solution - I think it's either close or the same as what Sanborn used.
 
 A [page with hints](http://scirealm.org/KryptosHints.html) says "Sanborn commented that he was surprised that no one had tried recovering the original matrix and running it through all the possible 'shifts'." Also, "When showed the part 3 KRYPTOS=0362514 number key, he nodded as though he recognized it," and "He thought Elonka's solution for part 3, with clean diagonals, must be 'a by-product of the original matrix system'."
 
@@ -55,7 +55,7 @@ A [page with hints](http://scirealm.org/KryptosHints.html) says "Sanborn comment
 <div class="Ta(c)"><a href="desparatly.jpg"><img src="desparatly-small.jpg" alt="Desparatly"/></a>
 <br/>Images copyright Dailymotion, from <a href="https://www.dailymotion.com/video/x35x1vc">their video</a> at 4:16.</div>
 
-The plain text clearly says `DESPARATLY` - was that a typo on the author's part or an intentional change? Nothing has been confirmed on this error, though the plain text seen in the video, along with [some deduction](http://numberworld.blogspot.com/2018/07/kryptos-cipher-part-3.html) does indicate that the plain text originated with the two spelling errors.
+The plain text clearly says `DESPARATLY` - was that a typo on Sanborn's part or an intentional change? Nothing has been confirmed on this error, though the plain text seen in the video, along with [some deduction](http://numberworld.blogspot.com/2018/07/kryptos-cipher-part-3.html), does indicate that the plain text originated with the two spelling errors.
 
 The passage is paraphrased from Howard Carter's description of opening the second doorway leading into the antechamber of the tomb of King Tut in 1922. It reads as follows.
 
@@ -67,4 +67,4 @@ Lady Evelyn was Lord Carnarvon's daughter. Callender was an assistant.
 
 * Why are the letters `YA` and `R` in the first line raised up a little?
 
-* Should the third line read <tt>TPRNGATIHNRARPESLNNELEBLPII<b>E</b>CAE</tt> to fix the spelling error in `DESPARATELY`? Does this mistake actually provide a hint to a later puzzle?
+* Should the third line read <tt>TPRNGATIHNRARPESLNNELEBLPII<b>E</b>CAE</tt> to fix the spelling error in `DESPARATLY`? Does this mistake actually provide a hint to a later puzzle?

@@ -12,7 +12,7 @@ breadcrumbs:
       href: /tools/cipher/
 ---
 
-A board ten columns wide. The top row holds the eight commonest letters and each of those costs a single digit. Two of the ten columns in that row are left empty, and their column numbers become the labels of two more rows, which hold everything else at two digits apiece.
+A board ten columns wide. The top row holds the eight commonest letters, and each of those costs a single digit. Two of the ten columns in that row are left empty, and their column numbers become the labels of two more rows, which hold everything else at two digits apiece.
 
 ```
     0  1  2  3  4  5  6  7  8  9

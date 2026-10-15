@@ -13,8 +13,8 @@ breadcrumbs:
 ---
 
 Octal is base 8, so it counts `0` through `7` and then carries.
-It was the natural way to write machine words on computers built around 12, 24
-and 36 bit registers, where the bits divide neatly into threes, and it survives
+It was the natural way to write machine words on computers built around 12-, 24-
+and 36-bit registers, where the bits divide neatly into threes, and it survives
 in odd corners such as Unix file permissions.
 
 255 is `377` in octal, so every code is three digits wide and they run together

@@ -16,7 +16,7 @@ Five bits give thirty-two combinations, which will not hold the letters and the 
 
 This is properly ITA2, the International Telegraph Alphabet No. 2 of 1924. Emile Baudot's own code of 1870 was a different arrangement, but his name stuck to the idea.
 
-**Coldplay's X&Y sleeve is this code.** Each column of colour blocks is one five-bit character - a block for 1, a gap for 0 - and the colours themselves carry nothing at all. The title is three characters but the sleeve has five columns, because the ampersand lives on the figure shift and so needs a FIGS before it and an LTRS after it to get back to the Y.
+**Coldplay's X&Y sleeve is this code.** Each column of color blocks is one five-bit character - a block for 1, a gap for 0 - and the colors themselves carry nothing at all. The title is three characters but the sleeve has five columns, because the ampersand lives on the figure shift and so needs a FIGS before it and an LTRS after it to get back to the Y.
 
 Examples:
 

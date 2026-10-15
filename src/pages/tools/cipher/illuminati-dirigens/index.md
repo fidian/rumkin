@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/cipher-layout.astro"
 title: Illuminati Dirigens
-summary: Secret written communications the Illuminati used to use.
+summary: The symbols the Illuminati once used for secret written communications.
 code: true
 breadcrumbs:
     - name: Rumkin.com

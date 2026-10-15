@@ -11,7 +11,7 @@ breadcrumbs:
       href: /reference/kryptos/
 ---
 
-Sanborn's description (from [Elonka's website](https://elonka.com/kryptos/KryptosAerial.html):
+Sanborn's description (from [Elonka's website](https://elonka.com/kryptos/KryptosAerial.html)):
 
 > ...the first of three elements of this work. We see a large "natural" stone
 > outcropping running parallel to the facade, through which the main walkway
@@ -25,13 +25,13 @@ To decode Morse code, you are welcome to try out [my tool](/tools/cipher/morse-c
 
 Morse code prosigns are shown with a bar above, like <span class="Td(o)">`SOS`</span>. When you send a prosign, you omit the pause between the letters, which is normally the same amount of time as three dits.
 
-When I saw the larger gaps that appear between words, I flagged them in the transcoded messages as a `/` below. When transmitting Morse code, these pauses should be the same amount of time as seven dits.
+When I saw the larger gaps that appear between words, I flagged them in the transcribed messages as a `/` below. When transmitting Morse code, these pauses should be the same amount of time as seven dits.
 
-I have once seen a reference that said the repeated `E` code (`.`) was a way that an operator would pause a message without relinquishing control. Unfortunately, I have lost that website and can't seem to find another that would support this conclusion. Other theories believe these characters could be crucial for decoding [K5](../k5/)
+I once saw a reference that said the repeated `E` code (`.`) was a way that an operator would pause a message without relinquishing control. Unfortunately, I have lost that website and can't seem to find another that would support this conclusion. Others believe these characters could be crucial for decoding [K5](../k5/).
 
 These messages are read from the rock to the edge as "forward" because the other direction is consistently unintelligible. Some of the pictures referenced will show the Morse code backwards. One of the messages is cut backwards and feeds into the rock, and that one is called out in the analysis.
 
-There are a couple places where the Morse code could be interpreted as having an error. Sanborn has said some errors are intentional when asked about [K1](../k1/) and [K2](../k2/), so perhaps there are intentional errors in this portion as well.
+There are a couple places where the Morse code could be interpreted as having an error. When asked about [K1](../k1/) and [K2](../k2/), Sanborn has said some errors are intentional, so perhaps there are intentional errors in this portion as well.
 
 
 ## SOS
@@ -54,7 +54,7 @@ One line of Morse code. Some sources online don't see the dot on the left, barel
 ...---...
 </tt></div>
 
-This is a palindrome and there's no backwards interpretation of these letters.
+This is a palindrome, so there's no alternate backwards interpretation of these letters.
 
 
 ## RQ / YR
@@ -69,13 +69,13 @@ Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.
 .-. --.-
 </tt></div>
 
-When read left to right, this produces `RQ`. The code `.-.` could also be shorthand for the prosign <span class="Td(o)">`ROGER`</span>. The code for `Q` at the end is right at the edge, so it could also be a partial code for `Ĝ` (`--.-.`) or `Ñ` (`--.--`), though I think it is unlikely.
+When read left to right, this produces `RQ`. The code `.-.` could also be shorthand for the prosign <span class="Td(o)">`ROGER`</span>. The code for `Q` at the end is right at the edge, so it could also be a partial code for `Ĝ` (`--.-.`) or `Ñ` (`--.--`), though I think that is unlikely.
 
 An interesting bit about `RQ` comes from [A Guide to Morse Code Proficiency](http://norfolkamateurradio.org/pdf/A_Guide_to_Morse_Code_Proficiency_v1.pdf), though I don't know if Sanborn would have researched transmission of Morse code this thoroughly.
 
 > If the transmitter is slow to start transmitting *e.g.* a slow mechanical transmit-receive changeover relay), the first mark is truncated and may even be completely lost, changing the meaning of the first character. A callsign such as EA4ABC may become A4ABC, for instance, or a "CQ" call may start with "FQ" or "RQ".
 
-For reference, `CQ` is a prosign but the space between the letters is preserved (though some sources disagree). Think of it as a shortcut and means "I would like to make a contact, does anybody hear me?" The code for C is `-.-.` and `R` code is `.-.`, but the pictures show plenty of space before the `R` to indicate that the correct message is likely `RQ` or its an error in transcription.
+For reference, `CQ` is a prosign but the space between the letters is preserved (though some sources disagree). Think of it as a shortcut that means "I would like to make a contact; does anybody hear me?" The code for `C` is `-.-.` and the code for `R` is `.-.`, but the pictures show plenty of space before the `R`, indicating that the correct message is likely `RQ` or it's an error in transcription.
 
 ### Other direction
 
@@ -83,7 +83,7 @@ For reference, `CQ` is a prosign but the space between the letters is preserved 
 -.-- .-
 </tt></div>
 
-When read the other direction, this produces `YR`. Again, the code for `Y` could be cut off and `Ñ` (`--.--`) could be the first letter.
+When read in the other direction, this produces `YR`. Again, the code for `Y` could be cut off and `Ñ` (`--.--`) could be the first letter.
 
 
 ## LUCID MEMORY
@@ -99,7 +99,7 @@ Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.
 / -- . -- --- .-. -.-- / . /
 </tt></div>
 
-The first line reads `LUCID E E E`. The code for `L` is extremely close to the rock so it could be `Ć`, `Ĉ`, or `Ç` (all have the code `-.-..`); or maybe `Đ`, `É`, or `Ę` (all have the code `..-..`).
+The first line reads `LUCID E E E`. The code for `L` is extremely close to the rock, so it could be `Ć`, `Ĉ`, or `Ç` (all have the code `-.-..`); or maybe `Đ`, `É`, or `Ę` (all have the code `..-..`).
 
 The second line reads `MEMORY E`. The gap to the beginning of `M` is clearly present, so no alternate interpretations are available.
 
@@ -113,7 +113,7 @@ The second line reads `MEMORY E`. The gap to the beginning of `M` is clearly pre
 
 If reading the lines from the other direction, `MEMORY E` becomes `E QROMEM`.
 
-Reading the other line backwards produces `E E E UIÄDF`. Instead of `Ä`, the code `.-.-` could mean `Æ`, `Ą`, or is shorthand for either "new line" or "unknown station". The `F` at the end could instead be `Đ`, `É`, or `Ę` (all have the code `..-..`); or the prosign <span class="Td(o)">`INT`</span> (code `..-.-`), which means "interrogative" and is a military replacement for a question mark.
+Reading the other line backwards produces `E E E UIÄDF`. Instead of `Ä`, the code `.-.-` could mean `Æ` or `Ą`, or it could be shorthand for either "new line" or "unknown station". The `F` at the end could instead be `Đ`, `É`, or `Ę` (all have the code `..-..`); or the prosign <span class="Td(o)">`INT`</span> (code `..-.-`), which means "interrogative" and is a military replacement for a question mark.
 
 
 ## SHADOW FORCES
@@ -140,7 +140,7 @@ The second line is `FORCES E E E E E`.
 . / . / --. --- ..- -. .... ... / . / .
 </tt></div>
 
-When read from the other side, `FORCES E E E E E` would translate into `E E E E E SEÄROL`. Instead of `Ä`, the code `.-.-` could mean `Æ`, `Ą`, or is shorthand for either "new line" or "unknown station".
+When read from the other side, `FORCES E E E E E` would translate into `E E E E E SEÄROL`. Instead of `Ä`, the code `.-.-` could mean `Æ` or `Ą`, or it could be shorthand for either "new line" or "unknown station".
 
 The second line would change from `E E SHADOW E E` to `E E GOUNHS E E`.
 
@@ -158,9 +158,9 @@ Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.
 .--. --- ... .. - .. --- -. / .
 </tt></div>
 
-The first line appears to say `T IS YOUR`. The `T` at the beginning might just be the end of a code, though people naturally leap to the whole word `WHAT`, though it could just as easily be a `K` like `BACK IS YOUR`. When taken with the second line, it's hard to dispute that `WHAT IS YOUR` is correct.
+The first line appears to say `T IS YOUR`. The `T` at the beginning might just be the end of a code. People naturally leap to the whole word `WHAT`, though it could just as easily be a `K`, as in `BACK IS YOUR`. When taken with the second line, it's hard to dispute that `WHAT IS YOUR` is correct.
 
-The second line looks like `POSITION`. The last dah in `O` and the first dit in `S` are obfuscated by rock, though the spacing is right for these letters. The beginning `P` may be `(` or an invitation to transmit (code `-.--.`); or `Ð` (code `..--.`). Also, the `E` at the end is trimmed, so it's often overlooked.
+The second line looks like `POSITION`. The last dah in `O` and the first dit in `S` are obscured by rock, though the spacing is right for these letters. The beginning `P` may be `(` or an invitation to transmit (code `-.--.`); or `Ð` (code `..--.`). Also, the `E` at the end is trimmed, so it's often overlooked.
 
 ### Other direction
 
@@ -190,7 +190,7 @@ Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.
 
 The first line literally reads `E DIGE TAL E E E`. The extra space after the `E` in `DIGE`, when taken literally, indicates that this is the end of a letter. However, it has enough of a gap to nicely put in another dit, which would make the message `E DIGITAL E E E`. Is this error intentional?
 
-The second say `INTERPRETATI` and is cut off. It looks like just enough metal is left after the final `I` to indicate that there's a gap as opposed to another code that starts with a dah, such as N (code `-.`).
+The second line says `INTERPRETATI` and is cut off. It looks like just enough metal is left after the final `I` to indicate that there's a gap as opposed to another code that starts with a dah, such as `N` (code `-.`).
 
 ### Other direction
 
@@ -221,7 +221,7 @@ Images copyright Jim Gillogly, 1999, and mirrored from [his website](http://www.
 
 This one image is the other three stitched together.</div>
 
-This cipher message is cut into two plates and is the only one that reads *towards* the rock. The rest are read away from the rock and do not span any gaps. This cipher transcription uses a vertical bar to show where the gaps are in the Morse code, but this reads nicely when you join the plates together as though the gap isn't there.
+This cipher message is cut into two plates and is the only one that reads *towards* the rock. The rest are read away from the rock and do not span any gaps. This cipher transcription uses a vertical bar to show where the gaps are in the Morse code, but it reads nicely when you join the plates together as though the gap isn't there.
 
 <div class="Bdw(1px) Bgc(#ddd) P(0.5em) Whs(pl) My(0.5em)"><tt>
 . / . / ...- .. .-. - ..- .- | .-.. .-.. -.-- .<br/>

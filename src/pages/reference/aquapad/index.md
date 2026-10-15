@@ -9,7 +9,7 @@ breadcrumbs:
       href: /reference/
 ---
 
-The AquaPad was a light web tablet that can run Windows CE, 2000, ME, and Midori Linux.  I'm not really one for words, so here's some stats.
+The AquaPad was a light web tablet that could run Windows CE, 2000, ME, and Midori Linux.  I'm not really one for words, so here's some stats.
 
     Processor:  Transmeta Crusoe 5400 at 500 Mhz
     Display:    8.4" TFT 800x600, touchscreen.  PenMount DMC9000.
@@ -36,7 +36,7 @@ The AquaPad was a light web tablet that can run Windows CE, 2000, ME, and Midori
     Other:      Digital contrast and volume (no on-screen indicators for Midori)
                 Optional cradle to power device and a second battery
 
-(`*`) See Upgrades section for more information
+(`*`) See the Upgrades section for more information.
 
 Midori Linux shipped with a Todo application, notepad, web browser and *very* basic stuff.  There was a half-screen pop-up keyboard and some really bad handwriting recognition.
 
@@ -54,13 +54,13 @@ Locally Hosted Files
 
 * [Touch Screen Drivers](drivers-touch-screen.zip) - Windows touch screen drivers.
 
-* [BIOS Flash Hard Drive Image](bios-flash.img.gz) - A hard drive image that you can stick on your CompactFlash card and boot to in order to flash your BIOS.  Contains DOS USB drivers in case your BIOS does not supprot USB Legacy Mode and comes equipped with all the BIOS ROMs that I can find.
+* [BIOS Flash Hard Drive Image](bios-flash.img.gz) - A hard drive image that you can stick on your CompactFlash card and boot to in order to flash your BIOS.  Contains DOS USB drivers in case your BIOS does not support USB Legacy Mode and comes equipped with all the BIOS ROMs that I can find.
 
 * [MS-DOS Hard Drive Image](blank.hd0.gz) - A blank, bootable FAT12 hard drive image that you can stick on a CompactFlash card in order to upgrade the BIOS with your own files.
 
 * [FreeDOS Hard Drive Image](freedos.img.gz) - Similar to above, but it is based off of FreeDOS and includes many tools.  You won't be able to use them without adding the USB keyboard driver (ohci from the bios flash image) or turning on USB Legacy support.
 
-* [packcramfs.txt](packcramfs.txt) - Instructions for using `packcramfs`.  Provided here just in case you just grabbed the binary from the AquaPad instead of compiling it yourself.
+* [packcramfs.txt](packcramfs.txt) - Instructions for using `packcramfs`.  Provided here in case you just grabbed the binary from the AquaPad instead of compiling it yourself.
 
 * [Midori Linux Manual](aquapad-midori-manual.pdf) - My AquaPad didn't come with a manual, so I am very glad that I found this.
 
@@ -72,7 +72,7 @@ Locally Hosted Files
 
 * [CF to IDE Adaptor](ada-compactflash-ata-ide40.pdf) - Spec file for the ADA-COMPACTFLASH-ATA-IDE40 adaptor, which will let you hook up an IDE hard drive to a CompactFlash slot.
 
-* [CF Spec 3.0](cfspc3-0.pdf) - The official spec, which lists the pinouts and exact characteristics of CompactFlash stadard.
+* [CF Spec 3.0](cfspc3-0.pdf) - The official spec, which lists the pinouts and exact characteristics of the CompactFlash standard.
 
 * [CF to IDE Schematic](cftoide.pdf) - Are you good with a soldering iron?  You can build your own CF to IDE adaptor.
 
@@ -97,14 +97,14 @@ The documentation puts limits on the CompactFlash that you can use, but this is 
 
 ### Filesystems
 
-The first and second partitions contain the root filesystem (`/bin`, `/sbin`, `/etc`, `/dev`, `/lib`, `/var`.  The third partition is configuration data.  Next is a partition that contains multiple cramfs partitions that populate `/usr`, `/usrX11R6`, and `/usr/X11R6/lib/fonts`.
+The first and second partitions contain the root filesystem (`/bin`, `/sbin`, `/etc`, `/dev`, `/lib`, `/var`).  The third partition is configuration data.  Next is a partition that contains multiple cramfs partitions that populate `/usr`, `/usrX11R6`, and `/usr/X11R6/lib/fonts`.
 
 
 ### Booting
 
-If you connect a USB keyboard before turning it on, you can press Page Up while booting to get you into the BIOS.  Ignore the message that says for you to press DEL to get into the BIOS - it is totally wrong.
+If you connect a USB keyboard before turning it on, you can press Page Up while booting to get into the BIOS.  Ignore the message that tells you to press DEL to get into the BIOS - it is totally wrong.
 
-When you are in the BIOS, you can change the boot device.  This makes it much easier to test new flash images before installing them on the internal Compact Flash card.  However, it appears that Midori stores its configuration data on `/dev/hda` unless you do some patching or if you compile Midori to use `/dev/hdc` instead.
+When you are in the BIOS, you can change the boot device.  This makes it much easier to test new flash images before installing them on the internal Compact Flash card.  However, it appears that Midori stores its configuration data on `/dev/hda` unless you do some patching or compile Midori to use `/dev/hdc` instead.
 
 One of the more annoying things about this BIOS is that it doesn't auto-detect CF cards that you want to boot to.  So, if you want to boot from the external CF slot (IDE-2 in the BIOS), you also need to run the auto-detection so that you can boot from that device.  It needs to know the heads/cylinders/etc. of the CF in order to even attempt booting to it.
 
@@ -135,7 +135,7 @@ I won't be revisiting this list, but here are my ideas of where I wanted to take
 * Make it into an IR Remote control.  That would rock.
 * Opera or Phoenix instead of Mozilla.  Hopefully something that starts faster.
 * Add SSH
-* Make XTerm more accessable.  (I've not been able to get it to work from the above commands yet.)
+* Make XTerm more accessible.  (I've not been able to get it to work from the above commands yet.)
 * Add a Java plugin to the browser?  Awfully big.
 * IceWM upgraded, Linux's kernel upgraded, etc.
 * Kill that little mail icon on the tray and reorganize the menus a LOT.  Move a lot of the buttons into the menu to free up taskbar space and to make it seem less cluttered.
@@ -151,7 +151,7 @@ Creating a DOS hard drive under Linux is annoying at times.  Formatting the flas
 
 Even the people who are doing this upgrading under Windows might want some assistance, and so I have collected my experiences here.
 
-Using FreeDOS should work, but I haven't been able to spend enough time to do so, so I just gave up and decided to use a Microsoft boot disk I had handy.
+Using FreeDOS should work, but I haven't been able to spend enough time on it, so I just gave up and decided to use a Microsoft boot disk I had handy.
 
 
 ### Linux Instructions
@@ -168,7 +168,7 @@ We will make a hard drive image on the computer and then copy it to the CompactF
         sync
 
 * Insert the CompactFlash into the AquaPad and plug in a USB keyboard.  Boot into the BIOS (press Page Up and ignore the message that says to press Del).  Use the automatic configuration to identify the second hard drive, then set the tablet up to boot from the second hard drive.
-* Reboot and you should boot to a command prompt.  If not, you could have a dozen problems.  Your image could be wrong/corrupt, the CompactFlash could be misidentified or have a different number of heads/tracks/cylinders.  Or, what frustrated me to no end, you might not have identified the CompactFlash before saying to boot to the second drive.
+* Reboot and you should boot to a command prompt.  If not, you could have a dozen problems.  Your image could be wrong/corrupt, or the CompactFlash could be misidentified or have a different number of heads/tracks/cylinders.  Or, what frustrated me to no end, you might not have identified the CompactFlash before saying to boot to the second drive.
 * At this point, you merely need to `mount` the CompactFlash card and copy over whatever files are required for the BIOS update.  They should run by themselves when you power on the AquaPad.
 
 
@@ -187,7 +187,7 @@ This is a bit easier because you aren't trying to install a foreign OS under ano
 
 ### Other Operating Systems
 
-* You're probably stuck.  Windows 2000 (and NT, if I recall) and foreward don't have the `sys` command and don't let you specify `/s` to the `format` command.  Possible options include:
+You're probably stuck.  Windows 2000 (and NT, if I recall) and forward don't have the `sys` command and don't let you specify `/s` to the `format` command.  Possible options include:
 
 * Pop in a spare hard drive, install Windows 98 on it, follow the Windows 98 instructions.
 * Download a Linux live CD, boot to it and follow the Linux instructions.
@@ -199,7 +199,7 @@ Obtaining an Image of the Compact Flash Card
 
 Want to make an exact copy of the Compact Flash card?  Need the original images so that you can install and upgrade your own applications?  Here you go.  Information for this process originally came from [Pavel Tkatchouk](http://www.geocities.com/ptkatch/aquapad.htm).
 
-* Dissassemble the AquaPad.  Remove the Compact Flash card and walk over to your other computer with the Compact Flash reader.  My reader mounts Compact Flash cards as `/dev/sda` in Linux.
+* Disassemble the AquaPad.  Remove the Compact Flash card and walk over to your other computer with the Compact Flash reader.  My reader mounts Compact Flash cards as `/dev/sda` in Linux.
 
         Disk /dev/sda: 1024 MB, 1024450560 bytes
         1 heads, 62 sectors/track, 32272 cylinders
@@ -211,8 +211,8 @@ Want to make an exact copy of the Compact Flash card?  Need the original images 
         /dev/sda3           176       180       155   83  Linux
         /dev/sda4           181      1015     25885   83  Linux
 
-* Check out the partitions on the card.  For me, `fdisk -l /dev/sda` produces the results shown in the table to the right.
-* Change to whatever directory that you want the files stored in.
+* Check out the partitions on the card.  For me, `fdisk -l /dev/sda` produces the results shown above.
+* Change to whatever directory you want the files stored in.
 
         mkdir ~/aquapad
         cd ~/aquapad
@@ -221,15 +221,15 @@ Want to make an exact copy of the Compact Flash card?  Need the original images 
 
         dd if=/dev/sda of=MBR bs=512 count=1
 
-* Copy over each hard drive image.  You can use `cp` or `dd`.  Just make sure that the `sda1` image is the same size as the `sda2` image, otherwise you will get problems.  We know they are the same size because of the output from `fdisk`.
+* Copy over each hard drive image.  You can use `cp` or `dd`.  Just make sure that the `sda1` image is the same size as the `sda2` image; otherwise you will have problems.  We know they are the same size because of the output from `fdisk`.
 
-        dd if=/dev/sda1 of=/dev/sda1
-        dd if=/dev/sda2 of=/dev/sda2
-        dd if=/dev/sda3 of=/dev/sda3
-        dd if=/dev/sda4 of=/dev/sda4
+        dd if=/dev/sda1 of=sda1
+        dd if=/dev/sda2 of=sda2
+        dd if=/dev/sda3 of=sda3
+        dd if=/dev/sda4 of=sda4
 
-* Compress and copy the images elsewhere so that you always have a nice, clean install just in case something gets messed up.  They really won't compress too well, but a k here and there add up.
-* The images are separated in the above instructions because it is easier to work with them individually than all together.  If you want an exact copy of the card you can just use `dd if=/dev/sda of=cf-copy.img`
+* Compress and copy the images elsewhere so that you always have a nice, clean install just in case something gets messed up.  They really won't compress too well, but a k here and there adds up.
+* The images are separated in the above instructions because it is easier to work with them individually than all together.  If you want an exact copy of the card, you can just use `dd if=/dev/sda of=cf-copy.img`.
 
 
 Making Your Own Image Under Linux
@@ -241,11 +241,11 @@ Making Your Own Image Under Linux
 
         dd if=/dev/fd0 of=floppy.img
 
-* Read the Bochs install instructions to set up a new 4 (or whatever) meg hard drive.  You don't really need tons of space here.  Also, set up Bochs to use the floppy image as A drive, boot from A drive, and have the hard drive image as the C drive.  Depending on your distribution, this could take minutes or hours.  With Debian, just run Bochs and it will easily create a new hard drive for you.
+* Read the Bochs install instructions to set up a new 4 (or whatever) meg hard drive.  You don't really need tons of space here.  Also, set up Bochs to use the floppy image as the A drive, boot from the A drive, and use the hard drive image as the C drive.  Depending on your distribution, this could take minutes or hours.  With Debian, just run Bochs and it will easily create a new hard drive for you.
 
 * Boot the floppy image, `fdisk` the C drive, reboot.
 
-* Boot the floppy again and add the bootable MBR
+* Boot the floppy again and add the bootable MBR.
 
         fdisk /MBR
 
@@ -261,17 +261,17 @@ Making Your Own Image Under Linux
 Inside the Pad
 --------------
 
-We dissect an AquaPad, piece by piece, in order to expose the guts to the public.  This is only to prevent others from taking apart their AquaPad to just see what the insides look like.  Higher resolution photos are available by clicking on the thumbnails.
+We dissect an AquaPad, piece by piece, in order to expose the guts to the public.  This is only to spare others from taking apart their AquaPad just to see what the insides look like.  Higher resolution photos are available by clicking on the thumbnails.
 
 <div class="Ta(c)">
 <a href="front.jpg"><img src="front-small.jpg" alt="Front of AquaPad" /></a>
 </div>
 
-First thing is first -- what does the AquaPad look like on the outside?  This is a nice image of the front of the tablet.
+First things first -- what does the AquaPad look like on the outside?  This is a nice image of the front of the tablet.
 
 On the left side, near the top, you can see the housing for the speaker.  Moving down, you can see the volume and contrast buttons.  From what I can tell, they affect the hardware directly, and there is no on-screen indicator of the current contrast setting or volume level.
 
-At the top you see three LEDs.  From left to right, they are suspend, power, and battery indicator (low battery / charging).  The right-hand side has the power switch and a microphone.
+At the top you see three LEDs.  From left to right, they are the suspend, power, and battery indicators (low battery / charging).  The right-hand side has the power switch and a microphone.
 
 <div class="Ta(c)">
 <a href="back-battery-stylus.jpg"><img src="back-battery-stylus-small.jpg" alt="Back of AquaPad with Battery and Stylus" /></a>
@@ -279,15 +279,15 @@ At the top you see three LEDs.  From left to right, they are suspend, power, and
 
 Here, you will see an image of the AquaPad already beginning to be taken apart.  This is the stylish back.  The ridges make it easier to grab, and the rubber feet really make it stick nicely to hard surfaces.
 
-The battery compartment is opened and the battery is exposed right above the tape measure.  Between the AquaPad and the tape measure is the included stylus, typically housed on the right-hand side of the tablet.  On the tips, the plastic things screw apart like some Palm styluses, but there is no reset tool found, unlike the Palm styluses.
+The battery compartment is opened and the battery is exposed right above the tape measure.  Between the AquaPad and the tape measure is the included stylus, typically housed on the right-hand side of the tablet.  The plastic tips screw apart like those on some Palm styluses, but unlike the Palm styluses, there is no reset tool inside.
 
-In the upper left, you will see two rubber pads (blue) and 8 screws.  That's how many screws hold this together.  Two screws are under the rubber pads by the battery compartment.  Make sure to remove them before prying too hard.  When you get them all off, and remove the stylus, the device will easily come apart.
+In the upper left, you will see two rubber pads (blue) and 8 screws.  That's how many screws hold this together.  Two screws are under the rubber pads by the battery compartment.  Make sure to remove them before prying too hard.  When you get them all out and remove the stylus, the device will come apart easily.
 
 <div class="Ta(c)">
 <a href="lcd.jpg"><img src="lcd-small.jpg" alt="LCD Panel" /></a>
 </div>
 
-The front panel comes off, giving you a nice image of the LCD behind it and my grubby fingerprints.  Disconnect the pink and white wires to the lower right, unscrew the four screws, lift up the LCD, disconnect the two flat cables on the left.  You are now down to a shield.  Take out three more screws and disconnect the red and black wires for the microphone.  We are in business.
+The front panel comes off, giving you a nice image of the LCD behind it and my grubby fingerprints.  Disconnect the pink and white wires to the lower right, unscrew the four screws, lift up the LCD, and disconnect the two flat cables on the left.  You are now down to a shield.  Take out three more screws and disconnect the red and black wires for the microphone.  We are in business.
 
 <div class="Ta(c)">
 <a href="motherboard-front.jpg"><img src="motherboard-front-small.jpg" alt="Front of Motherboard" /></a>
@@ -295,17 +295,17 @@ The front panel comes off, giving you a nice image of the LCD behind it and my g
 
 Ahh, the motherboard.  Please note the standard SO-DIMM SDRAM in the lower right.  Don't try to upgrade that.  There are notes regarding Upgrades later.  You can also see the battery, processor, and what looks like a potential IDE port.
 
-At this point, you will see four screws on the motherboard.  Don't undo them.  If you do, you will be unscrewing the housing for the PCMCIA slot.  It should stay with the motherboard.  Also, these screws are tiny, so you might lose one and have to end up scouring your floor for quite some time in order to find it.  Additionally, if you unscrew them, you might have one heck of a time getting them back in.  Yeah, that's right.  Everything that could have gone wrong did go wrong with me.  So, don't do it.
+At this point, you will see four screws on the motherboard.  Don't undo them.  If you do, you will be unscrewing the housing for the PCMCIA slot.  It should stay with the motherboard.  Also, these screws are tiny, so you might lose one and end up scouring your floor for quite some time in order to find it.  Additionally, if you unscrew them, you might have one heck of a time getting them back in.  Yeah, that's right.  Everything that could have gone wrong did go wrong for me.  So, don't do it.
 
-After undoing a set of orangish wires on the bottom, and the red/black wires that head on over to the speaker, the motherboard is nearly free.  It takes some gentle wiggling to the left in order to free it.  For the pictures, I flipped the motherboard over (down) and out of the case.  So, the top of the motherboard in the previous image is now the bottom of the next picture.  The left and right remained the same.
+Undo the set of orangish wires on the bottom and the red/black wires that head on over to the speaker, and the motherboard is nearly free.  It takes some gentle wiggling to the left in order to free it.  For the pictures, I flipped the motherboard over (down) and out of the case.  So, the top of the motherboard in the previous image is now the bottom of the next picture.  The left and right remained the same.
 
-When you put the motherboard back, make sure to be VERY careful with the orangish wires on the bottom.  They can overlap the screw hole right there, so when you put the shield back on, it could crunch the wires and possibly expose them and ground out the wires on the motherboard and break the wire and do other nasty stuff.  That took a long time for me to figure out.  "When I put in this one screw, why does my AquaPad not boot anymore?"  Yeah.  Another hour lost there trying to diagnose the problem, and getting the wrong idea in my head that it was because of the shield shorting something out.
+When you put the motherboard back, make sure to be VERY careful with the orangish wires on the bottom.  They can overlap the screw hole right there, so when you put the shield back on, the screw could crunch the wires and possibly expose them, ground them out on the motherboard, break them, or do other nasty stuff.  That took a long time for me to figure out.  "When I put in this one screw, why does my AquaPad not boot anymore?"  Yeah.  Another hour lost there trying to diagnose the problem, and getting the wrong idea in my head that it was because of the shield shorting something out.
 
 <div class="Ta(c) M(x)">
 <a href="motherboard-back.jpg"><img src="motherboard-back-small.jpg" alt="Back of Motherboard" /></a>
 </div>
 
-Please note the 32 meg Compact Flash card.  This is what holds Midori.  It is held in with a small piece of foam.  You can also see the PCMCIA slot and the other CF port.  There's also a large heatsink for the processor that transfers heat to the case, and out of the device without a need for a fan.
+Please note the 32 meg Compact Flash card.  This is what holds Midori.  It is held in with a small piece of foam.  You can also see the PCMCIA slot and the other CF port.  There's also a large heatsink for the processor that transfers heat to the case and out of the device without the need for a fan.
 
 Careful when putting your device back together again!
 
@@ -317,8 +317,8 @@ Because the AquaPad certainly supports the 386 instruction set, and because I wa
 
 It is highly probable that this will work with any Debian live CD distribution, and quite likely that it will work with others that also work on 386 computers.  You want to get a lean, mean distro.  Perhaps [Timo's](http://rescuecd.sourceforge.net) or [Knoppix STD](http://www.knoppix-std.org/).  Heck, build your own.
 
-* Get a nice, big CF card.  512 megs minimum (Knoppix is bigger, but you can get a stripped down distribution.
-* If not done already, format the card.  You can use a DOS style partition (vfat works well), and you can probably work with ext2 or ext3.  Mount it to `/mnt/cf` or wherever.  Non-Linux users need to find their own way of doing this.  It is possible, but I have no knowledge of the tools (where they are, how to use, etc).
+* Get a nice, big CF card.  512 megs minimum (Knoppix is bigger, but you can get a stripped-down distribution).
+* If not done already, format the card.  You can use a DOS style partition (vfat works well), and you can probably work with ext2 or ext3.  Mount it to `/mnt/cf` or wherever.  Non-Linux users need to find their own way of doing this.  It is possible, but I have no knowledge of the tools (where they are, how to use them, etc.).
 * Burn/extract/remount the `.iso` so you have access to the files within.
 * Copy everything to the CF card.
 * Set up lilo
@@ -336,9 +336,9 @@ It is highly probable that this will work with any Debian live CD distribution, 
 * Everything should be a-ok and ready to go.  Stick in the card and boot.
 * If you have problems, make sure that the `lilo.conf` is set up properly (make sure that you have all the devices correct).
 
-Feel free to experiment a bit.  The worst case of messing up the CF card can be rectified by formatting and copying the CD again.
+Feel free to experiment a bit.  The worst case, messing up the CF card, can be rectified by formatting it and copying the CD again.
 
-The same instructions should be usable for nearly any live CD version of Linux.  You want one that is small, since you only have 128 megs of RAM to work with.  Just change the `miniroot.gz` and `vmlinuz` files appropriately.  A splash image can be used with the `boot-bmp.b` boot image, see the lilo documentation for more information.
+The same instructions should be usable for nearly any live CD version of Linux.  You want one that is small, since you only have 128 megs of RAM to work with.  Just change the `miniroot.gz` and `vmlinuz` files appropriately.  A splash image can be used with the `boot-bmp.b` boot image; see the lilo documentation for more information.
 
 
 Useful Links
@@ -361,7 +361,7 @@ Sorry, but right now this is just a brief review of my experiences with the Aqua
 * Keyboard hunt and peck with stylus is s ... l ... o ... w.
 * Mozilla loads slowly, as it does on most other computers.
 * Mozilla is so old and unstable that I need to replace it before I even really start using the AquaPad.
-* The most replaceable component, the internal Compact Flash card, is the least accessable item in the whole case.
+* The most replaceable component, the internal Compact Flash card, is the least accessible item in the whole case.
 
 This would work well for simple web sites, where getting information is the only thing you need.  If you must type in data, you're better off at a bigger computer.
 
@@ -370,15 +370,15 @@ Upgrading the Tablet
 --------------------
 
 
-Because performing updates like this are potentially *EXTREMELY DANGEROUS*, I strongly urge you to not perform any of these activities unless you are ready to lose your AquaPad.  I can't be held accountable if following these instructions fries your motherboard, nukes your BIOS, or does any other negative thing.  I have tried these things myself, so I know they worked for me, but they may not work for you.
+Because performing updates like these is potentially *EXTREMELY DANGEROUS*, I strongly urge you to not perform any of these activities unless you are ready to lose your AquaPad.  I can't be held accountable if following these instructions fries your motherboard, nukes your BIOS, or does any other negative thing.  I have tried these things myself, so I know they worked for me, but they may not work for you.
 
 That said, let's go make our AquaPads into the machines they want to be!
 
-How to Upgrade the BIOS under only Linux
+### How to Upgrade the BIOS Using Only Linux
 
 * Obtain a new BIOS image.  Check [ftp://ftp.fica.com/Notebooks_Tablets/AQUA/](ftp://ftp.fica.com/Notebooks_Tablets/AQUA/) under the `bios` directory, and then the OS you intend to run.  (Midori Linux, of course!)
-* Make a CompactFlash card bootable (already discussed on this page)
-* Copy over the files required for the BIOS update.  This will run and finish by itself when you turn on the AquaPad.  Just make sure that your tablet will boot to the proper drive and that the BIOS (1) identifies your CF card and (2) is set to boot from it.
+* Make a CompactFlash card bootable (already discussed on this page).
+* Copy over the files required for the BIOS update.  The update will run and finish by itself when you turn on the AquaPad.  Just make sure that your tablet will boot to the proper drive and that the BIOS (1) identifies your CF card and (2) is set to boot from it.
 
         Disk /dev/sda: 1024 MB, 1024450560 bytes
         16 heads, 63 sectors/track, 1985 cylinders
@@ -394,12 +394,12 @@ This was from `fdisk -l /dev/sda`.
 
 The AquaPad comes with 128 Mb of marvelous memory.  The device is said to support 256 Mb of memory.  It uses standard SO-DIMM SDRAM, 144 pin, non-ECC, PC133.  However, just plugging in the memory won't work.  Apparently the CPU needs to be code morphed to handle the additional memory.  Looks like we are all stuck with 128 Mb until someone figures out how to do this "morphing" of their processor.
 
-The Crusoe processor can not be upgraded either -- it is soldered directly on the board.  So, you are stuck with the 500 mhz CPU.
+The Crusoe processor cannot be upgraded either -- it is soldered directly to the board.  So, you are stuck with the 500 mhz CPU.
 
-Upgrade from a Windows version (or one without an OS) to Midori Linux
+### Upgrade from a Windows Version (or One Without an OS) to Midori Linux
 
 * Upgrade the BIOS (see above).  Making a bootable Compact Flash card might be as easy as `format d: /S`, or maybe not.
-* Download Midori from somewhere
+* Download Midori from somewhere.
 * Install.  :-)
 * Once you get Midori tweaked the way you want on the external Compact Flash card, you should be able to rebuild it for `/dev/hda` and away you go.
 
@@ -409,12 +409,12 @@ Upgrade from a Windows version (or one without an OS) to Midori Linux
 So far, I have not heard of a successful compile of Midori to make it run on the AquaPad.  However, you can go ahead and patch your Compact Flash image to have additional applications, upgraded software, etc.  [Pavel Tkatchouk](http://www.geocities.com/ptkatch/aquapad.htm) receives my thanks for a great starting point.
 
 * Get the images from your Compact Flash card, as described above.
-* Somehow get `cramfsck` and `mkcramfs` on your system.  Under Debian, just install the `cramfsprogs` package.  You can get `packcramfs` from the AquaPad image itself, or you can build it from Midori.  There are two methods that you can use, extraction and mounting.  To extract it from the AquaPad image itself, you just need to use `cramfsck`, which can make a directory and expand an image.  Keep or toss the expanded directory after you have `packcramfs`.  Also, you may wish to copy it to your path or somewhere else.  The `packcramfs` from the AquaPad doesn't have usage instructions built into it, so I extracted [them](packcramfs.txt) for you from the source.
+* Somehow get `cramfsck` and `mkcramfs` on your system.  Under Debian, just install the `cramfsprogs` package.  You can get `packcramfs` from the AquaPad image itself, or you can build it from Midori.  There are two methods you can use to get it from the image: extraction and mounting.  To extract it from the AquaPad image itself, you just need to use `cramfsck`, which can make a directory and expand an image.  Keep or toss the expanded directory after you have `packcramfs`.  Also, you may wish to copy it to your path or somewhere else.  The `packcramfs` from the AquaPad doesn't have usage instructions built into it, so I extracted [them](packcramfs.txt) for you from the source.
 
         cramfsck -x sda1_expanded sda1
         cp sda1_expanded/sbin/packcramfs .
 
-* Alternately, instead of expanding the image, you could maybe just mount it and copy it out.  Please note that you can not change anything if the filesystem is mounted like this.  You can only change expanded images.
+* Alternatively, instead of expanding the image, you could maybe just mount it and copy it out.  Please note that you cannot change anything if the filesystem is mounted like this.  You can only change expanded images.
 
         mkdir extract
         mount sda1 extract -o loop -t cramfs
@@ -467,10 +467,10 @@ Keep in mind that the first two partitions should be identical.
 
         mkcramfs sda4_p02_expanded sda4_p02
 
-* Create a new multiple image file.  See either `packcramfs --help`, or check out the [usage information](packcramfs.txt) that I extracted from the source.
+* Create a new multiple image file.  See `packcramfs --help` or the [usage information](packcramfs.txt) that I extracted from the source.
 * Copy the new multiple cramfs image back to the partition.  You can use `dd` or `cp` for this.
 
-        dd if=sda1 of=/dev/sda1
+        dd if=sda4 of=/dev/sda4
 
 
 
@@ -479,13 +479,13 @@ CF To IDE
 
 There are CompactFlash to IDE adaptors.  These are little devices that will take your CF card and hook it up to an IDE cable.
 
-There are also IDE to CompactFlash adaptors, which will hook up your IDE hard drive (a standard size hard drive or a laptop drive) and let it plug into a CompactFlash slot.  Your IDE hard drive could work, but it soely depends on how it accesses the CF card.
+There are also IDE to CompactFlash adaptors, which will hook up your IDE hard drive (a standard size hard drive or a laptop drive) and let it plug into a CompactFlash slot.  Your IDE hard drive could work, but that depends solely on how the device accesses the CF card.
 
 CompactFlash can be accessed in two different ways.  Most little devices do it one way.  The AquaPad (among other devices, such as some cameras, embedded systems, etc.) can access the CF card in "IDE mode."  If the CF is accessed as an IDE device, you can hook up the adaptor and get a lot more space.  The adaptors are difficult to find, but I really wanted one and I was able to track down the following information.
 
 The interesting thing is that if you have an embedded application and it accesses the CF slot as though it is an IDE drive, you can hook up one of these adaptors, an IDE cable, and then two IDE to CF adaptors and you'll get to use two CF cards.  Omit the second set of adaptors and you can hook up two hard drives to the one CF slot.
 
-You can search online for links to these and I've found a spec sheet (see the Links secton) that explains it a bit.  For those of you who work wonders with a soldering iron, I have a diagram of the [circuit](cftoide.pdf) you can build in order to fabricate your own IDE to CF device.  Some things are not labeled.  JP1 is a power connector.  If your CF has 5v power, you can connect J2 and get power that way.  On JP1, pin 1 is +5v, pin 2 and 3 are Gnd.  There are two connectors (a 44-pin for laptop and a 40-pin for desktop hard drives), but only use one at a time.  The capacitor is a .1uF ceramic decoupling capacitor.  The resistor and the capacitor can both be omitted and it will
+You can search online for links to these, and I've found a spec sheet (see the Locally Hosted Files section) that explains it a bit.  For those of you who work wonders with a soldering iron, I have a diagram of the [circuit](cftoide.pdf) you can build in order to fabricate your own IDE to CF device.  Some things are not labeled.  JP1 is a power connector.  If your CF has 5v power, you can connect J2 and get power that way.  On JP1, pin 1 is +5v, and pins 2 and 3 are Gnd.  There are two connectors (a 44-pin for laptop and a 40-pin for desktop hard drives), but only use one at a time.  The capacitor is a .1uF ceramic decoupling capacitor.  The resistor and the capacitor can both be omitted and it will
 still work.
 
 Also, if you like pin mappings and whatnot, take a look at page 40 of the [CompactFlash Specification](cfspc3-0.pdf).
@@ -494,7 +494,7 @@ Also, if you like pin mappings and whatnot, take a look at page 40 of the [Compa
 My Progress
 -----------
 
-In working with the AquaPad, I noticed that the hardware is pretty good, but the software sucks.  It is also a pain in the butt to upgrade properly, since FIC has essentially washed their hands of the product.  In order to use it, I once decided to put out my own distribution of Linux and some bundled software so I can have a working machine.  I've since given up and gotten rid of the machine.  This page is kept around for historical reasons.
+In working with the AquaPad, I noticed that the hardware is pretty good, but the software sucks.  It is also a pain in the butt to upgrade properly, since FIC has essentially washed their hands of the product.  In order to use it, I once decided to put out my own distribution of Linux and some bundled software so I could have a working machine.  I've since given up and gotten rid of the machine.  This page is kept around for historical reasons.
 
 My goals used to be this list:
 
@@ -519,7 +519,7 @@ I ended up installing Gentoo into the microdrive and I compiled enough to get it
 Useful Information
 ------------------
 
-The [Linux from Scratch](http://linuxfromscratch.org) cookbook with a few pointers from the [Cross Compiler Mini HOWTO](http://linux.bytesex.org/cross-compiler.html), you can build your own distribution.  Also, you might want to take a hard look at [asmutils](http://linuxassembly.org/asmutils.html).
+With the [Linux from Scratch](http://linuxfromscratch.org) cookbook and a few pointers from the [Cross Compiler Mini HOWTO](http://linux.bytesex.org/cross-compiler.html), you can build your own distribution.  Also, you might want to take a hard look at [asmutils](http://linuxassembly.org/asmutils.html).
 
-My Midori card has executables that were compiled with `--target=i386-pc-linux-gnu`.  The Linux kernel uses `-mcpu=crusoe` and if that is not supported, it uses `-mcpu=i686 -falign-functions=0 -falign-jumps=0 -falign-loops=0`.  When I specify the CFLAGS for Gentoo, I also add `-Os -pipe -fomit-frame-pointer` and I change `-mcpu=i686` to `-march=i686` which would mean that the code won't run on non-i686 machines, but that's fine for me since I am compiling things on my i686 desktop machine or on my tablet.
+My Midori card has executables that were compiled with `--target=i386-pc-linux-gnu`.  The Linux kernel uses `-mcpu=crusoe`, and if that is not supported, it uses `-mcpu=i686 -falign-functions=0 -falign-jumps=0 -falign-loops=0`.  When I specify the CFLAGS for Gentoo, I also add `-Os -pipe -fomit-frame-pointer` and I change `-mcpu=i686` to `-march=i686`, which means that the code won't run on non-i686 machines, but that's fine for me since I am compiling things on my i686 desktop machine or on my tablet.
 

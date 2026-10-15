@@ -9,13 +9,13 @@ breadcrumbs:
       href: /tools/
 ---
 
-This degree converter will let you change your latitude and longitude values between degrees (D); degrees and minutes (DM); and degrees, minutes, seconds (DMS). They are used for various different software packages and with a GPS.
+This degree converter will let you change your latitude and longitude values between degrees (D); degrees and minutes (DM); and degrees, minutes, and seconds (DMS). These formats are used by various software packages and GPS units.
 
 The calculations are very simple and already exist on other web sites, but I decided to make my own so I could have it be small, fast, and feature-packed. Well, maybe not really feature-packed, but it does work surprisingly well.
 
 <degree-converter></degree-converter>
 
-Enter any format of number you wish. You can use any of the following (and more):
+Enter a number in any format you wish. You can use any of the following (and more):
 
 -   N45.12345
 -   N 45 7.407

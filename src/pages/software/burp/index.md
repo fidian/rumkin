@@ -17,7 +17,7 @@ The only problem was that there was no GUI for Windows.  Not a problem!  I quick
 Requirements
 ------------
 
-BURP-GUI needs a 32-bit Windows OS.  This includes Windows 94, 98, NT, 2000, ME, XP, or later.
+BURP-GUI needs a 32-bit Windows OS.  This includes Windows 95, 98, NT, 2000, ME, XP, or later.
 
 Your temporary directory for Windows needs to be properly set.  BURP-GUI extracts `BURP32.EXE` to the temporary directory and runs it from there so you can include BURP-GUI on a CD or other read-only medium.  Output is captured to a temporary text file, read in by the GUI, and both files are removed from the filesystem.
 
@@ -25,9 +25,9 @@ Your temporary directory for Windows needs to be properly set.  BURP-GUI extract
 Warnings
 --------
 
-Your password could be cached in swap, held in the registry, and other assorted things.  This is just a front-end to a DOS command-line utility, so who really knows for certain where your password ends up.  However, it shouldn't swap unless you are low on available memory and it shouldn't stick it into the registry and cache your password (at least in my tests).
+Your password could be cached in swap, held in the registry, or end up in other assorted places.  This is just a front-end to a DOS command-line utility, so who really knows for certain where your password ends up.  However, it shouldn't swap unless you are low on available memory, and it shouldn't stick your password into the registry or cache it (at least in my tests).
 
-If you don't use the same password for decrypting as you did for encrypting, you will end up with a file full of garbage.  There are no special headers that BURP uses to make sure that everything went well.  BURP will say that the operation was successful and you'll end up with random-looking data.
+If you don't use the same password for decrypting as you did for encrypting, you will end up with a file full of garbage.  There are no special headers that BURP uses to make sure that everything went well.  BURP will say that the operation was successful, and you'll end up with random-looking data.
 
 
 Compiling
@@ -39,7 +39,7 @@ To compile BURP-GUI, you will need a file named `BURP32.EXE`.  You can use the o
 License
 -------
 
-I place BURP-GUI in the public domain, just like how BURP was licensed.  The software comes with no warranty, so only execute it if you plan to take responsibility for all risks.  I suggest that if you are really cautious that you should read the source code and compile it yourself so that you can feel safer.
+I place BURP-GUI in the public domain, just as BURP was licensed.  The software comes with no warranty, so only execute it if you plan to take responsibility for all risks.  I suggest that if you are really cautious, you read the source code and compile it yourself so that you can feel safer.
 
 
 Download / Links

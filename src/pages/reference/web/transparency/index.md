@@ -11,7 +11,7 @@ breadcrumbs:
       href: /reference/web/
 ---
 
-Transparency works for NN6+, Firefox 0.9+, and Internet Explorer 5+.  It's awesome.  First off, you will need to use CSS with whatever you need to make transparent.  Here's the attributes you need to set.  80% opaque (mostly there) is defined nearly the same way for the different attributes.
+Transparency works for NN6+, Firefox 0.9+, and Internet Explorer 5+.  It's awesome.  First off, you will need to use CSS on whatever you need to make transparent.  Here are the attributes you need to set.  80% opaque (mostly there) is defined nearly the same way for the different attributes.
 
     filter:alpha(opacity=80);
     -moz-opacity: .80;
@@ -20,9 +20,9 @@ Transparency works for NN6+, Firefox 0.9+, and Internet Explorer 5+.  It's aweso
 
 The `zoom: 1;` line is there to force Internet Explorer to have a magical "hasLayout" property.  Just a workaround.
 
-You can set an object's opacity with JavaScript as well.  However, if you want to use JavaScript to change the opacity in Internet Explorer, you still need to use CSS to set the alpha filter, otherwise it just won't work.  How stupid.  Also, there is a flicker in some browsers when an object changes from 99% opacity to 100% opacity.  Just don't use anything over 99%.  Yet another dorky workaround.
+You can set an object's opacity with JavaScript as well.  However, if you want to use JavaScript to change the opacity in Internet Explorer, you still need to use CSS to set the alpha filter; otherwise it just won't work.  How stupid.  Also, there is a flicker in some browsers when an object changes from 99% opacity to 100% opacity.  Just don't use anything over 99%.  Yet another dorky workaround.
 
-Take a look at [transparency.js](transparency.js) to see a function that sets the opacity of an element.  To use this function, just set the 'id' attribute in an HTML tag (image, form, table, div, etc.) and and pass the 'id' name along with the opacity (50 = half opaque, 99 = nearly completely opaue).
+Take a look at [transparency.js](transparency.js) to see a function that sets the opacity of an element.  To use this function, just set the 'id' attribute in an HTML tag (image, form, table, div, etc.) and pass the 'id' name along with the opacity (50 = half opaque, 99 = nearly completely opaque).
 
 
 Examples

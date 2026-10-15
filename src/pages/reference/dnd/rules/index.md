@@ -27,7 +27,7 @@ I lost count of the number of players that were lost because they didn't check f
 Focus Attacks
 -------------
 
-Have your team pick on only a couple monsters at a time instead of each person fighting one or two separate enemies.  They will die quicker and you will take less damage because there will be fewer of them hitting you later in the battle.
+Have your team pick on only a couple monsters at a time instead of each person fighting one or two separate enemies.  The monsters will die quicker and you will take less damage because there will be fewer of them hitting you later in the battle.
 
 
 Always Have An Escape Plan; Sometimes Use It
@@ -39,7 +39,7 @@ If nothing else, have one person stay way in back so they will be able to run to
 Secret Doors
 ------------
 
-Look at suspicious hallways going nowhere, closets when there is no reason for a closet, passages between rooms.  There also may be secret doors in secret rooms.
+Look at suspicious hallways going nowhere, closets where there is no reason for a closet, and passages between rooms.  There also may be secret doors in secret rooms.
 
 
 Search Stomachs of Large Monsters

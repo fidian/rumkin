@@ -16,13 +16,13 @@ Symptoms
 --------
 
 * Unable to copy a file directly from one machine to another even though you are connected through an interactive session, probably through `ssh` or another terminal.
-* User may copy a file to the intermediate host and then separately copy the file to the destination host, but that means the file temporarily is on the intermediate computer.  It also is more work.
+* You can copy a file to the intermediate host and then separately copy the file to the destination host, but that means the file is temporarily on the intermediate computer.  It is also more work.
 
 
 Causes
 ------
 
-* Most terminal emulators do not have file transfer abilities built-in through a side data stream.
+* Most terminal emulators do not have file transfer abilities built in through a side data stream.
 
 
 Solution
@@ -39,7 +39,7 @@ This software was used to transfer files over modems, yet is still readily avail
 
 1. Run `screen`.
 2. SSH to any remote server.
-3. Type Control-a and `:`, then you will get the `screen` command prompt.
+3. Type Control-a and `:`, and you will get the `screen` command prompt.
 4. Type `zmodem capture`.
 5. Install `lrzsz` on the remote server.
 
@@ -47,7 +47,7 @@ Now you can use `sz` to send a file to your local computer or `rz` to receive on
 
 You should use `ssh -e none` to disable sequences like `~.`, which ZModem does not encode.
 
-If you prefer to avoid `screen`, you could use `zssh` to initiate the SSH connection and it will trigger the zmodem commands automatically, just like how `screen` works.
+If you prefer to avoid `screen`, you could use `zssh` to initiate the SSH connection, and it will trigger the ZModem commands automatically, just like `screen` does.
 
 
 ### Base64 Encoding
@@ -58,14 +58,14 @@ The `coreutils` package includes `base64`, which encodes any file.  The opposite
 2. Capture traffic to a log file.  This must be supported by your terminal emulator.
 3. Run `base64 my-file` to get the encoded file.
 
-There are alternate encoding methods available, such as `uuencode` and `xxencode` as well.  Each has their own advantages.
+There are alternate encoding methods available as well, such as `uuencode` and `xxencode`.  Each has its own advantages.
 
 
 ### Port Forwarding
 
 This exposes the SSH port through the intermediate computer.
 
-1. Use `ssh -L 8022:real-destination-computer:22 user@intermediate-computer` to kick off your SSH session.  This also opens port `8022` on your computer.  When you connect to that port, it would be a direct connection to the destination.
+1. Use `ssh -L 8022:real-destination-computer:22 user@intermediate-computer` to kick off your SSH session.  This also opens port `8022` on your computer.  When you connect to that port, you get a direct connection to the destination.
 2. Copy files by specifying the port using `scp -P 8022 my-file localhost:`.
 
 This solution can still work through multiple relays by exposing a port and repeatedly forwarding it.

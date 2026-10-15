@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/default-layout.astro"
 title: "D&D Helper"
-summary: Palm OS program that is designed to help out DMs and characters.  It tries to speed up the game by rolling large amounts of dice and performing time-consuming calculations.  It can also look up information and generate various things.
+summary: Palm OS program that is designed to help out DMs and characters.  It tries to speed up the game by rolling large numbers of dice and performing time-consuming calculations.  It can also look up information and generate various things.
 breadcrumbs:
     - name: Rumkin.com
       href: /
@@ -11,13 +11,13 @@ breadcrumbs:
 
 <div class="Fl(end) Bdw(1px) M(4px)"><img src="dnd-helper.gif"/></div>
 
-If you are a DM, then you know that there are several tables, charts, and other things that you need to look up from time to time.  Many dice get rolled when you use a breath weapon.  Experience for the party makes you look up a few things on an annoying chart and you need to divide by the number of party members.  Calculating how far you get in a day of traveling over different terrains.
+If you are a DM, then you know that there are several tables, charts, and other things that you need to look up from time to time.  Many dice get rolled when you use a breath weapon.  Experience for the party makes you look up a few things on an annoying chart, and then you need to divide by the number of party members.  Then there's calculating how far you get in a day of traveling over different terrains.
 
-If you have a Palm OS device (Palm Pilot, Handspring Visor, Sony Clié, etc.), then you are in luck.  All of these things and more are done effortlessly with this program.  It originally was based on the functionality of D&D Tools by Scott Crawford, but it has several other features that Scott has not yet implemented.
+If you have a Palm OS device (Palm Pilot, Handspring Visor, Sony Clié, etc.), then you are in luck.  All of these things and more are done effortlessly with this program.  It was originally based on the functionality of D&D Tools by Scott Crawford, but it has several other features that Scott has not yet implemented.
 
 This program is free for anyone to use.  That's an unbeatable price for all of the things that are now much easier.  Since there does not seem to be any interest, this project is not moving to any online repository, but you can download the program, additional databases, and even the source code from the [download page](download/).  If you're extremely interested, there is a [developer section](developer/) that explains the database format in detail.
 
-D&D Helper is not able to replace the books at the gaming table.  This merely speeds up gameplay.  You should still use your Player's Handbook and the other slew of books that you have on your gaming table.  Just keep your dice in your bag if you need to calculate the damage from a 10d6 fireball, roll up a magic item for treasure, or maybe find a new name for a character.
+D&D Helper is not able to replace the books at the gaming table.  It merely speeds up gameplay.  You should still use your Player's Handbook and the slew of other books that you have on your gaming table.  Just keep your dice in your bag if you need to calculate the damage from a 10d6 fireball, roll up a magic item for treasure, or maybe find a new name for a character.
 
 Nearly every feature of the program is listed here, by category.
 
@@ -39,7 +39,7 @@ Enter average party level, number of monsters, and monster level.  You'll get th
 ### Movement Calculator
 
 
-How many miles can a monk travel over hilly ground on a clear day without a trail to follow?  Well, a 18th level monk with boots of speed can go approximately 82 mph.
+How many miles can a monk travel over hilly ground on a clear day without a trail to follow?  Well, an 18th level monk with boots of speed can go approximately 82 miles in a day.
 
 
 ### Turning Undead
@@ -63,7 +63,7 @@ A quick reference to see if your characters have leveled yet or not.
 
 ### Treasure Per Encounter
 
-Keeping in mind that this is an average, it helps you to make sure your characters are as powerful as they should be.  This is per character, assuming there are four players in your party.
+Keep in mind that this is an average; it helps you make sure your characters are as powerful as they should be.  This is per character, assuming there are four players in your party.
 
 
 ### Character Wealth Gain
@@ -78,7 +78,7 @@ Very similar to the Treasure Per Encounter table, but this applies to the party 
 
 ### Average Treasure
 
-This should let you know if you are letting too many magic items and too much money slip away to your players.  Keeping the players near their level on this chart will help balance game play.
+This should let you know if you are letting too many magic items and too much money slip away to your players.  Keeping the players near their level on this chart will help balance gameplay.
 
 
 ### Character Wealth
@@ -93,14 +93,14 @@ There are many [additional databases](download/) that can be installed on your P
 
 * Gems with gp values and descriptions
 * Magic items (minor, medium, and major)
-* Words that look like they belong to a particular language.
+* Words that look like they belong to a particular language
 * Riddles
 * Business names
 * Critical hit and fumble descriptions
 * Wild surges and wild surge fumbles
 * Player character names from a wide variety of sources
 
-For more information on the types of databases that D&D Helper uses, see the [developer info](developer/).  You are even able to create your own tables that are used for random generation of things.
+For more information on the types of databases that D&D Helper uses, see the [developer info](developer/).  You can even create your own tables to use for random generation of things.
 
 
 And All The Rest
@@ -127,7 +127,7 @@ Credits
 
 I would like to properly thank the following people for the things that they did to help out this project:
 
-* Sarah Akins (my wife) -- The first DM to use this program.  She also has a lot of sway on how the program looks and what goes into it.
+* Sarah Akins (my wife) -- The first DM to use this program.  She also has a lot of sway over how the program looks and what goes into it.
 * D&D Adventures -- Gave me permission to use the critical hit and fumble tables from [dndadventure.com](http://www.dndadventure.com) as long as I don't charge for anything.
 * Scott Crawford <scott@crawford.net> -- Created D&D Tools, which I thought was a good start but didn't go far enough.  He also gave me the source to his program so that I could improve mine.  Great guy!
 
@@ -135,7 +135,7 @@ I would like to properly thank the following people for the things that they did
 Links
 -----
 
-Here's links to everything that is related to D&D for the Palm.
+Here are links to everything that is related to D&D for the Palm.
 
 
 ### Palm OS Programs
@@ -153,7 +153,7 @@ Here's links to everything that is related to D&D for the Palm.
 Also Seen At ...
 ----------------
 
-People have kindly linked to this site.  Below are the ones that I could find.  You may wish to check some of them out because they have independent review systems so you can check out the unedited reviews that others have submitted about this software.
+People have kindly linked to this site.  Below are the ones that I could find.  You may wish to check some of them out because they have independent review systems, so you can read the unedited reviews that others have submitted about this software.
 
 * [D&D Adventures](http://www.dndadventure.com/dnda_dm_resources.html)
 * [Palm Gaming World](http://www.palmgamingworld.com/rpg/d&dhelper.shtml)
@@ -166,7 +166,7 @@ Changelog
 
 ### March 2015
 
-* Due to the lack of interest, I've cleaned up the various programs.  Only the PSR formats of databases are left as they are the easiest to generate.
+* Due to the lack of interest, I've cleaned up the various programs.  Only the PSR-format databases are left, as they are the easiest to generate.
 * Created PSR-related library, [psr-js](https://github.com/fidian/psr-js).
 * Removed the PSR playground instead of porting it to JavaScript.  If you miss this, go to [psr-js](https://github.com/fidian/psr-js) and file an issue to make a testing area to demonstrate how the software works.
 
@@ -189,7 +189,7 @@ Changelog
 ### 1.0 - July 2003
 
 * Added help where there was none.  Reworded some other help screens just a little.
-* Fixed a bug that I introduced along the way (not sure when it creeped in).  The movement calculator now works as expected.
+* Fixed a bug that I introduced along the way (not sure when it crept in).  The movement calculator now works as expected.
 * Since I believe that the generation routines are now working fully, and that is the landmark I wanted for version 1.0, I bumped up the number.
 
 
