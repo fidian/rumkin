@@ -17,7 +17,7 @@
         "test-unit": "vitest run",
         "test-watch": "vitest",
         "verify-external-links": "checklinks -a",
-        "verify-internal-links": "check-html-links dist/ --ignore-link-pattern 'index.xml' 2>&1 | tee /dev/stderr | ( ! grep -q '❌' )",
+        "verify-internal-links": "node tools/check-internal-links.mjs",
         "verify-spacing": "node tools/check-spacing.mjs"
     },
     "dependencies": {
@@ -31,9 +31,9 @@
         "astro": "^7.3.8",
         "blueimp-md5": "^2.19.0",
         "buffer": "^6.0.3",
-        "check-html-links": "^0.2.4",
         "fudgel": "^4.1.0",
         "jszip": "^3.10.2",
+        "linkinator": "^8.1.0",
         "marked": "^18.1.1",
         "prettier": "^3.9.10",
         "prettier-plugin-astro": "^1.1.1",
