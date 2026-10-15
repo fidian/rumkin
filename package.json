@@ -28,7 +28,7 @@
         "@literals/rollup-plugin-html-css-minifier": "^4.0.2",
         "@rollup/plugin-yaml": "^5.0.0",
         "@types/node": "^26.6.5",
-        "astro": "^7.3.8",
+        "astro": "^7.4.0",
         "blueimp-md5": "^2.19.0",
         "buffer": "^6.0.3",
         "fudgel": "^4.1.0",
@@ -42,8 +42,8 @@
         "typescript": "^5.9.3"
     },
     "devDependencies": {
-        "@vitest/browser-playwright": "^5.0.4",
+        "@vitest/browser-playwright": "^5.0.5",
         "playwright": "^1.64.1",
-        "vitest": "^5.0.4"
+        "vitest": "^5.0.5"
     }
 }
