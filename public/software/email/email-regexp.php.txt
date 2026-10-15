@@ -13,11 +13,12 @@ define('EMAIL_PATTERN_TEXT', '[\\x21\\x23-\\x27\\x2A-\\x2B\\x2D\\x2F-\\x39\\x3D\
 define('EMAIL_PATTERN_QUOTE', '(' . EMAIL_PATTERN_QTEXT . '|\\\\' . EMAIL_PATTERN_QTEXTMORE . ')');
 define('EMAIL_PATTERN_TEXT_OR_QUOTE', '(' . EMAIL_PATTERN_TEXT . '+|"' . EMAIL_PATTERN_QUOTE . '*")');
 define('EMAIL_PATTERN_LOCALPART', EMAIL_PATTERN_TEXT_OR_QUOTE . '(\\.' . EMAIL_PATTERN_TEXT_OR_QUOTE . ')*');
-define('EMAIL_PATTERN_DOMAIN_LABEL', '[0-9A-Za-z](-?[0-9A-Za-z])*');
+// Hyphens may run together inside a label, as in xn--, but never end one
+define('EMAIL_PATTERN_DOMAIN_LABEL', '[0-9A-Za-z](-*[0-9A-Za-z])*');
 define('EMAIL_PATTERN_DOMAIN_LABEL_TLD', '[A-Za-z]+');
 define('EMAIL_PATTERN_DOMAIN_NORMAL', '(' . EMAIL_PATTERN_DOMAIN_LABEL . '\\.)*' . EMAIL_PATTERN_DOMAIN_LABEL_TLD);
 define('EMAIL_PATTERN_DOMAIN_QTEXT', '[\\x01-\\x08\\x0B\\x0C\\x0E-\\x21\\x23-\\x2C\\x2E-\\x5A\\x5E-\\x7F]');
-define('EMAIL_PATTERN_DOMAIN_QUOTE', '(' . EMAIL_PATTERN_DOMAIN_QTEXT . '(-?' . EMAIL_PATTERN_DOMAIN_QTEXT . ')*|\\\\' . EMAIL_PATTERN_QTEXTMORE . ')');
+define('EMAIL_PATTERN_DOMAIN_QUOTE', '(' . EMAIL_PATTERN_DOMAIN_QTEXT . '(-*' . EMAIL_PATTERN_DOMAIN_QTEXT . ')*|\\\\' . EMAIL_PATTERN_QTEXTMORE . ')');
 define('EMAIL_PATTERN_DOMAIN_BRACKET', '\\[' . EMAIL_PATTERN_DOMAIN_QUOTE . '*\\]');
 define('EMAIL_PATTERN_DOMAIN_IPV6', '[0-9a-f]{4}:[0-9a-f]{4}::[0-9a-f]{4}:[0-9a-f]{4}');
 define('EMAIL_PATTERN_DOMAIN_IPV4', '([012]?[0-9]{1,2}\\.){3}[012]?[0-9]?[0-9]');
@@ -103,7 +104,7 @@ function is_valid_email_regexp($email) {
             return false;
         }
 
-        if (substr($label, 1) == '-' || substr($label, - 1) == '-' || strpos($label, '--') !== false) {
+        if (substr($label, 0, 1) == '-' || substr($label, - 1) == '-') {
             return false;
         }
     }

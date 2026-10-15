@@ -38,7 +38,10 @@ function is_valid_email($email) {
      *
      * If we are using the label version, we want to only allow the following
      * characters:
-     * abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+-/=?^_`{|}~
+     * abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-
+     * RFC 2822's grammar would also let through !#$%&'*+/=?^_`{|}~, but
+     * RFC 2821 (section 4.1.2) only allows letters, digits, and hyphens in a
+     * domain that mail is actually delivered to.
      * Additionally, labels must be less than 64 characters long, and must not
      * start or end with a hyphen.  No label can be blank.  No leading or
      * trailing . at the start or end of the domain.
@@ -101,7 +104,7 @@ function is_valid_email($email) {
         $atIndex --;
     } else {
         // Labels with dots; ":" is a special thing for IPv6
-        $allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&\'*+-/=?^_`{|}~.:';
+        $allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.:';
 
         while (strpos($allowed, substr($email, $atIndex, 1)) !== false && $atIndex) {
             $atIndex --;
@@ -232,8 +235,10 @@ function is_valid_email_domain($domain, $isBracketed) {
         return false;
     }
 
-    if (strpos($domain, '.-') !== false || strpos($domain, '-.') !== false || strpos($domain, '--') !== false) {
-        // No leading or trailing hyphens allowed in labels.  No double hyphens
+    if (strpos($domain, '.-') !== false || strpos($domain, '-.') !== false) {
+        // No leading or trailing hyphens allowed in labels.  Two in a row
+        // are fine inside a label (RFC 1035, section 2.3.1), and
+        // internationalized domains depend on it: they start with xn--
         return false;
     }
 

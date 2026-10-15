@@ -30,7 +30,8 @@ Just in case you can't read the odd syntax for the rules and the rest of the RFC
 * The domain can be bracketed or plain.  (RFC 2822, section 3.4.1)
 * A plain domain consists of labels separated with periods.  No period can start or end a domain name.  No two periods in succession can be in a domain name.  (RFC 1035, section 2.3.4)
 * The maximum length of a label is 63 characters.  (RFC 1035, section 2.3.4)
-* A label may contain hyphens, but no two hyphens in a row.  A label must not start or end with a hyphen.  (RFC 1035, section 2.3.4)
+* A label may contain hyphens, even several in a row, but must not start or end with a hyphen.  (RFC 1035, section 2.3.1)
+* A label in a plain domain contains only letters, digits, and hyphens.  (RFC 2821, section 4.1.2)
 * Bracketed domains must start with `[`, end with `]`, and must not contain characters 9 (TAB), 10 (LF), 13 (CR), 32 (space), 91-94 (`[\]^`).  (RFC 2822, section 3.4.1)
 * The contents of a bracketed domain can have a `\` precede a character to escape it, and the following character must not be 10 (LF) or 13 (CR).  This allows spaces in the domain as long as they are escaped.  (RFC 2822, section 3.4.1)
 * The maximum length of the local part is 64 characters.  (RFC 2821, section 4.5.3.1)
@@ -184,15 +185,15 @@ Yep.  The easiest thing I can do is summarize the rules.
         * Only CR and LF can't be escaped with a \ before the character.
 * The domain can be bracketed, unbracketed, or an IP address.
     * An unbracketed domain consists of labels separated by periods and is less than 253 characters.  No domain can start with a period, end with a period, or have two successive periods.
-        * Labels consist of `a-z`, `A-Z`, `0-9`, or a hyphen.  (RFC 2822's grammar would also allow `` `!#$%&'*+/=?^_{|}~ ``, and my validators accept those, but RFC 2821 and RFC 1035 do not.)
+        * Labels consist of `a-z`, `A-Z`, `0-9`, or a hyphen.  (RFC 2822's grammar would also allow `` `!#$%&'*+/=?^_{|}~ ``, but RFC 2821 does not.)
         * Labels must be less than 63 characters.
-        * Labels must not start with a hyphen, end with a hyphen, or contain two successive hyphens.
+        * Labels must not start or end with a hyphen.  Two hyphens in a row are fine, which matters because internationalized domains start with `xn--`.
         * The right-most label must be all alphabetic.
     * A bracketed domain starts with `[`, ends with `]`, and its contents (after unescaping) must be less than 245 characters.
         * CR, LF, `{`, `}`, `|`, and `^` are not allowed unescaped.
         * If there is a `\`, any character except CR or LF is allowed.
         * Labels must be less than 63 characters.
-        * Labels must not start with a hyphen, end with a hyphen, or contain two successive hyphens.
+        * Labels must not start or end with a hyphen.
         * The right-most label must be all alphabetic.
     * IP addresses can be specified as `123.45.67.89` or `73f0:2bba::0562:0011` (IPv4 or IPv6).
 

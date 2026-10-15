@@ -346,8 +346,28 @@
     },
     {
         "email": "user@test--example.com",
+        "valid": true,
+        "reason": "Two hyphens in a row are allowed inside a label"
+    },
+    {
+        "email": "user@xn--bcher-kva.example",
+        "valid": true,
+        "reason": "Internationalized domains are encoded with a leading xn--"
+    },
+    {
+        "email": "user@exa!mple.com",
         "valid": false,
-        "reason": "Domain has two successive hyphens"
+        "reason": "Domain labels can only have letters, digits, and hyphens"
+    },
+    {
+        "email": "user@under_score.com",
+        "valid": false,
+        "reason": "Underscores are not allowed in a domain"
+    },
+    {
+        "email": "\"quoted\"@ex$ample.com",
+        "valid": false,
+        "reason": "Quoting the localpart does not loosen the rules for the domain"
     },
     {
         "email": "test@[example.com]",
@@ -366,8 +386,8 @@
     },
     {
         "email": "matt@[test--valid.tld]",
-        "valid": false,
-        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
+        "valid": true,
+        "reason": "Bracketed domains follow the same hyphen rules, so two in a row is fine"
     },
     {
         "email": "matt@[-host.tld]",
@@ -376,6 +396,11 @@
     },
     {
         "email": "matt@[host-.tld]",
+        "valid": false,
+        "reason": "Bracketed domains still can't violate the period nor hyphen rules."
+    },
+    {
+        "email": "matt@[test.-host.tld]",
         "valid": false,
         "reason": "Bracketed domains still can't violate the period nor hyphen rules."
     },

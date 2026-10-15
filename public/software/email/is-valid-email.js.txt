@@ -47,8 +47,10 @@
             return false;
         }
 
-        if (domain.match(/^-|--|\.-|-\.|-$/)) {
-            // No leading or trailing hyphens allowed in labels.  No double hyphens
+        if (domain.match(/^-|\.-|-\.|-$/)) {
+            // No leading or trailing hyphens allowed in labels.  Two in a
+            // row are fine inside a label (RFC 1035, section 2.3.1), and
+            // internationalized domains depend on it: they start with xn--
             return false;
         }
 
@@ -244,7 +246,10 @@
          * If we are using the label version, we want to only allow the
          * following characters:
          *     abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-         *     0123456789!#$%&'*+-/=?^_`{|}~
+         *     0123456789-
+         * RFC 2822's grammar would also let through !#$%&'*+/=?^_`{|}~,
+         * but RFC 2821 (section 4.1.2) only allows letters, digits, and
+         * hyphens in a domain that mail is actually delivered to.
          * Additionally, labels must be less than 64 characters long, and
          * must not start or end with a hyphen.  No label can be blank.
          * No leading or trailing . at the start or end of the domain.
@@ -314,7 +319,7 @@
 
             domain = email.substring(atIndex + 1);
 
-            if (! domain.match(/^[a-zA-Z0-9!#$%&'*+\-\/=?\^_`{|}~.:]{3,}$/)) {
+            if (! domain.match(/^[a-zA-Z0-9\-.:]{3,}$/)) {
                 // Guarantee valid characters
                 // A colon is included in case of IPv6
                 return false;

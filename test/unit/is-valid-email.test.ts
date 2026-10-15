@@ -8,7 +8,7 @@ interface Scenario {
     reason: string;
 }
 
-// The page publishes these 86 addresses with the answer for each. They are
+// The page publishes these 91 addresses with the answer for each. They are
 // the page's own claim about what it accepts, so they are the test suite.
 describe('isValidEmail', () => {
     for (const scenario of scenarios as Scenario[]) {
